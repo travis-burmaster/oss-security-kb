@@ -169,6 +169,16 @@ Periodically check for:
 - `index.md` entries without corresponding files
 - `log.md` entries referencing pages that don't exist
 
+## Baseline Stub Conventions
+
+When you create a new package page before a full ingest is available:
+- Prefer a clearly labeled baseline stub over leaving a redlink/orphaned related page.
+- It is acceptable to use a placeholder row in `Known Vulnerabilities` such as `Review pending` when package-specific advisory history has not been curated yet.
+- Do not imply absence of vulnerabilities just because the page is a stub.
+- Add at least one concrete next-step question in `Open Questions` so future passes know what to deepen.
+- Cross-link the stub to the page that motivated its creation and to the ecosystem index.
+- Make sure `wiki/index.md` and the ecosystem index reflect the new page immediately.
+
 ---
 
 ## Audit Severity / Scope Vocabulary

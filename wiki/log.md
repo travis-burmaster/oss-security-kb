@@ -6,3 +6,6 @@ Added first three high-value npm package pages with advisory-mapped baseline cov
 
 ## [2026-04-07] research-pass | npm seed package evidence
 Expanded evidence and posture notes for lodash, minimist, and semver using advisory/search-backed sources. Added stronger context about recurring bug classes, exploitability, and follow-up audit questions.
+
+## [2026-04-08] structure-pass | npm indexes + routing-related stubs
+Updated `wiki/index.md` and `wiki/npm/index.md` so they reflect all current npm pages, including previously unindexed `jsonwebtoken` and `path-to-regexp`. Added baseline stub pages for `express` and `koa-router` to turn related-page redlinks into concrete future audit targets. Clarified baseline stub conventions in `SCHEMA.md`.
