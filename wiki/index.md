@@ -1,8 +1,9 @@
 # OSS Security KB — Master Index
 
-*7 packages tracked across 8 ecosystems. Last updated: 2026-04-08.*
+*8 packages tracked across 8 ecosystems. Last updated: 2026-04-08.*
 
-## npm (7)
+## npm (8)
+- [[npm/axios]] — axios HTTP client · advisory mapped · 2026 supply-chain compromise history
 - [[npm/express]] — Express web framework · baseline stub · high reverse-dependency exposure
 - [[npm/jsonwebtoken]] — JWT signing/verification library · audit findings tracked · Auth0-maintained
 - [[npm/koa-router]] — Koa router package · baseline stub · route-matching surface

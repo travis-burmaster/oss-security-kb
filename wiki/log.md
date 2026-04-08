@@ -9,3 +9,6 @@ Expanded evidence and posture notes for lodash, minimist, and semver using advis
 
 ## [2026-04-08] structure-pass | npm indexes + routing-related stubs
 Updated `wiki/index.md` and `wiki/npm/index.md` so they reflect all current npm pages, including previously unindexed `jsonwebtoken` and `path-to-regexp`. Added baseline stub pages for `express` and `koa-router` to turn related-page redlinks into concrete future audit targets. Clarified baseline stub conventions in `SCHEMA.md`.
+
+## [2026-04-08] ingest | axios (npm)
+Added axios package page documenting the 2026 compromised publish / supply-chain incident, safe downgrade targets, and open research questions around incident response and downstream exposure.

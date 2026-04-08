@@ -10,3 +10,4 @@
 ## Baseline Stubs
 - [[npm/express]] — core web framework and high-value future audit target
 - [[npm/koa-router]] — routing-layer companion page linked from `path-to-regexp`
+- [[npm/axios]] — widely used HTTP client with 2026 supply-chain compromise history
