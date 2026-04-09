@@ -63,6 +63,7 @@ Create package pages under the correct ecosystem directory in `wiki/`:
 
 Also update:
 - `wiki/index.md`
+- the ecosystem index when one exists (for example `wiki/npm/index.md`)
 - `wiki/log.md`
 
 ## Tone

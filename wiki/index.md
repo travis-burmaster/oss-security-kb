@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*8 packages tracked across 8 ecosystems. Last updated: 2026-04-08.*
+*10 packages tracked across 8 ecosystems. Last updated: 2026-04-09.*
 
 ## npm (8)
 - [[npm/axios]] — axios HTTP client · advisory mapped · 2026 supply-chain compromise history
@@ -12,14 +12,14 @@
 - [[npm/path-to-regexp]] — route parsing library · manual audit recorded · routing edge-case findings
 - [[npm/semver]] — semver version parser · advisory mapped · ReDoS history
 
-## Rust / crates.io (0)
-- _No package pages yet._
+## Rust / crates.io (1)
+- [[rust/serde]] — foundational serialization crate · baseline stub · high downstream deserialization surface
 
 ## .NET / NuGet (0)
 - _No package pages yet._
 
-## Python / PyPI (0)
-- _No package pages yet._
+## Python / PyPI (1)
+- [[python/requests]] — Python HTTP client · baseline stub · transport and credential-handling surface
 
 ## Go (0)
 - _No package pages yet._
