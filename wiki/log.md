@@ -12,3 +12,9 @@ Updated `wiki/index.md` and `wiki/npm/index.md` so they reflect all current npm 
 
 ## [2026-04-08] ingest | axios (npm)
 Added axios package page documenting the 2026 compromised publish / supply-chain incident, safe downgrade targets, and open research questions around incident response and downstream exposure.
+
+## [2026-04-09] seed-pages | requests (python), serde (rust)
+Added first non-npm seed pages so the KB now has concrete Python and Rust coverage anchors. Created `wiki/python/index.md` and `wiki/rust/index.md`, then added baseline stubs for `requests` and `serde` with ecosystem-specific next-step questions and cross-links suitable for future markdown-first site navigation.
+
+## [2026-04-09] guidance-pass | schema + contributor instructions
+Updated `SCHEMA.md` so the documented package format matches the current template style (`Current Status`, `Open Questions`) and clarified that ecosystem index pages are first-class navigation surfaces. Updated `CONTRIBUTING.md` to remind contributors to maintain ecosystem indexes alongside the master index and log.

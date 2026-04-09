@@ -38,7 +38,7 @@ README.md                   ← Public-facing (read-only for you)
 
 ## Package Wiki Page Format
 
-Every package page MUST follow this exact format:
+Every package page MUST follow this format closely:
 
 ```markdown
 # {Package Name} ({ecosystem})
@@ -48,6 +48,7 @@ Every package page MUST follow this exact format:
 **Repository:** {GitHub URL or "unknown"}
 **Security Contact:** {email/URL or "none listed"}
 **Disclosure Policy:** {URL or "none listed"}
+**Current Status:** {baseline stub | advisory-mapped | audit-ingested | needs-rereview}
 
 ## Audit History
 
@@ -73,6 +74,11 @@ Every package page MUST follow this exact format:
 
 {List any transitive deps with known security issues, or "None flagged."}
 
+## Open Questions
+
+- {Concrete next question for a future pass}
+- {Another unresolved point}
+
 ## Related Pages
 
 - [[{related package}]]
@@ -86,7 +92,7 @@ Every package page MUST follow this exact format:
 
 ## index.md Format
 
-`wiki/index.md` is a catalog of all pages. Format:
+`wiki/index.md` is a catalog of all pages. Keep it readable for both GitHub and future markdown-first site rendering. Prefer short descriptors over raw download counts in the index.
 
 ```markdown
 # OSS Security KB — Master Index
@@ -94,7 +100,7 @@ Every package page MUST follow this exact format:
 *{N} packages tracked across {M} ecosystems. Last updated: {YYYY-MM-DD}.*
 
 ## npm ({count})
-- [[npm/express]] — Express.js web framework · {weekly_downloads} weekly downloads · {audit_count} audits on record
+- [[npm/express]] — Express.js web framework · baseline stub · high reverse-dependency exposure
 - [[npm/lodash]] — ...
 
 ## Rust / crates.io ({count})
@@ -118,6 +124,8 @@ Every package page MUST follow this exact format:
 ## Linux ({count})
 ...
 ```
+
+Where useful, also maintain ecosystem-level landing pages such as `wiki/npm/index.md` or `wiki/python/index.md`. These should group seed pages, baseline stubs, and future audit targets for easier browsing and static-site generation.
 
 ---
 
