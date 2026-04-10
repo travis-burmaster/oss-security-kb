@@ -18,3 +18,10 @@ Added first non-npm seed pages so the KB now has concrete Python and Rust covera
 
 ## [2026-04-09] guidance-pass | schema + contributor instructions
 Updated `SCHEMA.md` so the documented package format matches the current template style (`Current Status`, `Open Questions`) and clarified that ecosystem index pages are first-class navigation surfaces. Updated `CONTRIBUTING.md` to remind contributors to maintain ecosystem indexes alongside the master index and log.
+
+## [2026-04-10] seed-pages | grpc-go (go), kube-apiserver (kubernetes)
+Added first Go and Kubernetes seed pages so two previously empty ecosystems now have concrete anchors. Created `wiki/go/index.md` and `wiki/kubernetes/index.md`, then added baseline stubs for `google.golang.org/grpc` and `kube-apiserver` with disclosure references, ecosystem-specific follow-up questions, and site-friendly cross-links.
+
+## [2026-04-10] contributor-guidance | Go module path naming
+Updated `CONTRIBUTING.md` to clarify that Go pages can use nested import-path-based filenames (for example `wiki/go/google.golang.org/grpc.md`) to keep future markdown-first site routing aligned with canonical module names.
+
