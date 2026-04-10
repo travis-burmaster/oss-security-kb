@@ -59,6 +59,8 @@ Create package pages under the correct ecosystem directory in `wiki/`:
 - `wiki/kubernetes/`
 - `wiki/linux/`
 
+For Go modules, prefer the import path as the page path when practical (for example `wiki/go/google.golang.org/grpc.md`) so future static-site routing stays close to the canonical module identity.
+
 ## When adding or updating a page
 
 Also update:
