@@ -31,3 +31,6 @@ Added first package pages for three previously empty ecosystem buckets: `.NET / 
 ## [2026-04-11] advisory-review | requests (PyPI), google.golang.org/grpc (Go)
 Ran a public-information-only review pass against two baseline stubs and upgraded both pages to advisory-mapped status. Curated Requests credential / redirect / TLS verification advisories and grpc-go transport / metadata / authorization findings using OSV, GitHub Security Advisories, upstream release notes, and CVE references. Updated `wiki/python/index.md`, `wiki/go/index.md`, and the master index descriptors to reflect the deeper coverage.
 
+## [2026-04-11] advisory-review | Newtonsoft.Json (NuGet), koa-router (npm), serde (crates.io)
+Ran a public-information-only review pass across one .NET page and two gap candidates. Upgraded `Newtonsoft.Json` from baseline stub to advisory-mapped status using OSV, GitHub Security Advisories, the CVE record, and upstream issue / PR / fix / release history for the deeply nested JSON denial-of-service issue fixed in 13.0.1. Also checked `koa-router` and `serde` for package-specific advisory history in OSV and GitHub repo advisory listings, but found no clean new package-level disclosures worth forcing into the KB today. Updated `wiki/dotnet/index.md` and the master index descriptor accordingly.
+
