@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*12 packages tracked across 8 ecosystems. Last updated: 2026-04-10.*
+*15 packages tracked across 8 ecosystems. Last updated: 2026-04-11.*
 
 ## npm (8)
 - [[npm/axios]] — axios HTTP client · advisory mapped · 2026 supply-chain compromise history
@@ -15,8 +15,8 @@
 ## Rust / crates.io (1)
 - [[rust/serde]] — foundational serialization crate · baseline stub · high downstream deserialization surface
 
-## .NET / NuGet (0)
-- _No package pages yet._
+## .NET / NuGet (1)
+- [[dotnet/Newtonsoft.Json]] — dominant JSON library · baseline stub · parsing and deserialization exposure
 
 ## Python / PyPI (1)
 - [[python/requests]] — Python HTTP client · baseline stub · transport and credential-handling surface
@@ -24,11 +24,11 @@
 ## Go (1)
 - [[go/google.golang.org/grpc]] — Go gRPC implementation · baseline stub · high downstream service exposure
 
-## Homebrew (0)
-- _No package pages yet._
+## Homebrew (1)
+- [[homebrew/openssl@3]] — OpenSSL 3 formula · baseline stub · TLS and cryptographic dependency anchor
 
 ## Kubernetes (1)
-- [[kubernetes/kube-apiserver]] — Kubernetes control-plane API server · baseline stub · high-value authz and admission surface
+- [[kubernetes/kube-apiserver]] — Kubernetes control-plane API server · audit ingested · authz and admission findings tracked
 
-## Linux (0)
-- _No package pages yet._
+## Linux (1)
+- [[linux/openssl]] — upstream OpenSSL anchor for distro tracking · baseline stub · cross-distro vulnerability normalization target
