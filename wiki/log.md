@@ -28,3 +28,6 @@ Updated `CONTRIBUTING.md` to clarify that Go pages can use nested import-path-ba
 ## [2026-04-11] seed-pages | Newtonsoft.Json (NuGet), openssl@3 (Homebrew), openssl (Linux)
 Added first package pages for three previously empty ecosystem buckets: `.NET / NuGet`, `Homebrew`, and `Linux`. Created ecosystem landing pages for each, then added baseline stubs for `Newtonsoft.Json`, `openssl@3`, and upstream `openssl` with cross-links, evidence-backed metadata, and open questions aimed at future distro normalization and site-friendly navigation.
 
+## [2026-04-11] advisory-review | requests (PyPI), google.golang.org/grpc (Go)
+Ran a public-information-only review pass against two baseline stubs and upgraded both pages to advisory-mapped status. Curated Requests credential / redirect / TLS verification advisories and grpc-go transport / metadata / authorization findings using OSV, GitHub Security Advisories, upstream release notes, and CVE references. Updated `wiki/python/index.md`, `wiki/go/index.md`, and the master index descriptors to reflect the deeper coverage.
+

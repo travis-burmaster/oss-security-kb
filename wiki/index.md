@@ -19,10 +19,10 @@
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · baseline stub · parsing and deserialization exposure
 
 ## Python / PyPI (1)
-- [[python/requests]] — Python HTTP client · baseline stub · transport and credential-handling surface
+- [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
 
 ## Go (1)
-- [[go/google.golang.org/grpc]] — Go gRPC implementation · baseline stub · high downstream service exposure
+- [[go/google.golang.org/grpc]] — Go gRPC implementation · advisory mapped · transport, metadata, and authz-sensitive surface
 
 ## Homebrew (1)
 - [[homebrew/openssl@3]] — OpenSSL 3 formula · baseline stub · TLS and cryptographic dependency anchor
