@@ -1,7 +1,7 @@
 # Go Index
 
 ## Seed Pages
-- [[go/google.golang.org/grpc]] — core Go gRPC transport stack with broad downstream service exposure
+- [[go/google.golang.org/grpc]] — core Go gRPC transport stack · advisory mapped · transport, metadata, and authz-sensitive surface
 
 ## Future Targets
 - `golang.org/x/crypto` — cryptographic primitives and protocol helpers
