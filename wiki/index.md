@@ -5,7 +5,7 @@
 ## npm (8)
 - [[npm/axios]] — axios HTTP client · advisory mapped · 2026 supply-chain compromise history
 - [[npm/express]] — Express web framework · baseline stub · high reverse-dependency exposure
-- [[npm/jsonwebtoken]] — JWT signing/verification library · audit findings tracked · Auth0-maintained
+- [[npm/jsonwebtoken]] — JWT signing/verification library · advisory mapped · 9.0.0 security watershed and rejected-CVE cleanup
 - [[npm/koa-router]] — Koa router package · baseline stub · route-matching surface
 - [[npm/lodash]] — lodash utility library · advisory mapped · prototype pollution history
 - [[npm/minimist]] — minimist argument parser · advisory mapped · high transitive risk
@@ -16,7 +16,7 @@
 - [[rust/serde]] — foundational serialization crate · baseline stub · high downstream deserialization surface
 
 ## .NET / NuGet (1)
-- [[dotnet/Newtonsoft.Json]] — dominant JSON library · baseline stub · parsing and deserialization exposure
+- [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS history and safer depth defaults
 
 ## Python / PyPI (1)
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
