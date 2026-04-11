@@ -25,3 +25,6 @@ Added first Go and Kubernetes seed pages so two previously empty ecosystems now 
 ## [2026-04-10] contributor-guidance | Go module path naming
 Updated `CONTRIBUTING.md` to clarify that Go pages can use nested import-path-based filenames (for example `wiki/go/google.golang.org/grpc.md`) to keep future markdown-first site routing aligned with canonical module names.
 
+## [2026-04-11] seed-pages | Newtonsoft.Json (NuGet), openssl@3 (Homebrew), openssl (Linux)
+Added first package pages for three previously empty ecosystem buckets: `.NET / NuGet`, `Homebrew`, and `Linux`. Created ecosystem landing pages for each, then added baseline stubs for `Newtonsoft.Json`, `openssl@3`, and upstream `openssl` with cross-links, evidence-backed metadata, and open questions aimed at future distro normalization and site-friendly navigation.
+
