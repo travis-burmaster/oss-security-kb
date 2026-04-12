@@ -17,12 +17,13 @@
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| GHSA-c2qf-rxjj-qqgw | Moderate | Regular expression denial of service (ReDoS) in semver range processing | 7.5.2 / 6.3.1 / 5.7.2 | https://github.com/advisories/GHSA-c2qf-rxjj-qqgw |
+| GHSA-c2qf-rxjj-qqgw / CVE-2022-25883 | High | Regular expression denial of service (ReDoS) in semver range processing | 7.5.2 / 6.3.1 / 5.7.2 | https://github.com/advisories/GHSA-c2qf-rxjj-qqgw |
+| GHSA-x6fg-f45m-jf5q / CVE-2015-8855 | High | Earlier ReDoS issue in semver's regex handling, fixed in the 4.x line | 4.3.2 | https://github.com/advisories/GHSA-x6fg-f45m-jf5q |
 
 ## Security Posture Notes
 
 - Critical infrastructure package for dependency resolution and version gating across the JavaScript ecosystem.
-- ReDoS history makes it a strong candidate for targeted input-complexity analysis.
+- Public advisory history now spans at least two separate ReDoS entries (2015 and 2022), which is stronger evidence that semver's parser/regex surface deserves dedicated complexity review rather than one-off CVE tracking.
 - Advisory references point directly to `Range` parsing and regex-heavy internals, making semver a useful package for documenting parser-complexity failure modes in ecosystem-critical infrastructure.
 - Small surface area but unusually high ecosystem leverage.
 
@@ -44,4 +45,4 @@
 - [[npm/minimist]]
 
 ---
-*Last updated: 2026-04-07 | Sources: 2*
+*Last updated: 2026-04-12 | Sources: 4*
