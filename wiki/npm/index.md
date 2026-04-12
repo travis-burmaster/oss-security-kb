@@ -1,13 +1,17 @@
 # npm Index
 
-## Seed Pages
+## Advisory-Mapped / Audited Pages
 - [[npm/axios]] — widely used HTTP client · advisory mapped · 2026 compromised publish and malicious dependency incident
+- [[npm/basic-ftp]] — FTP client library · advisory mapped · 2026 command / path security fixes landed in 5.2.0 and 5.2.2
+- [[npm/express]] — core web framework · audit ingested · public package history plus a deeper 2026 source review
 - [[npm/jsonwebtoken]] — JWT verification surface · advisory mapped · 9.0.0 security watershed and one rejected CVE to interpret carefully
-- [[npm/lodash]] — utility library with known prototype pollution history
+- [[npm/js-yaml]] — YAML parser · audit ingested · historical RCE plus 2026 alias-expansion DoS finding
+- [[npm/lodash]] — utility library · advisory mapped · prototype pollution history
+- [[npm/mathjs]] — math expression engine · advisory mapped · 15.2.0 object-attribute / parser hardening security fix
 - [[npm/minimist]] — tiny CLI parser with outsized transitive blast radius
-- [[npm/path-to-regexp]] — routing parser with a recorded manual audit and open findings
-- [[npm/semver]] — version parsing infrastructure with ReDoS history
+- [[npm/next-intl]] — i18n / routing middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
+- [[npm/path-to-regexp]] — routing parser · advisory mapped · recorded audit and ReDoS history
+- [[npm/semver]] — version parsing infrastructure · advisory mapped · ReDoS history
 
 ## Baseline Stubs
-- [[npm/express]] — core web framework and high-value future audit target
 - [[npm/koa-router]] — routing-layer companion page linked from `path-to-regexp`
