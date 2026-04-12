@@ -1,0 +1,6 @@
+serde public evidence summary
+
+OSV matches: 0
+No package-scoped OSV entries returned for this package query during this review pass.
+GitHub repo security advisories listed via API: 0
+No repo security advisories returned via the public GitHub API during this pass.
