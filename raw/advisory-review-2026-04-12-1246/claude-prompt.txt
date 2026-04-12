@@ -1,0 +1,49 @@
+Review the gathered public evidence for a new OSS security KB page for the PyPI package urllib3.
+
+Hard rules:
+- Use only evidence present in the supplied public-source bundle.
+- Do not fabricate findings.
+- Distinguish package vulnerabilities from downstream misuse or distro backports.
+- Prefer concise evidence-backed prose suitable for a markdown KB page.
+
+Please produce:
+1. A recommended KB page draft for wiki/python/urllib3.md
+2. A short rationale for whether this is worthwhile additive maintenance
+3. Any cautions about overclaiming severity or exploitability
+
+Evidence bundle summary:
+- OSV query output for PyPI urllib3 in raw/advisory-review-2026-04-12-1246/urllib3-osv.json
+- Upstream release metadata in raw/advisory-review-2026-04-12-1246/urllib3-releases.json
+- Upstream changelog in raw/advisory-review-2026-04-12-1246/urllib3-CHANGES.rst
+- Security policy in repository .github/SECURITY.md: Tidelift security contact, no public GitHub issues for vuln reports, only main branch / 2.x receives security fixes.
+
+Notable advisory set visible in OSV/GHSA:
+- CVE-2018-20060 / GHSA-www2-v7xj-xrc6 fixed in 1.23: Authorization header not stripped on cross-origin redirects.
+- CVE-2018-25091 / GHSA-gwvm-45gx-3cf8 fixed in 1.24.2: incomplete/case-sensitive follow-up to the redirect Authorization stripping issue.
+- CVE-2019-11324 / GHSA-mh33-7rrq-662w fixed in 1.24.2: certificate validation edge case when custom CA inputs differ from OS store.
+- CVE-2019-11236 / GHSA-r64q-w8jr-g9qp fixed in 1.24.3: CRLF injection if attacker controls request parameter.
+- CVE-2020-7212 / GHSA-hmv2-79q8-fv6g fixed in 1.25.8: quadratic resource consumption in URL invalid-char encoding.
+- CVE-2020-26137 / GHSA-wqvq-5m8c-6g24 fixed in 1.25.9: CRLF injection if attacker controls HTTP method.
+- CVE-2021-28363 / GHSA-5phf-pp7p-vc2r fixed in 1.26.4: HTTPS proxy hostname verification missing in default SSLContext path.
+- CVE-2021-33503 / GHSA-q2q7-5pp4-w6pg fixed in 1.26.5: catastrophic backtracking in URL authority parser with many @ signs.
+- CVE-2023-43804 / GHSA-v845-jxx5-vc9f fixed in 1.26.17 / 2.0.6: Cookie header not stripped on cross-origin redirects.
+- CVE-2023-45803 / GHSA-g4mx-q9vg-27p4 fixed in 1.26.18 / 2.0.7: request body not stripped when redirect changes request to GET after 303.
+- CVE-2024-37891 / GHSA-34jh-p97f-mpxf fixed in 1.26.19 / 2.2.2: Proxy-Authorization header not stripped on cross-origin redirects.
+- CVE-2025-50181 / GHSA-pq67-6m6q-mj2v fixed in 2.5.0: redirects not disabled when retries disabled on PoolManager instantiation.
+- CVE-2025-50182 / GHSA-48p4-8xcf-vxj5 fixed in 2.5.0: urllib3 cannot actually control redirects in browser/Node Pyodide runtime.
+- CVE-2025-66418 / GHSA-gm62-xv2j-4w53 fixed in 2.6.0: unbounded decompression chain.
+- CVE-2025-66471 / GHSA-2xpw-w6gg-jr37 fixed in 2.6.0: streaming API highly compressed data resource-consumption bug.
+- CVE-2026-21441 / GHSA-38jv-5279-wg99 fixed in 2.6.3: redirect path bypassed decompression-bomb safeguards for streaming API.
+
+Relevant upstream changelog anchors:
+- 1.23: defaults redirect stripping to Authorization.
+- 1.24.2: removes Authorization regardless of case; avoids loading system certs when custom CA inputs are specified.
+- 1.24.3: CVE-2019-9740-related fix note.
+- 1.25.8: optimize _encode_invalid_chars.
+- 1.26.4: HTTPS proxy default SSLContext now sets check_hostname=True.
+- 1.26.5: improved performance of URL parser authority splitting.
+- 1.26.17 / 2.0.6: add Cookie to redirect-strip list.
+- 1.26.18 / 2.0.7: strip body when 303 changes request to GET.
+- 1.26.19 / 2.2.2: add Proxy-Authorization to redirect-strip list.
+- 2.5.0: release containing redirect-control/Pyodide fixes.
+- 2.6.0 / 2.6.3: streaming/decompression hardening and redirect-related decompression-bomb safeguard fix.

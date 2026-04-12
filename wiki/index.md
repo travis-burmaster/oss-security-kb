@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*12 packages tracked across 8 ecosystems. Last updated: 2026-04-12.*
+*13 packages tracked across 8 ecosystems. Last updated: 2026-04-12.*
 
 ## npm (11)
 - [[npm/axios]] — axios HTTP client · advisory mapped · 2026 supply-chain compromise history
@@ -21,8 +21,9 @@
 ## .NET / NuGet (1)
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
 
-## Python / PyPI (1)
+## Python / PyPI (2)
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
+- [[python/urllib3]] — foundational HTTP transport library · advisory mapped · redirect, TLS, parser, and decompression vulnerability history
 
 ## Go (1)
 - [[go/google.golang.org/grpc]] — core Go RPC framework · advisory mapped · HTTP/2 rapid reset, authz bypass, and metadata/memory exposure history
