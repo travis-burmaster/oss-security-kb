@@ -1,0 +1,2 @@
+Reviewed candidate gap: python/urllib3 (new page)
+Why selected: natural follow-on from existing requests page; strong public advisory history in OSV/GHSA and upstream release notes.
