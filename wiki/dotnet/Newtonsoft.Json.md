@@ -1,4 +1,4 @@
-# Newtonsoft.Json (dotnet)
+# Newtonsoft.Json (.NET / NuGet)
 
 **Registry:** NuGet
 **Weekly Downloads:** unknown (as of 2026-04-11)
