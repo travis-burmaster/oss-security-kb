@@ -1,15 +1,13 @@
 # OSS Security KB — Master Index
 
-*15 packages tracked across 8 ecosystems. Last updated: 2026-04-11.*
+*9 packages tracked across 8 ecosystems. Last updated: 2026-04-12.*
 
-## npm (8)
+## npm (5)
 - [[npm/axios]] — axios HTTP client · advisory mapped · 2026 supply-chain compromise history
-- [[npm/express]] — Express web framework · baseline stub · high reverse-dependency exposure
-- [[npm/jsonwebtoken]] — JWT signing/verification library · advisory mapped · 9.0.0 security watershed and rejected-CVE cleanup
-- [[npm/koa-router]] — Koa router package · baseline stub · route-matching surface
+- [[npm/express]] — dominant Node.js web framework · full audit completed · 2 advisory drafts pending upstream disclosure outcome
+- [[npm/jsonwebtoken]] — token verification library · advisory mapped · verification-semantic and key-confusion history
 - [[npm/lodash]] — lodash utility library · advisory mapped · prototype pollution history
 - [[npm/minimist]] — minimist argument parser · advisory mapped · high transitive risk
-- [[npm/path-to-regexp]] — route parsing library · manual audit recorded · routing edge-case findings
 - [[npm/semver]] — semver version parser · advisory mapped · ReDoS history
 
 ## Rust / crates.io (1)
@@ -22,13 +20,13 @@
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
 
 ## Go (1)
-- [[go/google.golang.org/grpc]] — Go gRPC implementation · advisory mapped · transport, metadata, and authz-sensitive surface
+- [[go/google.golang.org/grpc]] — core Go RPC framework · advisory mapped · HTTP/2 rapid reset, authz bypass, and metadata/memory exposure history
 
-## Homebrew (1)
-- [[homebrew/openssl@3]] — OpenSSL 3 formula · baseline stub · TLS and cryptographic dependency anchor
+## Homebrew (0)
+- _No package pages yet._
 
-## Kubernetes (1)
-- [[kubernetes/kube-apiserver]] — Kubernetes control-plane API server · audit ingested · authz and admission findings tracked
+## Kubernetes (0)
+- _No package pages yet._
 
-## Linux (1)
-- [[linux/openssl]] — upstream OpenSSL anchor for distro tracking · baseline stub · cross-distro vulnerability normalization target
+## Linux (0)
+- _No package pages yet._
