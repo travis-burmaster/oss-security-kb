@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*13 packages tracked across 8 ecosystems. Last updated: 2026-04-12.*
+*15 packages tracked across 8 ecosystems. Last updated: 2026-04-12.*
 
 ## npm (11)
 - [[npm/axios]] — axios HTTP client · advisory mapped · 2026 supply-chain compromise history
@@ -18,14 +18,16 @@
 ## Rust / crates.io (1)
 - [[rust/serde]] — foundational serialization crate · baseline stub · high downstream deserialization surface
 
-## .NET / NuGet (1)
+## .NET / NuGet (2)
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
+- [[dotnet/System.Text.Json]] — built-in .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 
 ## Python / PyPI (2)
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
 - [[python/urllib3]] — foundational HTTP transport library · advisory mapped · redirect, TLS, parser, and decompression vulnerability history
 
-## Go (1)
+## Go (2)
+- [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/google.golang.org/grpc]] — core Go RPC framework · advisory mapped · HTTP/2 rapid reset, authz bypass, and metadata/memory exposure history
 
 ## Homebrew (0)

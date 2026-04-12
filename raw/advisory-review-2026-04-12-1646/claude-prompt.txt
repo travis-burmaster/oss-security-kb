@@ -1,0 +1,8 @@
+Review the gathered public evidence for two OSS security KB candidates in this repo: System.Text.Json (.NET/NuGet) and github.com/gin-gonic/gin (Go).
+
+Use only the files in raw/advisory-review-2026-04-12-1646 plus the existing wiki page style in this repository. Propose concise, evidence-backed KB updates only. Do not fabricate findings. If evidence is insufficient for a claim, say so.
+
+Deliver:
+1. Candidate assessment for each package.
+2. Proposed markdown page content or patch guidance.
+3. Any cautions about over-claiming or conflating app misuse with package vulnerabilities.
