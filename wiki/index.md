@@ -4,7 +4,7 @@
 
 ## npm (12)
 - [[npm/axios]] — axios HTTP client · advisory mapped · 2026 supply-chain compromise history
-- [[npm/basic-ftp]] — FTP client library · advisory mapped · 2026 command / path security fixes in 5.2.0 and 5.2.2
+- [[npm/basic-ftp]] — FTP client library · advisory mapped · 2026 5.2.x path-traversal and CRLF command-injection fix chain
 - [[npm/debug]] — debug logging utility · advisory mapped · supply-chain compromise in 4.4.2 plus older ReDoS history
 - [[npm/express]] — dominant Node.js web framework · audit ingested · public package history plus deeper 2026 source review
 - [[npm/jsonwebtoken]] — token verification library · advisory mapped · verification-semantic and key-confusion history
@@ -13,7 +13,7 @@
 - [[npm/mathjs]] — math expression engine · advisory mapped · 15.2.0 object-attribute / parser hardening security fix
 - [[npm/minimist]] — minimist argument parser · advisory mapped · high transitive risk
 - [[npm/next-intl]] — internationalization middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
-- [[npm/path-to-regexp]] — route parser · advisory mapped · audit and ReDoS history
+- [[npm/path-to-regexp]] — route parser · advisory mapped · legacy and modern ReDoS / route-expansion hardening history
 - [[npm/semver]] — semver version parser · advisory mapped · ReDoS history
 
 ## Rust / crates.io (1)
