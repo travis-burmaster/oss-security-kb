@@ -16,11 +16,7 @@
 - [[rust/serde]] — foundational serialization crate · baseline stub · high downstream deserialization surface
 
 ## .NET / NuGet (1)
-<<<<<<< HEAD
-- [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested JSON DoS fixed in 13.0.1
-=======
-- [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS history and safer depth defaults
->>>>>>> origin/main
+- [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
 
 ## Python / PyPI (1)
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
