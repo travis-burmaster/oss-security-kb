@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*9 packages tracked across 8 ecosystems. Last updated: 2026-04-12.*
+*10 packages tracked across 8 ecosystems. Last updated: 2026-04-12.*
 
-## npm (5)
+## npm (6)
 - [[npm/axios]] — axios HTTP client · advisory mapped · 2026 supply-chain compromise history
 - [[npm/express]] — dominant Node.js web framework · full audit completed · 2 advisory drafts pending upstream disclosure outcome
 - [[npm/jsonwebtoken]] — token verification library · advisory mapped · verification-semantic and key-confusion history
