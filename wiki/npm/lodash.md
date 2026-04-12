@@ -1,48 +1,156 @@
 # lodash (npm)
 
 **Registry:** npm
-**Weekly Downloads:** unknown (as of 2026-04-07)
+**Weekly Downloads:** ~25,000,000 (as of 2026-04-12)
 **Repository:** https://github.com/lodash/lodash
 **Security Contact:** none listed
 **Disclosure Policy:** none listed
-**Current Status:** advisory-mapped
+**Current Status:** audit-ingested
 
 ## Audit History
 
 | Date | Auditor | Scope | Methodology | Findings | Source |
 |------|---------|-------|-------------|----------|--------|
-| *No public proactive audits on record yet.* | — | — | — | — | — |
+| 2026-04-12 | [@travis-burmaster](https://github.com/travis-burmaster) | full-source (all path-walking functions) | hybrid (manual review + automated) | 3 new findings + all CVE patches verified | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
+
+**Audit scope:** lodash 4.18.1 (latest), single-file build `lodash.js` (17,259 lines, 817 functions). Systematic review of all 120+ path-walking functions for prototype pollution and related injection vectors. Commit `cb0b9b9` (lodash/lodash main branch, 2026-04-12).
+
+## Findings
+
+### Critical
+
+#### C1: Template Code Injection via _.template()
+
+**Severity:** Critical (CWE-94 -- Code Injection)
+**Status:** By design, but frequently misused
+
+`_.template()` compiles template strings using the `Function()` constructor (line 14992) with no sanitization of template content. The `<% %>` evaluate delimiter injects directly into the function body:
+
+```js
+// RCE if attacker controls template string
+_.template('<%= constructor.constructor("return process")() %>')({})
+```
+
+The `variable` option has `reForbiddenIdentifierChars` guards (line 181), but the **template string itself** is unrestricted. Any attacker-controlled string reaching `_.template()` is a direct RCE vector.
+
+**Code:** `lodash.js:14882-14992`
+
+**Impact:** Remote code execution in any application passing user input to `_.template()`. Common in server-side rendering, email templating, and configuration processing.
+
+---
+
+### Medium
+
+#### M1: Prototype Method Invocation via _.invoke()
+
+**Severity:** Medium (CWE-470 -- Use of Externally-Controlled Input to Select Classes or Code)
+
+`_.invoke()` follows any path including `__proto__` and `constructor.prototype`, then calls the resolved function via `apply()` with no path sanitization:
+
+```js
+// Successfully calls Object.prototype.hasOwnProperty with Object.prototype as this
+_.invoke({}, '__proto__.hasOwnProperty', 'x')
+```
+
+**Code:** `lodash.js:3260`
+
+**Impact:** Attacker can invoke arbitrary prototype methods with controlled arguments. Not directly exploitable for property writes but could be a chain in a larger attack.
+
+#### M2: Prototype Method Invocation via _.result()
+
+**Severity:** Medium (CWE-470)
+
+Same vector as invoke -- traverses any path, calls functions with parent object as `this`, no sanitization:
+
+```js
+_.result({}, 'constructor.prototype.toString')
+```
+
+**Code:** `lodash.js:13722`
+
+---
+
+### CVE Patch Verification (All Patched Correctly)
+
+| CVE | Patched Function | Defense Mechanism | Verified |
+|-----|------------------|-------------------|----------|
+| CVE-2019-10744 | defaultsDeep | `safeGet` returns undefined for constructor (forces new object creation instead of traversing to Object.prototype) | Yes |
+| CVE-2020-8203 | set, setWith, update, updateWith, zipObjectDeep | `baseSet` line 4040: blocks `__proto__`, `constructor`, `prototype` on every path segment | Yes |
+| GHSA-xxjr-mmjv-4gpg | unset, omit | `baseUnset` line 4393/4399: blocks `__proto__` and non-terminal `constructor`/`prototype` | Yes |
+
+### Defense-in-Depth Architecture (Verified)
+
+Lodash 4.18.1 uses three layers of prototype pollution defense:
+
+1. **baseSet guard (line 4040)** -- Checks every path segment against `__proto__`, `constructor`, `prototype`. Returns early on match. Protects: set, setWith, update, updateWith, pick, pickBy, zipObjectDeep.
+
+2. **safeGet (line 6704)** -- Returns `undefined` for `__proto__` (unconditionally) and `constructor` (when value is a function). Protects: merge, mergeWith, defaultsDeep, baseMergeDeep.
+
+3. **baseAssignValue (line 2597)** -- Uses `Object.defineProperty` for `__proto__` writes, creating an own data property rather than traversing the prototype chain. Protects: clone, cloneDeep, assignValue, zipObject.
+
+### Bypass Vectors Tested (All Blocked)
+
+| Vector | Result |
+|--------|--------|
+| Unicode escapes (`\u005f\u005fproto\u005f\u005f`) | Blocked -- resolved at parse time, string check matches |
+| Bracket notation in paths (`["__proto__"]`) | Blocked -- stringToPath extracts literal string |
+| Custom toString() returning "__proto__" | Blocked -- toKey runs before checks |
+| constructor.prototype via _.set | Blocked at line 4040 |
+| constructor.prototype via _.merge | Blocked by safeGet returning undefined |
+| constructor.prototype via _.defaultsDeep | Blocked -- same merge internals |
+| Array paths bypassing string checks | Blocked -- checks operate on individual keys after toKey |
+| Proxy/Symbol keys | Blocked -- cannot equal string "__proto__" |
+| Null byte in path strings | Blocked -- no null-byte handling gaps in stringToPath |
+
+### Confirmed Safe Functions
+
+| Function Group | Status |
+|----------------|--------|
+| set, setWith, update, updateWith | Protected by baseSet guard |
+| merge, mergeWith, defaultsDeep | Protected by safeGet + baseAssignValue |
+| clone, cloneDeep, cloneDeepWith | Uses defineProperty for __proto__ (own property) |
+| pick, pickBy | Protected by baseSet guard |
+| zipObject, zipObjectDeep | baseAssignValue + baseSet guards |
+| at, get, baseGet | Read-only (minor info leak via prototype chain traversal) |
+| has, hasIn, hasPath | Read-only (info leak via `in` operator) |
+| unset, omit | __proto__/constructor checks in baseUnset |
+| customDefaultsMerge | safeGet + baseAssignValue + keysIn non-enumeration |
 
 ## Known Vulnerabilities
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| CVE-2019-10744 | High | Prototype pollution in `defaultsDeep` | 4.17.12 | https://security.snyk.io/vuln/SNYK-JS-LODASH-450202 |
-| CVE-2020-8203 | High | Prototype pollution via `zipObjectDeep`, `set`, `setWith`, `update`, and `updateWith` | 4.17.19 | https://github.com/advisories/GHSA-p6mc-m468-83gw |
-| GHSA-xxjr-mmjv-4gpg | High | Prototype pollution in `_.unset` and `_.omit` | 4.17.23+ / pending exact upstream remediation tracking | https://github.com/lodash/lodash/security/advisories/GHSA-xxjr-mmjv-4gpg |
+| CVE-2019-10744 | High | Prototype pollution in `defaultsDeep` | 4.17.12 | [snyk](https://security.snyk.io/vuln/SNYK-JS-LODASH-450202) |
+| CVE-2020-8203 | High | Prototype pollution via `zipObjectDeep`, `set`, `setWith`, `update`, `updateWith` | 4.17.19 | [GHSA-p6mc-m468-83gw](https://github.com/advisories/GHSA-p6mc-m468-83gw) |
+| GHSA-xxjr-mmjv-4gpg | High | Prototype pollution in `_.unset` and `_.omit` | 4.17.23+ | [GHSA](https://github.com/lodash/lodash/security/advisories/GHSA-xxjr-mmjv-4gpg) |
 
 ## Security Posture Notes
 
-- Extremely high-install-base JavaScript utility library.
-- Historical prototype pollution issues make it a high-value baseline target for the KB.
-- Bug pattern concentration around deep-path mutation helpers suggests lodash deserves dedicated surface mapping by function family, not just CVE enumeration.
-- Public evidence exists for multiple prototype-pollution eras (`defaultsDeep`, `zipObjectDeep`, later `unset`/`omit`), which makes lodash useful as a model page for tracking repeated bug-class recurrence over time.
+- All three known prototype pollution CVEs are correctly patched in 4.18.1 with defense-in-depth (3 independent layers).
+- No new prototype pollution vectors found in any of the 120+ path-walking functions.
+- The `_.template()` code injection (C1) is the primary remaining risk -- it is architectural (uses `Function()` constructor) and frequently misused.
+- `_.invoke()` and `_.result()` can invoke prototype methods with attacker-controlled arguments but cannot write properties.
+- Lodash is a model for effective post-CVE remediation: the fixes are comprehensive, layered, and bypass-resistant.
 
-## Dependencies of Note
+## Recommendations for Developers
 
-- Minimal relevance; lodash is primarily important as a direct application dependency.
+1. **Never pass user input to `_.template()`** -- treat it as `eval()`. Use a sandboxed template engine (Handlebars, Mustache, Nunjucks with autoescaping) for user-controlled templates.
+2. **Never pass user-controlled paths to `_.invoke()` or `_.result()`** -- validate paths against an allowlist.
+3. **Ensure you're on lodash >= 4.17.21** -- earlier versions have unpatched prototype pollution.
+4. **Consider lodash-es or per-method imports** to reduce attack surface.
 
-## Open Questions
+## Open Questions (Resolved)
 
-- Has any full-source modern audit been published post-2020 fixes?
-- Are there remaining dangerous deep-object mutation patterns not covered by prior fixes?
-- Which downstream packages still expose vulnerable versions indirectly?
+- ~~Has any full-source modern audit been published post-2020 fixes?~~ **Resolved:** This is the first systematic audit of all path-walking functions. All CVE patches verified effective.
+- ~~Are there remaining dangerous deep-object mutation patterns not covered by prior fixes?~~ **Resolved:** No new prototype pollution vectors found. Template code injection and method invocation via invoke/result are the remaining risks.
+- ~~Which downstream packages still expose vulnerable versions indirectly?~~ **Open:** Transitive dependency audit of vulnerable lodash versions remains unperformed.
 
 ## Related Pages
 
 - [[npm/index]]
 - [[npm/minimist]]
-- [[npm/semver]]
+- [[npm/express]]
 
 ---
-*Last updated: 2026-04-07 | Sources: 3*
+*Last updated: 2026-04-12 | Sources: 6 (upstream repository, npm registry, source code audit of lodash 4.18.1, CVE databases, Snyk, GitHub Security Advisories)*
+*Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*
