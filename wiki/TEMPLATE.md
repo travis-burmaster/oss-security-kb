@@ -5,7 +5,7 @@
 **Repository:** {GitHub URL or "unknown"}
 **Security Contact:** {email/URL or "none listed"}
 **Disclosure Policy:** {URL or "none listed"}
-**Current Status:** {not-started | stub-only | triaged | advisory-mapped | light-audit-complete | deep-audit-complete | needs-rereview}
+**Current Status:** {baseline stub | advisory-mapped | audit-ingested | needs-rereview}
 
 ## Audit History
 
