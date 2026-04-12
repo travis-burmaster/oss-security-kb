@@ -1,10 +1,11 @@
 # OSS Security KB — Master Index
 
-*15 packages tracked across 8 ecosystems. Last updated: 2026-04-12.*
+*16 packages tracked across 8 ecosystems. Last updated: 2026-04-12.*
 
-## npm (11)
+## npm (12)
 - [[npm/axios]] — axios HTTP client · advisory mapped · 2026 supply-chain compromise history
 - [[npm/basic-ftp]] — FTP client library · advisory mapped · 2026 command / path security fixes in 5.2.0 and 5.2.2
+- [[npm/debug]] — debug logging utility · advisory mapped · supply-chain compromise in 4.4.2 plus older ReDoS history
 - [[npm/express]] — dominant Node.js web framework · audit ingested · public package history plus deeper 2026 source review
 - [[npm/jsonwebtoken]] — token verification library · advisory mapped · verification-semantic and key-confusion history
 - [[npm/js-yaml]] — YAML parser · audit ingested · historical RCE plus 2026 alias-expansion DoS finding

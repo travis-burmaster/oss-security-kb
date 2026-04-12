@@ -1,0 +1,11 @@
+Review the gathered public evidence for the npm package "debug" under raw/advisory-review-2026-04-12-1837/debug and propose evidence-backed OSS KB updates only.
+
+Constraints:
+- Public information only
+- Do not fabricate findings
+- Distinguish package advisories from broader ecosystem or speculative claims
+- Prefer conservative wording
+- Output:
+  1. concise findings summary
+  2. suggested markdown page content for wiki/npm/debug.md matching the repo's style
+  3. suggested index/log updates if warranted
