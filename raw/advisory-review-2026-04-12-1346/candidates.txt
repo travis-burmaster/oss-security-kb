@@ -1,0 +1,4 @@
+Candidates selected for public-info review:
+- basic-ftp (npm) — GHSA-6v7q-wjvx-w8wg, published 2026-04-10
+- next-intl (npm) — GHSA-8f24-v5vv-gm5j, published 2026-04-10
+- mathjs (npm) — GHSA-jvff-x2qm-6286, published 2026-04-10
