@@ -1,0 +1,7 @@
+Claude CLI auth failure on 2026-04-12 UTC
+
+Command attempted:
+claude --permission-mode bypassPermissions --print --model opus ...
+
+Result:
+Failed to authenticate. API Error: 401 {"type":"error","error":{"type":"authentication_error","message":"Invalid authentication credentials"}}
