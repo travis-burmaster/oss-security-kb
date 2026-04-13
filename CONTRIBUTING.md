@@ -65,8 +65,13 @@ For Go modules, prefer the import path as the page path when practical (for exam
 
 Also update:
 - `wiki/index.md`
-- the ecosystem index when one exists (for example `wiki/npm/index.md`)
+- the ecosystem index for that section (for example `wiki/npm/index.md`)
 - `wiki/log.md`
+
+Before opening the PR, sanity-check that:
+- the master-index package counts still match the actual number of package pages
+- the ecosystem is not still described as empty after adding a seed page
+- any new path choice is stable enough for future markdown-first site routing
 
 ## Tone
 

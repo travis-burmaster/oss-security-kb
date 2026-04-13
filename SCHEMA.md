@@ -127,6 +127,11 @@ Every package page MUST follow this format closely:
 
 Where useful, also maintain ecosystem-level landing pages such as `wiki/npm/index.md` or `wiki/python/index.md`. These should group seed pages, baseline stubs, and future audit targets for easier browsing and static-site generation.
 
+Treat these landing pages as first-class navigation, not optional garnish:
+- if an ecosystem has at least one package page, its ecosystem `index.md` should exist and be updated in the same change
+- `wiki/index.md` counts must match the actual package pages present under `wiki/`
+- do not leave master-index text saying an ecosystem is empty when seed pages already exist
+
 ---
 
 ## log.md Format
