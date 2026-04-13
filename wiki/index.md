@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*16 packages tracked across 8 ecosystems. Last updated: 2026-04-12.*
+*17 packages tracked across 8 ecosystems. Last updated: 2026-04-13.*
 
-## npm (12)
+## npm (13)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/basic-ftp]] — FTP client library · advisory mapped · 2026 5.2.x path-traversal and CRLF command-injection fix chain
 - [[npm/debug]] — debug logging utility · advisory mapped · supply-chain compromise in 4.4.2 plus older ReDoS history
@@ -14,6 +14,7 @@
 - [[npm/minimist]] — minimist argument parser · advisory mapped · high transitive risk
 - [[npm/next-intl]] — internationalization middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
 - [[npm/path-to-regexp]] — route parser · advisory mapped · legacy and modern ReDoS / route-expansion hardening history
+- [[npm/qs]] — query-string parser · advisory mapped · prototype-pollution and parser-limit bypass history
 - [[npm/semver]] — semver version parser · advisory mapped · ReDoS history
 
 ## Rust / crates.io (1)
