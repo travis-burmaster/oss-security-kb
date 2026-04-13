@@ -1,0 +1,67 @@
+[
+  {
+    "id": "RUSTSEC-2021-0072",
+    "aliases": [
+      "CVE-2021-38191",
+      "GHSA-2grh-hm3w-w7hv"
+    ],
+    "summary": "Task dropped in wrong thread when aborting `LocalSet` task",
+    "refs": [
+      "https://crates.io/crates/tokio",
+      "https://rustsec.org/advisories/RUSTSEC-2021-0072.html",
+      "https://github.com/tokio-rs/tokio/issues/3929"
+    ]
+  },
+  {
+    "id": "RUSTSEC-2021-0124",
+    "aliases": [
+      "CVE-2021-45710",
+      "GHSA-fg7r-2g4j-5cgr"
+    ],
+    "summary": "Data race when sending and receiving after closing a `oneshot` channel",
+    "refs": [
+      "https://crates.io/crates/tokio",
+      "https://rustsec.org/advisories/RUSTSEC-2021-0124.html",
+      "https://github.com/tokio-rs/tokio/issues/4225"
+    ]
+  },
+  {
+    "id": "RUSTSEC-2023-0001",
+    "aliases": [
+      "CVE-2023-22466",
+      "GHSA-7rrj-xr53-82p7"
+    ],
+    "summary": "reject_remote_clients Configuration corruption",
+    "refs": [
+      "https://crates.io/crates/tokio",
+      "https://rustsec.org/advisories/RUSTSEC-2023-0001.html",
+      "https://github.com/tokio-rs/tokio/security/advisories/GHSA-7rrj-xr53-82p7",
+      "https://github.com/tokio-rs/tokio/pull/5336",
+      "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createnamedpipea#pipe_reject_remote_clients"
+    ]
+  },
+  {
+    "id": "RUSTSEC-2023-0005",
+    "aliases": [
+      "GHSA-4q83-7cq4-p6wg"
+    ],
+    "summary": "`tokio::io::ReadHalf<T>::unsplit` is Unsound",
+    "refs": [
+      "https://crates.io/crates/tokio",
+      "https://rustsec.org/advisories/RUSTSEC-2023-0005.html",
+      "https://github.com/tokio-rs/tokio/issues/5372"
+    ]
+  },
+  {
+    "id": "RUSTSEC-2025-0023",
+    "aliases": [
+      "GHSA-rr8g-9fpq-6wmg"
+    ],
+    "summary": "Broadcast channel calls clone in parallel, but does not require `Sync`",
+    "refs": [
+      "https://crates.io/crates/tokio",
+      "https://rustsec.org/advisories/RUSTSEC-2025-0023.html",
+      "https://github.com/tokio-rs/tokio/pull/7232"
+    ]
+  }
+]
