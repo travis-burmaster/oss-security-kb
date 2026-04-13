@@ -14,6 +14,9 @@
 - [[npm/path-to-regexp]] — routing parser · advisory mapped · legacy and modern ReDoS / route-expansion hardening history
 - [[npm/qs]] — query-string parser · advisory mapped · prototype-pollution and parser-limit bypass history
 - [[npm/semver]] — version parsing infrastructure · advisory mapped · ReDoS history
+- [[npm/cookie]] — cookie parser/serializer · audit ingested · strict serialize validation, parse-side minimal by design
+- [[npm/body-parser]] — request body parsing middleware · audit ingested · JSON/urlencoded parsers, allowPrototypes concern
+- [[npm/send]] — static file serving engine · audit ingested · comprehensive path traversal defenses, symlink following by default
 
 ## Baseline Stubs
 - [[npm/koa-router]] — routing-layer companion page linked from `path-to-regexp`
