@@ -1,0 +1,16 @@
+AXIOS OSV/GHSA SUMMARY
+- GHSA-3p68-rc4w-qgx5 | aliases=CVE-2025-62718 | fixed=1.15.0 | summary=Axios has a NO_PROXY Hostname Normalization Bypass Leads to SSRF
+- GHSA-42xw-2xvc-qx8m | aliases=CVE-2019-10742 | fixed=0.18.1 | summary=Denial of Service in axios
+- GHSA-43fc-jf86-j433 | aliases=CVE-2026-25639 | fixed=1.13.5 | summary=Axios is Vulnerable to Denial of Service via __proto__ Key in mergeConfig
+- GHSA-4hjh-wcwx-xvwj | aliases=CVE-2025-58754 | fixed=1.12.0 | summary=Axios is vulnerable to DoS attack through lack of data size check
+- GHSA-4w2v-q235-vp99 | aliases=CVE-2020-28168 | fixed=0.21.1 | summary=Axios vulnerable to Server-Side Request Forgery
+- GHSA-8hc4-vh64-cxmj | aliases=CVE-2024-39338 | fixed=1.7.4 | summary=Server-Side Request Forgery in axios
+- GHSA-cph5-m8f7-6c5x | aliases=CVE-2021-3749 | fixed=0.21.2 | summary=axios Inefficient Regular Expression Complexity vulnerability
+- GHSA-fvcv-3m26-pcqx | aliases=CVE-2026-40175 | fixed=1.15.0 | summary=Axios has Unrestricted Cloud Metadata Exfiltration via Header Injection Chain
+- GHSA-jr5f-v2jv-69x6 | aliases=CVE-2025-27152 | fixed=1.8.2 | summary=axios Requests Vulnerable To Possible SSRF and Credential Leakage via Absolute URL
+- GHSA-qj83-cq47-w5f8 | aliases=CVE-2026-39865 | fixed=1.13.2 | summary=Axios HTTP/2 Session Cleanup State Corruption Vulnerability
+- GHSA-wf5p-g6vw-rhxx | aliases=CVE-2023-45857 | fixed=1.6.0 | summary=Axios Cross-Site Request Forgery Vulnerability
+- MAL-2026-2307 | aliases=GHSA-fw8c-xr5c-95f9 | fixed= | summary=Malicious code in axios (npm)
+
+NPM DIST-TAGS
+latest=1.15.0

@@ -1,0 +1,38 @@
+# Proposed KB Page Updates for axios
+
+---
+
+## 1) Safe KB Updates Worth Making
+
+- **Expand the advisory history table** to include all 12 OSV/GHSA records listed in the evidence bundle, grouped by class (SSRF, DoS, CSRF/credential leakage, ReDoS, malicious publish). Each entry should cite the GHSA ID, CVE, affected/fixed version, and one-line description exactly as published.
+
+- **Add the newly published advisories not yet on the page:**
+  - **CVE-2025-62718** (GHSA-3p68-rc4w-qgx5): NO_PROXY hostname normalization bypass; fixed in 1.15.0.
+  - **CVE-2026-25639** (GHSA-43fc-jf86-j433): DoS via `__proto__` key in `mergeConfig`; fixed in 1.13.5.
+  - **CVE-2025-58754** (GHSA-4hjh-wcwx-xvwj): DoS through missing data size check; fixed in 1.12.0.
+  - **CVE-2026-40175** (GHSA-fvcv-3m26-pcqx): Unrestricted cloud metadata exfiltration via header injection chain; fixed in 1.15.0.
+  - **CVE-2025-27152** (GHSA-jr5f-v2jv-69x6): SSRF and credential leakage via absolute URL handling; fixed in 1.8.2.
+  - **CVE-2026-39865** (GHSA-qj83-cq47-w5f8): HTTP/2 session cleanup state corruption; fixed in 1.13.2.
+  - **CVE-2024-39338** (GHSA-8hc4-vh64-cxmj): SSRF; fixed in 1.7.4.
+  - **CVE-2023-45857** (GHSA-wf5p-g6vw-rhxx): CSRF / unexpected credential exposure; fixed in 1.6.0.
+  - **CVE-2021-3749** (GHSA-cph5-m8f7-6c5x): ReDoS via inefficient regex; fixed in 0.21.2.
+  - **CVE-2020-28168** (GHSA-4w2v-q235-vp99): SSRF; fixed in 0.21.1.
+  - **CVE-2019-10742** (GHSA-42xw-2xvc-qx8m): DoS; fixed in 0.18.1.
+
+- **Enrich the existing March 2026 malicious-publish entry (MAL-2026-2307 / GHSA-fw8c-xr5c-95f9):**
+  - Specify the two compromised versions: **1.14.1** and **0.30.4**.
+  - Note the injected dependency: `plain-crypto-js@4.2.1`.
+  - Note the exposure window: approximately 3 hours.
+  - Add the maintainer-recommended IOCs: domain `sfrclak.com`, IP `142.11.206.73`.
+  - Include the GHSA-level guidance verbatim: "Any computer that installed or ran the affected package versions should be considered fully compromised; all secrets on that machine should be rotated immediately from a different computer."
+  - Recommended safe fallbacks: 1.14.0 / 0.30.3, or upgrade to 1.15.0 (current `latest` tag).
+
+- **Add an ecosystem context note:** npm weekly downloads ≈ 97.7 million (week of 2026-04-05), underscoring the blast radius of any advisory.
+
+- **Note current latest version:** 1.15.0 per npm dist-tags, which addresses all known advisories listed above.
+
+---
+
+## 2) Suggested Revised "Security Posture Notes" Paragraph
+
+> axios has a substantial public advisory history spanning 2019–2026, covering SSRF (CVE-2020-28168, CVE-2024-39338, CVE-2025-27152), denial-of-service (CVE-2019-10742, CVE-2025-58754, CVE-2026-25639), ReDoS (CVE-2021-3749), CSRF / credential exposure (CVE-2023-45857), proxy bypass (CVE-2025-62718), cloud-metadata exfiltration via header injection (CVE-2026-40175), HTTP/2 state corruption (CVE-2026-39865), and a March 2026 supply-chain compromise in which versions 1.14.1 and 0.30.4 were published with a malicious dependency (`plain-crypto-js@4.2.1`) for approximately three hours (MAL-2026-2307 / GHSA-fw8
