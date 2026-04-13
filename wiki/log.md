@@ -1,3 +1,6 @@
+## [2026-04-13] advisory-review | tar (npm), ws (npm), handlebars (npm)
+Ran a public-information-only review pass across three npm candidates using OSV package queries, GitHub advisory records, CVE aliases, npm registry metadata, npm download data, and public fix references collected under `raw/advisory-review-20260413-1837/`. `tar` was the only clean substantive addition from this pass, so a new advisory-mapped page now captures its long-running extraction-safety history across legacy overwrite bugs, the dense 2021 symlink / cache-poisoning chain, the 2024 parser DoS, and the newer 2025-2026 `7.5.x` hardlink / symlink traversal follow-ons. `ws` and `handlebars` were reviewed as comparison candidates but not forced into the KB in this pass. The required local Claude-compatible proxy synthesis step succeeded via `http://127.0.0.1:8319` and was used only as a drafting aid; final `tar` edits were checked back against the saved public evidence bundle before landing.
+
 ## [2026-04-07] bootstrap | repository structure
 Initialized canonical wiki scaffolding: master index, append-only log, page template, CONTRIBUTING.md, and SECURITY.md.
 
