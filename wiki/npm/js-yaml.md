@@ -4,26 +4,26 @@
 **Weekly Downloads:** ~130,000,000 (as of 2026-04-12)
 **Repository:** https://github.com/nodeca/js-yaml
 **Security Contact:** GitHub Security Advisory (private reporting enabled)
-**Current Status:** audit-ingested
+**Current Status:** audit-ingested (finding disputed)
 
 ## Audit History
 
 | Date | Auditor | Scope | Methodology | Findings | Source |
 |------|---------|-------|-------------|----------|--------|
-| 2026-04-12 | [@travis-burmaster](https://github.com/travis-burmaster) | full-source (loader, dumper, all types, schema) | hybrid (manual review + PoC) | 6 findings (1 high, 3 medium, 2 low) | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
+| 2026-04-12 | [@travis-burmaster](https://github.com/travis-burmaster) | full-source (loader, dumper, all types, schema) | hybrid (manual review + PoC) | 6 findings reviewed; highest-severity alias-expansion DoS claim disputed by maintainer as downstream serialization behavior rather than package vulnerability | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
 
 **Audit scope:** js-yaml 4.1.1, 3867 lines across 24 files. Loader (1733 lines), dumper (965 lines), all 13 type handlers, schema system. Commit `f8e56bd` (nodeca/js-yaml main branch, 2026-04-12).
 
 ## Findings
 
-### High Severity
+### Disputed Finding
 
-#### H1: Billion Laughs / Alias Expansion Bomb (CWE-776)
+#### D1: Alias Expansion / Serialization Amplification (maintainer-disputed as package vulnerability)
 
-**Severity:** High
-**Status:** Unfixed as of 4.1.1
+**Severity:** Under review / disputed
+**Status:** Maintainer response says this is downstream `JSON.stringify` behavior, not a js-yaml parser vulnerability
 
-js-yaml has zero limits on YAML anchor/alias expansion. A 308-byte payload produces 269 million characters when serialized (873,513x amplification).
+A 308-byte YAML payload was observed to produce 269 million characters when the resulting structure was serialized (`JSON.stringify`), approximately 873,513x amplification. The maintainer response on issue #742 argues the parser is returning the requested structure and that the blow-up is being attributed to downstream serialization rather than a package security defect.
 
 **PoC:**
 ```yaml
@@ -41,7 +41,7 @@ h: &h [*g,*g,*g,*g,*g,*g,*g,*g,*g]
 
 Missing protections: no maxAliasCount, no nesting depth limit, no expanded size limit, no input length limit. Code acknowledges risk at loader.js:330 but only mitigates for mapping keys.
 
-**Impact:** DoS against any service parsing untrusted YAML. ~130M weekly downloads.
+**Impact:** At minimum, this is an operational safety / dangerous-defaults concern for applications that parse attacker-controlled YAML and then serialize or traverse the expanded structure. Whether it should be classified as a package vulnerability is currently disputed by the maintainer.
 
 ---
 
@@ -101,15 +101,15 @@ Two nodes with the same anchor name: second silently replaces first. Subsequent 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
 | CVE-2013-4660 | Critical | Arbitrary code execution via `!!js/function` tag | 3.0.0 (removed dangerous types) | [osv.dev](https://osv.dev/vulnerability/CVE-2013-4660) |
-| **NEW: Billion Laughs** | High | Alias expansion bomb, 873K amplification, no limits | **Unfixed** | This audit |
+| **REPORTED / DISPUTED: Alias expansion amplification** | Under review | Alias expansion can lead to extreme downstream serialization amplification; maintainer disputes that this is a package vulnerability | disputed | This audit + upstream issue #742 |
 
 ## Recommendations for Developers
 
 1. **Never parse untrusted YAML without size limits** -- validate input length before calling `yaml.load()`
 2. **Use `FAILSAFE_SCHEMA`** for untrusted input to prevent implicit type coercion
-3. **Deep-copy or limit alias expansion** in parsed output before serializing or traversing
+3. **Be cautious serializing or recursively traversing expanded alias structures**
 4. **Monitor memory usage** in services that parse YAML from external sources
-5. **Consider alternatives** for untrusted YAML: use JSON where possible, or a YAML parser with built-in expansion limits
+5. **Treat the alias-expansion issue as disputed** until upstream accepts it as a package vulnerability or a stronger parser-level exhaustion case is demonstrated
 
 ## Related Pages
 
@@ -117,5 +117,5 @@ Two nodes with the same anchor name: second silently replaces first. Subsequent 
 - [[npm/express]]
 
 ---
-*Last updated: 2026-04-12 | Sources: 5 (upstream repository, npm registry, source code audit of js-yaml 4.1.1, CVE databases, PoC verification)*
+*Last updated: 2026-04-12 | Sources: 6 (upstream repository, npm registry, source code audit of js-yaml 4.1.1, CVE databases, PoC verification, upstream issue #742 maintainer response)*
 *Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*
