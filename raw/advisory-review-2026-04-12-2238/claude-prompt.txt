@@ -1,0 +1,29 @@
+Review this public evidence bundle for the OSS Security KB page on axios. Propose concise, evidence-backed updates only. Do not fabricate findings, do not invent fixed versions, and keep uncertain claims explicitly qualified.
+
+Current KB page summary:
+- axios page currently only documents the March 2026 compromised npm publish / malicious dependency incident.
+- It does not yet capture the broader public advisory history shown in OSV/GHSA.
+
+Public evidence bundle:
+- OSV package query for npm/axios currently returns these published records:
+  - GHSA-3p68-rc4w-qgx5 / CVE-2025-62718 | fixed 1.15.0 | NO_PROXY hostname normalization bypass can proxy loopback/internal requests unexpectedly.
+  - GHSA-42xw-2xvc-qx8m / CVE-2019-10742 | fixed 0.18.1 | DoS.
+  - GHSA-43fc-jf86-j433 / CVE-2026-25639 | fixed 1.13.5 | DoS via __proto__ key in mergeConfig.
+  - GHSA-4hjh-wcwx-xvwj / CVE-2025-58754 | fixed 1.12.0 | DoS through lack of data size check.
+  - GHSA-4w2v-q235-vp99 / CVE-2020-28168 | fixed 0.21.1 | SSRF.
+  - GHSA-8hc4-vh64-cxmj / CVE-2024-39338 | fixed 1.7.4 | SSRF.
+  - GHSA-cph5-m8f7-6c5x / CVE-2021-3749 | fixed 0.21.2 | inefficient regex complexity / ReDoS.
+  - GHSA-fvcv-3m26-pcqx / CVE-2026-40175 | fixed 1.15.0 | unrestricted cloud metadata exfiltration via header injection chain.
+  - GHSA-jr5f-v2jv-69x6 / CVE-2025-27152 | fixed 1.8.2 | SSRF and credential leakage via absolute URL handling.
+  - GHSA-qj83-cq47-w5f8 / CVE-2026-39865 | fixed 1.13.2 | HTTP/2 session cleanup state corruption.
+  - GHSA-wf5p-g6vw-rhxx / CVE-2023-45857 | fixed 1.6.0 | CSRF.
+  - MAL-2026-2307 / GHSA-fw8c-xr5c-95f9 | malicious publish affecting exactly 1.14.1 and 0.30.4; patched versions none, safe guidance is to avoid compromised versions and move to clean releases.
+- GitHub advisory GHSA-fw8c-xr5c-95f9 says any computer that installed/ran affected package versions should be considered fully compromised and secrets should be rotated from a different computer.
+- Axios maintainer post-mortem issue says compromised versions were 1.14.1 and 0.30.4, live about 3 hours, injected plain-crypto-js@4.2.1, and recommends downgrading to 1.14.0 / 0.30.3 plus rotating secrets and checking for sfrclak.com / 142.11.206.73.
+- npm downloads API shows about 97,694,018 weekly downloads for axios for 2026-04-05..2026-04-11.
+- npm registry dist-tags currently show latest=1.15.0.
+
+Return:
+1) a short bullet list of safe KB updates worth making,
+2) a suggested revised 'Security Posture Notes' paragraph,
+3) any claims that should be avoided or clearly qualified.
