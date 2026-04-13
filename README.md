@@ -43,7 +43,8 @@ raw/                    ← Immutable source documents (audit reports, CVE write
 wiki/
   index.md              ← Master searchable index (LLM-maintained)
   log.md                ← Append-only ingest/audit log
-  npm/                  ← One .md file per package
+  TEMPLATE.md           ← Canonical page template / stub starting point
+  npm/                  ← Package pages + ecosystem landing page
   rust/
   dotnet/
   python/
@@ -52,6 +53,8 @@ wiki/
   kubernetes/
   linux/
 SCHEMA.md               ← LLM wiki maintenance instructions
+CONTRIBUTING.md         ← Contributor workflow and evidence standards
+SECURITY.md             ← Security reporting process for this repo
 ```
 
 ## How to Use
@@ -67,10 +70,10 @@ SCHEMA.md               ← LLM wiki maintenance instructions
 1. Fork the repo
 2. Add or update a wiki page in the appropriate ecosystem folder
 3. Add your source document to `raw/` if applicable
-4. Update `wiki/index.md` and `wiki/log.md`
+4. Update `wiki/index.md`, the relevant ecosystem landing page (for example `wiki/npm/index.md`), and `wiki/log.md`
 5. Open a PR
 
-See [SCHEMA.md](SCHEMA.md) for page format conventions.
+See [SCHEMA.md](SCHEMA.md) for page format conventions and [CONTRIBUTING.md](CONTRIBUTING.md) for evidence / review expectations.
 
 ## Relationship to Existing Databases
 
