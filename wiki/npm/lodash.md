@@ -11,6 +11,7 @@
 
 | Date | Auditor | Scope | Methodology | Findings | Source |
 |------|---------|-------|-------------|----------|--------|
+| 2026-04-13 | OpenClaw recurring review | public-advisory refresh | manual | Refreshed published advisory coverage to include the 2025–2026 incomplete-fix chains affecting `_.unset` / `_.omit` and `_.template` | https://osv.dev/list?ecosystem=npm&query=lodash |
 | 2026-04-12 | [@travis-burmaster](https://github.com/travis-burmaster) | full-source (all path-walking functions) | hybrid (manual review + automated) | 3 new findings + all CVE patches verified | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
 
 **Audit scope:** lodash 4.18.1 (latest), single-file build `lodash.js` (17,259 lines, 817 functions). Systematic review of all 120+ path-walking functions for prototype pollution and related injection vectors. Commit `cb0b9b9` (lodash/lodash main branch, 2026-04-12).
@@ -120,23 +121,29 @@ Lodash 4.18.1 uses three layers of prototype pollution defense:
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| CVE-2019-10744 | High | Prototype pollution in `defaultsDeep` | 4.17.12 | [snyk](https://security.snyk.io/vuln/SNYK-JS-LODASH-450202) |
-| CVE-2020-8203 | High | Prototype pollution via `zipObjectDeep`, `set`, `setWith`, `update`, `updateWith` | 4.17.19 | [GHSA-p6mc-m468-83gw](https://github.com/advisories/GHSA-p6mc-m468-83gw) |
-| GHSA-xxjr-mmjv-4gpg | High | Prototype pollution in `_.unset` and `_.omit` | 4.17.23+ | [GHSA](https://github.com/lodash/lodash/security/advisories/GHSA-xxjr-mmjv-4gpg) |
+| CVE-2019-1010266 / GHSA-x5rq-j2xg-h7qm | Medium | ReDoS in older string / number parsing paths; public records mark versions before 4.17.11 as affected. | 4.17.11 | https://github.com/advisories/GHSA-x5rq-j2xg-h7qm |
+| CVE-2019-10744 / GHSA-jf85-cpcp-j695 | Critical | Prototype pollution in `defaultsDeep`. | 4.17.12 | https://github.com/advisories/GHSA-jf85-cpcp-j695 |
+| CVE-2020-8203 / GHSA-p6mc-m468-83gw | High | Prototype pollution via deep-path mutation helpers including `zipObjectDeep`, `set`, `setWith`, `update`, and `updateWith`. | 4.17.19 | https://github.com/advisories/GHSA-p6mc-m468-83gw |
+| CVE-2020-28500 / GHSA-29mw-wpgm-hmr9 | Medium | ReDoS in `toNumber`, `trim`, and `trimEnd`. | 4.17.21 | https://github.com/advisories/GHSA-29mw-wpgm-hmr9 |
+| CVE-2021-23337 / GHSA-35jh-r3h4-6jhm | High | Command injection via the `_.template` `variable` option when untrusted input reaches template compilation. | 4.17.21 | https://github.com/advisories/GHSA-35jh-r3h4-6jhm |
+| CVE-2025-13465 / GHSA-xxjr-mmjv-4gpg | Medium | Prototype pollution in `_.unset` and `_.omit`; public advisory coverage says 4.17.23 patched the initial string-key variant. | 4.17.23 | https://github.com/advisories/GHSA-xxjr-mmjv-4gpg |
+| CVE-2026-2950 / GHSA-f23m-r3pf-42rh | Medium | Incomplete-fix bypass for the 2025 `_.unset` / `_.omit` bug: array-wrapped path segments could still reach prototype deletion paths until 4.18.0. | 4.18.0 | https://github.com/advisories/GHSA-f23m-r3pf-42rh |
+| CVE-2026-4800 / GHSA-r5fr-rjxr-66jc | High | Incomplete-fix bypass for the 2021 `_.template` bug: `options.imports` key names were not validated and inherited polluted keys could flow into the `Function()` constructor sink. | 4.18.0 | https://github.com/advisories/GHSA-r5fr-rjxr-66jc |
 
 ## Security Posture Notes
 
-- All three known prototype pollution CVEs are correctly patched in 4.18.1 with defense-in-depth (3 independent layers).
-- No new prototype pollution vectors found in any of the 120+ path-walking functions.
-- The `_.template()` code injection (C1) is the primary remaining risk -- it is architectural (uses `Function()` constructor) and frequently misused.
-- `_.invoke()` and `_.result()` can invoke prototype methods with attacker-controlled arguments but cannot write properties.
-- Lodash is a model for effective post-CVE remediation: the fixes are comprehensive, layered, and bypass-resistant.
+- Public advisory history now shows **two distinct incomplete-fix chains** that matter operationally: `_.template` injection from `CVE-2021-23337` to `CVE-2026-4800`, and `_.unset` / `_.omit` prototype pollution from `CVE-2025-13465` to `CVE-2026-2950`.
+- The published record is no longer just about prototype pollution. Lodash also carries documented **ReDoS** history and a recurring **template-compilation code-injection** surface tied to `Function()`-based compilation.
+- For defenders, intermediate patch levels matter: `4.17.21` closed the older `variable`-option template bug but not the later `imports`-key injection path, and `4.17.23` closed the first `_.unset` / `_.omit` bug but not the later array-path bypass.
+- The 2026 template-fix advisory is also notable because the published remediation did two things: validate `imports` key names and switch import merging from inherited-property enumeration to own-property enumeration, reducing the chance that prior prototype pollution contaminates template compilation.
+- Lodash remains a high-value ecosystem dependency (`~133,124,413` npm downloads in the last week of this review pass, latest `4.18.1`), so even medium-severity parser or object-path bugs can have outsized downstream impact.
+- The internal 2026 source audit still suggests the remaining high-risk design area is `_.template()` itself: even on patched versions, applications should treat untrusted template strings or untrusted template options as dangerous.
 
 ## Recommendations for Developers
 
-1. **Never pass user input to `_.template()`** -- treat it as `eval()`. Use a sandboxed template engine (Handlebars, Mustache, Nunjucks with autoescaping) for user-controlled templates.
-2. **Never pass user-controlled paths to `_.invoke()` or `_.result()`** -- validate paths against an allowlist.
-3. **Ensure you're on lodash >= 4.17.21** -- earlier versions have unpatched prototype pollution.
+1. **Treat `_.template()` like an unsafe code-generation primitive** — never pass untrusted template strings or untrusted `options.imports` / `variable` values into it.
+2. **Upgrade to lodash >= 4.18.0 (preferably latest 4.18.1)** — versions that stopped at 4.17.21 or 4.17.23 still miss later incomplete-fix follow-ups.
+3. **Never pass user-controlled object paths to deep mutation helpers** such as `set`, `update`, `zipObjectDeep`, `unset`, or `omit` without strong validation / normalization.
 4. **Consider lodash-es or per-method imports** to reduce attack surface.
 
 ## Open Questions (Resolved)
@@ -152,5 +159,5 @@ Lodash 4.18.1 uses three layers of prototype pollution defense:
 - [[npm/express]]
 
 ---
-*Last updated: 2026-04-12 | Sources: 6 (upstream repository, npm registry, source code audit of lodash 4.18.1, CVE databases, Snyk, GitHub Security Advisories)*
+*Last updated: 2026-04-13 | Sources: 9 (OSV package query, GitHub Security Advisories, public CVE / NVD records, npm registry metadata, npm downloads API, upstream public fix commits, plus prior source-audit context already captured on-page)*
 *Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*

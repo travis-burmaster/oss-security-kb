@@ -12,7 +12,7 @@
 - [[npm/jsonwebtoken]] — token verification library · advisory mapped · verification-semantic and key-confusion history
 - [[npm/js-yaml]] — YAML parser · audit ingested · historical RCE plus disputed 2026 alias-expansion DoS finding
 - [[npm/koa-router]] — Koa routing middleware · baseline stub · routing-layer companion to path-to-regexp with audit history still sparse
-- [[npm/lodash]] — lodash utility library · advisory mapped · prototype pollution history
+- [[npm/lodash]] — lodash utility library · advisory mapped · prototype pollution, ReDoS, and template-injection history
 - [[npm/mathjs]] — math expression engine · advisory mapped · 15.2.0 object-attribute / parser hardening security fix
 - [[npm/minimist]] — minimist argument parser · advisory mapped · high transitive risk
 - [[npm/next-intl]] — internationalization middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
