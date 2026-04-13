@@ -12,6 +12,7 @@
 - [[npm/minimist]] — tiny CLI parser with outsized transitive blast radius
 - [[npm/next-intl]] — i18n / routing middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
 - [[npm/path-to-regexp]] — routing parser · advisory mapped · legacy and modern ReDoS / route-expansion hardening history
+- [[npm/qs]] — query-string parser · advisory mapped · prototype-pollution and parser-limit bypass history
 - [[npm/semver]] — version parsing infrastructure · advisory mapped · ReDoS history
 
 ## Baseline Stubs

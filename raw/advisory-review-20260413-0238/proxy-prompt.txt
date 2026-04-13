@@ -1,0 +1,75 @@
+Review the gathered public evidence for the npm package qs and propose an evidence-backed KB page draft. Do not fabricate findings. Keep only claims supported by the evidence snippets below. Return concise markdown with: registry, weekly downloads, repository, security contact/disclosure policy if clearly evidenced, current status, audit history, known vulnerabilities table, security posture notes, dependencies/open questions/related pages.\nNPM downloads: 143160104 last week (2026-04-06 to 2026-04-12). Latest version: 6.15.1. Repository: https://github.com/ljharb/qs\nID: GHSA-6rw7-vpxm-498p\nAliases: CVE-2025-15284\nSummary: qs's arrayLimit bypass in its bracket notation allows DoS via memory exhaustion\nPublished: 2025-12-30T21:02:54Z\nDetails: ### Summary
+
+The `arrayLimit` option in qs did not enforce limits for bracket notation (`a[]=1&a[]=2`), only for indexed notation (`a[0]=1`). This is a consistency bug; `arrayLimit` should apply uniformly across all array notations.
+
+**Note:** The default `parameterLimit` of 1000 effectively mitigates the DoS scenario originally described. With default options, bracket notation cannot produce arrays larger than `parameterLimit` regardless of `arrayLimit`, because each `a[]=value` consumes one parameter slot. The severity has been reduced accordingly.
+
+### Details
+
+The `arrayLimit` option only checked limits for indexed notation (`a[0]=1&a[1]=2`) but did not enforce it for bracket notation (`a[]=1&a[]=2`).
+
+**Vulnerable code** (`lib/parse.js:159-162`):
+```javascript
+if (root === '[]' && options.parseArrays) {
+    obj = utils.combine([], leaf);  // No arrayLimit check
+}
+```
+
+**Working code** (`lib/parse.js:175`):
+```javascript
+else if (index <= options.arrayLimit) {  // Limit checked here
+    obj = [];
+    obj[index] = leaf;
+}
+```
+
+The bracket notation handler at line 159 uses `utils.combine([], leaf)` without validating against `options.arrayLimit`, while indexed notation at line 175 checks `index <= options.arrayLimit` before creating arrays.
+
+### PoC
+
+```javascript
+const qs = require('qs');
+const result = qs.parse('a[]=1&a[]=2&a[]=3&a[]=4&a[]=5&a[]=6', { arrayLimit: 5 });
+console.log(result.a.length);  // Output: 6 (should be max 5)
+```
+
+**Note on parameterLimit interaction:** The original advisory's "DoS demonstration" claimed a length of 10,000, but `parameterLimit` (default: 1000) caps parsing to 1,000 parameters. With default options, the actual output is 1,000, not 10,000.
+
+### Impact
+
+Consistency bug in `arrayLimit` enforcement. With default `parameterLimit`, the\nFixed versions mentioned from affected ranges: 6.14.1\nReferences: https://github.com/ljharb/qs/security/advisories/GHSA-6rw7-vpxm-498p | https://nvd.nist.gov/vuln/detail/CVE-2025-15284 | https://github.com/ljharb/qs/commit/3086902ecf7f088d0d1803887643ac6c03d415b9 | https://github.com/ljharb/qs\nID: GHSA-f9cm-p3w6-xvr3\nAliases: CVE-2014-10064\nSummary: Denial-of-Service Extended Event Loop Blocking in qs\nPublished: 2018-10-09T00:38:48Z\nDetails: Versions prior to 1.0.0 of `qs` are affected by a denial of service vulnerability that results from excessive recursion in parsing a deeply nested JSON string.
+
+
+
+
+## Recommendation
+
+Update to version 1.0.0 or later\nFixed versions mentioned from affected ranges: 1.0.0\nReferences: https://nvd.nist.gov/vuln/detail/CVE-2014-10064 | https://github.com/advisories/GHSA-f9cm-p3w6-xvr3 | https://www.npmjs.com/advisories/28\nID: GHSA-gqgv-6jq5-jjj9\nAliases: CVE-2017-1000048\nSummary: Prototype Pollution Protection Bypass in qs\nPublished: 2020-04-30T17:16:47Z\nDetails: Affected version of `qs` are vulnerable to Prototype Pollution because it is possible to bypass the protection. The `qs.parse` function fails to properly prevent an object's prototype to be altered when parsing arbitrary input. Input containing `[` or `]` may bypass the prototype pollution protection and alter the Object prototype. This allows attackers to override properties that will exist in all objects, which may lead to Denial of Service or Remote Code Execution in specific circumstances.
+
+
+## Recommendation
+
+Upgrade to 6.0.4, 6.1.2, 6.2.3, 6.3.2 or later.\nFixed versions mentioned from affected ranges: 6.0.4, 6.1.2, 6.2.3, 6.3.2\nReferences: https://nvd.nist.gov/vuln/detail/CVE-2017-1000048 | https://github.com/ljharb/qs/issues/200 | https://github.com/ljharb/qs/commit/beade029171b8cef9cee0d03ebe577e2dd84976d | https://access.redhat.com/errata/RHSA-2017:2672 | https://github.com/ljharb/qs\nID: GHSA-hrpp-h998-j3pp\nAliases: CVE-2022-24999\nSummary: qs vulnerable to Prototype Pollution\nPublished: 2022-11-27T00:30:50Z\nDetails: qs before 6.10.3 allows attackers to cause a Node process hang because an `__ proto__` key can be used. In many typical web framework use cases, an unauthenticated remote attacker can place the attack payload in the query string of the URL that is used to visit the application, such as `a[__proto__]=b&a[__proto__]&a[length]=100000000`. The fix was backported to qs 6.9.7, 6.8.3, 6.7.3, 6.6.1, 6.5.3, 6.4.1, 6.3.3, and 6.2.4.\nFixed versions mentioned from affected ranges: 6.10.3, 6.9.7, 6.8.3, 6.7.3, 6.6.1, 6.5.3, 6.4.1, 6.3.3, 6.2.4\nReferences: https://nvd.nist.gov/vuln/detail/CVE-2022-24999 | https://github.com/ljharb/qs/pull/428 | https://github.com/ljharb/qs/commit/4310742efbd8c03f6495f07906b45213da0a32ec | https://github.com/ljharb/qs/commit/727ef5d34605108acb3513f72d5435972ed15b68 | https://github.com/ljharb/qs/commit/73205259936317b40f447c5cdb71c5b341848e1b\nID: GHSA-jjv7-qpx3-h62q\nAliases: CVE-2014-7191\nSummary: Denial-of-Service Memory Exhaustion in qs\nPublished: 2017-10-24T18:33:36Z\nDetails: Versions prior to 1.0 of `qs` are affected by a denial of service condition. This condition is triggered by parsing a crafted string that deserializes into very large sparse arrays, resulting in the process running out of memory and eventually crashing.
+
+
+## Recommendation
+
+Update to version 1.0.0 or later.\nFixed versions mentioned from affected ranges: 1.0.0\nReferences: https://nvd.nist.gov/vuln/detail/CVE-2014-7191 | https://github.com/visionmedia/node-querystring/issues/104 | https://github.com/raymondfeng/node-querystring/commit/43a604b7847e56bba49d0ce3e222fe89569354d8 | https://access.redhat.com/errata/RHSA-2016:1380 | https://exchange.xforce.ibmcloud.com/vulnerabilities/96729\nID: GHSA-w7fw-mjwx-w883\nAliases: CVE-2026-2391\nSummary: qs's arrayLimit bypass in comma parsing allows denial of service\nPublished: 2026-02-12T17:04:39Z\nDetails: ### Summary
+The `arrayLimit` option in qs does not enforce limits for comma-separated values when `comma: true` is enabled, allowing attackers to cause denial-of-service via memory exhaustion. This is a bypass of the array limit enforcement, similar to the bracket notation bypass addressed in GHSA-6rw7-vpxm-498p (CVE-2025-15284).
+
+### Details
+When the `comma` option is set to `true` (not the default, but configurable in applications), qs allows parsing comma-separated strings as arrays (e.g., `?param=a,b,c` becomes `['a', 'b', 'c']`). However, the limit check for `arrayLimit` (default: 20) and the optional throwOnLimitExceeded occur after the comma-handling logic in `parseArrayValue`, enabling a bypass. This permits creation of arbitrarily large arrays from a single parameter, leading to excessive memory allocation.
+
+**Vulnerable code** (lib/parse.js: lines ~40-50):
+```js
+if (val && typeof val === 'string' && options.comma && val.indexOf(',') > -1) {
+    return val.split(',');
+}
+
+if (options.throwOnLimitExceeded && currentArrayLength >= options.arrayLimit) {
+    throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+}
+
+return val;
+```
+The `split(',')` returns the array immediately, skipping the subsequent limit check. Downstream merging via `utils.combine` does not prevent allocation, even if it marks overflows for sparse arrays.This discrepancy allows attackers to send a single parameter with millions of commas (e.g., `?param=,,,,,,,,...`), allocating massive arrays in memory without triggering limits. It bypasses the intent of `arrayLimit`, which is enforced correctly for indexed (`a[0]=`) and bracket (`a[]=`) notations (the latter fixed in v6.14.1 per GHSA-6rw7-vpxm-498p\nFixed versions mentioned from affected ranges: 6.14.2\nReferences: https://github.com/ljharb/qs/security/advisories/GHSA-w7fw-mjwx-w883 | https://nvd.nist.gov/vuln/detail/CVE-2026-2391 | https://github.com/ljharb/qs/commit/f6a7abff1f13d644db9b05fe4f2c98ada6bf8482 | https://github.com/ljharb/qs\nRelevant upstream changelog lines: 6.14.0 adds throwOnParameterLimitExceeded option; 6.13.0 adds strictDepth option; 6.10.3 and 6.9.7: parse ignore __proto__ keys; 6.3.2/6.2.3/6.1.2/6.0.4: follow allowPrototypes option during merge.\n
