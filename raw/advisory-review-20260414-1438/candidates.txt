@@ -1,0 +1,23 @@
+ws: 5 advisories
+  - GHSA-2mhh-w6q8-5hxw CVE-2016-10518
+  - GHSA-3h5v-q93c-6h6q CVE-2024-37890
+  - GHSA-5v72-xg48-5rpm 
+  - GHSA-6663-c963-2gqg CVE-2016-10542
+  - GHSA-6fc8-4gx4-v693 CVE-2021-32640
+follow-redirects: 5 advisories
+  - GHSA-74fj-2j2h-c42q CVE-2022-0155
+  - GHSA-cxjh-pqwp-8mfp CVE-2024-28849
+  - GHSA-jchw-25xp-jwwc CVE-2023-26159
+  - GHSA-pw2r-vq6v-hr8c CVE-2022-0536
+  - GHSA-r4q5-vmmm-2653 
+undici: 22 advisories
+  - GHSA-2mjp-6q6p-2qxm CVE-2026-1525
+  - GHSA-3787-6prv-h9w3 CVE-2024-24758
+  - GHSA-3cvr-822r-rqcc CVE-2022-31150
+  - GHSA-3g92-w8c5-73pq CVE-2024-38372
+  - GHSA-4992-7rv2-5pvq CVE-2026-1527
+  - GHSA-5r9g-qh6m-jxff BIT-node-2023-23936,BIT-node-min-2023-23936,CVE-2023-23936
+  - GHSA-8qr4-xgw6-wmr3 CVE-2022-35949
+  - GHSA-9f24-jqhm-jfcw CVE-2024-24750
+  - GHSA-9qxr-qj54-h672 CVE-2024-30261
+  - GHSA-c76h-2ccp-4975 CVE-2025-22150
