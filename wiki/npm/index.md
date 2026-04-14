@@ -17,5 +17,5 @@
 - [[npm/semver]] — version parsing infrastructure · advisory mapped · ReDoS history
 - [[npm/cookie]] — cookie parser/serializer · audit ingested · strict serialize validation, parse-side minimal by design
 - [[npm/body-parser]] — request body parsing middleware · advisory mapped · 1.x and 2.x urlencoded-parser DoS fixes plus audit notes on parser boundaries
-- [[npm/send]] — static file serving engine · audit ingested · comprehensive path traversal defenses, symlink following by default
+- [[npm/send]] — static file serving engine · audit ingested · historical traversal / path-disclosure advisories plus verified modern traversal defenses
 - [[npm/koa-router]] — Koa routing middleware · audit ingested · 2026 v15.4.0 source review, prefix-strip boundary bug filed as koajs/router#232

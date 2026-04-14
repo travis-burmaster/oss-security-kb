@@ -20,7 +20,7 @@
 - [[npm/path-to-regexp]] — route parser · advisory mapped · audit and ReDoS history
 - [[npm/qs]] — query-string parser · advisory mapped · prototype-pollution and parser-limit bypass history
 - [[npm/semver]] — semver version parser · advisory mapped · ReDoS history
-- [[npm/send]] — static file serving engine · audit ingested · path traversal defenses verified, symlink following by default
+- [[npm/send]] — static file serving engine · audit ingested · historical traversal / path-disclosure advisories plus verified modern traversal defenses
 
 ## Rust / crates.io (3)
 - [[rust/serde]] — foundational serialization crate · baseline stub · high downstream deserialization surface
