@@ -39,6 +39,7 @@
 
 ## Related Pages
 
+- [[rust/serde_yaml_ng]]
 - [[rust/index]]
 
 ---

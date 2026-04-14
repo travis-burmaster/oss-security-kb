@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*30 packages tracked across 8 ecosystems. Last updated: 2026-04-14.*
+*31 packages tracked across 8 ecosystems. Last updated: 2026-04-14.*
 
 ## npm (18)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
@@ -12,7 +12,7 @@
 - [[npm/express]] — dominant Node.js web framework · audit ingested · public package history plus deeper 2026 source review
 - [[npm/jsonwebtoken]] — token verification library · advisory mapped · verification-semantic and key-confusion history
 - [[npm/js-yaml]] — YAML parser · audit ingested · historical RCE plus disputed 2026 alias-expansion DoS finding
-- [[npm/koa-router]] — Koa routing middleware · baseline stub · routing-layer companion to path-to-regexp with audit history still sparse
+- [[npm/koa-router]] — Koa routing middleware · audit ingested · 2026 v15.4.0 source review, prefix-strip boundary bug filed as koajs/router#232
 - [[npm/lodash]] — lodash utility library · advisory mapped · prototype pollution, ReDoS, and template-injection history
 - [[npm/mathjs]] — math expression engine · advisory mapped · 15.2.0 object-attribute / parser hardening security fix
 - [[npm/minimist]] — minimist argument parser · advisory mapped · high transitive risk
@@ -22,8 +22,9 @@
 - [[npm/semver]] — semver version parser · advisory mapped · ReDoS history
 - [[npm/send]] — static file serving engine · audit ingested · path traversal defenses verified, symlink following by default
 
-## Rust / crates.io (2)
+## Rust / crates.io (3)
 - [[rust/serde]] — foundational serialization crate · baseline stub · high downstream deserialization surface
+- [[rust/serde_yaml_ng]] — active fork of archived serde_yaml · audit ingested · YAML 1.2 Core schema signed non-decimal integer parsing gap filed as acatton/serde-yaml-ng#32
 - [[rust/tokio]] — async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 
 ## .NET / NuGet (2)
