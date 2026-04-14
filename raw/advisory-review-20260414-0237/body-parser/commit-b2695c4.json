@@ -1,0 +1,149 @@
+{
+  "sha": "b2695c4450f06ba3b0ccf48d872a229bb41c9bce",
+  "node_id": "C_kwDOAO8XDtoAKGIyNjk1YzQ0NTBmMDZiYTNiMGNjZjQ4ZDg3MmEyMjliYjQxYzliY2U",
+  "commit": {
+    "author": {
+      "name": "Ulises Gascón",
+      "email": "ulisesgascongonzalez@gmail.com",
+      "date": "2024-09-09T22:48:44Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2024-09-09T22:48:44Z"
+    },
+    "message": "Merge commit from fork\n\n* feat: add option to customize the depth\n\nMain Changes:\n- Update documentation to reflect the new features and errors\n- Update the changelog\n- Upgrade to `qs@6.13.0`\n- Add the `depth` option to define the depth of parsing while parsing the query string\n- Enable the `strictDepth` option by default in `qs.parse`\n- Add a 400 status code when the depth of the query string exceeds the limit defined by the `depth` option\n\n* chore: reduce the default depth limit to 32\n\nMain Changes:\n- Breaking Change: Set default depth limit to 32\n- Update documentation\n- Update the HISTORY",
+    "tree": {
+      "sha": "062f9a5ec32abdfe59f2cf31735ac5ec7614097c",
+      "url": "https://api.github.com/repos/expressjs/body-parser/git/trees/062f9a5ec32abdfe59f2cf31735ac5ec7614097c"
+    },
+    "url": "https://api.github.com/repos/expressjs/body-parser/git/commits/b2695c4450f06ba3b0ccf48d872a229bb41c9bce",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm33tMCRC1aQ7uu5UhlAAAp5kQACUaa76zEv1602Jsz4kxQBKM\n2zjoY5GSbtvBIwIgdKrN48wFng/cnlMFqNdeMfJfxdgKdHL4XMevoeeZXnIw4caH\nIRa2ncqwgPA0spom2X3ILmRkd1ekng4DqyE8MfAGgTjeMUhWAaBMcVQg3k2wwCKP\npRiij1GMTQCNyvhmr4ANwfTCshXrgvr+EDeEIZL66G7NRNJro9dl7T7DQyN0kJEA\nYuZBlfpujdzBqYBmq2ytxyozX6ARJsmZI60JGd8bp8vFTVbjDgM3PEGlFBzi0+uM\nUANS8IBeRkdw1TmiNpuhYVPzEqjecXYHv6OyMgp1loNt+hso6qlirfHt3Mgyu6LA\naqoUf14WhSoIXhqPjI4e6142fCCWjmUYv/YV2KRwBKfZfnxcTtEUJ/I4aDrhI4+6\nvGjmNbPjJw+UooKoV10lKBC65MGfCGKsbRb+0n5BiOIlQCbIiSE517ys46EAvkTz\nBix0LHugnnb1CV3+mfyF9jUEYQvldm+yIx+WAxykBN6fH3oLj0UrDhjPwhcBzMRr\ns0qHpMNEq0lfCNTWz3uK0PUijMtVh8tal6tso07bUIYRqFeu4yAn/0Iu7NOFhP9m\nEAyRSmqVx474GpzCj94nS5h8tJM3vRba5yISvH5DgVTUX/91yts0lPBM9kI6saRU\n7Hq9mzQLE8sFyHUGb4PN\n=EMHp\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 062f9a5ec32abdfe59f2cf31735ac5ec7614097c\nparent ade0f3f82f91086d6cd2ed2cb4b0aff448fbc2e5\nauthor Ulises Gascón <ulisesgascongonzalez@gmail.com> 1725922124 +0200\ncommitter GitHub <noreply@github.com> 1725922124 +0200\n\nMerge commit from fork\n\n* feat: add option to customize the depth\n\nMain Changes:\n- Update documentation to reflect the new features and errors\n- Update the changelog\n- Upgrade to `qs@6.13.0`\n- Add the `depth` option to define the depth of parsing while parsing the query string\n- Enable the `strictDepth` option by default in `qs.parse`\n- Add a 400 status code when the depth of the query string exceeds the limit defined by the `depth` option\n\n* chore: reduce the default depth limit to 32\n\nMain Changes:\n- Breaking Change: Set default depth limit to 32\n- Update documentation\n- Update the HISTORY",
+      "verified_at": "2024-11-06T15:49:20Z"
+    }
+  },
+  "url": "https://api.github.com/repos/expressjs/body-parser/commits/b2695c4450f06ba3b0ccf48d872a229bb41c9bce",
+  "html_url": "https://github.com/expressjs/body-parser/commit/b2695c4450f06ba3b0ccf48d872a229bb41c9bce",
+  "comments_url": "https://api.github.com/repos/expressjs/body-parser/commits/b2695c4450f06ba3b0ccf48d872a229bb41c9bce/comments",
+  "author": {
+    "login": "UlisesGascon",
+    "id": 5110813,
+    "node_id": "MDQ6VXNlcjUxMTA4MTM=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/5110813?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/UlisesGascon",
+    "html_url": "https://github.com/UlisesGascon",
+    "followers_url": "https://api.github.com/users/UlisesGascon/followers",
+    "following_url": "https://api.github.com/users/UlisesGascon/following{/other_user}",
+    "gists_url": "https://api.github.com/users/UlisesGascon/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/UlisesGascon/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/UlisesGascon/subscriptions",
+    "organizations_url": "https://api.github.com/users/UlisesGascon/orgs",
+    "repos_url": "https://api.github.com/users/UlisesGascon/repos",
+    "events_url": "https://api.github.com/users/UlisesGascon/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/UlisesGascon/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "ade0f3f82f91086d6cd2ed2cb4b0aff448fbc2e5",
+      "url": "https://api.github.com/repos/expressjs/body-parser/commits/ade0f3f82f91086d6cd2ed2cb4b0aff448fbc2e5",
+      "html_url": "https://github.com/expressjs/body-parser/commit/ade0f3f82f91086d6cd2ed2cb4b0aff448fbc2e5"
+    }
+  ],
+  "stats": {
+    "total": 136,
+    "additions": 124,
+    "deletions": 12
+  },
+  "files": [
+    {
+      "sha": "ffb80f32f02ae9bbc9e4b43df7b93b24138b5c2c",
+      "filename": "HISTORY.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 2,
+      "changes": 7,
+      "blob_url": "https://github.com/expressjs/body-parser/blob/b2695c4450f06ba3b0ccf48d872a229bb41c9bce/HISTORY.md",
+      "raw_url": "https://github.com/expressjs/body-parser/raw/b2695c4450f06ba3b0ccf48d872a229bb41c9bce/HISTORY.md",
+      "contents_url": "https://api.github.com/repos/expressjs/body-parser/contents/HISTORY.md?ref=b2695c4450f06ba3b0ccf48d872a229bb41c9bce",
+      "patch": "@@ -1,6 +1,9 @@\n unreleased\n-==========\n-  * deps: qs@6.12.3\n+===================\n+\n+  * deps: qs@6.13.0\n+  * add `depth` option to customize the depth level in the parser\n+  * IMPORTANT: The default `depth` level for parsing URL-encoded data is now `32` (previously was `Infinity`)\n \n 1.20.2 / 2023-02-21\n ==================="
+    },
+    {
+      "sha": "f6661b7d33c16808aaa4a19624666bc52f5cb639",
+      "filename": "README.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 0,
+      "changes": 8,
+      "blob_url": "https://github.com/expressjs/body-parser/blob/b2695c4450f06ba3b0ccf48d872a229bb41c9bce/README.md",
+      "raw_url": "https://github.com/expressjs/body-parser/raw/b2695c4450f06ba3b0ccf48d872a229bb41c9bce/README.md",
+      "contents_url": "https://api.github.com/repos/expressjs/body-parser/contents/README.md?ref=b2695c4450f06ba3b0ccf48d872a229bb41c9bce",
+      "patch": "@@ -278,6 +278,10 @@ The `verify` option, if supplied, is called as `verify(req, res, buf, encoding)`\n where `buf` is a `Buffer` of the raw request body and `encoding` is the\n encoding of the request. The parsing can be aborted by throwing an error.\n \n+#### depth\n+\n+The `depth` option is used to configure the maximum depth of the `qs` library when `extended` is `true`. This allows you to limit the amount of keys that are parsed and can be useful to prevent certain types of abuse. Defaults to `32`. It is recommended to keep this value as low as possible.\n+\n ## Errors\n \n The middlewares provided by this module create errors using the\n@@ -374,6 +378,10 @@ as well as in the `encoding` property. The `status` property is set to `415`,\n the `type` property is set to `'encoding.unsupported'`, and the `encoding`\n property is set to the encoding that is unsupported.\n \n+### The input exceeded the depth\n+\n+This error occurs when using `bodyParser.urlencoded` with the `extended` property set to `true` and the input exceeds the configured `depth` option. The `status` property is set to `400`. It is recommended to review the `depth` option and evaluate if it requires a higher value. When the `depth` option is set to `32` (default value), the error will not be thrown.\n+\n ## Examples\n \n ### Express/Connect top-level generic"
+    },
+    {
+      "sha": "886a3ce237e629ee81b14dec517d7ee37a47a1be",
+      "filename": "lib/types/urlencoded.js",
+      "status": "modified",
+      "additions": 30,
+      "deletions": 7,
+      "changes": 37,
+      "blob_url": "https://github.com/expressjs/body-parser/blob/b2695c4450f06ba3b0ccf48d872a229bb41c9bce/lib%2Ftypes%2Furlencoded.js",
+      "raw_url": "https://github.com/expressjs/body-parser/raw/b2695c4450f06ba3b0ccf48d872a229bb41c9bce/lib%2Ftypes%2Furlencoded.js",
+      "contents_url": "https://api.github.com/repos/expressjs/body-parser/contents/lib%2Ftypes%2Furlencoded.js?ref=b2695c4450f06ba3b0ccf48d872a229bb41c9bce",
+      "patch": "@@ -55,6 +55,9 @@ function urlencoded (options) {\n     : opts.limit\n   var type = opts.type || 'application/x-www-form-urlencoded'\n   var verify = opts.verify || false\n+  var depth = typeof opts.depth !== 'number'\n+    ? Number(opts.depth || 32)\n+    : opts.depth\n \n   if (verify !== false && typeof verify !== 'function') {\n     throw new TypeError('option verify must be function')\n@@ -118,7 +121,8 @@ function urlencoded (options) {\n       encoding: charset,\n       inflate: inflate,\n       limit: limit,\n-      verify: verify\n+      verify: verify,\n+      depth: depth\n     })\n   }\n }\n@@ -133,12 +137,20 @@ function extendedparser (options) {\n   var parameterLimit = options.parameterLimit !== undefined\n     ? options.parameterLimit\n     : 1000\n+\n+  var depth = typeof options.depth !== 'number'\n+    ? Number(options.depth || 32)\n+    : options.depth\n   var parse = parser('qs')\n \n   if (isNaN(parameterLimit) || parameterLimit < 1) {\n     throw new TypeError('option parameterLimit must be a positive number')\n   }\n \n+  if(isNaN(depth) || depth < 0) {\n+    throw new TypeError('option depth must be a zero or a positive number')\n+  }\n+\n   if (isFinite(parameterLimit)) {\n     parameterLimit = parameterLimit | 0\n   }\n@@ -156,12 +168,23 @@ function extendedparser (options) {\n     var arrayLimit = Math.max(100, paramCount)\n \n     debug('parse extended urlencoding')\n-    return parse(body, {\n-      allowPrototypes: true,\n-      arrayLimit: arrayLimit,\n-      depth: Infinity,\n-      parameterLimit: parameterLimit\n-    })\n+    try {\n+      return parse(body, {\n+        allowPrototypes: true,\n+        arrayLimit: arrayLimit,\n+        depth: depth,\n+        strictDepth: true,\n+        parameterLimit: parameterLimit\n+      })\n+    } catch (err) {\n+      if (err instanceof RangeError) {\n+        throw createError(400, 'The input exceeded the depth', {\n+          type: 'querystring.parse.rangeError'\n+        })\n+      } else {\n+        throw err\n+      }\n+    }\n   }\n }\n "
+    },
+    {
+      "sha": "014453238486b13c33a12834ececd4c4bb29e1c9",
+      "filename": "package.json",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/expressjs/body-parser/blob/b2695c4450f06ba3b0ccf48d872a229bb41c9bce/package.json",
+      "raw_url": "https://github.com/expressjs/body-parser/raw/b2695c4450f06ba3b0ccf48d872a229bb41c9bce/package.json",
+      "contents_url": "https://api.github.com/repos/expressjs/body-parser/contents/package.json?ref=b2695c4450f06ba3b0ccf48d872a229bb41c9bce",
+      "patch": "@@ -17,7 +17,7 @@\n     \"http-errors\": \"2.0.0\",\n     \"iconv-lite\": \"0.4.24\",\n     \"on-finished\": \"2.4.1\",\n-    \"qs\": \"6.12.3\",\n+    \"qs\": \"6.13.0\",\n     \"raw-body\": \"2.5.2\",\n     \"type-is\": \"~1.6.18\",\n     \"unpipe\": \"1.0.0\""
+    },
+    {
+      "sha": "fa5a815c62ab7a21336ad1c1444d683cfd70546f",
+      "filename": "test/urlencoded.js",
+      "status": "modified",
+      "additions": 80,
+      "deletions": 2,
+      "changes": 82,
+      "blob_url": "https://github.com/expressjs/body-parser/blob/b2695c4450f06ba3b0ccf48d872a229bb41c9bce/test%2Furlencoded.js",
+      "raw_url": "https://github.com/expressjs/body-parser/raw/b2695c4450f06ba3b0ccf48d872a229bb41c9bce/test%2Furlencoded.js",
+      "contents_url": "https://api.github.com/repos/expressjs/body-parser/contents/test%2Furlencoded.js?ref=b2695c4450f06ba3b0ccf48d872a229bb41c9bce",
+      "patch": "@@ -195,7 +195,7 @@ describe('bodyParser.urlencoded()', function () {\n       it('should parse deep object', function (done) {\n         var str = 'foo'\n \n-        for (var i = 0; i < 500; i++) {\n+        for (var i = 0; i < 32; i++) {\n           str += '[p]'\n         }\n \n@@ -213,13 +213,91 @@ describe('bodyParser.urlencoded()', function () {\n             var depth = 0\n             var ref = obj.foo\n             while ((ref = ref.p)) { depth++ }\n-            assert.strictEqual(depth, 500)\n+            assert.strictEqual(depth, 32)\n           })\n           .expect(200, done)\n       })\n     })\n   })\n \n+\n+  describe('with depth option', function () {\n+    describe('when custom value set', function () {\n+\n+      it('should reject non possitive numbers', function () {\n+        assert.throws(createServer.bind(null, { extended: true, depth: -1 }),\n+          /TypeError: option depth must be a zero or a positive number/)\n+        assert.throws(createServer.bind(null, { extended: true, depth: NaN }),\n+          /TypeError: option depth must be a zero or a positive number/)\n+        assert.throws(createServer.bind(null, { extended: true, depth: \"beep\" }),\n+          /TypeError: option depth must be a zero or a positive number/)\n+      })\n+\n+\n+      it('should parse up to the specified depth', function (done) {\n+        this.server = createServer({ extended:true,  depth: 10 })\n+        request(this.server)\n+          .post('/')\n+          .set('Content-Type', 'application/x-www-form-urlencoded')\n+          .send('a[b][c][d]=value')\n+          .expect(200, '{\"a\":{\"b\":{\"c\":{\"d\":\"value\"}}}}', done)\n+      })\n+\n+      it('should not parse beyond the specified depth', function (done) {\n+        this.server = createServer({ extended:true,  depth: 1 })\n+        request(this.server)\n+          .post('/')\n+          .set('Content-Type', 'application/x-www-form-urlencoded')\n+          .send('a[b][c][d][e]=value')\n+          .expect(400, '[querystring.parse.rangeError] The input exceeded the depth', done)\n+      })\n+    })\n+    \n+\n+    describe('when default value', function () {\n+      before(function () {\n+        this.server = createServer({ })\n+      })\n+\n+      it('should parse deeply nested objects', function (done) {\n+        var deepObject = 'a'\n+        for (var i = 0; i < 32; i++) {\n+          deepObject += '[p]'\n+        }\n+        deepObject += '=value'\n+  \n+        request(this.server)\n+          .post('/')\n+          .set('Content-Type', 'application/x-www-form-urlencoded')\n+          .send(deepObject)\n+          .expect(function (res) {\n+            var obj = JSON.parse(res.text)\n+            var depth = 0\n+            var ref = obj.a\n+            while ((ref = ref.p)) { depth++ }\n+            assert.strictEqual(depth, 32)\n+          })\n+          .expect(200, done)\n+      })\n+\n+      it('should not parse beyond the specified depth', function (done) {\n+        var deepObject = 'a';\n+        for (var i = 0; i < 33; i++) {\n+          deepObject += '[p]';\n+        }\n+        deepObject += '=value';\n+\n+        request(this.server)\n+          .post('/')\n+          .set('Content-Type', 'application/x-www-form-urlencoded')\n+          .send(deepObject)\n+          .expect(400, '[querystring.parse.rangeError] The input exceeded the depth', done);\n+      });\n+  \n+    })\n+\n+  })\n+\n   describe('with inflate option', function () {\n     describe('when false', function () {\n       before(function () {"
+    }
+  ]
+}

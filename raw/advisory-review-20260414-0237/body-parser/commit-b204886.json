@@ -1,0 +1,101 @@
+{
+  "sha": "b204886a6744b0b6d297cd0e849d75de836f3b63",
+  "node_id": "C_kwDOAO8XDtoAKGIyMDQ4ODZhNjc0NGIwYjZkMjk3Y2QwZTg0OWQ3NWRlODM2ZjNiNjM",
+  "commit": {
+    "author": {
+      "name": "Phillip Barta",
+      "email": "barta.phillip@gmail.com",
+      "date": "2025-11-24T18:15:15Z"
+    },
+    "committer": {
+      "name": "Ulises Gascon",
+      "email": "ulisesgascongonzalez@gmail.com",
+      "date": "2025-11-24T18:17:05Z"
+    },
+    "message": "sec: security patch for CVE-2025-13466\n\nSee: https://github.com/expressjs/body-parser/security/advisories/GHSA-wqch-xfxh-vrr4",
+    "tree": {
+      "sha": "c5a6c928aa2971b3c11105f4d34f8129ef7e7852",
+      "url": "https://api.github.com/repos/expressjs/body-parser/git/trees/c5a6c928aa2971b3c11105f4d34f8129ef7e7852"
+    },
+    "url": "https://api.github.com/repos/expressjs/body-parser/git/commits/b204886a6744b0b6d297cd0e849d75de836f3b63",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCgAdFiEEwrJdm0Jy2ylWW6h/PHgk85qJV1gFAmkkoSIACgkQPHgk85qJ\nV1gM3g//TABlrGj7lyPcS0X72MjszkpnsQI9iHA6uXNGYVQ2GfLb29TUSQ77Zy6Y\nUeBawYsdDCojLv35Ys4kcNEnHjWSEt7tx/qvKmdWLjy5nb28DcnLeFW0Kuws0GtY\nDuEZPThw3Ez66m8XeBISBXUYYjQHMB2nitJK7iAFFZPJvqnYy4LcXHISpN+n7zbQ\nzxwVFqqfIrFRZmXJGzU6OaZ/y5KdWcVPO/opH/xXm2T+Fr8vhg1E8yrRE3CGbUGz\nQ7qxh76+JHuom3PMYgav54p4l9NWSxefA4rSwUjvW9+cZz+wq05y+nLU9nBxtyEC\ngGU8pNn0hge6ysFQXVW2oSbn2Fyqs9jLdy1QrtCRm5XTQ9tVywwaYC3hAw9H/FjA\n9aV3jJIvgNIDA+0vkS6KS5KKRtbREsXlaQB+3brBuCJI5fWmWHUbyD5B2w7S7lNS\nMm0uqaZBw0FLgvkmcjqjuocl9L3DFrMXAnnLOifSyYWqCRvTI5kYSC832Q9W2Wlk\n0u7Qjw273ZghPKHV0tqE6C6N+8kPMljB8H5qXrEa6tfvlzWiqX3Ys1ZFCF0sgVbe\nlhntbeDlc17Ky7N/oVMEo752D8SgLFU8Zy+rNU5jZ/koOUObXCv4U9MyiQRi6gtf\nTYzqV3qhmDhU+8VdHHpxBDWcv7JOGY3ovo2KG3u7UIDnWQYhgNk=\n=R2PG\n-----END PGP SIGNATURE-----",
+      "payload": "tree c5a6c928aa2971b3c11105f4d34f8129ef7e7852\nparent e20e3512e085c1162e8ffe36ac65c705a8017251\nauthor Phillip Barta <barta.phillip@gmail.com> 1764008115 +0100\ncommitter Ulises Gascon <ulisesgascongonzalez@gmail.com> 1764008225 +0100\n\nsec: security patch for CVE-2025-13466\n\nSee: https://github.com/expressjs/body-parser/security/advisories/GHSA-wqch-xfxh-vrr4\n",
+      "verified_at": "2025-11-24T18:17:17Z"
+    }
+  },
+  "url": "https://api.github.com/repos/expressjs/body-parser/commits/b204886a6744b0b6d297cd0e849d75de836f3b63",
+  "html_url": "https://github.com/expressjs/body-parser/commit/b204886a6744b0b6d297cd0e849d75de836f3b63",
+  "comments_url": "https://api.github.com/repos/expressjs/body-parser/commits/b204886a6744b0b6d297cd0e849d75de836f3b63/comments",
+  "author": {
+    "login": "Phillip9587",
+    "id": 17254592,
+    "node_id": "MDQ6VXNlcjE3MjU0NTky",
+    "avatar_url": "https://avatars.githubusercontent.com/u/17254592?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/Phillip9587",
+    "html_url": "https://github.com/Phillip9587",
+    "followers_url": "https://api.github.com/users/Phillip9587/followers",
+    "following_url": "https://api.github.com/users/Phillip9587/following{/other_user}",
+    "gists_url": "https://api.github.com/users/Phillip9587/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/Phillip9587/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/Phillip9587/subscriptions",
+    "organizations_url": "https://api.github.com/users/Phillip9587/orgs",
+    "repos_url": "https://api.github.com/users/Phillip9587/repos",
+    "events_url": "https://api.github.com/users/Phillip9587/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/Phillip9587/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "UlisesGascon",
+    "id": 5110813,
+    "node_id": "MDQ6VXNlcjUxMTA4MTM=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/5110813?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/UlisesGascon",
+    "html_url": "https://github.com/UlisesGascon",
+    "followers_url": "https://api.github.com/users/UlisesGascon/followers",
+    "following_url": "https://api.github.com/users/UlisesGascon/following{/other_user}",
+    "gists_url": "https://api.github.com/users/UlisesGascon/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/UlisesGascon/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/UlisesGascon/subscriptions",
+    "organizations_url": "https://api.github.com/users/UlisesGascon/orgs",
+    "repos_url": "https://api.github.com/users/UlisesGascon/repos",
+    "events_url": "https://api.github.com/users/UlisesGascon/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/UlisesGascon/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "e20e3512e085c1162e8ffe36ac65c705a8017251",
+      "url": "https://api.github.com/repos/expressjs/body-parser/commits/e20e3512e085c1162e8ffe36ac65c705a8017251",
+      "html_url": "https://github.com/expressjs/body-parser/commit/e20e3512e085c1162e8ffe36ac65c705a8017251"
+    }
+  ],
+  "stats": {
+    "total": 13,
+    "additions": 9,
+    "deletions": 4
+  },
+  "files": [
+    {
+      "sha": "924093736ac3aa39844ddf9787cf0a7bd979b7a0",
+      "filename": "lib/types/urlencoded.js",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 4,
+      "changes": 13,
+      "blob_url": "https://github.com/expressjs/body-parser/blob/b204886a6744b0b6d297cd0e849d75de836f3b63/lib%2Ftypes%2Furlencoded.js",
+      "raw_url": "https://github.com/expressjs/body-parser/raw/b204886a6744b0b6d297cd0e849d75de836f3b63/lib%2Ftypes%2Furlencoded.js",
+      "contents_url": "https://api.github.com/repos/expressjs/body-parser/contents/lib%2Ftypes%2Furlencoded.js?ref=b204886a6744b0b6d297cd0e849d75de836f3b63",
+      "patch": "@@ -127,11 +127,16 @@ function createQueryParser (options) {\n  *\n  * @param {string} body\n  * @param {number} limit\n+ * @return {number|undefined} Returns undefined if limit exceeded\n  * @api private\n  */\n-\n function parameterCount (body, limit) {\n-  var len = body.split('&').length\n-\n-  return len > limit ? undefined : len - 1\n+  let count = 0\n+  let index = -1\n+  do {\n+    count++\n+    if (count > limit) return undefined // Early exit if limit exceeded\n+    index = body.indexOf('&', index + 1)\n+  } while (index !== -1)\n+  return count\n }"
+    }
+  ]
+}

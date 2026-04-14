@@ -1,12 +1,12 @@
 # OSS Security KB — Master Index
 
-*30 packages tracked across 8 ecosystems. Last updated: 2026-04-13.*
+*30 packages tracked across 8 ecosystems. Last updated: 2026-04-14.*
 
 ## npm (18)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
 - [[npm/basic-ftp]] — FTP client library · advisory mapped · 2026 5.2.x path-traversal and CRLF command-injection fix chain
-- [[npm/body-parser]] — request body parsing middleware · audit ingested · parser-boundary review plus `allowPrototypes` concern in extended mode
+- [[npm/body-parser]] — request body parsing middleware · advisory mapped · 1.x and 2.x urlencoded-parser DoS fixes plus parser-boundary review notes
 - [[npm/cookie]] — cookie parser/serializer · audit ingested · strict serialize validation, parse-side minimal by design
 - [[npm/debug]] — debug logging utility · advisory mapped · supply-chain compromise in 4.4.2 plus older ReDoS history
 - [[npm/express]] — dominant Node.js web framework · audit ingested · public package history plus deeper 2026 source review
