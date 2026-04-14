@@ -5,7 +5,7 @@
 **Repository:** https://github.com/expressjs/body-parser
 **Security Contact:** security@expressjs.com / express-security@lists.openjsf.org
 **Disclosure Policy:** https://github.com/expressjs/express/security/policy
-**Current Status:** audit-ingested
+**Current Status:** advisory mapped
 
 ## Audit History
 
@@ -69,21 +69,22 @@ Each parser type checks `Content-Type` before processing via `shouldParse(req)` 
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| CVE-2024-45590 | High | Denial of service via malformed urlencoded payload | 1.20.3 | [GHSA](https://github.com/advisories/GHSA-qwcr-r2fm-qrc7) |
+| CVE-2024-45590 / GHSA-qwcr-r2fm-qrc7 | High | Denial of service when url encoding is enabled; upstream 1.20.3 adds a default `depth` limit of `32` in the 1.x line. | 1.20.3 | [GHSA](https://github.com/advisories/GHSA-qwcr-r2fm-qrc7), [HISTORY.md](https://raw.githubusercontent.com/expressjs/body-parser/master/HISTORY.md) |
+| CVE-2025-13466 / GHSA-wqch-xfxh-vrr4 | Medium | Denial of service in `2.2.0` from inefficient handling of URL-encoded bodies with very large parameter counts within the default request-size limit. | 2.2.1 | [GHSA](https://github.com/advisories/GHSA-wqch-xfxh-vrr4), [release notes](https://github.com/expressjs/body-parser/releases/tag/v2.2.1) |
 
 ## Security Posture Notes
 
 - body-parser is Express's built-in request body parsing middleware (bundled since Express 4.16).
 - The JSON parser delegates to native `JSON.parse` — safe against prototype pollution at the parse level, but applications must be careful with downstream merging of parsed bodies.
 - The urlencoded parser delegates to qs — security depends on how Express configures qs options (notably `allowPrototypes`).
-- Size limits (`limit` option) default to 100kb, providing basic DoS protection. Applications should tune this for their use case.
+- Size limits (`limit` option) default to 100kb, providing basic DoS protection, but the public advisory history shows urlencoded parser complexity still matters within that limit when depth / parameter handling regresses.
 
 ## Recommendations for Developers
 
 1. **Use `'simple'` query parser mode** (Express 5 default) unless you specifically need nested object parsing
 2. **Never recursively merge `req.body` into configuration objects** without sanitizing keys — `__proto__` will be an own property from JSON.parse
 3. **Set appropriate size limits** via the `limit` option for your use case
-4. **Keep body-parser updated** — CVE-2024-45590 was a DoS via malformed urlencoded data
+4. **Keep body-parser updated on your active major line** — public advisories currently require at least `1.20.3` on 1.x and `2.2.1` on 2.x
 
 ## Related Pages
 
@@ -93,5 +94,5 @@ Each parser type checks `Content-Type` before processing via `shouldParse(req)` 
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-13 | Sources: 5 (upstream repository, source code audit of body-parser 2.2.2 via Express audit, GHSA database, npm registry, Express threat model)*
+*Last updated: 2026-04-14 | Sources: 8 (upstream repository, source code audit of body-parser 2.2.2 via Express audit, GitHub Advisory Database, OSV.dev, public CVE records via advisory aliases, upstream HISTORY.md, GitHub release metadata, npm registry)*
 *Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*
