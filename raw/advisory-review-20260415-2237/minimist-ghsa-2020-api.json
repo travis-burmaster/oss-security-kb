@@ -1,0 +1,112 @@
+{
+  "ghsa_id": "GHSA-vh95-rmgr-6w4m",
+  "cve_id": "CVE-2020-7598",
+  "url": "https://api.github.com/advisories/GHSA-vh95-rmgr-6w4m",
+  "html_url": "https://github.com/advisories/GHSA-vh95-rmgr-6w4m",
+  "summary": "Prototype Pollution in minimist",
+  "description": "Affected versions of `minimist` are vulnerable to prototype pollution. Arguments are not properly sanitized, allowing an attacker to modify the prototype of `Object`, causing the addition or modification of an existing property that will exist on all objects.  \nParsing the argument `--__proto__.y=Polluted` adds a `y` property with value `Polluted` to all objects. The argument `--__proto__=Polluted` raises and uncaught error and crashes the application.  \nThis is exploitable if attackers have control over the arguments being passed to `minimist`.\n\n\n## Recommendation\n\nUpgrade to versions 0.2.1, 1.2.3 or later.",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": null,
+  "source_code_location": "https://github.com/substack/minimist",
+  "identifiers": [
+    {
+      "value": "GHSA-vh95-rmgr-6w4m",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2020-7598",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2020-7598",
+    "https://snyk.io/vuln/SNYK-JS-MINIMIST-559764",
+    "http://lists.opensuse.org/opensuse-security-announce/2020-06/msg00024.html",
+    "https://www.npmjs.com/advisories/1179",
+    "https://github.com/minimistjs/minimist/commit/10bd4cdf49d9686d48214be9d579a9cdfda37c68",
+    "https://github.com/minimistjs/minimist/commit/38a4d1caead72ef99e824bb420a2528eec03d9ab",
+    "https://github.com/minimistjs/minimist/commit/4cf1354839cb972e38496d35e12f806eea92c11f#diff-a1e0ee62c91705696ddb71aa30ad4f95",
+    "https://github.com/minimistjs/minimist/commit/63e7ed05aa4b1889ec2f3b196426db4500cbda94",
+    "https://github.com/advisories/GHSA-vh95-rmgr-6w4m"
+  ],
+  "published_at": "2020-04-03T21:48:32Z",
+  "updated_at": "2024-02-13T20:00:55Z",
+  "github_reviewed_at": "2020-04-03T21:42:08Z",
+  "nvd_published_at": "2020-03-11T23:15:00Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "minimist"
+      },
+      "vulnerable_version_range": "< 0.2.1",
+      "first_patched_version": "0.2.1",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "minimist"
+      },
+      "vulnerable_version_range": ">= 1.0.0, < 1.2.3",
+      "first_patched_version": "1.2.3",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L",
+      "score": 5.6
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-1321",
+      "name": "Improperly Controlled Modification of Object Prototype Attributes ('Prototype Pollution')"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "ayatweb",
+        "id": 145841131,
+        "node_id": "U_kgDOCLFb6w",
+        "avatar_url": "https://avatars.githubusercontent.com/u/145841131?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ayatweb",
+        "html_url": "https://github.com/ayatweb",
+        "followers_url": "https://api.github.com/users/ayatweb/followers",
+        "following_url": "https://api.github.com/users/ayatweb/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ayatweb/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ayatweb/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ayatweb/subscriptions",
+        "organizations_url": "https://api.github.com/users/ayatweb/orgs",
+        "repos_url": "https://api.github.com/users/ayatweb/repos",
+        "events_url": "https://api.github.com/users/ayatweb/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ayatweb/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L",
+    "score": 5.6
+  },
+  "epss": {
+    "percentage": 0.00253,
+    "percentile": 0.48523
+  }
+}

@@ -1,0 +1,12 @@
+PACKAGE minimist
+latest 1.2.8
+homepage https://github.com/minimistjs/minimist
+repository {'url': 'git://github.com/minimistjs/minimist.git', 'type': 'git'}
+bugs {'url': 'https://github.com/minimistjs/minimist/issues'}
+
+PACKAGE semver
+latest 7.7.4
+homepage https://github.com/npm/node-semver#readme
+repository {'url': 'git+https://github.com/npm/node-semver.git', 'type': 'git'}
+bugs {'url': 'https://github.com/npm/node-semver/issues'}
+
