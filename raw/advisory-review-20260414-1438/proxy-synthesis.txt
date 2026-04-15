@@ -1,0 +1,42 @@
+# `ws` — npm Package Security KB Entry (Draft)
+
+---
+
+## 1. Package Summary
+
+`ws` is a popular, lightweight WebSocket client and server implementation for Node.js, hosted at [github.com/websockets/ws](https://github.com/websockets/ws), with approximately 184 million weekly npm downloads (as of April 2026) and a latest published version of **8.20.0**.
+
+---
+
+## 2. Known Vulnerabilities
+
+| Advisory ID | CVE | Summary | Affected Versions | Fixed Versions | Severity Category |
+|---|---|---|---|---|---|
+| GHSA-2mhh-w6q8-5hxw | CVE-2016-10518 | Remote memory disclosure via ping/pong payload handling causing non-zeroed buffer exposure | < 1.0.1 | 1.0.1 | Information Disclosure |
+| GHSA-6663-c963-2gqg | CVE-2016-10542 | Denial of Service via excessively large WebSocket message | < 1.1.1 | 1.1.1 | DoS |
+| GHSA-5v72-xg48-5rpm | *(none listed)* | DoS via `Sec-WebSocket-Extensions` header parser using `Object.prototype` property names, leading to server crash | 0.2.6 – < 1.1.5, 2.0.0 – < 3.3.1 | 1.1.5 / 3.3.1 | DoS |
+| GHSA-6fc8-4gx4-v693 | CVE-2021-32640 | Regular-expression Denial of Service (ReDoS) in `Sec-WebSocket-Protocol` header parsing | 5.0.0 – < 5.2.3, 6.0.0 – < 6.2.2, 7.0.0 – < 7.4.6 | 5.2.3 / 6.2.2 / 7.4.6 | DoS |
+| GHSA-3h5v-q93c-6h6q | CVE-2024-37890 | DoS when handling a request with many HTTP headers exceeding `server.maxHeadersCount`, causing server crash | 2.1.0 – < 5.2.4, 6.0.0 – < 6.2.3, 7.0.0 – < 7.5.10, 8.0.0 – < 8.17.1 | 5.2.4 / 6.2.3 / 7.5.10 / 8.17.1 | DoS |
+
+*All advisory/CVE data sourced from OSV, GitHub Security Advisories, and corresponding release notes.*
+
+---
+
+## 3. Security Posture Notes
+
+- **Responsible disclosure process exists.** SECURITY.md directs reporters to `security@3rd-Eden.com` and states that advisories are tracked via GitHub Security Advisories.
+- **All five publicly known advisories have published fixes.** The latest version (8.20.0) post-dates the most recent fix (8.17.1 for CVE-2024-37890), so current users on the latest major branch should not be affected by any known advisory.
+- **Historical vulnerability pattern is predominantly DoS.** Four of the five advisories are denial-of-service issues; one is an information-disclosure bug. No known remote-code-execution advisories exist in public records.
+- **Input-parsing surfaces are the primary attack vector.** Advisories cluster around HTTP header parsing (`Sec-WebSocket-Extensions`, `Sec-WebSocket-Protocol`, generic header count) and message-size handling, suggesting these are the most security-sensitive code paths.
+- **Mitigations documented by maintainers.** Release notes for CVE-2021-32640 recommend header-size limits; notes for CVE-2024-37890 recommend reducing maximum HTTP header size or adjusting `server.maxHeadersCount`.
+- **Extremely high download count (~184 M/week)** amplifies the impact of any future vulnerability but also implies broad community scrutiny.
+- **No evidence of supply-chain compromise, typo-squatting incidents, or maintainer-account takeover** was found in the reviewed public data.
+
+---
+
+## 4. Open Questions
+
+- **Are there any unpublished or embargoed advisories currently in progress?** The public OSV/GHSA data may lag behind privately disclosed issues.
+- **What is the active maintenance status of older major branches (v5, v6, v7)?** Fixes were back-ported to these branches for CVE-2024-37890, but it is unclear whether they continue to receive security patches going forward.
+- **Has the project undergone any independent security audit?** No public evidence of a formal third-party audit was found in the reviewed materials.
+- **What CI/security-tooling is in place on the repository?** No information about fuzzing, SAST, or dependency-
