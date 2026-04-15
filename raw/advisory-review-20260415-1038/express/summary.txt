@@ -1,0 +1,170 @@
+GHSA-cm5g-3pgc-8rg4.json
+  aliases: CVE-2024-10491
+  severity: MODERATE
+  summary: Express ressource injection
+  details: A vulnerability has been identified in the Express response.links function, allowing for arbitrary resource injection in the Link header when unsanitized data is used.
+  affected:
+   - express npm <= 3.21.4
+      [{'introduced': '0'}, {'fixed': '4.0.0-rc1'}]
+  references:
+   - ADVISORY https://nvd.nist.gov/vuln/detail/CVE-2024-10491
+   - WEB https://github.com/expressjs/express/issues/6222
+   - PACKAGE https://github.com/expressjs/express
+   - WEB https://www.herodevs.com/vulnerability-directory/cve-2024-10491
+
+GHSA-gpvr-g6gh-9mc2.json
+  aliases: CVE-2014-6393
+  severity: MODERATE
+  summary: No Charset in Content-Type Header in express
+  details: Vulnerable versions of express do not specify a charset field in the content-type header while displaying 400 level response messages. The lack of enforcing user's browser to set correct charset, could be leveraged by an attacker to perform a cross-site scripting attack, using non-standard encodings, like UTF-7.
+  affected:
+   - express npm None
+      [{'introduced': '0'}, {'fixed': '3.11.0'}]
+   - express npm None
+      [{'introduced': '4.0.0'}, {'fixed': '4.5.0'}]
+  references:
+   - ADVISORY https://nvd.nist.gov/vuln/detail/CVE-2014-6393
+   - WEB https://bugzilla.redhat.com/show_bug.cgi?id=1203190
+   - ADVISORY https://github.com/advisories/GHSA-gpvr-g6gh-9mc2
+   - WEB https://www.npmjs.com/advisories/8
+
+GHSA-jj78-5fmv-mv28.json
+  aliases: CVE-2024-9266
+  severity: LOW
+  summary: Express Open Redirect vulnerability
+  details: URL Redirection to Untrusted Site ('Open Redirect') vulnerability in Express. This vulnerability affects the use of the Express Response object. This issue impacts Express: from 3.4.5 before 4.0.0-rc1.
+  affected:
+   - express npm None
+      [{'introduced': '3.4.5'}, {'fixed': '4.0.0-rc1'}]
+  references:
+   - ADVISORY https://nvd.nist.gov/vuln/detail/CVE-2024-9266
+   - PACKAGE https://github.com/expressjs/express
+   - WEB https://github.com/expressjs/express/compare/3.4.4...3.4.5
+   - WEB https://www.herodevs.com/vulnerability-directory/cve-2024-9266
+
+GHSA-qw6h-vgh9-j6wx.json
+  aliases: CVE-2024-43796
+  severity: LOW
+  summary: express vulnerable to XSS via response.redirect()
+  details: ### Impact
+  affected:
+   - express npm None
+      [{'introduced': '0'}, {'fixed': '4.20.0'}]
+   - express npm None
+      [{'introduced': '5.0.0-alpha.1'}, {'fixed': '5.0.0'}]
+  references:
+   - WEB https://github.com/expressjs/express/security/advisories/GHSA-qw6h-vgh9-j6wx
+   - ADVISORY https://nvd.nist.gov/vuln/detail/CVE-2024-43796
+   - WEB https://github.com/expressjs/express/commit/54271f69b511fea198471e6ff3400ab805d6b553
+   - PACKAGE https://github.com/expressjs/express
+
+GHSA-rv95-896h-c2vc.json
+  aliases: CVE-2024-29041
+  severity: MODERATE
+  summary: Express.js Open Redirect in malformed URLs
+  details: ### Impact
+  affected:
+   - express npm None
+      [{'introduced': '0'}, {'fixed': '4.19.2'}]
+   - express npm None
+      [{'introduced': '5.0.0-alpha.1'}, {'fixed': '5.0.0-beta.3'}]
+  references:
+   - WEB https://github.com/expressjs/express/security/advisories/GHSA-rv95-896h-c2vc
+   - ADVISORY https://nvd.nist.gov/vuln/detail/CVE-2024-29041
+   - WEB https://github.com/koajs/koa/issues/1800
+   - WEB https://github.com/expressjs/express/pull/5539
+   - WEB https://github.com/expressjs/express/commit/0867302ddbde0e9463d0564fea5861feb708c2dd
+   - WEB https://github.com/expressjs/express/commit/0b746953c4bd8e377123527db11f9cd866e39f94
+   - WEB https://expressjs.com/en/4x/api.html#res.location
+   - PACKAGE https://github.com/expressjs/express
+
+== 4.20.0 / 2024-09-10 ==
+4.20.0 / 2024-09-10
+==========
+  * deps: serve-static@0.16.0
+    * Remove link renderization in html while redirecting
+  * deps: send@0.19.0
+    * Remove link renderization in html while redirecting
+  * deps: body-parser@0.6.0
+    * add `depth` option to customize the depth level in the parser
+    * IMPORTANT: The default `depth` level for parsing URL-encoded data is now `32` (previously was `Infinity`)
+  * Remove link renderization in html while using `res.redirect`
+  * deps: path-to-regexp@0.1.10
+    - Adds support for named matching groups in the routes using a regex
+    - Adds backtracking protection to parameters without regexes defined
+  * deps: encodeurl@~2.0.0
+    - Removes encoding of `\`, `|`, and `^` to align better with URL spec
+  * Deprecate passing `options.maxAge` and `options.expires` to `res.clearCookie`
+    - Will be ignored in v5, clearCookie will set a cookie with an 
+
+== 4.19.2 / 2024-03-25 ==
+4.19.2 / 2024-03-25
+==========
+
+  * Improved fix for open redirect allow list bypass
+
+4.19.1 / 2024-03-20
+==========
+
+  * Allow passing non-strings to res.location with new encoding handling checks
+
+4.19.0 / 2024-03-20
+==========
+
+  * Prevent open redirect allow list bypass due to encodeurl
+  * deps: cookie@0.6.0
+
+4.18.3 / 2024-02-29
+==========
+
+  * Fix routing requests without method
+  * deps: body-parser@1.20.2
+    - Fix strict json error message on Node.js 19+
+    - deps: content-type@~1.0.5
+    - deps: raw-body@2.5.2
+  * deps: cookie@0.6.0
+    - Add `partitioned` option
+
+4.18.2 / 2022-10-08
+===================
+
+  * Fix regression routing a large stack in a single route
+  * deps: body-parser@1.20.1
+    - deps: qs@6.11.0
+    - perf: remove unnecessary object clone
+  * deps: qs@6.11.0
+
+4.18.1 / 2022-04-29
+===================
+
+  * Fix hanging on large stack of sync routes
+
+4.18.0 / 2022-
+
+== 4.5.0 / 2014-07-04 ==
+4.5.0 / 2014-07-04
+==================
+
+ * add deprecation message to non-plural `req.accepts*`
+ * add deprecation message to `res.send(body, status)`
+ * add deprecation message to `res.vary()`
+ * add `headers` option to `res.sendfile`
+   - use to set headers on successful file transfer
+ * add `mergeParams` option to `Router`
+   - merges `req.params` from parent routes
+ * add `req.hostname` -- correct name for what `req.host` returns
+ * deprecate things with `depd` module
+ * deprecate `req.host` -- use `req.hostname` instead
+ * fix behavior when handling request without routes
+ * fix handling when `route.all` is only route
+ * invoke `router.param()` only when route matches
+ * restore `req.params` after invoking router
+ * use `finalhandler` for final response handling
+ * use `media-typer` to alter content-type charset
+ * deps: accepts@~1.0.7
+ * deps: send@0.5.0
+   - Accept string for `maxa
+
+== 3.11.0 / 2014-07-11 ==
+NOT FOUND
+

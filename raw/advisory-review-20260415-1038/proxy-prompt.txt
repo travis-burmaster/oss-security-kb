@@ -1,3 +1,183 @@
+Review this public evidence bundle for the OSS Security KB and propose evidence-backed updates only. Do not fabricate findings. Keep it conservative.
+
+Context: We reviewed 3 candidates: npm/express, crates.io/serde, linux/openssl. Only npm/express appears to have clean, published package advisories worth updating in this pass. serde package-level OSV remained empty in this pass; openssl is broad and was not selected for a rushed partial update.
+
+Express evidence:
+
+GHSA-cm5g-3pgc-8rg4.json
+  aliases: CVE-2024-10491
+  severity: MODERATE
+  summary: Express ressource injection
+  details: A vulnerability has been identified in the Express response.links function, allowing for arbitrary resource injection in the Link header when unsanitized data is used.
+  affected:
+   - express npm <= 3.21.4
+      [{'introduced': '0'}, {'fixed': '4.0.0-rc1'}]
+  references:
+   - ADVISORY https://nvd.nist.gov/vuln/detail/CVE-2024-10491
+   - WEB https://github.com/expressjs/express/issues/6222
+   - PACKAGE https://github.com/expressjs/express
+   - WEB https://www.herodevs.com/vulnerability-directory/cve-2024-10491
+
+GHSA-gpvr-g6gh-9mc2.json
+  aliases: CVE-2014-6393
+  severity: MODERATE
+  summary: No Charset in Content-Type Header in express
+  details: Vulnerable versions of express do not specify a charset field in the content-type header while displaying 400 level response messages. The lack of enforcing user's browser to set correct charset, could be leveraged by an attacker to perform a cross-site scripting attack, using non-standard encodings, like UTF-7.
+  affected:
+   - express npm None
+      [{'introduced': '0'}, {'fixed': '3.11.0'}]
+   - express npm None
+      [{'introduced': '4.0.0'}, {'fixed': '4.5.0'}]
+  references:
+   - ADVISORY https://nvd.nist.gov/vuln/detail/CVE-2014-6393
+   - WEB https://bugzilla.redhat.com/show_bug.cgi?id=1203190
+   - ADVISORY https://github.com/advisories/GHSA-gpvr-g6gh-9mc2
+   - WEB https://www.npmjs.com/advisories/8
+
+GHSA-jj78-5fmv-mv28.json
+  aliases: CVE-2024-9266
+  severity: LOW
+  summary: Express Open Redirect vulnerability
+  details: URL Redirection to Untrusted Site ('Open Redirect') vulnerability in Express. This vulnerability affects the use of the Express Response object. This issue impacts Express: from 3.4.5 before 4.0.0-rc1.
+  affected:
+   - express npm None
+      [{'introduced': '3.4.5'}, {'fixed': '4.0.0-rc1'}]
+  references:
+   - ADVISORY https://nvd.nist.gov/vuln/detail/CVE-2024-9266
+   - PACKAGE https://github.com/expressjs/express
+   - WEB https://github.com/expressjs/express/compare/3.4.4...3.4.5
+   - WEB https://www.herodevs.com/vulnerability-directory/cve-2024-9266
+
+GHSA-qw6h-vgh9-j6wx.json
+  aliases: CVE-2024-43796
+  severity: LOW
+  summary: express vulnerable to XSS via response.redirect()
+  details: ### Impact
+  affected:
+   - express npm None
+      [{'introduced': '0'}, {'fixed': '4.20.0'}]
+   - express npm None
+      [{'introduced': '5.0.0-alpha.1'}, {'fixed': '5.0.0'}]
+  references:
+   - WEB https://github.com/expressjs/express/security/advisories/GHSA-qw6h-vgh9-j6wx
+   - ADVISORY https://nvd.nist.gov/vuln/detail/CVE-2024-43796
+   - WEB https://github.com/expressjs/express/commit/54271f69b511fea198471e6ff3400ab805d6b553
+   - PACKAGE https://github.com/expressjs/express
+
+GHSA-rv95-896h-c2vc.json
+  aliases: CVE-2024-29041
+  severity: MODERATE
+  summary: Express.js Open Redirect in malformed URLs
+  details: ### Impact
+  affected:
+   - express npm None
+      [{'introduced': '0'}, {'fixed': '4.19.2'}]
+   - express npm None
+      [{'introduced': '5.0.0-alpha.1'}, {'fixed': '5.0.0-beta.3'}]
+  references:
+   - WEB https://github.com/expressjs/express/security/advisories/GHSA-rv95-896h-c2vc
+   - ADVISORY https://nvd.nist.gov/vuln/detail/CVE-2024-29041
+   - WEB https://github.com/koajs/koa/issues/1800
+   - WEB https://github.com/expressjs/express/pull/5539
+   - WEB https://github.com/expressjs/express/commit/0867302ddbde0e9463d0564fea5861feb708c2dd
+   - WEB https://github.com/expressjs/express/commit/0b746953c4bd8e377123527db11f9cd866e39f94
+   - WEB https://expressjs.com/en/4x/api.html#res.location
+   - PACKAGE https://github.com/expressjs/express
+
+== 4.20.0 / 2024-09-10 ==
+4.20.0 / 2024-09-10
+==========
+  * deps: serve-static@0.16.0
+    * Remove link renderization in html while redirecting
+  * deps: send@0.19.0
+    * Remove link renderization in html while redirecting
+  * deps: body-parser@0.6.0
+    * add `depth` option to customize the depth level in the parser
+    * IMPORTANT: The default `depth` level for parsing URL-encoded data is now `32` (previously was `Infinity`)
+  * Remove link renderization in html while using `res.redirect`
+  * deps: path-to-regexp@0.1.10
+    - Adds support for named matching groups in the routes using a regex
+    - Adds backtracking protection to parameters without regexes defined
+  * deps: encodeurl@~2.0.0
+    - Removes encoding of `\`, `|`, and `^` to align better with URL spec
+  * Deprecate passing `options.maxAge` and `options.expires` to `res.clearCookie`
+    - Will be ignored in v5, clearCookie will set a cookie with an 
+
+== 4.19.2 / 2024-03-25 ==
+4.19.2 / 2024-03-25
+==========
+
+  * Improved fix for open redirect allow list bypass
+
+4.19.1 / 2024-03-20
+==========
+
+  * Allow passing non-strings to res.location with new encoding handling checks
+
+4.19.0 / 2024-03-20
+==========
+
+  * Prevent open redirect allow list bypass due to encodeurl
+  * deps: cookie@0.6.0
+
+4.18.3 / 2024-02-29
+==========
+
+  * Fix routing requests without method
+  * deps: body-parser@1.20.2
+    - Fix strict json error message on Node.js 19+
+    - deps: content-type@~1.0.5
+    - deps: raw-body@2.5.2
+  * deps: cookie@0.6.0
+    - Add `partitioned` option
+
+4.18.2 / 2022-10-08
+===================
+
+  * Fix regression routing a large stack in a single route
+  * deps: body-parser@1.20.1
+    - deps: qs@6.11.0
+    - perf: remove unnecessary object clone
+  * deps: qs@6.11.0
+
+4.18.1 / 2022-04-29
+===================
+
+  * Fix hanging on large stack of sync routes
+
+4.18.0 / 2022-
+
+== 4.5.0 / 2014-07-04 ==
+4.5.0 / 2014-07-04
+==================
+
+ * add deprecation message to non-plural `req.accepts*`
+ * add deprecation message to `res.send(body, status)`
+ * add deprecation message to `res.vary()`
+ * add `headers` option to `res.sendfile`
+   - use to set headers on successful file transfer
+ * add `mergeParams` option to `Router`
+   - merges `req.params` from parent routes
+ * add `req.hostname` -- correct name for what `req.host` returns
+ * deprecate things with `depd` module
+ * deprecate `req.host` -- use `req.hostname` instead
+ * fix behavior when handling request without routes
+ * fix handling when `route.all` is only route
+ * invoke `router.param()` only when route matches
+ * restore `req.params` after invoking router
+ * use `finalhandler` for final response handling
+ * use `media-typer` to alter content-type charset
+ * deps: accepts@~1.0.7
+ * deps: send@0.5.0
+   - Accept string for `maxa
+
+== 3.11.0 / 2014-07-11 ==
+NOT FOUND
+
+
+
+Target page excerpt follows. Suggest concise edits for the Known Vulnerabilities and Security Posture sections only, keeping the existing audit findings intact.
+
 # express (npm)
 
 **Registry:** npm
@@ -134,23 +314,12 @@ Default env is `'development'`. Full stack traces sent to clients unless `NODE_E
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| CVE-2014-6393 / GHSA-gpvr-g6gh-9mc2 | Moderate | Missing charset in 400-level `Content-Type` headers could enable browser-side XSS with legacy encodings such as UTF-7 | 3.11.0, 4.5.0 | [GHSA](https://github.com/advisories/GHSA-gpvr-g6gh-9mc2) |
-| CVE-2024-29041 / GHSA-rv95-896h-c2vc | Moderate | Open redirect allowlist bypass in malformed URLs passed to `res.location()` / `res.redirect()` | 4.19.2, 5.0.0-beta.3 | [GHSA](https://github.com/expressjs/express/security/advisories/GHSA-rv95-896h-c2vc) |
-| CVE-2024-43796 / GHSA-qw6h-vgh9-j6wx | Low | XSS via `response.redirect()` when untrusted input is rendered in the generated redirect HTML body | 4.20.0, 5.0.0 | [GHSA](https://github.com/expressjs/express/security/advisories/GHSA-qw6h-vgh9-j6wx) |
 | CVE-2024-45296 | High | ReDoS in path-to-regexp (transitive dep) | path-to-regexp 8.0.0 | [osv.dev](https://osv.dev/vulnerability/CVE-2024-45296) |
-| CVE-2024-9266 / GHSA-jj78-5fmv-mv28 | Low | Open redirect in the Express response object affecting the legacy 3.x line | 4.0.0-rc1 | [GHSA](https://github.com/advisories/GHSA-jj78-5fmv-mv28) |
-| CVE-2024-10491 / GHSA-cm5g-3pgc-8rg4 | Moderate | Resource injection in `response.links()` via unsanitized `Link` header values on the legacy 3.x line | 4.0.0-rc1 | [GHSA](https://github.com/advisories/GHSA-cm5g-3pgc-8rg4) |
 | MAL-2026-2419 | Critical | Typosquatting: express-session-js impersonates express-session | N/A (malicious package) | [osv.dev](https://osv.dev/vulnerability/MAL-2026-2419) |
 
 ## Supply Chain Notes
 
 The express-* npm namespace is heavily targeted by typosquatting attacks (e.g., MAL-2026-2419). Operators should audit dependencies and use lockfiles.
-
-## Public Advisory Notes
-
-- Public package advisories now cover both legacy 3.x issues and modern 4.x / 5.x redirect handling flaws. In particular, Express 4.19.2 landed an improved fix for the malformed-URL allowlist-bypass issue tracked as `CVE-2024-29041`, and 4.20.0 removed link rendering in redirect HTML to address `CVE-2024-43796`; both fixes are corroborated in the upstream `History.md` and release notes.
-- These published advisories overlap with, but do not fully replace, the higher-level audit finding on `res.redirect()`. The public fixes address specific bypass and HTML-rendering vectors, while the local audit finding still documents residual application-layer risk when developers pass attacker-controlled schemes (`javascript:`, `data:`, `//host`) into redirects without allowlisting.
-- The two 2024 GHSA entries affecting only the 3.x line (`CVE-2024-9266` and `CVE-2024-10491`) are still worth tracking because legacy Express deployments remain common in extended-support environments, even though current 4.x / 5.x users are outside those affected ranges.
 
 ## Recommendations for Developers
 
@@ -181,5 +350,6 @@ The express-* npm namespace is heavily targeted by typosquatting attacks (e.g., 
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-15 | Sources: 12 (upstream repository, Express security policy, Express threat model, source code audit of Express 5.2.1 + 8 dependencies, OSV database, GitHub Advisory Database, public CVE records via advisory aliases, Express release notes, upstream History.md, npm registry)*
+*Last updated: 2026-04-10 | Sources: 8 (upstream repository, Express security policy, Express threat model, source code audit of Express 5.2.1 + 8 dependencies, OSV database, npm registry)*
 *Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*
+

@@ -1,0 +1,904 @@
+## npm/express
+{
+  "vulns": [
+    {
+      "id": "GHSA-cm5g-3pgc-8rg4",
+      "summary": "Express ressource injection",
+      "details": "A vulnerability has been identified in the Express response.links\u00a0function, allowing for arbitrary resource injection in the Link\u00a0header when unsanitized data is used.\n\nThe issue arises from improper sanitization in `Link` header values, which can allow a combination of characters like `,`, `;`, and `<>` to preload malicious resources.\n\nThis vulnerability is especially relevant for dynamic parameters.",
+      "aliases": [
+        "CVE-2024-10491"
+      ],
+      "modified": "2024-12-19T17:52:09Z",
+      "published": "2024-10-29T18:30:37Z",
+      "database_specific": {
+        "severity": "MODERATE",
+        "cwe_ids": [
+          "CWE-74"
+        ],
+        "github_reviewed_at": "2024-11-25T21:31:20Z",
+        "github_reviewed": true,
+        "nvd_published_at": "2024-10-29T17:15:03Z"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-10491"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/expressjs/express/issues/6222"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/expressjs/express"
+        },
+        {
+          "type": "WEB",
+          "url": "https://www.herodevs.com/vulnerability-directory/cve-2024-10491"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "express",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/express"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "4.0.0-rc1"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "last_known_affected_version_range": "<= 3.21.4",
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/10/GHSA-cm5g-3pgc-8rg4/GHSA-cm5g-3pgc-8rg4.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:N/A:N"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-gpvr-g6gh-9mc2",
+      "summary": "No Charset in Content-Type Header in express",
+      "details": "Vulnerable versions of express do not specify a charset field in the content-type header while displaying 400 level response messages. The lack of enforcing user's browser to set correct charset, could be leveraged by an attacker to perform a cross-site scripting attack, using non-standard encodings, like UTF-7.\n\n\n## Recommendation\n\nFor express 3.x, update express to version 3.11 or later.\nFor express 4.x, update express to version 4.5 or later. ",
+      "aliases": [
+        "CVE-2014-6393"
+      ],
+      "modified": "2023-11-08T03:57:43.877257Z",
+      "published": "2018-10-23T17:22:54Z",
+      "database_specific": {
+        "severity": "MODERATE",
+        "cwe_ids": [
+          "CWE-79"
+        ],
+        "github_reviewed_at": "2020-06-16T21:37:54Z",
+        "github_reviewed": true,
+        "nvd_published_at": "2017-08-09T18:29:00Z"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-6393"
+        },
+        {
+          "type": "WEB",
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1203190"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://github.com/advisories/GHSA-gpvr-g6gh-9mc2"
+        },
+        {
+          "type": "WEB",
+          "url": "https://www.npmjs.com/advisories/8"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "express",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/express"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "3.11.0"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/10/GHSA-gpvr-g6gh-9mc2/GHSA-gpvr-g6gh-9mc2.json"
+          }
+        },
+        {
+          "package": {
+            "name": "express",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/express"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "4.0.0"
+                },
+                {
+                  "fixed": "4.5.0"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/10/GHSA-gpvr-g6gh-9mc2/GHSA-gpvr-g6gh-9mc2.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-jj78-5fmv-mv28",
+      "summary": "Express Open Redirect vulnerability",
+      "details": "URL Redirection to Untrusted Site ('Open Redirect') vulnerability in Express. This vulnerability affects the use of the Express Response object. This issue impacts Express: from 3.4.5 before 4.0.0-rc1.",
+      "aliases": [
+        "CVE-2024-9266"
+      ],
+      "modified": "2024-10-09T23:46:55Z",
+      "published": "2024-10-03T21:31:05Z",
+      "database_specific": {
+        "severity": "LOW",
+        "cwe_ids": [
+          "CWE-601"
+        ],
+        "github_reviewed_at": "2024-10-09T17:03:12Z",
+        "github_reviewed": true,
+        "nvd_published_at": "2024-10-03T19:15:05Z"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-9266"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/expressjs/express"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/expressjs/express/compare/3.4.4...3.4.5"
+        },
+        {
+          "type": "WEB",
+          "url": "https://www.herodevs.com/vulnerability-directory/cve-2024-9266"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "express",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/express"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "3.4.5"
+                },
+                {
+                  "fixed": "4.0.0-rc1"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/10/GHSA-jj78-5fmv-mv28/GHSA-jj78-5fmv-mv28.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:N/A:N"
+        },
+        {
+          "type": "CVSS_V4",
+          "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:N/SA:N/E:P"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-qw6h-vgh9-j6wx",
+      "summary": "express vulnerable to XSS via response.redirect()",
+      "details": "### Impact\n\nIn express <4.20.0, passing untrusted user input - even after sanitizing it - to `response.redirect()` may execute untrusted code\n\n### Patches\n\nthis issue is patched in express 4.20.0\n\n### Workarounds\n\nusers are encouraged to upgrade to the patched version of express, but otherwise can workaround this issue by making sure any untrusted inputs are safe, ideally by validating them against an explicit allowlist\n\n### Details\n\nsuccessful exploitation of this vector requires the following:\n\n1. The attacker MUST control the input to response.redirect()\n1. express MUST NOT redirect before the template appears\n1. the browser MUST NOT complete redirection before:\n1. the user MUST click on the link in the template\n",
+      "aliases": [
+        "CVE-2024-43796"
+      ],
+      "modified": "2026-02-04T04:10:32.069920Z",
+      "published": "2024-09-10T19:41:04Z",
+      "related": [
+        "CGA-hc9x-jc27-5p4r"
+      ],
+      "database_specific": {
+        "severity": "LOW",
+        "cwe_ids": [
+          "CWE-79"
+        ],
+        "github_reviewed_at": "2024-09-10T19:41:04Z",
+        "github_reviewed": true,
+        "nvd_published_at": "2024-09-10T15:15:17Z"
+      },
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/expressjs/express/security/advisories/GHSA-qw6h-vgh9-j6wx"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-43796"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/expressjs/express/commit/54271f69b511fea198471e6ff3400ab805d6b553"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/expressjs/express"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "express",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/express"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "4.20.0"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/09/GHSA-qw6h-vgh9-j6wx/GHSA-qw6h-vgh9-j6wx.json"
+          }
+        },
+        {
+          "package": {
+            "name": "express",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/express"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "5.0.0-alpha.1"
+                },
+                {
+                  "fixed": "5.0.0"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/09/GHSA-qw6h-vgh9-j6wx/GHSA-qw6h-vgh9-j6wx.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L"
+        },
+        {
+          "type": "CVSS_V4",
+          "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:L"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-rv95-896h-c2vc",
+      "summary": "Express.js Open Redirect in malformed URLs",
+      "details": "### Impact\n\nVersions of Express.js prior to 4.19.2 and pre-release alpha and beta versions before 5.0.0-beta.3 are affected by an open redirect vulnerability using malformed URLs.\n\nWhen a user of Express performs a redirect using a user-provided URL Express performs an encode [using `encodeurl`](https://github.com/pillarjs/encodeurl) on the contents before passing it to the `location` header. This can cause malformed URLs to be evaluated in unexpected ways by common redirect allow list implementations in Express applications, leading to an Open Redirect via bypass of a properly implemented allow list.\n\nThe main method impacted is `res.location()` but this is also called from within `res.redirect()`.\n\n### Patches\n\nhttps://github.com/expressjs/express/commit/0867302ddbde0e9463d0564fea5861feb708c2dd\nhttps://github.com/expressjs/express/commit/0b746953c4bd8e377123527db11f9cd866e39f94\n\nAn initial fix went out with `express@4.19.0`, we then patched a feature regression in `4.19.1` and added improved handling for the bypass in `4.19.2`.\n\n### Workarounds\n\nThe fix for this involves pre-parsing the url string with either `require('node:url').parse` or `new URL`. These are steps you can take on your own before passing the user input string to `res.location` or `res.redirect`.\n\n### Resources\n\nhttps://github.com/expressjs/express/pull/5539\nhttps://github.com/koajs/koa/issues/1800\nhttps://expressjs.com/en/4x/api.html#res.location",
+      "aliases": [
+        "CVE-2024-29041"
+      ],
+      "modified": "2026-02-04T02:13:10.821360Z",
+      "published": "2024-03-25T19:40:26Z",
+      "related": [
+        "CGA-r5vj-2cf3-hpwp"
+      ],
+      "database_specific": {
+        "severity": "MODERATE",
+        "cwe_ids": [
+          "CWE-1286",
+          "CWE-601"
+        ],
+        "github_reviewed_at": "2024-03-25T19:40:26Z",
+        "github_reviewed": true,
+        "nvd_published_at": "2024-03-25T21:15:46Z"
+      },
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/expressjs/express/security/advisories/GHSA-rv95-896h-c2vc"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-29041"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/koajs/koa/issues/1800"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/expressjs/express/pull/5539"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/expressjs/express/commit/0867302ddbde0e9463d0564fea5861feb708c2dd"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/expressjs/express/commit/0b746953c4bd8e377123527db11f9cd866e39f94"
+        },
+        {
+          "type": "WEB",
+          "url": "https://expressjs.com/en/4x/api.html#res.location"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/expressjs/express"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "express",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/express"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "4.19.2"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/03/GHSA-rv95-896h-c2vc/GHSA-rv95-896h-c2vc.json"
+          }
+        },
+        {
+          "package": {
+            "name": "express",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/express"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "5.0.0-alpha.1"
+                },
+                {
+                  "fixed": "5.0.0-beta.3"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/03/GHSA-rv95-896h-c2vc/GHSA-rv95-896h-c2vc.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ]
+    }
+  ]
+}
+
+## crates.io/serde
+{}
+
+## OSS-Fuzz/openssl
+{
+  "vulns": [
+    {
+      "id": "OSV-2018-109",
+      "summary": "Heap-use-after-free in ssl_get_prev_session",
+      "details": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=8241\n\n```\nCrash type: Heap-use-after-free READ 4\nCrash state:\nssl_get_prev_session\ntls_early_post_process_client_hello\ntls_post_process_client_hello\n```\n",
+      "modified": "2022-04-13T03:04:38.768619Z",
+      "published": "2021-01-13T00:00:48.206043Z",
+      "references": [
+        {
+          "type": "REPORT",
+          "url": "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=8241"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "openssl",
+            "ecosystem": "OSS-Fuzz",
+            "purl": "pkg:generic/openssl"
+          },
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/openssl/openssl.git",
+              "events": [
+                {
+                  "introduced": "61fb59238dad6452a37ec14513fae617a4faef29"
+                },
+                {
+                  "fixed": "5f96a95e2562f026557f625e50c052e77c7bc2e8"
+                }
+              ]
+            }
+          ],
+          "ecosystem_specific": {
+            "severity": "HIGH"
+          },
+          "database_specific": {
+            "source": "https://github.com/google/oss-fuzz-vulns/blob/main/vulns/openssl/OSV-2018-109.yaml"
+          }
+        }
+      ],
+      "schema_version": "1.7.3"
+    },
+    {
+      "id": "OSV-2018-153",
+      "summary": "Heap-buffer-overflow in asn1_ex_i2c",
+      "details": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=7696\n\n```\nCrash type: Heap-buffer-overflow READ 4\nCrash state:\nasn1_ex_i2c\nasn1_i2d_ex_primitive\nASN1_item_ex_i2d\n```\n",
+      "modified": "2022-04-13T03:04:38.752978Z",
+      "published": "2021-01-13T00:01:05.757240Z",
+      "references": [
+        {
+          "type": "REPORT",
+          "url": "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=7696"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "openssl",
+            "ecosystem": "OSS-Fuzz",
+            "purl": "pkg:generic/openssl"
+          },
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/openssl/openssl.git",
+              "events": [
+                {
+                  "introduced": "902f7d5c87d66a78d3eb10709c6cb3486a216b48"
+                },
+                {
+                  "fixed": "0df65d82dbc41e8da00adb243de5918db532c8a6"
+                }
+              ]
+            }
+          ],
+          "versions": [
+            "OpenSSL_1_1_1-pre1",
+            "OpenSSL_1_1_1-pre2",
+            "OpenSSL_1_1_1-pre3",
+            "OpenSSL_1_1_1-pre4",
+            "OpenSSL_1_1_1-pre5",
+            "OpenSSL_1_1_1-pre6",
+            "OpenSSL_1_1_1-pre7"
+          ],
+          "ecosystem_specific": {
+            "severity": "MEDIUM",
+            "fixed_range": "a21180b70f6372fee836557df187d72f7a91b686:0df65d82dbc41e8da00adb243de5918db532c8a6"
+          },
+          "database_specific": {
+            "source": "https://github.com/google/oss-fuzz-vulns/blob/main/vulns/openssl/OSV-2018-153.yaml"
+          }
+        }
+      ],
+      "schema_version": "1.7.3"
+    },
+    {
+      "id": "OSV-2020-223",
+      "summary": "Heap-use-after-free in CRYPTO_DOWN_REF",
+      "details": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=21550\n\n```\nCrash type: Heap-use-after-free WRITE 4\nCrash state:\nCRYPTO_DOWN_REF\nDH_free\nevp_pkey_free_legacy\n```\n",
+      "modified": "2022-04-13T03:04:38.747259Z",
+      "published": "2020-06-24T01:51:19.666966Z",
+      "references": [
+        {
+          "type": "REPORT",
+          "url": "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=21550"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "openssl",
+            "ecosystem": "OSS-Fuzz",
+            "purl": "pkg:generic/openssl"
+          },
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/openssl/openssl.git",
+              "events": [
+                {
+                  "introduced": "ada66e78ef535fe80e422bbbadffe8e7863d457c"
+                },
+                {
+                  "fixed": "fe56d5951f0b42fd3ff1cf42a96d07f06f9692bc"
+                }
+              ]
+            }
+          ],
+          "ecosystem_specific": {
+            "severity": "HIGH"
+          },
+          "database_specific": {
+            "source": "https://github.com/google/oss-fuzz-vulns/blob/main/vulns/openssl/OSV-2020-223.yaml"
+          }
+        }
+      ],
+      "schema_version": "1.7.3"
+    },
+    {
+      "id": "OSV-2020-29",
+      "summary": "Heap-use-after-free in CRYPTO_DOWN_REF",
+      "details": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20816\n\n```\nCrash type: Heap-use-after-free WRITE 4\nCrash state:\nCRYPTO_DOWN_REF\nDH_free\nevp_pkey_free_it\n```\n",
+      "modified": "2022-04-13T03:04:38.773716Z",
+      "published": "2020-06-24T01:51:10.908381Z",
+      "references": [
+        {
+          "type": "REPORT",
+          "url": "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=20816"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "openssl",
+            "ecosystem": "OSS-Fuzz",
+            "purl": "pkg:generic/openssl"
+          },
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/openssl/openssl.git",
+              "events": [
+                {
+                  "introduced": "ada66e78ef535fe80e422bbbadffe8e7863d457c"
+                },
+                {
+                  "fixed": "fe56d5951f0b42fd3ff1cf42a96d07f06f9692bc"
+                }
+              ]
+            }
+          ],
+          "ecosystem_specific": {
+            "severity": "HIGH"
+          },
+          "database_specific": {
+            "source": "https://github.com/google/oss-fuzz-vulns/blob/main/vulns/openssl/OSV-2020-29.yaml"
+          }
+        }
+      ],
+      "schema_version": "1.7.3"
+    },
+    {
+      "id": "OSV-2020-386",
+      "summary": "Heap-buffer-overflow in OPENSSL_strlcpy",
+      "details": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=16107\n\n```\nCrash type: Heap-buffer-overflow WRITE 1\nCrash state:\nOPENSSL_strlcpy\nOPENSSL_strlcat\nERR_add_error_vdata\n```\n",
+      "modified": "2022-04-13T03:04:38.742191Z",
+      "published": "2020-07-01T00:00:06.528477Z",
+      "references": [
+        {
+          "type": "REPORT",
+          "url": "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=16107"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "openssl",
+            "ecosystem": "OSS-Fuzz",
+            "purl": "pkg:generic/openssl"
+          },
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/openssl/openssl.git",
+              "events": [
+                {
+                  "introduced": "10f8b36874fca928c3f41834babac8ee94dd3f09"
+                },
+                {
+                  "fixed": "036913b1076da41f257c640a5e6230476c647eff"
+                }
+              ]
+            }
+          ],
+          "ecosystem_specific": {
+            "severity": "HIGH"
+          },
+          "database_specific": {
+            "source": "https://github.com/google/oss-fuzz-vulns/blob/main/vulns/openssl/OSV-2020-386.yaml"
+          }
+        }
+      ],
+      "schema_version": "1.7.3"
+    },
+    {
+      "id": "OSV-2020-430",
+      "summary": "Stack-use-after-return in OSSL_PARAM_get_int32",
+      "details": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15114\n\n```\nCrash type: Stack-use-after-return READ 4\nCrash state:\nOSSL_PARAM_get_int32\nmd5_sha1_set_params\nssl3_final_finish_mac\n```\n",
+      "modified": "2022-04-13T03:04:38.763723Z",
+      "published": "2020-07-01T00:00:09.096641Z",
+      "references": [
+        {
+          "type": "REPORT",
+          "url": "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=15114"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "openssl",
+            "ecosystem": "OSS-Fuzz",
+            "purl": "pkg:generic/openssl"
+          },
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/openssl/openssl.git",
+              "events": [
+                {
+                  "introduced": "d5e5e2ffafc7dbc861f7d285508cf129c5e8f5ac"
+                },
+                {
+                  "fixed": "83b4a24384e62ed8cf91f51bf9a303f98017e13e"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/google/oss-fuzz-vulns/blob/main/vulns/openssl/OSV-2020-430.yaml"
+          }
+        }
+      ],
+      "schema_version": "1.7.3"
+    },
+    {
+      "id": "OSV-2020-442",
+      "summary": "Heap-buffer-overflow in CRYPTO_strdup",
+      "details": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=17715\n\n```\nCrash type: Heap-buffer-overflow READ 14\nCrash state:\nCRYPTO_strdup\nX509V3_add_value\ni2v_GENERAL_NAME\n```\n",
+      "modified": "2022-04-13T03:04:38.758794Z",
+      "published": "2020-07-01T00:00:09.812508Z",
+      "references": [
+        {
+          "type": "REPORT",
+          "url": "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=17715"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "openssl",
+            "ecosystem": "OSS-Fuzz",
+            "purl": "pkg:generic/openssl"
+          },
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/openssl/openssl.git",
+              "events": [
+                {
+                  "introduced": "5053a3766a13f40afb3c89f54d1f9a5eae38a3eb"
+                },
+                {
+                  "fixed": "aec9667bd19a8ca9bdd519db3a231a95b9e92674"
+                }
+              ]
+            }
+          ],
+          "ecosystem_specific": {
+            "severity": "MEDIUM"
+          },
+          "database_specific": {
+            "source": "https://github.com/google/oss-fuzz-vulns/blob/main/vulns/openssl/OSV-2020-442.yaml"
+          }
+        }
+      ],
+      "schema_version": "1.7.3"
+    },
+    {
+      "id": "OSV-2024-635",
+      "summary": "Null-dereference READ in do_evp_kdf",
+      "details": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69243\n\n```\nCrash type: Null-dereference READ\nCrash state:\ndo_evp_kdf\nFuzzerTestOneInput\n```\n",
+      "modified": "2024-07-13T00:03:44.594307Z",
+      "published": "2024-07-13T00:03:44.593921Z",
+      "references": [
+        {
+          "type": "REPORT",
+          "url": "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69243"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "openssl",
+            "ecosystem": "OSS-Fuzz",
+            "purl": "pkg:generic/openssl"
+          },
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/openssl/openssl.git",
+              "events": [
+                {
+                  "introduced": "f3b988dc29512d6575ff435e1ff7c1b66d97051e"
+                },
+                {
+                  "fixed": "861e1f450c808bdf675bbf0d3e17303a3f16d06c"
+                }
+              ]
+            }
+          ],
+          "ecosystem_specific": {
+            "severity": null
+          },
+          "database_specific": {
+            "introduced_range": "b9e084f139c53ce133e66aba2f523c680141c0e6:05faa4ffee7f20fcee129f77d153f2dcc609bdc8",
+            "source": "https://github.com/google/oss-fuzz-vulns/blob/main/vulns/openssl/OSV-2024-635.yaml",
+            "fixed_range": "06da14737369e7c90899aed4bb21cce9a0910d29:861e1f450c808bdf675bbf0d3e17303a3f16d06c"
+          }
+        }
+      ],
+      "schema_version": "1.7.3"
+    },
+    {
+      "id": "OSV-2024-636",
+      "summary": "Null-dereference READ in evp_mac_final",
+      "details": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69236\n\n```\nCrash type: Null-dereference READ\nCrash state:\nevp_mac_final\nkbkdf_derive\ndo_evp_kdf\n```\n",
+      "modified": "2024-07-13T00:04:18.446812Z",
+      "published": "2024-07-13T00:04:18.446520Z",
+      "references": [
+        {
+          "type": "REPORT",
+          "url": "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69236"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "openssl",
+            "ecosystem": "OSS-Fuzz",
+            "purl": "pkg:generic/openssl"
+          },
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/openssl/openssl.git",
+              "events": [
+                {
+                  "introduced": "f3b988dc29512d6575ff435e1ff7c1b66d97051e"
+                },
+                {
+                  "fixed": "861e1f450c808bdf675bbf0d3e17303a3f16d06c"
+                }
+              ]
+            }
+          ],
+          "ecosystem_specific": {
+            "severity": null
+          },
+          "database_specific": {
+            "introduced_range": "b9e084f139c53ce133e66aba2f523c680141c0e6:05faa4ffee7f20fcee129f77d153f2dcc609bdc8",
+            "source": "https://github.com/google/oss-fuzz-vulns/blob/main/vulns/openssl/OSV-2024-636.yaml",
+            "fixed_range": "06da14737369e7c90899aed4bb21cce9a0910d29:861e1f450c808bdf675bbf0d3e17303a3f16d06c"
+          }
+        }
+      ],
+      "schema_version": "1.7.3"
+    },
+    {
+      "id": "OSV-2024-640",
+      "summary": "Null-dereference READ",
+      "details": "OSS-Fuzz report: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69261\n\n```\nCrash type: Null-dereference READ\nCrash state:\nNULL```\n",
+      "modified": "2024-07-13T00:15:12.998025Z",
+      "published": "2024-07-13T00:15:12.997693Z",
+      "references": [
+        {
+          "type": "REPORT",
+          "url": "https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=69261"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "openssl",
+            "ecosystem": "OSS-Fuzz",
+            "purl": "pkg:generic/openssl"
+          },
+          "ranges": [
+            {
+              "type": "GIT",
+              "repo": "https://github.com/openssl/openssl.git",
+              "events": [
+                {
+                  "introduced": "f3b988dc29512d6575ff435e1ff7c1b66d97051e"
+                },
+                {
+                  "fixed": "861e1f450c808bdf675bbf0d3e17303a3f16d06c"
+                }
+              ]
+            }
+          ],
+          "ecosystem_specific": {
+            "severity": null
+          },
+          "database_specific": {
+            "introduced_range": "b9e084f139c53ce133e66aba2f523c680141c0e6:05faa4ffee7f20fcee129f77d153f2dcc609bdc8",
+            "source": "https://github.com/google/oss-fuzz-vulns/blob/main/vulns/openssl/OSV-2024-640.yaml",
+            "fixed_range": "06da14737369e7c90899aed4bb21cce9a0910d29:861e1f450c808bdf675bbf0d3e17303a3f16d06c"
+          }
+        }
+      ],
+      "schema_version": "1.7.3"
+    }
+  ]
+}
+
