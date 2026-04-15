@@ -1,34 +1,34 @@
 # minimist (npm)
 
 **Registry:** npm
-**Weekly Downloads:** unknown (as of 2026-04-07)
+**Weekly Downloads:** ~118,243,616 (last week, fetched 2026-04-14)
 **Repository:** https://github.com/minimistjs/minimist
 **Security Contact:** none listed
 **Disclosure Policy:** none listed
-**Current Status:** advisory-mapped
+**Current Status:** advisory-refreshed
 
 ## Audit History
 
 | Date | Auditor | Scope | Methodology | Findings | Source |
 |------|---------|-------|-------------|----------|--------|
+| 2026-04-14 | OpenClaw recurring review | package advisory refresh | public-source curation (GitHub Advisory Database, OSV.dev, public CVE records, npm registry metadata, upstream PR history) | Refreshed published advisory coverage, current package metadata, and the public maintainer follow-up trail around the incomplete-fix lineage. | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
 | *No public proactive audits on record yet.* | — | — | — | — | — |
 
 ## Known Vulnerabilities
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| CVE-2020-7598 | High | Prototype pollution via argument parsing | 1.2.3 / 0.2.1 | https://github.com/advisories/GHSA-vh95-rmgr-6w4m |
-| CVE-2021-44906 | Critical | Incomplete fix for prior prototype pollution issue; `constructor.prototype` payloads still reached object prototypes | 1.2.6 / 0.2.4 | https://github.com/advisories/GHSA-xvch-5gv4-984h |
+| CVE-2020-7598 / GHSA-vh95-rmgr-6w4m | Medium | Prototype pollution via unsanitized argument parsing; public GHSA text includes `--__proto__.y=Polluted` as a representative payload and notes exploitability when attackers control argv-like input passed into `minimist`. | 1.2.3 / 0.2.1 | https://github.com/advisories/GHSA-vh95-rmgr-6w4m |
+| CVE-2021-44906 / GHSA-xvch-5gv4-984h | Critical | Incomplete fix for the earlier prototype pollution issue; public advisory coverage says `constructor.prototype` payloads in `setKey()` still remained reachable before 1.2.6 / 0.2.4. | 1.2.6 / 0.2.4 | https://github.com/advisories/GHSA-xvch-5gv4-984h |
 
 ## Security Posture Notes
 
 - Tiny package, huge blast radius because it sits in CLI parsing paths throughout the npm ecosystem.
-- Historically important because the bug class is simple, common, and widely propagated through transitive dependencies.
-- Public advisory history shows a clear incomplete-fix pattern: CVE-2020-7598 covered `__proto__`-style pollution payloads, but a later published follow-up (CVE-2021-44906 / GHSA-xvch-5gv4-984h) states that `constructor.prototype` paths in `setKey()` still remained reachable before 1.2.6 / 0.2.4.
-- The public OSV / GHSA records make the exploit precondition explicit: the issue matters when attackers can control argv-like input passed into `minimist`, which is common in wrapper CLIs, task runners, and developer tooling.
-- The public fix trail is also unusually useful for KB readers: GitHub Advisory references point to multiple fix commits, and the public backport thread plus PR `#24` ("Robustness: rework isConstructorOrProto") show that maintainers revisited the original mitigation rather than treating the 2020 patch as final.
-- Public proof-of-concept material exists showing practical `__proto__` and `constructor.prototype` payload exploitation, which makes minimist valuable as a teaching/example package for argument-parser risk.
-- High-value candidate for surface mapping beyond just known CVEs.
+- Public advisory history still consists of **two published prototype-pollution advisories**, but the record is unusually instructive because it includes a clear incomplete-fix chain: CVE-2020-7598 covered the earlier `__proto__`-style pollution path, and CVE-2021-44906 documents that `constructor.prototype` paths in `setKey()` still remained reachable until 1.2.6 / 0.2.4.
+- The GitHub Advisory Database now gives precise affected-version ranges for both trains: `< 0.2.1` and `>= 1.0.0, < 1.2.3` for the 2020 bug, then `< 0.2.4` and `>= 1.0.0, < 1.2.6` for the incomplete-fix follow-up.
+- The public maintainer trail is worth preserving for readers: PR `#24` ("Robustness: rework isConstructorOrProto") was merged in February 2023 specifically to realign the legacy backport logic with the main branch after questions about the earlier 0.2.x fix path.
+- Current npm metadata shows `minimist` remains extremely widely consumed (`~118,243,616` downloads in the last week of this review pass; latest release `1.2.8`), so even old parser bugs still matter for transitive dependency hygiene.
+- No additional published GHSA advisories were identified for `minimist` in this review pass beyond the two prototype-pollution records above.
 
 ## Dependencies of Note
 
@@ -49,4 +49,4 @@
 - [[npm/semver]]
 
 ---
-*Last updated: 2026-04-13 | Sources: 6 (GitHub Advisory Database / GHSA, OSV, CVE records, public maintainer issue + PR history)*
+*Last updated: 2026-04-14 | Sources: 8 (GitHub Advisory Database / GHSA, OSV.dev, public CVE records, npm registry metadata, npm downloads API, and public maintainer PR history including minimistjs/minimist#24)*

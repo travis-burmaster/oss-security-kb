@@ -1,0 +1,243 @@
+You are helping draft evidence-backed updates to an OSS security knowledge base. Use only the provided public evidence. Do not fabricate findings, new vulnerabilities, or claims about exploitability beyond the sources. Focus on minimist and semver. Suggest concise page improvements: current status, weekly downloads, refined vulnerability table language, security posture notes, and open questions. Return markdown snippets only.
+
+### npm-metadata.txt
+PACKAGE minimist
+latest 1.2.8
+homepage https://github.com/minimistjs/minimist
+repository {'url': 'git://github.com/minimistjs/minimist.git', 'type': 'git'}
+bugs {'url': 'https://github.com/minimistjs/minimist/issues'}
+
+PACKAGE semver
+latest 7.7.4
+homepage https://github.com/npm/node-semver#readme
+repository {'url': 'git+https://github.com/npm/node-semver.git', 'type': 'git'}
+bugs {'url': 'https://github.com/npm/node-semver/issues'}
+
+
+
+### npm-downloads.txt
+minimist 118243616
+semver 632658124
+
+
+### minimist-ghsa-2020-api.json
+{
+  "ghsa_id": "GHSA-vh95-rmgr-6w4m",
+  "cve_id": "CVE-2020-7598",
+  "summary": "Prototype Pollution in minimist",
+  "description": "Affected versions of `minimist` are vulnerable to prototype pollution. Arguments are not properly sanitized, allowing an attacker to modify the prototype of `Object`, causing the addition or modification of an existing property that will exist on all objects.  \nParsing the argument `--__proto__.y=Polluted` adds a `y` property with value `Polluted` to all objects. The argument `--__proto__=Polluted` raises and uncaught error and crashes the application.  \nThis is exploitable if attackers have control over the arguments being passed to `minimist`.\n\n\n## Recommendation\n\nUpgrade to versions 0.2.1, 1.2.3 or later.",
+  "severity": "medium",
+  "published_at": "2020-04-03T21:48:32Z",
+  "updated_at": "2024-02-13T20:00:55Z",
+  "html_url": "https://github.com/advisories/GHSA-vh95-rmgr-6w4m",
+  "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2020-7598",
+    "https://snyk.io/vuln/SNYK-JS-MINIMIST-559764",
+    "http://lists.opensuse.org/opensuse-security-announce/2020-06/msg00024.html",
+    "https://www.npmjs.com/advisories/1179",
+    "https://github.com/minimistjs/minimist/commit/10bd4cdf49d9686d48214be9d579a9cdfda37c68",
+    "https://github.com/minimistjs/minimist/commit/38a4d1caead72ef99e824bb420a2528eec03d9ab",
+    "https://github.com/minimistjs/minimist/commit/4cf1354839cb972e38496d35e12f806eea92c11f#diff-a1e0ee62c91705696ddb71aa30ad4f95",
+    "https://github.com/minimistjs/minimist/commit/63e7ed05aa4b1889ec2f3b196426db4500cbda94",
+    "https://github.com/advisories/GHSA-vh95-rmgr-6w4m"
+  ],
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "minimist"
+      },
+      "vulnerable_version_range": "< 0.2.1",
+      "first_patched_version": "0.2.1",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "minimist"
+      },
+      "vulnerable_version_range": ">= 1.0.0, < 1.2.3",
+      "first_patched_version": "1.2.3",
+      "vulnerable_functions": []
+    }
+  ]
+}
+
+### minimist-ghsa-2021-api.json
+{
+  "ghsa_id": "GHSA-xvch-5gv4-984h",
+  "cve_id": "CVE-2021-44906",
+  "summary": "Prototype Pollution in minimist",
+  "description": "Minimist prior to 1.2.6 and 0.2.4 is vulnerable to Prototype Pollution via file `index.js`, function `setKey()` (lines 69-95).",
+  "severity": "critical",
+  "published_at": "2022-03-18T00:01:09Z",
+  "updated_at": "2024-06-21T21:33:52Z",
+  "html_url": "https://github.com/advisories/GHSA-xvch-5gv4-984h",
+  "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2021-44906",
+    "https://github.com/substack/minimist/issues/164",
+    "https://github.com/substack/minimist/blob/master/index.js#L69",
+    "https://snyk.io/vuln/SNYK-JS-MINIMIST-559764",
+    "https://stackoverflow.com/questions/8588563/adding-custom-properties-to-a-function/20278068#20278068",
+    "https://github.com/Marynk/JavaScript-vulnerability-detection/blob/main/minimist%20PoC.zip",
+    "https://github.com/minimistjs/minimist/issues/11",
+    "https://github.com/minimistjs/minimist/pull/24",
+    "https://github.com/minimistjs/minimist/commit/34e20b8461118608703d6485326abbb8e35e1703",
+    "https://github.com/minimistjs/minimist/commit/bc8ecee43875261f4f17eb20b1243d3ed15e70eb",
+    "https://github.com/minimistjs/minimist/commit/c2b981977fa834b223b408cfb860f933c9811e4d",
+    "https://github.com/minimistjs/minimist/commit/ef9153fc52b6cea0744b2239921c5dcae4697f11",
+    "https://github.com/minimistjs/minimist/commits/v0.2.4",
+    "https://security.netapp.com/advisory/ntap-20240621-0006",
+    "https://github.com/advisories/GHSA-xvch-5gv4-984h"
+  ],
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "minimist"
+      },
+      "vulnerable_version_range": ">= 1.0.0, < 1.2.6",
+      "first_patched_version": "1.2.6",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "minimist"
+      },
+      "vulnerable_version_range": "< 0.2.4",
+      "first_patched_version": "0.2.4",
+      "vulnerable_functions": []
+    }
+  ]
+}
+
+### minimist-pr24-api.json
+{
+  "number": 24,
+  "title": "Robustness: rework isConstructorOrProto",
+  "state": "closed",
+  "merged_at": "2023-02-25T06:18:00Z",
+  "html_url": "https://github.com/minimistjs/minimist/pull/24",
+  "body": "The `isConstructorOrProto` fix does not look right for the v0.2.x branch. I looked at various commits and suspect the back port of the fix itself went somewhat awry. This PR makes the code match the mainline.\r\n\r\nHere are the relevant lines of code from the main branch and from the original commit and adapted commit adding `isConstructorOrProto`.\r\n\r\n## Main line\r\n\r\n- https://github.com/minimistjs/minimist/blob/6901ee286bc4c16da6830b48b46ce1574703cea1/index.js#L19-L21\r\n- https://github.com/minimistjs/minimist/blob/6901ee286bc4c16da6830b48b46ce1574703cea1/index.js#L85\r\n- https://github.com/minimistjs/minimist/blob/6901ee286bc4c16da6830b48b46ce1574703cea1/index.js#L99\r\n\r\n## Original change\r\n\r\n- https://github.com/minimistjs/minimist/blob/c2b981977fa834b223b408cfb860f933c9811e4d/index.js#L247-L249\r\n- https://github.com/minimistjs/minimist/blob/c2b981977fa834b223b408cfb860f933c9811e4d/index.js#L73\r\n- https://github.com/minimistjs/minimist/blob/c2b981977fa834b223b408cfb860f933c9811e4d/index.js#L82\r\n\r\n## Adapted change (suspect)\r\n\r\n- https://github.com/minimistjs/minimist/blob/ef9153fc52b6cea0744b2239921c5dcae4697f11/index.js#L9-L11\r\n- https://github.com/minimistjs/minimist/blob/ef9153fc52b6cea0744b2239921c5dcae4697f11/index.js#L28-L30\r\n- https://github.com/minimistjs/minimist/blob/ef9153fc52b6cea0744b2239921c5dcae4697f11/index.js#L44"
+}
+
+### semver-ghsa-2015-api.json
+{
+  "ghsa_id": "GHSA-x6fg-f45m-jf5q",
+  "cve_id": "CVE-2015-8855",
+  "summary": "Regular Expression Denial of Service in semver",
+  "description": "Versions 4.3.1 and earlier of `semver` are affected by a regular expression denial of service vulnerability when extremely long version strings are parsed.\n\n\n\n## Recommendation\n\nUpdate to version 4.3.2 or later",
+  "severity": "high",
+  "published_at": "2017-10-24T18:33:36Z",
+  "updated_at": "2026-03-03T20:03:29Z",
+  "html_url": "https://github.com/advisories/GHSA-x6fg-f45m-jf5q",
+  "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2015-8855",
+    "https://github.com/advisories/GHSA-x6fg-f45m-jf5q",
+    "https://www.npmjs.com/advisories/31",
+    "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS",
+    "http://www.openwall.com/lists/oss-security/2016/04/20/11",
+    "http://www.securityfocus.com/bid/86957",
+    "https://github.com/github/advisory-database/pull/7102",
+    "https://github.com/npm/node-semver/commit/5c4c9f6e26c7052a42b5ced2a7481c5c9b4363a0",
+    "https://github.com/npm/node-semver/commit/c80180d8341a8ada0236815c29a2be59864afd70"
+  ],
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "semver"
+      },
+      "vulnerable_version_range": ">= 1.0.4, < 4.3.2",
+      "first_patched_version": "4.3.2",
+      "vulnerable_functions": []
+    }
+  ]
+}
+
+### semver-ghsa-2022-api.json
+{
+  "ghsa_id": "GHSA-c2qf-rxjj-qqgw",
+  "cve_id": "CVE-2022-25883",
+  "summary": "semver vulnerable to Regular Expression Denial of Service",
+  "description": "Versions of the package semver before 7.5.2 on the 7.x branch, before 6.3.1 on the 6.x branch, and all other versions before 5.7.2 are vulnerable to Regular Expression Denial of Service (ReDoS) via the function new Range, when untrusted user data is provided as a range.",
+  "severity": "high",
+  "published_at": "2023-06-21T06:30:28Z",
+  "updated_at": "2026-02-04T20:39:10Z",
+  "html_url": "https://github.com/advisories/GHSA-c2qf-rxjj-qqgw",
+  "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2022-25883",
+    "https://github.com/npm/node-semver/pull/564",
+    "https://github.com/npm/node-semver/commit/717534ee353682f3bcf33e60a8af4292626d4441",
+    "https://security.snyk.io/vuln/SNYK-JS-SEMVER-3247795",
+    "https://github.com/npm/node-semver/blob/main/classes/range.js#L97-L104",
+    "https://github.com/npm/node-semver/blob/main/internal/re.js#L138",
+    "https://github.com/npm/node-semver/blob/main/internal/re.js#L160",
+    "https://github.com/npm/node-semver/pull/585",
+    "https://github.com/npm/node-semver/commit/928e56d21150da0413a3333a3148b20e741a920c",
+    "https://github.com/npm/node-semver/pull/593",
+    "https://github.com/npm/node-semver/commit/2f8fd41487acf380194579ecb6f8b1bbfe116be0",
+    "https://github.com/npm/node-semver/blob/main/classes/range.js%23L97-L104",
+    "https://github.com/npm/node-semver/blob/main/internal/re.js%23L138",
+    "https://github.com/npm/node-semver/blob/main/internal/re.js%23L160",
+    "https://security.netapp.com/advisory/ntap-20241025-0004",
+    "https://github.com/advisories/GHSA-c2qf-rxjj-qqgw"
+  ],
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "semver"
+      },
+      "vulnerable_version_range": ">= 7.0.0, < 7.5.2",
+      "first_patched_version": "7.5.2",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "semver"
+      },
+      "vulnerable_version_range": ">= 6.0.0, < 6.3.1",
+      "first_patched_version": "6.3.1",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "semver"
+      },
+      "vulnerable_version_range": ">= 2.0.0-alpha, < 5.7.2",
+      "first_patched_version": "5.7.2",
+      "vulnerable_functions": []
+    }
+  ]
+}
+
+### semver-v7.5.2-api.json
+{
+  "tag_name": "v7.5.2",
+  "name": "v7.5.2",
+  "published_at": "2023-06-15T20:25:42Z",
+  "html_url": "https://github.com/npm/node-semver/releases/tag/v7.5.2",
+  "body": "## [7.5.2](https://github.com/npm/node-semver/compare/v7.5.1...v7.5.2) (2023-06-15)\n\n### Bug Fixes\n\n* [`58c791f`](https://github.com/npm/node-semver/commit/58c791f40ba8cf4be35a5ca6644353ecd6249edc) [#566](https://github.com/npm/node-semver/pull/566) diff when detecting major change from prerelease (#566) (@lukekarrys)\n* [`5c8efbc`](https://github.com/npm/node-semver/commit/5c8efbcb3c6c125af10746d054faff13e8c33fbd) [#565](https://github.com/npm/node-semver/pull/565) preserve build in raw after inc (#565) (@lukekarrys)\n* [`717534e`](https://github.com/npm/node-semver/commit/717534ee353682f3bcf33e60a8af4292626d4441) [#564](https://github.com/npm/node-semver/pull/564) better handling of whitespace (#564) (@lukekarrys)"
+}
+
+### semver-v6.3.1-api.json
+{
+  "tag_name": "v6.3.1",
+  "name": "v6.3.1",
+  "published_at": "2023-07-10T22:40:28Z",
+  "html_url": "https://github.com/npm/node-semver/releases/tag/v6.3.1",
+  "body": "## [6.3.1](https://github.com/npm/node-semver/compare/v6.3.0...v6.3.1) (2023-07-10)\n\n### Bug Fixes\n\n* [`928e56d`](https://github.com/npm/node-semver/commit/928e56d21150da0413a3333a3148b20e741a920c) [#591](https://github.com/npm/node-semver/pull/591) better handling of whitespace (#591) (@lukekarrys, @joaomoreno, @nicolo-ribaudo)"
+}
+
+### semver-v5.7.2-api.json
+{
+  "tag_name": "v5.7.2",
+  "name": "v5.7.2",
+  "published_at": "2023-07-10T20:00:27Z",
+  "html_url": "https://github.com/npm/node-semver/releases/tag/v5.7.2",
+  "body": "## [5.7.2](https://github.com/npm/node-semver/compare/v5.7.1...v5.7.2) (2023-07-10)\n\n### Bug Fixes\n\n* [`2f8fd41`](https://github.com/npm/node-semver/commit/2f8fd41487acf380194579ecb6f8b1bbfe116be0) [#585](https://github.com/npm/node-semver/pull/585) better handling of whitespace (#585) (@joaomoreno, @lukekarrys)"
+}
