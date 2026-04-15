@@ -4,6 +4,7 @@
 
 ## npm (19)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
+- [[npm/ws]] — WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
 - [[npm/basic-ftp]] — FTP client library · advisory mapped · 2026 5.2.x path-traversal and CRLF command-injection fix chain
 - [[npm/body-parser]] — request body parsing middleware · advisory mapped · 1.x and 2.x urlencoded-parser DoS fixes plus parser-boundary review notes
@@ -21,7 +22,6 @@
 - [[npm/qs]] — query-string parser · advisory mapped · prototype-pollution and parser-limit bypass history
 - [[npm/semver]] — semver version parser · advisory mapped · ReDoS history
 - [[npm/send]] — static file serving engine · audit ingested · historical traversal / path-disclosure advisories plus verified modern traversal defenses
-- [[npm/ws]] — WebSocket transport library · advisory mapped · long-lived header parsing, message-size, and handshake DoS history plus one older memory-disclosure bug
 
 ## Rust / crates.io (3)
 - [[rust/serde]] — foundational serialization crate · baseline stub · high downstream deserialization surface
