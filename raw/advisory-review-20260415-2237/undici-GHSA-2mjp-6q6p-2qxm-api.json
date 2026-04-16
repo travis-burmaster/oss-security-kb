@@ -1,0 +1,134 @@
+{
+  "ghsa_id": "GHSA-2mjp-6q6p-2qxm",
+  "cve_id": "CVE-2026-1525",
+  "url": "https://api.github.com/advisories/GHSA-2mjp-6q6p-2qxm",
+  "html_url": "https://github.com/advisories/GHSA-2mjp-6q6p-2qxm",
+  "summary": "Undici has an HTTP Request/Response Smuggling issue",
+  "description": "### Impact\n\nUndici allows duplicate HTTP `Content-Length` headers when they are provided in an array with case-variant names (e.g., `Content-Length` and `content-length`). This produces malformed HTTP/1.1 requests with multiple conflicting `Content-Length` values on the wire.\n\n**Who is impacted:**\n  - Applications using `undici.request()`, `undici.Client`, or similar low-level APIs with headers passed as flat arrays\n  - Applications that accept user-controlled header names without case-normalization\n\n**Potential consequences:**\n  - **Denial of Service**: Strict HTTP parsers (proxies, servers) will reject requests with duplicate `Content-Length` headers (400 Bad Request)\n  - **HTTP Request Smuggling**: In deployments where an intermediary and backend interpret duplicate headers inconsistently (e.g., one uses the first value, the other uses the last), this can enable request smuggling attacks leading to ACL bypass, cache poisoning, or credential hijacking\n\n### Patches\n\n Patched in the undici version v7.24.0 and v6.24.0. Users should upgrade to this version or later.\n\n### Workarounds\n\n  If upgrading is not immediately possible:\n\n  1. **Validate header names**: Ensure no duplicate `Content-Length` headers (case-insensitive) are present before passing headers to undici\n  2. **Use object format**: Pass headers as a plain object (`{ 'content-length': '123' }`) rather than an array, which naturally deduplicates by key\n  3. **Sanitize user input**: If headers originate from user input, normalize header names to lowercase and reject duplicates",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": "https://api.github.com/repos/nodejs/undici/security-advisories/GHSA-2mjp-6q6p-2qxm",
+  "source_code_location": "https://github.com/nodejs/undici",
+  "identifiers": [
+    {
+      "value": "GHSA-2mjp-6q6p-2qxm",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2026-1525",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://github.com/nodejs/undici/security/advisories/GHSA-2mjp-6q6p-2qxm",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-1525",
+    "https://hackerone.com/reports/3556037",
+    "https://cna.openjsf.org/security-advisories.html",
+    "https://cwe.mitre.org/data/definitions/444.html",
+    "https://www.rfc-editor.org/rfc/rfc9110.html#section-8.6",
+    "https://github.com/advisories/GHSA-2mjp-6q6p-2qxm"
+  ],
+  "published_at": "2026-03-13T20:07:03Z",
+  "updated_at": "2026-03-13T20:07:05Z",
+  "github_reviewed_at": "2026-03-13T20:07:03Z",
+  "nvd_published_at": "2026-03-12T20:16:02Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "undici"
+      },
+      "vulnerable_version_range": "< 6.24.0",
+      "first_patched_version": "6.24.0",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "undici"
+      },
+      "vulnerable_version_range": ">= 7.0.0, < 7.24.0",
+      "first_patched_version": "7.24.0",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L",
+      "score": 6.5
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-444",
+      "name": "Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling')"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "mcollina",
+        "id": 52195,
+        "node_id": "MDQ6VXNlcjUyMTk1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52195?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/mcollina",
+        "html_url": "https://github.com/mcollina",
+        "followers_url": "https://api.github.com/users/mcollina/followers",
+        "following_url": "https://api.github.com/users/mcollina/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mcollina/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/mcollina/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mcollina/subscriptions",
+        "organizations_url": "https://api.github.com/users/mcollina/orgs",
+        "repos_url": "https://api.github.com/users/mcollina/repos",
+        "events_url": "https://api.github.com/users/mcollina/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/mcollina/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "remediation_developer"
+    },
+    {
+      "user": {
+        "login": "UlisesGascon",
+        "id": 5110813,
+        "node_id": "MDQ6VXNlcjUxMTA4MTM=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/5110813?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/UlisesGascon",
+        "html_url": "https://github.com/UlisesGascon",
+        "followers_url": "https://api.github.com/users/UlisesGascon/followers",
+        "following_url": "https://api.github.com/users/UlisesGascon/following{/other_user}",
+        "gists_url": "https://api.github.com/users/UlisesGascon/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/UlisesGascon/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/UlisesGascon/subscriptions",
+        "organizations_url": "https://api.github.com/users/UlisesGascon/orgs",
+        "repos_url": "https://api.github.com/users/UlisesGascon/repos",
+        "events_url": "https://api.github.com/users/UlisesGascon/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/UlisesGascon/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "remediation_reviewer"
+    }
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L",
+    "score": 6.5
+  },
+  "epss": {
+    "percentage": 0.00018,
+    "percentile": 0.04453
+  }
+}

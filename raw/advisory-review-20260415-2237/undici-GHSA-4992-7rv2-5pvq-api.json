@@ -1,0 +1,132 @@
+{
+  "ghsa_id": "GHSA-4992-7rv2-5pvq",
+  "cve_id": "CVE-2026-1527",
+  "url": "https://api.github.com/advisories/GHSA-4992-7rv2-5pvq",
+  "html_url": "https://github.com/advisories/GHSA-4992-7rv2-5pvq",
+  "summary": "Undici has CRLF Injection in undici via `upgrade` option",
+  "description": "### Impact\n\nWhen an application passes user-controlled input to the `upgrade` option of `client.request()`, an attacker can inject CRLF sequences (`\\r\\n`) to:\n\n1. Inject arbitrary HTTP headers\n2. Terminate the HTTP request prematurely and smuggle raw data to non-HTTP services (Redis, Memcached, Elasticsearch)\n\nThe vulnerability exists because undici writes the `upgrade` value directly to the socket without validating for invalid header characters:\n\n```javascript\n// lib/dispatcher/client-h1.js:1121\nif (upgrade) {\n  header += `connection: upgrade\\r\\nupgrade: ${upgrade}\\r\\n`\n}\n```\n\n### Patches\n\n Patched in the undici version v7.24.0 and v6.24.0. Users should upgrade to this version or later.\n\n### Workarounds\n\nSanitize the `upgrade` option string before passing to undici:\n\n```javascript\nfunction sanitizeUpgrade(value) {\n  if (/[\\r\\n]/.test(value)) {\n    throw new Error('Invalid upgrade value')\n  }\n  return value\n}\n\nclient.request({\n  upgrade: sanitizeUpgrade(userInput)\n})\n```",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": "https://api.github.com/repos/nodejs/undici/security-advisories/GHSA-4992-7rv2-5pvq",
+  "source_code_location": "https://github.com/nodejs/undici",
+  "identifiers": [
+    {
+      "value": "GHSA-4992-7rv2-5pvq",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2026-1527",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://github.com/nodejs/undici/security/advisories/GHSA-4992-7rv2-5pvq",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-1527",
+    "https://hackerone.com/reports/3487198",
+    "https://cna.openjsf.org/security-advisories.html",
+    "https://github.com/advisories/GHSA-4992-7rv2-5pvq"
+  ],
+  "published_at": "2026-03-13T20:41:26Z",
+  "updated_at": "2026-03-13T20:41:28Z",
+  "github_reviewed_at": "2026-03-13T20:41:26Z",
+  "nvd_published_at": "2026-03-12T21:16:25Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "undici"
+      },
+      "vulnerable_version_range": "< 6.24.0",
+      "first_patched_version": "6.24.0",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "undici"
+      },
+      "vulnerable_version_range": ">= 7.0.0, < 7.24.0",
+      "first_patched_version": "7.24.0",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N",
+      "score": 4.6
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-93",
+      "name": "Improper Neutralization of CRLF Sequences ('CRLF Injection')"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "mcollina",
+        "id": 52195,
+        "node_id": "MDQ6VXNlcjUyMTk1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52195?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/mcollina",
+        "html_url": "https://github.com/mcollina",
+        "followers_url": "https://api.github.com/users/mcollina/followers",
+        "following_url": "https://api.github.com/users/mcollina/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mcollina/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/mcollina/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mcollina/subscriptions",
+        "organizations_url": "https://api.github.com/users/mcollina/orgs",
+        "repos_url": "https://api.github.com/users/mcollina/repos",
+        "events_url": "https://api.github.com/users/mcollina/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/mcollina/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "remediation_developer"
+    },
+    {
+      "user": {
+        "login": "UlisesGascon",
+        "id": 5110813,
+        "node_id": "MDQ6VXNlcjUxMTA4MTM=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/5110813?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/UlisesGascon",
+        "html_url": "https://github.com/UlisesGascon",
+        "followers_url": "https://api.github.com/users/UlisesGascon/followers",
+        "following_url": "https://api.github.com/users/UlisesGascon/following{/other_user}",
+        "gists_url": "https://api.github.com/users/UlisesGascon/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/UlisesGascon/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/UlisesGascon/subscriptions",
+        "organizations_url": "https://api.github.com/users/UlisesGascon/orgs",
+        "repos_url": "https://api.github.com/users/UlisesGascon/repos",
+        "events_url": "https://api.github.com/users/UlisesGascon/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/UlisesGascon/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "remediation_developer"
+    }
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N",
+    "score": 4.6
+  },
+  "epss": {
+    "percentage": 0.00011,
+    "percentile": 0.01235
+  }
+}
