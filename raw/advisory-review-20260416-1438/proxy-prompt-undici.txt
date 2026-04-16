@@ -1,0 +1,16 @@
+Review the gathered public evidence for npm package undici and propose an evidence-backed OSS KB page draft. Use only the provided evidence; do not invent findings.
+
+Evidence summary:
+- Package: undici (npm)
+- Latest npm dist-tag observed: 8.1.0
+- Weekly downloads observed: 80,083,467
+- Upstream repo: https://github.com/nodejs/undici
+- Public disclosure policy: SECURITY.md in the repo
+- OSV package query returned 22 published advisories.
+- Advisory IDs, aliases, and first fixed versions:
+$(jq -r '.vulns[] | "  - \(.id) | aliases=\((.aliases//[])|join(", ")) | fixed=\(((.affected[0].ranges[]?.events // []) | map(select(.fixed).fixed) | join(","))) | summary=\(.summary)"' "$dir/undici-osv.json")
+
+Please return:
+1. A concise package-level summary of recurring vulnerability themes.
+2. A markdown KB draft with sections: Audit History, Known Vulnerabilities table, Security Posture Notes, Recommendations for Developers, Dependencies of Note, Open Questions.
+3. Keep descriptions conservative and evidence-backed.
