@@ -1,0 +1,34 @@
+Review the following public evidence for the npm package undici and propose evidence-backed knowledge-base updates only. Do not fabricate findings, fixed versions, or exploitability claims.
+
+Public evidence summary:
+- OSV package query for npm/undici returned published advisories including:
+  - GHSA-pgw7-wx7w-2w33 / CVE-2022-32210: ProxyAgent MITM via missing certificate verification; fixed in 5.5.1.
+  - GHSA-3cvr-822r-rqcc / CVE-2022-31150: CRLF injection in headers/path/method; fixed in 5.8.0.
+  - GHSA-q768-x9m6-m9qp / CVE-2022-31151: cookie header not cleared on cross-origin redirect; fixed in 5.8.0.
+  - GHSA-8qr4-xgw6-wmr3 / CVE-2022-35949: SSRF via absolute URL in pathname/path option; fixed in 5.8.2.
+  - GHSA-f772-66g8-q5h3 / CVE-2022-35948: CRLF injection via Content-Type; fixed in 5.8.1 / first unaffected 5.8.2 per OSV range.
+  - GHSA-r6ch-mqf9-qc9w / CVE-2023-24807: ReDoS in Headers.set()/append(); fixed in 5.19.1.
+  - GHSA-5r9g-qh6m-jxff / CVE-2023-23936: CRLF injection via Host header; fixed in 5.19.1.
+  - GHSA-wqq4-5wpv-mx2g / CVE-2023-45143: fetch cookie header not cleared on cross-origin redirect; fixed in 5.26.2.
+  - GHSA-3787-6prv-h9w3 / CVE-2024-24758: fetch proxy-authorization header not cleared on cross-origin redirect; fixed in 5.28.3 and 6.6.1.
+  - GHSA-9f24-jqhm-jfcw / CVE-2024-24750: fetch(url) leak when body not consumed / consumed very slowly; fixed in 6.6.1.
+  - GHSA-m4v8-wqvr-p9f7 / CVE-2024-30260: request/dispatch/stream/pipeline proxy-authorization not cleared on redirect; fixed in 5.28.4 and 6.11.1.
+  - GHSA-9qxr-qj54-h672 / CVE-2024-30261: integrity option too lax when algorithm specified but hash invalid; fixed in 5.28.4 and 6.11.1.
+  - GHSA-3g92-w8c5-73pq / CVE-2024-38372: response.arrayBuffer() may include process memory under some conditions; fixed in 6.19.2.
+  - GHSA-c76h-2ccp-4975 / CVE-2025-22150: multipart boundary uses Math.random(); fixed in 5.28.5 / 6.21.1 / 7.2.3.
+  - GHSA-cxrh-j4jr-qwg3 / CVE-2025-47279: bad certificate data can cause repeated-failure memory leak / DoS in webhook-like retry patterns; fixed in 5.29.0 / 6.21.2 / 7.5.0.
+  - GHSA-g9mf-h72j-4rw9 / CVE-2026-22036: unbounded decompression chain in Content-Encoding; fixed in 6.23.0 / 7.18.2.
+  - GHSA-2mjp-6q6p-2qxm / CVE-2026-1525: duplicate case-variant Content-Length headers enable malformed requests / smuggling risk; fixed in 6.24.0 / 7.24.0.
+  - GHSA-4992-7rv2-5pvq / CVE-2026-1527: CRLF injection via upgrade option; fixed in 6.24.0 / 7.24.0.
+  - GHSA-f269-vfmq-vjvj / CVE-2026-1528: malicious WebSocket 64-bit length can crash client; fixed in 6.24.0 / 7.24.0.
+  - GHSA-phc3-fgpg-7m6h / CVE-2026-2581: DeduplicationHandler response buffering can cause DoS when interceptors.deduplicate() is enabled; fixed in 7.24.0.
+  - GHSA-v9p9-hfj2-hcw8 / CVE-2026-2229: invalid server_max_window_bits causes uncaught exception / DoS in WebSocket client; fixed in 6.24.0 / 7.24.0.
+  - GHSA-vrm6-8vpv-qv8q / CVE-2026-1526: WebSocket permessage-deflate decompression bomb / memory exhaustion; fixed in 6.24.0 / 7.24.0.
+- npm registry metadata shows latest=8.1.0 and very recent 6.x / 7.x / 8.x maintenance activity.
+- npm last-month downloads are high enough to make transitive exposure materially important.
+- Upstream SECURITY.md points reporters to the Node.js security policy / process.
+
+Please return:
+1. A concise list of the strongest evidence-backed themes.
+2. A suggested markdown page outline with 8-12 most important advisories to foreground while noting broader history.
+3. Any wording cautions where fixed-version interpretation is subtle.
