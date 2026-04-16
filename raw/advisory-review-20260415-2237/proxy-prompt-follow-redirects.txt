@@ -1,0 +1,18 @@
+Review the gathered public evidence for npm package follow-redirects and propose evidence-backed KB updates only. Do not fabricate findings or add private/speculative claims.
+
+Evidence summary:
+- OSV package query shows 5 published advisories for npm/follow-redirects:
+  - GHSA-74fj-2j2h-c42q / CVE-2022-0155 fixed in 1.14.7
+  - GHSA-pw2r-vq6v-hr8c / CVE-2022-0536 fixed in 1.14.8
+  - GHSA-jchw-25xp-jwwc / CVE-2023-26159 fixed in 1.15.4
+  - GHSA-cxjh-pqwp-8mfp / CVE-2024-28849 fixed in 1.15.6
+  - GHSA-r4q5-vmmm-2653 fixed in 1.16.0
+- SECURITY.md says vulnerabilities should be disclosed via GitHub Security Advisories.
+- npm downloads last week: 85,838,047.
+- npm registry latest dist-tag: 1.16.0.
+- Public OSV references include upstream fix commits and NVD entries.
+
+Please draft:
+1) a concise package-page structure with known vulnerabilities and posture notes,
+2) index blurb wording,
+3) any cautions about not overstating the 2026 GHSA beyond the public record.
