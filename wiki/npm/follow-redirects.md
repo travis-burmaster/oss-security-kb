@@ -3,9 +3,9 @@
 **Registry:** npm
 **Weekly Downloads:** ~85,838,000 (2026-04-08 to 2026-04-14)
 **Repository:** https://github.com/follow-redirects/follow-redirects
-**Security Contact:** none listed
+**Security Contact:** GitHub Security Advisories
 **Disclosure Policy:** https://github.com/follow-redirects/follow-redirects/security/advisories
-**Current Status:** advisory-mapped
+**Current Status:** advisory mapped
 
 ## Audit History
 
@@ -56,7 +56,8 @@
 ## Related Pages
 
 - [[npm/axios]]
-- [[npm/ws]]
+- [[python/requests]]
+- [[python/urllib3]]
 - [[npm/index]]
 
 ---
