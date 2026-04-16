@@ -1,0 +1,102 @@
+{
+  "ghsa_id": "GHSA-9f24-jqhm-jfcw",
+  "cve_id": "CVE-2024-24750",
+  "url": "https://api.github.com/advisories/GHSA-9f24-jqhm-jfcw",
+  "html_url": "https://github.com/advisories/GHSA-9f24-jqhm-jfcw",
+  "summary": "fetch(url) leads to a memory leak in undici",
+  "description": "### Impact\n\nCalling `fetch(url)` and not consuming the incoming body ((or consuming it very slowing) will lead to a memory leak. \n\n### Patches\n\nPatched in v6.6.1\n\n### Workarounds\n\nMake sure to always consume the incoming body.\n",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": "https://api.github.com/repos/nodejs/undici/security-advisories/GHSA-9f24-jqhm-jfcw",
+  "source_code_location": "https://github.com/nodejs/undici",
+  "identifiers": [
+    {
+      "value": "GHSA-9f24-jqhm-jfcw",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2024-24750",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://github.com/nodejs/undici/security/advisories/GHSA-9f24-jqhm-jfcw",
+    "https://github.com/nodejs/undici/commit/87a48113f1f68f60aa09abb07276d7c35467c663",
+    "https://github.com/nodejs/undici/releases/tag/v6.6.1",
+    "https://nvd.nist.gov/vuln/detail/CVE-2024-24750",
+    "https://security.netapp.com/advisory/ntap-20240419-0006",
+    "https://github.com/advisories/GHSA-9f24-jqhm-jfcw"
+  ],
+  "published_at": "2024-02-16T15:59:38Z",
+  "updated_at": "2026-03-20T05:06:24Z",
+  "github_reviewed_at": "2024-02-16T15:59:38Z",
+  "nvd_published_at": "2024-02-16T22:15:07Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "undici"
+      },
+      "vulnerable_version_range": ">= 6.0.0, <= 6.6.0",
+      "first_patched_version": "6.6.1",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+      "score": 6.5
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-400",
+      "name": "Uncontrolled Resource Consumption"
+    },
+    {
+      "cwe_id": "CWE-401",
+      "name": "Missing Release of Memory after Effective Lifetime"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "mcollina",
+        "id": 52195,
+        "node_id": "MDQ6VXNlcjUyMTk1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52195?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/mcollina",
+        "html_url": "https://github.com/mcollina",
+        "followers_url": "https://api.github.com/users/mcollina/followers",
+        "following_url": "https://api.github.com/users/mcollina/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mcollina/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/mcollina/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mcollina/subscriptions",
+        "organizations_url": "https://api.github.com/users/mcollina/orgs",
+        "repos_url": "https://api.github.com/users/mcollina/repos",
+        "events_url": "https://api.github.com/users/mcollina/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/mcollina/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "coordinator"
+    }
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+    "score": 6.5
+  },
+  "epss": {
+    "percentage": 0.00315,
+    "percentile": 0.54515
+  }
+}

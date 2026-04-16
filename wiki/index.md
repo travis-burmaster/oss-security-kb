@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*32 packages tracked across 8 ecosystems. Last updated: 2026-04-14.*
+*33 packages tracked across 8 ecosystems. Last updated: 2026-04-15.*
 
-## npm (19)
+## npm (20)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/ws]] — WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
@@ -17,6 +17,7 @@
 - [[npm/lodash]] — lodash utility library · advisory mapped · prototype pollution, ReDoS, and template-injection history
 - [[npm/mathjs]] — math expression engine · advisory mapped · 15.2.0 object-attribute / parser hardening security fix
 - [[npm/minimist]] — minimist argument parser · advisory mapped · high transitive risk
+- [[npm/node-fetch]] — fetch-compatible HTTP client · advisory mapped · redirect credential leakage, redirect size-limit bypass, and ReDoS history
 - [[npm/next-intl]] — internationalization middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
 - [[npm/path-to-regexp]] — route parser · advisory mapped · audit and ReDoS history
 - [[npm/qs]] — query-string parser · advisory mapped · prototype-pollution and parser-limit bypass history
