@@ -1,0 +1,4 @@
+Reviewed candidates:
+- serve-static (gap: no page yet; public GHSA/CVE history exists)
+- cookie (existing page; checking for new published advisories or release-note changes)
+- minimist (existing page; checking whether advisory coverage changed materially)
