@@ -1,0 +1,26 @@
+Review the gathered public evidence for the npm package serialize-javascript and propose evidence-backed OSS KB updates only. Do not fabricate findings. Keep the draft conservative and grounded in these facts:
+
+Package facts:
+- npm package: serialize-javascript
+- latest npm version: 7.0.5
+- weekly downloads: 48,790,379
+- repo: https://github.com/yahoo/serialize-javascript
+
+Published package advisories confirmed via OSV / GitHub Advisory Database:
+- GHSA-h9rv-jmmf-4pgx / CVE-2019-16769: Cross-Site Scripting in serialize-javascript; fixed in 2.1.1. GHSA says this does not affect Node.js applications and is about failing to sanitize serialized regular expressions before browser-side deserialization.
+- GHSA-hxcc-f52p-wc94 / CVE-2020-7660: insecure serialization leading to RCE; fixed in 3.1.0. Public advisory says attacker-controlled values in both a regexp and a string field could break placeholder escaping and inject code when evaluated.
+- GHSA-76p7-773f-r4q5 / CVE-2024-11831: Cross-site Scripting in serialize-javascript; fixed in 6.0.2. Public references include fix PR/commits and the v6.0.2 release note saying it serializes URL string contents to prevent XSS.
+- GHSA-5c6j-r48x-rmvq: Vulnerable to RCE via RegExp.flags and Date.prototype.toISOString(); fixed in 7.0.3. Public advisory explicitly says it is an incomplete fix for CVE-2020-7660 and provides a v7.0.3 release reference.
+- GHSA-qj8w-gfj5-8c6v / CVE-2026-34043: CPU exhaustion DoS via crafted array-like objects; fixed in 7.0.5. Public release notes for v7.0.5 say they improved robustness for array-like object serialization and reference the GHSA.
+
+Upstream release breadcrumbs:
+- v2.1.1 release says it fixes the regex XSS vulnerability.
+- v3.1.0 release notes include "Don't replace regex / function placeholders within string literals".
+- v6.0.2 release notes say "serialize URL string contents to prevent XSS".
+- v7.0.3 release notes say "fix(CVE-2020-7660): fix for RegExp.flags and Date.prototype.toISOString()".
+- v7.0.5 release notes reference GHSA-qj8w-gfj5-8c6v and excessive CPU usage.
+
+Please draft:
+1. A concise KB page structure with audit history, known vulnerabilities, posture notes, dependencies, open questions.
+2. Conservative interpretation notes about exploit preconditions: risks are highest when applications serialize attacker-controlled objects and later evaluate/embed the result, especially in SSR or browser script contexts.
+3. A short note that 7.0.5 is the first release covering the full currently reviewed published advisory set.

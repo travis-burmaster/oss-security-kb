@@ -13,6 +13,7 @@
 - [[npm/undici]] — modern HTTP client / fetch foundation · advisory mapped · recurring redirect leakage, CRLF injection, and 2026 WebSocket / DoS cluster
 - [[npm/jsonwebtoken]] — JWT verification surface · advisory mapped · 9.0.0 security watershed and one rejected CVE to interpret carefully
 - [[npm/js-yaml]] — YAML parser · audit ingested · historical RCE plus 2026 alias-expansion DoS finding
+- [[npm/serialize-javascript]] — serialization helper · advisory mapped · recurring XSS / code-injection boundary bugs plus 2026 CPU-exhaustion DoS
 - [[npm/lodash]] — utility library · advisory mapped · prototype pollution, ReDoS, and template-injection history
 - [[npm/mathjs]] — math expression engine · advisory mapped · 15.2.0 object-attribute / parser hardening security fix
 - [[npm/minimist]] — tiny CLI parser with outsized transitive blast radius
