@@ -1,0 +1,162 @@
+[
+  {
+    "name": "v1.7.7",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.7.7",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.7.7",
+    "commit": {
+      "sha": "e19d20de2b561cdd642ed336fcca368fd8e251cf",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/e19d20de2b561cdd642ed336fcca368fd8e251cf"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjcuNw=="
+  },
+  {
+    "name": "v1.7.6",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.7.6",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.7.6",
+    "commit": {
+      "sha": "47d9afe5a3f22e913dfd5dc0fab17d1fef58cbbc",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/47d9afe5a3f22e913dfd5dc0fab17d1fef58cbbc"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjcuNg=="
+  },
+  {
+    "name": "v1.7.5",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.7.5",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.7.5",
+    "commit": {
+      "sha": "2ae76b09f1c5e2e84c4a41fef26717a3b49e0222",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/2ae76b09f1c5e2e84c4a41fef26717a3b49e0222"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjcuNQ=="
+  },
+  {
+    "name": "v1.7.4",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.7.4",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.7.4",
+    "commit": {
+      "sha": "8289cfd3b8340655e587b2d6382e7e317b4da918",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/8289cfd3b8340655e587b2d6382e7e317b4da918"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjcuNA=="
+  },
+  {
+    "name": "v1.7.3",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.7.3",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.7.3",
+    "commit": {
+      "sha": "80b5d9bbc242a25ca630748b3341ebc0dc13d7be",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/80b5d9bbc242a25ca630748b3341ebc0dc13d7be"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjcuMw=="
+  },
+  {
+    "name": "v1.7.2",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.7.2",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.7.2",
+    "commit": {
+      "sha": "064064f7214ebfe75a019e6534b92f1ce709065e",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/064064f7214ebfe75a019e6534b92f1ce709065e"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjcuMg=="
+  },
+  {
+    "name": "v1.7.1",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.7.1",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.7.1",
+    "commit": {
+      "sha": "71a48a2d078b6cf8e588543f43110e1108720066",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/71a48a2d078b6cf8e588543f43110e1108720066"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjcuMQ=="
+  },
+  {
+    "name": "v1.7.0",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.7.0",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.7.0",
+    "commit": {
+      "sha": "4447aebdda542a9a6027d0a2c7e550eb92082679",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/4447aebdda542a9a6027d0a2c7e550eb92082679"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjcuMA=="
+  },
+  {
+    "name": "v1.6.0",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.6.0",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.6.0",
+    "commit": {
+      "sha": "90a7c66401d66f6c7ac120dbe1ae7b63e7e4271f",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/90a7c66401d66f6c7ac120dbe1ae7b63e7e4271f"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjYuMA=="
+  },
+  {
+    "name": "v1.5.0",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.5.0",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.5.0",
+    "commit": {
+      "sha": "56a357d11cabc0c2bf25e02b7b20340630eef95a",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/56a357d11cabc0c2bf25e02b7b20340630eef95a"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjUuMA=="
+  },
+  {
+    "name": "v1.4.0",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.4.0",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.4.0",
+    "commit": {
+      "sha": "19fdbff9eabeeba8511e547e9aa60d67c0612b28",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/19fdbff9eabeeba8511e547e9aa60d67c0612b28"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjQuMA=="
+  },
+  {
+    "name": "v1.3.1",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.3.1",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.3.1",
+    "commit": {
+      "sha": "3ce2e80966d59f18f21ca3544f57856072274179",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/3ce2e80966d59f18f21ca3544f57856072274179"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjMuMQ=="
+  },
+  {
+    "name": "v1.3.0",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.3.0",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.3.0",
+    "commit": {
+      "sha": "5f50d4fb4e0306dcacc6f8e9bea2dcee784dbbdf",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/5f50d4fb4e0306dcacc6f8e9bea2dcee784dbbdf"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjMuMA=="
+  },
+  {
+    "name": "v1.2",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.2",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.2",
+    "commit": {
+      "sha": "cf4846e6a636a76237a28d9286f163c132e841bc",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/cf4846e6a636a76237a28d9286f163c132e841bc"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjI="
+  },
+  {
+    "name": "v1.1",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.1",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.1",
+    "commit": {
+      "sha": "fb918bcd825b9e20f0c3c365981baf9454029b6c",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/fb918bcd825b9e20f0c3c365981baf9454029b6c"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjE="
+  },
+  {
+    "name": "v1.0",
+    "zipball_url": "https://api.github.com/repos/gin-contrib/cors/zipball/refs/tags/v1.0",
+    "tarball_url": "https://api.github.com/repos/gin-contrib/cors/tarball/refs/tags/v1.0",
+    "commit": {
+      "sha": "9726988c57af6fbfe484ce27afd453f2372eb930",
+      "url": "https://api.github.com/repos/gin-contrib/cors/commits/9726988c57af6fbfe484ce27afd453f2372eb930"
+    },
+    "node_id": "MDM6UmVmNDU4MzY3ODE6cmVmcy90YWdzL3YxLjA="
+  }
+]

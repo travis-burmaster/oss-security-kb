@@ -34,19 +34,20 @@
 
 ## Dependencies of Note
 
-- `gin-contrib/cors` deserves a separate future page because public advisory metadata currently blurs the line between core Gin and the ecosystem CORS middleware package.
+- `gin-contrib/cors` now has its own KB page and should be reviewed separately when applications use Gin's first-party CORS middleware; `CVE-2019-25211` maps cleanly to that module's wildcard-origin parsing logic rather than to core Gin alone.
 - Reverse proxies, load balancers, and ingress layers materially affect the real-world impact of the forwarded-header and client-IP issues on this page.
 - Go's standard `net/http` stack and transitive HTTP/2 components remain adjacent risk surfaces even when the published flaw is recorded against Gin.
 
 ## Open Questions
 
-- Should this page eventually separate core-framework bugs from middleware-adjacent advisories so the package boundary stays easier to audit?
+- Should this page eventually separate core-framework bugs from middleware-adjacent advisories even more explicitly so shared-ecosystem package boundaries stay easier to audit?
 - Are there public maintainer-authored hardening notes on trusted proxies, header sanitization, or safe file-download patterns worth citing in a later pass?
-- Would a future companion page for `gin-contrib/cors` remove ambiguity around `CVE-2019-25211` and related origin-validation issues?
+- Are there other first-party Gin ecosystem modules with enough public advisory history to deserve companion pages?
 
 ## Related Pages
 
+- [[go/github.com/gin-contrib/cors]]
 - [[go/index]]
 
 ---
-*Last updated: 2026-04-12 | Sources: 10 (OSV package query, four GHSA advisory pages, three public Go / upstream release references, two upstream issue / PR threads)*
+*Last updated: 2026-04-17 | Sources: 10 (OSV package query, four GHSA advisory pages, three public Go / upstream release references, two upstream issue / PR threads)*
