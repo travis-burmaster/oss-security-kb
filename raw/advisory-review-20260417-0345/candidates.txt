@@ -1,0 +1,2 @@
+Primary candidate: handlebars (npm) — no existing wiki/npm/handlebars.md page found; high-usage template engine with published advisories in public sources.
+Secondary spot-check: cookie (npm) — existing audit-ingested page; check whether any package-level advisories beyond current notes justify promotion/refresh.

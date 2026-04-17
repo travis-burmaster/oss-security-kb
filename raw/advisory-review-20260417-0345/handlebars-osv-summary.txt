@@ -1,0 +1,153 @@
+count=19
+id=GHSA-2cf5-4w76-r9qv
+aliases=
+summary=Arbitrary Code Execution in handlebars
+published=2020-09-04T14:57:38Z
+modified=2026-02-04T04:09:36.655245Z
+refs=WEB:https://www.npmjs.com/advisories/1316
+ranges={"type":"SEMVER","events":[{"introduced":"0"},{"fixed":"3.0.8"}]} || {"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.5.2"}]}
+---
+id=GHSA-2qvq-rjwj-gvw9
+aliases=CVE-2026-33916
+summary=Handlebars.js has Prototype Pollution Leading to XSS through Partial Template Injection
+published=2026-03-26T22:20:51Z
+modified=2026-03-28T00:14:21.355261Z
+refs=WEB:https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-2qvq-rjwj-gvw9 | ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2021-23369 | ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2021-23383 | ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2026-33916 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2 | PACKAGE:https://github.com/handlebars-lang/handlebars.js | WEB:https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9
+ranges={"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.7.9"}]}
+---
+id=GHSA-2w6w-674q-4c4q
+aliases=CVE-2026-33937
+summary=Handlebars.js has JavaScript Injection via AST Type Confusion
+published=2026-03-27T18:19:58Z
+modified=2026-03-30T19:29:28.090939Z
+refs=WEB:https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-2w6w-674q-4c4q | ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2026-33937 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2 | PACKAGE:https://github.com/handlebars-lang/handlebars.js | WEB:https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9
+ranges={"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.7.9"}]}
+---
+id=GHSA-3cqr-58rm-57f8
+aliases=CVE-2019-20920
+summary=Arbitrary Code Execution in Handlebars
+published=2022-02-10T20:38:19Z
+modified=2026-03-13T21:56:47.659989Z
+refs=ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2019-20920 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/156061eb7707575293613d7fdf90e2bdaac029ee | WEB:https://github.com/handlebars-lang/handlebars.js/commit/d54137810a49939fd2ad01a91a34e182ece4528e | WEB:https://snyk.io/vuln/SNYK-JS-HANDLEBARS-534478 | WEB:https://www.npmjs.com/advisories/1316 | WEB:https://www.npmjs.com/advisories/1324 | WEB:https://www.npmjs.com/package/handlebars
+ranges={"type":"SEMVER","events":[{"introduced":"0"},{"fixed":"3.0.8"}]} || {"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.5.3"}]}
+---
+id=GHSA-3mfm-83xf-c92r
+aliases=CVE-2026-33938
+summary=Handlebars.js has JavaScript Injection via AST Type Confusion by tampering @partial-block
+published=2026-03-27T18:20:44Z
+modified=2026-03-30T19:29:28.837294Z
+refs=WEB:https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-3mfm-83xf-c92r | ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2026-33938 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2 | PACKAGE:https://github.com/handlebars-lang/handlebars.js | WEB:https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9
+ranges={"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.7.9"}]}
+---
+id=GHSA-442j-39wm-28r2
+aliases=
+summary=Handlebars.js has a Property Access Validation Bypass in container.lookup
+published=2026-03-29T15:16:37Z
+modified=2026-03-30T18:29:15.982647Z
+refs=WEB:https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-442j-39wm-28r2 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2 | PACKAGE:https://github.com/handlebars-lang/handlebars.js | WEB:https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9
+ranges={"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.7.9"}]}
+---
+id=GHSA-62gr-4qp9-h98f
+aliases=CVE-2019-20922
+summary=Regular Expression Denial of Service in Handlebars
+published=2022-02-10T20:38:22Z
+modified=2026-03-13T22:26:04.034956Z
+refs=ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2019-20922 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/8d5530ee2c3ea9f0aee3fde310b9f36887d00b8b | WEB:https://snyk.io/vuln/SNYK-JS-HANDLEBARS-480388 | WEB:https://www.npmjs.com/advisories/1300 | WEB:https://www.npmjs.com/package/handlebars
+ranges={"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.4.5"}]}
+---
+id=GHSA-765h-qjxv-5f44
+aliases=CVE-2021-23383
+summary=Prototype Pollution in handlebars
+published=2022-02-10T23:51:42Z
+modified=2026-02-04T02:17:49.160710Z
+refs=ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2021-23383 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/f0589701698268578199be25285b2ebea1c1e427 | PACKAGE:https://github.com/handlebars-lang/handlebars.js | WEB:https://github.com/rubysec/ruby-advisory-db/blob/master/gems/handlebars-source/CVE-2021-23383.yml | WEB:https://security.netapp.com/advisory/ntap-20210618-0007 | WEB:https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARS-1279031 | WEB:https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWER-1279032 | WEB:https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1279030 | WEB:https://snyk.io/vuln/SNYK-JS-HANDLEBARS-1279029 | WEB:https://www.npmjs.com/package/handlebars
+ranges={"type":"SEMVER","events":[{"introduced":"0"},{"fixed":"4.7.7"}]}
+---
+id=GHSA-7rx3-28cr-v5wh
+aliases=
+summary=Handlebars.js has a Prototype Method Access Control Gap via Missing __lookupSetter__ Blocklist Entry
+published=2026-03-29T15:17:15Z
+modified=2026-03-30T18:29:15.528574Z
+refs=WEB:https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-7rx3-28cr-v5wh | ADVISORY:https://github.com/advisories/GHSA-765h-qjxv-5f44 | PACKAGE:https://github.com/handlebars-lang/handlebars.js | WEB:https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9
+ranges={"type":"SEMVER","events":[{"introduced":"4.6.0"},{"fixed":"4.7.9"}]}
+---
+id=GHSA-9cx6-37pm-9jff
+aliases=CVE-2026-33939
+summary=Handlebars.js has Denial of Service via Malformed Decorator Syntax in Template Compilation
+published=2026-03-27T18:21:15Z
+modified=2026-03-30T20:21:06.588548Z
+refs=WEB:https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-9cx6-37pm-9jff | ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2026-33939 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2 | PACKAGE:https://github.com/handlebars-lang/handlebars.js | WEB:https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9
+ranges={"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.7.9"}]}
+---
+id=GHSA-9prh-257w-9277
+aliases=CVE-2015-8861
+summary=Cross-Site Scripting in handlebars
+published=2018-10-23T17:20:12Z
+modified=2026-02-04T03:29:00.196975Z
+refs=ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2015-8861 | WEB:https://github.com/wycats/handlebars.js/pull/1083 | WEB:https://blog.srcclr.com/handlebars_vulnerability_research_findings | ADVISORY:https://github.com/advisories/GHSA-9prh-257w-9277 | PACKAGE:https://github.com/wycats/handlebars.js | WEB:https://www.npmjs.com/advisories/61 | WEB:https://www.sourceclear.com/blog/handlebars_vulnerability_research_findings | WEB:https://www.tenable.com/security/tns-2016-18 | WEB:http://www.openwall.com/lists/oss-security/2016/04/20/11 | WEB:http://www.securityfocus.com/bid/96434
+ranges={"type":"SEMVER","events":[{"introduced":"0"},{"fixed":"4.0.0"}]}
+---
+id=GHSA-f2jv-r9rf-7988
+aliases=CVE-2021-23369
+summary=Remote code execution in handlebars when compiling templates
+published=2021-05-06T15:57:44Z
+modified=2026-02-04T02:23:32.135287Z
+refs=ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2021-23369 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/b6d3de7123eebba603e321f04afdbae608e8fea8 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/f0589701698268578199be25285b2ebea1c1e427 | PACKAGE:https://github.com/wycats/handlebars.js | WEB:https://security.netapp.com/advisory/ntap-20210604-0008 | WEB:https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARS-1074950 | WEB:https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWER-1074951 | WEB:https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1074952 | WEB:https://snyk.io/vuln/SNYK-JS-HANDLEBARS-1056767
+ranges={"type":"SEMVER","events":[{"introduced":"0"},{"fixed":"4.7.7"}]} || {"type":"ECOSYSTEM","events":[{"introduced":"0"},{"fixed":"4.7.7"}]} || {"type":"ECOSYSTEM","events":[{"introduced":"0"},{"fixed":"4.7.7"}]} || {"type":"ECOSYSTEM","events":[{"introduced":"0"},{"fixed":"4.7.7"}]}
+---
+id=GHSA-f52g-6jhx-586p
+aliases=
+summary=Denial of Service in handlebars
+published=2020-09-03T23:20:12Z
+modified=2020-08-31T18:54:21Z
+refs=WEB:https://www.npmjs.com/advisories/1300
+ranges={"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.4.5"}]}
+---
+id=GHSA-g9r4-xpmj-mj65
+aliases=
+summary=Prototype Pollution in handlebars
+published=2020-09-04T15:06:32Z
+modified=2026-02-04T04:14:30.394235Z
+refs=WEB:https://www.npmjs.com/advisories/1325
+ranges={"type":"SEMVER","events":[{"introduced":"0"},{"fixed":"3.0.8"}]} || {"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.5.3"}]}
+---
+id=GHSA-q2c6-c6pm-g3gh
+aliases=
+summary=Arbitrary Code Execution in handlebars
+published=2020-09-04T15:07:38Z
+modified=2026-02-04T03:42:37.207382Z
+refs=WEB:https://www.npmjs.com/advisories/1324
+ranges={"type":"SEMVER","events":[{"introduced":"0"},{"fixed":"3.0.8"}]} || {"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.5.3"}]}
+---
+id=GHSA-q42p-pg8m-cqh6
+aliases=
+summary=Prototype Pollution in handlebars
+published=2019-06-05T14:07:48Z
+modified=2026-02-04T03:55:41.924292Z
+refs=WEB:https://github.com/handlebars-lang/handlebars.js/issues/1495 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/0d6d8c335ad81bad1b672fc56b6a44f6aa472dac | WEB:https://github.com/handlebars-lang/handlebars.js/commit/7372d4e9dffc9d70c09671aa28b9392a1577fd86 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/85c8783b34fc6d36145d8b53885ad0b9e3c3f9c4 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/cd38583216dce3252831916323202749431c773e | WEB:https://snyk.io/vuln/SNYK-JS-HANDLEBARS-173692 | WEB:https://www.npmjs.com/advisories/755
+ranges={"type":"SEMVER","events":[{"introduced":"4.1.0"},{"fixed":"4.1.2"}]} || {"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.0.14"}]} || {"type":"SEMVER","events":[{"introduced":"0"},{"fixed":"3.0.7"}]}
+---
+id=GHSA-w457-6q6x-cgp9
+aliases=CVE-2019-19919
+summary=Prototype Pollution in handlebars
+published=2019-12-26T17:58:13Z
+modified=2026-02-04T02:37:52.579085Z
+refs=ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2019-19919 | WEB:https://github.com/wycats/handlebars.js/issues/1558 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/156061eb7707575293613d7fdf90e2bdaac029ee | WEB:https://github.com/handlebars-lang/handlebars.js/commit/90ad8d97ad2933852fb83fcc054699dc99e094db | WEB:https://github.com/wycats/handlebars.js/commit/2078c727c627f25d4a149962f05c1e069beb18bc | WEB:https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19919 | WEB:https://github.com/Nerian/bootstrap-wysihtml5-rails/blob/master/vendor/assets/javascripts/bootstrap-wysihtml5/handlebars.runtime.min.js | WEB:https://github.com/Nerian/bootstrap-wysihtml5-rails/tree/master/vendor/assets/javascripts/bootstrap-wysihtml5 | WEB:https://github.com/rubysec/ruby-advisory-db/blob/master/gems/bootstrap-wysihtml5-rails/CVE-2019-19919.yml | PACKAGE:https://github.com/wycats/handlebars.js | WEB:https://www.tenable.com/security/tns-2021-14
+ranges={"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.3.0"}]} || {"type":"ECOSYSTEM","events":[{"introduced":"0.3.3.5"},{"last_affected":"0.3.3.8"}]} || {"type":"SEMVER","events":[{"introduced":"0"},{"fixed":"3.0.8"}]}
+---
+id=GHSA-xhpv-hc6g-r9c6
+aliases=CVE-2026-33940
+summary=Handlebars.js has JavaScript Injection via AST Type Confusion when passing an object as dynamic partial
+published=2026-03-27T18:21:44Z
+modified=2026-03-30T20:17:24.427010Z
+refs=WEB:https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-xhpv-hc6g-r9c6 | ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2026-33940 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2 | PACKAGE:https://github.com/handlebars-lang/handlebars.js | WEB:https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9
+ranges={"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.7.9"}]}
+---
+id=GHSA-xjpj-3mr7-gcpf
+aliases=CVE-2026-33941
+summary=Handlebars.js has JavaScript Injection in CLI Precompiler via Unescaped Names and Options
+published=2026-03-27T18:22:10Z
+modified=2026-03-30T20:18:31.783492Z
+refs=WEB:https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-xjpj-3mr7-gcpf | ADVISORY:https://nvd.nist.gov/vuln/detail/CVE-2026-33941 | WEB:https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2 | PACKAGE:https://github.com/handlebars-lang/handlebars.js | WEB:https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9
+ranges={"type":"SEMVER","events":[{"introduced":"4.0.0"},{"fixed":"4.7.9"}]}
+---
