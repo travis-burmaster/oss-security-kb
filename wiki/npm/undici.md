@@ -1,80 +1,81 @@
 # undici (npm)
 
 **Registry:** npm
-**Weekly Downloads:** ~71,600,000 (2026-03-17 to 2026-04-16, derived from last-month npm downloads)
+**Weekly Downloads:** ~80,083,000 (2026-04-09 to 2026-04-15)
 **Repository:** https://github.com/nodejs/undici
-**Security Contact:** Node.js security process
-**Disclosure Policy:** https://github.com/nodejs/node/blob/HEAD/SECURITY.md
+**Security Contact:** https://github.com/nodejs/undici/security
+**Disclosure Policy:** https://github.com/nodejs/undici/blob/main/SECURITY.md
 **Current Status:** advisory mapped
 
 ## Audit History
 
 | Date | Auditor | Scope | Methodology | Findings | Source |
 |------|---------|-------|-------------|----------|--------|
-| 2026-04-16 | OpenClaw recurring review | package advisory curation | public-source curation (OSV.dev, GitHub Advisory Database, public CVE records, upstream SECURITY.md, npm registry metadata) | 22 published records mapped; recurring redirect-boundary leakage, CRLF injection, and newer WebSocket / resource-exhaustion clusters confirmed | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
+| 2026-04-16 | OpenClaw recurring review | package advisory curation | public-source curation (OSV.dev, GitHub Advisory Database / public GHSA pages, public CVE aliases, upstream SECURITY.md, npm registry metadata, npm downloads API, local proxy draft assist) | 22 published records mapped; recurring themes were redirect credential leakage, CRLF / request-smuggling style header handling, parser-driven DoS, and newer WebSocket / decompression bugs across maintained major lines | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
 
 ## Known Vulnerabilities
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| GHSA-pgw7-wx7w-2w33 / CVE-2022-32210 | High | `ProxyAgent` could route nominally HTTPS traffic without properly verifying the remote server certificate, enabling man-in-the-middle risk on proxied connections. | 5.5.1 | [GitHub Advisory Database](https://github.com/advisories/GHSA-pgw7-wx7w-2w33) |
-| GHSA-3cvr-822r-rqcc / CVE-2022-31150 | Moderate | Older releases allowed CRLF injection through request headers, `path`, and `method` when applications passed unsanitized input. | 5.8.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-3cvr-822r-rqcc) |
-| GHSA-q768-x9m6-m9qp / CVE-2022-31151 | Low | Cross-origin redirects in older releases did not clear `Cookie` headers, creating a credential-leakage risk when redirects were enabled. | 5.8.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-q768-x9m6-m9qp) |
-| GHSA-8qr4-xgw6-wmr3 / CVE-2022-35949 | Moderate | `undici.request()` could treat an absolute URL supplied via `pathname` / `path` as a new destination, enabling SSRF when applications assumed the origin could not change. | 5.8.2 | [GitHub Advisory Database](https://github.com/advisories/GHSA-8qr4-xgw6-wmr3) |
-| GHSA-f772-66g8-q5h3 / CVE-2022-35948 | Moderate | CRLF injection via `content-type` allowed request splitting if untrusted input flowed into that header. Public records describe a 5.8.1 patch path, while OSV's affected range treats `5.8.2` as the first unaffected release. | 5.8.2 (see note) | [GitHub Advisory Database](https://github.com/advisories/GHSA-f772-66g8-q5h3) |
-| GHSA-r6ch-mqf9-qc9w / CVE-2023-24807 | High | `Headers.set()` and `Headers.append()` used a regex normalization path vulnerable to ReDoS with attacker-controlled header values. | 5.19.1 | [GitHub Advisory Database](https://github.com/advisories/GHSA-r6ch-mqf9-qc9w) |
-| GHSA-5r9g-qh6m-jxff / CVE-2023-23936 | Moderate | The `Host` header was another CRLF injection surface in older releases, showing the bug class extended beyond the first 2022 header fixes. | 5.19.1 | [GitHub Advisory Database](https://github.com/advisories/GHSA-5r9g-qh6m-jxff) |
-| GHSA-wqq4-5wpv-mx2g / CVE-2023-45143 | Low | `fetch()` cross-origin redirects did not clear `Cookie` headers; this is a follow-on redirect credential-leakage issue distinct from the earlier lower-level redirect bug. | 5.26.2 | [GitHub Advisory Database](https://github.com/advisories/GHSA-wqq4-5wpv-mx2g) |
-| GHSA-3787-6prv-h9w3 / CVE-2024-24758 | Low | `fetch()` cross-origin redirects cleared `Authorization` but not `Proxy-Authorization`, leaking proxy credentials until fixes landed on both the 5.x and 6.x lines. | 5.28.3 / 6.6.1 | [GitHub Advisory Database](https://github.com/advisories/GHSA-3787-6prv-h9w3) |
-| GHSA-9f24-jqhm-jfcw / CVE-2024-24750 | Moderate | `fetch(url)` could leak memory when the response body was not consumed or was consumed very slowly, creating a resource-exhaustion / leak condition. | 6.6.1 | [GitHub Advisory Database](https://github.com/advisories/GHSA-9f24-jqhm-jfcw) |
-| GHSA-m4v8-wqvr-p9f7 / CVE-2024-30260 | Low | `Proxy-Authorization` leakage also affected `request`, `dispatch`, `stream`, and `pipeline`, showing the redirect-boundary problem crossed multiple API surfaces. | 5.28.4 / 6.11.1 | [GitHub Advisory Database](https://github.com/advisories/GHSA-m4v8-wqvr-p9f7) |
-| GHSA-9qxr-qj54-h672 / CVE-2024-30261 | Low | The `fetch()` `integrity` option could accept tampered content when the algorithm was specified but the hash value was malformed. | 5.28.4 / 6.11.1 | [GitHub Advisory Database](https://github.com/advisories/GHSA-9qxr-qj54-h672) |
-| GHSA-3g92-w8c5-73pq / CVE-2024-38372 | Low | Under some network and process conditions, `response.arrayBuffer()` could include process-memory data in the returned buffer. | 6.19.2 | [GitHub Advisory Database](https://github.com/advisories/GHSA-3g92-w8c5-73pq) |
-| GHSA-c76h-2ccp-4975 / CVE-2025-22150 | Moderate | Multipart `fetch()` boundaries were generated with `Math.random()`, a predictability problem relevant when attackers could observe enough generated values and influence multipart traffic. | 5.28.5 / 6.21.1 / 7.2.3 | [GitHub Advisory Database](https://github.com/advisories/GHSA-c76h-2ccp-4975) |
-| GHSA-cxrh-j4jr-qwg3 / CVE-2025-47279 | Low | Repeated requests to a server with invalid certificate data could create a memory leak / DoS pattern in webhook-like retry loops. | 5.29.0 / 6.21.2 / 7.5.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-cxrh-j4jr-qwg3) |
-| GHSA-g9mf-h72j-4rw9 / CVE-2026-22036 | Moderate | `fetch()` and the decompress interceptor accepted unbounded `Content-Encoding` chains, allowing resource exhaustion through extremely long decompression sequences. | 6.23.0 / 7.18.2 | [GitHub Advisory Database](https://github.com/advisories/GHSA-g9mf-h72j-4rw9) |
-| GHSA-2mjp-6q6p-2qxm / CVE-2026-1525 | Moderate | Case-variant duplicate `Content-Length` headers could be emitted on the wire, enabling malformed requests and potential request-smuggling conditions in split-parser deployments. | 6.24.0 / 7.24.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-2mjp-6q6p-2qxm) |
-| GHSA-4992-7rv2-5pvq / CVE-2026-1527 | Moderate | The `upgrade` option accepted CRLF sequences, reopening HTTP header injection / smuggling risk on a newer API surface. | 6.24.0 / 7.24.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-4992-7rv2-5pvq) |
-| GHSA-f269-vfmq-vjvj / CVE-2026-1528 | High | A malicious WebSocket peer could send a 64-bit length that overflowed parser math and crashed the client process. | 6.24.0 / 7.24.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-f269-vfmq-vjvj) |
-| GHSA-v9p9-hfj2-hcw8 / CVE-2026-2229 | High | Invalid `server_max_window_bits` handling in the WebSocket client could trigger an uncaught exception and immediate process termination. | 6.24.0 / 7.24.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-v9p9-hfj2-hcw8) |
-| GHSA-vrm6-8vpv-qv8q / CVE-2026-1526 | High | WebSocket `permessage-deflate` decompression could expand a small compressed payload into extremely large memory consumption, causing DoS. | 6.24.0 / 7.24.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-vrm6-8vpv-qv8q) |
-| GHSA-phc3-fgpg-7m6h / CVE-2026-2581 | Moderate | `interceptors.deduplicate()` could buffer large or long-lived upstream responses in memory for downstream consumers, creating a DoS risk under concurrent identical requests. | 7.24.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-phc3-fgpg-7m6h) |
+| CVE-2026-1525 / GHSA-2mjp-6q6p-2qxm | Moderate | Duplicate case-variant `Content-Length` headers could reach the wire together, enabling malformed-request handling and request / response smuggling risk in some intermediary-backed deployments. | 6.24.0, 7.24.0 | https://github.com/nodejs/undici/security/advisories/GHSA-2mjp-6q6p-2qxm |
+| CVE-2024-24758 / GHSA-3787-6prv-h9w3 | Low | `fetch()` did not clear `Proxy-Authorization` on cross-origin redirects, so sensitive proxy credentials could leak to an unintended destination. | 5.28.3, 6.6.1 | https://github.com/nodejs/undici/security/advisories/GHSA-3787-6prv-h9w3 |
+| CVE-2022-31150 / GHSA-3cvr-822r-rqcc | Moderate | Older releases accepted CRLF injection in request headers, allowing header-splicing style abuse when untrusted input reached header construction. | 5.8.0 | https://github.com/nodejs/undici/security/advisories/GHSA-3cvr-822r-rqcc |
+| CVE-2024-38372 / GHSA-3g92-w8c5-73pq | Low | Public advisory records describe a data leak when applications called `response.arrayBuffer()` on attacker-influenced responses. | 6.19.2 | https://github.com/nodejs/undici/security/advisories/GHSA-3g92-w8c5-73pq |
+| CVE-2026-1527 / GHSA-4992-7rv2-5pvq | Moderate | The `upgrade` option could be abused for CRLF injection, extending the package's long-running header-validation risk pattern. | 6.24.0, 7.24.0 | https://github.com/nodejs/undici/security/advisories/GHSA-4992-7rv2-5pvq |
+| CVE-2023-23936 / GHSA-5r9g-qh6m-jxff | Moderate | The public advisory set records CRLF injection through the `Host` / authority handling path until `5.19.1`. | 5.19.1 | https://github.com/nodejs/undici/security/advisories/GHSA-5r9g-qh6m-jxff |
+| CVE-2022-35949 / GHSA-8qr4-xgw6-wmr3 | Moderate | `undici.request()` could be turned into SSRF when callers passed an absolute URL through `pathname`, breaking the expected authority boundary. | 5.8.2 | https://github.com/nodejs/undici/security/advisories/GHSA-8qr4-xgw6-wmr3 |
+| CVE-2024-24750 / GHSA-9f24-jqhm-jfcw | Moderate | `fetch(url)` could leak memory under attacker-influenced input, creating a denial-of-service path for long-running clients. | 6.6.1 | https://github.com/nodejs/undici/security/advisories/GHSA-9f24-jqhm-jfcw |
+| CVE-2024-30261 / GHSA-9qxr-qj54-h672 | Low | `fetch()` integrity handling was too lax when an algorithm was specified with an invalid hash value, so integrity enforcement could fail open in some cases. | 5.28.4, 6.11.1 | https://github.com/nodejs/undici/security/advisories/GHSA-9qxr-qj54-h672 |
+| CVE-2025-22150 / GHSA-c76h-2ccp-4975 | Moderate | Insufficient randomness in boundary generation weakened multipart request unpredictability until fixes landed across 5.x, 6.x, and 7.x. | 5.28.5, 6.21.1, 7.2.3 | https://github.com/nodejs/undici/security/advisories/GHSA-c76h-2ccp-4975 |
+| CVE-2025-47279 / GHSA-cxrh-j4jr-qwg3 | Low | Malformed certificate data could trigger a denial of service during TLS handling. | 5.29.0, 6.21.2, 7.5.0 | https://github.com/nodejs/undici/security/advisories/GHSA-cxrh-j4jr-qwg3 |
+| CVE-2026-1528 / GHSA-f269-vfmq-vjvj | High | A malicious WebSocket frame length could overflow parsing logic and crash the client. | 6.24.0, 7.24.0 | https://github.com/nodejs/undici/security/advisories/GHSA-f269-vfmq-vjvj |
+| CVE-2022-35948 / GHSA-f772-66g8-q5h3 | Moderate | Older releases were vulnerable to CRLF injection through `Content-Type`, again showing how sensitive undici's low-level header-construction surface can be. | 5.8.2 | https://github.com/nodejs/undici/security/advisories/GHSA-f772-66g8-q5h3 |
+| CVE-2026-22036 / GHSA-g9mf-h72j-4rw9 | Moderate | Public records describe an unbounded decompression chain in HTTP response handling that could drive resource exhaustion through crafted `Content-Encoding` behavior. | 6.23.0, 7.18.2 | https://github.com/nodejs/undici/security/advisories/GHSA-g9mf-h72j-4rw9 |
+| CVE-2024-30260 / GHSA-m4v8-wqvr-p9f7 | Low | The non-`fetch()` APIs (`dispatch`, `request`, `stream`, `pipeline`) also failed to clear `Proxy-Authorization` across cross-origin redirects until coordinated fixes landed. | 5.28.4, 6.11.1 | https://github.com/nodejs/undici/security/advisories/GHSA-m4v8-wqvr-p9f7 |
+| CVE-2022-32210 / GHSA-pgw7-wx7w-2w33 | High | `ProxyAgent` allowed a man-in-the-middle condition in affected proxy-mediated deployments. | 5.5.1 | https://github.com/nodejs/undici/security/advisories/GHSA-pgw7-wx7w-2w33 |
+| CVE-2026-2581 / GHSA-phc3-fgpg-7m6h | Moderate | `DeduplicationHandler` response buffering could grow without bound, enabling memory-consumption denial of service. | 7.24.0 | https://github.com/nodejs/undici/security/advisories/GHSA-phc3-fgpg-7m6h |
+| CVE-2022-31151 / GHSA-q768-x9m6-m9qp | Low | Older releases failed to clear `cookie` headers on cross-host / cross-origin redirects, exposing session material to the wrong destination. | 5.8.0 | https://github.com/nodejs/undici/security/advisories/GHSA-q768-x9m6-m9qp |
+| CVE-2023-24807 / GHSA-r6ch-mqf9-qc9w | High | Header parsing contained a regular-expression denial-of-service path until `5.19.1`. | 5.19.1 | https://github.com/nodejs/undici/security/advisories/GHSA-r6ch-mqf9-qc9w |
+| CVE-2026-2229 / GHSA-v9p9-hfj2-hcw8 | High | Invalid `server_max_window_bits` values could trigger an unhandled exception in the WebSocket client. | 6.24.0, 7.24.0 | https://github.com/nodejs/undici/security/advisories/GHSA-v9p9-hfj2-hcw8 |
+| CVE-2026-1526 / GHSA-vrm6-8vpv-qv8q | High | WebSocket `permessage-deflate` decompression could consume unbounded memory when fed malicious compressed input. | 6.24.0, 7.24.0 | https://github.com/nodejs/undici/security/advisories/GHSA-vrm6-8vpv-qv8q |
+| CVE-2023-45143 / GHSA-wqq4-5wpv-mx2g | Low | `fetch()` failed to clear `cookie` headers on cross-origin redirects until `5.26.2`, reinforcing the package's repeated redirect-boundary mistakes. | 5.26.2 | https://github.com/nodejs/undici/security/advisories/GHSA-wqq4-5wpv-mx2g |
 
 ## Security Posture Notes
 
-- `undici` now has a broad public advisory history rather than a single isolated bug class, but three themes recur strongly in the published record: redirect-boundary credential leakage, CRLF / header-injection surfaces, and resource-exhaustion bugs.
-- Redirect handling is the clearest repeating pattern. Public advisories show separate fixes for `Cookie`, `Proxy-Authorization`, and multiple API surfaces (`fetch()` versus lower-level request/dispatch/stream/pipeline paths), which suggests consumers should be careful about assuming one redirect fix covered the whole package.
-- The 2026 advisory cluster is especially concentrated around the WebSocket client and resource handling: parser crashes, permessage-deflate memory exhaustion, invalid compression parameter handling, duplicate `Content-Length` smuggling, and deduplication-buffering DoS all landed in a relatively short window.
-- npm registry metadata gathered in this pass shows ongoing parallel maintenance across 6.x, 7.x, and 8.x, with very recent 6.25.0 / 7.25.0 / 8.1.0 publishes. That active maintenance matters because many advisories were backported across branches rather than fixed only in the newest major.
-- Upstream `SECURITY.md` points reporters to the Node.js security process, which matches `undici`'s importance as the HTTP client foundation behind Node's modern fetch stack.
-- The package's blast radius is materially larger than direct dependency counts suggest because `undici` is used directly by applications, indirectly by tooling, and operationally via Node.js integrations.
+- Public evidence shows a broad but coherent vulnerability pattern rather than random one-offs. The biggest recurring themes are **redirect-boundary credential handling**, **header / request-construction validation**, and **resource-exhaustion bugs** in parser, buffering, decompression, and WebSocket code.
+- That pattern fits undici's role: it sits very close to the HTTP wire format, proxy handling, and the Node.js `fetch()` compatibility layer, so small implementation mistakes can become protocol-boundary security bugs.
+- The package is high-blast-radius infrastructure. Weekly npm downloads in this pass were ~80.1M, and undici also matters beyond direct npm installs because it underpins modern Node.js HTTP client behavior and is closely associated with the platform's `fetch()` stack.
+- The advisory trail shows active maintenance across multiple major lines instead of "fix only latest" behavior. Several 2024-2026 records list coordinated fixes for both 5.x/6.x or 6.x/7.x, which is a good signal for downstream users pinned below latest.
+- Upstream publishes a `SECURITY.md` and uses GitHub Security Advisories, which gives the package a cleaner public disclosure path than many similarly critical npm transport libraries.
+- npm registry metadata gathered in this pass showed `latest=8.1.0`, which is newer than every fixed version in the currently published OSV set captured here.
 
 ## Recommendations for Developers
 
-1. **Prefer a branch at or above `6.24.0` / `7.24.0` / current 8.x** so the dense 2026 advisory cluster is covered.
-2. **Treat redirects as a sensitive boundary** and avoid forwarding user-controlled redirect destinations or custom credential-like headers without explicit policy.
-3. **Do not pass unsanitized input into low-level request fields** such as headers, `path`, `pathname`, `host`, or `upgrade`; multiple public advisories show that new injection surfaces kept surfacing over time.
-4. **Review WebSocket usage separately from plain HTTP usage** because several of the newest and highest-severity records only affect the WebSocket client path.
-5. **Be cautious with opt-in features** like deduplication interceptors, decompression, multipart generation, and proxy dispatchers; a meaningful share of the public advisory history lives in those advanced surfaces rather than the simplest request path.
+1. **Run 8.1.0 or newer where possible.** That version sits above every fixed release line surfaced in this review.
+2. **Treat upgrades as security-sensitive even when the changelog sounds protocol-specific.** For undici, many bugs live in low-level redirect, header, proxy, decompression, and WebSocket behavior that application owners may not realize they depend on.
+3. **Be especially careful with user-controlled headers, redirect targets, proxy configuration, and upgrade / WebSocket paths.** Those are the most visibly repeated bug classes in the public advisory set.
+4. **Check Node.js runtime exposure, not just direct package.json usage.** Undici is often present indirectly through frameworks, tooling, or platform integrations.
+5. **Prioritize memory / resource guards at the application layer** for response buffering, decompression, and WebSocket traffic, because several newer advisories were denial-of-service issues rather than classic input-validation bugs.
 
 ## Dependencies of Note
 
-- `undici` is both a direct npm dependency and part of the broader Node.js HTTP/fetch ecosystem, so the real operational exposure can exceed what a quick `package.json` scan suggests.
-- Security fixes are frequently branch-specific; older pinned majors can stay exposed even when the package appears actively maintained overall.
+- `undici` is not just another HTTP client dependency; it is part of the modern Node.js transport stack and has a wider ecosystem footprint than direct npm install counts alone suggest.
+- Its position near `fetch()`, proxies, HTTP upgrade flows, and WebSockets means downstream risk depends heavily on how wrappers and runtimes expose those features.
 
 ## Open Questions
 
-- Should the KB eventually add a shared pattern note connecting `undici`, `follow-redirects`, `requests`, and `urllib3` around repeated redirect-credential leakage classes?
-- Which popular frameworks and tools still pin pre-`6.24.0` or pre-`7.24.0` lines, especially for WebSocket-heavy use cases?
-- Is there a public upstream hardening note that more clearly distinguishes safe defaults versus opt-in risky surfaces such as deduplication interceptors and WebSocket compression?
+- Which Node.js release lines bundled vulnerable undici snapshots long enough to matter for users who never declared `undici` directly?
+- Should the KB eventually track undici separately as both an npm package and a Node runtime component, given the overlap but non-identical upgrade paths?
+- Are there additional public maintainer notes or release-post explanations that would sharpen the chronology of the 2026 WebSocket and decompression bug cluster?
 
 ## Related Pages
 
-- [[npm/axios]]
 - [[npm/follow-redirects]]
+- [[npm/axios]]
 - [[python/requests]]
 - [[python/urllib3]]
+- [[npm/ws]]
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-16 | Sources: 6 (OSV.dev package query for npm/undici, GitHub Advisory Database entries for the published GHSA/CVE set, public CVE records referenced through OSV/GHSA, upstream SECURITY.md, npm registry metadata, npm downloads API)*
+*Last updated: 2026-04-16 | Sources: 7 (OSV.dev package query for npm/undici, GitHub Advisory Database / public GHSA pages for 22 published records, public CVE aliases surfaced through OSV, upstream SECURITY.md, npm registry metadata, npm downloads API, local proxy draft assist via the configured Claude-compatible proxy at 127.0.0.1:8319 used only as a drafting aid)*
