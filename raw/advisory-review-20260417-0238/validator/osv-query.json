@@ -1,0 +1,750 @@
+{
+  "vulns": [
+    {
+      "id": "GHSA-552w-rqg8-gxxm",
+      "summary": "Moderate severity vulnerability that affects validator",
+      "details": "The validator module before 1.1.0 for Node.js allows remote attackers to bypass the cross-site scripting (XSS) filter via vectors related to UI redressing.",
+      "aliases": [
+        "CVE-2013-7453"
+      ],
+      "modified": "2023-11-08T03:57:29.486585Z",
+      "published": "2017-10-24T18:33:36Z",
+      "database_specific": {
+        "github_reviewed": true,
+        "nvd_published_at": null,
+        "github_reviewed_at": "2020-06-16T21:00:02Z",
+        "cwe_ids": [
+          "CWE-79"
+        ],
+        "severity": "MODERATE"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2013-7453"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://github.com/advisories/GHSA-552w-rqg8-gxxm"
+        },
+        {
+          "type": "WEB",
+          "url": "http://www.openwall.com/lists/oss-security/2016/04/20/11"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "validator",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/validator"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "1.1.0"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2017/10/GHSA-552w-rqg8-gxxm/GHSA-552w-rqg8-gxxm.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-79mx-88w7-8f7q",
+      "summary": "XSS Filter Bypass via Encoded URL in validator",
+      "details": "Versions of `validator` prior to 2.0.0 contained an xss filter method that is affected by several filter bypasses. This may result in a cross-site scripting vulnerability.\n\n\n## Proof of Concept\nThe xss() function removes the word \"javascript\" when contained inside an attribute.\n\nHowever, it does not properly handle cases where characters have been hex-encoded. \n\nAs a result, it is possible to build an input that bypasses the filter but which the browser will accept as valid JavaScript.\n\nFor example:\n```<a href=\"jav&#x61;script:...\">abc</a>```\nwill render as:\n```<a href=\"javascript:...\">abc</a>```\n\n\n## Recommendation\n\nThe package author has decided to remove the xss filter functionality in the latest version of this module. If this feature is not currently being used, you are not affected by the vulnerability. If it is being used, updating to the latest version of the module will break your application.\n\nIn order for affected users to mitigate this vulnerability, it is necessary to use an [alternative package](https://www.npmjs.com/search?q=xss%20filter&page=1&ranking=optimal) that provides similar functionality.",
+      "aliases": [
+        "CVE-2014-9772"
+      ],
+      "modified": "2023-11-08T03:57:47.438170Z",
+      "published": "2018-11-06T23:12:49Z",
+      "database_specific": {
+        "github_reviewed": true,
+        "nvd_published_at": null,
+        "github_reviewed_at": "2020-06-16T21:22:15Z",
+        "cwe_ids": [
+          "CWE-79"
+        ],
+        "severity": "MODERATE"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-9772"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/chriso/validator.js/issues/181"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://github.com/advisories/GHSA-79mx-88w7-8f7q"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/chriso/validator.js"
+        },
+        {
+          "type": "WEB",
+          "url": "https://www.npmjs.com/advisories/43"
+        },
+        {
+          "type": "WEB",
+          "url": "http://www.openwall.com/lists/oss-security/2016/04/20/11"
+        },
+        {
+          "type": "WEB",
+          "url": "http://www.securityfocus.com/bid/97102"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "validator",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/validator"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "2.0.0"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2018/11/GHSA-79mx-88w7-8f7q/GHSA-79mx-88w7-8f7q.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-9965-vmph-33xx",
+      "summary": "validator.js has a URL validation bypass vulnerability in its isURL function",
+      "details": "A URL validation bypass vulnerability exists in validator.js prior to version 13.15.20. The isURL() function uses '://' as a delimiter to parse protocols, while browsers use ':' as the delimiter. This parsing difference allows attackers to bypass protocol and domain validation by crafting URLs leading to XSS and Open Redirect attacks.",
+      "aliases": [
+        "CVE-2025-56200"
+      ],
+      "modified": "2026-02-04T02:36:19.180131Z",
+      "published": "2025-09-30T18:30:25Z",
+      "related": [
+        "CGA-gj7f-j7mr-mj88"
+      ],
+      "database_specific": {
+        "github_reviewed": true,
+        "nvd_published_at": "2025-09-30T18:15:50Z",
+        "github_reviewed_at": "2025-10-13T20:08:58Z",
+        "cwe_ids": [
+          "CWE-79"
+        ],
+        "severity": "MODERATE"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-56200"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/validatorjs/validator.js/issues/2600"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/validatorjs/validator.js/pull/2608"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/validatorjs/validator.js/commit/cbef5088f02d36caf978f378bb845fe49bdc0809"
+        },
+        {
+          "type": "WEB",
+          "url": "https://gist.github.com/junan-98/27ae092aa40e2a057d41a0f95148f666"
+        },
+        {
+          "type": "WEB",
+          "url": "https://gist.github.com/junan-98/a93130505b258b9e4ec9f393e7533596"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/validatorjs/validator.js"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/validatorjs/validator.js/releases/tag/13.15.20"
+        },
+        {
+          "type": "WEB",
+          "url": "http://validatorjs.com"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "validator",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/validator"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "13.15.20"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2025/09/GHSA-9965-vmph-33xx/GHSA-9965-vmph-33xx.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-f5w6-r7rg-mcgq",
+      "summary": "Regular Expression Denial of Service in validator",
+      "details": "Versions of `validator` prior to 3.22.1 are affected by a regular expression denial of service vulnerability in the `isURL` method.\n\n\n## Recommendation\n\nUpdate to version 3.22.1 or later.",
+      "aliases": [
+        "CVE-2014-8882"
+      ],
+      "modified": "2023-11-08T03:57:46.209770Z",
+      "published": "2020-08-31T23:01:13Z",
+      "database_specific": {
+        "github_reviewed": true,
+        "nvd_published_at": null,
+        "github_reviewed_at": "2020-08-31T18:08:58Z",
+        "cwe_ids": [
+          "CWE-400"
+        ],
+        "severity": "HIGH"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-8882"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/chriso/validator.js/issues/152#issuecomment-48107184"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/chriso/validator.js"
+        },
+        {
+          "type": "WEB",
+          "url": "https://snyk.io/vuln/npm:validator:20130705"
+        },
+        {
+          "type": "WEB",
+          "url": "https://www.npmjs.com/advisories/42"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "validator",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/validator"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "3.22.1"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/08/GHSA-f5w6-r7rg-mcgq/GHSA-f5w6-r7rg-mcgq.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-q4qq-fm7q-cwp5",
+      "summary": "Multiple XSS Filter Bypasses in validator",
+      "details": "Versions of `validator` prior to 1.1.0 are affected by several cross-site scripting vulnerabilities due to bypasses discovered in the blacklist-based filter.\n\n\n## Proof of Concept\nVarious inputs that could bypass the filter were discovered:\n\nImproper parsing of nested tags:\n\n```\n<s <onmouseover=\"alert(1)\"> <;s onmouseover=\"alert(1)\">This is a test</s>\n```\n\nIncomplete filtering of javascript: URIs:\n\n```\n<a href=\"javascriptJ a V a S c R iPt::alert(1)\" \"<s>\">test</a>\n```\n\nUI Redressing:\n\n```\n<div style=\"z-index: 9999999; background-color: green; width: 100%; height: 100%\">\n<h1>You have won</h1>Please click the link and enter your login details:\n<a href=\"http://example.com/\">http://good.com</a>\n</div>\n```\n\nBypass via Nested Forbidden Strings:\n\n```\n<scrRedirecRedirect 302t 302ipt type=\"text/javascript\">prompt(1);</scrRedirecRedirect 302t 302ipt>\n```\n\nAdditional bypasses were discovered by Krzysztof Kotowicz in 2012 when auditing CodeIgniter's XSS filtering function, which this code was based off of.\n\n\n## Recommendation\n\nIf you are a developer currently using the xss filter function from the validator package, you should consider replacing it with the escape filter function from the same package. This function replaces all instances of angle brackets (<, >), ampersands, and quotation marks, so no HTML tags will be processed.",
+      "aliases": [
+        "CVE-2013-7454"
+      ],
+      "modified": "2023-11-08T03:57:29.547051Z",
+      "published": "2017-10-24T18:33:36Z",
+      "database_specific": {
+        "github_reviewed": true,
+        "nvd_published_at": null,
+        "github_reviewed_at": "2020-06-16T21:50:57Z",
+        "cwe_ids": [
+          "CWE-79"
+        ],
+        "severity": "MODERATE"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2013-7454"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://github.com/advisories/GHSA-q4qq-fm7q-cwp5"
+        },
+        {
+          "type": "WEB",
+          "url": "https://nealpoole.com/blog/2013/07/xss-filter-bypass-in-validator-nodejs-module"
+        },
+        {
+          "type": "WEB",
+          "url": "https://www.npmjs.com/advisories/41"
+        },
+        {
+          "type": "WEB",
+          "url": "http://blog.kotowicz.net/2012/07/codeigniter-210-xssclean-cross-site.html"
+        },
+        {
+          "type": "WEB",
+          "url": "http://www.openwall.com/lists/oss-security/2016/04/20/11"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "validator",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/validator"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "1.1.0"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2017/10/GHSA-q4qq-fm7q-cwp5/GHSA-q4qq-fm7q-cwp5.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-qgmg-gppg-76g5",
+      "summary": "Inefficient Regular Expression Complexity in validator.js",
+      "details": "validator.js prior to 13.7.0 is vulnerable to Inefficient Regular Expression Complexity",
+      "aliases": [
+        "CVE-2021-3765"
+      ],
+      "modified": "2023-11-08T04:06:20.163617Z",
+      "published": "2021-11-03T17:34:45Z",
+      "database_specific": {
+        "github_reviewed": true,
+        "nvd_published_at": "2021-11-02T07:15:00Z",
+        "github_reviewed_at": "2021-11-03T14:46:00Z",
+        "cwe_ids": [
+          "CWE-1333"
+        ],
+        "severity": "MODERATE"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-3765"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/validatorjs/validator.js/commit/496fc8b2a7f5997acaaec33cc44d0b8dba5fb5e1"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/validatorjs/validator.js"
+        },
+        {
+          "type": "WEB",
+          "url": "https://huntr.dev/bounties/c37e975c-21a3-4c5f-9b57-04d63b28cfc9"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "validator",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/validator"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "13.7.0"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/11/GHSA-qgmg-gppg-76g5/GHSA-qgmg-gppg-76g5.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-qpjp-7rp2-9c3f",
+      "summary": "Moderate severity vulnerability that affects validator",
+      "details": "The validator module before 1.1.0 for Node.js allows remote attackers to bypass the XSS filter via a nested tag.",
+      "aliases": [
+        "CVE-2013-7451"
+      ],
+      "modified": "2023-11-08T03:57:29.363333Z",
+      "published": "2017-10-24T18:33:36Z",
+      "database_specific": {
+        "github_reviewed": true,
+        "nvd_published_at": null,
+        "github_reviewed_at": "2020-06-16T21:52:26Z",
+        "cwe_ids": [
+          "CWE-79"
+        ],
+        "severity": "MODERATE"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2013-7451"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://github.com/advisories/GHSA-qpjp-7rp2-9c3f"
+        },
+        {
+          "type": "WEB",
+          "url": "http://www.openwall.com/lists/oss-security/2016/04/20/11"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "validator",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/validator"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "1.1.0"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2017/10/GHSA-qpjp-7rp2-9c3f/GHSA-qpjp-7rp2-9c3f.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-rh6c-q938-3r9q",
+      "summary": "Moderate severity vulnerability that affects validator",
+      "details": "The validator module before 1.1.0 for Node.js allows remote attackers to bypass the cross-site scripting (XSS) filter via a crafted javascript URI.",
+      "aliases": [
+        "CVE-2013-7452"
+      ],
+      "modified": "2023-11-08T03:57:29.425588Z",
+      "published": "2017-10-24T18:33:36Z",
+      "database_specific": {
+        "github_reviewed": true,
+        "nvd_published_at": null,
+        "github_reviewed_at": "2020-06-16T21:54:50Z",
+        "cwe_ids": [
+          "CWE-79"
+        ],
+        "severity": "MODERATE"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2013-7452"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://github.com/advisories/GHSA-rh6c-q938-3r9q"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "validator",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/validator"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "1.1.0"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2017/10/GHSA-rh6c-q938-3r9q/GHSA-rh6c-q938-3r9q.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-vghf-hv5q-vc2g",
+      "summary": "Validator is Vulnerable to Incomplete Filtering of One or More Instances of Special Elements",
+      "details": "Versions of the package validator before 13.15.22 are vulnerable to Incomplete Filtering of One or More Instances of Special Elements in the isLength() function that does not take into account Unicode variation selectors (\\uFE0F, \\uFE0E) appearing in a sequence which lead to improper string length calculation. This can lead to an application using isLength for input validation accepting strings significantly longer than intended, resulting in issues like data truncation in databases, buffer overflows in other system components, or denial-of-service.",
+      "aliases": [
+        "CVE-2025-12758"
+      ],
+      "modified": "2026-02-04T03:31:07.206856Z",
+      "published": "2025-11-27T06:31:25Z",
+      "related": [
+        "CGA-8vvj-c8v9-44gc"
+      ],
+      "database_specific": {
+        "github_reviewed": true,
+        "nvd_published_at": "2025-11-27T05:16:12Z",
+        "github_reviewed_at": "2025-12-02T16:51:42Z",
+        "cwe_ids": [
+          "CWE-172",
+          "CWE-792"
+        ],
+        "severity": "HIGH"
+      },
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-12758"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/validatorjs/validator.js/pull/2616"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/validatorjs/validator.js/commit/d457ecaf55b0f3d8bd379d82757425d0d13dd382"
+        },
+        {
+          "type": "WEB",
+          "url": "https://gist.github.com/koral--/ad31208b25b9e3d1e2e35f1d4d72572e"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/validatorjs/validator.js"
+        },
+        {
+          "type": "WEB",
+          "url": "https://security.snyk.io/vuln/SNYK-JS-VALIDATOR-13653476"
+        },
+        {
+          "type": "WEB",
+          "url": "http://seclists.org/fulldisclosure/2026/Jan/27"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "validator",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/validator"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "13.15.22"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2025/11/GHSA-vghf-hv5q-vc2g/GHSA-vghf-hv5q-vc2g.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "type": "CVSS_V4",
+          "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-xx4c-jj58-r7x6",
+      "summary": "Inefficient Regular Expression Complexity in Validator.js",
+      "details": "### Impact\nVersions of `validator` prior to 13.7.0 are affected by an inefficient Regular Expression complexity  when using the `rtrim` and `trim` sanitizers.\n\n### Patches\nThe problem has been patched in validator 13.7.0",
+      "modified": "2022-07-12T00:11:53Z",
+      "published": "2021-11-19T20:14:23Z",
+      "database_specific": {
+        "github_reviewed": true,
+        "nvd_published_at": null,
+        "github_reviewed_at": "2021-11-08T21:27:48Z",
+        "cwe_ids": [
+          "CWE-1333"
+        ],
+        "severity": "MODERATE"
+      },
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/validatorjs/validator.js/security/advisories/GHSA-xx4c-jj58-r7x6"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-3765"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/validatorjs/validator.js/issues/1599"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/validatorjs/validator.js/pull/1738"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/validatorjs/validator.js"
+        },
+        {
+          "type": "WEB",
+          "url": "https://huntr.dev/bounties/c37e975c-21a3-4c5f-9b57-04d63b28cfc9"
+        }
+      ],
+      "affected": [
+        {
+          "package": {
+            "name": "validator",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/validator"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "11.1.0"
+                },
+                {
+                  "fixed": "13.7.0"
+                }
+              ]
+            }
+          ],
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/11/GHSA-xx4c-jj58-r7x6/GHSA-xx4c-jj58-r7x6.json"
+          }
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "type": "CVSS_V3",
+          "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        }
+      ]
+    }
+  ]
+}
