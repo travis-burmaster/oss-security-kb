@@ -1,0 +1,187 @@
+{
+  "reviewed_candidates": [
+    "serve-static (gap: no KB page yet)",
+    "cookie (existing page check for new advisories)",
+    "minimist (existing page check for new advisories)"
+  ],
+  "serve_static": {
+    "ghsa": {
+      "ghsa_id": "GHSA-cm22-4g7w-348p",
+      "cve_id": "CVE-2024-43800",
+      "summary": "serve-static vulnerable to template injection that can lead to XSS",
+      "severity": "low",
+      "published_at": "2024-09-10T19:42:33Z",
+      "updated_at": "2024-11-18T16:27:12Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "serve-static"
+          },
+          "vulnerable_version_range": "< 1.16.0",
+          "first_patched_version": "1.16.0",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "serve-static"
+          },
+          "vulnerable_version_range": ">= 2.0.0, < 2.1.0",
+          "first_patched_version": "2.1.0",
+          "vulnerable_functions": []
+        }
+      ],
+      "references": [
+        "https://github.com/expressjs/serve-static/security/advisories/GHSA-cm22-4g7w-348p",
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-43800",
+        "https://github.com/expressjs/serve-static/commit/0c11fad159898cdc69fd9ab63269b72468ecaf6b",
+        "https://github.com/expressjs/serve-static/commit/ce730896fddce1588111d9ef6fdf20896de5c6fa",
+        "https://github.com/advisories/GHSA-cm22-4g7w-348p"
+      ]
+    },
+    "osv_ids": [
+      {
+        "id": "GHSA-c3x7-gjmx-r2ff",
+        "aliases": [
+          "CVE-2015-1164"
+        ],
+        "modified": "2023-11-08T03:57:49.518349Z",
+        "summary": "Open Redirect in serve-static",
+        "affected": [
+          {
+            "package": {
+              "name": "serve-static",
+              "ecosystem": "npm",
+              "purl": "pkg:npm/serve-static"
+            },
+            "ranges": [
+              {
+                "type": "SEMVER",
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "1.7.2"
+                  }
+                ]
+              }
+            ],
+            "database_specific": {
+              "last_known_affected_version_range": "< 1.6.5",
+              "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/08/GHSA-c3x7-gjmx-r2ff/GHSA-c3x7-gjmx-r2ff.json"
+            }
+          },
+          {
+            "package": {
+              "name": "serve-static",
+              "ecosystem": "npm",
+              "purl": "pkg:npm/serve-static"
+            },
+            "ranges": [
+              {
+                "type": "SEMVER",
+                "events": [
+                  {
+                    "introduced": "1.7.0"
+                  },
+                  {
+                    "fixed": "1.7.2"
+                  }
+                ]
+              }
+            ],
+            "database_specific": {
+              "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/08/GHSA-c3x7-gjmx-r2ff/GHSA-c3x7-gjmx-r2ff.json"
+            }
+          }
+        ]
+      },
+      {
+        "id": "GHSA-cm22-4g7w-348p",
+        "aliases": [
+          "CVE-2024-43800"
+        ],
+        "modified": "2026-02-04T04:21:26.176507Z",
+        "summary": "serve-static vulnerable to template injection that can lead to XSS",
+        "affected": [
+          {
+            "package": {
+              "name": "serve-static",
+              "ecosystem": "npm",
+              "purl": "pkg:npm/serve-static"
+            },
+            "ranges": [
+              {
+                "type": "SEMVER",
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "1.16.0"
+                  }
+                ]
+              }
+            ],
+            "database_specific": {
+              "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/09/GHSA-cm22-4g7w-348p/GHSA-cm22-4g7w-348p.json"
+            }
+          },
+          {
+            "package": {
+              "name": "serve-static",
+              "ecosystem": "npm",
+              "purl": "pkg:npm/serve-static"
+            },
+            "ranges": [
+              {
+                "type": "SEMVER",
+                "events": [
+                  {
+                    "introduced": "2.0.0"
+                  },
+                  {
+                    "fixed": "2.1.0"
+                  }
+                ]
+              }
+            ],
+            "database_specific": {
+              "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2024/09/GHSA-cm22-4g7w-348p/GHSA-cm22-4g7w-348p.json"
+            }
+          }
+        ]
+      }
+    ],
+    "latest": "2.2.1",
+    "modified": "2025-12-15T19:17:31.799Z",
+    "history_excerpt": "2.2.1 / 2025-12-15\n==================\n\n* Minor changes (documentation, package metadata...)\n\n2.2.0 / 2025-03-27\n==================\n\n* deps: send@^1.2.0\n\n2.1.0 / 2024-09-10\n===================\n\n* Changes from 1.16.0\n* deps: send@^1.2.0\n\n2.0.0 / 2024-08-23\n==================\n\n* deps: \n  * parseurl@^1.3.3\n  * excape-html@^1.0.3\n  * encodeurl@^2.0.0\n  * supertest@^6.3.4\n  * safe-buffer@^5.2.1\n  * nyc@^17.0.0\n  * mocha@^10.7.0\n* Changes from 1.x\n\n2.0.0-beta.2 / 2024-03-20\n=========================\n\n  * deps: send@1.0.0-beta.2\n\n2.0.0-beta.1 / 2022-02-05\n=========================\n\n  * Change `dotfiles` option default to `'ignore'`\n  * Drop support for Node.js 0.8\n  * Remove `hidden` option; use `dotfiles` option instead\n  * Remove `mime` export; use `mime-types` package instead\n  * deps: send@1.0.0-beta.1\n    - Use `mime-types` for file to content type mapping\n    - deps: debug@3.1.0\n\n1.16.3 / 2024-12-15\n===================\n\n* deps: send@~0.19.1\n  - deps: encodeurl@~2.0.0 \n\n1.16.2 / 2024-09-11\n===================\n\n* deps: encodeurl@~2.0.0\n\n1.16.1 / 2024-09-11\n===================\n\n* deps: send@0.19.0\n\n1.16.0 / 2024-09-10\n===================\n\n* Remove link renderization in html while redirecting\n\n1.15.0 / 2022-03-24\n===================\n\n  * deps: send@0.18.0\n    - Fix emitted 416 error missing headers property\n    - Limit the headers removed for 304 response\n    - deps: depd@2.0.0\n    - deps: destroy@1.2.0\n    - deps: http-errors@2.0.0\n    - deps: on-finished@2.4.1\n    - deps: statuses@2.0.1\n\n1.14.2 / 2021-12-15\n===================\n\n  * deps: send@0.17.2\n    - deps: http-errors@1.8.1\n    - deps: ms@2.1.3\n    - pref: ignore empty http tokens\n\n1.14.1 / 2019-05-10\n===================\n\n  * Set stricter CSP header in redirect response\n  * deps: send@0.17.1\n    - deps: range-parser@~1.2.1\n\n1.14.0 / 2019-05-07\n===================\n\n  * deps: parseurl@~1.3.3\n  * deps: send@0.17.0\n    - deps: http-errors@~1.7.2\n    - deps: mime@1.6.0\n    - deps: ms@2.1.1\n    - deps: statuses@~1.5.0\n    - perf: remove redundant `path.normalize` call\n\n1.13.2 / 2018-02-07\n===================\n\n  * Fix incorrect end tag in redirects\n  * deps: encodeurl@~1.0.2\n    - Fix encoding `%` as last character\n  * deps: send@0.16.2\n    - deps: depd@~1.1.2\n    - deps: encodeurl@~1.0.2\n    - deps: statuses@~1.4.0\n\n1.13.1 / 2017-09-29\n===================\n\n  * Fix regression when `root` is incorrectly set to a file\n  * deps: send@0.16.1"
+  },
+  "cookie_osv_ids": [
+    {
+      "id": "GHSA-pxg6-pf52-xh8x",
+      "aliases": [
+        "CVE-2024-47764"
+      ],
+      "modified": "2026-02-04T03:19:35.420344Z"
+    }
+  ],
+  "minimist_osv_ids": [
+    {
+      "id": "GHSA-vh95-rmgr-6w4m",
+      "aliases": [
+        "CVE-2020-7598"
+      ],
+      "modified": "2026-03-13T22:11:31.390433Z"
+    },
+    {
+      "id": "GHSA-xvch-5gv4-984h",
+      "aliases": [
+        "CVE-2021-44906"
+      ],
+      "modified": "2026-03-13T22:11:59.523514Z"
+    }
+  ]
+}

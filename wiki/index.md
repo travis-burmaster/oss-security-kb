@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*34 packages tracked across 8 ecosystems. Last updated: 2026-04-16.*
+*35 packages tracked across 8 ecosystems. Last updated: 2026-04-16.*
 
-## npm (21)
+## npm (22)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/ws]] — WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
@@ -25,6 +25,7 @@
 - [[npm/qs]] — query-string parser · advisory mapped · prototype-pollution and parser-limit bypass history
 - [[npm/semver]] — semver version parser · advisory mapped · ReDoS history
 - [[npm/send]] — static file serving engine · audit ingested · historical traversal / path-disclosure advisories plus verified modern traversal defenses
+- [[npm/serve-static]] — Express static-file middleware · advisory mapped · small package-level advisory set around redirect handling and redirect-page XSS
 
 ## Rust / crates.io (3)
 - [[rust/serde]] — foundational serialization crate · baseline stub · high downstream deserialization surface
