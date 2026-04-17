@@ -1,0 +1,502 @@
+[
+  {
+    "name": "v4.0.0-beta.4",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v4.0.0-beta.4",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v4.0.0-beta.4",
+    "commit": {
+      "sha": "bd3c4844dae343977d4f240aa9d0f7a3c0a0da12",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/bd3c4844dae343977d4f240aa9d0f7a3c0a0da12"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3Y0LjAuMC1iZXRhLjQ="
+  },
+  {
+    "name": "v4.0.0-beta.3",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v4.0.0-beta.3",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v4.0.0-beta.3",
+    "commit": {
+      "sha": "fcd8bdd6d93402df728f90a8b67adec1ce5ea1ab",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/fcd8bdd6d93402df728f90a8b67adec1ce5ea1ab"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3Y0LjAuMC1iZXRhLjM="
+  },
+  {
+    "name": "v4.0.0-beta.2",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v4.0.0-beta.2",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v4.0.0-beta.2",
+    "commit": {
+      "sha": "1c775f16e50724ea6721e9f7482351341eb1b198",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/1c775f16e50724ea6721e9f7482351341eb1b198"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3Y0LjAuMC1iZXRhLjI="
+  },
+  {
+    "name": "v4.0.0-beta.1",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v4.0.0-beta.1",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v4.0.0-beta.1",
+    "commit": {
+      "sha": "8c1fe4141604793be82120520afc677c1454ed1b",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/8c1fe4141604793be82120520afc677c1454ed1b"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3Y0LjAuMC1iZXRhLjE="
+  },
+  {
+    "name": "v3.3.2",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.3.2",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.3.2",
+    "commit": {
+      "sha": "8b3320d2a7c07bce4afc6b2bf6c3bbddda85b01f",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/8b3320d2a7c07bce4afc6b2bf6c3bbddda85b01f"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjMuMg=="
+  },
+  {
+    "name": "v3.3.1",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.3.1",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.3.1",
+    "commit": {
+      "sha": "7b86e946b02dfdd28f4f8fca3d73a022cbb5ca1e",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/7b86e946b02dfdd28f4f8fca3d73a022cbb5ca1e"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjMuMQ=="
+  },
+  {
+    "name": "v3.3.0",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.3.0",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.3.0",
+    "commit": {
+      "sha": "55a4870ae5f805d8ff9a890ea2c652c9977e048e",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/55a4870ae5f805d8ff9a890ea2c652c9977e048e"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjMuMA=="
+  },
+  {
+    "name": "v3.2.10",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.2.10",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.2.10",
+    "commit": {
+      "sha": "28802387292baee467e042e168d92597b5bbbe3d",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/28802387292baee467e042e168d92597b5bbbe3d"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjIuMTA="
+  },
+  {
+    "name": "v3.2.9",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.2.9",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.2.9",
+    "commit": {
+      "sha": "e87b093fd678a9ea39c5b17b2a1bdfc4691eedc7",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/e87b093fd678a9ea39c5b17b2a1bdfc4691eedc7"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjIuOQ=="
+  },
+  {
+    "name": "v3.2.8",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.2.8",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.2.8",
+    "commit": {
+      "sha": "11b703361134340a8361f591d6e3a0bcf6a261fa",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/11b703361134340a8361f591d6e3a0bcf6a261fa"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjIuOA=="
+  },
+  {
+    "name": "v3.2.7",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.2.7",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.2.7",
+    "commit": {
+      "sha": "4f43c9ed63da98f4b5167f0a8e447cd0f0133cd3",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/4f43c9ed63da98f4b5167f0a8e447cd0f0133cd3"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjIuNw=="
+  },
+  {
+    "name": "v3.2.6",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.2.6",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.2.6",
+    "commit": {
+      "sha": "1c5ed6b981e6c5dd28bd50f5ab5418e5bd262b99",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/1c5ed6b981e6c5dd28bd50f5ab5418e5bd262b99"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjIuNg=="
+  },
+  {
+    "name": "v3.2.5",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.2.5",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.2.5",
+    "commit": {
+      "sha": "a92b5d5cf4457c2da95d8404b08cfd06a426a2fa",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/a92b5d5cf4457c2da95d8404b08cfd06a426a2fa"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjIuNQ=="
+  },
+  {
+    "name": "v3.2.4",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.2.4",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.2.4",
+    "commit": {
+      "sha": "004b3ac8324e6cdbfb5d04b8bbdc6664ea48fbcf",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/004b3ac8324e6cdbfb5d04b8bbdc6664ea48fbcf"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjIuNA=="
+  },
+  {
+    "name": "v3.2.3",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.2.3",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.2.3",
+    "commit": {
+      "sha": "6425e2021a7def096e13dbabcac2f10e6da83d11",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/6425e2021a7def096e13dbabcac2f10e6da83d11"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjIuMw=="
+  },
+  {
+    "name": "v3.2.2",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.2.2",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.2.2",
+    "commit": {
+      "sha": "a4ea5f9308f942400695cce261291d0a80cd1b02",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/a4ea5f9308f942400695cce261291d0a80cd1b02"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjIuMg=="
+  },
+  {
+    "name": "v3.2.1",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.2.1",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.2.1",
+    "commit": {
+      "sha": "61b3b5a06384003d332581080af6522bec19417f",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/61b3b5a06384003d332581080af6522bec19417f"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjIuMQ=="
+  },
+  {
+    "name": "v3.2.0",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.2.0",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.2.0",
+    "commit": {
+      "sha": "81b1378bb3bda555d3d2114e7d3dfddbd91f210c",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/81b1378bb3bda555d3d2114e7d3dfddbd91f210c"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjIuMA=="
+  },
+  {
+    "name": "v3.1.1",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.1.1",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.1.1",
+    "commit": {
+      "sha": "36e47e8a6406185921e4985dcbeff140d73eaa10",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/36e47e8a6406185921e4985dcbeff140d73eaa10"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjEuMQ=="
+  },
+  {
+    "name": "v3.1.0",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.1.0",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.1.0",
+    "commit": {
+      "sha": "109bd21313c277f043089f8c38b1a716c39ff86f",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/109bd21313c277f043089f8c38b1a716c39ff86f"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjEuMA=="
+  },
+  {
+    "name": "v3.0.0",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.0.0",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.0.0",
+    "commit": {
+      "sha": "2603c67f1840fb4a43e0837099a3b2725e8f615e",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/2603c67f1840fb4a43e0837099a3b2725e8f615e"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjAuMA=="
+  },
+  {
+    "name": "v3.0.0-beta.10",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.0.0-beta.10",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.0.0-beta.10",
+    "commit": {
+      "sha": "b50fbc105755123cad34fb0bc9d5653ecc693b8a",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/b50fbc105755123cad34fb0bc9d5653ecc693b8a"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjAuMC1iZXRhLjEw"
+  },
+  {
+    "name": "v3.0.0-beta.9",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.0.0-beta.9",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.0.0-beta.9",
+    "commit": {
+      "sha": "38839c53bd417cef440757265f75c8371d4c51e6",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/38839c53bd417cef440757265f75c8371d4c51e6"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjAuMC1iZXRhLjk="
+  },
+  {
+    "name": "v3.0.0-beta.8",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.0.0-beta.8",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.0.0-beta.8",
+    "commit": {
+      "sha": "b7076bb24f75be688d8fc8b175f41b341e853f2b",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/b7076bb24f75be688d8fc8b175f41b341e853f2b"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjAuMC1iZXRhLjg="
+  },
+  {
+    "name": "v3.0.0-beta.7",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.0.0-beta.7",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.0.0-beta.7",
+    "commit": {
+      "sha": "2c005872ae21eff6b11c9536a55e7b8091b96273",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/2c005872ae21eff6b11c9536a55e7b8091b96273"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjAuMC1iZXRhLjc="
+  },
+  {
+    "name": "v3.0.0-beta.6",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.0.0-beta.6",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.0.0-beta.6",
+    "commit": {
+      "sha": "aab3c605eb8e1897dbcf105c43b00d31db754a4d",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/aab3c605eb8e1897dbcf105c43b00d31db754a4d"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjAuMC1iZXRhLjY="
+  },
+  {
+    "name": "v3.0.0-beta.6-exportfix",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.0.0-beta.6-exportfix",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.0.0-beta.6-exportfix",
+    "commit": {
+      "sha": "d1691f990a0aa466bf5d1a6ae7d6081173d47114",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/d1691f990a0aa466bf5d1a6ae7d6081173d47114"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjAuMC1iZXRhLjYtZXhwb3J0Zml4"
+  },
+  {
+    "name": "v3.0.0-beta.5",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.0.0-beta.5",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.0.0-beta.5",
+    "commit": {
+      "sha": "2a61567ac3637a3332075c2c796286173ae7fd6a",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/2a61567ac3637a3332075c2c796286173ae7fd6a"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjAuMC1iZXRhLjU="
+  },
+  {
+    "name": "v3.0.0-beta.1",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v3.0.0-beta.1",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v3.0.0-beta.1",
+    "commit": {
+      "sha": "0959ca9739850bbd24e0721cc1296e7a0aa5c2bd",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/0959ca9739850bbd24e0721cc1296e7a0aa5c2bd"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YzLjAuMC1iZXRhLjE="
+  },
+  {
+    "name": "v2.7.0",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.7.0",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.7.0",
+    "commit": {
+      "sha": "9b9d45881e5ca68757077726b3c0ecf8fdca1f29",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/9b9d45881e5ca68757077726b3c0ecf8fdca1f29"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjcuMA=="
+  },
+  {
+    "name": "v2.6.13",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.13",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.13",
+    "commit": {
+      "sha": "65ae25a1da2834b046c218685f2085a06f679492",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/65ae25a1da2834b046c218685f2085a06f679492"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuMTM="
+  },
+  {
+    "name": "v2.6.12",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.12",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.12",
+    "commit": {
+      "sha": "8bc3a7c85f67fb81bb3d71c8254e68f3b88e9169",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/8bc3a7c85f67fb81bb3d71c8254e68f3b88e9169"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuMTI="
+  },
+  {
+    "name": "v2.6.11",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.11",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.11",
+    "commit": {
+      "sha": "afb36f6c178342488d71947dfc87e7ddd19fab9e",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/afb36f6c178342488d71947dfc87e7ddd19fab9e"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuMTE="
+  },
+  {
+    "name": "v2.6.10",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.10",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.10",
+    "commit": {
+      "sha": "29909d75c62d51e0d1c23758e526dba74bfd463d",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/29909d75c62d51e0d1c23758e526dba74bfd463d"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuMTA="
+  },
+  {
+    "name": "v2.6.9",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.9",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.9",
+    "commit": {
+      "sha": "70f592d9d2da959df1cebc2dd2314286a4bcf345",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/70f592d9d2da959df1cebc2dd2314286a4bcf345"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuOQ=="
+  },
+  {
+    "name": "v2.6.8",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.8",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.8",
+    "commit": {
+      "sha": "6e9464d7e34dc323edf4dabad7615dd94ab847bd",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/6e9464d7e34dc323edf4dabad7615dd94ab847bd"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuOA=="
+  },
+  {
+    "name": "v2.6.7",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.7",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.7",
+    "commit": {
+      "sha": "1ef4b560a17e644a02a3bfdea7631ffeee578b35",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/1ef4b560a17e644a02a3bfdea7631ffeee578b35"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuNw=="
+  },
+  {
+    "name": "v2.6.6",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.6",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.6",
+    "commit": {
+      "sha": "f56b0c66d3dd2ef185436de1f2fd40f66bfea8f4",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/f56b0c66d3dd2ef185436de1f2fd40f66bfea8f4"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuNg=="
+  },
+  {
+    "name": "v2.6.5",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.5",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.5",
+    "commit": {
+      "sha": "b5417aea6a3275932283a200214522e6ab53f1ea",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/b5417aea6a3275932283a200214522e6ab53f1ea"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuNQ=="
+  },
+  {
+    "name": "v2.6.3",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.3",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.3",
+    "commit": {
+      "sha": "ace7536c955556be742d9910566738630cc3c2a6",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/ace7536c955556be742d9910566738630cc3c2a6"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuMw=="
+  },
+  {
+    "name": "v2.6.2",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.2",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.2",
+    "commit": {
+      "sha": "152214ca2f6e2a5a17d71e4638114625d3be30c6",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/152214ca2f6e2a5a17d71e4638114625d3be30c6"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuMg=="
+  },
+  {
+    "name": "v2.6.1",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.1",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.1",
+    "commit": {
+      "sha": "b5e2e41b2b50bf2997720d6125accaf0dd68c0ab",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/b5e2e41b2b50bf2997720d6125accaf0dd68c0ab"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuMQ=="
+  },
+  {
+    "name": "v2.6.0",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.6.0",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.6.0",
+    "commit": {
+      "sha": "95286f52bb866283bc69521a04efe1de37b26a33",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/95286f52bb866283bc69521a04efe1de37b26a33"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjYuMA=="
+  },
+  {
+    "name": "v2.5.0",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.5.0",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.5.0",
+    "commit": {
+      "sha": "0c2294ec48fa5b84519f8bdd60f4e2672ebd9b06",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/0c2294ec48fa5b84519f8bdd60f4e2672ebd9b06"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjUuMA=="
+  },
+  {
+    "name": "v2.4.1",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.4.1",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.4.1",
+    "commit": {
+      "sha": "b3ecba5e81016390eec57718636122459cc33a94",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/b3ecba5e81016390eec57718636122459cc33a94"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjQuMQ=="
+  },
+  {
+    "name": "v2.4.0",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.4.0",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.4.0",
+    "commit": {
+      "sha": "c9805a2868bb0896be126acefdc2c11c4c586bf9",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/c9805a2868bb0896be126acefdc2c11c4c586bf9"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjQuMA=="
+  },
+  {
+    "name": "v2.3.0",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.3.0",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.3.0",
+    "commit": {
+      "sha": "5367fe6a978e01745e4264384a91140dc99a4bf8",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/5367fe6a978e01745e4264384a91140dc99a4bf8"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjMuMA=="
+  },
+  {
+    "name": "v2.2.1",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.2.1",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.2.1",
+    "commit": {
+      "sha": "1daae67e9e88f7c0a9bd56e38e5d5efe365fd411",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/1daae67e9e88f7c0a9bd56e38e5d5efe365fd411"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjIuMQ=="
+  },
+  {
+    "name": "v2.2.0",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.2.0",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.2.0",
+    "commit": {
+      "sha": "09ef40e8a883344a38f8ebddc58ff0ac129a415c",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/09ef40e8a883344a38f8ebddc58ff0ac129a415c"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjIuMA=="
+  },
+  {
+    "name": "v2.1.2",
+    "zipball_url": "https://api.github.com/repos/node-fetch/node-fetch/zipball/refs/tags/v2.1.2",
+    "tarball_url": "https://api.github.com/repos/node-fetch/node-fetch/tarball/refs/tags/v2.1.2",
+    "commit": {
+      "sha": "b80c2f56a098fffbb3a5556b2034a3a35c37b2a7",
+      "url": "https://api.github.com/repos/node-fetch/node-fetch/commits/b80c2f56a098fffbb3a5556b2034a3a35c37b2a7"
+    },
+    "node_id": "MDM6UmVmMjk4NDk5NTY6cmVmcy90YWdzL3YyLjEuMg=="
+  }
+]

@@ -1,0 +1,99 @@
+{
+  "ghsa_id": "GHSA-3cvr-822r-rqcc",
+  "cve_id": "CVE-2022-31150",
+  "url": "https://api.github.com/advisories/GHSA-3cvr-822r-rqcc",
+  "html_url": "https://github.com/advisories/GHSA-3cvr-822r-rqcc",
+  "summary": "undici before v5.8.0 vulnerable to CRLF injection in request headers",
+  "description": "### Impact\n\nIt is possible to inject CRLF sequences into request headers in Undici.\n\n```js\nconst undici = require('undici')\n\nconst response = undici.request(\"http://127.0.0.1:1000\", {\n  headers: {'a': \"\\r\\nb\"}\n})\n```\n\nThe same applies to `path` and `method`\n\n### Patches\n\nUpdate to v5.8.0\n\n### Workarounds\n\nSanitize all HTTP headers from untrusted sources to eliminate `\\r\\n`.\n\n### References\n\nhttps://hackerone.com/reports/409943\nhttps://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12116\n\n### For more information\n\nIf you have any questions or comments about this advisory:\n\n* Open an issue in [undici repository](https://github.com/nodejs/undici/issues)\n* To make a report, follow the [SECURITY](https://github.com/nodejs/node/blob/HEAD/SECURITY.md) document\n",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": "https://api.github.com/repos/nodejs/undici/security-advisories/GHSA-3cvr-822r-rqcc",
+  "source_code_location": "https://github.com/nodejs/undici",
+  "identifiers": [
+    {
+      "value": "GHSA-3cvr-822r-rqcc",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2022-31150",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://github.com/nodejs/undici/security/advisories/GHSA-3cvr-822r-rqcc",
+    "https://nvd.nist.gov/vuln/detail/CVE-2022-31150",
+    "https://github.com/nodejs/undici/commit/a29a151d0140d095742d21a004023d024fe93259",
+    "https://hackerone.com/reports/409943",
+    "https://github.com/nodejs/undici/releases/tag/v5.8.0",
+    "https://security.netapp.com/advisory/ntap-20220915-0002/",
+    "https://github.com/advisories/GHSA-3cvr-822r-rqcc"
+  ],
+  "published_at": "2022-07-21T20:30:10Z",
+  "updated_at": "2023-01-27T05:02:07Z",
+  "github_reviewed_at": "2022-07-21T20:30:10Z",
+  "nvd_published_at": "2022-07-19T21:15:00Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "undici"
+      },
+      "vulnerable_version_range": "< 5.8.0",
+      "first_patched_version": "5.8.0",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+      "score": 5.3
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-93",
+      "name": "Improper Neutralization of CRLF Sequences ('CRLF Injection')"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "Haxatron",
+        "id": 76475453,
+        "node_id": "MDQ6VXNlcjc2NDc1NDUz",
+        "avatar_url": "https://avatars.githubusercontent.com/u/76475453?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Haxatron",
+        "html_url": "https://github.com/Haxatron",
+        "followers_url": "https://api.github.com/users/Haxatron/followers",
+        "following_url": "https://api.github.com/users/Haxatron/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Haxatron/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Haxatron/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Haxatron/subscriptions",
+        "organizations_url": "https://api.github.com/users/Haxatron/orgs",
+        "repos_url": "https://api.github.com/users/Haxatron/repos",
+        "events_url": "https://api.github.com/users/Haxatron/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Haxatron/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+    "score": 5.3
+  },
+  "epss": {
+    "percentage": 0.00507,
+    "percentile": 0.65882
+  }
+}
