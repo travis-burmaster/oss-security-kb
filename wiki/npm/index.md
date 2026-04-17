@@ -2,6 +2,7 @@
 
 ## Advisory-Mapped / Audited Pages
 - [[npm/axios]] — widely used HTTP client · advisory mapped · broad SSRF / DoS / request-routing history plus 2026 supply-chain compromise
+- [[npm/handlebars]] — widely used templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster
 - [[npm/ws]] — widely used WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
 - [[npm/basic-ftp]] — FTP client library · advisory mapped · 2026 5.2.x path-traversal and CRLF command-injection fix chain
