@@ -1,9 +1,10 @@
 # OSS Security KB — Master Index
 
-*40 packages tracked across 8 ecosystems. Last updated: 2026-04-17.*
+*41 packages tracked across 8 ecosystems. Last updated: 2026-04-17.*
 
-## npm (26)
+## npm (27)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
+- [[npm/marked]] — markdown parser · advisory mapped · repeated XSS / sanitization-boundary and ReDoS history
 - [[npm/handlebars]] — templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster
 - [[npm/ws]] — WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
