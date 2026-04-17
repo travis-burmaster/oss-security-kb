@@ -1,0 +1,5 @@
+- GHSA-5c6j-r48x-rmvq : Serialize JavaScript is Vulnerable to RCE via RegExp.flags and Date.prototype.toISOString() | fixed in 7.0.3
+- GHSA-76p7-773f-r4q5 CVE-2024-11831: Cross-site Scripting (XSS) in serialize-javascript | fixed in 6.0.2
+- GHSA-h9rv-jmmf-4pgx CVE-2019-16769: Cross-Site Scripting in serialize-javascript | fixed in 2.1.1
+- GHSA-hxcc-f52p-wc94 CVE-2020-7660: Insecure serialization leading to RCE in serialize-javascript | fixed in 3.1.0
+- GHSA-qj8w-gfj5-8c6v CVE-2026-34043: Serialize JavaScript has CPU Exhaustion Denial of Service via crafted array-like objects | fixed in 7.0.5

@@ -1,0 +1,55 @@
+
+
+# OSS Knowledge Base: `serialize-javascript`
+
+---
+
+## 1. Package Identity
+
+| Field | Value |
+|---|---|
+| **npm package** | `serialize-javascript` |
+| **Current latest version** | 7.0.5 |
+| **Source repository** | https://github.com/yahoo/serialize-javascript |
+| **Weekly downloads (approx.)** | ~48.8 million |
+| **License** | BSD-3-Clause |
+| **Primary purpose** | Serialize JavaScript values (objects, regexps, dates, functions, etc.) to a string superset of JSON, commonly used in bundler/SSR pipelines (e.g., webpack, Next.js) |
+
+---
+
+## 2. Known Vulnerability History (Published Advisories Only)
+
+All entries below are confirmed via OSV / GitHub Advisory Database and corroborated by upstream release notes.
+
+| # | Advisory ID | CVE | Type | Severity | Fixed In | Summary |
+|---|---|---|---|---|---|---|
+| 1 | GHSA-h9rv-jmmf-4pgx | CVE-2019-16769 | XSS | Moderate | 2.1.1 | Serialized regular expressions were not sanitized; when output was embedded in a browser-side `<script>` context, an attacker-crafted regex could break out and execute arbitrary script. **Advisory explicitly notes this does not affect pure Node.js usage.** |
+| 2 | GHSA-hxcc-f52p-wc94 | CVE-2020-7660 | RCE | Critical | 3.1.0 | Attacker-controlled values in both a regexp and a string field could break the internal placeholder-replacement mechanism, allowing code injection when the serialized output was subsequently evaluated (e.g., via `eval()` or embedded in a `<script>` tag). |
+| 3 | GHSA-76p7-773f-r4q5 | CVE-2024-11831 | XSS | Moderate | 6.0.2 | URL-typed string contents were not properly serialized/escaped, enabling XSS when output was rendered in a browser context. Fix serializes URL string contents. |
+| 4 | GHSA-5c6j-r48x-rmvq | — | RCE (incomplete fix) | Critical | 7.0.3 | Incomplete fix for CVE-2020-7660: the original mitigation could be bypassed via `RegExp.flags` and `Date.prototype.toISOString()` prototype pollution or override vectors. Advisory explicitly identifies itself as addressing a gap in the CVE-2020-7660 remediation. |
+| 5 | GHSA-qj8w-gfj5-8c6v | CVE-2026-34043 | DoS (CPU exhaustion) | Moderate–High | 7.0.5 | Crafted array-like objects could trigger excessive CPU consumption during serialization. Fix improves robustness of array-like object handling. |
+
+### Upstream Release-Note Corroboration
+
+| Version | Release-note excerpt (paraphrased) | Matches advisory |
+|---|---|---|
+| 2.1.1 | "Fixes the regex XSS vulnerability" | #1 |
+| 3.1.0 | "Don't replace regex / function placeholders within string literals" | #2 |
+| 6.0.2 | "Serialize URL string contents to prevent XSS" | #3 |
+| 7.0.3 | "fix(CVE-2020-7660): fix for RegExp.flags and Date.prototype.toISOString()" | #4 |
+| 7.0.5 | References GHSA-qj8w-gfj5-8c6v; addresses excessive CPU usage for array-like objects | #5 |
+
+---
+
+## 3. Exploit Precondition Analysis (Conservative Interpretation)
+
+The following preconditions should be evaluated when assessing actual exploitability in a consuming application:
+
+1. **Attacker-controlled input to serialization.** All five advisories assume that an attacker can influence the JavaScript values passed to `serialize()`. If the data being serialized is entirely server-generated and trusted, direct exploitability is substantially reduced (though defense-in-depth still argues for patching).
+
+2. **Output is evaluated or embedded in an executable context.** The XSS and RCE advisories (#1–#4) require that the serialized string is subsequently:
+   - embedded in an HTML `<script>` block (typical in SSR / server-rendered pages), **or**
+   - passed to `eval()`, `new Function()`, or an equivalent dynamic-evaluation mechanism.
+   If the output is only consumed as a static data string (e.g., written to a JSON file and never eval'd), the injection vectors do not apply.
+
+3. **Browser vs. Node.js context.** Advisory #1 (CVE-2019-16769) explicitly states it does not affect Node.js applications—the risk is confined to
