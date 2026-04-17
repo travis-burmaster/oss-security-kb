@@ -1,0 +1,102 @@
+{
+  "ghsa_id": "GHSA-vp56-6g26-6827",
+  "cve_id": "CVE-2022-2596",
+  "url": "https://api.github.com/advisories/GHSA-vp56-6g26-6827",
+  "html_url": "https://github.com/advisories/GHSA-vp56-6g26-6827",
+  "summary": "node-fetch Inefficient Regular Expression Complexity ",
+  "description": "[node-fetch](https://www.npmjs.com/package/node-fetch) is a light-weight module that brings window.fetch to node.js.\n\nAffected versions of this package are vulnerable to Regular Expression Denial of Service (ReDoS) in the `isOriginPotentiallyTrustworthy()` function in `referrer.js`, when processing a URL string with alternating letters and periods, such as `'http://' + 'a.a.'.repeat(i) + 'a'`.",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": null,
+  "source_code_location": "https://github.com/node-fetch/node-fetch",
+  "identifiers": [
+    {
+      "value": "GHSA-vp56-6g26-6827",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2022-2596",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2022-2596",
+    "https://github.com/node-fetch/node-fetch/commit/28802387292baee467e042e168d92597b5bbbe3d",
+    "https://huntr.dev/bounties/a7e6a136-0a4b-46c4-ad20-802f1dd60bf7",
+    "https://github.com/node-fetch/node-fetch/pull/1611",
+    "https://github.com/node-fetch/node-fetch/releases/tag/v3.2.10",
+    "https://github.com/advisories/GHSA-vp56-6g26-6827"
+  ],
+  "published_at": "2022-08-02T00:00:25Z",
+  "updated_at": "2023-07-11T13:42:39Z",
+  "github_reviewed_at": "2022-08-04T17:37:24Z",
+  "nvd_published_at": "2022-08-01T15:15:00Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "node-fetch"
+      },
+      "vulnerable_version_range": ">= 3.0.0, < 3.2.10",
+      "first_patched_version": "3.2.10",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+      "score": 5.9
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-400",
+      "name": "Uncontrolled Resource Consumption"
+    },
+    {
+      "cwe_id": "CWE-1333",
+      "name": "Inefficient Regular Expression Complexity"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "doublevkay",
+        "id": 45411113,
+        "node_id": "MDQ6VXNlcjQ1NDExMTEz",
+        "avatar_url": "https://avatars.githubusercontent.com/u/45411113?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/doublevkay",
+        "html_url": "https://github.com/doublevkay",
+        "followers_url": "https://api.github.com/users/doublevkay/followers",
+        "following_url": "https://api.github.com/users/doublevkay/following{/other_user}",
+        "gists_url": "https://api.github.com/users/doublevkay/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/doublevkay/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/doublevkay/subscriptions",
+        "organizations_url": "https://api.github.com/users/doublevkay/orgs",
+        "repos_url": "https://api.github.com/users/doublevkay/repos",
+        "events_url": "https://api.github.com/users/doublevkay/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/doublevkay/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+    "score": 5.9
+  },
+  "epss": {
+    "percentage": 0.00225,
+    "percentile": 0.4501
+  }
+}

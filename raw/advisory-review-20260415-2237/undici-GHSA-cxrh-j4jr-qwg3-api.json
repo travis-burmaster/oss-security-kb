@@ -1,0 +1,144 @@
+{
+  "ghsa_id": "GHSA-cxrh-j4jr-qwg3",
+  "cve_id": "CVE-2025-47279",
+  "url": "https://api.github.com/advisories/GHSA-cxrh-j4jr-qwg3",
+  "html_url": "https://github.com/advisories/GHSA-cxrh-j4jr-qwg3",
+  "summary": "undici Denial of Service attack via bad certificate data",
+  "description": "### Impact\n\nApplications that use undici to implement a webhook-like system are vulnerable. If the attacker set up a server with an invalid certificate, and they can force the application to call the webhook repeatedly, then they can cause a memory leak. \n\n### Patches\n\nThis has been patched in https://github.com/nodejs/undici/pull/4088.\n\n### Workarounds\n\nIf a webhook fails, avoid keep calling it repeatedly.\n\n### References\n\nReported as: https://github.com/nodejs/undici/issues/3895",
+  "type": "reviewed",
+  "severity": "low",
+  "repository_advisory_url": "https://api.github.com/repos/nodejs/undici/security-advisories/GHSA-cxrh-j4jr-qwg3",
+  "source_code_location": "https://github.com/nodejs/undici",
+  "identifiers": [
+    {
+      "value": "GHSA-cxrh-j4jr-qwg3",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2025-47279",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://github.com/nodejs/undici/security/advisories/GHSA-cxrh-j4jr-qwg3",
+    "https://github.com/nodejs/undici/issues/3895",
+    "https://github.com/nodejs/undici/pull/4088",
+    "https://nvd.nist.gov/vuln/detail/CVE-2025-47279",
+    "https://github.com/nodejs/undici/commit/f317618ec28753a4218beccea048bcf89c36db25",
+    "https://github.com/advisories/GHSA-cxrh-j4jr-qwg3"
+  ],
+  "published_at": "2025-05-15T14:15:06Z",
+  "updated_at": "2026-02-06T21:35:54Z",
+  "github_reviewed_at": "2025-05-15T14:15:06Z",
+  "nvd_published_at": "2025-05-15T18:15:38Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "undici"
+      },
+      "vulnerable_version_range": "< 5.29.0",
+      "first_patched_version": "5.29.0",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "undici"
+      },
+      "vulnerable_version_range": ">= 6.0.0, < 6.21.2",
+      "first_patched_version": "6.21.2",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "undici"
+      },
+      "vulnerable_version_range": ">= 7.0.0, < 7.5.0",
+      "first_patched_version": "7.5.0",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L",
+      "score": 3.1
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-401",
+      "name": "Missing Release of Memory after Effective Lifetime"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "styfle",
+        "id": 229881,
+        "node_id": "MDQ6VXNlcjIyOTg4MQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/229881?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/styfle",
+        "html_url": "https://github.com/styfle",
+        "followers_url": "https://api.github.com/users/styfle/followers",
+        "following_url": "https://api.github.com/users/styfle/following{/other_user}",
+        "gists_url": "https://api.github.com/users/styfle/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/styfle/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/styfle/subscriptions",
+        "organizations_url": "https://api.github.com/users/styfle/orgs",
+        "repos_url": "https://api.github.com/users/styfle/repos",
+        "events_url": "https://api.github.com/users/styfle/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/styfle/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "finder"
+    },
+    {
+      "user": {
+        "login": "mcollina",
+        "id": 52195,
+        "node_id": "MDQ6VXNlcjUyMTk1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52195?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/mcollina",
+        "html_url": "https://github.com/mcollina",
+        "followers_url": "https://api.github.com/users/mcollina/followers",
+        "following_url": "https://api.github.com/users/mcollina/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mcollina/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/mcollina/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mcollina/subscriptions",
+        "organizations_url": "https://api.github.com/users/mcollina/orgs",
+        "repos_url": "https://api.github.com/users/mcollina/repos",
+        "events_url": "https://api.github.com/users/mcollina/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/mcollina/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "coordinator"
+    }
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L",
+    "score": 3.1
+  },
+  "epss": {
+    "percentage": 0.00047,
+    "percentile": 0.14445
+  }
+}
