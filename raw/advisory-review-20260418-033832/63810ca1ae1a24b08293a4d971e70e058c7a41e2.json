@@ -1,0 +1,105 @@
+{
+  "sha": "63810ca1ae1a24b08293a4d971e70e058c7a41e2",
+  "node_id": "MDY6Q29tbWl0NTAyNTgzNzk6NjM4MTBjYTFhZTFhMjRiMDgyOTNhNGQ5NzFlNzBlMDU4YzdhNDFlMg==",
+  "commit": {
+    "author": {
+      "name": "Benjamin E. Coe",
+      "email": "bencoe@google.com",
+      "date": "2020-03-16T07:08:00Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2020-03-16T07:08:00Z"
+    },
+    "message": "fix: __proto__ will now be replaced with ___proto___ in parse (#258)",
+    "tree": {
+      "sha": "dc8a8c02a4799d856455e6a0bd4ca33417730182",
+      "url": "https://api.github.com/repos/yargs/yargs-parser/git/trees/dc8a8c02a4799d856455e6a0bd4ca33417730182"
+    },
+    "url": "https://api.github.com/repos/yargs/yargs-parser/git/commits/63810ca1ae1a24b08293a4d971e70e058c7a41e2",
+    "comment_count": 3,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJebyXQCRBK7hj4Ov3rIwAAdHIIAEy4A3ylcTPY2krfpxqwzA12\nMEf9404tzN1wU5+aD7aBEVu7IPBtVBRx24JCoFD4l2ubJOZ5mOo7V2REyMxpovQ4\ncYMGuQVfugUTtZXn/y1/Mumq9RCxnshOqnQ2iJqQgUeEvkUbYS0WQkvGE4kHOtgk\nF0RdB/fCbgEoMlMA1+p9OK4ISCpgWiB6lxiTaWNwRdzUAC+ss5Lp/dqo6+/el78b\n5v36nD8gMond19xCNRPFh2WhJs2DLrPL/VDf9E+kV8rpLdQvcoTvPNUkYRrlJjVT\no7iCPuYNOxsHcdQpvUhiK2vlK29duEdefbf+7tPourIKE2JEMPOJ8ALxYbE9nkc=\n=symj\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree dc8a8c02a4799d856455e6a0bd4ca33417730182\nparent 48b6d9ccfa4bb3f74a7f374d8f400491127a8477\nauthor Benjamin E. Coe <bencoe@google.com> 1584342480 -0700\ncommitter GitHub <noreply@github.com> 1584342480 -0700\n\nfix: __proto__ will now be replaced with ___proto___ in parse (#258)\n\n",
+      "verified_at": "2024-01-16T19:59:59Z"
+    }
+  },
+  "url": "https://api.github.com/repos/yargs/yargs-parser/commits/63810ca1ae1a24b08293a4d971e70e058c7a41e2",
+  "html_url": "https://github.com/yargs/yargs-parser/commit/63810ca1ae1a24b08293a4d971e70e058c7a41e2",
+  "comments_url": "https://api.github.com/repos/yargs/yargs-parser/commits/63810ca1ae1a24b08293a4d971e70e058c7a41e2/comments",
+  "author": null,
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "48b6d9ccfa4bb3f74a7f374d8f400491127a8477",
+      "url": "https://api.github.com/repos/yargs/yargs-parser/commits/48b6d9ccfa4bb3f74a7f374d8f400491127a8477",
+      "html_url": "https://github.com/yargs/yargs-parser/commit/48b6d9ccfa4bb3f74a7f374d8f400491127a8477"
+    }
+  ],
+  "stats": {
+    "total": 72,
+    "additions": 70,
+    "deletions": 2
+  },
+  "files": [
+    {
+      "sha": "b7a183916a60eccb7d7fca1046d04be481c5586d",
+      "filename": "index.js",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 1,
+      "changes": 16,
+      "blob_url": "https://github.com/yargs/yargs-parser/blob/63810ca1ae1a24b08293a4d971e70e058c7a41e2/index.js",
+      "raw_url": "https://github.com/yargs/yargs-parser/raw/63810ca1ae1a24b08293a4d971e70e058c7a41e2/index.js",
+      "contents_url": "https://api.github.com/repos/yargs/yargs-parser/contents/index.js?ref=63810ca1ae1a24b08293a4d971e70e058c7a41e2",
+      "patch": "@@ -697,6 +697,10 @@ function parse (args, opts) {\n     if (!configuration['dot-notation']) keys = [keys.join('.')]\n \n     keys.slice(0, -1).forEach(function (key, index) {\n+      // TODO(bcoe): in the next major version of yargs, switch to\n+      // Object.create(null) for dot notation:\n+      key = sanitizeKey(key)\n+\n       if (typeof o === 'object' && o[key] === undefined) {\n         o[key] = {}\n       }\n@@ -716,7 +720,10 @@ function parse (args, opts) {\n       }\n     })\n \n-    const key = keys[keys.length - 1]\n+    // TODO(bcoe): in the next major version of yargs, switch to\n+    // Object.create(null) for dot notation:\n+    const key = sanitizeKey(keys[keys.length - 1])\n+\n     const isTypeArray = checkAllAliases(keys.join('.'), flags.arrays)\n     const isValueArray = Array.isArray(value)\n     let duplicate = configuration['duplicate-arguments-array']\n@@ -1001,4 +1008,11 @@ Parser.detailed = function (args, opts) {\n   return parse(args.slice(), opts)\n }\n \n+// TODO(bcoe): in the next major version of yargs, switch to\n+// Object.create(null) for dot notation:\n+function sanitizeKey (key) {\n+  if (key === '__proto__') return '___proto___'\n+  return key\n+}\n+\n module.exports = Parser"
+    },
+    {
+      "sha": "7065ae61e290f4ae2d1c7ce6eaa36807468894bc",
+      "filename": "test/fixtures/config.json",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 1,
+      "changes": 10,
+      "blob_url": "https://github.com/yargs/yargs-parser/blob/63810ca1ae1a24b08293a4d971e70e058c7a41e2/test%2Ffixtures%2Fconfig.json",
+      "raw_url": "https://github.com/yargs/yargs-parser/raw/63810ca1ae1a24b08293a4d971e70e058c7a41e2/test%2Ffixtures%2Fconfig.json",
+      "contents_url": "https://api.github.com/repos/yargs/yargs-parser/contents/test%2Ffixtures%2Fconfig.json?ref=63810ca1ae1a24b08293a4d971e70e058c7a41e2",
+      "patch": "@@ -4,5 +4,13 @@\n     \"foo\": \"baz\",\n     \"version\": \"1.0.2\",\n     \"truthy\": true,\n-    \"toString\": \"method name\"\n+    \"toString\": \"method name\",\n+    \"__proto__\": {\n+      \"aaa\": 99\n+    },\n+    \"bar\": {\n+      \"__proto__\": {\n+        \"bbb\": 100\n+      }\n+    }\n }"
+    },
+    {
+      "sha": "217f188f1f0893277b929d5acab2457e0b0af343",
+      "filename": "test/yargs-parser.js",
+      "status": "modified",
+      "additions": 46,
+      "deletions": 0,
+      "changes": 46,
+      "blob_url": "https://github.com/yargs/yargs-parser/blob/63810ca1ae1a24b08293a4d971e70e058c7a41e2/test%2Fyargs-parser.js",
+      "raw_url": "https://github.com/yargs/yargs-parser/raw/63810ca1ae1a24b08293a4d971e70e058c7a41e2/test%2Fyargs-parser.js",
+      "contents_url": "https://api.github.com/repos/yargs/yargs-parser/contents/test%2Fyargs-parser.js?ref=63810ca1ae1a24b08293a4d971e70e058c7a41e2",
+      "patch": "@@ -727,6 +727,25 @@ describe('yargs-parser', function () {\n \n       argv.error.message.should.equal('someone set us up the bomb')\n     })\n+\n+    it('should not pollute the prototype', function () {\n+      const argv = parser(['--foo', 'bar'], {\n+        alias: {\n+          z: 'zoom'\n+        },\n+        default: {\n+          settings: jsonPath\n+        },\n+        config: 'settings'\n+      })\n+\n+      argv.should.have.property('herp', 'derp')\n+      argv.should.have.property('zoom', 55)\n+      argv.should.have.property('foo').and.deep.equal('bar')\n+\n+      expect({}.bbb).to.equal(undefined)\n+      expect({}.aaa).to.equal(undefined)\n+    })\n   })\n \n   describe('config objects', function () {\n@@ -974,6 +993,13 @@ describe('yargs-parser', function () {\n       argv.f.foo.should.eql(99)\n       argv.f.bar.should.eql(true)\n     })\n+\n+    it('should not pollute the prototype', function () {\n+      parser(['-f.__proto__.foo', '99', '-x.y.__proto__.bar', '100', '--__proto__', '200'])\n+      Object.keys({}.__proto__).length.should.equal(0) // eslint-disable-line\n+      expect({}.foo).to.equal(undefined)\n+      expect({}.bar).to.equal(undefined)\n+    })\n   })\n \n   it('should set boolean and alias using explicit true', function () {\n@@ -3702,4 +3728,24 @@ describe('yargs-parser', function () {\n       argv._.should.eql([101, 102])\n     })\n   })\n+\n+  it('should replace the key __proto__ with the key ___proto___', function () {\n+    const argv = parser(['-f.__proto__.foo', '99', '-x.y.__proto__.bar', '100', '--__proto__', '200'])\n+    argv.should.eql({\n+      _: [],\n+      ___proto___: 200,\n+      f: {\n+        ___proto___: {\n+          foo: 99\n+        }\n+      },\n+      x: {\n+        y: {\n+          ___proto___: {\n+            bar: 100\n+          }\n+        }\n+      }\n+    })\n+  })\n })"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+
+
+# Proposed Wiki Additions
+
+Below are two new wiki page drafts and accompanying posture notes. Each is based solely on the published evidence summarized above. No findings have been fabricated or extrapolated beyond what the advisory databases, changelogs, and commit metadata confirm.
+
+---
+
+## 1. `wiki/npm/cross-spawn.md`
+
+```markdown
+# cross-spawn
+
+| | |
+|---|---|
+| **Package** | [cross-spawn](https://www.npmjs.com/package/cross-spawn) |
+| **Latest version** | 7.0.6 |
+| **Weekly downloads** | ~173.8 M |
+| **Ecosystem** | npm |
+
+## Overview
+
+`cross-spawn` is a cross-platform replacement for Node.js `child_process.spawn` /
+`spawnSync` that handles `.cmd` / `.bat` files on Windows. It is one of the
+most-depended-upon packages in the npm registry.
+
+## Known Vulnerabilities
+
+### CVE-2024-21538 — Regular Expression Denial of Service (ReDoS)
+
+| | |
+|---|---|
+| **Advisory** | [GHSA-3xgq-45jj-v275](https://github.com/advisories/GHSA-3xgq-45jj-v275) |
+| **CVE** | CVE-2024-21538 |
+| **Severity** | High (ReDoS) |
+| **Affected versions** | `< 6.0.6` and `>= 7.0.0, < 7.0.5` |
+| **Fixed versions** | `6.0.6`, `7.0.5` |
+| **References** | [Issue #165](https://github.com/moxystudio/node-cross-spawn/issues/165), [PR #160](https://github.com/moxystudio/node-cross-spawn/pull/160) |
+
+**Description**
+
+Versions before the fix do not adequately sanitise input passed to an internal
+regular expression. A crafted, very large string can trigger catastrophic
+backtracking, causing sustained high CPU usage or a process crash.
+
+**Fix details**
+
+- **7.0.4** disabled regexp backtracking (PR #160, commit `5ff3a07`).
+- **7.0.5** corrected an escaping regression introduced by that first fix
+  (commits `640d391`, `d35c865`).
+- **7.0.6** contains only a `package-lock.json` follow-up; no further
+  security-relevant changes.
+
+**Recommended action**
+
+Upgrade to `>= 7.0.5` (or `>= 6.0.6` if pinned to the 6.x line).
+
+## Posture Notes
+
+* Extremely high transitive fan-in; updates should be verified across lock
+  files in CI.
+* No other published advisories exist for this package as of this review.
+* The fix history (two commits across two releases) is clean and well-documented
+  upstream, which increases confidence in the patch.
+```
+
+---
+
+## 2. `wiki/npm/yargs-parser.md`
+
+```markdown
+# yargs-parser
+
+| | |
+|---|---|
+| **Package** | [yargs-parser](https://www.npmjs.com/package/yargs-parser) |
+| **Latest version** | 22.0.0 |
+| **Weekly downloads** | ~176.6 M |
+| **Ecosystem** | npm |
+
+## Overview
+
+`yargs-parser` is the argument-parsing engine behind the popular `yargs` CLI
+framework. It converts `process.argv`-style arrays into option objects.
+
+## Known Vulnerabilities
+
+### CVE-2020-7608 — Prototype Pollution
+
+| | |
+|---|---|
+| **Advisory** | [GHSA-p9pc-299p-vxgp](https://github.com/advisories/GHSA-p9pc-299p-vxgp) |
+| **CVE** | CVE-2020-7608 |
+| **Severity** | Moderate (Prototype Pollution) |
+| **Affected versions** | All versions before the fix on each maintained line |
+| **Fixed versions** | `5.0.1`, `13.1.2`, `15.0.1`, `18.1.1` |
+| **Reporter** | Snyk Security Research Team |
+
+**Description**
+
+When parsing attacker-controlled arguments of the form
+`--foo.__proto__.bar baz`, the parser writes to `Object.prototype`, enabling
+prototype pollution. This can lead to unexpected property injection across the
+application.
+
+**Fix details**
+
+Starting with the fixed releases, `__proto__` keys in parsed input are rewritten
+to `___proto___`, neutralising the pollution vector. The change is documented in
+the upstream changelog for 18.1.1 and the corresponding commit, referencing
+issue/PR #258.
+
+**Recommended action**
+
+Upgrade to the fixed release on whichever major line is in use:
+
+| Major line | Minimum safe version |
+|---|---|
+| 5.x | `5.0.1` |
+| 13.x | `13.1.2` |
+| 15.x | `15.0.1` |
+| 18.x+ | `18.1.1` |
+
+Any version on the `22.x` (current latest) line already includes this fix.
+
+## Posture Notes
+
+* Prototype pollution impact depends on how downstream code consumes the parsed
+  object. In CLI tools that do not pass parsed args into security-sensitive sinks
+  the practical risk is lower, but library authors should not assume this.
+* Only one published advisory exists for this package as of this review.
+* The mitigation strategy (key renaming) is simple, transparent, and unlikely to
+  cause regressions except for code that intentionally manipulates `__proto__`,
+  
