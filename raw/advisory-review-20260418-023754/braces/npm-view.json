@@ -1,0 +1,8 @@
+{
+  "name": "braces",
+  "version": "3.0.3",
+  "repository.url": "git+https://github.com/micromatch/braces.git",
+  "homepage": "https://github.com/micromatch/braces",
+  "license": "MIT",
+  "dist-tags.latest": "3.0.3"
+}

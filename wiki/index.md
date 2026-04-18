@@ -1,9 +1,10 @@
 # OSS Security KB — Master Index
 
-*43 packages tracked across 8 ecosystems. Last updated: 2026-04-17.*
+*45 packages tracked across 8 ecosystems. Last updated: 2026-04-18.*
 
-## npm (29)
+## npm (31)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
+- [[npm/braces]] — brace-expansion utility · advisory mapped · ReDoS in 2.x plus 2024 imbalanced-input memory exhaustion fixed in 3.0.3
 - [[npm/marked]] — markdown parser · advisory mapped · repeated XSS / sanitization-boundary and ReDoS history
 - [[npm/handlebars]] — templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster
 - [[npm/ws]] — WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
@@ -24,6 +25,7 @@
 - [[npm/koa-router]] — Koa routing middleware · audit ingested · 2026 v15.4.0 source review, prefix-strip boundary bug filed as koajs/router#232
 - [[npm/lodash]] — lodash utility library · advisory mapped · prototype pollution, ReDoS, and template-injection history
 - [[npm/mathjs]] — math expression engine · advisory mapped · 15.2.0 object-attribute / parser hardening security fix
+- [[npm/morgan]] — HTTP request logger · advisory mapped · 2019 format-compilation code injection fixed in 1.9.1
 - [[npm/minimist]] — minimist argument parser · advisory mapped · high transitive risk
 - [[npm/node-fetch]] — fetch-compatible HTTP client · advisory mapped · redirect credential leakage, redirect size-limit bypass, and ReDoS history
 - [[npm/next-intl]] — internationalization middleware package · advisory mapped · 2026 open redirect fix in 4.9.1

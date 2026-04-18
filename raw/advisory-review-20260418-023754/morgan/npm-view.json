@@ -1,0 +1,8 @@
+{
+  "name": "morgan",
+  "version": "1.10.1",
+  "repository.url": "git+https://github.com/expressjs/morgan.git",
+  "homepage": "https://github.com/expressjs/morgan#readme",
+  "license": "MIT",
+  "dist-tags.latest": "1.10.1"
+}

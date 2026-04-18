@@ -2,6 +2,7 @@
 
 ## Advisory-Mapped / Audited Pages
 - [[npm/axios]] — widely used HTTP client · advisory mapped · broad SSRF / DoS / request-routing history plus 2026 supply-chain compromise
+- [[npm/braces]] — brace-expansion utility · advisory mapped · ReDoS in 2.x plus 2024 imbalanced-input memory exhaustion fixed in 3.0.3
 - [[npm/marked]] — widely used markdown parser · advisory mapped · repeated XSS / sanitization-boundary and ReDoS history
 - [[npm/handlebars]] — widely used templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster
 - [[npm/ws]] — widely used WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
@@ -18,6 +19,7 @@
 - [[npm/serialize-javascript]] — serialization helper · advisory mapped · recurring XSS / code-injection boundary bugs plus 2026 CPU-exhaustion DoS
 - [[npm/lodash]] — utility library · advisory mapped · prototype pollution, ReDoS, and template-injection history
 - [[npm/mathjs]] — math expression engine · advisory mapped · 15.2.0 object-attribute / parser hardening security fix
+- [[npm/morgan]] — HTTP request logger · advisory mapped · 2019 format-compilation code injection fixed in 1.9.1
 - [[npm/minimist]] — tiny CLI parser with outsized transitive blast radius
 - [[npm/node-fetch]] — fetch-compatible HTTP client · advisory mapped · redirect credential leakage, redirect size-limit bypass, and ReDoS history
 - [[npm/next-intl]] — i18n / routing middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
