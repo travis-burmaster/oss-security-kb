@@ -1,9 +1,10 @@
 # OSS Security KB — Master Index
 
-*45 packages tracked across 8 ecosystems. Last updated: 2026-04-18.*
+*46 packages tracked across 8 ecosystems. Last updated: 2026-04-18.*
 
-## npm (31)
+## npm (32)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
+- [[npm/http-proxy-middleware]] — proxy middleware · advisory mapped · path-filter DoS plus 2025 fixRequestBody flaw chain
 - [[npm/braces]] — brace-expansion utility · advisory mapped · ReDoS in 2.x plus 2024 imbalanced-input memory exhaustion fixed in 3.0.3
 - [[npm/marked]] — markdown parser · advisory mapped · repeated XSS / sanitization-boundary and ReDoS history
 - [[npm/handlebars]] — templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster

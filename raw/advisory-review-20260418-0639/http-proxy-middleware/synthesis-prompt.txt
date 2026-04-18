@@ -1,0 +1,145 @@
+Review the following public evidence for npm package http-proxy-middleware and propose evidence-backed KB page text. Do not fabricate findings, unpublished advisories, exploit details, or maintainer intent. Keep claims limited to the public evidence. Also note that express-session and cookie-parser were comparison candidates in this pass but package-scoped OSV queries returned zero vulns, so no page should be forced for them. Evidence JSON follows:
+
+{
+  "downloads": {
+    "downloads": 24138318,
+    "start": "2026-04-11",
+    "end": "2026-04-17",
+    "package": "http-proxy-middleware"
+  },
+  "advisories": [
+    {
+      "id": "GHSA-c7qv-q95q-8v27",
+      "aliases": [
+        "CVE-2024-21536"
+      ],
+      "summary": "Denial of service in http-proxy-middleware",
+      "details": "Versions of the package http-proxy-middleware before 2.0.7, from 3.0.0 and before 3.0.3 are vulnerable to Denial of Service (DoS) due to an UnhandledPromiseRejection error thrown by micromatch. An attacker could kill the Node.js process and crash the server by making requests to certain paths.",
+      "ranges": [
+        [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "2.0.7"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "3.0.0"
+              },
+              {
+                "fixed": "3.0.3"
+              }
+            ]
+          }
+        ]
+      ],
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-21536",
+        "https://github.com/chimurai/http-proxy-middleware/commit/0b4274e8cc9e9a2c5a06f35fbf456ccfcebc55a5",
+        "https://github.com/chimurai/http-proxy-middleware/commit/788b21e4aff38332d6319557d4a5b1b13b1f9a22",
+        "https://gist.github.com/mhassan1/28be67266d82a53708ed59ce5dc3c94a",
+        "https://github.com/chimurai/http-proxy-middleware",
+        "https://security.snyk.io/vuln/SNYK-JS-HTTPPROXYMIDDLEWARE-8229906"
+      ]
+    },
+    {
+      "id": "GHSA-4www-5p9h-95mh",
+      "aliases": [
+        "CVE-2025-32996"
+      ],
+      "summary": "http-proxy-middleware can call writeBody twice because \"else if\" is not used",
+      "details": "In http-proxy-middleware before 2.0.8 and 3.x before 3.0.4, writeBody can be called twice because \"else if\" is not used.",
+      "ranges": [
+        [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "1.3.0"
+              },
+              {
+                "fixed": "2.0.8"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "3.0.0"
+              },
+              {
+                "fixed": "3.0.4"
+              }
+            ]
+          }
+        ]
+      ],
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-32996",
+        "https://github.com/chimurai/http-proxy-middleware/pull/1089",
+        "https://github.com/chimurai/http-proxy-middleware/commit/020976044d113fc0bcbbaf995e91d05e2829a145",
+        "https://github.com/chimurai/http-proxy-middleware",
+        "https://github.com/chimurai/http-proxy-middleware/releases/tag/v2.0.8",
+        "https://github.com/chimurai/http-proxy-middleware/releases/tag/v3.0.4"
+      ]
+    },
+    {
+      "id": "GHSA-9gqv-wp59-fq42",
+      "aliases": [
+        "CVE-2025-32997"
+      ],
+      "summary": "http-proxy-middleware allows fixRequestBody to proceed even if bodyParser has failed",
+      "details": "In http-proxy-middleware before 2.0.9 and 3.x before 3.0.5, fixRequestBody proceeds even if bodyParser has failed.",
+      "ranges": [
+        [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "1.3.0"
+              },
+              {
+                "fixed": "2.0.9"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "SEMVER",
+            "events": [
+              {
+                "introduced": "3.0.0"
+              },
+              {
+                "fixed": "3.0.5"
+              }
+            ]
+          }
+        ]
+      ],
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-32997",
+        "https://github.com/chimurai/http-proxy-middleware/pull/1096",
+        "https://github.com/chimurai/http-proxy-middleware/commit/1bdccbeec243850f1d2bb50ea0ff2151e725d67e",
+        "https://github.com/chimurai/http-proxy-middleware",
+        "https://github.com/chimurai/http-proxy-middleware/releases/tag/v2.0.9",
+        "https://github.com/chimurai/http-proxy-middleware/releases/tag/v3.0.5"
+      ]
+    }
+  ],
+  "changelog_excerpt": "# Changelog\n\n## next\n\n- fix(types): fix Logger type\n- fix(error-response-plugin): sanitize input\n- feat: drop node v14/v16/v18 [BREAKING CHANGE]\n- refactor: replace http-proxy w/ httpxy\n- chore: remove legacyCreateProxyMiddleware() [BREAKING CHANGE]\n- ci: migrate from jest to vitest\n- chore(package.json): esm only [BREAKING CHANGE]\n- chore(package.json): bump to httpxy 0.5.0 (#1183)\n- chore(package.json): drop node20 [BREAKING CHANGE] (#1179)\n- refactor: remove deprecated url.parse() (#1176)\n- fix(fixRequestBody): support content-encoding on request body (#1142)\n- fix: prevent TypeError when ws enabled but server is undefined (#1163)\n- fix: applyPathRewrite logs old req.url instead of rewritten path (#1157)\n- feat(hono): support for hono with createHonoProxyMiddleware\n\n## [v3.0.5](https://github.com/chimurai/http-proxy-middleware/releases/tag/v3.0.5)\n\n- fix(fixRequestBody): check readableLength ([#1096](https://github.com/chimurai/http-proxy-middleware/pull/1096))\n\n## [v3.0.4](https://github.com/chimurai/http-proxy-middleware/releases/tag/v3.0.4)\n\n- fix(fixRequestBody): handle invalid request ([#1092](https://github.com/chimurai/http-proxy-middleware/pull/1092))\n- fix(fixRequestBody): prevent multiple .write() calls ([#1089](https://github.com/chimurai/http-proxy-middleware/pull/1089))\n- fix(websocket): handle errors in handleUpgrade ([#823](https://github.com/chimurai/http-proxy-middleware/pull/823))\n- ci(package): patch http-proxy ([#1084](https://github.com/chimurai/http-proxy-middleware/pull/1084))\n- fix(fixRequestBody): support multipart/form-data ([#896](https://github.com/chimurai/http-proxy-middleware/pull/896))\n- feat(types): export Plugin type ([#1071](https://github.com/chimurai/http-proxy-middleware/pull/1071))\n\n## [v3.0.3](https://github.com/chimurai/http-proxy-middleware/releases/tag/v3.0.3)\n\n- fix(pathFilter): handle errors\n\n## [v3.0.2](https://github.com/chimurai/http-proxy-middleware/releases/tag/v3.0.2)\n\n- refactor(dependency): replace is-plain-obj with is-plain-object ([#1031](https://github.com/chimurai/http-proxy-middleware/pull/1031))\n- chore(package): upgrade to eslint v9 ([#1032](https://github.com/chimurai/http-proxy-middleware/pull/1032))\n- fix(logger-plugin): handle undefined protocol and hostname ([#1036](https://github.com/chimurai/http-proxy-middleware/pull/1036))\n\n## [v3.0.1](https://github.com/chimurai/http-proxy-middleware/releases/tag/v3.0.1)\n\n- fix(type): fix RequestHandler return type ([#980](https://github.com/chimurai/http-proxy-middleware/pull/980))\n- refactor(errors): improve pathFilter error message ([#987](https://github.com/chimurai/http-proxy-middleware/pull/987))\n- fix(logger-plugin): fix missing target port ([#989](https://github.com/chimurai/http-proxy-middleware/pull/989))\n- ci(package): npm package provenance ([#991](https://github.com/chimurai/http-proxy-middleware/pull/1015))\n- fix(logger-plugin): log target port when router option is used ([#1001](https://github.com/chimurai/http-proxy-middleware/pull/1001))\n- refactor: fix circular dependencies ([#1010](https://github.com/chimurai/http-proxy-middleware/pull/1010))\n- fix(fix-request-body): support '+json' content-type suffix ([#1015](https://github.com/chimurai/http-proxy-middleware/pull/1015))\n\n## [v3.0.0](https://github.com/chimurai/http-proxy-middleware/releases/tag/v3.0.0)\n\nThis release contains some breaking changes.\n\nPlease read the V3 discussion <https://github.com/chimurai/http-proxy-middleware/discussions/768>\nor follow the [MIGRATION.md](https://github.com/chimurai/http-proxy-middleware/blob/master/MIGRATION.md) guide.\n\n- feat(typescript): type improvements ([#882](https://github.com/chimurai/http-proxy-middleware/pull/882))\n- chore(deps): update micromatch to 4.0.5\n- chore(package): bump devDependencies\n- feat(legacyCreateProxyMiddleware): show migration tips ([#756](https://github.com/chimurai/http-proxy-middleware/pull/756))\n- feat(legacyCreateProxyMiddleware): adapter with v2 behavior ([#754](https://github.com/chimurai/http-proxy-middleware/pull/754))\n- docs(proxy events): fix new syntax ([#753](https://github.com/chimurai/http-proxy-middleware/pull/753))\n- feat(debug): improve troubleshooting ([#752](https://github.com/chimurai/http-proxy-middleware/pull/752))\n- test(path-rewriter): improve coverage ([#751](https://github.com/chimurai/http-proxy-middleware/pull/751))\n- feat(ejectPlugins): skip registering default plugins ([#750](https://github.com/chimurai/http-proxy-middleware/pull/750))\n- refactor: logging [BREAKING CHANGE] ([#749](https://github.com/chimurai/http-proxy-middleware/pull/749))\n- refactor(handlers): refactor to plugins [BREAKING CHANGE] ([#745](https://github.com/chimurai/http-proxy-middleware/pull/745))\n- feat(plugins): add support for plugins ([#732](https://github.com/chimurai/http-proxy-middleware/pull/732))\n- docs: fix v3 documentation\n- fix: server mounting [BREAKING CHANGE] ([#731](https://github.com/chimurai/http-proxy-middleware/pull/731))\n- test(fixRequestBody): fi"
+}
