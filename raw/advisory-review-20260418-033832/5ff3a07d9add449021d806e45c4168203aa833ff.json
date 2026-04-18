@@ -1,0 +1,101 @@
+{
+  "sha": "5ff3a07d9add449021d806e45c4168203aa833ff",
+  "node_id": "C_kwDOAUWPJNoAKDVmZjNhMDdkOWFkZDQ0OTAyMWQ4MDZlNDVjNDE2ODIwM2FhODMzZmY",
+  "commit": {
+    "author": {
+      "name": "André Cruz",
+      "email": "andremiguelcruz@msn.com",
+      "date": "2024-11-06T22:02:49Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2024-11-06T22:02:49Z"
+    },
+    "message": "fix: disable regexp backtracking (#160)",
+    "tree": {
+      "sha": "1f21294da8c583614cc3af55e3e4f86402aad9f8",
+      "url": "https://api.github.com/repos/moxystudio/node-cross-spawn/git/trees/1f21294da8c583614cc3af55e3e4f86402aad9f8"
+    },
+    "url": "https://api.github.com/repos/moxystudio/node-cross-spawn/git/commits/5ff3a07d9add449021d806e45c4168203aa833ff",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJnK+eJCRC1aQ7uu5UhlAAAzCYQAFiY37/RCixkLHKFu33XQdR9\nv0ZnZmuijyjJ5DLmW7Lzr+4yQpZAff8fs1UUzfOkbxdafOMPRIsYISy+XqEOrmo0\nYJEhlsdvKwm40DaBiZvdwIbc54f3MFu+n7rex3Lji/LQN45vwTKkaIlIrq+aLCAy\nklf3fUl8ubJv6zTxVqVnuquvjKSDNMkXSbmql2Uqq0LKCubrZsDhSIW00V6XLkES\nlOIbFS4H/TImbTA/LiQU6dYwiUnge7iYpaxtrcainUfcPiaB1nx+DfdUrK9ZFMFD\ni2RUn5OTxmTHIr9fA5C1WmmvfURRD1vjuwcjROkZc+xQft4tSQ2OSPidbhmC7jh0\npclVh0Do0+WKIOq3lCDAV1Nwq4zOuQiJwIy8Y1xSJdHk2drgeaIbjlMY2niu5AAO\nxBgcCnATLJmGVLaQ8vO7YS/wx9hYVlSVH9CuZuAuRVRIML9Pp2uxWfSfe9/ihNGX\nfNgHDGreXVNop9vu80DQeOHfjyfm5KCXq7w72t/0yjJn7Cs5yK3LvsGCfmP+35iJ\nElEU3JhCPlKs55LOopt7U2wzci7AornoCPLc1R7Q148cob8sca4b7CQrmy8iqddW\nJSa7EbogSvGMKJod+TcDXGvG1WqWzkMcxjbP7o2qKnJ3VVAyJvdWgFjhLIzEtGQK\nv8ipwRzb+r81Ejl1dBMF\n=5Gkf\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 1f21294da8c583614cc3af55e3e4f86402aad9f8\nparent 9521e2da94d94998f948e0455903e62d87884600\nauthor André Cruz <andremiguelcruz@msn.com> 1730930569 +0000\ncommitter GitHub <noreply@github.com> 1730930569 +0000\n\nfix: disable regexp backtracking (#160)\n\n",
+      "verified_at": "2024-11-12T16:05:40Z"
+    }
+  },
+  "url": "https://api.github.com/repos/moxystudio/node-cross-spawn/commits/5ff3a07d9add449021d806e45c4168203aa833ff",
+  "html_url": "https://github.com/moxystudio/node-cross-spawn/commit/5ff3a07d9add449021d806e45c4168203aa833ff",
+  "comments_url": "https://api.github.com/repos/moxystudio/node-cross-spawn/commits/5ff3a07d9add449021d806e45c4168203aa833ff/comments",
+  "author": {
+    "login": "satazor",
+    "id": 1017236,
+    "node_id": "MDQ6VXNlcjEwMTcyMzY=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/1017236?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/satazor",
+    "html_url": "https://github.com/satazor",
+    "followers_url": "https://api.github.com/users/satazor/followers",
+    "following_url": "https://api.github.com/users/satazor/following{/other_user}",
+    "gists_url": "https://api.github.com/users/satazor/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/satazor/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/satazor/subscriptions",
+    "organizations_url": "https://api.github.com/users/satazor/orgs",
+    "repos_url": "https://api.github.com/users/satazor/repos",
+    "events_url": "https://api.github.com/users/satazor/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/satazor/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "9521e2da94d94998f948e0455903e62d87884600",
+      "url": "https://api.github.com/repos/moxystudio/node-cross-spawn/commits/9521e2da94d94998f948e0455903e62d87884600",
+      "html_url": "https://github.com/moxystudio/node-cross-spawn/commit/9521e2da94d94998f948e0455903e62d87884600"
+    }
+  ],
+  "stats": {
+    "total": 6,
+    "additions": 4,
+    "deletions": 2
+  },
+  "files": [
+    {
+      "sha": "e4804b997e52e5effd844270271d7c39c7563372",
+      "filename": "lib/util/escape.js",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "blob_url": "https://github.com/moxystudio/node-cross-spawn/blob/5ff3a07d9add449021d806e45c4168203aa833ff/lib%2Futil%2Fescape.js",
+      "raw_url": "https://github.com/moxystudio/node-cross-spawn/raw/5ff3a07d9add449021d806e45c4168203aa833ff/lib%2Futil%2Fescape.js",
+      "contents_url": "https://api.github.com/repos/moxystudio/node-cross-spawn/contents/lib%2Futil%2Fescape.js?ref=5ff3a07d9add449021d806e45c4168203aa833ff",
+      "patch": "@@ -15,15 +15,17 @@ function escapeArgument(arg, doubleEscapeMetaChars) {\n     arg = `${arg}`;\n \n     // Algorithm below is based on https://qntm.org/cmd\n+    // It's slightly altered to disable JS backtracking to avoid hanging on specially crafted input\n+    // Please see https://github.com/moxystudio/node-cross-spawn/pull/160 for more information\n \n     // Sequence of backslashes followed by a double quote:\n     // double up all the backslashes and escape the double quote\n-    arg = arg.replace(/(\\\\*)\"/g, '$1$1\\\\\"');\n+    arg = arg.replace(/(?=\\\\*?)\"/g, '$1$1\\\\\"');\n \n     // Sequence of backslashes followed by the end of the string\n     // (which will become a double quote later):\n     // double up all the backslashes\n-    arg = arg.replace(/(\\\\*)$/, '$1$1');\n+    arg = arg.replace(/(?=\\\\*?)$/, '$1$1');\n \n     // All other backslashes occur literally\n "
+    }
+  ]
+}

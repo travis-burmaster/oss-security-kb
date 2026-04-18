@@ -1,0 +1,101 @@
+{
+  "sha": "640d391fde65388548601d95abedccc12943374f",
+  "node_id": "C_kwDOAUWPJNoAKDY0MGQzOTFmZGU2NTM4ODU0ODYwMWQ5NWFiZWRjY2MxMjk0MzM3NGY",
+  "commit": {
+    "author": {
+      "name": "André Cruz",
+      "email": "andre.cruz@uphold.com",
+      "date": "2024-11-07T12:50:38Z"
+    },
+    "committer": {
+      "name": "André Cruz",
+      "email": "andremiguelcruz@msn.com",
+      "date": "2024-11-07T12:59:05Z"
+    },
+    "message": "fix: fix escaping bug introduced by backtracking",
+    "tree": {
+      "sha": "90826e438bed696463ca6b5be230efcff9ca6b4a",
+      "url": "https://api.github.com/repos/moxystudio/node-cross-spawn/git/trees/90826e438bed696463ca6b5be230efcff9ca6b4a"
+    },
+    "url": "https://api.github.com/repos/moxystudio/node-cross-spawn/git/commits/640d391fde65388548601d95abedccc12943374f",
+    "comment_count": 4,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/moxystudio/node-cross-spawn/commits/640d391fde65388548601d95abedccc12943374f",
+  "html_url": "https://github.com/moxystudio/node-cross-spawn/commit/640d391fde65388548601d95abedccc12943374f",
+  "comments_url": "https://api.github.com/repos/moxystudio/node-cross-spawn/commits/640d391fde65388548601d95abedccc12943374f/comments",
+  "author": {
+    "login": "satazor",
+    "id": 1017236,
+    "node_id": "MDQ6VXNlcjEwMTcyMzY=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/1017236?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/satazor",
+    "html_url": "https://github.com/satazor",
+    "followers_url": "https://api.github.com/users/satazor/followers",
+    "following_url": "https://api.github.com/users/satazor/following{/other_user}",
+    "gists_url": "https://api.github.com/users/satazor/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/satazor/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/satazor/subscriptions",
+    "organizations_url": "https://api.github.com/users/satazor/orgs",
+    "repos_url": "https://api.github.com/users/satazor/repos",
+    "events_url": "https://api.github.com/users/satazor/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/satazor/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "satazor",
+    "id": 1017236,
+    "node_id": "MDQ6VXNlcjEwMTcyMzY=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/1017236?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/satazor",
+    "html_url": "https://github.com/satazor",
+    "followers_url": "https://api.github.com/users/satazor/followers",
+    "following_url": "https://api.github.com/users/satazor/following{/other_user}",
+    "gists_url": "https://api.github.com/users/satazor/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/satazor/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/satazor/subscriptions",
+    "organizations_url": "https://api.github.com/users/satazor/orgs",
+    "repos_url": "https://api.github.com/users/satazor/repos",
+    "events_url": "https://api.github.com/users/satazor/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/satazor/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "bff0c87c8b627c4e6d04ec2449e733048bebb464",
+      "url": "https://api.github.com/repos/moxystudio/node-cross-spawn/commits/bff0c87c8b627c4e6d04ec2449e733048bebb464",
+      "html_url": "https://github.com/moxystudio/node-cross-spawn/commit/bff0c87c8b627c4e6d04ec2449e733048bebb464"
+    }
+  ],
+  "stats": {
+    "total": 4,
+    "additions": 2,
+    "deletions": 2
+  },
+  "files": [
+    {
+      "sha": "7bf2905cd035ad517486b0b0549f660551a2e199",
+      "filename": "lib/util/escape.js",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/moxystudio/node-cross-spawn/blob/640d391fde65388548601d95abedccc12943374f/lib%2Futil%2Fescape.js",
+      "raw_url": "https://github.com/moxystudio/node-cross-spawn/raw/640d391fde65388548601d95abedccc12943374f/lib%2Futil%2Fescape.js",
+      "contents_url": "https://api.github.com/repos/moxystudio/node-cross-spawn/contents/lib%2Futil%2Fescape.js?ref=640d391fde65388548601d95abedccc12943374f",
+      "patch": "@@ -20,12 +20,12 @@ function escapeArgument(arg, doubleEscapeMetaChars) {\n \n     // Sequence of backslashes followed by a double quote:\n     // double up all the backslashes and escape the double quote\n-    arg = arg.replace(/(?=\\\\*?)\"/g, '$1$1\\\\\"');\n+    arg = arg.replace(/(?=(\\\\+?)?)\\1\"/g, '$1$1\\\\\"');\n \n     // Sequence of backslashes followed by the end of the string\n     // (which will become a double quote later):\n     // double up all the backslashes\n-    arg = arg.replace(/(?=\\\\*?)$/, '$1$1');\n+    arg = arg.replace(/(?=(\\\\+?)?)\\1$/, '$1$1');\n \n     // All other backslashes occur literally\n "
+    }
+  ]
+}

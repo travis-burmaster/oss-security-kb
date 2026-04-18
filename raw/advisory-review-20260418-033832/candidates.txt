@@ -1,0 +1,19 @@
+=== cross-spawn ===
+cross-spawn: osv_vulns=1
+ - GHSA-3xgq-45jj-v275 aliases= CVE-2024-21538 modified= 2026-02-04T03:31:45.297351Z
+latest=7.0.6 repo=git+ssh://git@github.com/moxystudio/node-cross-spawn.git
+downloads_last_week= 173814017
+
+=== yargs-parser ===
+yargs-parser: osv_vulns=1
+ - GHSA-p9pc-299p-vxgp aliases= CVE-2020-7608 modified= 2026-03-13T22:11:22.367493Z
+latest=22.0.0 repo=git+https://github.com/yargs/yargs-parser.git
+downloads_last_week= 176636757
+
+=== braces ===
+braces: osv_vulns=2
+ - GHSA-cwfw-4gq5-mrqx aliases= CVE-2018-1109 modified= 2025-11-26T17:32:10.727937Z
+ - GHSA-grv7-fg5c-xmjg aliases= CVE-2024-4068 modified= 2026-02-04T02:37:33.860557Z
+latest=3.0.3 repo=git+https://github.com/micromatch/braces.git
+downloads_last_week= 142994269
+
