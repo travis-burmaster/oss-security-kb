@@ -1,0 +1,53 @@
+# OSS Security KB — Review & Proposed Updates
+
+## Assessment of Candidates
+
+**multer (npm):** Clean enough for a full KB page this pass. All 7 vulnerabilities have matching GHSA/CVE identifiers, consistent version-range metadata, upstream release notes that explicitly cite the CVEs, and GitHub Advisory DB records that align. The advisory data is internally consistent and externally corroborated.
+
+**flask (PyPI):** 8 OSV IDs returned but not enumerated or cross-checked in the evidence provided. Cannot produce evidence-backed prose without reviewing each advisory for consistency. **Defer to a future pass.**
+
+**github.com/labstack/echo/v4 (Go):** 4 OSV IDs returned but similarly unenumerated. **Defer to a future pass.**
+
+---
+
+## Proposed KB Page: multer (npm)
+
+### Package Overview
+
+| Field | Value |
+|---|---|
+| Ecosystem | npm |
+| Package | multer |
+| Latest release (dist-tag latest) | 2.1.1 |
+| Weekly downloads (2026-04-11 – 2026-04-17) | ~14.1 million |
+| Primary use case | Multipart/form-data (file upload) middleware for Express/Node.js |
+
+### Security Posture Summary
+
+multer has accumulated **7 publicly disclosed high-severity vulnerabilities**, all in the denial-of-service category. Every vulnerability has been fixed in a released version. The current latest (`2.1.1`) resolves all known advisories. The fix history spans five releases over two major-version generations (2.0.0 → 2.1.1), suggesting active but reactive security maintenance.
+
+**All 7 vulnerabilities are rated High severity. All are DoS vectors.** No remote-code-execution, data-exfiltration, or authentication-bypass issues appear in the public advisory corpus.
+
+### Vulnerability Inventory (All Public, All Fixed)
+
+| GHSA | CVE | Severity | Vulnerable Range | Fixed In | Summary |
+|---|---|---|---|---|---|
+| GHSA-44fp-w29j-9vj5 | CVE-2025-47935 | High | <2.0.0 | 2.0.0 | Memory leaks from unclosed streams causing DoS |
+| GHSA-4pg4-qvpc-4q3h | CVE-2025-47944 | High | ≥1.4.4-lts.1, <2.0.0 | 2.0.0 | Maliciously crafted requests causing DoS |
+| GHSA-g5hg-p3ph-g8qg | CVE-2025-48997 | High | ≥1.4.4-lts.1, <2.0.1 | 2.0.1 | Unhandled exception DoS |
+| GHSA-fjgf-rc76-4x9p | CVE-2025-7338 | High | ≥1.4.4-lts.1, <2.0.2 | 2.0.2 | Malformed-request unhandled-exception DoS |
+| GHSA-v52c-386h-88mc | CVE-2026-2359 | High | <2.1.0 | 2.1.0 | Resource exhaustion DoS |
+| GHSA-xf7r-hgr6-v32p | CVE-2026-3304 | High | <2.1.0 | 2.1.0 | Incomplete cleanup DoS |
+| GHSA-5528-5vmv-3xc2 | CVE-2026-3520 | High | <2.1.1 | 2.1.1 | Uncontrolled recursion DoS |
+
+### Fix Window Analysis
+
+| Release | CVEs Fixed | Observation |
+|---|---|---|
+| 2.0.0 | CVE-2025-47935, CVE-2025-47944 | Major version bump; broke the 1.x → 2.x boundary. Users on 1.x LTS backport range (≥1.4.4-lts.1) were exposed to at least 5 of 7 vulns. |
+| 2.0.1 | CVE-2025-48997 | Patch-level follow-up shortly after 2.0.0, indicating the initial major release did not fully harden stream/exception handling. |
+| 2.0.2 | CVE-2025-7338 | Second rapid patch; same class of bug (unhandled exception on malformed input). |
+| 2.1.0 | CVE-2026-2359, CVE-2026-3304 | Minor bump addressing two further resource-management DoS vectors. |
+| 2.1.1 | CVE-2026-3520 | Most recent patch; uncontrolled recursion, the newest and last known open advisory. |
+
+**Pattern:** Five successive security

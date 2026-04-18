@@ -1,0 +1,26 @@
+Review this public-evidence summary for the OSS Security KB and propose evidence-backed page/index/log updates. Do not fabricate findings.
+
+Primary candidate: multer (npm)
+- Weekly downloads: 14,109,455 during 2026-04-11..2026-04-17
+- Latest npm dist-tag: 2.1.1
+- Public package-scoped OSV query returns 7 vulnerabilities:
+  - GHSA-44fp-w29j-9vj5 / CVE-2025-47935 / high / vulnerable <2.0.0 / fixed 2.0.0 / summary: memory leaks from unclosed streams causing DoS
+  - GHSA-4pg4-qvpc-4q3h / CVE-2025-47944 / high / vulnerable >=1.4.4-lts.1,<2.0.0 / fixed 2.0.0 / summary: maliciously crafted requests causing DoS
+  - GHSA-g5hg-p3ph-g8qg / CVE-2025-48997 / high / vulnerable >=1.4.4-lts.1,<2.0.1 / fixed 2.0.1 / summary: unhandled exception DoS
+  - GHSA-fjgf-rc76-4x9p / CVE-2025-7338 / high / vulnerable >=1.4.4-lts.1,<2.0.2 / fixed 2.0.2 / summary: malformed-request unhandled-exception DoS
+  - GHSA-v52c-386h-88mc / CVE-2026-2359 / high / vulnerable <2.1.0 / fixed 2.1.0 / summary: resource exhaustion DoS
+  - GHSA-xf7r-hgr6-v32p / CVE-2026-3304 / high / vulnerable <2.1.0 / fixed 2.1.0 / summary: incomplete cleanup DoS
+  - GHSA-5528-5vmv-3xc2 / CVE-2026-3520 / high / vulnerable <2.1.1 / fixed 2.1.1 / summary: uncontrolled recursion DoS
+- GitHub Advisory DB records and upstream releases line up cleanly.
+- Upstream releases explicitly call out security fixes:
+  - v2.0.0: fixes CVE-2025-47935 and CVE-2025-47944
+  - v2.0.1: fixes CVE-2025-48997
+  - v2.0.2: fixes CVE-2025-7338
+  - v2.1.0: fixes CVE-2026-2359 and CVE-2026-3304
+  - v2.1.1: fixes CVE-2026-3520
+
+Comparison candidates reviewed but not necessarily worth a page in this pass:
+- flask (PyPI) package-scoped OSV query returns 8 IDs
+- github.com/labstack/echo/v4 (Go) package-scoped OSV query returns 4 IDs
+
+Need conservative KB-ready prose only. Focus on published advisories, fix windows, posture notes, recommendations, dependencies of note, open questions, and concise log/index updates. If only one candidate is clean enough for this pass, say so.
