@@ -1,0 +1,218 @@
+{
+  "ghsa_id": "GHSA-g5hg-p3ph-g8qg",
+  "cve_id": "CVE-2025-48997",
+  "url": "https://api.github.com/advisories/GHSA-g5hg-p3ph-g8qg",
+  "html_url": "https://github.com/advisories/GHSA-g5hg-p3ph-g8qg",
+  "summary": "Multer vulnerable to Denial of Service via unhandled exception",
+  "description": "### Impact\n\nA vulnerability in Multer versions >=1.4.4-lts.1, <2.0.1 allows an attacker to trigger a Denial of Service (DoS) by sending an upload file request with an empty string field name. This request causes an unhandled exception, leading to a crash of the process.\n\n### Patches\n\nUsers should upgrade to `2.0.1`\n\n### Workarounds\n\nNone\n\n### References\n\nhttps://github.com/expressjs/multer/commit/35a3272b611945155e046dd5cef11088587635e9\nhttps://github.com/expressjs/multer/issues/1233\nhttps://github.com/expressjs/multer/pull/1256",
+  "type": "reviewed",
+  "severity": "high",
+  "repository_advisory_url": "https://api.github.com/repos/expressjs/multer/security-advisories/GHSA-g5hg-p3ph-g8qg",
+  "source_code_location": "https://github.com/expressjs/multer",
+  "identifiers": [
+    {
+      "value": "GHSA-g5hg-p3ph-g8qg",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2025-48997",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://github.com/expressjs/multer/security/advisories/GHSA-g5hg-p3ph-g8qg",
+    "https://nvd.nist.gov/vuln/detail/CVE-2025-48997",
+    "https://github.com/expressjs/multer/issues/1233",
+    "https://github.com/expressjs/multer/pull/1256",
+    "https://github.com/expressjs/multer/commit/35a3272b611945155e046dd5cef11088587635e9",
+    "https://github.com/advisories/GHSA-g5hg-p3ph-g8qg"
+  ],
+  "published_at": "2025-06-05T01:09:35Z",
+  "updated_at": "2025-06-05T01:09:36Z",
+  "github_reviewed_at": "2025-06-05T01:09:35Z",
+  "nvd_published_at": "2025-06-03T19:15:39Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "multer"
+      },
+      "vulnerable_version_range": ">= 1.4.4-lts.1, < 2.0.1",
+      "first_patched_version": "2.0.1",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": null,
+      "score": 0.0
+    },
+    "cvss_v4": {
+      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+      "score": 8.7
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-248",
+      "name": "Uncaught Exception"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "bjohansebas",
+        "id": 103585995,
+        "node_id": "U_kgDOBiyYyw",
+        "avatar_url": "https://avatars.githubusercontent.com/u/103585995?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/bjohansebas",
+        "html_url": "https://github.com/bjohansebas",
+        "followers_url": "https://api.github.com/users/bjohansebas/followers",
+        "following_url": "https://api.github.com/users/bjohansebas/following{/other_user}",
+        "gists_url": "https://api.github.com/users/bjohansebas/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/bjohansebas/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/bjohansebas/subscriptions",
+        "organizations_url": "https://api.github.com/users/bjohansebas/orgs",
+        "repos_url": "https://api.github.com/users/bjohansebas/repos",
+        "events_url": "https://api.github.com/users/bjohansebas/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/bjohansebas/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "ctcpip",
+        "id": 15326526,
+        "node_id": "MDQ6VXNlcjE1MzI2NTI2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/15326526?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ctcpip",
+        "html_url": "https://github.com/ctcpip",
+        "followers_url": "https://api.github.com/users/ctcpip/followers",
+        "following_url": "https://api.github.com/users/ctcpip/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ctcpip/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ctcpip/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ctcpip/subscriptions",
+        "organizations_url": "https://api.github.com/users/ctcpip/orgs",
+        "repos_url": "https://api.github.com/users/ctcpip/repos",
+        "events_url": "https://api.github.com/users/ctcpip/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ctcpip/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "coordinator"
+    },
+    {
+      "user": {
+        "login": "Markiz9999",
+        "id": 24416431,
+        "node_id": "MDQ6VXNlcjI0NDE2NDMx",
+        "avatar_url": "https://avatars.githubusercontent.com/u/24416431?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Markiz9999",
+        "html_url": "https://github.com/Markiz9999",
+        "followers_url": "https://api.github.com/users/Markiz9999/followers",
+        "following_url": "https://api.github.com/users/Markiz9999/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Markiz9999/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Markiz9999/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Markiz9999/subscriptions",
+        "organizations_url": "https://api.github.com/users/Markiz9999/orgs",
+        "repos_url": "https://api.github.com/users/Markiz9999/repos",
+        "events_url": "https://api.github.com/users/Markiz9999/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Markiz9999/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "remediation_developer"
+    },
+    {
+      "user": {
+        "login": "UlisesGascon",
+        "id": 5110813,
+        "node_id": "MDQ6VXNlcjUxMTA4MTM=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/5110813?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/UlisesGascon",
+        "html_url": "https://github.com/UlisesGascon",
+        "followers_url": "https://api.github.com/users/UlisesGascon/followers",
+        "following_url": "https://api.github.com/users/UlisesGascon/following{/other_user}",
+        "gists_url": "https://api.github.com/users/UlisesGascon/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/UlisesGascon/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/UlisesGascon/subscriptions",
+        "organizations_url": "https://api.github.com/users/UlisesGascon/orgs",
+        "repos_url": "https://api.github.com/users/UlisesGascon/repos",
+        "events_url": "https://api.github.com/users/UlisesGascon/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/UlisesGascon/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "remediation_reviewer"
+    },
+    {
+      "user": {
+        "login": "wesleytodd",
+        "id": 1027776,
+        "node_id": "MDQ6VXNlcjEwMjc3NzY=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1027776?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wesleytodd",
+        "html_url": "https://github.com/wesleytodd",
+        "followers_url": "https://api.github.com/users/wesleytodd/followers",
+        "following_url": "https://api.github.com/users/wesleytodd/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wesleytodd/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wesleytodd/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wesleytodd/subscriptions",
+        "organizations_url": "https://api.github.com/users/wesleytodd/orgs",
+        "repos_url": "https://api.github.com/users/wesleytodd/repos",
+        "events_url": "https://api.github.com/users/wesleytodd/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wesleytodd/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "remediation_reviewer"
+    },
+    {
+      "user": {
+        "login": "LinusU",
+        "id": 189580,
+        "node_id": "MDQ6VXNlcjE4OTU4MA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/189580?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/LinusU",
+        "html_url": "https://github.com/LinusU",
+        "followers_url": "https://api.github.com/users/LinusU/followers",
+        "following_url": "https://api.github.com/users/LinusU/following{/other_user}",
+        "gists_url": "https://api.github.com/users/LinusU/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/LinusU/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/LinusU/subscriptions",
+        "organizations_url": "https://api.github.com/users/LinusU/orgs",
+        "repos_url": "https://api.github.com/users/LinusU/repos",
+        "events_url": "https://api.github.com/users/LinusU/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/LinusU/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "remediation_reviewer"
+    }
+  ],
+  "cvss": {
+    "vector_string": null,
+    "score": null
+  },
+  "epss": {
+    "percentage": 0.00249,
+    "percentile": 0.4807
+  }
+}

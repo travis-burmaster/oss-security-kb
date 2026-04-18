@@ -1,0 +1,7 @@
+GHSA-44fp-w29j-9vj5
+GHSA-4pg4-qvpc-4q3h
+GHSA-5528-5vmv-3xc2
+GHSA-fjgf-rc76-4x9p
+GHSA-g5hg-p3ph-g8qg
+GHSA-v52c-386h-88mc
+GHSA-xf7r-hgr6-v32p
