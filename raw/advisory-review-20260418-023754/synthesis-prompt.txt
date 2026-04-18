@@ -1,0 +1,17 @@
+Review the gathered public evidence for npm packages braces, express-session, and morgan and propose evidence-backed OSS KB updates only.
+
+Constraints:
+- Use only the supplied public evidence and well-known facts directly visible there.
+- Do not fabricate findings.
+- If evidence is weak or too thin, say so and recommend no update.
+- Output concise markdown sections for each package:
+  1) worth-updating? yes/no
+  2) why
+  3) candidate Known Vulnerabilities rows
+  4) 3-6 Security Posture Notes
+  5) suggested next-step decision
+
+Evidence highlights:
+- braces: OSV shows GHSA-cwfw-4gq5-mrqx / CVE-2018-1109 ReDoS affecting >=2.2.0 <2.3.1, fixed in 2.3.1; refs include NVD and commit abdafb0... . OSV also shows GHSA-grv7-fg5c-xmjg / CVE-2024-4068 uncontrolled resource consumption / memory exhaustion from imbalanced braces, fixed in 3.0.3; refs include NVD, issue #35, PRs #37 and #40, commit 415d660... . npm metadata says latest 3.0.3 and ~142,994,269 weekly downloads. CHANGELOG documents 2.3.1 as 'Remove unnecessary escape in Regex. (#14)' and 3.0.0 as a complete refactor.
+- express-session: package-scoped OSV query returned no vulns in this pass. npm metadata says latest 1.19.0 and ~3,599,775 weekly downloads.
+- morgan: OSV shows GHSA-gwg9-rgvj-4h5j / CVE-2019-5413 code injection before 1.9.1 when user input is allowed into the filter or combined with prototype pollution. Refs include NVD, GH advisory, HackerOne report, Node.js security-wg record, npm advisory 736. npm metadata says latest 1.10.1 and ~9,992,230 weekly downloads. HISTORY/release notes for 1.9.1 say 'Fix using special characters in format'.
