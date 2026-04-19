@@ -1,0 +1,106 @@
+{
+  "sha": "4cc5e21e7f59a4ea0b51cd5e9634772d48fab590",
+  "node_id": "MDY6Q29tbWl0NjIyOTcyMjo0Y2M1ZTIxZTdmNTlhNGVhMGI1MWNkNWU5NjM0NzcyZDQ4ZmFiNTkw",
+  "commit": {
+    "author": {
+      "name": "Nathan Vander Wilt",
+      "email": "natevw@yahoo.com",
+      "date": "2014-06-25T22:09:31Z"
+    },
+    "committer": {
+      "name": "Nathan Vander Wilt",
+      "email": "natevw@yahoo.com",
+      "date": "2014-06-25T22:09:31Z"
+    },
+    "message": "Merge pull request #17 from tenbits/patch-1\n\nFix #15: use sha1 hashes for double signing",
+    "tree": {
+      "sha": "dce6a7750d8bae6a34d088f05aedca3a5f309326",
+      "url": "https://api.github.com/repos/tj/node-cookie-signature/git/trees/dce6a7750d8bae6a34d088f05aedca3a5f309326"
+    },
+    "url": "https://api.github.com/repos/tj/node-cookie-signature/git/commits/4cc5e21e7f59a4ea0b51cd5e9634772d48fab590",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/tj/node-cookie-signature/commits/4cc5e21e7f59a4ea0b51cd5e9634772d48fab590",
+  "html_url": "https://github.com/tj/node-cookie-signature/commit/4cc5e21e7f59a4ea0b51cd5e9634772d48fab590",
+  "comments_url": "https://api.github.com/repos/tj/node-cookie-signature/commits/4cc5e21e7f59a4ea0b51cd5e9634772d48fab590/comments",
+  "author": {
+    "login": "natevw",
+    "id": 265902,
+    "node_id": "MDQ6VXNlcjI2NTkwMg==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/265902?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/natevw",
+    "html_url": "https://github.com/natevw",
+    "followers_url": "https://api.github.com/users/natevw/followers",
+    "following_url": "https://api.github.com/users/natevw/following{/other_user}",
+    "gists_url": "https://api.github.com/users/natevw/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/natevw/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/natevw/subscriptions",
+    "organizations_url": "https://api.github.com/users/natevw/orgs",
+    "repos_url": "https://api.github.com/users/natevw/repos",
+    "events_url": "https://api.github.com/users/natevw/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/natevw/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "natevw",
+    "id": 265902,
+    "node_id": "MDQ6VXNlcjI2NTkwMg==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/265902?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/natevw",
+    "html_url": "https://github.com/natevw",
+    "followers_url": "https://api.github.com/users/natevw/followers",
+    "following_url": "https://api.github.com/users/natevw/following{/other_user}",
+    "gists_url": "https://api.github.com/users/natevw/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/natevw/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/natevw/subscriptions",
+    "organizations_url": "https://api.github.com/users/natevw/orgs",
+    "repos_url": "https://api.github.com/users/natevw/repos",
+    "events_url": "https://api.github.com/users/natevw/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/natevw/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "1d1b25bc8170c3b0d18d6ae378488a73ff6df846",
+      "url": "https://api.github.com/repos/tj/node-cookie-signature/commits/1d1b25bc8170c3b0d18d6ae378488a73ff6df846",
+      "html_url": "https://github.com/tj/node-cookie-signature/commit/1d1b25bc8170c3b0d18d6ae378488a73ff6df846"
+    },
+    {
+      "sha": "0aa4ec2fffa29753efe7661ef9fe7f8e5f0f4843",
+      "url": "https://api.github.com/repos/tj/node-cookie-signature/commits/0aa4ec2fffa29753efe7661ef9fe7f8e5f0f4843",
+      "html_url": "https://github.com/tj/node-cookie-signature/commit/0aa4ec2fffa29753efe7661ef9fe7f8e5f0f4843"
+    }
+  ],
+  "stats": {
+    "total": 10,
+    "additions": 9,
+    "deletions": 1
+  },
+  "files": [
+    {
+      "sha": "b63bf84a16b41a68e687f521032253efe119223f",
+      "filename": "index.js",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 1,
+      "changes": 10,
+      "blob_url": "https://github.com/tj/node-cookie-signature/blob/4cc5e21e7f59a4ea0b51cd5e9634772d48fab590/index.js",
+      "raw_url": "https://github.com/tj/node-cookie-signature/raw/4cc5e21e7f59a4ea0b51cd5e9634772d48fab590/index.js",
+      "contents_url": "https://api.github.com/repos/tj/node-cookie-signature/contents/index.js?ref=4cc5e21e7f59a4ea0b51cd5e9634772d48fab590",
+      "patch": "@@ -39,5 +39,13 @@ exports.unsign = function(val, secret){\n   var str = val.slice(0, val.lastIndexOf('.'))\n     , mac = exports.sign(str, secret);\n   \n-  return exports.sign(mac, secret) == exports.sign(val, secret) ? str : false;\n+  return sha1(mac) == sha1(val) ? str : false;\n };\n+\n+/**\n+ * Private\n+ */\n+\n+function sha1(str){\n+  return crypto.createHash('sha1').update(str).digest('hex');\n+}"
+    }
+  ]
+}
