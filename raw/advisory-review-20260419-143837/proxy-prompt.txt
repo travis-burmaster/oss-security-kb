@@ -1,0 +1,19 @@
+Review the gathered public evidence for the npm package express-session and say whether an evidence-backed KB page/update is warranted.
+
+Constraints:
+- Use only the provided public evidence and widely established facts visible in it.
+- Do not fabricate advisories or claims.
+- If the evidence does not support a package-level vulnerability page, say so plainly.
+- Distinguish package-level express-session issues from vulnerabilities in downstream apps that merely use express-session.
+- Output concise markdown with:
+  1) verdict
+  2) candidate facts safe to record
+  3) reasons not to create/update a KB page if evidence is insufficient
+
+Evidence available in raw/advisory-review-20260419-143837:
+- npm registry metadata for express-session
+- npm downloads API snapshot
+- OSV package query result for npm/express-session
+- expressjs/session GitHub releases JSON
+- expressjs/session HISTORY.md
+- several attempted GHSA/CVE fetches that may or may not correspond to the package

@@ -1,0 +1,1 @@
+Primary candidate: express-session (npm) — no existing wiki/npm/express-session.md page found; public GHSA/OSV history and upstream release notes exist.
