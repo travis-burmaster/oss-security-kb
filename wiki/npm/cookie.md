@@ -1,7 +1,7 @@
 # cookie (npm)
 
 **Registry:** npm
-**Weekly Downloads:** ~35,000,000 (as of 2026-04-13)
+**Weekly Downloads:** ~137,648,006 (last week, fetched 2026-04-19)
 **Repository:** https://github.com/jshttp/cookie
 **Security Contact:** GitHub Security Advisory (private reporting enabled)
 **Current Status:** audit-ingested
@@ -45,12 +45,14 @@ The result object from `cookie.parse()` is created with `{}` (not `Object.create
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| CVE-2024-47764 | Medium | Cookie name validation bypass allowing out-of-spec characters | 0.7.0 | [GHSA](https://github.com/jshttp/cookie/security/advisories/GHSA-pxg6-pf52-xh8x) |
+| CVE-2024-47764 / GHSA-pxg6-pf52-xh8x | Medium | Cookie `serialize()` accepted out-of-bounds characters in cookie name, path, and domain fields, allowing additional cookie attributes to be injected into the output string. Public OSV package results in this pass showed this as the only package-level advisory for `npm/cookie`. | 0.7.0 | [GHSA](https://github.com/jshttp/cookie/security/advisories/GHSA-pxg6-pf52-xh8x) |
 
 ## Security Posture Notes
 
 - The `cookie` module is the low-level parser/serializer used by Express (`res.cookie()`), `cookie-parser` middleware, and many other frameworks.
-- Serialize-side validation is strict (name + value regex checks with TypeError on failure), making cookie injection via `res.cookie()` not viable.
+- Public advisory mapping in this pass remained narrow: OSV package results for `npm/cookie` returned a single package-level advisory, `GHSA-pxg6-pf52-xh8x` / `CVE-2024-47764`, fixed in `0.7.0`.
+- The public GHSA / OSV descriptions make the exploit path clear: untrusted cookie name, path, or domain values could escape into additional cookie attributes in serialized output. Current latest npm metadata in this pass showed `1.1.1`, well past the fix point.
+- Serialize-side validation is strict in current releases (name + value regex checks with TypeError on failure), making cookie injection via `res.cookie()` not viable in the current audited version.
 - Parse-side validation is minimal by design — the module trusts the HTTP layer to deliver valid `Cookie` headers.
 - The lack of size limits is a known concern for DoS but is considered out of scope for a parser library (reverse proxy should enforce).
 
@@ -67,5 +69,5 @@ The result object from `cookie.parse()` is created with `{}` (not `Object.create
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-13 | Sources: 4 (upstream repository, source code audit of cookie 0.7.2 via Express audit, GHSA database, npm registry)*
+*Last updated: 2026-04-19 | Sources: 6 (upstream repository and source code audit of cookie 0.7.2 via Express audit, GHSA database, OSV.dev package query and vulnerability record for GHSA-pxg6-pf52-xh8x, npm registry metadata, npm downloads API)*
 *Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*

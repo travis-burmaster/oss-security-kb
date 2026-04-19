@@ -1,0 +1,21 @@
+Review these public OSS KB notes and propose only evidence-backed updates. Do not fabricate advisories.
+
+Targets reviewed:
+1) npm/cookie
+- OSV package query returns GHSA-pxg6-pf52-xh8x / CVE-2024-47764 only.
+- GHSA/OSV impact: cookie name/path/domain can inject other cookie attributes; fixed in 0.7.0.
+- Current npm latest: 1.1.1. Weekly downloads: 137,648,006.
+- Existing KB page is audit-ingested and already mentions CVE-2024-47764, but uses older download data and does not clearly distinguish package-level advisory mapping from local audit notes.
+
+2) npm/express-session
+- OSV package query returns no package-scoped vulnerabilities.
+- Upstream HISTORY.md shows 1.18.1 updated to cookie 0.7.0 / 0.7.1 / 0.7.2 including the narrower RFC6265 validation fix from cookie 0.7.0.
+- Upstream HISTORY.md shows 1.5.2 updated to cookie-signature 1.0.4 with note: fix for timing attacks.
+- Current npm latest: 1.19.0. Weekly downloads: 3,598,044.
+- Existing KB page is a conservative baseline stub.
+
+3) npm/cookie-signature
+- Existing KB page already maps GHSA-92vm-wfm5-mxvv / CVE-2016-1000236 timing attack fixed in 1.0.4.
+- No new package-level OSV findings expected in this pass.
+
+Please suggest which pages, if any, deserve additive KB edits from this pass, and draft concise language for those edits while keeping claims narrowly tied to public evidence.
