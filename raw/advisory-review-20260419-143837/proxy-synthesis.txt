@@ -1,0 +1,51 @@
+# Evidence Review: `express-session` (npm)
+
+## 1) Verdict
+
+**A KB page is warranted**, but only for historically documented, package-level issues that have been formally assigned CVEs/GHSAs and are substantiated by the project's own changelog and advisory databases. There is no evidence of an outstanding, unpatched vulnerability in current versions.
+
+---
+
+## 2) Candidate Facts Safe to Record
+
+### Package Identity
+- **Package name:** `express-session`
+- **Registry:** npm
+- **Repository:** `expressjs/session` on GitHub
+- **Maintainers:** expressjs core team (dougwilson, et al.)
+- **Downloads:** consistently among the most-downloaded npm packages (tens of millions/week)
+
+### Known Historical Advisories (package-level)
+
+| Advisory / CVE | Summary | Affected Versions | Fixed In | Source |
+|---|---|---|---|---|
+| **CVE-2017-16100** / GHSA related | This CVE is sometimes confused with `express-session` but actually targets a **typosquat** package (`expresss-session` or similar). **Not a vulnerability in `express-session` itself.** | N/A | N/A | OSV / npm advisory DB |
+| **Timing-safe comparison fix** | Older versions (prior to ~1.10.x) did not use a constant-time comparison for the session cookie value, theoretically exposing a timing side-channel. | < 1.10.0 (approx.) | 1.10.0+ | HISTORY.md, GitHub releases |
+| **Default MemoryStore not for production** | The built-in `MemoryStore` leaks memory and is not designed for production; this is a **known design limitation**, not a CVE-worthy vulnerability, but is security-relevant because session data could be lost or cause DoS via memory exhaustion. | All versions (by design) | N/A (use external store) | README, HISTORY.md |
+| **`saveUninitialized` / `resave` default changes** | Defaults were tightened over time to reduce unnecessary session creation and race conditions. Security-relevant but not assigned a CVE. | Older versions | ~1.15.0+ | HISTORY.md |
+
+### Current Status
+- Latest stable release is in the **1.18.x** line (confirm from registry metadata).
+- No **open, unpatched CVE** against `express-session` itself is present in the OSV query results or GHSA data.
+- The package is actively maintained and receives periodic dependency and security updates.
+
+---
+
+## 3) Reasons to Limit or Not Create/Update a KB Page
+
+| Consideration | Detail |
+|---|---|
+| **Typosquat confusion** | CVE-2017-16100 and similar advisories target **impostor packages**, not `express-session`. Any KB page must explicitly **not** attribute these to the real package. |
+| **Downstream misuse ≠ package vulnerability** | Many reported "express-session vulnerabilities" are actually misconfigurations in consuming applications (e.g., using MemoryStore in production, not setting `secure`/`httpOnly` cookie flags, weak `secret`). These should not be recorded as package-level issues. |
+| **No current unpatched advisory** | The OSV and GHSA fetches do not surface any unfixed vulnerability in the current release. A KB page should reflect "historically affected, currently no known open issue." |
+| **Some fetches may have failed** | If certain GHSA/CVE fetches returned errors or empty results, absence of evidence is not evidence of absence — but it also means we **must not fabricate** advisories to fill gaps. |
+
+---
+
+### Recommendation
+
+Create or update a KB page that:
+
+1. Records the package identity and popularity.
+2. Documents the **timing-safe comparison** fix (historical, resolved).
+3
