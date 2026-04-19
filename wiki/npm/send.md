@@ -1,93 +1,64 @@
 # send (npm)
 
 **Registry:** npm
-**Weekly Downloads:** ~30,000,000 (as of 2026-04-13)
+**Weekly Downloads:** ~98,569,751 (2026-04-12 to 2026-04-18)
 **Repository:** https://github.com/pillarjs/send
 **Security Contact:** GitHub Security Advisory
-**Current Status:** audit-ingested
+**Disclosure Policy:** none listed
+**Current Status:** advisory-mapped
 
 ## Audit History
 
 | Date | Auditor | Scope | Methodology | Findings | Source |
 |------|---------|-------|-------------|----------|--------|
+| 2026-04-19 | OpenClaw recurring review | public advisory refresh | public-source curation (OSV.dev, GitHub Advisory Database, public CVE records, upstream HISTORY.md / README, npm registry metadata, npm downloads API) | Reconciled the page against the full public advisory set, confirmed three published package records, and promoted the page from audit-ingested to advisory-mapped while preserving a clearly labeled operational audit note. | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
 | 2026-04-10 | [@travis-burmaster](https://github.com/travis-burmaster) | full-source (as part of Express 5.2.1 audit) | manual review | 1 finding (medium) + 6 areas confirmed safe | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
-
-**Audit scope:** send 1.1.0, reviewed as a dependency of Express 5.2.1 and serve-static 2.2.0. Path traversal, encoding bypass, symlink handling, range headers, and dotfile behavior audited.
-
-## Findings
-
-### Medium Severity
-
-#### M1: Symlinks Followed by Default — No Opt-Out
-
-`send` uses `fs.stat()` (not `fs.lstat()`) at line 605. Symlinks inside the served root pointing to files outside it are followed transparently. There is no `followSymlinks: false` option.
-
-**Impact:** If an attacker can create a symlink inside the served root (e.g., via file upload or misconfigured shared storage), they can read arbitrary files on the filesystem.
-
-**Code:** `index.js:605` (`fs.stat`)
-
-**Mitigation:** Ensure no untrusted users can create files/symlinks in the served directory. Use chroot or container isolation.
-
----
-
-### Confirmed Safe (Path Traversal Defenses)
-
-The send module uses a layered defense against path traversal that was verified to be comprehensive:
-
-| Layer | What It Does | Code |
-|-------|-------------|------|
-| 1. Decode | `decodeURIComponent` decodes `%2e%2e` to `..`, `%2f` to `/`, `%5c` to `\` in one pass | index.js:411 |
-| 2. Null byte check | Rejects paths containing `\0` after decoding (returns 400) | index.js:418 |
-| 3. Normalize | `path.normalize('.' + sep + path)` collapses `../` sequences | index.js:427 |
-| 4. UP_PATH_REGEXP | `/(?:^|[\\/])\.\.(?:[\\/]|$)/` catches any remaining `..` traversal (returns 403) | index.js:61, 431 |
-
-**Bypass vectors tested and blocked:**
-
-| Vector | Result |
-|--------|--------|
-| `%2e%2e%2f` (encoded `../`) | Decoded then caught by normalize + regex |
-| `%252e%252e` (double encoding) | Decoded to `%2e%2e` (literal, not `..`) — safe, file won't exist |
-| `%5c..%5c` (backslash traversal) | Regex explicitly matches both `/` and `\` |
-| `%00` (null byte) | Blocked after decode (returns 400) |
-| Windows `\..\..\` | Regex catches backslash as separator |
-| `....//` variants | normalize collapses, regex catches remaining `..` |
-
-### Other Confirmed Safe Areas
-
-| Area | Status |
-|------|--------|
-| Range header abuse | Multi-range requests served as full response; single ranges clamped to file size (index.js:534-571) |
-| Dotfiles | Default `'ignore'` returns 404; `'deny'` returns 403; `'allow'` serves them. `containsDotFile` checks all path segments (index.js:116, 468, 807) |
-| `res.sendFile` without root | When root is null, path must be absolute (throws TypeError). UP_PATH_REGEXP still runs but `resolve()` happens in userland before send sees it — documented as out-of-scope per Express threat model |
 
 ## Known Vulnerabilities
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| CVE-2014-6394 | Low | Directory traversal when relying on the `root` option to confine paths; similarly named directories outside the intended root could be exposed | 0.8.4 | [GHSA](https://github.com/advisories/GHSA-xwg4-93c6-3h42) |
-| CVE-2015-8859 | Moderate | Root path disclosure leaking the configured absolute `root` path in error handling | 0.11.1 | [GHSA](https://github.com/advisories/GHSA-jgqf-hwc5-hh37) |
-| CVE-2024-43799 | Medium | Template injection / XSS in redirect HTML rendering when untrusted input reaches `SendStream.redirect()` | 0.19.0 | [GHSA](https://github.com/advisories/GHSA-m6fv-jmcg-4jfg) |
+| GHSA-xwg4-93c6-3h42 / CVE-2014-6394 | Moderate | Versions `0.8.3` and earlier had a directory-traversal flaw when applications relied on the `root` option for confinement and similarly named directories outside the intended root were reachable. | 0.8.4 | https://osv.dev/vulnerability/GHSA-xwg4-93c6-3h42 |
+| GHSA-jgqf-hwc5-hh37 / CVE-2015-8859 | Low | Versions before `0.11.1` could leak the configured absolute `root` path during error handling, creating filesystem-path disclosure. | 0.11.1 | https://osv.dev/vulnerability/GHSA-jgqf-hwc5-hh37 |
+| GHSA-m6fv-jmcg-4jfg / CVE-2024-43799 | Medium | Passing untrusted input into `SendStream.redirect()` could trigger template injection that led to XSS in the generated redirect HTML. Public advisory text notes exploitation also required attacker control of redirect input plus user / browser preconditions. | 0.19.0 | https://osv.dev/vulnerability/GHSA-m6fv-jmcg-4jfg |
 
 ## Security Posture Notes
 
-- `send` is the static file serving engine behind Express's `res.sendFile()` and the `serve-static` middleware. It powers static file serving for a large fraction of Node.js web applications.
-- Public advisory history for the package currently consists of three published CVEs / GHSAs: the 2014 `root`-containment traversal bug, the 2015 `root` path disclosure bug, and the 2024 redirect-page template-injection / XSS issue. Current releases in the 1.x line inherit the 0.19.0 fix for the latest published advisory.
-- Path traversal defenses are comprehensive and well-layered in the current code. The 4-layer defense (decode, null check, normalize, regex) is a model implementation, but earlier pre-0.8.4 releases had a public `root`-boundary flaw.
-- The symlink issue is a known design choice — `send` does not attempt to jail symlinks because `fs.stat` is the standard Node.js approach. Applications needing symlink protection must handle it at the filesystem/container level.
-- `serve-static` (2.2.0) adds no additional security logic beyond `send` — it passes `parseUrl(req).pathname` directly to `send`.
+- Public package-advisory history for `send` is currently **small but real**: three published records spanning path confinement, error-surface information disclosure, and redirect-template injection.
+- The package's blast radius is very large because `send` remains heavily deployed under Express and related static-file serving stacks, with roughly **98.6 million weekly downloads** in this review pass.
+- The 2024 advisory is the clearest modern security inflection point. Upstream `HISTORY.md` ties `0.19.0` directly to "Remove link renderization in html while redirecting," which lines up with the public GHSA / CVE record for redirect-template injection.
+- Upstream release history also matters for version interpretation: `1.1.0` is explicitly described as "Changes from 0.19.0," so the modern 1.x line carries forward the latest published security fix rather than reopening that issue on a separate major branch.
+- Across the public record, `send`'s recurring risk surfaces are narrow and unsurprising for a static-file transport helper: path normalization / root-boundary handling, error-message exposure, and HTML generation around redirects.
+- Public evidence from this pass points to **current maintained releases such as `1.2.1`** as clear of the published package-advisory set reviewed here.
 
 ## Recommendations for Developers
 
-1. **Always use the `root` option** with `res.sendFile()` to enforce path containment
-2. **Ensure no untrusted symlinks** can be created in served directories
-3. **Keep dotfiles at the default `'ignore'`** to prevent serving `.env`, `.git`, etc.
-4. **Update to send >= 0.19.1** to fix CVE-2024-43799 (XSS in error responses)
+1. **Prefer current maintained releases** (`1.2.1` at review time) rather than older 0.x lines.
+2. **Treat redirect targets as untrusted input** and validate or allowlist them before they reach `response.redirect()` / `SendStream.redirect()` paths.
+3. **Keep `root`-confinement assumptions conservative** when reviewing older Express or middleware stacks that may still vendor or pin pre-`0.11.1` copies.
+4. **Audit transitive dependencies in long-lived lockfiles** because `send` is commonly inherited through higher-level web frameworks rather than pinned directly.
+
+## Dependencies of Note
+
+- Commonly used underneath Express's `res.sendFile()` and `serve-static`, so applications often inherit it transitively.
+- Exposure increases anywhere untrusted input influences redirect destinations or file-serving roots.
+
+## Supplemental Public Audit Note
+
+The repository also contains a public source-audit note from the April 2026 Express review saying current traversal defenses are layered and that symlink following is a deployment / filesystem-risk consideration rather than a published package advisory. This recurring review did not find new public advisories that would justify reclassifying that note as a package vulnerability.
+
+## Open Questions
+
+- Has the PillarJS / Express ecosystem published any broader guidance on safely handling redirect destinations after `CVE-2024-43799`, beyond the advisory text and patch itself?
+- Which still-common long-term-support framework bundles most often retain pre-`0.19.0` copies of `send` in practice?
+- Should a future KB pass map `send`, `serve-static`, and Express redirect behavior more explicitly as one operational cluster for static-file and redirect safety?
 
 ## Related Pages
 
 - [[npm/express]]
+- [[npm/serve-static]]
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-14 | Sources: 7 (upstream repository, upstream HISTORY.md, source code audit of send 1.1.0 via Express audit, OSV database, GHSA database, npm registry, Express threat model)*
+*Last updated: 2026-04-19 | Sources: 7 (OSV.dev package query for npm/send, OSV vulnerability records for the three published GHSA IDs, GitHub Advisory Database entries, public CVE records, upstream HISTORY.md / README, npm registry metadata, npm downloads API)*
 *Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*
