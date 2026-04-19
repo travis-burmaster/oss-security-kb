@@ -1,0 +1,4 @@
+Candidates for this pass:
+- send (npm): existing page is audit-ingested and worth reconciling against public package advisories / release history.
+- cookie-signature (npm): comparison candidate for recently refreshed small advisory surface.
+- validator (npm): comparison candidate for whether any new public advisory content has appeared since last pass.

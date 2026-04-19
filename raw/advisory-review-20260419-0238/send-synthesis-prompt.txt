@@ -1,0 +1,15 @@
+Using only the evidence summarized below, propose concise evidence-backed updates for the oss-security-kb page about the npm package `send`. Do not fabricate findings, extra advisories, or version data.
+
+Evidence:
+- OSV package query for npm/send returns exactly 3 published vulns: GHSA-xwg4-93c6-3h42 / CVE-2014-6394, GHSA-jgqf-hwc5-hh37 / CVE-2015-8859, GHSA-m6fv-jmcg-4jfg / CVE-2024-43799.
+- GHSA-xwg4-93c6-3h42 details: versions 0.8.3 and earlier affected by directory traversal when relying on root confinement; update to 0.8.4 or later.
+- GHSA-jgqf-hwc5-hh37 details: versions prior to 0.11.1 leak configured root path in error handling; update to 0.11.1 or later.
+- GHSA-m6fv-jmcg-4jfg details: passing untrusted input to SendStream.redirect() can lead to template injection / XSS; patched in 0.19.0; exploitability requires attacker control of redirect input plus user/browser preconditions.
+- send HISTORY.md says 0.19.0 (2024-09-10) 'Remove link renderization in html while redirecting'; 0.19.1 and 0.19.2 are follow-ons; 1.0.0 / 1.1.0 carry changes from 0.18.0 / 0.19.0 into the modern major line; latest release in npm registry is 1.2.1.
+- npm downloads API shows about 98,569,751 weekly downloads for send (2026-04-12 to 2026-04-18).
+- Existing page also has a public source-code audit note that current traversal defenses are layered and symlink following is a design/operational risk, but this recurring review should stick to public-evidence-backed package-advisory maintenance.
+
+Please return:
+1) a short list of page changes worth making,
+2) 4-6 candidate security posture bullets,
+3) whether converting status from audit-ingested to advisory-mapped is justified.
