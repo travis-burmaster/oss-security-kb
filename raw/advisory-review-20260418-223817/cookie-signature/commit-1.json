@@ -1,0 +1,113 @@
+{
+  "sha": "2c4df6b6cee540f30876198cd0b5bebf28528c07",
+  "node_id": "MDY6Q29tbWl0NjIyOTcyMjoyYzRkZjZiNmNlZTU0MGYzMDg3NjE5OGNkMGI1YmViZjI4NTI4YzA3",
+  "commit": {
+    "author": {
+      "name": "Nathan Vander Wilt",
+      "email": "nate@calftrail.com",
+      "date": "2014-06-25T22:14:20Z"
+    },
+    "committer": {
+      "name": "Nathan Vander Wilt",
+      "email": "nate@calftrail.com",
+      "date": "2014-06-25T22:14:20Z"
+    },
+    "message": "bump history and version for fix",
+    "tree": {
+      "sha": "fb2f9257527ec8949a63b17f81a935cae283e62b",
+      "url": "https://api.github.com/repos/tj/node-cookie-signature/git/trees/fb2f9257527ec8949a63b17f81a935cae283e62b"
+    },
+    "url": "https://api.github.com/repos/tj/node-cookie-signature/git/commits/2c4df6b6cee540f30876198cd0b5bebf28528c07",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/tj/node-cookie-signature/commits/2c4df6b6cee540f30876198cd0b5bebf28528c07",
+  "html_url": "https://github.com/tj/node-cookie-signature/commit/2c4df6b6cee540f30876198cd0b5bebf28528c07",
+  "comments_url": "https://api.github.com/repos/tj/node-cookie-signature/commits/2c4df6b6cee540f30876198cd0b5bebf28528c07/comments",
+  "author": {
+    "login": "natevw",
+    "id": 265902,
+    "node_id": "MDQ6VXNlcjI2NTkwMg==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/265902?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/natevw",
+    "html_url": "https://github.com/natevw",
+    "followers_url": "https://api.github.com/users/natevw/followers",
+    "following_url": "https://api.github.com/users/natevw/following{/other_user}",
+    "gists_url": "https://api.github.com/users/natevw/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/natevw/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/natevw/subscriptions",
+    "organizations_url": "https://api.github.com/users/natevw/orgs",
+    "repos_url": "https://api.github.com/users/natevw/repos",
+    "events_url": "https://api.github.com/users/natevw/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/natevw/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "natevw",
+    "id": 265902,
+    "node_id": "MDQ6VXNlcjI2NTkwMg==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/265902?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/natevw",
+    "html_url": "https://github.com/natevw",
+    "followers_url": "https://api.github.com/users/natevw/followers",
+    "following_url": "https://api.github.com/users/natevw/following{/other_user}",
+    "gists_url": "https://api.github.com/users/natevw/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/natevw/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/natevw/subscriptions",
+    "organizations_url": "https://api.github.com/users/natevw/orgs",
+    "repos_url": "https://api.github.com/users/natevw/repos",
+    "events_url": "https://api.github.com/users/natevw/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/natevw/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "39791081692e9e14aa62855369e1c7f80fbfd50e",
+      "url": "https://api.github.com/repos/tj/node-cookie-signature/commits/39791081692e9e14aa62855369e1c7f80fbfd50e",
+      "html_url": "https://github.com/tj/node-cookie-signature/commit/39791081692e9e14aa62855369e1c7f80fbfd50e"
+    }
+  ],
+  "stats": {
+    "total": 10,
+    "additions": 8,
+    "deletions": 2
+  },
+  "files": [
+    {
+      "sha": "2bbc4b39021c6afa1b990182ea32bb28e18f1554",
+      "filename": "History.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 1,
+      "changes": 8,
+      "blob_url": "https://github.com/tj/node-cookie-signature/blob/2c4df6b6cee540f30876198cd0b5bebf28528c07/History.md",
+      "raw_url": "https://github.com/tj/node-cookie-signature/raw/2c4df6b6cee540f30876198cd0b5bebf28528c07/History.md",
+      "contents_url": "https://api.github.com/repos/tj/node-cookie-signature/contents/History.md?ref=2c4df6b6cee540f30876198cd0b5bebf28528c07",
+      "patch": "@@ -1,7 +1,13 @@\n+1.0.4 / 2014-06-25\n+==================\n+\n+ * corrected avoidance of timing attacks (thanks @tenbits!)\n+\n+\n 1.0.3 / 2014-01-28\n ==================\n \n- * fix for timing attacks\n+ * [incorrect] fix for timing attacks\n \n 1.0.2 / 2014-01-28\n =================="
+    },
+    {
+      "sha": "23ce982a5ee7f6ed98b92a1a41383cc7b4935c18",
+      "filename": "package.json",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/tj/node-cookie-signature/blob/2c4df6b6cee540f30876198cd0b5bebf28528c07/package.json",
+      "raw_url": "https://github.com/tj/node-cookie-signature/raw/2c4df6b6cee540f30876198cd0b5bebf28528c07/package.json",
+      "contents_url": "https://api.github.com/repos/tj/node-cookie-signature/contents/package.json?ref=2c4df6b6cee540f30876198cd0b5bebf28528c07",
+      "patch": "@@ -1,6 +1,6 @@\n {\n   \"name\": \"cookie-signature\",\n-  \"version\": \"1.0.3\",\n+  \"version\": \"1.0.4\",\n   \"description\": \"Sign and unsign cookies\",\n   \"keywords\": [\"cookie\", \"sign\", \"unsign\"],\n   \"author\": \"TJ Holowaychuk <tj@learnboost.com>\","
+    }
+  ]
+}

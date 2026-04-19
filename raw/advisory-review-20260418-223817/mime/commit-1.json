@@ -1,0 +1,101 @@
+{
+  "sha": "1df903fdeb9ae7eaa048795b8d580ce2c98f40b0",
+  "node_id": "MDY6Q29tbWl0NTM0OTQwOjFkZjkwM2ZkZWI5YWU3ZWFhMDQ4Nzk1YjhkNTgwY2UyYzk4ZjQwYjA=",
+  "commit": {
+    "author": {
+      "name": "Robert Kieffer",
+      "email": "robert@broofa.com",
+      "date": "2017-09-25T18:38:09Z"
+    },
+    "committer": {
+      "name": "Robert Kieffer",
+      "email": "robert@broofa.com",
+      "date": "2017-09-25T18:38:09Z"
+    },
+    "message": "Fix #167",
+    "tree": {
+      "sha": "80737fe5a562dedc0b84a340bd7057f13c52383e",
+      "url": "https://api.github.com/repos/broofa/mime/git/trees/80737fe5a562dedc0b84a340bd7057f13c52383e"
+    },
+    "url": "https://api.github.com/repos/broofa/mime/git/commits/1df903fdeb9ae7eaa048795b8d580ce2c98f40b0",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/broofa/mime/commits/1df903fdeb9ae7eaa048795b8d580ce2c98f40b0",
+  "html_url": "https://github.com/broofa/mime/commit/1df903fdeb9ae7eaa048795b8d580ce2c98f40b0",
+  "comments_url": "https://api.github.com/repos/broofa/mime/commits/1df903fdeb9ae7eaa048795b8d580ce2c98f40b0/comments",
+  "author": {
+    "login": "broofa",
+    "id": 164050,
+    "node_id": "MDQ6VXNlcjE2NDA1MA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/164050?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/broofa",
+    "html_url": "https://github.com/broofa",
+    "followers_url": "https://api.github.com/users/broofa/followers",
+    "following_url": "https://api.github.com/users/broofa/following{/other_user}",
+    "gists_url": "https://api.github.com/users/broofa/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/broofa/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/broofa/subscriptions",
+    "organizations_url": "https://api.github.com/users/broofa/orgs",
+    "repos_url": "https://api.github.com/users/broofa/repos",
+    "events_url": "https://api.github.com/users/broofa/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/broofa/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "broofa",
+    "id": 164050,
+    "node_id": "MDQ6VXNlcjE2NDA1MA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/164050?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/broofa",
+    "html_url": "https://github.com/broofa",
+    "followers_url": "https://api.github.com/users/broofa/followers",
+    "following_url": "https://api.github.com/users/broofa/following{/other_user}",
+    "gists_url": "https://api.github.com/users/broofa/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/broofa/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/broofa/subscriptions",
+    "organizations_url": "https://api.github.com/users/broofa/orgs",
+    "repos_url": "https://api.github.com/users/broofa/repos",
+    "events_url": "https://api.github.com/users/broofa/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/broofa/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "4a375abebfa3900921217daa270302e01a1c67ae",
+      "url": "https://api.github.com/repos/broofa/mime/commits/4a375abebfa3900921217daa270302e01a1c67ae",
+      "html_url": "https://github.com/broofa/mime/commit/4a375abebfa3900921217daa270302e01a1c67ae"
+    }
+  ],
+  "stats": {
+    "total": 4,
+    "additions": 2,
+    "deletions": 2
+  },
+  "files": [
+    {
+      "sha": "56b3b6486b2d77caad7653ce238a409d00c81bb4",
+      "filename": "Mime.js",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/broofa/mime/blob/1df903fdeb9ae7eaa048795b8d580ce2c98f40b0/Mime.js",
+      "raw_url": "https://github.com/broofa/mime/raw/1df903fdeb9ae7eaa048795b8d580ce2c98f40b0/Mime.js",
+      "contents_url": "https://api.github.com/repos/broofa/mime/contents/Mime.js?ref=1df903fdeb9ae7eaa048795b8d580ce2c98f40b0",
+      "patch": "@@ -47,8 +47,8 @@ class Mime {\n    */\n   getType(path) {\n     path = String(path);\n-    var last = path.replace(/.*[/\\\\]/, '').toLowerCase();\n-    var ext = last.replace(/.*\\./, '').toLowerCase();\n+    var last = path.replace(/^.*[/\\\\]/, '').toLowerCase();\n+    var ext = last.replace(/^.*\\./, '').toLowerCase();\n \n     var hasPath = last.length < path.length;\n     var hasDot = ext.length < last.length - 1;"
+    }
+  ]
+}

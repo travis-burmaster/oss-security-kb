@@ -1,0 +1,113 @@
+{
+  "sha": "855d0c4b8b22e4a80b9401a81f2872058eae274d",
+  "node_id": "MDY6Q29tbWl0NTM0OTQwOjg1NWQwYzRiOGIyMmU0YTgwYjk0MDFhODFmMjg3MjA1OGVhZTI3NGQ=",
+  "commit": {
+    "author": {
+      "name": "Robert Kieffer",
+      "email": "robert@broofa.com",
+      "date": "2017-09-25T18:35:35Z"
+    },
+    "committer": {
+      "name": "Robert Kieffer",
+      "email": "robert@broofa.com",
+      "date": "2017-09-25T18:35:35Z"
+    },
+    "message": "Fix #167",
+    "tree": {
+      "sha": "181fa1121b72afbbbc021de211ac361f2bb6704b",
+      "url": "https://api.github.com/repos/broofa/mime/git/trees/181fa1121b72afbbbc021de211ac361f2bb6704b"
+    },
+    "url": "https://api.github.com/repos/broofa/mime/git/commits/855d0c4b8b22e4a80b9401a81f2872058eae274d",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/broofa/mime/commits/855d0c4b8b22e4a80b9401a81f2872058eae274d",
+  "html_url": "https://github.com/broofa/mime/commit/855d0c4b8b22e4a80b9401a81f2872058eae274d",
+  "comments_url": "https://api.github.com/repos/broofa/mime/commits/855d0c4b8b22e4a80b9401a81f2872058eae274d/comments",
+  "author": {
+    "login": "broofa",
+    "id": 164050,
+    "node_id": "MDQ6VXNlcjE2NDA1MA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/164050?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/broofa",
+    "html_url": "https://github.com/broofa",
+    "followers_url": "https://api.github.com/users/broofa/followers",
+    "following_url": "https://api.github.com/users/broofa/following{/other_user}",
+    "gists_url": "https://api.github.com/users/broofa/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/broofa/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/broofa/subscriptions",
+    "organizations_url": "https://api.github.com/users/broofa/orgs",
+    "repos_url": "https://api.github.com/users/broofa/repos",
+    "events_url": "https://api.github.com/users/broofa/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/broofa/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "broofa",
+    "id": 164050,
+    "node_id": "MDQ6VXNlcjE2NDA1MA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/164050?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/broofa",
+    "html_url": "https://github.com/broofa",
+    "followers_url": "https://api.github.com/users/broofa/followers",
+    "following_url": "https://api.github.com/users/broofa/following{/other_user}",
+    "gists_url": "https://api.github.com/users/broofa/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/broofa/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/broofa/subscriptions",
+    "organizations_url": "https://api.github.com/users/broofa/orgs",
+    "repos_url": "https://api.github.com/users/broofa/repos",
+    "events_url": "https://api.github.com/users/broofa/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/broofa/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "1f0af634b97fa47e6e3f603a303e49b40b4c511c",
+      "url": "https://api.github.com/repos/broofa/mime/commits/1f0af634b97fa47e6e3f603a303e49b40b4c511c",
+      "html_url": "https://github.com/broofa/mime/commit/1f0af634b97fa47e6e3f603a303e49b40b4c511c"
+    }
+  ],
+  "stats": {
+    "total": 4,
+    "additions": 2,
+    "deletions": 2
+  },
+  "files": [
+    {
+      "sha": "010c42b984c56b6f03396f34c5d74bd9c6e63539",
+      "filename": "build/test.js",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/broofa/mime/blob/855d0c4b8b22e4a80b9401a81f2872058eae274d/build%2Ftest.js",
+      "raw_url": "https://github.com/broofa/mime/raw/855d0c4b8b22e4a80b9401a81f2872058eae274d/build%2Ftest.js",
+      "contents_url": "https://api.github.com/repos/broofa/mime/contents/build%2Ftest.js?ref=855d0c4b8b22e4a80b9401a81f2872058eae274d",
+      "patch": "@@ -45,7 +45,7 @@ assert.equal('application/font-woff', mime.lookup('file.woff'));\n assert.equal('application/octet-stream', mime.lookup('file.buffer'));\n // TODO: Uncomment once #157 is resolved\n // assert.equal('audio/mp4', mime.lookup('file.m4a'));\n-assert.equal('font/opentype', mime.lookup('file.otf'));\n+assert.equal('font/otf', mime.lookup('file.otf'));\n \n //\n // Test charsets"
+    },
+    {
+      "sha": "d7efbde70b8e95fb7f67da9c8cfed11ce8ce4133",
+      "filename": "mime.js",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/broofa/mime/blob/855d0c4b8b22e4a80b9401a81f2872058eae274d/mime.js",
+      "raw_url": "https://github.com/broofa/mime/raw/855d0c4b8b22e4a80b9401a81f2872058eae274d/mime.js",
+      "contents_url": "https://api.github.com/repos/broofa/mime/contents/mime.js?ref=855d0c4b8b22e4a80b9401a81f2872058eae274d",
+      "patch": "@@ -67,7 +67,7 @@ Mime.prototype.load = function(file) {\n  * Lookup a mime type based on extension\n  */\n Mime.prototype.lookup = function(path, fallback) {\n-  var ext = path.replace(/.*[\\.\\/\\\\]/, '').toLowerCase();\n+  var ext = path.replace(/^.*[\\.\\/\\\\]/, '').toLowerCase();\n \n   return this.types[ext] || fallback || this.default_type;\n };"
+    }
+  ]
+}
