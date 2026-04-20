@@ -4,13 +4,14 @@
 **Weekly Downloads:** ~130,000,000 (as of 2026-04-12)
 **Repository:** https://github.com/nodeca/js-yaml
 **Security Contact:** GitHub Security Advisory (private reporting enabled)
-**Current Status:** audit-ingested (finding disputed)
+**Current Status:** advisory-mapped + audit-ingested (finding disputed)
 
 ## Audit History
 
 | Date | Auditor | Scope | Methodology | Findings | Source |
 |------|---------|-------|-------------|----------|--------|
 | 2026-04-12 | [@travis-burmaster](https://github.com/travis-burmaster) | full-source (loader, dumper, all types, schema) | hybrid (manual review + PoC) | 6 findings reviewed; highest-severity alias-expansion DoS claim disputed by maintainer as downstream serialization behavior rather than package vulnerability | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
+| 2026-04-20 | OpenClaw recurring review | published advisory reconciliation | public-source curation (OSV.dev, public CVE records, upstream changelog / fix references, GitHub Security Advisories) | Reconciled the page against the published advisory set and added three previously missing public records (`3.13.0`, `3.13.1`, `3.14.2` / `4.1.1`) while preserving the clearly disputed internal audit note separately from package-level advisories. | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
 
 **Audit scope:** js-yaml 4.1.1, 3867 lines across 24 files. Loader (1733 lines), dumper (965 lines), all 13 type handlers, schema system. Commit `f8e56bd` (nodeca/js-yaml main branch, 2026-04-12).
 
@@ -100,16 +101,20 @@ Two nodes with the same anchor name: second silently replaces first. Subsequent 
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| CVE-2013-4660 | Critical | Arbitrary code execution via `!!js/function` tag | 3.0.0 (removed dangerous types) | [osv.dev](https://osv.dev/vulnerability/CVE-2013-4660) |
+| GHSA-xxvw-45rp-3mj2 / CVE-2013-4660 | Critical | Deserialization code execution through the legacy `!!js/function` constructor in older releases. | 2.0.5 | [GitHub Advisory Database](https://github.com/advisories/GHSA-xxvw-45rp-3mj2) |
+| GHSA-2pr6-76vf-7546 | Moderate | `safeLoad()` could hang on crafted input that used arrays with nested references as mapping keys; upstream `3.13.0` changed that path to throw instead. | 3.13.0 | [OSV.dev](https://osv.dev/vulnerability/GHSA-2pr6-76vf-7546) |
+| GHSA-8j8c-7jfh-h6hx | High | Possible code execution in the already-unsafe `.load()` path until the `3.13.1` security fix. | 3.13.1 | [OSV.dev](https://osv.dev/vulnerability/GHSA-8j8c-7jfh-h6hx) |
+| GHSA-mh29-5h37-fv8m / CVE-2025-64718 | Moderate | Prototype pollution in YAML merge (`<<`) handling; upstream fixed the main line in `4.1.1` and backported the fix to `3.14.2`. | 3.14.2 / 4.1.1 | [GitHub Advisory Database](https://github.com/advisories/GHSA-mh29-5h37-fv8m) |
 | **REPORTED / DISPUTED: Alias expansion amplification** | Under review | Alias expansion can lead to extreme downstream serialization amplification; maintainer disputes that this is a package vulnerability | disputed | This audit + upstream issue #742 |
 
 ## Recommendations for Developers
 
 1. **Never parse untrusted YAML without size limits** -- validate input length before calling `yaml.load()`
 2. **Use `FAILSAFE_SCHEMA`** for untrusted input to prevent implicit type coercion
-3. **Be cautious serializing or recursively traversing expanded alias structures**
-4. **Monitor memory usage** in services that parse YAML from external sources
-5. **Treat the alias-expansion issue as disputed** until upstream accepts it as a package vulnerability or a stronger parser-level exhaustion case is demonstrated
+3. **Prefer `4.1.1+` on the modern line or `3.14.2+` on the legacy v3 line** so the full currently published advisory set is covered
+4. **Be cautious serializing or recursively traversing expanded alias structures**
+5. **Monitor memory usage** in services that parse YAML from external sources
+6. **Treat the alias-expansion issue as disputed** until upstream accepts it as a package vulnerability or a stronger parser-level exhaustion case is demonstrated
 
 ## Related Pages
 
@@ -117,5 +122,5 @@ Two nodes with the same anchor name: second silently replaces first. Subsequent 
 - [[npm/express]]
 
 ---
-*Last updated: 2026-04-12 | Sources: 6 (upstream repository, npm registry, source code audit of js-yaml 4.1.1, CVE databases, PoC verification, upstream issue #742 maintainer response)*
+*Last updated: 2026-04-20 | Sources: 9 (upstream repository, OSV.dev package query and vulnerability records, GitHub Security Advisories / GitHub Advisory Database, public CVE / NVD records, upstream changelog and fix references, npm registry, source code audit of js-yaml 4.1.1, PoC verification, upstream issue #742 maintainer response)*
 *Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*

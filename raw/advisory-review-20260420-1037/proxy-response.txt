@@ -1,0 +1,59 @@
+# Evidence-Backed KB Update Recommendations
+
+## Candidate 1: js-yaml
+
+**Current KB state:** Only lists CVE-2013-4660 plus a disputed internal audit note.
+
+**Recommendation: Update justified.** Three publicly documented advisories are missing from the KB page, all corroborated by OSV records, upstream changelog entries, upstream commits, and npm advisories.
+
+### Proposed additions:
+
+- **GHSA-2pr6-76vf-7546 — Denial of Service (ReDoS/hang)**
+  - Severity: DoS via crafted input using arrays with nested refs as keys, causing `safeLoad()` to hang.
+  - Fixed in: **3.13.0**
+  - Evidence: OSV advisory, npm advisory 788, upstream issue #475, commit a567ef3…, upstream changelog ("safeLoad() can hang when arrays with nested refs used as key. Now throws exception for nested arrays. #475.").
+
+- **GHSA-8j8c-7jfh-h6hx — Code Injection in `.load()`**
+  - Severity: Possible code execution in the already-unsafe `.load()` method.
+  - Fixed in: **3.13.1**
+  - Evidence: OSV advisory, npm advisory 813, upstream PR #480, commit e18afbf…, upstream changelog ("Fix possible code execution in (already unsafe) .load(), #480.").
+
+- **GHSA-mh29-5h37-fv8m / CVE-2025-64718 — Prototype Pollution via YAML merge (`<<`) operator**
+  - Severity: Prototype pollution through the YAML merge key mechanism.
+  - Fixed in: **4.1.1** (primary fix) and **3.14.2** (backport to v3 line).
+  - Evidence: OSV/NVD advisory, upstream issue #730 comment, commits 383665f… and 5278870…, upstream changelog entries for both 4.1.1 and 3.14.2.
+
+- **No changes needed** for CVE-2013-4660 / GHSA-xxvw-45rp-3mj2 (already present).
+
+---
+
+## Candidate 2: mathjs
+
+**Current KB state:** Only lists GHSA-jvff-x2qm-6286; existing notes mention 15.2.0 fixed two security vulnerabilities.
+
+**Recommendation: Update justified.** Four publicly documented advisories are missing. One of them (GHSA-29qv-4j9f-fjw5) is the second vulnerability referenced by the existing note about 15.2.0 fixing "two security vulnerabilities," so its addition directly completes an acknowledged gap.
+
+### Proposed additions:
+
+- **GHSA-29qv-4j9f-fjw5 / CVE-2026-40897 — Unsafe object property setter**
+  - Severity: Arbitrary JavaScript execution via the expression parser (unsafe object property setter).
+  - Fixed in: **15.2.0**
+  - Evidence: OSV/NVD advisory, upstream PR #3656, commit 513ab2a…, upstream changelog ("Fix: two security vulnerabilities that allowed executing arbitrary JavaScript via the expression parser."). This is the second of the two vulnerabilities the existing KB note already acknowledges.
+  - Note: Shares the same fix version and PR (#3656) as the already-listed GHSA-jvff-x2qm-6286; KB should clarify both advisories stem from the 15.2.0 security fix.
+
+- **GHSA-x2fc-mxcx-w4mf / CVE-2020-7743 — Prototype pollution in `math.config`**
+  - Severity: Object/prototype pollution via `math.config`.
+  - Fixed in: **7.5.1**
+  - Evidence: OSV advisory, upstream changelog ("Fix object pollution vulnerability in math.config.").
+
+- **GHSA-pv8x-p9hq-j328 / CVE-2017-1001003 — Arbitrary code execution (typed-function name)**
+  - Severity: Arbitrary code execution via a crafted typed-function name.
+  - Fixed in: **3.17.0**
+  - Evidence: OSV/NVD advisory, upstream changelog for 3.17.0.
+
+- **GHSA-vx5c-87qx-cv6c / CVE-2017-1001002 — Arbitrary code execution (unicode bypass of forbidden properties)**
+  - Severity: Arbitrary code execution by replacing forbidden properties (e.g., `constructor`) using unicode characters during object creation.
+  - Fixed in: **3.17.0**
+  - Evidence: OSV/NVD advisory, upstream changelog for 3.17.0.
+
+- **No changes needed** for GHSA-jvff-x2qm-6286 (already present), though the existing entry could be annotated to cross-reference GHSA-29qv-4j9f-fjw5 as its companion fix in 15.2
