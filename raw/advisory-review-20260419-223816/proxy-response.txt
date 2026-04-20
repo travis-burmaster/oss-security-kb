@@ -1,0 +1,124 @@
+
+
+# Security Knowledge Base — Package Stubs
+
+---
+
+## 1. `cookie-parser` (npm)
+
+| Field | Value |
+|---|---|
+| **Package** | `cookie-parser` |
+| **Ecosystem** | npm |
+| **Latest version reviewed** | 1.4.7 |
+| **Repository** | <https://github.com/expressjs/cookie-parser> |
+| **Weekly downloads (approx.)** | ~7.8 M |
+| **OSV advisories (package-level)** | **None** (query returned empty) |
+| **GitHub Security Advisories (package-level)** | **None** (0 records) |
+| **SECURITY.md in repo** | Not found |
+
+### Advisory Status
+
+No current package-level security advisories exist for `cookie-parser` in either the OSV database or the GitHub Advisory Database as of this review.
+
+### Dependency Context (not a package-level advisory)
+
+The 1.4.7 release notes reference upgrades to the upstream `cookie` library (0.7.0 → 0.7.2). The `cookie@0.7.0` release tightened input-validation behaviour. While this is a positive hardening change in a direct dependency, **no advisory was filed against `cookie-parser` itself**; the dependency update was a proactive maintenance step. Consumers pinned to older `cookie-parser` versions that pull an earlier `cookie` release may have a wider input-acceptance surface, but this is a dependency-level consideration, not a disclosed vulnerability in `cookie-parser`.
+
+### Operational Risk Notes
+
+- **No coordinated disclosure channel.** The repository lacks a `SECURITY.md`. Reporters must fall back to GitHub Issues or the Express.js project's general security contacts. This increases the risk of public disclosure before a fix is available.
+- **Mature, low-churn package.** Change velocity is low (patch-level updates for dependency bumps). This is typical for stable middleware but means response latency to a future issue is harder to predict.
+
+### Recommendations
+
+| Action | Priority |
+|---|---|
+| Keep `cookie-parser` on latest (≥ 1.4.7) to inherit `cookie` hardening | Routine |
+| Monitor OSV / GitHub Advisories for both `cookie-parser` **and** `cookie` | Routine |
+| Consider opening a PR or issue requesting a `SECURITY.md` be added to the repo | Low |
+
+---
+
+## 2. `cors` (npm)
+
+| Field | Value |
+|---|---|
+| **Package** | `cors` |
+| **Ecosystem** | npm |
+| **Latest version reviewed** | 2.8.6 |
+| **Repository** | <https://github.com/expressjs/cors> |
+| **Weekly downloads (approx.)** | ~49.8 M |
+| **OSV advisories (package-level)** | **None** (query returned empty) |
+| **GitHub Security Advisories (package-level)** | **None** (0 records) |
+| **SECURITY.md in repo** | Not found |
+
+### Advisory Status
+
+No current package-level security advisories exist for `cors` in either the OSV database or the GitHub Advisory Database as of this review.
+
+### Dependency Context
+
+The `cors` package has a minimal dependency tree. The 2.8.5 release corrected handling of `maxAge: 0` (ensuring the header is emitted rather than omitted). This was a **functional correctness fix**, not a security advisory. The 2.8.6 release was documentation-only.
+
+### Operational Risk Notes
+
+- **Misconfiguration is the primary security concern.** `cors` faithfully implements whatever policy the caller configures. Setting `origin: true` or `origin: '*'` with `credentials: true` is a well-documented anti-pattern that can lead to credential leakage. This is an **application-level misconfiguration risk**, not a vulnerability in the package.
+- **No coordinated disclosure channel.** Same concern as `cookie-parser` above — no `SECURITY.md` in the repository.
+- **Very high download volume** (~50 M/week) means any future advisory would have an outsized blast radius. Monitoring is warranted.
+
+### Recommendations
+
+| Action | Priority |
+|---|---|
+| Audit your own `cors()` configuration against OWASP CORS guidance; never combine a wildcard/reflect origin with `credentials: true` | **High** (app-level) |
+| Keep `cors` on latest (≥ 2.8.6) | Routine |
+| Monitor OSV / GitHub Advisories | Routine |
+| Consider opening a PR or issue requesting a `SECURITY.md` be added to the repo | Low |
+
+---
+
+## 3. `helmet` (npm)
+
+| Field | Value |
+|---|---|
+| **Package** | `helmet` |
+| **Ecosystem** | npm |
+| **Latest version reviewed** | 8.1.0 |
+| **Repository** | <https://github.com/helmetjs/helmet> |
+| **Weekly downloads (approx.)** | ~9.6 M |
+| **OSV advisories (package-level)** | **None** (query returned empty) |
+| **GitHub Security Advisories (package-level)** | **None** (0 records) |
+| **SECURITY.md in repo** | **Yes** — includes maintainer contact and disclosure guidance |
+
+### Advisory Status
+
+No current package-level security advisories exist for `helmet` in either the OSV database or the GitHub Advisory Database as of this review.
+
+### Dependency Context
+
+`helmet` is a zero-/minimal-dependency wrapper that sets HTTP security headers. The CHANGELOG through 8.1.0 shows normal maintenance and breaking-change notes (primarily around default header policies across major versions). No entries in the changelog were tagged or cross-referenced as security advisories.
+
+### Operational Risk Notes
+
+- **Coordinated disclosure channel exists.** `helmet` is the only package in this set with a published `SECURITY.md`, providing a clear path for responsible vulnerability reporting. This is a positive signal for incident-response readiness.
+- **Major-version policy changes can weaken posture if ignored.** When `helmet` changes defaults across major versions (e.g., toggling a header on or off by default), consumers who pin to an older major may silently lose recommended protections. Review the CHANGELOG across major upgrades.
+- **Header-setting is necessary but not sufficient.** `helmet` mitigates classes of attack (clickjacking, MIME-sniffing, XSS via missing CSP, etc.) but does not replace application-level security controls. Over-reliance without a complementary CSP policy or other controls is itself an operational risk.
+
+### Recommendations
+
+| Action | Priority |
+|---|---|
+| Keep `helmet` on latest major (≥ 8.x) and review default changes on each major upgrade | Routine |
+| Supplement `helmet` defaults with an explicit, application-specific `Content-Security-Policy` | **High** (app-level) |
+| Monitor OSV / GitHub Advisories | Routine |
+| No action needed re: `SECURITY.md` — already present | — |
+
+---
+
+## Cross-Cutting Notes
+
+| Topic | Detail |
+|---|---|
+| **Data sources consulted** | OSV (package query), GitHub Advisory Database (ecosystem + affects query), npm registry (version/downloads), upstream repo (SECURITY.md, CHANGELOG/HISTORY.md) |
+| **Limitations of this pass** | Only package-level advisories were queried. Transitive dependency advisories (e.g., against `cookie` independently) are **not** represented in the package-level results above and should be tracked separately via `npm audit

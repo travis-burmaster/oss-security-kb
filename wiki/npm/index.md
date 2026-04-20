@@ -2,10 +2,13 @@
 
 ## Advisory-Mapped / Audited Pages
 - [[npm/axios]] — widely used HTTP client · advisory mapped · broad SSRF / DoS / request-routing history plus 2026 supply-chain compromise
+- [[npm/cookie-parser]] — Express cookie middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass, but relevant dependency context via cookie 0.7.x
+- [[npm/cors]] — Express CORS middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass; main risk boundary is application configuration
 - [[npm/http-proxy-middleware]] — high-usage proxy middleware · advisory mapped · path-filter DoS plus 2025 fixRequestBody flaw chain
 - [[npm/braces]] — brace-expansion utility · advisory mapped · ReDoS in 2.x plus 2024 imbalanced-input memory exhaustion fixed in 3.0.3
 - [[npm/marked]] — widely used markdown parser · advisory mapped · repeated XSS / sanitization-boundary and ReDoS history
 - [[npm/handlebars]] — widely used templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster
+- [[npm/helmet]] — security-header middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass; strong disclosure posture via upstream SECURITY.md
 - [[npm/ws]] — widely used WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
 - [[npm/tough-cookie]] — cookie-jar library · advisory mapped · parser ReDoS history plus the 2023 prototype-pollution fix in 4.1.3
