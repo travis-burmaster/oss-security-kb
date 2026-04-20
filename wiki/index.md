@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*66 packages tracked across 8 ecosystems. Last updated: 2026-04-20.*
+*67 packages tracked across 8 ecosystems. Last updated: 2026-04-20.*
 
 ## npm (49)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
@@ -68,9 +68,10 @@
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
 - [[python/urllib3]] — transport-layer HTTP library · advisory mapped · redirect, CRLF, TLS, and request-smuggling relevance
 
-## Go (5)
+## Go (6)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
+- [[go/github.com/gorilla/mux]] — established Go router · baseline stub · no package-scoped OSV / GitHub advisory confirmed in this pass, disclosure path unclear
 - [[go/github.com/labstack/echo-v4]] — high-usage Go web framework line · advisory mapped · static-handler traversal and open-redirect history plus support-policy context
 - [[go/golang.org-x-crypto]] — foundational Go crypto module · advisory mapped · repeated SSH boundary flaws plus cryptobyte, autocert, and openpgp security history
 - [[go/google.golang.org/grpc]] — core Go RPC framework · advisory mapped · HTTP/2 rapid reset, authz bypass, and metadata/memory exposure history
