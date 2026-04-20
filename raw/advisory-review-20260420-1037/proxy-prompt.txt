@@ -1,0 +1,32 @@
+Review these public evidence notes and propose evidence-backed KB updates only. Do not fabricate or infer unpublished issues. Keep recommendations conservative.
+
+Candidate 1: js-yaml
+- OSV package query returns 4 advisories: GHSA-2pr6-76vf-7546, GHSA-8j8c-7jfh-h6hx, GHSA-mh29-5h37-fv8m (CVE-2025-64718), GHSA-xxvw-45rp-3mj2 (CVE-2013-4660).
+- Current KB page only lists CVE-2013-4660 plus a disputed internal audit note.
+- OSV details:
+  - GHSA-2pr6-76vf-7546: "Denial of Service in js-yaml", fixed 3.13.0. References include issue #475, commit a567ef3..., npm advisory 788.
+  - GHSA-8j8c-7jfh-h6hx: "Code Injection in js-yaml", fixed 3.13.1. References include PR #480 and commit e18afbf..., npm advisory 813.
+  - GHSA-mh29-5h37-fv8m / CVE-2025-64718: "prototype pollution in merge (<<)", fixed 3.14.2 and 4.1.1. References include GHSA, NVD, issue #730 comment, commits 383665f... and 5278870...
+  - GHSA-xxvw-45rp-3mj2 / CVE-2013-4660: "Deserialization Code Execution", fixed 2.0.5.
+- Upstream changelog states:
+  - 3.13.0: "safeLoad() can hang when arrays with nested refs used as key. Now throws exception for nested arrays. #475."
+  - 3.13.1: "Fix possible code execution in (already unsafe) .load(), #480."
+  - 4.1.1: "Fix prototype pollution issue in yaml merge (<<) operator."
+  - 3.14.2: "Backported v4.1.1 fix to v3."
+  - 2.0.5: "Close security issue in !!js/function constructor."
+
+Candidate 2: mathjs
+- OSV package query returns 5 advisories: GHSA-29qv-4j9f-fjw5 (CVE-2026-40897), GHSA-jvff-x2qm-6286, GHSA-pv8x-p9hq-j328 (CVE-2017-1001003), GHSA-vx5c-87qx-cv6c (CVE-2017-1001002), GHSA-x2fc-mxcx-w4mf (CVE-2020-7743).
+- Current KB page only lists GHSA-jvff-x2qm-6286, though its notes mention 15.2.0 fixed two security vulnerabilities.
+- OSV details:
+  - GHSA-29qv-4j9f-fjw5 / CVE-2026-40897: "Unsafe object property setter in mathjs", fixed 15.2.0, references PR #3656 and commit 513ab2a...
+  - GHSA-jvff-x2qm-6286: improper controlled modification of dynamically determined object attributes, fixed 15.2.0, references PR #3656 and commits 0aee2f... and bcf0da...
+  - GHSA-pv8x-p9hq-j328 / CVE-2017-1001003: arbitrary code execution, fixed 3.17.0.
+  - GHSA-vx5c-87qx-cv6c / CVE-2017-1001002: arbitrary code execution, fixed 3.17.0.
+  - GHSA-x2fc-mxcx-w4mf / CVE-2020-7743: prototype pollution in math.config, fixed 7.5.1.
+- Upstream history states:
+  - 15.2.0: "Fix: two security vulnerabilities that allowed executing arbitrary JavaScript via the expression parser."
+  - 7.5.1: "Fix object pollution vulnerability in math.config."
+  - 3.17.0: fixed a security issue in typed-function allowing arbitrary code execution via a typed function name, and another where forbidden properties like constructor could be replaced using unicode characters when creating an object.
+
+Task: suggest whether KB edits are justified, and if so summarize the most defensible additions for each package page in bullet form.
