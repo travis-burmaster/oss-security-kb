@@ -1,0 +1,67 @@
+
+
+# OSS KB Package Page Draft: `github.com/labstack/echo/v4`
+
+---
+
+## Package Overview
+
+| Field | Value |
+|---|---|
+| **Package** | `github.com/labstack/echo/v4` |
+| **Ecosystem** | Go |
+| **Repository** | https://github.com/labstack/echo |
+| **Current Stable Series** | v4.x (>=4.15.x supported until 2026-12-31), v5.x (supported) |
+| **Support Policy** | Per upstream `SECURITY.md`: v5.x fully supported; v4 >=4.15.x supported until 2026-12-31; v4 <4.15 unsupported |
+
+---
+
+## Known Vulnerabilities
+
+Only entries with publicly assigned CVEs/GHSAs scoped directly to this package are listed.
+
+| CVE | GHSA | Go Vuln ID | Summary | Affected Versions | Fixed Version | Severity | Notes |
+|---|---|---|---|---|---|---|---|
+| CVE-2020-36565 | GHSA-j453-hm5x-c46w | GO-2021-0051 | Directory traversal in static file handling (Windows only) | < 4.2.0 | 4.2.0 | Moderate | Windows-only. Fix commit `4422e3b66b9f`; GHSA lists fix at v4.2.0. CHANGELOG v4.2.0 confirms. |
+| CVE-2022-40083 | GHSA-crxj-hrmp-4rwf | GO-2022-1031 | Open redirect via static file handler | < 4.9.0 | 4.9.0 | High | Upstream v4.9.0 release notes and CHANGELOG explicitly confirm the fix. |
+
+### Notes on Other Security-Relevant Changes
+
+The following items appear in the upstream CHANGELOG but do **not** have publicly assigned CVEs or GHSAs scoped to this package. They are noted here for awareness only and are **not** promoted to the Known Vulnerabilities table:
+
+- **v4.11.3**: Header value escaping improvements (potential response-splitting hardening).
+- **v4.13.0**: Removal of built-in JWT middleware (users directed to `github.com/labstack/echo-jwt`); reduces attack surface of the core module.
+- Various releases include dependency security bumps (transitive).
+
+---
+
+## Version Guidance
+
+| Version Range | Status | Recommendation |
+|---|---|---|
+| v4 < 4.2.0 | Unsupported; known vulns | Upgrade immediately |
+| v4 ≥ 4.2.0, < 4.9.0 | Unsupported; known vuln (open redirect) | Upgrade to ≥ 4.9.0 |
+| v4 ≥ 4.9.0, < 4.15.0 | Unsupported per upstream policy | Upgrade to ≥ 4.15.x |
+| v4 ≥ 4.15.0 | Supported until 2026-12-31 | Acceptable; monitor advisories |
+| v5.x | Fully supported | Preferred for new projects |
+
+---
+
+## Confidence & Evidence Chain
+
+All entries above are backed by:
+1. OSV / Go vulnerability database query results (GO-2021-0051, GO-2022-1031).
+2. GitHub Security Advisory records (GHSA-j453-hm5x-c46w, GHSA-crxj-hrmp-4rwf).
+3. Upstream CHANGELOG entries at tagged versions (v4.2.0, v4.9.0).
+4. Upstream `SECURITY.md` for support policy.
+
+No entries are inferred, fabricated, or based on unpublished information.
+
+---
+
+## Suggested Index / Log Updates
+
+1. **Package index**: Add or update entry for `github.com/labstack/echo/v4` with `last_reviewed` date set to today, `vuln_count: 2`, `support_eol_v4: 2026-12-31`.
+2. **Vulnerability index**: Ensure both GO-2021-0051 and GO-2022-1031 are cross-referenced to this package with correct fixed-version metadata.
+3. **Review log**: Append entry — *"Reviewed against OSV, GHSA, upstream CHANGELOG, and SECURITY.md. Two confirmed public advisories cataloged. No new unassigned vulnerabilities identified. Support policy documented."*
+4. **No changes** should be made regarding the header-escaping or JWT-removal items unless/until public advisories are assigned to them.
