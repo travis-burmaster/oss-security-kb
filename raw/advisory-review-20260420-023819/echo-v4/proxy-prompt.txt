@@ -1,0 +1,12 @@
+Review the gathered public evidence for github.com/labstack/echo/v4 and propose conservative, evidence-backed OSS KB updates only. Do not fabricate findings or infer unpublished vulnerabilities.
+
+Confirmed public evidence in this bundle:
+- OSV package query for github.com/labstack/echo/v4 returns GHSA-j453-hm5x-c46w / GO-2021-0051 / CVE-2020-36565 and GHSA-crxj-hrmp-4rwf / GO-2022-1031 / CVE-2022-40083.
+- GHSA-j453-hm5x-c46w / GO-2021-0051: Windows-only directory traversal in static file handling; GHSA says fixed in 4.2.0, Go vuln record points to earlier pseudo-version fix commit 4422e3b66b9f.
+- GHSA-crxj-hrmp-4rwf / GO-2022-1031: open redirect in static handler; fixed in 4.9.0.
+- Upstream v4.9.0 release notes and CHANGELOG explicitly call out the static-handler open redirect fix.
+- Upstream CHANGELOG v4.2.0 explicitly calls out both the Windows static directory traversal fix and the open redirect fix.
+- Upstream SECURITY.md shows current supported versions: 5.x supported, >=4.15.x supported until 2026-12-31, <4.15 unsupported.
+- Current CHANGELOG also includes later security-relevant maintenance notes (e.g. header escaping in v4.11.3, dependency security bumps, JWT middleware removal in v4.13.0), but only package-scoped public advisories above should go in the Known Vulnerabilities table unless clearly package-scoped and publicly assigned.
+
+Output: a concise markdown-ready package page draft and any index/log update suggestions. Keep it conservative.
