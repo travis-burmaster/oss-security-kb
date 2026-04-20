@@ -1,0 +1,30 @@
+Review the attached public-evidence summary for three npm packages: cookie-parser, cors, and helmet.
+
+Evidence summary:
+- cookie-parser
+  - OSV package query for npm/cookie-parser returned {}
+  - GitHub advisories API query with ecosystem=npm&affects=cookie-parser returned 0 records
+  - npm last-week downloads: 7,777,259
+  - latest npm version: 1.4.7
+  - repo: https://github.com/expressjs/cookie-parser
+  - upstream HISTORY.md 1.4.7 notes dependency updates to cookie@0.7.2 / 0.7.1 / 0.7.0, including validation tightening in cookie 0.7.0
+  - no SECURITY.md found in repo root
+- cors
+  - OSV package query for npm/cors returned {}
+  - GitHub advisories API query with ecosystem=npm&affects=cors returned 0 records
+  - npm last-week downloads: 49,751,149
+  - latest npm version: 2.8.6
+  - repo: https://github.com/expressjs/cors
+  - upstream HISTORY.md recent 2.8.6 release is docs-only; 2.8.5 fixed maxAge=0 handling
+  - no SECURITY.md found in repo root
+- helmet
+  - OSV package query for npm/helmet returned {}
+  - GitHub advisories API query with ecosystem=npm&affects=helmet returned 0 records
+  - npm last-week downloads: 9,584,441
+  - latest npm version: 8.1.0
+  - repo: https://github.com/helmetjs/helmet
+  - public SECURITY.md exists with maintainer contact and disclosure guidance
+  - CHANGELOG has normal maintenance / breaking-change notes through 8.1.0, but no package-level advisory markers surfaced in this pass
+
+Task:
+Propose evidence-backed KB page drafts for these three packages as conservative baseline stubs. Do not invent vulnerabilities. Explicitly distinguish package-level advisories from dependency context or operational risk. Keep the output practical for a markdown security knowledge base.
