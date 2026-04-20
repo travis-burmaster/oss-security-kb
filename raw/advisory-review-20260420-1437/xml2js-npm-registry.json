@@ -1,0 +1,17 @@
+{
+  "name": "xml2js",
+  "repository": {
+    "url": "git+https://github.com/Leonidas-from-XIV/node-xml2js.git",
+    "type": "git"
+  },
+  "homepage": "https://github.com/Leonidas-from-XIV/node-xml2js",
+  "dist-tags": {
+    "latest": "0.6.2"
+  },
+  "versions_count": 52,
+  "time": {
+    "created": "2011-04-20T16:17:56.230Z",
+    "modified": "2024-05-31T16:14:11.825Z",
+    "0.6.2": "2023-07-26T10:23:09.713Z"
+  }
+}

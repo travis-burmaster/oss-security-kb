@@ -1,0 +1,115 @@
+# OSS Knowledge Base — Proposed Updates
+
+---
+
+## KB Page: `npm/postcss`
+
+### Metadata
+
+| Field | Value |
+|---|---|
+| **Package** | `postcss` |
+| **Ecosystem** | npm |
+| **Repository** | https://github.com/postcss/postcss |
+| **Homepage** | https://postcss.org/ |
+| **Latest Version** | 8.5.10 |
+| **Total Published Versions** | 274 |
+| **First Published** | 2013-11-04 |
+| **Last Modified** | 2026-04-15 |
+| **Weekly Downloads (w/o 2026-04-13)** | ~207,008,540 |
+
+### Audit History
+
+| Date Reviewed | Source | Notes |
+|---|---|---|
+| 2021-05-07 | GitHub Advisory DB | GHSA-hwj9-h5mp-3pm3 (CVE-2021-23368) reviewed |
+| 2021-05-20 | GitHub Advisory DB | GHSA-566m-qj78-rww5 (CVE-2021-23382) reviewed |
+| 2023-10-03 | GitHub Advisory DB | GHSA-7fh5-64p2-3v2j (CVE-2023-44270) reviewed |
+
+### Known Vulnerabilities
+
+#### 1. CVE-2021-23368 — ReDoS in source map parsing
+
+| Field | Detail |
+|---|---|
+| **Advisory** | GHSA-hwj9-h5mp-3pm3 |
+| **Severity** | Moderate (CVSS 3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L) |
+| **CWE** | CWE-400 (Uncontrolled Resource Consumption) |
+| **Affected Ranges** | `>=7.0.0 <7.0.36`, `>=8.0.0 <8.2.10` |
+| **Fixed Versions** | 7.0.36, 8.2.10 |
+| **NVD Published** | 2021-04-12 |
+| **Description** | Regular Expression Denial of Service during source map parsing. |
+| **Fix Commits** | `54cbf3c`, `8682b1e`, `b6f3e4d` |
+
+#### 2. CVE-2021-23382 — ReDoS via `getAnnotationURL()` / `loadAnnotation()`
+
+| Field | Detail |
+|---|---|
+| **Advisory** | GHSA-566m-qj78-rww5 |
+| **Severity** | Moderate (CVSS 3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L) |
+| **CWE** | CWE-400 (Uncontrolled Resource Consumption) |
+| **Affected Ranges** | `<7.0.36`, `>=8.0.0 <8.2.13` |
+| **Fixed Versions** | 7.0.36, 8.2.13 |
+| **NVD Published** | 2021-04-26 |
+| **Description** | ReDoS via vulnerable regex in `lib/previous-map.js` (`sourceMappingURL` sub-pattern). |
+| **Fix Commit** | `2b1d04c` |
+
+#### 3. CVE-2023-44270 — Line return (`\r`) parsing error
+
+| Field | Detail |
+|---|---|
+| **Advisory** | GHSA-7fh5-64p2-3v2j |
+| **Severity** | Moderate (CVSS 3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N) |
+| **CWE** | CWE-144 (Improper Neutralization of Line Delimiters), CWE-74 (Injection) |
+| **Affected Range** | `<8.4.31` |
+| **Fixed Version** | 8.4.31 |
+| **NVD Published** | 2023-09-29 |
+| **Description** | Carriage-return (`\r`) discrepancies allow content originally inside a CSS comment to appear as active CSS nodes in PostCSS output. Affects linters parsing external untrusted CSS. |
+| **Fix Commit** | `58cc860` |
+
+### Security Posture Notes
+
+- All three known advisories have been resolved in current releases. The latest version (8.5.10) is not affected by any of them.
+- The two 2021 ReDoS issues are closely related (both in source-map handling) but are tracked under distinct CVEs with slightly different affected ranges. CVE-2021-23382 broadened the affected set to all versions `<7.0.36` (not just `>=7.0.0`).
+- CVE-2023-44270 is an integrity issue (not availability) — it could allow an attacker to smuggle CSS rules past comment-based filtering. Impact depends on whether the consumer trusts PostCSS output for security boundaries.
+- Extremely high download volume (~207M/week) makes even moderate-severity issues high-impact in aggregate.
+- No public security policy (`SECURITY.md`) was included in the evidence; its existence is **uncertain**.
+
+### Recommendations
+
+1. **Upgrade to ≥8.4.31** (preferably latest 8.5.x) to resolve all known advisories.
+2. Projects still on the 7.x line should upgrade to at least **7.0.36** to address both ReDoS issues. Note that CVE-2023-44270 has no documented 7.x fix — the advisory marks `<8.4.31` as affected, implying **no patched 7.x version exists** for that issue.
+3. If parsing untrusted CSS, treat PostCSS output as potentially attacker-influenced and apply independent validation downstream.
+
+### Dependencies
+
+- No dependency information was provided in the evidence. Open question (see below).
+
+### Open Questions
+
+- [ ] Does the postcss repository maintain a `SECURITY.md` or bug-bounty program?
+- [ ] Is the 7.x branch still receiving security back-ports? Evidence suggests 7.0.36 was the last security release; CVE-2023-44270 was only fixed in 8.4.31.
+- [ ] Runtime dependency footprint of current release (8.5.10) — not included in evidence.
+
+### Related Pages
+
+- npm/autoprefixer (common postcss consumer)
+- npm/postcss-cli
+
+---
+
+## KB Page: `npm/tmp`
+
+### Metadata
+
+| Field | Value |
+|---|---|
+| **Package** | `tmp` |
+| **Ecosystem** | npm |
+| **Repository** | https://github.com/raszi/node-tmp |
+| **Homepage** | http://github.com/raszi/node-tmp |
+| **Latest Version** | 0.2.5 |
+| **Total Published Versions** | 38 |
+| **First Published** | 2011-09-02 |
+| **Last Modified** | 2025-10-13 |
+| **Weekly Downloads (w/o 2026-04-13)** | ~61,683,

@@ -1,0 +1,17 @@
+{
+  "name": "postcss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/postcss/postcss.git"
+  },
+  "homepage": "https://postcss.org/",
+  "dist-tags": {
+    "latest": "8.5.10"
+  },
+  "versions_count": 274,
+  "time": {
+    "created": "2013-11-04T19:57:14.218Z",
+    "modified": "2026-04-15T14:42:53.467Z",
+    "8.5.10": "2026-04-15T14:42:53.378Z"
+  }
+}
