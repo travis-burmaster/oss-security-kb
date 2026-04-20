@@ -1,0 +1,17 @@
+{
+  "name": "tmp",
+  "repository": {
+    "url": "git+https://github.com/raszi/node-tmp.git",
+    "type": "git"
+  },
+  "homepage": "http://github.com/raszi/node-tmp",
+  "dist-tags": {
+    "latest": "0.2.5"
+  },
+  "versions_count": 38,
+  "time": {
+    "created": "2011-09-02T12:30:13.534Z",
+    "modified": "2025-10-13T17:09:18.971Z",
+    "0.2.5": "2025-08-08T21:22:08.916Z"
+  }
+}
