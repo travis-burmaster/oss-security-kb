@@ -1,0 +1,47 @@
+# KB Update Review: markdown-it, esbuild, path-parse
+
+---
+
+## 1. Conservative Recommendations
+
+### Candidate 1: markdown-it — **RECOMMEND for KB page now**
+**Rationale:** Three distinct, CVE-assigned vulnerabilities spanning the project's history (2015–2026), all with clearly documented fix versions and upstream changelog confirmation. Very high weekly download count (~22M). The most recent vulnerability (CVE-2026-2327) is a regression introduced in v13 and fixed only in the current latest (14.1.1), meaning users on v13.x or 14.0.x remain affected. Strong evidence basis for a substantive page.
+
+### Candidate 2: esbuild — **RECOMMEND for KB page now**
+**Rationale:** One advisory with a clear fix version (0.25.0), CVE-equivalent GHSA, and upstream acknowledgment. Extremely high download volume (~200M/week). The vulnerability's scope is limited to the development server feature, which is important nuance—but the sheer adoption footprint and the fact that the advisory is relatively recent make this worth documenting. The fix is well behind the current latest (0.28.0), so most up-to-date users are already patched.
+
+### Candidate 3: path-parse — **DEFER / LOW PRIORITY for KB page**
+**Rationale:** Single historical vulnerability (CVE-2021-23343) that was fixed in 1.0.7, which is also the current npm latest. This means essentially all users pulling the latest version are already patched, and there is no ongoing or recent risk window. The advisory is well-known and four years old. A KB page would be factually supportable but adds limited actionable value. Can be added later for completeness.
+
+---
+
+## 2. Draft Index Summary Lines
+
+**markdown-it (npm)**
+> Three known vulnerabilities (ReDoS/resource consumption) spanning 2015–2026; all fixed in respective versions (3.0.0, 12.3.2, 14.1.1). Users on v13.0.0–14.1.0 are affected by the most recent issue (CVE-2026-2327). Upgrade to ≥14.1.1.
+
+**esbuild (npm)**
+> One known vulnerability in the development server (permissive CORS allowing cross-origin data reads); fixed in 0.25.0. Does not affect production bundling use. Upgrade to ≥0.25.0.
+
+---
+
+## 3. Posture Notes
+
+### markdown-it (npm)
+
+- **CVE-2015-10005 (GHSA-j5p7-jf4q-742q):** Inefficient regular expression complexity affecting all versions before 3.0.0. Fixed in 3.0.0 per OSV range and upstream release tag.
+- **CVE-2022-21670 (GHSA-6vfc-qv3f-vr6c):** Uncontrolled resource consumption (ReDoS in newline rule) affecting all versions before 12.3.2. Fix confirmed in upstream CHANGELOG entry dated 2022-01-08.
+- **CVE-2026-2327 (GHSA-38c4-r59v-3vqw):** ReDoS regression in the linkify inline rule, introduced in 13.0.0 and fixed in 14.1.1. Upstream CHANGELOG (2026-01-11) confirms the fix. A public PoC gist is referenced in the advisory.
+- **Current latest (14.1.1) resolves all three known advisories.** Users on any version below 14.1.1 should evaluate which advisories apply to their pinned version.
+- **Users on v13.x or v14.0.x are specifically at risk** for the most recent ReDoS (CVE-2026-2327) and should prioritize upgrading.
+- **Weekly download volume (~22M)** indicates broad ecosystem exposure; transitive dependency consumers should verify their resolved version.
+- **All three advisories are denial-of-service class (ReDoS/resource exhaustion)**, not remote code execution. Risk is primarily availability impact from crafted Markdown input.
+- **No unpatched or disputed advisories** were found in the OSV dataset for this package as of this review.
+
+### esbuild (npm)
+
+- **GHSA-67mh-4wv8-2f99:** The development server (`--serve` / `serve()` API) used default CORS settings that allowed any website to send requests and read responses. Fixed in 0.25.0 per OSV and upstream GHSA.
+- **Scope is limited to the dev server feature.** Production bundling, the primary use case of esbuild, is not affected by this advisory per the available evidence.
+- **Fix version (0.25.0) is well behind current latest (0.28.0).** Users on current or recent versions are already patched.
+- **Users on versions below 0.25.0 who use the serve feature** should upgrade or restrict dev server network exposure as a mitigation.
+- **Weekly download volume (~200M

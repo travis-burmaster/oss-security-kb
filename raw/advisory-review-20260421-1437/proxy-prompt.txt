@@ -1,0 +1,30 @@
+Review the following public evidence summary for an OSS security knowledge base update. Use only the facts stated here. Do not fabricate findings, CVEs, fixed versions, or maintainer intent. Draft conservative package-page notes and a short recommendation on whether each candidate deserves a KB page update now.
+
+Candidate 1: markdown-it (npm)
+- OSV query shows 3 records for npm/markdown-it.
+- GHSA-j5p7-jf4q-742q / CVE-2015-10005: inefficient regular expression complexity; OSV says introduced 0, fixed 3.0.0; references include upstream commit and 3.0.0 release tag.
+- GHSA-6vfc-qv3f-vr6c / CVE-2022-21670: uncontrolled resource consumption; OSV says introduced 0, fixed 12.3.2; references include upstream GHSA and fix commit.
+- GHSA-38c4-r59v-3vqw / CVE-2026-2327: ReDoS; OSV says introduced 13.0.0, fixed 14.1.1; references include upstream fix commit and public gist PoC.
+- Upstream CHANGELOG says:
+  - 12.3.2 (2022-01-08): "Security - Fix possible ReDOS in newline rule."
+  - 14.1.1 (2026-01-11): "Security - Fixed regression from v13 in linkify inline rule. Specific patterns could cause high CPU use."
+- npm downloads last week: 22,156,478.
+- npm latest version: 14.1.1.
+
+Candidate 2: esbuild (npm)
+- OSV query shows 1 record for npm/esbuild.
+- GHSA-67mh-4wv8-2f99: any website can send requests to the dev server and read responses due to default CORS settings; OSV says introduced 0, fixed 0.25.0; references include upstream GHSA and fix commit.
+- Advisory impact is about the development server / serve feature, not all production bundle use.
+- npm downloads last week: 200,587,828.
+- npm latest version: 0.28.0.
+
+Candidate 3: path-parse (npm)
+- OSV query shows 1 record for npm/path-parse.
+- GHSA-hj48-42vr-x3v9 / CVE-2021-23343: regular expression denial of service; OSV says introduced 0, fixed 1.0.7; references include upstream issue, PR, and fix commit.
+- npm downloads last week: 117,196,974.
+- npm latest version: 1.0.7.
+
+Please provide:
+1. A conservative recommendation on which candidate(s) are strongest for an evidence-backed KB addition now.
+2. A short draft summary line for the index for each recommended candidate.
+3. 4-8 bullet posture notes per recommended candidate, written conservatively and tied to the evidence above.

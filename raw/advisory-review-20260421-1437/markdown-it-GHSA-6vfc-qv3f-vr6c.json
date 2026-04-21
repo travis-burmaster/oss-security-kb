@@ -1,0 +1,100 @@
+{
+  "ghsa_id": "GHSA-6vfc-qv3f-vr6c",
+  "cve_id": "CVE-2022-21670",
+  "url": "https://api.github.com/advisories/GHSA-6vfc-qv3f-vr6c",
+  "html_url": "https://github.com/advisories/GHSA-6vfc-qv3f-vr6c",
+  "summary": "Uncontrolled Resource Consumption in markdown-it",
+  "description": "### Impact\n\nSpecial patterns with length > 50K chars can slow down parser significantly.\n\n```js\nconst md = require('markdown-it')();\n\nmd.render(`x ${' '.repeat(150000)} x  \\nx`);\n```\n\n\n### Patches\n\nUpgrade to v12.3.2+\n\n### Workarounds\n\nNo.\n\n### References\n\nFix + test sample: https://github.com/markdown-it/markdown-it/commit/ffc49ab46b5b751cd2be0aabb146f2ef84986101\n",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": "https://api.github.com/repos/markdown-it/markdown-it/security-advisories/GHSA-6vfc-qv3f-vr6c",
+  "source_code_location": "https://github.com/markdown-it/markdown-it",
+  "identifiers": [
+    {
+      "value": "GHSA-6vfc-qv3f-vr6c",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2022-21670",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://github.com/markdown-it/markdown-it/security/advisories/GHSA-6vfc-qv3f-vr6c",
+    "https://github.com/markdown-it/markdown-it/commit/ffc49ab46b5b751cd2be0aabb146f2ef84986101",
+    "https://nvd.nist.gov/vuln/detail/CVE-2022-21670",
+    "https://github.com/advisories/GHSA-6vfc-qv3f-vr6c"
+  ],
+  "published_at": "2022-01-12T22:20:22Z",
+  "updated_at": "2023-07-24T19:33:44Z",
+  "github_reviewed_at": "2022-01-10T21:50:05Z",
+  "nvd_published_at": "2022-01-10T21:15:00Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "markdown-it"
+      },
+      "vulnerable_version_range": "< 12.3.2",
+      "first_patched_version": "12.3.2",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+      "score": 5.3
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-400",
+      "name": "Uncontrolled Resource Consumption"
+    },
+    {
+      "cwe_id": "CWE-1333",
+      "name": "Inefficient Regular Expression Complexity"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "makenowjust",
+        "id": 6679325,
+        "node_id": "MDQ6VXNlcjY2NzkzMjU=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/6679325?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/makenowjust",
+        "html_url": "https://github.com/makenowjust",
+        "followers_url": "https://api.github.com/users/makenowjust/followers",
+        "following_url": "https://api.github.com/users/makenowjust/following{/other_user}",
+        "gists_url": "https://api.github.com/users/makenowjust/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/makenowjust/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/makenowjust/subscriptions",
+        "organizations_url": "https://api.github.com/users/makenowjust/orgs",
+        "repos_url": "https://api.github.com/users/makenowjust/repos",
+        "events_url": "https://api.github.com/users/makenowjust/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/makenowjust/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+    "score": 5.3
+  },
+  "epss": {
+    "percentage": 0.01114,
+    "percentile": 0.77864
+  }
+}
