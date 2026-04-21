@@ -1,0 +1,10 @@
+{
+  "model": "claude-opus-4-7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Review this public-evidence bundle for OSS KB maintenance and propose only evidence-backed updates. Do not fabricate findings. Candidates: webpack-dev-server (OSV count 3: GHSA-cf66-xwfp-gvc4 fixed in 3.1.11, GHSA-4v9v-hfq4-rm2v fixed in 5.2.1, GHSA-9jgg-88mc-972h fixed in 5.2.1; release notes for v3.1.11 mention checking origin header for websocket connection; v5.2.1 release notes mention cross-origin request restrictions and IP-origin websocket restrictions; latest 5.2.3; downloads ~17.5M/week). yaml (OSV count 2: GHSA-f9xv-q969-pqx4 fixed in 2.2.2 and GHSA-48c2-rrv3-qjmp fixed in 2.8.3; v2.2.2 release notes mention parseDocument fix for degenerate input and CVE-2023-2251; v2.8.3 release notes mention catching stack overflow during node composition; latest 2.8.3; downloads ~142M/week). Comparison candidate pac-resolver has one advisory GHSA-9j49-mfvp-vmhm fixed in 5.0.0 but may be deferred. Output: 1) whether each candidate seems worth adding/updating, 2) a concise, evidence-backed vulnerability summary, 3) any conservative caveats to preserve."
+    }
+  ],
+  "max_tokens": 1200
+}
