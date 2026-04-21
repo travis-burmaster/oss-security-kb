@@ -2,6 +2,7 @@
 
 ## Advisory-Mapped / Audited Pages
 - [[npm/axios]] — widely used HTTP client · advisory mapped · broad SSRF / DoS / request-routing history plus 2026 supply-chain compromise
+- [[npm/ip]] — IP address helper · advisory mapped · SSRF-relevant private/public classification bypasses including an unresolved incomplete-fix chain through 2.0.1
 - [[npm/cookie-parser]] — Express cookie middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass, but relevant dependency context via cookie 0.7.x
 - [[npm/cors]] — Express CORS middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass; main risk boundary is application configuration
 - [[npm/http-proxy-middleware]] — high-usage proxy middleware · advisory mapped · path-filter DoS plus 2025 fixRequestBody flaw chain
@@ -37,10 +38,12 @@
 - [[npm/nanoid]] — ID generator · advisory mapped · collision/predictability flaws fixed in 3.1.31, 3.3.8, and 5.0.9
 - [[npm/node-fetch]] — fetch-compatible HTTP client · advisory mapped · redirect credential leakage, redirect size-limit bypass, and ReDoS history
 - [[npm/next-intl]] — i18n / routing middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
+- [[npm/passport]] — authentication middleware foundation · advisory mapped · pre-0.6.0 session-fixation issue in login/logout session handling
 - [[npm/path-to-regexp]] — routing parser · advisory mapped · legacy and modern ReDoS / route-expansion hardening history
 - [[npm/postcss]] — CSS parser / transform foundation · advisory mapped · source-map ReDoS pair plus 2023 carriage-return parsing integrity bug
 - [[npm/qs]] — query-string parser · advisory mapped · prototype-pollution and parser-limit bypass history
 - [[npm/semver]] — version parsing infrastructure · advisory mapped · ReDoS history
+- [[npm/shell-quote]] — shell-escaping helper · advisory mapped · two published command-injection fixes with the later regex hardening in 1.7.3
 - [[npm/tmp]] — temporary-file helper · advisory mapped · symlink-based temp-path boundary bypass fixed in 0.2.4
 - [[npm/cookie]] — cookie parser/serializer · audit ingested · strict serialize validation, parse-side minimal by design
 - [[npm/cookie-signature]] — signed-cookie helper · advisory mapped · historical timing-attack fix in 1.0.4
