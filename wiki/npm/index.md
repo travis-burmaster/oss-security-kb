@@ -20,6 +20,7 @@
 - [[npm/yaml]] — YAML parser · advisory mapped · degenerate-input exception handling plus 2026 deeply nested collection stack-overflow fix
 - [[npm/debug]] — debug logging utility · advisory mapped · supply-chain compromise in 4.4.2 plus older ReDoS history
 - [[npm/esbuild]] — JavaScript bundler / dev server · advisory mapped · dev-server CORS exposure fixed in 0.25.0
+- [[npm/fastify]] — high-performance Node.js web framework · advisory mapped · recurring Content-Type parsing / validation-boundary flaws plus proxy-trust and DoS history
 - [[npm/ejs]] — server-side templating engine · advisory mapped · historical renderFile/input-validation bugs plus later SSTI and prototype-pollution hardening
 - [[npm/express]] — core web framework · advisory mapped · public package history plus a deeper 2026 source review
 - [[npm/express-session]] — session middleware · baseline stub · high-usage package with cautious public-source baseline and deployment-boundary notes

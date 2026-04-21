@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*76 packages tracked across 8 ecosystems. Last updated: 2026-04-21.*
+*77 packages tracked across 8 ecosystems. Last updated: 2026-04-21.*
 
-## npm (58)
+## npm (59)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/esbuild]] — JavaScript bundler / dev server · advisory mapped · dev-server CORS exposure fixed in 0.25.0
 - [[npm/ip]] — IP address helper · advisory mapped · SSRF-relevant private/public classification bypasses including an unresolved incomplete-fix chain through 2.0.1
@@ -27,6 +27,7 @@
 - [[npm/cross-spawn]] — process-spawn helper · advisory mapped · 2024 ReDoS fix chain across 6.x and 7.x
 - [[npm/debug]] — debug logging utility · advisory mapped · supply-chain compromise in 4.4.2 plus older ReDoS history
 - [[npm/ejs]] — server-side templating engine · advisory mapped · historical renderFile/input-validation bugs plus later SSTI and prototype-pollution hardening
+- [[npm/fastify]] — high-performance Node.js web framework · advisory mapped · recurring Content-Type parsing / validation-boundary flaws plus proxy-trust and DoS history
 - [[npm/express]] — dominant Node.js web framework · advisory mapped · public package history plus deeper 2026 source review
 - [[npm/follow-redirects]] — redirect-following HTTP helper · advisory mapped · repeated redirect credential / header leakage history
 - [[npm/form-data]] — multipart request builder · advisory mapped · 2025 predictable-boundary fix across 2.x, 3.x, and 4.x
