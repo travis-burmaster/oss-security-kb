@@ -5,12 +5,13 @@
 **Repository:** https://github.com/lodash/lodash
 **Security Contact:** none listed
 **Disclosure Policy:** none listed
-**Current Status:** audit-ingested
+**Current Status:** advisory-mapped
 
 ## Audit History
 
 | Date | Auditor | Scope | Methodology | Findings | Source |
 |------|---------|-------|-------------|----------|--------|
+| 2026-04-21 | OpenClaw recurring review | public-advisory reconciliation | public-source curation (OSV.dev, GitHub Advisory Database, npm registry metadata) | Added the two older published prototype-pollution advisories missing from the page (`CVE-2018-3721` / `GHSA-fvqr-27wr-82fm` and `CVE-2018-16487` / `GHSA-4xc9-xhrj-v574`) and aligned page status with the advisory-mapped index entries. | https://osv.dev/list?ecosystem=npm&query=lodash |
 | 2026-04-13 | OpenClaw recurring review | public-advisory refresh | manual | Refreshed published advisory coverage to include the 2025–2026 incomplete-fix chains affecting `_.unset` / `_.omit` and `_.template` | https://osv.dev/list?ecosystem=npm&query=lodash |
 | 2026-04-12 | [@travis-burmaster](https://github.com/travis-burmaster) | full-source (all path-walking functions) | hybrid (manual review + automated) | 3 new findings + all CVE patches verified | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
 
@@ -121,6 +122,8 @@ Lodash 4.18.1 uses three layers of prototype pollution defense:
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
+| CVE-2018-3721 / GHSA-fvqr-27wr-82fm | High | Prototype pollution in `defaultsDeep`, `merge`, and `mergeWith` via `__proto__` in releases before 4.17.5. | 4.17.5 | https://osv.dev/vulnerability/GHSA-fvqr-27wr-82fm |
+| CVE-2018-16487 / GHSA-4xc9-xhrj-v574 | High | Follow-on prototype pollution in `defaultsDeep`, `merge`, and `mergeWith` via `constructor.prototype` paths in releases before 4.17.11. | 4.17.11 | https://osv.dev/vulnerability/GHSA-4xc9-xhrj-v574 |
 | CVE-2019-1010266 / GHSA-x5rq-j2xg-h7qm | Medium | ReDoS in older string / number parsing paths; public records mark versions before 4.17.11 as affected. | 4.17.11 | https://github.com/advisories/GHSA-x5rq-j2xg-h7qm |
 | CVE-2019-10744 / GHSA-jf85-cpcp-j695 | Critical | Prototype pollution in `defaultsDeep`. | 4.17.12 | https://github.com/advisories/GHSA-jf85-cpcp-j695 |
 | CVE-2020-8203 / GHSA-p6mc-m468-83gw | High | Prototype pollution via deep-path mutation helpers including `zipObjectDeep`, `set`, `setWith`, `update`, and `updateWith`. | 4.17.19 | https://github.com/advisories/GHSA-p6mc-m468-83gw |
@@ -132,7 +135,8 @@ Lodash 4.18.1 uses three layers of prototype pollution defense:
 
 ## Security Posture Notes
 
-- Public advisory history now shows **two distinct incomplete-fix chains** that matter operationally: `_.template` injection from `CVE-2021-23337` to `CVE-2026-4800`, and `_.unset` / `_.omit` prototype pollution from `CVE-2025-13465` to `CVE-2026-2950`.
+- Public advisory history now shows a **long prototype-pollution lineage** starting with the 2018 `__proto__` and `constructor.prototype` issues in `defaultsDeep` / `merge` / `mergeWith`, then continuing through later `defaultsDeep`, `set`-family, and `unset` / `omit` fix trains.
+- Public advisory history also shows **two distinct incomplete-fix chains** that matter operationally: `_.template` injection from `CVE-2021-23337` to `CVE-2026-4800`, and `_.unset` / `_.omit` prototype pollution from `CVE-2025-13465` to `CVE-2026-2950`.
 - The published record is no longer just about prototype pollution. Lodash also carries documented **ReDoS** history and a recurring **template-compilation code-injection** surface tied to `Function()`-based compilation.
 - For defenders, intermediate patch levels matter: `4.17.21` closed the older `variable`-option template bug but not the later `imports`-key injection path, and `4.17.23` closed the first `_.unset` / `_.omit` bug but not the later array-path bypass.
 - The 2026 template-fix advisory is also notable because the published remediation did two things: validate `imports` key names and switch import merging from inherited-property enumeration to own-property enumeration, reducing the chance that prior prototype pollution contaminates template compilation.
@@ -159,5 +163,5 @@ Lodash 4.18.1 uses three layers of prototype pollution defense:
 - [[npm/express]]
 
 ---
-*Last updated: 2026-04-13 | Sources: 9 (OSV package query, GitHub Security Advisories, public CVE / NVD records, npm registry metadata, npm downloads API, upstream public fix commits, plus prior source-audit context already captured on-page)*
+*Last updated: 2026-04-21 | Sources: 9 (OSV package query, GitHub Security Advisories, public CVE / NVD records, npm registry metadata, npm downloads API, upstream public fix commits, plus prior source-audit context already captured on-page)*
 *Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*
