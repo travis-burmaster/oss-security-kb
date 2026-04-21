@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*71 packages tracked across 8 ecosystems. Last updated: 2026-04-20.*
+*73 packages tracked across 8 ecosystems. Last updated: 2026-04-21.*
 
-## npm (53)
+## npm (55)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/ip]] — IP address helper · advisory mapped · SSRF-relevant private/public classification bypasses including an unresolved incomplete-fix chain through 2.0.1
 - [[npm/cookie-parser]] — Express cookie middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass, but relevant dependency context via cookie 0.7.x
@@ -17,6 +17,8 @@
 - [[npm/tough-cookie]] — cookie-jar library · advisory mapped · parser ReDoS history plus the 2023 prototype-pollution fix in 4.1.3
 - [[npm/basic-ftp]] — FTP client library · advisory mapped · 2026 5.2.x path-traversal and CRLF command-injection fix chain
 - [[npm/validator]] — string validation / sanitization helper · advisory mapped · legacy XSS-filter lineage plus modern URL / length / regex-boundary fixes
+- [[npm/webpack-dev-server]] — frontend dev server · advisory mapped · repeated origin / cross-origin source-code exposure in HMR and local script-loading paths
+- [[npm/yaml]] — YAML parser · advisory mapped · degenerate-input exception handling plus 2026 deeply nested collection stack-overflow fix
 - [[npm/body-parser]] — request body parsing middleware · advisory mapped · 1.x and 2.x urlencoded-parser DoS fixes plus parser-boundary review notes
 - [[npm/cookie]] — cookie parser/serializer · advisory mapped · strict serialize validation, parse-side minimal by design
 - [[npm/cookie-signature]] — signed-cookie helper · advisory mapped · historical timing-attack fix in 1.0.4
