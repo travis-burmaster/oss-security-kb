@@ -6,7 +6,7 @@
 **Security Contact:** security@expressjs.com / express-security@lists.openjsf.org
 **Disclosure Policy:** https://github.com/expressjs/express/security/policy
 **Threat Model:** https://github.com/expressjs/security-wg/blob/main/docs/ThreatModel.md
-**Current Status:** audit-ingested
+**Current Status:** advisory-mapped
 
 ## Audit History
 
@@ -181,5 +181,5 @@ The express-* npm namespace is heavily targeted by typosquatting attacks (e.g., 
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-15 | Sources: 12 (upstream repository, Express security policy, Express threat model, source code audit of Express 5.2.1 + 8 dependencies, OSV database, GitHub Advisory Database, public CVE records via advisory aliases, Express release notes, upstream History.md, npm registry)*
+*Last updated: 2026-04-21 | Sources: 12 (upstream repository, Express security policy, Express threat model, source code audit of Express 5.2.1 + 8 dependencies, OSV database, GitHub Advisory Database, public CVE records via advisory aliases, Express release notes, upstream History.md, npm registry)*
 *Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*

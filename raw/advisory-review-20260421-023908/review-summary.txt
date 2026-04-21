@@ -1,0 +1,30 @@
+## cookie
+OSV vuln count: 1
+- GHSA-pxg6-pf52-xh8x aliases=['CVE-2024-47764'] summary=cookie accepts cookie name, path, and domain with out of bounds characters
+
+## express
+OSV vuln count: 5
+- GHSA-cm5g-3pgc-8rg4 aliases=['CVE-2024-10491'] summary=Express ressource injection
+- GHSA-gpvr-g6gh-9mc2 aliases=['CVE-2014-6393'] summary=No Charset in Content-Type Header in express
+- GHSA-jj78-5fmv-mv28 aliases=['CVE-2024-9266'] summary=Express Open Redirect vulnerability
+- GHSA-qw6h-vgh9-j6wx aliases=['CVE-2024-43796'] summary=express vulnerable to XSS via response.redirect()
+- GHSA-rv95-896h-c2vc aliases=['CVE-2024-29041'] summary=Express.js Open Redirect in malformed URLs
+
+## lodash
+OSV vuln count: 10
+- GHSA-29mw-wpgm-hmr9 aliases=['CVE-2020-28500'] summary=Regular Expression Denial of Service (ReDoS) in lodash
+- GHSA-35jh-r3h4-6jhm aliases=['CVE-2021-23337'] summary=Command Injection in lodash
+- GHSA-4xc9-xhrj-v574 aliases=['CVE-2018-16487'] summary=Prototype Pollution in lodash
+- GHSA-f23m-r3pf-42rh aliases=['CVE-2026-2950'] summary=lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`
+- GHSA-fvqr-27wr-82fm aliases=['CVE-2018-3721'] summary=Prototype Pollution in lodash
+- GHSA-jf85-cpcp-j695 aliases=['CVE-2019-10744'] summary=Prototype Pollution in lodash
+- GHSA-p6mc-m468-83gw aliases=['CVE-2020-8203'] summary=Prototype Pollution in lodash
+- GHSA-r5fr-rjxr-66jc aliases=['CVE-2026-4800'] summary=lodash vulnerable to Code Injection via `_.template` imports key names
+- GHSA-x5rq-j2xg-h7qm aliases=['CVE-2019-1010266'] summary=Regular Expression Denial of Service (ReDoS) in lodash
+- GHSA-xxjr-mmjv-4gpg aliases=['CVE-2025-13465'] summary=Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions
+
+Existing KB observations:
+- cookie page already documents GHSA-pxg6-pf52-xh8x / CVE-2024-47764 but still says Current Status: audit-ingested.
+- express page already documents 5 package advisories but still says Current Status: audit-ingested.
+- lodash page already documents 8 advisories and says Current Status: audit-ingested, but OSV package query returns 10 advisories including two older prototype-pollution records not currently listed: GHSA-fvqr-27wr-82fm / CVE-2018-3721 fixed in 4.17.5 and GHSA-4xc9-xhrj-v574 / CVE-2018-16487 fixed in 4.17.11.
+- npm index already describes lodash as advisory mapped, so the page status currently lags the index wording.

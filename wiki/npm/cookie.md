@@ -4,7 +4,7 @@
 **Weekly Downloads:** ~137,648,006 (last week, fetched 2026-04-19)
 **Repository:** https://github.com/jshttp/cookie
 **Security Contact:** GitHub Security Advisory (private reporting enabled)
-**Current Status:** audit-ingested
+**Current Status:** advisory-mapped
 
 ## Audit History
 
@@ -69,5 +69,5 @@ The result object from `cookie.parse()` is created with `{}` (not `Object.create
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-19 | Sources: 6 (upstream repository and source code audit of cookie 0.7.2 via Express audit, GHSA database, OSV.dev package query and vulnerability record for GHSA-pxg6-pf52-xh8x, npm registry metadata, npm downloads API)*
+*Last updated: 2026-04-21 | Sources: 6 (upstream repository and source code audit of cookie 0.7.2 via Express audit, GHSA database, OSV.dev package query and vulnerability record for GHSA-pxg6-pf52-xh8x, npm registry metadata, npm downloads API)*
 *Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*
