@@ -1,0 +1,78 @@
+fastify OSV IDs: GHSA-247c-9743-5963, GHSA-3fjj-p79j-c9hh, GHSA-444r-cwp2-x5xf, GHSA-455w-c45v-86rg, GHSA-573f-x89g-hqp9, GHSA-jx2c-rxcm-jvmq, GHSA-mg2h-6x62-wpwc, GHSA-mq6c-fh97-4gwv, GHSA-mrq3-vjjr-p77c, GHSA-xw5p-hw6r-2j98
+
+GHSA-247c-9743-5963
+  aliases: CVE-2026-33806
+  severity: HIGH
+  summary: Fastify has a Body Schema Validation Bypass via Leading Space in Content-Type Header
+  ranges: introduced 5.3.2; fixed 5.8.5
+
+GHSA-3fjj-p79j-c9hh
+  aliases: CVE-2022-41919
+  severity: MODERATE
+  summary: Fastify: Incorrect Content-Type parsing can lead to CSRF attack
+  ranges: introduced 4.0.0; fixed 4.10.2 | introduced 3.0.0; fixed 3.29.4
+
+GHSA-444r-cwp2-x5xf
+  aliases: CVE-2026-3635
+  severity: MODERATE
+  summary: fastify: request.protocol and request.host Spoofable via X-Forwarded-Proto/Host from Untrusted Connections
+  ranges: introduced 0; fixed 5.8.3
+
+GHSA-455w-c45v-86rg
+  aliases: CVE-2022-39288
+  severity: HIGH
+  summary: fastify vulnerable to denial of service via malicious Content-Type
+  ranges: introduced 4.0.0; fixed 4.8.1
+
+GHSA-573f-x89g-hqp9
+  aliases: CVE-2026-3419
+  severity: MODERATE
+  summary: Fastify's Missing End Anchor in "subtypeNameReg" Allows Malformed Content-Types to Pass Validation
+  ranges: introduced 5.7.2; fixed 5.8.1
+
+GHSA-jx2c-rxcm-jvmq
+  aliases: CVE-2026-25223
+  severity: HIGH
+  summary: Fastify's Content-Type header tab character allows body validation bypass
+  ranges: introduced 0; fixed 5.7.2
+
+GHSA-mg2h-6x62-wpwc
+  aliases: CVE-2025-32442
+  severity: HIGH
+  summary: Fastify vulnerable to invalid content-type parsing, which could lead to validation bypass
+  ranges: introduced 5.0.0; fixed 5.3.2 | introduced 4.29.0; fixed 4.29.1
+
+GHSA-mq6c-fh97-4gwv
+  aliases: CVE-2018-3711
+  severity: HIGH
+  summary: Denial of Service vulnerability with large JSON payloads in fastify
+  ranges: introduced 0; fixed 0.38.0
+
+GHSA-mrq3-vjjr-p77c
+  aliases: CVE-2026-25224
+  severity: LOW
+  summary: Fastify Vulnerable to DoS via Unbounded Memory Allocation in sendWebStream
+  ranges: introduced 0; fixed 5.7.3
+
+GHSA-xw5p-hw6r-2j98
+  aliases: CVE-2020-8192
+  severity: MODERATE
+  summary: Denial of service in fastify
+  ranges: introduced 0; fixed 2.15.1
+
+Fastify npm metadata:
+{
+  "version": "5.8.5",
+  "dist-tags.latest": "5.8.5",
+  "repository.url": "git+https://github.com/fastify/fastify.git"
+}
+
+Fastify weekly downloads:
+{"downloads":6681120,"start":"2026-04-14","end":"2026-04-20","package":"fastify"}
+
+Release note excerpts used:
+- v5.7.2 releases page says: Parsing of the content-type header has been improved to a strict parser in PR #6414; only header values in the RFC 9110 form are accepted.
+- v5.8.3 release page labels it a Security Release fixing CVE-2026-3635 / GHSA-444r-cwp2-x5xf.
+- v5.8.5 release page labels it a Security Release fixing CVE-2026-33806 / GHSA-247c-9743-5963.
+
+Comparison candidates: cors OSV query returned 0 vulns; helmet OSV query returned 0 vulns.
