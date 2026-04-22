@@ -60,6 +60,7 @@
 - [[npm/body-parser]] — request body parsing middleware · advisory mapped · 1.x and 2.x urlencoded-parser DoS fixes plus audit notes on parser boundaries
 - [[npm/send]] — static file serving engine · advisory mapped · three published package advisories across traversal, path disclosure, and redirect-template XSS
 - [[npm/serve-static]] — Express static-file middleware · advisory mapped · small package-level advisory set around redirect handling and redirect-page XSS
+- [[npm/sharp]] — image processing library · advisory mapped · install-time build-environment injection plus bundled libwebp exposure
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 - [[npm/xml2js]] — XML-to-object parser · advisory mapped · prototype-pollution fix in 0.5.0 on untrusted object-construction paths

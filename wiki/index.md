@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*82 packages tracked across 8 ecosystems. Last updated: 2026-04-22.*
+*83 packages tracked across 8 ecosystems. Last updated: 2026-04-22.*
 
-## npm (63)
+## npm (64)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/esbuild]] — JavaScript bundler / dev server · advisory mapped · dev-server CORS exposure fixed in 0.25.0
 - [[npm/ip]] — IP address helper · advisory mapped · SSRF-relevant private/public classification bypasses including an unresolved incomplete-fix chain through 2.0.1
@@ -61,6 +61,7 @@
 - [[npm/shell-quote]] — shell-escaping helper · advisory mapped · two published command-injection fixes with the later regex hardening in 1.7.3
 - [[npm/send]] — static file serving engine · advisory mapped · three published package advisories across traversal, path disclosure, and redirect-template XSS
 - [[npm/serve-static]] — Express static-file middleware · advisory mapped · small package-level advisory set around redirect handling and redirect-page XSS
+- [[npm/sharp]] — image processing library · advisory mapped · install-time build-environment injection plus bundled libwebp exposure
 - [[npm/tmp]] — temporary-file helper · advisory mapped · symlink-based temp-path boundary bypass fixed in 0.2.4
 - [[npm/xml2js]] — XML-to-object parser · advisory mapped · prototype-pollution fix in 0.5.0 on untrusted object-construction paths
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
