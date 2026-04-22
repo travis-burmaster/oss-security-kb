@@ -32,6 +32,7 @@
 - [[npm/jsonwebtoken]] — JWT verification surface · advisory mapped · 9.0.0 security watershed and one rejected CVE to interpret carefully
 - [[npm/js-yaml]] — YAML parser · audit ingested · historical RCE plus 2026 alias-expansion DoS finding
 - [[npm/serialize-javascript]] — serialization helper · advisory mapped · recurring XSS / code-injection boundary bugs plus 2026 CPU-exhaustion DoS
+- [[npm/loader-utils]] — webpack ecosystem utility · advisory mapped · 2022 ReDoS pair plus prototype-pollution fixes across 1.x, 2.x, and 3.x
 - [[npm/lodash]] — utility library · advisory mapped · prototype pollution, ReDoS, and template-injection history
 - [[npm/moment]] — date/time library · advisory mapped · legacy ReDoS history plus 2022 locale traversal and RFC2822 regex fixes
 - [[npm/mathjs]] — math expression engine · advisory mapped · 15.2.0 object-attribute / parser hardening security fix
@@ -41,6 +42,7 @@
 - [[npm/mime]] — MIME lookup utility · advisory mapped · historical ReDoS fixed in 1.4.1 and 2.0.3
 - [[npm/minimist]] — tiny CLI parser with outsized transitive blast radius
 - [[npm/nanoid]] — ID generator · advisory mapped · collision/predictability flaws fixed in 3.1.31, 3.3.8, and 5.0.9
+- [[npm/nth-check]] — selector parser utility · advisory mapped · pre-2.0.1 regex-complexity DoS fixed by parser rewrite
 - [[npm/node-fetch]] — fetch-compatible HTTP client · advisory mapped · redirect credential leakage, redirect size-limit bypass, and ReDoS history
 - [[npm/pac-resolver]] — PAC file parser / executor · advisory mapped · pre-5.0.0 code-injection history tied to unsafe PAC handling and the `degenerator` sandbox boundary
 - [[npm/next-intl]] — i18n / routing middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
@@ -58,6 +60,7 @@
 - [[npm/body-parser]] — request body parsing middleware · advisory mapped · 1.x and 2.x urlencoded-parser DoS fixes plus audit notes on parser boundaries
 - [[npm/send]] — static file serving engine · advisory mapped · three published package advisories across traversal, path disclosure, and redirect-template XSS
 - [[npm/serve-static]] — Express static-file middleware · advisory mapped · small package-level advisory set around redirect handling and redirect-page XSS
+- [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 - [[npm/xml2js]] — XML-to-object parser · advisory mapped · prototype-pollution fix in 0.5.0 on untrusted object-construction paths
 - [[npm/koa-router]] — Koa routing middleware · audit ingested · 2026 v15.4.0 source review, prefix-strip boundary bug filed as koajs/router#232

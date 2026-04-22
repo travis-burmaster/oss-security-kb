@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*78 packages tracked across 8 ecosystems. Last updated: 2026-04-22.*
+*81 packages tracked across 8 ecosystems. Last updated: 2026-04-22.*
 
-## npm (60)
+## npm (63)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/esbuild]] — JavaScript bundler / dev server · advisory mapped · dev-server CORS exposure fixed in 0.25.0
 - [[npm/ip]] — IP address helper · advisory mapped · SSRF-relevant private/public classification bypasses including an unresolved incomplete-fix chain through 2.0.1
@@ -38,6 +38,7 @@
 - [[npm/js-yaml]] — YAML parser · audit ingested · historical RCE plus disputed 2026 alias-expansion DoS finding
 - [[npm/serialize-javascript]] — JavaScript serialization helper · advisory mapped · repeated browser/SSR injection history plus 2026 CPU-exhaustion DoS
 - [[npm/koa-router]] — Koa routing middleware · audit ingested · 2026 v15.4.0 source review, prefix-strip boundary bug filed as koajs/router#232
+- [[npm/loader-utils]] — webpack ecosystem utility · advisory mapped · 2022 ReDoS pair plus prototype-pollution fixes across 1.x, 2.x, and 3.x
 - [[npm/lodash]] — lodash utility library · advisory mapped · prototype pollution, ReDoS, and template-injection history
 - [[npm/moment]] — date/time library · advisory mapped · legacy ReDoS history plus 2022 locale traversal and RFC2822 regex fixes
 - [[npm/mathjs]] — math expression engine · advisory mapped · 15.2.0 object-attribute / parser hardening security fix
@@ -47,6 +48,7 @@
 - [[npm/mime]] — MIME lookup utility · advisory mapped · historical ReDoS fixed in 1.4.1 and 2.0.3
 - [[npm/minimist]] — minimist argument parser · advisory mapped · high transitive risk
 - [[npm/nanoid]] — ID generator · advisory mapped · collision/predictability flaws fixed in 3.1.31, 3.3.8, and 5.0.9
+- [[npm/nth-check]] — selector parser utility · advisory mapped · pre-2.0.1 regex-complexity DoS fixed by parser rewrite
 - [[npm/node-fetch]] — fetch-compatible HTTP client · advisory mapped · redirect credential leakage, redirect size-limit bypass, and ReDoS history
 - [[npm/pac-resolver]] — PAC file parser / executor · advisory mapped · pre-5.0.0 code-injection history tied to unsafe PAC handling and the `degenerator` sandbox boundary
 - [[npm/next-intl]] — internationalization middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
@@ -61,6 +63,7 @@
 - [[npm/serve-static]] — Express static-file middleware · advisory mapped · small package-level advisory set around redirect handling and redirect-page XSS
 - [[npm/tmp]] — temporary-file helper · advisory mapped · symlink-based temp-path boundary bypass fixed in 0.2.4
 - [[npm/xml2js]] — XML-to-object parser · advisory mapped · prototype-pollution fix in 0.5.0 on untrusted object-construction paths
+- [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
 ## Rust / crates.io (3)

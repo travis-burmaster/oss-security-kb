@@ -1,0 +1,226 @@
+[
+  {
+    "name": ".editorconfig",
+    "path": ".editorconfig",
+    "sha": "7389ffbb3157a5535c39ad03fc30736435736b38",
+    "size": 279,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/.editorconfig?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/blob/master/.editorconfig",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/7389ffbb3157a5535c39ad03fc30736435736b38",
+    "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/.editorconfig",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/.editorconfig?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/7389ffbb3157a5535c39ad03fc30736435736b38",
+      "html": "https://github.com/webpack/loader-utils/blob/master/.editorconfig"
+    }
+  },
+  {
+    "name": ".eslintrc.json",
+    "path": ".eslintrc.json",
+    "sha": "c436959da08cae2c3733df699347b7c26108bb2b",
+    "size": 537,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/.eslintrc.json?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/blob/master/.eslintrc.json",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/c436959da08cae2c3733df699347b7c26108bb2b",
+    "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/.eslintrc.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/.eslintrc.json?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/c436959da08cae2c3733df699347b7c26108bb2b",
+      "html": "https://github.com/webpack/loader-utils/blob/master/.eslintrc.json"
+    }
+  },
+  {
+    "name": ".gitattributes",
+    "path": ".gitattributes",
+    "sha": "94f480de94e1d767531580401cbf13844868e82b",
+    "size": 18,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/.gitattributes?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/blob/master/.gitattributes",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/94f480de94e1d767531580401cbf13844868e82b",
+    "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/.gitattributes",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/.gitattributes?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/94f480de94e1d767531580401cbf13844868e82b",
+      "html": "https://github.com/webpack/loader-utils/blob/master/.gitattributes"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "5b51dd712c52583e4f0538d1e56dc0330769c966",
+    "size": 0,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/.github?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/tree/master/.github",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/trees/5b51dd712c52583e4f0538d1e56dc0330769c966",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/.github?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/trees/5b51dd712c52583e4f0538d1e56dc0330769c966",
+      "html": "https://github.com/webpack/loader-utils/tree/master/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "428a1dfdc2c1329588de1edae30a049dc1f6e139",
+    "size": 28,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/.gitignore?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/blob/master/.gitignore",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/428a1dfdc2c1329588de1edae30a049dc1f6e139",
+    "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/.gitignore?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/428a1dfdc2c1329588de1edae30a049dc1f6e139",
+      "html": "https://github.com/webpack/loader-utils/blob/master/.gitignore"
+    }
+  },
+  {
+    "name": ".prettierignore",
+    "path": ".prettierignore",
+    "sha": "f8f1e3121b45ab5f3772a81500e5e3c7af9a9163",
+    "size": 57,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/.prettierignore?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/blob/master/.prettierignore",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/f8f1e3121b45ab5f3772a81500e5e3c7af9a9163",
+    "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/.prettierignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/.prettierignore?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/f8f1e3121b45ab5f3772a81500e5e3c7af9a9163",
+      "html": "https://github.com/webpack/loader-utils/blob/master/.prettierignore"
+    }
+  },
+  {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "sha": "0ef90c1fd6abad216175202a9edbe841bfffc601",
+    "size": 7838,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/CHANGELOG.md?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/blob/master/CHANGELOG.md",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/0ef90c1fd6abad216175202a9edbe841bfffc601",
+    "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/CHANGELOG.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/CHANGELOG.md?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/0ef90c1fd6abad216175202a9edbe841bfffc601",
+      "html": "https://github.com/webpack/loader-utils/blob/master/CHANGELOG.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "8c11fc7289b75463fe07534fcc8224e333feb7ff",
+    "size": 1071,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/LICENSE?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/blob/master/LICENSE",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/8c11fc7289b75463fe07534fcc8224e333feb7ff",
+    "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/LICENSE?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/8c11fc7289b75463fe07534fcc8224e333feb7ff",
+      "html": "https://github.com/webpack/loader-utils/blob/master/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "f142c6e4b4de154bf51e1eb83d71cc38df01fb1a",
+    "size": 6188,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/README.md?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/f142c6e4b4de154bf51e1eb83d71cc38df01fb1a",
+    "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/f142c6e4b4de154bf51e1eb83d71cc38df01fb1a",
+      "html": "https://github.com/webpack/loader-utils/blob/master/README.md"
+    }
+  },
+  {
+    "name": "SECURITY.md",
+    "path": "SECURITY.md",
+    "sha": "0659df8e47445bf8570ce061bc12c85c29448c92",
+    "size": 217,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/SECURITY.md?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/blob/master/SECURITY.md",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/0659df8e47445bf8570ce061bc12c85c29448c92",
+    "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/SECURITY.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/SECURITY.md?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/0659df8e47445bf8570ce061bc12c85c29448c92",
+      "html": "https://github.com/webpack/loader-utils/blob/master/SECURITY.md"
+    }
+  },
+  {
+    "name": "lib",
+    "path": "lib",
+    "sha": "fd371dd69b40a7be3e82865c0086bd62759af0c0",
+    "size": 0,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/lib?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/tree/master/lib",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/trees/fd371dd69b40a7be3e82865c0086bd62759af0c0",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/lib?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/trees/fd371dd69b40a7be3e82865c0086bd62759af0c0",
+      "html": "https://github.com/webpack/loader-utils/tree/master/lib"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "5b02cc47e10e0b54334ad4274a2c88835c06fd9b",
+    "size": 811,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/package.json?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/blob/master/package.json",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/5b02cc47e10e0b54334ad4274a2c88835c06fd9b",
+    "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/package.json?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/5b02cc47e10e0b54334ad4274a2c88835c06fd9b",
+      "html": "https://github.com/webpack/loader-utils/blob/master/package.json"
+    }
+  },
+  {
+    "name": "test",
+    "path": "test",
+    "sha": "990cb09eb1e082bfb0a7713156004d62556ab057",
+    "size": 0,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/test?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/tree/master/test",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/trees/990cb09eb1e082bfb0a7713156004d62556ab057",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/test?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/trees/990cb09eb1e082bfb0a7713156004d62556ab057",
+      "html": "https://github.com/webpack/loader-utils/tree/master/test"
+    }
+  },
+  {
+    "name": "yarn.lock",
+    "path": "yarn.lock",
+    "sha": "1b06007d58a4823d93c9c825c3759edadc936000",
+    "size": 186718,
+    "url": "https://api.github.com/repos/webpack/loader-utils/contents/yarn.lock?ref=master",
+    "html_url": "https://github.com/webpack/loader-utils/blob/master/yarn.lock",
+    "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/1b06007d58a4823d93c9c825c3759edadc936000",
+    "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/yarn.lock",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/webpack/loader-utils/contents/yarn.lock?ref=master",
+      "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/1b06007d58a4823d93c9c825c3759edadc936000",
+      "html": "https://github.com/webpack/loader-utils/blob/master/yarn.lock"
+    }
+  }
+]

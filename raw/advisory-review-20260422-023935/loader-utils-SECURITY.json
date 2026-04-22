@@ -1,0 +1,18 @@
+{
+  "name": "SECURITY.md",
+  "path": "SECURITY.md",
+  "sha": "0659df8e47445bf8570ce061bc12c85c29448c92",
+  "size": 217,
+  "url": "https://api.github.com/repos/webpack/loader-utils/contents/SECURITY.md?ref=master",
+  "html_url": "https://github.com/webpack/loader-utils/blob/master/SECURITY.md",
+  "git_url": "https://api.github.com/repos/webpack/loader-utils/git/blobs/0659df8e47445bf8570ce061bc12c85c29448c92",
+  "download_url": "https://raw.githubusercontent.com/webpack/loader-utils/master/SECURITY.md",
+  "type": "file",
+  "content": "IyBTZWN1cml0eSBQb2xpY3kKCiMjIFJlcG9ydGluZyBTZWN1cml0eSBJc3N1\nZXMKCklmIHlvdSBkaXNjb3ZlciBhIHNlY3VyaXR5IGlzc3VlIGluIHdlYnBh\nY2svbG9hZGVyLXV0aWxzLCBwbGVhc2UgcmVwb3J0IGl0IGJ5IGZvbGxvd2lu\nZyB0aGUgaW5zdHJ1Y3Rpb25zCmhlcmU6IGh0dHBzOi8vZ2l0aHViLmNvbS93\nZWJwYWNrL3dlYnBhY2svYmxvYi9tYWluL1NFQ1VSSVRZLm1kCg==\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/webpack/loader-utils/contents/SECURITY.md?ref=master",
+    "git": "https://api.github.com/repos/webpack/loader-utils/git/blobs/0659df8e47445bf8570ce061bc12c85c29448c92",
+    "html": "https://github.com/webpack/loader-utils/blob/master/SECURITY.md"
+  }
+}
