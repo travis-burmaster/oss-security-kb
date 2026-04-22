@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*77 packages tracked across 8 ecosystems. Last updated: 2026-04-21.*
+*78 packages tracked across 8 ecosystems. Last updated: 2026-04-22.*
 
-## npm (59)
+## npm (60)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/esbuild]] — JavaScript bundler / dev server · advisory mapped · dev-server CORS exposure fixed in 0.25.0
 - [[npm/ip]] — IP address helper · advisory mapped · SSRF-relevant private/public classification bypasses including an unresolved incomplete-fix chain through 2.0.1
@@ -51,6 +51,7 @@
 - [[npm/pac-resolver]] — PAC file parser / executor · advisory mapped · pre-5.0.0 code-injection history tied to unsafe PAC handling and the `degenerator` sandbox boundary
 - [[npm/next-intl]] — internationalization middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
 - [[npm/passport]] — authentication middleware foundation · advisory mapped · pre-0.6.0 session-fixation issue in login/logout session handling
+- [[npm/path-parse]] — path parsing ponyfill · advisory mapped · pre-1.0.7 ReDoS fixed in 1.0.7
 - [[npm/path-to-regexp]] — route parser · advisory mapped · audit and ReDoS history
 - [[npm/postcss]] — CSS parser / transform foundation · advisory mapped · source-map ReDoS pair plus 2023 carriage-return parsing integrity bug
 - [[npm/qs]] — query-string parser · advisory mapped · prototype-pollution and parser-limit bypass history

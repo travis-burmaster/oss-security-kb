@@ -45,6 +45,7 @@
 - [[npm/pac-resolver]] — PAC file parser / executor · advisory mapped · pre-5.0.0 code-injection history tied to unsafe PAC handling and the `degenerator` sandbox boundary
 - [[npm/next-intl]] — i18n / routing middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
 - [[npm/passport]] — authentication middleware foundation · advisory mapped · pre-0.6.0 session-fixation issue in login/logout session handling
+- [[npm/path-parse]] — path parsing ponyfill · advisory mapped · pre-1.0.7 ReDoS fixed in 1.0.7
 - [[npm/path-to-regexp]] — routing parser · advisory mapped · legacy and modern ReDoS / route-expansion hardening history
 - [[npm/postcss]] — CSS parser / transform foundation · advisory mapped · source-map ReDoS pair plus 2023 carriage-return parsing integrity bug
 - [[npm/qs]] — query-string parser · advisory mapped · prototype-pollution and parser-limit bypass history

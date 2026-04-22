@@ -1,0 +1,11 @@
+Review the public evidence for these OSS Security KB candidates and propose evidence-backed KB updates only. Do not fabricate findings or infer unpublished vulnerabilities.
+
+Candidates:
+1) path-parse (npm) — likely clean gap. Evidence indicates one published package advisory: GHSA-hj48-42vr-x3v9 / CVE-2021-23343, affecting <1.0.7 and fixed in 1.0.7. Supporting public references include the OSV query, the GHSA API record, npm registry metadata showing latest 1.0.7, npm downloads showing ~117M last-week downloads, and public upstream issue #8 / PR #10 / commit eca63a7.
+2) minimist (npm) — comparison candidate. Existing KB page already tracks GHSA-vh95-rmgr-6w4m / CVE-2020-7598 and GHSA-xvch-5gv4-984h / CVE-2021-44906.
+3) semver (npm) — comparison candidate. Existing KB page already tracks GHSA-x6fg-f45m-jf5q / CVE-2015-8855 and GHSA-c2qf-rxjj-qqgw / CVE-2022-25883.
+
+Return concise draft guidance in this shape:
+- Which candidates justify changes and why
+- For any package that should change, provide a conservative KB-page draft outline with only evidence-backed claims
+- For candidates that should not change, say why not
