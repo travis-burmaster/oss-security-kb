@@ -1,0 +1,22 @@
+Review the gathered PUBLIC evidence for the OSS Security KB package page candidate `github.com/gorilla/websocket`.
+
+Facts from evidence:
+- OSV package query returns two records but they normalize to the same underlying issue: `GHSA-3xh2-74w9-5vxm` and `GO-2020-0019`, both aliasing `CVE-2020-27813` and `GHSA-jf24-p9p9-4rjh`.
+- Both OSV records say affected range is introduced 0, fixed 1.4.1.
+- GitHub advisory title: Integer overflow in github.com/gorilla/websocket
+- GitHub advisory published_at: 2021-05-18T21:08:02Z
+- Upstream public advisory says malicious frames can trigger integer overflow / bypass read limits / excessive memory or OOM and recommends upgrade to >= v1.4.1.
+- Upstream fix PR: #537 "Read Limit Fix" merged at 2019-08-25T01:17:29Z.
+- Upstream fix commit: https://github.com/gorilla/websocket/commit/5b740c29263eb386f33f265561c8262522f19d37
+- Repo pushed_at: 2025-03-19T13:29:08Z; default branch: main
+- Releases API includes newer releases up to v1.5.3 published 2024-06-14T03:22:21Z.
+- Root repo contents did not show a root SECURITY.md in this evidence bundle.
+
+Task:
+Draft a conservative KB page outline with:
+1) short audit-history sentence
+2) one normalized known-vulnerability row
+3) 4-6 security-posture bullets
+4) 2-3 dependencies/adjacent-surface bullets
+5) 2-3 open questions
+Keep it evidence-backed only. Do not invent extra vulnerabilities. Mention that the two OSV results collapse to one underlying issue. Plain markdown only.
