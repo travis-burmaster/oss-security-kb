@@ -1,0 +1,24 @@
+You are helping draft an OSS security KB page using ONLY the evidence summarized below. Do not invent advisories, versions, exploitability, or sources. Output concise markdown notes with: (1) likely page summary, (2) known vulnerabilities table rows, (3) posture notes, (4) recommendations, (5) open questions. Be explicit about uncertainty and dependency-scoped nuance.
+
+Package: sharp (npm)
+Repository: https://github.com/lovell/sharp
+Latest npm dist-tag observed: 0.34.5
+Weekly downloads observed: 56,858,420
+Security policy: latest npm version supported; report via email; 48h response target.
+
+Public evidence:
+1) OSV/GHSA GHSA-gp95-ppv5-3jc5 / CVE-2022-29256
+- summary: command injection in post-installation over build environment
+- details: only install-time logic; not runtime code; not Windows; attacker would need ability to set PKG_CONFIG_PATH in build environment; fixed in sharp 0.30.5
+- refs include upstream advisory, NVD, fix commit a6aeef612be50f5868a77481848b1de674216f0c, external disclosure
+
+2) OSV/GHSA GHSA-54xq-cgqr-rpm3
+- summary: sharp vulnerability in libwebp dependency CVE-2023-4863
+- details: sharp uses libwebp to decode WebP images; versions prior to 0.32.6 are vulnerable via the bundled dependency unless using globally installed libvips, in which case users need libwebp 1.3.2; workaround shown by upstream is blocking WebP decoding; fixed in sharp 0.32.6
+- refs include upstream advisory and fix commit dbce6fab795ca4250bda9b1ef502c1fdb7d4a30c
+
+3) npm registry metadata shows current latest 0.34.5.
+4) GitHub release tag timestamps exist for v0.30.5 (2022-05-23) and v0.32.6 (2023-09-18).
+5) Upstream SECURITY.md says only latest npm version is supported with security updates.
+
+Need drafting help only; final text will be checked against source evidence.
