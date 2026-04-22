@@ -1,0 +1,258 @@
+[
+  {
+    "name": ".eslintrc",
+    "path": ".eslintrc",
+    "sha": "5ce8c64a2d25896333370268d7ed3856bdf1827c",
+    "size": 456,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/.eslintrc?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/.eslintrc",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/5ce8c64a2d25896333370268d7ed3856bdf1827c",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/.eslintrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/.eslintrc?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/5ce8c64a2d25896333370268d7ed3856bdf1827c",
+      "html": "https://github.com/yargs/y18n/blob/master/.eslintrc"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "8f35bcb0363b2e517e385a190366e6322b9b12d1",
+    "size": 0,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/.github?ref=master",
+    "html_url": "https://github.com/yargs/y18n/tree/master/.github",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/trees/8f35bcb0363b2e517e385a190366e6322b9b12d1",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/.github?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/trees/8f35bcb0363b2e517e385a190366e6322b9b12d1",
+      "html": "https://github.com/yargs/y18n/tree/master/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "6430fa79eb01a39ba1b7c2bbe77346e6b172bae6",
+    "size": 78,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/.gitignore?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/.gitignore",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/6430fa79eb01a39ba1b7c2bbe77346e6b172bae6",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/.gitignore?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/6430fa79eb01a39ba1b7c2bbe77346e6b172bae6",
+      "html": "https://github.com/yargs/y18n/blob/master/.gitignore"
+    }
+  },
+  {
+    "name": ".nycrc",
+    "path": ".nycrc",
+    "sha": "22f97ab90d2d01965fc23d118a29a60d4f7a75cc",
+    "size": 157,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/.nycrc?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/.nycrc",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/22f97ab90d2d01965fc23d118a29a60d4f7a75cc",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/.nycrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/.nycrc?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/22f97ab90d2d01965fc23d118a29a60d4f7a75cc",
+      "html": "https://github.com/yargs/y18n/blob/master/.nycrc"
+    }
+  },
+  {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "sha": "244d83850d30a2e3ca559b2abeff529a04e971df",
+    "size": 3911,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/CHANGELOG.md?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/CHANGELOG.md",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/244d83850d30a2e3ca559b2abeff529a04e971df",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/CHANGELOG.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/CHANGELOG.md?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/244d83850d30a2e3ca559b2abeff529a04e971df",
+      "html": "https://github.com/yargs/y18n/blob/master/CHANGELOG.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "3c157f0b9d9bed83163710392914df506bcb15b1",
+    "size": 731,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/LICENSE?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/LICENSE",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/3c157f0b9d9bed83163710392914df506bcb15b1",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/LICENSE?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/3c157f0b9d9bed83163710392914df506bcb15b1",
+      "html": "https://github.com/yargs/y18n/blob/master/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "5102bb17dbd41847e8a3c07e0e3e9273fb9ea8c7",
+    "size": 3215,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/README.md?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/5102bb17dbd41847e8a3c07e0e3e9273fb9ea8c7",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/5102bb17dbd41847e8a3c07e0e3e9273fb9ea8c7",
+      "html": "https://github.com/yargs/y18n/blob/master/README.md"
+    }
+  },
+  {
+    "name": "deno.ts",
+    "path": "deno.ts",
+    "sha": "feae3e4f3002ccf29ee9004ff6b777fb192acde7",
+    "size": 242,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/deno.ts?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/deno.ts",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/feae3e4f3002ccf29ee9004ff6b777fb192acde7",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/deno.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/deno.ts?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/feae3e4f3002ccf29ee9004ff6b777fb192acde7",
+      "html": "https://github.com/yargs/y18n/blob/master/deno.ts"
+    }
+  },
+  {
+    "name": "index.mjs",
+    "path": "index.mjs",
+    "sha": "46c82133c91d2fd6582c5cbf280232eb83bc4a2f",
+    "size": 183,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/index.mjs?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/index.mjs",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/46c82133c91d2fd6582c5cbf280232eb83bc4a2f",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/index.mjs",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/index.mjs?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/46c82133c91d2fd6582c5cbf280232eb83bc4a2f",
+      "html": "https://github.com/yargs/y18n/blob/master/index.mjs"
+    }
+  },
+  {
+    "name": "lib",
+    "path": "lib",
+    "sha": "db3ecca45851199d1e39b5f4d400982ad35e429f",
+    "size": 0,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/lib?ref=master",
+    "html_url": "https://github.com/yargs/y18n/tree/master/lib",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/trees/db3ecca45851199d1e39b5f4d400982ad35e429f",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/lib?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/trees/db3ecca45851199d1e39b5f4d400982ad35e429f",
+      "html": "https://github.com/yargs/y18n/tree/master/lib"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "e15005415284d34a64d31ff1864356ec5a4e062c",
+    "size": 1797,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/package.json?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/package.json",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/e15005415284d34a64d31ff1864356ec5a4e062c",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/package.json?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/e15005415284d34a64d31ff1864356ec5a4e062c",
+      "html": "https://github.com/yargs/y18n/blob/master/package.json"
+    }
+  },
+  {
+    "name": "renovate.json",
+    "path": "renovate.json",
+    "sha": "f6dd45e1b175f618cec7bff3be326faf32bb2427",
+    "size": 112,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/renovate.json?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/renovate.json",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/f6dd45e1b175f618cec7bff3be326faf32bb2427",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/renovate.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/renovate.json?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/f6dd45e1b175f618cec7bff3be326faf32bb2427",
+      "html": "https://github.com/yargs/y18n/blob/master/renovate.json"
+    }
+  },
+  {
+    "name": "rollup.config.js",
+    "path": "rollup.config.js",
+    "sha": "b3b1a0258a90864721e9448a6e8b410be1d4c0f5",
+    "size": 454,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/rollup.config.js?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/rollup.config.js",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/b3b1a0258a90864721e9448a6e8b410be1d4c0f5",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/rollup.config.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/rollup.config.js?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/b3b1a0258a90864721e9448a6e8b410be1d4c0f5",
+      "html": "https://github.com/yargs/y18n/blob/master/rollup.config.js"
+    }
+  },
+  {
+    "name": "test",
+    "path": "test",
+    "sha": "8ab4944c0a1151acd853c5ea42c6e8341797f6de",
+    "size": 0,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/test?ref=master",
+    "html_url": "https://github.com/yargs/y18n/tree/master/test",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/trees/8ab4944c0a1151acd853c5ea42c6e8341797f6de",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/test?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/trees/8ab4944c0a1151acd853c5ea42c6e8341797f6de",
+      "html": "https://github.com/yargs/y18n/tree/master/test"
+    }
+  },
+  {
+    "name": "tsconfig.json",
+    "path": "tsconfig.json",
+    "sha": "931874518d6e6f1acdae8a56628efdb976071cd8",
+    "size": 325,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/tsconfig.json?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/tsconfig.json",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/931874518d6e6f1acdae8a56628efdb976071cd8",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/tsconfig.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/tsconfig.json?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/931874518d6e6f1acdae8a56628efdb976071cd8",
+      "html": "https://github.com/yargs/y18n/blob/master/tsconfig.json"
+    }
+  },
+  {
+    "name": "tsconfig.test.json",
+    "path": "tsconfig.test.json",
+    "sha": "b2175ed7a3d477cfb6e37f1fdaca39c23dd4f0a1",
+    "size": 138,
+    "url": "https://api.github.com/repos/yargs/y18n/contents/tsconfig.test.json?ref=master",
+    "html_url": "https://github.com/yargs/y18n/blob/master/tsconfig.test.json",
+    "git_url": "https://api.github.com/repos/yargs/y18n/git/blobs/b2175ed7a3d477cfb6e37f1fdaca39c23dd4f0a1",
+    "download_url": "https://raw.githubusercontent.com/yargs/y18n/master/tsconfig.test.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/yargs/y18n/contents/tsconfig.test.json?ref=master",
+      "git": "https://api.github.com/repos/yargs/y18n/git/blobs/b2175ed7a3d477cfb6e37f1fdaca39c23dd4f0a1",
+      "html": "https://github.com/yargs/y18n/blob/master/tsconfig.test.json"
+    }
+  }
+]

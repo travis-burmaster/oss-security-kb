@@ -1,0 +1,41 @@
+You are helping draft OSS Security Knowledge Base package pages.
+
+Constraints:
+- Use ONLY the public evidence summarized below.
+- Do not fabricate findings.
+- Output concise markdown-ready bullets for 3 npm package pages: loader-utils, nth-check, y18n.
+- For each package, provide:
+  1) suggested Current Status,
+  2) normalized Known Vulnerabilities table rows,
+  3) 4-6 Security Posture Notes,
+  4) 3 Recommendations,
+  5) 2-3 Open Questions.
+- Keep claims conservative and evidence-backed.
+
+Evidence summary:
+
+loader-utils
+- npm latest: 3.3.1; weekly downloads: 55,048,614 (2026-04-14 to 2026-04-20)
+- repo: https://github.com/webpack/loader-utils
+- SECURITY.md exists and points reporters to https://github.com/webpack/webpack/blob/main/SECURITY.md
+- OSV query returns 3 advisories:
+  - GHSA-hhq3-ff78-jv3g / CVE-2022-37599: ReDoS; affected 1.0.0-<1.4.2, 2.0.0-<2.0.4, 3.0.0-<3.2.1
+  - GHSA-3rfm-jhwj-7488 / CVE-2022-37603: ReDoS via url variable; affected 1.0.0-<1.4.2, 2.0.0-<2.0.4, 3.0.0-<3.2.1
+  - GHSA-76p3-8jx3-jpfq / CVE-2022-37601: prototype pollution; affected <1.4.1 and 2.0.0-<2.0.3
+- Public upstream references include issues #211, #212, #213, PR #217, and fix commits 17cbf8f / ac09944 / d2d752d with commit messages 'fix: ReDoS problem'.
+
+nth-check
+- npm latest: 3.0.1; weekly downloads: 52,234,671 (2026-04-14 to 2026-04-20)
+- repo: https://github.com/fb55/nth-check
+- no SECURITY.md confirmed in repo root during this pass
+- OSV query returns 1 advisory:
+  - GHSA-rp65-9cf3-cjxr / CVE-2021-3803: Inefficient Regular Expression Complexity in nth-check; affected <2.0.1; fixed in 2.0.1
+- Public upstream fix commit: 9894c1d 'fix(parse): Replace regex with hand-rolled parser (#9)'
+
+y18n
+- npm latest: 5.0.8; weekly downloads: 124,871,992 (2026-04-14 to 2026-04-20)
+- repo: https://github.com/yargs/y18n
+- no SECURITY.md confirmed in repo root during this pass
+- OSV query returns 1 advisory:
+  - GHSA-c4w7-xm78-47vh / CVE-2020-7774: prototype pollution; affected <3.2.2, 4.0.0-<4.0.1, 5.0.0-<5.0.5
+- Public upstream references include issue #96 'Prototype pollution', PR #108 'fix: address prototype pollution issue', and commits 90401ee / a9ac604.

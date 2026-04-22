@@ -1,0 +1,178 @@
+[
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "2aceba4c0ac2be1dc3b5adace097eb5cb4b625b6",
+    "size": 0,
+    "url": "https://api.github.com/repos/fb55/nth-check/contents/.github?ref=master",
+    "html_url": "https://github.com/fb55/nth-check/tree/master/.github",
+    "git_url": "https://api.github.com/repos/fb55/nth-check/git/trees/2aceba4c0ac2be1dc3b5adace097eb5cb4b625b6",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/fb55/nth-check/contents/.github?ref=master",
+      "git": "https://api.github.com/repos/fb55/nth-check/git/trees/2aceba4c0ac2be1dc3b5adace097eb5cb4b625b6",
+      "html": "https://github.com/fb55/nth-check/tree/master/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "6f3539e37333e71453bb87e488c727ac41857fcd",
+    "size": 48,
+    "url": "https://api.github.com/repos/fb55/nth-check/contents/.gitignore?ref=master",
+    "html_url": "https://github.com/fb55/nth-check/blob/master/.gitignore",
+    "git_url": "https://api.github.com/repos/fb55/nth-check/git/blobs/6f3539e37333e71453bb87e488c727ac41857fcd",
+    "download_url": "https://raw.githubusercontent.com/fb55/nth-check/master/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/fb55/nth-check/contents/.gitignore?ref=master",
+      "git": "https://api.github.com/repos/fb55/nth-check/git/blobs/6f3539e37333e71453bb87e488c727ac41857fcd",
+      "html": "https://github.com/fb55/nth-check/blob/master/.gitignore"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "c464f863ea2b18a15ca3883bc5d98065ed5d039a",
+    "size": 1260,
+    "url": "https://api.github.com/repos/fb55/nth-check/contents/LICENSE?ref=master",
+    "html_url": "https://github.com/fb55/nth-check/blob/master/LICENSE",
+    "git_url": "https://api.github.com/repos/fb55/nth-check/git/blobs/c464f863ea2b18a15ca3883bc5d98065ed5d039a",
+    "download_url": "https://raw.githubusercontent.com/fb55/nth-check/master/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/fb55/nth-check/contents/LICENSE?ref=master",
+      "git": "https://api.github.com/repos/fb55/nth-check/git/blobs/c464f863ea2b18a15ca3883bc5d98065ed5d039a",
+      "html": "https://github.com/fb55/nth-check/blob/master/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "ff496069428bc8f4e4da5632d17c49a186bd1f1f",
+    "size": 3107,
+    "url": "https://api.github.com/repos/fb55/nth-check/contents/README.md?ref=master",
+    "html_url": "https://github.com/fb55/nth-check/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/fb55/nth-check/git/blobs/ff496069428bc8f4e4da5632d17c49a186bd1f1f",
+    "download_url": "https://raw.githubusercontent.com/fb55/nth-check/master/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/fb55/nth-check/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/fb55/nth-check/git/blobs/ff496069428bc8f4e4da5632d17c49a186bd1f1f",
+      "html": "https://github.com/fb55/nth-check/blob/master/README.md"
+    }
+  },
+  {
+    "name": "biome.json",
+    "path": "biome.json",
+    "sha": "2da71afe3ea7eba2bc57e3ca80cba38d9b44641e",
+    "size": 3039,
+    "url": "https://api.github.com/repos/fb55/nth-check/contents/biome.json?ref=master",
+    "html_url": "https://github.com/fb55/nth-check/blob/master/biome.json",
+    "git_url": "https://api.github.com/repos/fb55/nth-check/git/blobs/2da71afe3ea7eba2bc57e3ca80cba38d9b44641e",
+    "download_url": "https://raw.githubusercontent.com/fb55/nth-check/master/biome.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/fb55/nth-check/contents/biome.json?ref=master",
+      "git": "https://api.github.com/repos/fb55/nth-check/git/blobs/2da71afe3ea7eba2bc57e3ca80cba38d9b44641e",
+      "html": "https://github.com/fb55/nth-check/blob/master/biome.json"
+    }
+  },
+  {
+    "name": "eslint.config.mjs",
+    "path": "eslint.config.mjs",
+    "sha": "0f64f2fa50ae6de50c9514ed31baa7ec7dee907c",
+    "size": 1092,
+    "url": "https://api.github.com/repos/fb55/nth-check/contents/eslint.config.mjs?ref=master",
+    "html_url": "https://github.com/fb55/nth-check/blob/master/eslint.config.mjs",
+    "git_url": "https://api.github.com/repos/fb55/nth-check/git/blobs/0f64f2fa50ae6de50c9514ed31baa7ec7dee907c",
+    "download_url": "https://raw.githubusercontent.com/fb55/nth-check/master/eslint.config.mjs",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/fb55/nth-check/contents/eslint.config.mjs?ref=master",
+      "git": "https://api.github.com/repos/fb55/nth-check/git/blobs/0f64f2fa50ae6de50c9514ed31baa7ec7dee907c",
+      "html": "https://github.com/fb55/nth-check/blob/master/eslint.config.mjs"
+    }
+  },
+  {
+    "name": "package-lock.json",
+    "path": "package-lock.json",
+    "sha": "56432066725d07082c8add5f13a50d9cace24bd3",
+    "size": 128005,
+    "url": "https://api.github.com/repos/fb55/nth-check/contents/package-lock.json?ref=master",
+    "html_url": "https://github.com/fb55/nth-check/blob/master/package-lock.json",
+    "git_url": "https://api.github.com/repos/fb55/nth-check/git/blobs/56432066725d07082c8add5f13a50d9cace24bd3",
+    "download_url": "https://raw.githubusercontent.com/fb55/nth-check/master/package-lock.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/fb55/nth-check/contents/package-lock.json?ref=master",
+      "git": "https://api.github.com/repos/fb55/nth-check/git/blobs/56432066725d07082c8add5f13a50d9cace24bd3",
+      "html": "https://github.com/fb55/nth-check/blob/master/package-lock.json"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "a4fa2d5ebf83139195e96935c23c7b949a420516",
+    "size": 1947,
+    "url": "https://api.github.com/repos/fb55/nth-check/contents/package.json?ref=master",
+    "html_url": "https://github.com/fb55/nth-check/blob/master/package.json",
+    "git_url": "https://api.github.com/repos/fb55/nth-check/git/blobs/a4fa2d5ebf83139195e96935c23c7b949a420516",
+    "download_url": "https://raw.githubusercontent.com/fb55/nth-check/master/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/fb55/nth-check/contents/package.json?ref=master",
+      "git": "https://api.github.com/repos/fb55/nth-check/git/blobs/a4fa2d5ebf83139195e96935c23c7b949a420516",
+      "html": "https://github.com/fb55/nth-check/blob/master/package.json"
+    }
+  },
+  {
+    "name": "src",
+    "path": "src",
+    "sha": "932bd2086e31e0ef3407100d59e466d42cdfaa32",
+    "size": 0,
+    "url": "https://api.github.com/repos/fb55/nth-check/contents/src?ref=master",
+    "html_url": "https://github.com/fb55/nth-check/tree/master/src",
+    "git_url": "https://api.github.com/repos/fb55/nth-check/git/trees/932bd2086e31e0ef3407100d59e466d42cdfaa32",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/fb55/nth-check/contents/src?ref=master",
+      "git": "https://api.github.com/repos/fb55/nth-check/git/trees/932bd2086e31e0ef3407100d59e466d42cdfaa32",
+      "html": "https://github.com/fb55/nth-check/tree/master/src"
+    }
+  },
+  {
+    "name": "tsconfig.eslint.json",
+    "path": "tsconfig.eslint.json",
+    "sha": "a797f38ef4ad467f7f20ea0e5e0f18939bbf0df5",
+    "size": 206,
+    "url": "https://api.github.com/repos/fb55/nth-check/contents/tsconfig.eslint.json?ref=master",
+    "html_url": "https://github.com/fb55/nth-check/blob/master/tsconfig.eslint.json",
+    "git_url": "https://api.github.com/repos/fb55/nth-check/git/blobs/a797f38ef4ad467f7f20ea0e5e0f18939bbf0df5",
+    "download_url": "https://raw.githubusercontent.com/fb55/nth-check/master/tsconfig.eslint.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/fb55/nth-check/contents/tsconfig.eslint.json?ref=master",
+      "git": "https://api.github.com/repos/fb55/nth-check/git/blobs/a797f38ef4ad467f7f20ea0e5e0f18939bbf0df5",
+      "html": "https://github.com/fb55/nth-check/blob/master/tsconfig.eslint.json"
+    }
+  },
+  {
+    "name": "tsconfig.json",
+    "path": "tsconfig.json",
+    "sha": "600d89ad673f1057a8e4ba89138e5a6c9bec020c",
+    "size": 820,
+    "url": "https://api.github.com/repos/fb55/nth-check/contents/tsconfig.json?ref=master",
+    "html_url": "https://github.com/fb55/nth-check/blob/master/tsconfig.json",
+    "git_url": "https://api.github.com/repos/fb55/nth-check/git/blobs/600d89ad673f1057a8e4ba89138e5a6c9bec020c",
+    "download_url": "https://raw.githubusercontent.com/fb55/nth-check/master/tsconfig.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/fb55/nth-check/contents/tsconfig.json?ref=master",
+      "git": "https://api.github.com/repos/fb55/nth-check/git/blobs/600d89ad673f1057a8e4ba89138e5a6c9bec020c",
+      "html": "https://github.com/fb55/nth-check/blob/master/tsconfig.json"
+    }
+  }
+]

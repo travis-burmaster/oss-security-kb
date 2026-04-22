@@ -1,0 +1,97 @@
+{
+  "sha": "90401eea9062ad498f4f792e3fff8008c4c193a3",
+  "node_id": "MDY6Q29tbWl0Mzk3MjA4ODY6OTA0MDFlZWE5MDYyYWQ0OThmNGY3OTJlM2ZmZjgwMDhjNGMxOTNhMw==",
+  "commit": {
+    "author": {
+      "name": "bcoe",
+      "email": "bencoe@google.com",
+      "date": "2021-01-04T22:45:06Z"
+    },
+    "committer": {
+      "name": "bcoe",
+      "email": "bencoe@google.com",
+      "date": "2021-01-04T22:45:06Z"
+    },
+    "message": "fix: address prototype pollution",
+    "tree": {
+      "sha": "f6a2533383f93505669fcd9596ad8bbd2ff45e99",
+      "url": "https://api.github.com/repos/yargs/y18n/git/trees/f6a2533383f93505669fcd9596ad8bbd2ff45e99"
+    },
+    "url": "https://api.github.com/repos/yargs/y18n/git/commits/90401eea9062ad498f4f792e3fff8008c4c193a3",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/yargs/y18n/commits/90401eea9062ad498f4f792e3fff8008c4c193a3",
+  "html_url": "https://github.com/yargs/y18n/commit/90401eea9062ad498f4f792e3fff8008c4c193a3",
+  "comments_url": "https://api.github.com/repos/yargs/y18n/commits/90401eea9062ad498f4f792e3fff8008c4c193a3/comments",
+  "author": null,
+  "committer": null,
+  "parents": [
+    {
+      "sha": "77f684ed7c033fc99082835631dae14badbe9595",
+      "url": "https://api.github.com/repos/yargs/y18n/commits/77f684ed7c033fc99082835631dae14badbe9595",
+      "html_url": "https://github.com/yargs/y18n/commit/77f684ed7c033fc99082835631dae14badbe9595"
+    }
+  ],
+  "stats": {
+    "total": 28,
+    "additions": 26,
+    "deletions": 2
+  },
+  "files": [
+    {
+      "sha": "bb784a42b3c28fa866666a407e4b0bf5686564d4",
+      "filename": "CHANGELOG.md",
+      "status": "added",
+      "additions": 6,
+      "deletions": 0,
+      "changes": 6,
+      "blob_url": "https://github.com/yargs/y18n/blob/90401eea9062ad498f4f792e3fff8008c4c193a3/CHANGELOG.md",
+      "raw_url": "https://github.com/yargs/y18n/raw/90401eea9062ad498f4f792e3fff8008c4c193a3/CHANGELOG.md",
+      "contents_url": "https://api.github.com/repos/yargs/y18n/contents/CHANGELOG.md?ref=90401eea9062ad498f4f792e3fff8008c4c193a3",
+      "patch": "@@ -0,0 +1,6 @@\n+### 3.2.2 (2021-01-04)\n+\n+\n+### Bug Fixes\n+\n+* address prototype pollution issue ([#108](https://www.github.com/yargs/y18n/issues/108)) ([a9ac604](https://www.github.com/yargs/y18n/commit/a9ac604abf756dec9687be3843e2c93bfe581f25))"
+    },
+    {
+      "sha": "7a2b9ab91e3fbc8e92097f23c1143c585a6f62df",
+      "filename": "index.js",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/yargs/y18n/blob/90401eea9062ad498f4f792e3fff8008c4c193a3/index.js",
+      "raw_url": "https://github.com/yargs/y18n/raw/90401eea9062ad498f4f792e3fff8008c4c193a3/index.js",
+      "contents_url": "https://api.github.com/repos/yargs/y18n/contents/index.js?ref=90401eea9062ad498f4f792e3fff8008c4c193a3",
+      "patch": "@@ -11,7 +11,7 @@ function Y18N (opts) {\n   this.fallbackToLanguage = typeof opts.fallbackToLanguage === 'boolean' ? opts.fallbackToLanguage : true\n \n   // internal stuff.\n-  this.cache = {}\n+  this.cache = Object.create(null)\n   this.writeQueue = []\n }\n "
+    },
+    {
+      "sha": "d106ca4b2c5a0996e493e279e50c9cd148f90cda",
+      "filename": "package.json",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/yargs/y18n/blob/90401eea9062ad498f4f792e3fff8008c4c193a3/package.json",
+      "raw_url": "https://github.com/yargs/y18n/raw/90401eea9062ad498f4f792e3fff8008c4c193a3/package.json",
+      "contents_url": "https://api.github.com/repos/yargs/y18n/contents/package.json?ref=90401eea9062ad498f4f792e3fff8008c4c193a3",
+      "patch": "@@ -1,6 +1,6 @@\n {\n   \"name\": \"y18n\",\n-  \"version\": \"3.2.1\",\n+  \"version\": \"3.2.2\",\n   \"description\": \"the bare-bones internationalization library used by yargs\",\n   \"main\": \"index.js\",\n   \"scripts\": {"
+    },
+    {
+      "sha": "925018cf5cbcefb6df382c6cab035939901bf61f",
+      "filename": "test/y18n-test.js",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 0,
+      "changes": 18,
+      "blob_url": "https://github.com/yargs/y18n/blob/90401eea9062ad498f4f792e3fff8008c4c193a3/test%2Fy18n-test.js",
+      "raw_url": "https://github.com/yargs/y18n/raw/90401eea9062ad498f4f792e3fff8008c4c193a3/test%2Fy18n-test.js",
+      "contents_url": "https://api.github.com/repos/yargs/y18n/contents/test%2Fy18n-test.js?ref=90401eea9062ad498f4f792e3fff8008c4c193a3",
+      "patch": "@@ -336,6 +336,24 @@ describe('y18n', function () {\n     })\n   })\n \n+  // See: https://github.com/yargs/y18n/issues/96,\n+  // https://github.com/yargs/y18n/pull/107\n+  describe('prototype pollution', function () {\n+    it('does not pollute prototype, with __proto__ locale', function () {\n+      const y = y18n()\n+      y.setLocale('__proto__')\n+      y.updateLocale({ polluted: '👽' })\n+      y.__('polluted').should.equal('👽')\n+      ;(typeof polluted).should.equal('undefined')\n+    })\n+\n+    it('does not pollute prototype, when __ is used with __proto__ locale', function () {\n+      const __ = y18n({ locale: '__proto__' }).__\n+      __('hello')\n+      ;(typeof {}.hello).should.equal('undefined')\n+    })\n+  })\n+\n   after(function () {\n     rimraf.sync('./test/locales/fr.json')\n   })"
+    }
+  ]
+}
