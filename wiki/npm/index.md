@@ -47,6 +47,7 @@
 - [[npm/nanoid]] — ID generator · advisory mapped · collision/predictability flaws fixed in 3.1.31, 3.3.8, and 5.0.9
 - [[npm/nth-check]] — selector parser utility · advisory mapped · pre-2.0.1 regex-complexity DoS fixed by parser rewrite
 - [[npm/node-fetch]] — fetch-compatible HTTP client · advisory mapped · redirect credential leakage, redirect size-limit bypass, and ReDoS history
+- [[npm/pug]] — templating engine · advisory mapped · compiler-option code-execution fixes in 3.0.1 and 3.0.3
 - [[npm/pac-resolver]] — PAC file parser / executor · advisory mapped · pre-5.0.0 code-injection history tied to unsafe PAC handling and the `degenerator` sandbox boundary
 - [[npm/next-intl]] — i18n / routing middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
 - [[npm/passport]] — authentication middleware foundation · advisory mapped · pre-0.6.0 session-fixation issue in login/logout session handling

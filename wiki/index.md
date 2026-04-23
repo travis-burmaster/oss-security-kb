@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*90 packages tracked across 8 ecosystems. Last updated: 2026-04-23.*
+*92 packages tracked across 8 ecosystems. Last updated: 2026-04-23.*
 
-## npm (70)
+## npm (71)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/esbuild]] — JavaScript bundler / dev server · advisory mapped · dev-server CORS exposure fixed in 0.25.0
 - [[npm/vite]] — dominant frontend build tool / dev server · advisory mapped · dense dev-server file-boundary, cross-origin exposure, and XSS history through the 2026 fix train
@@ -54,6 +54,7 @@
 - [[npm/nanoid]] — ID generator · advisory mapped · collision/predictability flaws fixed in 3.1.31, 3.3.8, and 5.0.9
 - [[npm/nth-check]] — selector parser utility · advisory mapped · pre-2.0.1 regex-complexity DoS fixed by parser rewrite
 - [[npm/node-fetch]] — fetch-compatible HTTP client · advisory mapped · redirect credential leakage, redirect size-limit bypass, and ReDoS history
+- [[npm/pug]] — templating engine · advisory mapped · compiler-option code-execution fixes in 3.0.1 and 3.0.3
 - [[npm/pac-resolver]] — PAC file parser / executor · advisory mapped · pre-5.0.0 code-injection history tied to unsafe PAC handling and the `degenerator` sandbox boundary
 - [[npm/next-intl]] — internationalization middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
 - [[npm/passport]] — authentication middleware foundation · advisory mapped · pre-0.6.0 session-fixation issue in login/logout session handling
@@ -89,9 +90,10 @@
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
 - [[python/urllib3]] — transport-layer HTTP library · advisory mapped · redirect, CRLF, TLS, and request-smuggling relevance
 
-## Go (7)
+## Go (8)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
+- [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
 - [[go/github.com/gorilla/mux]] — established Go router · baseline stub · no package-scoped OSV / GitHub advisory confirmed in this pass, disclosure path unclear
 - [[go/github.com/gorilla/websocket]] — foundational Go WebSocket implementation · advisory mapped · integer-overflow / read-limit bypass DoS fixed in 1.4.1
 - [[go/github.com/labstack/echo-v4]] — high-usage Go web framework line · advisory mapped · static-handler traversal and open-redirect history plus support-policy context
