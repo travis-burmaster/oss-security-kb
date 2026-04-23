@@ -42,6 +42,7 @@
 - [[npm/multer]] — multipart upload middleware · advisory mapped · dense 2025-2026 DoS fix train from 2.0.0 through 2.1.1
 - [[npm/mime]] — MIME lookup utility · advisory mapped · historical ReDoS fixed in 1.4.1 and 2.0.3
 - [[npm/minimist]] — tiny CLI parser with outsized transitive blast radius
+- [[npm/react-router]] — routing framework/library · advisory mapped · mode-sensitive 6.x/7.x history across cache poisoning, SSR XSS, redirects, and CSRF fixes through 7.12.0
 - [[npm/nanoid]] — ID generator · advisory mapped · collision/predictability flaws fixed in 3.1.31, 3.3.8, and 5.0.9
 - [[npm/nth-check]] — selector parser utility · advisory mapped · pre-2.0.1 regex-complexity DoS fixed by parser rewrite
 - [[npm/node-fetch]] — fetch-compatible HTTP client · advisory mapped · redirect credential leakage, redirect size-limit bypass, and ReDoS history
