@@ -1,0 +1,5 @@
+Review the attached public evidence for the npm package react-router and propose evidence-backed OSS KB updates only.
+Do not fabricate findings, advisories, or release-note details.
+Focus on: package summary, known-vulnerability table, security posture notes, and what changed in the maintained KB.
+Be explicit about mode scoping (Framework/Data/Declarative) when the public advisories mention it.
+If evidence is insufficient for a claim, say so.

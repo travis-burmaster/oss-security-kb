@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*88 packages tracked across 8 ecosystems. Last updated: 2026-04-23.*
+*89 packages tracked across 8 ecosystems. Last updated: 2026-04-23.*
 
-## npm (68)
+## npm (69)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/esbuild]] — JavaScript bundler / dev server · advisory mapped · dev-server CORS exposure fixed in 0.25.0
 - [[npm/ip]] — IP address helper · advisory mapped · SSRF-relevant private/public classification bypasses including an unresolved incomplete-fix chain through 2.0.1
@@ -49,6 +49,7 @@
 - [[npm/multer]] — multipart upload middleware · advisory mapped · dense 2025-2026 DoS fix train from 2.0.0 through 2.1.1
 - [[npm/mime]] — MIME lookup utility · advisory mapped · historical ReDoS fixed in 1.4.1 and 2.0.3
 - [[npm/minimist]] — minimist argument parser · advisory mapped · high transitive risk
+- [[npm/react-router]] — routing framework/library · advisory mapped · mode-sensitive 6.x/7.x history across cache poisoning, SSR XSS, redirects, and CSRF fixes through 7.12.0
 - [[npm/nanoid]] — ID generator · advisory mapped · collision/predictability flaws fixed in 3.1.31, 3.3.8, and 5.0.9
 - [[npm/nth-check]] — selector parser utility · advisory mapped · pre-2.0.1 regex-complexity DoS fixed by parser rewrite
 - [[npm/node-fetch]] — fetch-compatible HTTP client · advisory mapped · redirect credential leakage, redirect size-limit bypass, and ReDoS history
