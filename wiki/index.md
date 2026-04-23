@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*85 packages tracked across 8 ecosystems. Last updated: 2026-04-22.*
+*87 packages tracked across 8 ecosystems. Last updated: 2026-04-23.*
 
-## npm (66)
+## npm (67)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/esbuild]] — JavaScript bundler / dev server · advisory mapped · dev-server CORS exposure fixed in 0.25.0
 - [[npm/ip]] — IP address helper · advisory mapped · SSRF-relevant private/public classification bypasses including an unresolved incomplete-fix chain through 2.0.1
@@ -30,6 +30,7 @@
 - [[npm/ejs]] — server-side templating engine · advisory mapped · historical renderFile/input-validation bugs plus later SSTI and prototype-pollution hardening
 - [[npm/fastify]] — high-performance Node.js web framework · advisory mapped · recurring Content-Type parsing / validation-boundary flaws plus proxy-trust and DoS history
 - [[npm/express]] — dominant Node.js web framework · advisory mapped · public package history plus deeper 2026 source review
+- [[npm/express-session]] — HTTP session middleware for Express · baseline stub · high-usage package with no direct GHSA / OSV advisories confirmed at package level; notable dependency-context risk via `cookie` 0.7.x lineage and `cookie-signature` timing-attack fix history
 - [[npm/follow-redirects]] — redirect-following HTTP helper · advisory mapped · repeated redirect credential / header leakage history
 - [[npm/form-data]] — multipart request builder · advisory mapped · 2025 predictable-boundary fix across 2.x, 3.x, and 4.x
 - [[npm/got]] — HTTP client · advisory mapped · redirect-to-UNIX-socket boundary flaw fixed in 11.8.5 and 12.1.0
@@ -78,9 +79,10 @@
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 
-## Python / PyPI (4)
+## Python / PyPI (5)
 - [[python/flask]] — Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
 - [[python/jinja2]] — Python templating engine · advisory mapped · recurring sandbox breakouts, xmlattr injection, and ReDoS history
+- [[python/pyyaml]] — YAML parser and emitter for Python · advisory mapped · long-running unsafe-deserialization / arbitrary-code-execution vulnerability chain addressed through successive fixes up to version 5.4
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
 - [[python/urllib3]] — transport-layer HTTP library · advisory mapped · redirect, CRLF, TLS, and request-smuggling relevance
 
