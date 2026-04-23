@@ -1,0 +1,10 @@
+You are helping draft 2 concise OSS security KB master-index blurbs from already-established public evidence. Do not invent findings.
+
+Package 1: npm/express-session
+Established evidence-backed summary from the package page: high-usage package; currently baseline stub; no direct package-level GHSA / OSV record confirmed in that review pass; important dependency-context via cookie 0.7.x and cookie-signature timing-attack fix trail.
+
+Package 2: python/pyyaml
+Established evidence-backed summary from the package page: advisory mapped; long-running unsafe-deserialization / arbitrary-code-execution fix train through 5.4.
+
+Return exactly two markdown bullets in this style:
+- [[path]] — short noun phrase · status · concise evidence-backed summary

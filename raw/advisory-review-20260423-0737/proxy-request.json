@@ -1,0 +1,10 @@
+{
+  "model": "claude-opus-4-6",
+  "messages": [
+    {
+      "role": "user",
+      "content": "You are helping draft 2 concise OSS security KB master-index blurbs from already-established public evidence. Do not invent findings.\n\nPackage 1: npm/express-session\nEstablished evidence-backed summary from the package page: high-usage package; currently baseline stub; no direct package-level GHSA / OSV record confirmed in that review pass; important dependency-context via cookie 0.7.x and cookie-signature timing-attack fix trail.\n\nPackage 2: python/pyyaml\nEstablished evidence-backed summary from the package page: advisory mapped; long-running unsafe-deserialization / arbitrary-code-execution fix train through 5.4.\n\nReturn exactly two markdown bullets in this style:\n- [[path]] \u2014 short noun phrase \u00b7 status \u00b7 concise evidence-backed summary\n"
+    }
+  ],
+  "max_tokens": 200
+}
