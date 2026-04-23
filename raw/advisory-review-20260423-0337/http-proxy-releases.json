@@ -1,0 +1,58 @@
+[
+  {
+    "url": "https://api.github.com/repos/http-party/node-http-proxy/releases/10646572",
+    "assets_url": "https://api.github.com/repos/http-party/node-http-proxy/releases/10646572/assets",
+    "upload_url": "https://uploads.github.com/repos/http-party/node-http-proxy/releases/10646572/assets{?name,label}",
+    "html_url": "https://github.com/http-party/node-http-proxy/releases/tag/1.17.0",
+    "id": 10646572,
+    "author": {
+      "login": "jcrugzz",
+      "id": 592149,
+      "node_id": "MDQ6VXNlcjU5MjE0OQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/592149?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jcrugzz",
+      "html_url": "https://github.com/jcrugzz",
+      "followers_url": "https://api.github.com/users/jcrugzz/followers",
+      "following_url": "https://api.github.com/users/jcrugzz/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jcrugzz/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jcrugzz/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jcrugzz/subscriptions",
+      "organizations_url": "https://api.github.com/users/jcrugzz/orgs",
+      "repos_url": "https://api.github.com/users/jcrugzz/repos",
+      "events_url": "https://api.github.com/users/jcrugzz/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jcrugzz/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "node_id": "MDc6UmVsZWFzZTEwNjQ2NTcy",
+    "tag_name": "1.17.0",
+    "target_commitish": "master",
+    "name": "Long overdue maintenance",
+    "draft": false,
+    "immutable": false,
+    "prerelease": false,
+    "created_at": "2018-04-20T15:42:55Z",
+    "updated_at": "2018-04-20T15:56:36Z",
+    "published_at": "2018-04-20T15:56:36Z",
+    "assets": [
+
+    ],
+    "tarball_url": "https://api.github.com/repos/http-party/node-http-proxy/tarball/1.17.0",
+    "zipball_url": "https://api.github.com/repos/http-party/node-http-proxy/zipball/1.17.0",
+    "body": "Due to some great contributions I'm happy to announce a new release of `http-proxy` containing numerous bug fixes, feature additions and documentation improvements. Thanks to all who contributed for their patience and willingness to contribute despite perceived stagnation in activity in the project. I welcome all contributions and those who are interested in getting more involved with the project. Below I will highlight the changes that landed in the latest version but you can find the full diff of the changes in https://github.com/nodejitsu/node-http-proxy/pull/1251\r\n\r\n- Add option to rewrite path of set-cookie headers. @swillis12\r\n- Add option for overriding http METHOD when proxying request @AydinChavez \r\n- Feature: selfHandleResponse for taking responsibility in returning your own response when listening on the `proxyRes` event. @cpd0101 @guoxiangyang \r\n- Add `followRedirects` option @n30n0v\r\n- Document `timeout` option @jlaamanen \r\n- Fix documentation typos @carpsareokiguess \r\n- Document `buffer` option @jonhunter1977 \r\n- Include websocket non-upgrade response instead of just closing the socket. Allows auth schemes to be possible with websocket proxying. @Tigge \r\n- Stop using the `writeHead` method explicitly and let node handle it internally to prevent thrown errors @jakefurler \r\n- Be more defensive in handling of detecting response state when proxying @thiagobustamante \r\n",
+    "reactions": {
+      "url": "https://api.github.com/repos/http-party/node-http-proxy/releases/10646572/reactions",
+      "total_count": 2,
+      "+1": 2,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    }
+  }
+]

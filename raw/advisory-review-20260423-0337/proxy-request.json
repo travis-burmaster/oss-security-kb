@@ -1,0 +1,10 @@
+{
+  "model": "claude-opus-4-6",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Review the gathered public evidence for oss-security-kb maintenance.\n\nPrimary candidate with substantive public package-level evidence:\n- npm/http-proxy\n  - OSV package query shows GHSA-6x33-pw7p-hmpq and GHSA-9xw9-pvgv-6p76\n  - GHSA-6x33-pw7p-hmpq: DoS fixed in 1.18.1; release/changelog ties v1.18.1 to PR #1447\n  - GHSA-9xw9-pvgv-6p76 / CVE-2017-16014: insufficient error handling / DoS fixed in 0.7.0; NVD and GHSA public references point to PR #101\n  - npm latest appears to be 1.18.1 with ~23.75M weekly downloads\n  - No SECURITY.md was found (raw fetch returned 404)\n\nComparison candidates reviewed but likely no update:\n- npm/helmet: OSV package query empty; no clean package-level GHSA surfaced in this pass\n- npm/cookie-parser: OSV package query empty; no clean package-level GHSA surfaced in this pass\n- go/github.com/gorilla/mux: OSV package query empty; no clean package-level GHSA surfaced in this pass\n\nTask:\n- Propose conservative, evidence-backed KB edits only.\n- Do not fabricate advisories, counts, or release details.\n- Distinguish direct package advisories from dependency context or operational misconfiguration concerns.\n- Output concise drafting suggestions suitable for a markdown KB page and short log entry.\n"
+    }
+  ],
+  "max_tokens": 1200
+}
