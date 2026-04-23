@@ -1,0 +1,7 @@
+GHSA-2w69-qvjg-hvjx
+GHSA-3cgp-3xvw-98x8
+GHSA-8v8x-cx79-35w7
+GHSA-9jcx-v3wj-wh4m
+GHSA-cpj6-fhp6-mr6j
+GHSA-f46r-rw29-r322
+GHSA-h5cw-625j-3rxh

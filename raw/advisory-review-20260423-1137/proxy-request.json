@@ -1,0 +1,10 @@
+{
+  "model": "claude-opus-4-6",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Review the gathered public evidence for the OSS Security KB maintenance pass.\nFocus on npm/dompurify as the most likely substantive gap, with npm/react-router and PyPI/markupsafe only as comparison candidates.\n\nRequirements:\n- Use only the public evidence already gathered in this bundle.\n- Do not fabricate findings.\n- Produce concise drafting aid only, not final prose.\n- For dompurify, summarize the strongest evidence-backed themes, the most important version/fix milestones, and whether a new advisory-mapped KB page is justified.\n- For react-router and markupsafe, say whether this pass should defer page creation.\n- Keep the answer short and factual.\n"
+    }
+  ],
+  "max_tokens": 900
+}
