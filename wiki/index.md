@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*93 packages tracked across 8 ecosystems. Last updated: 2026-04-24.*
+*94 packages tracked across 8 ecosystems. Last updated: 2026-04-24.*
 
-## npm (71)
+## npm (72)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/esbuild]] — JavaScript bundler / dev server · advisory mapped · dev-server CORS exposure fixed in 0.25.0
 - [[npm/vite]] — dominant frontend build tool / dev server · advisory mapped · dense dev-server file-boundary, cross-origin exposure, and XSS history through the 2026 fix train
@@ -15,6 +15,7 @@
 - [[npm/marked]] — markdown parser · advisory mapped · repeated XSS / sanitization-boundary and ReDoS history
 - [[npm/markdown-it]] — Markdown parser · advisory mapped · published ReDoS / resource-exhaustion history through 14.1.1
 - [[npm/handlebars]] — templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster
+- [[npm/highlight.js]] — syntax highlighter · advisory mapped · prototype pollution plus grammar-driven ReDoS / freeze history fixed through 10.4.1
 - [[npm/helmet]] — security-header middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass; strong disclosure posture via upstream SECURITY.md
 - [[npm/ws]] — WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
