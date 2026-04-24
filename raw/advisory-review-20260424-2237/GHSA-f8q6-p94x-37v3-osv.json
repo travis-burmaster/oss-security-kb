@@ -1,0 +1,262 @@
+<!doctype html><html lang="en"><head><meta name="description" content="Comprehensive vulnerability database for your open source projects and dependencies."><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" href="/static/img/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/static/img/favicon-16x16.png" sizes="16x16"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/blog/index.xml"><link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@400;700&family=Overpass:ital,wght@0,400;0,700;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@400;700&family=Overpass:ital,wght@0,400;0,700;1,400&display=swap"></noscript><meta charset="utf-8"><title id="title">OSV - Open Source Vulnerabilities</title><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXG9G6HTBR"></script><script>window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZXG9G6HTBR', { 'anonymize_ip': true });</script>
+<link rel="preload" fetchpriority="high" as="image" href="/static/img/external-link.svg" type="image/webp">
+<script defer="defer" src="/static/vendors.8a22e6e744d8b8891b2f.js"></script><script defer="defer" src="/static/main.205f51c36b2dcdca17f1.js"></script><link href="/static/main.aecce82053d5c8016bb2.css" rel="stylesheet"></head><body><div class="wrapper "><header class="top-bar"><div class="logo"><a href="/" aria-label="Home page"><img alt="OSV logo" src="/static/img/logo.png" srcset="/static/img/logo.png, /static/img/logo@2x.png 2x" width="54" height="20"></a></div><input type="checkbox" id="hamburger-checkbox" aria-label="Hamburger Menu"> <label class="hamburger" for="hamburger-checkbox"><span></span> <span></span> <span></span></label><ul class="tabs"><li class="active page-link"><a href="/list">Vulnerability Database</a></li><li class=" page-link"><a href="/blog/">Blog</a></li><li class=" page-link external-link"><a href="https://google.github.io/osv.dev/faq/" target="_blank">FAQ</a></li><li class=" page-link external-link"><a href="https://google.github.io/osv.dev/" target="_blank">Docs</a></li><ul class="push social-icons"><li class="search-container-nav"><div class="search-toggle-container"><form class="search-form search-suggestions-container" action="/list"><input name="q" class="search-input" placeholder="Search vulnerabilities..." maxlength="300" autocomplete="off"> <button type="submit" class="search-submit" aria-label="Search"><span class="material-icons">arrow_forward</span></button></form><button class="search-toggle" aria-label="Toggle search" aria-expanded="false"><span class="material-icons">search</span></button></div></li><li><a class="logo-img" href="https://github.com/google/osv.dev" target="_blank" aria-label="Go to our github page"><img class="logo-link" src="/static/img/github-mark-white.svg" alt="Github Logo" width="24" height="24"></a></li></ul></ul></header> <div class="vulnerability-page">
+  <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell--span-12 vulnerability-title">
+        <h1 class="title">
+          GHSA-f8q6-p94x-37v3
+        </h1>
+        <a class="vulnerability-improvement-link" href="https://github.com/advisories/GHSA-f8q6-p94x-37v3/improve">
+            Suggest an improvement
+          </a>
+        </div>
+      <div class="mdc-layout-grid__cell--span-12">
+        <dl class="vulnerability-details"><dt>Source</dt>
+          <dd><a href="https://github.com/advisories/GHSA-f8q6-p94x-37v3" target="_blank" rel="noopener noreferrer">https://github.com/advisories/GHSA-f8q6-p94x-37v3</a>
+          </dd><dt>Import Source</dt>
+          <dd><a href="https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/10/GHSA-f8q6-p94x-37v3/GHSA-f8q6-p94x-37v3.json" target="_blank" rel="noopener noreferrer">https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/10/GHSA-f8q6-p94x-37v3/GHSA-f8q6-p94x-37v3.json</a></dd>
+
+          <dt>JSON Data</dt>
+          <dd><a href="https://api.osv.dev/v1/vulns/GHSA-f8q6-p94x-37v3" target="_blank" rel="noopener noreferrer">
+            https://api.osv.dev/v1/vulns/GHSA-f8q6-p94x-37v3</a>
+          </dd>
+          <dt>Aliases</dt>
+          <dd>
+            <ul class="aliases">
+              <li>
+                <a href="/vulnerability/CVE-2022-3517">CVE-2022-3517</a>
+                </li>
+              </ul>
+          </dd>
+          <dt>Downstream</dt>
+          <dd class="downstream expandible-hierarchy-list"><ul class="aliases"><li><a href="/vulnerability/MINI-mc6x-4858-333p">MINI-mc6x-4858-333p </a></li></ul></dd><dt>Published</dt>
+          <dd>2022-10-18T12:00:32Z</dd>
+          <dt>Modified</dt>
+          <dd>2024-02-14T18:15:16Z</dd><dt>Severity</dt>
+          <dd>
+            <ul class="severity">
+              <li>
+                
+                  <span class="severity-level severity-high">7.5 (High)</span>
+                  CVSS_V3 - CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H
+                  <a href="https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H" target="_blank" rel="noopener noreferrer">
+                    CVSS Calculator</a>
+                
+              </li>
+              </ul>
+          </dd><dt class="summary">Summary</dt>
+          <dd class="summary ">
+            
+            minimatch ReDoS vulnerability
+            
+          </dd>
+          <dt>Details</dt>
+          <dd class="details">
+            <p>A vulnerability was found in the minimatch package. This flaw allows a Regular Expression Denial of Service (ReDoS) when calling the braceExpand function with specific arguments, resulting in a Denial of Service.</p>
+</dd>
+          <dt>
+            Database specific
+            <a href="https://ossf.github.io/osv-schema/#database_specific-field" target="_blank"
+              rel="noopener noreferrer"></a>
+          </dt>
+          <dd><pre class="specific">{
+    &#34;github_reviewed&#34;: true,
+    &#34;nvd_published_at&#34;: &#34;2022-10-17T20:15:00Z&#34;,
+    &#34;cwe_ids&#34;: [
+        &#34;CWE-1333&#34;,
+        &#34;CWE-400&#34;
+    ],
+    &#34;github_reviewed_at&#34;: &#34;2022-10-20T18:21:03Z&#34;,
+    &#34;severity&#34;: &#34;HIGH&#34;
+}</pre></dd>
+          
+          <dt>References</dt>
+          <dd>
+            <ul class="links">
+              <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-3517" target="_blank" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2022-3517</a></li>
+              <li><a href="https://github.com/grafana/grafana-image-renderer/issues/329" target="_blank" rel="noopener noreferrer">https://github.com/grafana/grafana-image-renderer/issues/329</a></li>
+              <li><a href="https://github.com/nodejs/node/issues/42510" target="_blank" rel="noopener noreferrer">https://github.com/nodejs/node/issues/42510</a></li>
+              <li><a href="https://github.com/isaacs/minimatch/commit/a8763f4388e51956be62dc6025cec1126beeb5e6" target="_blank" rel="noopener noreferrer">https://github.com/isaacs/minimatch/commit/a8763f4388e51956be62dc6025cec1126beeb5e6</a></li>
+              <li><a href="https://github.com/isaacs/minimatch" target="_blank" rel="noopener noreferrer">https://github.com/isaacs/minimatch</a></li>
+              <li><a href="https://lists.debian.org/debian-lts-announce/2023/01/msg00011.html" target="_blank" rel="noopener noreferrer">https://lists.debian.org/debian-lts-announce/2023/01/msg00011.html</a></li>
+              <li><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MTEUUTNIEBHGKUKKLNUZSV7IEP6IP3Q3" target="_blank" rel="noopener noreferrer">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MTEUUTNIEBHGKUKKLNUZSV7IEP6IP3Q3</a></li>
+              <li><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UM6XJ73Q3NAM5KSGCOKJ2ZIA6GUWUJLK" target="_blank" rel="noopener noreferrer">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UM6XJ73Q3NAM5KSGCOKJ2ZIA6GUWUJLK</a></li>
+              </ul>
+          </dd>
+          
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="vulnerability-packages-container">
+  <h2 class="title">Affected packages</h2>
+
+  
+    <osv-tabs
+      class="vulnerability-packages">
+      
+      
+      
+      
+      <h2 class="package-header">
+        <span class="vuln-ecosystem">npm</span>
+        <span class="vuln-title-divider">/</span>
+        <span class="vuln-name">minimatch</span>
+      </h2>
+      <div class="mdc-layout-grid"><div class="vulnerability-package-subsection mdc-layout-grid__inner">
+          <h3 class="mdc-layout-grid__cell--span-3">
+            Package
+          </h3>
+          <div class="mdc-layout-grid__cell--span-9">
+            <dl>
+              <dt>Name</dt><dd><a href="https://www.npmjs.com/package/minimatch" target="_blank" rel="noopener noreferrer">minimatch</a></dd><dd><a href="https://deps.dev/npm/minimatch" target="_blank" rel="noopener noreferrer">
+                View open source insights on deps.dev</a></dd><dt>Purl</dt>
+              <dd class="purl">pkg:npm/minimatch</dd></dl>
+          </div>
+        </div><div class="vulnerability-package-subsection mdc-layout-grid__inner">
+          <h3 class="mdc-layout-grid__cell--span-3">
+            Affected ranges
+            <a href="https://ossf.github.io/osv-schema/#examples" target="_blank" rel="noopener noreferrer"></a>
+          </h3>
+          <div class="mdc-layout-grid__cell--span-9">
+          <dl>
+              <dt>Type</dt>
+              <dd>SEMVER</dd><dt>Events</dt>
+              <dd>
+                <div class="mdc-layout-grid__inner events">
+                  <div class="mdc-layout-grid__cell--span-3">
+                      Introduced</div>
+                    <div class="mdc-layout-grid__cell--span-9 version-value">
+                      <div class="tooltip">
+                          0<span class="tooltiptext">Unknown introduced version / All previous versions are affected</span>
+                          </div>
+                      </div>
+                  <div class="mdc-layout-grid__cell--span-3">
+                      Fixed</div>
+                    <div class="mdc-layout-grid__cell--span-9 version-value">
+                      3.0.5</div>
+                  </div>
+              </dd></dl>
+          </div>
+        </div>
+        <div class="vulnerability-package-subsection mdc-layout-grid__inner">
+          <h3 class="mdc-layout-grid__cell--span-3">
+            Database specific
+            <a href="https://ossf.github.io/osv-schema/#affecteddatabase_specific-field" target="_blank"
+              rel="noopener noreferrer"></a>
+          </h3>
+          <div class="mdc-layout-grid__cell--span-9">
+            
+            
+            <div class="database-specific-list">
+              
+              <details class="database-specific-section">
+                <summary class="database-specific-header">source</summary>
+                <div class="database-specific-content">
+                  <pre class="specific">&#34;https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/10/GHSA-f8q6-p94x-37v3/GHSA-f8q6-p94x-37v3.json&#34;</pre>
+                </div>
+              </details>
+              
+            </div>
+            
+          </div>
+        </div>
+        </div>
+      </osv-tabs>
+  
+</div>
+</div>
+<turbo-stream action="update" target="title">
+  <template>
+    GHSA-f8q6-p94x-37v3 - OSV
+  </template>
+</turbo-stream>
+
+<script>
+  document.addEventListener('turbo:load', function() {
+    const ECOSYSTEM_EXPAND_THRESHOLD = 10;
+    const PACKAGE_EXPAND_THRESHOLD = 7;
+    const ECOSYSTEM_PACKAGE_COLLAPSE_THRESHOLD = 9;
+
+  /**
+   * Sets up the vertical, grouped layout for vulnerability packages.
+   * - All ecosystem headers are expanded if their total count is below `ECOSYSTEM_EXPAND_THRESHOLD`,
+   *   and if their total packages count is below `ECOSYSTEM_PACKAGE_COLLAPSE_THRESHOLD`.
+   * - Within each ecosystem, all package headers are expanded if their count is below `PACKAGE_EXPAND_THRESHOLD`.
+   */
+    function setupVerticalLayout() {
+      const ecosystemAccordions = document.querySelectorAll('.vulnerability-packages.force-collapse .ecosystem-accordion');
+      if (!ecosystemAccordions.length) return;
+
+      const shouldExpandEcosystems = ecosystemAccordions.length < ECOSYSTEM_EXPAND_THRESHOLD;
+
+      ecosystemAccordions.forEach(accordion => {
+        const panel = accordion.querySelector('.ecosystem-content-panel');
+        const packageAccordions = panel ? panel.querySelectorAll('.package-accordion') : [];
+        const hasManyPackages =
+          ecosystemAccordions.length > 1 && packageAccordions.length > ECOSYSTEM_PACKAGE_COLLAPSE_THRESHOLD;
+
+        const shouldExpandAccordion =
+          shouldExpandEcosystems &&
+          panel !== null &&
+          !hasManyPackages;
+
+        accordion.open = shouldExpandAccordion;
+
+        const shouldExpandPackages = packageAccordions.length <= PACKAGE_EXPAND_THRESHOLD;
+        packageAccordions.forEach(packageAccordion => {
+          packageAccordion.open = shouldExpandPackages;
+        });
+      });
+    }
+    
+    if (document.querySelector('.vulnerability-packages.force-collapse')) {
+      setupVerticalLayout();
+    }
+
+    /**
+     * Sets up "Show More" / "Show Less" functionality for lists that might have
+     * many items. You can enable this feature by adding an 'expandible-list' or
+     * 'expandible-hierarchy-list' class to lists with long value.
+     * @param {string} listSelector The CSS selector for the list container.
+     * @param {string} itemSelector The tag name of the items within the list.
+     */
+    function setupExpandibleList(listSelector, itemSelector) {
+      const EXPANDIBLE_LIST_DEFAULT_LENGTH = 6;
+      const lists = document.querySelectorAll(`${listSelector}:not(.expanded):not([data-has-toggle-btn])`);
+      lists.forEach((list) => {
+        const items = list.getElementsByTagName(itemSelector);
+        if (items.length <= EXPANDIBLE_LIST_DEFAULT_LENGTH) return;
+
+        const expandibleItems = [...items].slice(EXPANDIBLE_LIST_DEFAULT_LENGTH);
+        expandibleItems.forEach((item) => {
+          item.style.display = 'none';
+        });
+
+        const toggleButton = document.createElement('span');
+        toggleButton.classList.add('showmore');
+        toggleButton.textContent = 'Show More';
+        list.append(toggleButton);
+        list.setAttribute('data-has-toggle-btn', 'true');
+
+        toggleButton.addEventListener('click', function() {
+          const isExpanded = list.classList.contains('expanded');
+          expandibleItems.forEach((item) => {
+            item.style.display = isExpanded ? 'none' : 'block';
+          });
+          toggleButton.textContent = isExpanded ? 'Show More' : 'Show Less';
+          list.classList.toggle('expanded');
+        });
+      });
+    }
+
+    setupExpandibleList('.expandible-hierarchy-list', 'ul');
+    setupExpandibleList('.expandible-list', 'li');
+  });
+</script>
+</div></body></html>
