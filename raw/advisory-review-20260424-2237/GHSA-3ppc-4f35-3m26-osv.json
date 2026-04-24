@@ -1,0 +1,669 @@
+<!doctype html><html lang="en"><head><meta name="description" content="Comprehensive vulnerability database for your open source projects and dependencies."><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" href="/static/img/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/static/img/favicon-16x16.png" sizes="16x16"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/blog/index.xml"><link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@400;700&family=Overpass:ital,wght@0,400;0,700;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@400;700&family=Overpass:ital,wght@0,400;0,700;1,400&display=swap"></noscript><meta charset="utf-8"><title id="title">OSV - Open Source Vulnerabilities</title><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXG9G6HTBR"></script><script>window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZXG9G6HTBR', { 'anonymize_ip': true });</script>
+<link rel="preload" fetchpriority="high" as="image" href="/static/img/external-link.svg" type="image/webp">
+<script defer="defer" src="/static/vendors.8a22e6e744d8b8891b2f.js"></script><script defer="defer" src="/static/main.205f51c36b2dcdca17f1.js"></script><link href="/static/main.aecce82053d5c8016bb2.css" rel="stylesheet"></head><body><div class="wrapper "><header class="top-bar"><div class="logo"><a href="/" aria-label="Home page"><img alt="OSV logo" src="/static/img/logo.png" srcset="/static/img/logo.png, /static/img/logo@2x.png 2x" width="54" height="20"></a></div><input type="checkbox" id="hamburger-checkbox" aria-label="Hamburger Menu"> <label class="hamburger" for="hamburger-checkbox"><span></span> <span></span> <span></span></label><ul class="tabs"><li class="active page-link"><a href="/list">Vulnerability Database</a></li><li class=" page-link"><a href="/blog/">Blog</a></li><li class=" page-link external-link"><a href="https://google.github.io/osv.dev/faq/" target="_blank">FAQ</a></li><li class=" page-link external-link"><a href="https://google.github.io/osv.dev/" target="_blank">Docs</a></li><ul class="push social-icons"><li class="search-container-nav"><div class="search-toggle-container"><form class="search-form search-suggestions-container" action="/list"><input name="q" class="search-input" placeholder="Search vulnerabilities..." maxlength="300" autocomplete="off"> <button type="submit" class="search-submit" aria-label="Search"><span class="material-icons">arrow_forward</span></button></form><button class="search-toggle" aria-label="Toggle search" aria-expanded="false"><span class="material-icons">search</span></button></div></li><li><a class="logo-img" href="https://github.com/google/osv.dev" target="_blank" aria-label="Go to our github page"><img class="logo-link" src="/static/img/github-mark-white.svg" alt="Github Logo" width="24" height="24"></a></li></ul></ul></header> <div class="vulnerability-page">
+  <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell--span-12 vulnerability-title">
+        <h1 class="title">
+          GHSA-3ppc-4f35-3m26
+        </h1>
+        <a class="vulnerability-improvement-link" href="https://github.com/advisories/GHSA-3ppc-4f35-3m26/improve">
+            Suggest an improvement
+          </a>
+        </div>
+      <div class="mdc-layout-grid__cell--span-12">
+        <dl class="vulnerability-details"><dt>Source</dt>
+          <dd><a href="https://github.com/advisories/GHSA-3ppc-4f35-3m26" target="_blank" rel="noopener noreferrer">https://github.com/advisories/GHSA-3ppc-4f35-3m26</a>
+          </dd><dt>Import Source</dt>
+          <dd><a href="https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-3ppc-4f35-3m26/GHSA-3ppc-4f35-3m26.json" target="_blank" rel="noopener noreferrer">https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-3ppc-4f35-3m26/GHSA-3ppc-4f35-3m26.json</a></dd>
+
+          <dt>JSON Data</dt>
+          <dd><a href="https://api.osv.dev/v1/vulns/GHSA-3ppc-4f35-3m26" target="_blank" rel="noopener noreferrer">
+            https://api.osv.dev/v1/vulns/GHSA-3ppc-4f35-3m26</a>
+          </dd>
+          <dt>Aliases</dt>
+          <dd>
+            <ul class="aliases">
+              <li>
+                <a href="/vulnerability/CVE-2026-26996">CVE-2026-26996</a>
+                </li>
+              </ul>
+          </dd>
+          <dt>Downstream</dt>
+          <dd class="downstream expandible-hierarchy-list"><ul class="aliases"><li><a href="/vulnerability/MINI-2f7v-wv4v-874p">MINI-2f7v-wv4v-874p </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-3jv4-mqxw-cmxv">MINI-3jv4-mqxw-cmxv </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-4jw5-c4r6-4mx7">MINI-4jw5-c4r6-4mx7 </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-5rw8-m3rf-m5m9">MINI-5rw8-m3rf-m5m9 </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-637w-6gg8-h8h6">MINI-637w-6gg8-h8h6 </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-64xp-6xmw-wpqm">MINI-64xp-6xmw-wpqm </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-6pm7-mh76-25rf">MINI-6pm7-mh76-25rf </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-6vfh-882g-mff5">MINI-6vfh-882g-mff5 </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-7gfh-wjf8-j349">MINI-7gfh-wjf8-j349 </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-86hg-5j62-fxhj">MINI-86hg-5j62-fxhj </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-8pc7-gxcf-m8r3">MINI-8pc7-gxcf-m8r3 </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-9hg3-vc2v-6rm2">MINI-9hg3-vc2v-6rm2 </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-9w7h-3r25-wqvx">MINI-9w7h-3r25-wqvx </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-c4rh-gfcp-9xgf">MINI-c4rh-gfcp-9xgf </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-c64q-vxwr-c34m">MINI-c64q-vxwr-c34m </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-cqcr-m7f7-9v4g">MINI-cqcr-m7f7-9v4g </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-h659-j2r9-9qmq">MINI-h659-j2r9-9qmq </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-h6p5-v2q7-4v4f">MINI-h6p5-v2q7-4v4f </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-h7cw-q4hg-mxfg">MINI-h7cw-q4hg-mxfg </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-j57h-wpfr-fv8w">MINI-j57h-wpfr-fv8w </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-j877-32wv-fg9c">MINI-j877-32wv-fg9c </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-r22g-q9g9-2hmr">MINI-r22g-q9g9-2hmr </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-x5vm-34f5-542r">MINI-x5vm-34f5-542r </a></li></ul><ul class="aliases"><li><a href="/vulnerability/MINI-x7r8-p7r7-x24p">MINI-x7r8-p7r7-x24p </a></li></ul></dd><dt>Related</dt>
+          <dd>
+            <ul class="aliases expandible-list">
+              <li>
+                <a href="/vulnerability/CGA-4mrr-cgvh-9w95">CGA-4mrr-cgvh-9w95</a>
+                </li>
+              </ul>
+          </dd>
+          <dt>Published</dt>
+          <dd>2026-02-18T22:38:11Z</dd>
+          <dt>Modified</dt>
+          <dd>2026-02-24T21:23:59.545252Z</dd><dt>Severity</dt>
+          <dd>
+            <ul class="severity">
+              <li>
+                
+                  <span class="severity-level severity-high">8.7 (High)</span>
+                  CVSS_V4 - CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N
+                  <a href="https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N" target="_blank" rel="noopener noreferrer">
+                    CVSS Calculator</a>
+                
+              </li>
+              </ul>
+          </dd><dt class="summary">Summary</dt>
+          <dd class="summary ">
+            
+            minimatch has a ReDoS via repeated wildcards with non-matching literal in pattern
+            
+          </dd>
+          <dt>Details</dt>
+          <dd class="details">
+            <h3>Summary</h3>
+
+<p><code>minimatch</code> is vulnerable to Regular Expression Denial of Service (ReDoS) when a glob pattern contains many consecutive <code>*</code> wildcards followed by a literal character that doesn't appear in the test string. Each <code>*</code> compiles to a separate <code>[^/]*?</code> regex group, and when the match fails, V8's regex engine backtracks exponentially across all possible splits.</p>
+
+<p>The time complexity is O(4^N) where N is the number of <code>*</code> characters. With N=15, a single <code>minimatch()</code> call takes ~2 seconds. With N=34, it hangs effectively forever.</p>
+
+<h3>Details</h3>
+
+<p><em>Give all details on the vulnerability. Pointing to the incriminated source code is very helpful for the maintainer.</em></p>
+
+<h3>PoC</h3>
+
+<p>When minimatch compiles a glob pattern, each <code>*</code> becomes <code>[^/]*?</code> in the generated regex. For a pattern like <code>***************X***</code>:</p>
+
+<pre><code>/^(?!\.)[^/]*?[^/]*?[^/]*?[^/]*?[^/]*?[^/]*?[^/]*?[^/]*?[^/]*?[^/]*?[^/]*?[^/]*?[^/]*?[^/]*?[^/]*?X[^/]*?[^/]*?[^/]*?$/
+</code></pre>
+
+<p>When the test string doesn't contain <code>X</code>, the regex engine must try every possible way to distribute the characters across all the <code>[^/]*?</code> groups before concluding no match exists. With N groups and M characters, this is O(C(N+M, N)) — exponential.</p>
+
+<h3>Impact</h3>
+
+<p>Any application that passes user-controlled strings to <code>minimatch()</code> as the pattern argument is vulnerable to DoS. This includes:
+- File search/filter UIs that accept glob patterns
+- <code>.gitignore</code>-style filtering with user-defined rules
+- Build tools that accept glob configuration
+- Any API that exposes glob matching to untrusted input</p>
+
+<hr />
+
+<p>Thanks to @ljharb for back-porting the fix to legacy versions of minimatch.</p>
+</dd>
+          <dt>
+            Database specific
+            <a href="https://ossf.github.io/osv-schema/#database_specific-field" target="_blank"
+              rel="noopener noreferrer"></a>
+          </dt>
+          <dd><pre class="specific">{
+    &#34;github_reviewed&#34;: true,
+    &#34;nvd_published_at&#34;: &#34;2026-02-20T03:16:01Z&#34;,
+    &#34;cwe_ids&#34;: [
+        &#34;CWE-1333&#34;
+    ],
+    &#34;github_reviewed_at&#34;: &#34;2026-02-18T22:38:11Z&#34;,
+    &#34;severity&#34;: &#34;HIGH&#34;
+}</pre></dd>
+          
+          <dt>References</dt>
+          <dd>
+            <ul class="links">
+              <li><a href="https://github.com/isaacs/minimatch/security/advisories/GHSA-3ppc-4f35-3m26" target="_blank" rel="noopener noreferrer">https://github.com/isaacs/minimatch/security/advisories/GHSA-3ppc-4f35-3m26</a></li>
+              <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-26996" target="_blank" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2026-26996</a></li>
+              <li><a href="https://github.com/isaacs/minimatch/commit/2e111f3a79abc00fa73110195de2c0f2351904f5" target="_blank" rel="noopener noreferrer">https://github.com/isaacs/minimatch/commit/2e111f3a79abc00fa73110195de2c0f2351904f5</a></li>
+              <li><a href="https://github.com/isaacs/minimatch" target="_blank" rel="noopener noreferrer">https://github.com/isaacs/minimatch</a></li>
+              </ul>
+          </dd>
+          
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="vulnerability-packages-container">
+  <h2 class="title">Affected packages</h2>
+
+  
+    
+  <div class="vulnerability-packages force-collapse">
+    
+      <details class="ecosystem-accordion">
+        <summary class="package-header">
+          <span class="vuln-ecosystem">npm</span>
+        </summary>
+        <div class="ecosystem-content-panel ecosystem-content-panel--last">
+          <details class="package-accordion">
+              <summary class="package-name-title">
+              
+                minimatch
+              
+              </summary>
+            <div class="package-details-card">
+              <div class="mdc-layout-grid"><div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Package</h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                    <dl>
+                      <dt>Name</dt>
+                      <dd>minimatch</dd><dd><a href="https://deps.dev/npm/minimatch" target="_blank" rel="noopener noreferrer">View open source insights on deps.dev</a></dd><dt>Purl</dt>
+                      <dd class="purl">pkg:npm/minimatch</dd></dl>
+                  </div>
+                </div><div class="vulnerability-package-subsection affected-ranges-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Affected ranges <a href="https://ossf.github.io/osv-schema/#examples" target="_blank" rel="noopener noreferrer"></a></h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                  <dl>
+                      <dt>Type</dt>
+                      <dd>SEMVER</dd><dt>Events</dt>
+                      <dd>
+                        <div class="mdc-layout-grid__inner events">
+                          <div class="mdc-layout-grid__cell--span-3">Introduced</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              10.0.0</div>
+                          <div class="mdc-layout-grid__cell--span-3">Fixed</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              10.2.1</div>
+                          </div>
+                      </dd></dl>
+                  </div>
+                </div>
+                <div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                    <h3 class="mdc-layout-grid__cell--span-3">Database specific <a href="https://ossf.github.io/osv-schema/#affecteddatabase_specific-field" target="_blank" rel="noopener noreferrer"></a></h3>
+                    <div class="mdc-layout-grid__cell--span-9">
+                      
+                      
+                      <div class="database-specific-list">
+                        
+                        <details class="database-specific-section">
+                          <summary class="database-specific-header">source</summary>
+                          <div class="database-specific-content">
+                            <pre class="specific">&#34;https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-3ppc-4f35-3m26/GHSA-3ppc-4f35-3m26.json&#34;</pre>
+                          </div>
+                        </details>
+                        
+                      </div>
+                      
+                    </div>
+                </div>
+                </div>
+            </div>
+          </details>
+        <details class="package-accordion">
+              <summary class="package-name-title">
+              
+                minimatch
+              
+              </summary>
+            <div class="package-details-card">
+              <div class="mdc-layout-grid"><div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Package</h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                    <dl>
+                      <dt>Name</dt>
+                      <dd>minimatch</dd><dd><a href="https://deps.dev/npm/minimatch" target="_blank" rel="noopener noreferrer">View open source insights on deps.dev</a></dd><dt>Purl</dt>
+                      <dd class="purl">pkg:npm/minimatch</dd></dl>
+                  </div>
+                </div><div class="vulnerability-package-subsection affected-ranges-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Affected ranges <a href="https://ossf.github.io/osv-schema/#examples" target="_blank" rel="noopener noreferrer"></a></h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                  <dl>
+                      <dt>Type</dt>
+                      <dd>SEMVER</dd><dt>Events</dt>
+                      <dd>
+                        <div class="mdc-layout-grid__inner events">
+                          <div class="mdc-layout-grid__cell--span-3">Introduced</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              9.0.0</div>
+                          <div class="mdc-layout-grid__cell--span-3">Fixed</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              9.0.6</div>
+                          </div>
+                      </dd></dl>
+                  </div>
+                </div>
+                <div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                    <h3 class="mdc-layout-grid__cell--span-3">Database specific <a href="https://ossf.github.io/osv-schema/#affecteddatabase_specific-field" target="_blank" rel="noopener noreferrer"></a></h3>
+                    <div class="mdc-layout-grid__cell--span-9">
+                      
+                      
+                      <div class="database-specific-list">
+                        
+                        <details class="database-specific-section">
+                          <summary class="database-specific-header">source</summary>
+                          <div class="database-specific-content">
+                            <pre class="specific">&#34;https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-3ppc-4f35-3m26/GHSA-3ppc-4f35-3m26.json&#34;</pre>
+                          </div>
+                        </details>
+                        
+                      </div>
+                      
+                    </div>
+                </div>
+                </div>
+            </div>
+          </details>
+        <details class="package-accordion">
+              <summary class="package-name-title">
+              
+                minimatch
+              
+              </summary>
+            <div class="package-details-card">
+              <div class="mdc-layout-grid"><div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Package</h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                    <dl>
+                      <dt>Name</dt>
+                      <dd>minimatch</dd><dd><a href="https://deps.dev/npm/minimatch" target="_blank" rel="noopener noreferrer">View open source insights on deps.dev</a></dd><dt>Purl</dt>
+                      <dd class="purl">pkg:npm/minimatch</dd></dl>
+                  </div>
+                </div><div class="vulnerability-package-subsection affected-ranges-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Affected ranges <a href="https://ossf.github.io/osv-schema/#examples" target="_blank" rel="noopener noreferrer"></a></h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                  <dl>
+                      <dt>Type</dt>
+                      <dd>SEMVER</dd><dt>Events</dt>
+                      <dd>
+                        <div class="mdc-layout-grid__inner events">
+                          <div class="mdc-layout-grid__cell--span-3">Introduced</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              8.0.0</div>
+                          <div class="mdc-layout-grid__cell--span-3">Fixed</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              8.0.5</div>
+                          </div>
+                      </dd></dl>
+                  </div>
+                </div>
+                <div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                    <h3 class="mdc-layout-grid__cell--span-3">Database specific <a href="https://ossf.github.io/osv-schema/#affecteddatabase_specific-field" target="_blank" rel="noopener noreferrer"></a></h3>
+                    <div class="mdc-layout-grid__cell--span-9">
+                      
+                      
+                      <div class="database-specific-list">
+                        
+                        <details class="database-specific-section">
+                          <summary class="database-specific-header">source</summary>
+                          <div class="database-specific-content">
+                            <pre class="specific">&#34;https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-3ppc-4f35-3m26/GHSA-3ppc-4f35-3m26.json&#34;</pre>
+                          </div>
+                        </details>
+                        
+                      </div>
+                      
+                    </div>
+                </div>
+                </div>
+            </div>
+          </details>
+        <details class="package-accordion">
+              <summary class="package-name-title">
+              
+                minimatch
+              
+              </summary>
+            <div class="package-details-card">
+              <div class="mdc-layout-grid"><div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Package</h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                    <dl>
+                      <dt>Name</dt>
+                      <dd>minimatch</dd><dd><a href="https://deps.dev/npm/minimatch" target="_blank" rel="noopener noreferrer">View open source insights on deps.dev</a></dd><dt>Purl</dt>
+                      <dd class="purl">pkg:npm/minimatch</dd></dl>
+                  </div>
+                </div><div class="vulnerability-package-subsection affected-ranges-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Affected ranges <a href="https://ossf.github.io/osv-schema/#examples" target="_blank" rel="noopener noreferrer"></a></h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                  <dl>
+                      <dt>Type</dt>
+                      <dd>SEMVER</dd><dt>Events</dt>
+                      <dd>
+                        <div class="mdc-layout-grid__inner events">
+                          <div class="mdc-layout-grid__cell--span-3">Introduced</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              7.0.0</div>
+                          <div class="mdc-layout-grid__cell--span-3">Fixed</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              7.4.7</div>
+                          </div>
+                      </dd></dl>
+                  </div>
+                </div>
+                <div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                    <h3 class="mdc-layout-grid__cell--span-3">Database specific <a href="https://ossf.github.io/osv-schema/#affecteddatabase_specific-field" target="_blank" rel="noopener noreferrer"></a></h3>
+                    <div class="mdc-layout-grid__cell--span-9">
+                      
+                      
+                      <div class="database-specific-list">
+                        
+                        <details class="database-specific-section">
+                          <summary class="database-specific-header">source</summary>
+                          <div class="database-specific-content">
+                            <pre class="specific">&#34;https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-3ppc-4f35-3m26/GHSA-3ppc-4f35-3m26.json&#34;</pre>
+                          </div>
+                        </details>
+                        
+                      </div>
+                      
+                    </div>
+                </div>
+                </div>
+            </div>
+          </details>
+        <details class="package-accordion">
+              <summary class="package-name-title">
+              
+                minimatch
+              
+              </summary>
+            <div class="package-details-card">
+              <div class="mdc-layout-grid"><div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Package</h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                    <dl>
+                      <dt>Name</dt>
+                      <dd>minimatch</dd><dd><a href="https://deps.dev/npm/minimatch" target="_blank" rel="noopener noreferrer">View open source insights on deps.dev</a></dd><dt>Purl</dt>
+                      <dd class="purl">pkg:npm/minimatch</dd></dl>
+                  </div>
+                </div><div class="vulnerability-package-subsection affected-ranges-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Affected ranges <a href="https://ossf.github.io/osv-schema/#examples" target="_blank" rel="noopener noreferrer"></a></h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                  <dl>
+                      <dt>Type</dt>
+                      <dd>SEMVER</dd><dt>Events</dt>
+                      <dd>
+                        <div class="mdc-layout-grid__inner events">
+                          <div class="mdc-layout-grid__cell--span-3">Introduced</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              6.0.0</div>
+                          <div class="mdc-layout-grid__cell--span-3">Fixed</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              6.2.1</div>
+                          </div>
+                      </dd></dl>
+                  </div>
+                </div>
+                <div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                    <h3 class="mdc-layout-grid__cell--span-3">Database specific <a href="https://ossf.github.io/osv-schema/#affecteddatabase_specific-field" target="_blank" rel="noopener noreferrer"></a></h3>
+                    <div class="mdc-layout-grid__cell--span-9">
+                      
+                      
+                      <div class="database-specific-list">
+                        
+                        <details class="database-specific-section">
+                          <summary class="database-specific-header">source</summary>
+                          <div class="database-specific-content">
+                            <pre class="specific">&#34;https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-3ppc-4f35-3m26/GHSA-3ppc-4f35-3m26.json&#34;</pre>
+                          </div>
+                        </details>
+                        
+                      </div>
+                      
+                    </div>
+                </div>
+                </div>
+            </div>
+          </details>
+        <details class="package-accordion">
+              <summary class="package-name-title">
+              
+                minimatch
+              
+              </summary>
+            <div class="package-details-card">
+              <div class="mdc-layout-grid"><div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Package</h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                    <dl>
+                      <dt>Name</dt>
+                      <dd>minimatch</dd><dd><a href="https://deps.dev/npm/minimatch" target="_blank" rel="noopener noreferrer">View open source insights on deps.dev</a></dd><dt>Purl</dt>
+                      <dd class="purl">pkg:npm/minimatch</dd></dl>
+                  </div>
+                </div><div class="vulnerability-package-subsection affected-ranges-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Affected ranges <a href="https://ossf.github.io/osv-schema/#examples" target="_blank" rel="noopener noreferrer"></a></h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                  <dl>
+                      <dt>Type</dt>
+                      <dd>SEMVER</dd><dt>Events</dt>
+                      <dd>
+                        <div class="mdc-layout-grid__inner events">
+                          <div class="mdc-layout-grid__cell--span-3">Introduced</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              5.0.0</div>
+                          <div class="mdc-layout-grid__cell--span-3">Fixed</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              5.1.7</div>
+                          </div>
+                      </dd></dl>
+                  </div>
+                </div>
+                <div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                    <h3 class="mdc-layout-grid__cell--span-3">Database specific <a href="https://ossf.github.io/osv-schema/#affecteddatabase_specific-field" target="_blank" rel="noopener noreferrer"></a></h3>
+                    <div class="mdc-layout-grid__cell--span-9">
+                      
+                      
+                      <div class="database-specific-list">
+                        
+                        <details class="database-specific-section">
+                          <summary class="database-specific-header">source</summary>
+                          <div class="database-specific-content">
+                            <pre class="specific">&#34;https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-3ppc-4f35-3m26/GHSA-3ppc-4f35-3m26.json&#34;</pre>
+                          </div>
+                        </details>
+                        
+                      </div>
+                      
+                    </div>
+                </div>
+                </div>
+            </div>
+          </details>
+        <details class="package-accordion">
+              <summary class="package-name-title">
+              
+                minimatch
+              
+              </summary>
+            <div class="package-details-card">
+              <div class="mdc-layout-grid"><div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Package</h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                    <dl>
+                      <dt>Name</dt>
+                      <dd>minimatch</dd><dd><a href="https://deps.dev/npm/minimatch" target="_blank" rel="noopener noreferrer">View open source insights on deps.dev</a></dd><dt>Purl</dt>
+                      <dd class="purl">pkg:npm/minimatch</dd></dl>
+                  </div>
+                </div><div class="vulnerability-package-subsection affected-ranges-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Affected ranges <a href="https://ossf.github.io/osv-schema/#examples" target="_blank" rel="noopener noreferrer"></a></h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                  <dl>
+                      <dt>Type</dt>
+                      <dd>SEMVER</dd><dt>Events</dt>
+                      <dd>
+                        <div class="mdc-layout-grid__inner events">
+                          <div class="mdc-layout-grid__cell--span-3">Introduced</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              4.0.0</div>
+                          <div class="mdc-layout-grid__cell--span-3">Fixed</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              4.2.4</div>
+                          </div>
+                      </dd></dl>
+                  </div>
+                </div>
+                <div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                    <h3 class="mdc-layout-grid__cell--span-3">Database specific <a href="https://ossf.github.io/osv-schema/#affecteddatabase_specific-field" target="_blank" rel="noopener noreferrer"></a></h3>
+                    <div class="mdc-layout-grid__cell--span-9">
+                      
+                      
+                      <div class="database-specific-list">
+                        
+                        <details class="database-specific-section">
+                          <summary class="database-specific-header">source</summary>
+                          <div class="database-specific-content">
+                            <pre class="specific">&#34;https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-3ppc-4f35-3m26/GHSA-3ppc-4f35-3m26.json&#34;</pre>
+                          </div>
+                        </details>
+                        
+                      </div>
+                      
+                    </div>
+                </div>
+                </div>
+            </div>
+          </details>
+        <details class="package-accordion package-accordion--last">
+              <summary class="package-name-title">
+              
+                minimatch
+              
+              </summary>
+            <div class="package-details-card">
+              <div class="mdc-layout-grid"><div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Package</h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                    <dl>
+                      <dt>Name</dt>
+                      <dd>minimatch</dd><dd><a href="https://deps.dev/npm/minimatch" target="_blank" rel="noopener noreferrer">View open source insights on deps.dev</a></dd><dt>Purl</dt>
+                      <dd class="purl">pkg:npm/minimatch</dd></dl>
+                  </div>
+                </div><div class="vulnerability-package-subsection affected-ranges-subsection mdc-layout-grid__inner">
+                  <h3 class="mdc-layout-grid__cell--span-3">Affected ranges <a href="https://ossf.github.io/osv-schema/#examples" target="_blank" rel="noopener noreferrer"></a></h3>
+                  <div class="mdc-layout-grid__cell--span-9">
+                  <dl>
+                      <dt>Type</dt>
+                      <dd>SEMVER</dd><dt>Events</dt>
+                      <dd>
+                        <div class="mdc-layout-grid__inner events">
+                          <div class="mdc-layout-grid__cell--span-3">Introduced</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              <div class="tooltip">0<span class="tooltiptext">Unknown introduced version / All previous versions are affected</span>
+                                  </div>
+                              </div>
+                          <div class="mdc-layout-grid__cell--span-3">Fixed</div>
+                            <div class="mdc-layout-grid__cell--span-9 version-value">
+                              3.1.3</div>
+                          </div>
+                      </dd></dl>
+                  </div>
+                </div>
+                <div class="vulnerability-package-subsection mdc-layout-grid__inner">
+                    <h3 class="mdc-layout-grid__cell--span-3">Database specific <a href="https://ossf.github.io/osv-schema/#affecteddatabase_specific-field" target="_blank" rel="noopener noreferrer"></a></h3>
+                    <div class="mdc-layout-grid__cell--span-9">
+                      
+                      
+                      <div class="database-specific-list">
+                        
+                        <details class="database-specific-section">
+                          <summary class="database-specific-header">source</summary>
+                          <div class="database-specific-content">
+                            <pre class="specific">&#34;https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/02/GHSA-3ppc-4f35-3m26/GHSA-3ppc-4f35-3m26.json&#34;</pre>
+                          </div>
+                        </details>
+                        
+                      </div>
+                      
+                    </div>
+                </div>
+                </div>
+            </div>
+          </details>
+        </div>
+      </details>
+    </div>
+
+  
+</div>
+</div>
+<turbo-stream action="update" target="title">
+  <template>
+    GHSA-3ppc-4f35-3m26 - OSV
+  </template>
+</turbo-stream>
+
+<script>
+  document.addEventListener('turbo:load', function() {
+    const ECOSYSTEM_EXPAND_THRESHOLD = 10;
+    const PACKAGE_EXPAND_THRESHOLD = 7;
+    const ECOSYSTEM_PACKAGE_COLLAPSE_THRESHOLD = 9;
+
+  /**
+   * Sets up the vertical, grouped layout for vulnerability packages.
+   * - All ecosystem headers are expanded if their total count is below `ECOSYSTEM_EXPAND_THRESHOLD`,
+   *   and if their total packages count is below `ECOSYSTEM_PACKAGE_COLLAPSE_THRESHOLD`.
+   * - Within each ecosystem, all package headers are expanded if their count is below `PACKAGE_EXPAND_THRESHOLD`.
+   */
+    function setupVerticalLayout() {
+      const ecosystemAccordions = document.querySelectorAll('.vulnerability-packages.force-collapse .ecosystem-accordion');
+      if (!ecosystemAccordions.length) return;
+
+      const shouldExpandEcosystems = ecosystemAccordions.length < ECOSYSTEM_EXPAND_THRESHOLD;
+
+      ecosystemAccordions.forEach(accordion => {
+        const panel = accordion.querySelector('.ecosystem-content-panel');
+        const packageAccordions = panel ? panel.querySelectorAll('.package-accordion') : [];
+        const hasManyPackages =
+          ecosystemAccordions.length > 1 && packageAccordions.length > ECOSYSTEM_PACKAGE_COLLAPSE_THRESHOLD;
+
+        const shouldExpandAccordion =
+          shouldExpandEcosystems &&
+          panel !== null &&
+          !hasManyPackages;
+
+        accordion.open = shouldExpandAccordion;
+
+        const shouldExpandPackages = packageAccordions.length <= PACKAGE_EXPAND_THRESHOLD;
+        packageAccordions.forEach(packageAccordion => {
+          packageAccordion.open = shouldExpandPackages;
+        });
+      });
+    }
+    
+    if (document.querySelector('.vulnerability-packages.force-collapse')) {
+      setupVerticalLayout();
+    }
+
+    /**
+     * Sets up "Show More" / "Show Less" functionality for lists that might have
+     * many items. You can enable this feature by adding an 'expandible-list' or
+     * 'expandible-hierarchy-list' class to lists with long value.
+     * @param {string} listSelector The CSS selector for the list container.
+     * @param {string} itemSelector The tag name of the items within the list.
+     */
+    function setupExpandibleList(listSelector, itemSelector) {
+      const EXPANDIBLE_LIST_DEFAULT_LENGTH = 6;
+      const lists = document.querySelectorAll(`${listSelector}:not(.expanded):not([data-has-toggle-btn])`);
+      lists.forEach((list) => {
+        const items = list.getElementsByTagName(itemSelector);
+        if (items.length <= EXPANDIBLE_LIST_DEFAULT_LENGTH) return;
+
+        const expandibleItems = [...items].slice(EXPANDIBLE_LIST_DEFAULT_LENGTH);
+        expandibleItems.forEach((item) => {
+          item.style.display = 'none';
+        });
+
+        const toggleButton = document.createElement('span');
+        toggleButton.classList.add('showmore');
+        toggleButton.textContent = 'Show More';
+        list.append(toggleButton);
+        list.setAttribute('data-has-toggle-btn', 'true');
+
+        toggleButton.addEventListener('click', function() {
+          const isExpanded = list.classList.contains('expanded');
+          expandibleItems.forEach((item) => {
+            item.style.display = isExpanded ? 'none' : 'block';
+          });
+          toggleButton.textContent = isExpanded ? 'Show More' : 'Show Less';
+          list.classList.toggle('expanded');
+        });
+      });
+    }
+
+    setupExpandibleList('.expandible-hierarchy-list', 'ul');
+    setupExpandibleList('.expandible-list', 'li');
+  });
+</script>
+</div></body></html>
