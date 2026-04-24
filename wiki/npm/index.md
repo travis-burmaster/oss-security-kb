@@ -11,6 +11,7 @@
 - [[npm/marked]] — widely used markdown parser · advisory mapped · repeated XSS / sanitization-boundary and ReDoS history
 - [[npm/markdown-it]] — Markdown parser · advisory mapped · three published ReDoS / resource-exhaustion records through 14.1.1
 - [[npm/handlebars]] — widely used templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster
+- [[npm/highlight.js]] — syntax highlighter · advisory mapped · prototype pollution plus grammar-driven ReDoS / freeze history fixed through 10.4.1
 - [[npm/helmet]] — security-header middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass; strong disclosure posture via upstream SECURITY.md
 - [[npm/ws]] — widely used WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
