@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*97 packages tracked across 8 ecosystems. Last updated: 2026-04-24.*
+*99 packages tracked across 8 ecosystems. Last updated: 2026-04-24.*
 
-## npm (75)
+## npm (77)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/react]] — core UI library · advisory mapped · two legacy pre-1.0 XSS records, with no newer direct package-level OSV / GHSA issue surfaced in this pass
 - [[npm/zod]] — schema validation library · advisory mapped · 2023 email-validation ReDoS / DoS fixed in 3.22.3
@@ -23,6 +23,7 @@
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
 - [[npm/tar-fs]] — tar extraction helper · advisory mapped · recurring archive extraction boundary flaws across hardlinks, symlinks, and path traversal fixes through 3.1.1
 - [[npm/tough-cookie]] — cookie-jar library · advisory mapped · parser ReDoS history plus the 2023 prototype-pollution fix in 4.1.3
+- [[npm/vue]] — core frontend framework package · advisory mapped · currently one published package-level Vue 2 ReDoS record in public sources
 - [[npm/basic-ftp]] — FTP client library · advisory mapped · 2026 5.2.x path-traversal and CRLF command-injection fix chain
 - [[npm/validator]] — string validation / sanitization helper · advisory mapped · legacy XSS-filter lineage plus modern URL / length / regex-boundary fixes
 - [[npm/webpack-dev-server]] — frontend dev server · advisory mapped · repeated origin / cross-origin source-code exposure in HMR and local script-loading paths
@@ -75,6 +76,7 @@
 - [[npm/sharp]] — image processing library · advisory mapped · install-time build-environment injection plus bundled libwebp exposure
 - [[npm/tmp]] — temporary-file helper · advisory mapped · symlink-based temp-path boundary bypass fixed in 0.2.4
 - [[npm/xml2js]] — XML-to-object parser · advisory mapped · prototype-pollution fix in 0.5.0 on untrusted object-construction paths
+- [[npm/xmldom]] — legacy XML DOM package family · advisory mapped · unscoped package remains frozen while the scoped fork carries the 2021-2026 fix train
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
