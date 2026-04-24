@@ -6,3 +6,4 @@
 - [[python/pyyaml]] — dominant Python YAML parser · advisory mapped · long-running unsafe-deserialization / arbitrary-code-execution fix train through 5.4
 - [[python/requests]] — dominant Python HTTP client · advisory mapped · credential, redirect, proxy, and TLS-boundary history
 - [[python/urllib3]] — foundational Python HTTP transport library · advisory mapped · redirect, TLS, parser, and decompression-security history
+- [[python/werkzeug]] — foundational WSGI / request utility library · advisory mapped · debugger, multipart-parser, and Windows path-containment history through 3.1.6
