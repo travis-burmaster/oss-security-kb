@@ -19,6 +19,7 @@
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
 - [[npm/tar-fs]] — tar extraction helper · advisory mapped · recurring archive extraction boundary flaws across hardlinks, symlinks, and path traversal fixes through 3.1.1
 - [[npm/tough-cookie]] — cookie-jar library · advisory mapped · parser ReDoS history plus the 2023 prototype-pollution fix in 4.1.3
+- [[npm/vue]] — core frontend framework package · advisory mapped · currently one published package-level Vue 2 ReDoS record in public sources
 - [[npm/basic-ftp]] — FTP client library · advisory mapped · 2026 5.2.x path-traversal and CRLF command-injection fix chain
 - [[npm/validator]] — string validation / sanitization helper · advisory mapped · legacy XSS-filter lineage plus modern URL / length / regex-boundary fixes
 - [[npm/webpack-dev-server]] — frontend dev server · advisory mapped · repeated origin / cross-origin source-code exposure in HMR and local script-loading paths
@@ -75,4 +76,5 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 - [[npm/xml2js]] — XML-to-object parser · advisory mapped · prototype-pollution fix in 0.5.0 on untrusted object-construction paths
+- [[npm/xmldom]] — legacy XML DOM package family · advisory mapped · unscoped package remains frozen while the scoped fork carries the 2021-2026 fix train
 - [[npm/koa-router]] — Koa routing middleware · audit ingested · 2026 v15.4.0 source review, prefix-strip boundary bug filed as koajs/router#232
