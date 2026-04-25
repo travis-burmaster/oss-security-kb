@@ -2,6 +2,9 @@
 
 ## Advisory-Mapped / Audited Pages
 - [[npm/axios]] — widely used HTTP client · advisory mapped · broad SSRF / DoS / request-routing history plus 2026 supply-chain compromise
+- [[npm/ajv]] — JSON Schema validator · advisory mapped · prototype-pollution and `$data` / pattern ReDoS history across 6.x and 8.x
+- [[npm/async]] — async control-flow utility · advisory mapped · prototype-pollution issue fixed in 2.6.4 and 3.2.2
+- [[npm/graphql]] — GraphQL reference implementation · advisory mapped · 2023 overlapping-fields resource-exhaustion / DoS fixed in 16.8.1
 - [[npm/react]] — core UI library · advisory mapped · two legacy pre-1.0 XSS records, with no newer direct package-level OSV / GHSA issue surfaced in this pass
 - [[npm/zod]] — schema validation library · advisory mapped · 2023 email-validation ReDoS / DoS fixed in 3.22.3
 - [[npm/ip]] — IP address helper · advisory mapped · SSRF-relevant private/public classification bypasses including an unresolved incomplete-fix chain through 2.0.1

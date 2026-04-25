@@ -1,0 +1,13 @@
+Review the following public-evidence summary for an OSS security knowledge base update. Propose concise, evidence-backed draft text only. Do not fabricate findings, do not invent advisories, and keep speculative wording out. We are reviewing npm packages ajv, async, and graphql.
+
+Evidence summary:
+- ajv: OSV package query returns two public records: GHSA-v88g-cgmw-v5xw / CVE-2020-15366 (prototype pollution in ajv.validate(), fixed in 6.12.3) and GHSA-2g4f-4pwh-qvx6 / CVE-2025-69873 (ReDoS when using $data option, fixed in 6.14.0 and 8.18.0). Public refs include NVD, OSV, GitHub advisory pages, ajv release/tag pages, and fix PR/commit references. v8.18.0 release notes explicitly mention mitigating ReDoS attacks for the pattern/$data path.
+- async: OSV package query returns one public record: GHSA-fwr7-v2mv-hh25 / CVE-2021-43138 (prototype pollution via mapValues()/createObjectIterator path), fixed in 2.6.4 and 3.2.2. Public refs include NVD, OSV, PR #1828, fix commits, and v2.6.4 changelog explicitly saying 'Fix potential prototype pollution exploit (#1828)'.
+- graphql: OSV package query returns one public record: GHSA-9pv7-vfvm-6vr7 / CVE-2023-26144 (uncontrolled resource consumption / DoS due to insufficient checks in OverlappingFieldsCanBeMergedRule), affecting 16.3.0 through before 16.8.1 and fixed in 16.8.1. Public refs include NVD, OSV, GitHub advisory, issue #3955 with reproduction context, PR #3972, commit f94b511, and v16.8.1 release notes saying 'OverlappingFieldsCanBeMergedRule: Fix performance degradation'.
+- Current npm weekly downloads: ajv ~271,662,197; async ~86,348,910; graphql ~34,768,779.
+- GitHub repository metadata: ajv-validator/ajv, caolan/async, graphql/graphql-js. No repository SECURITY.md was confirmed via GitHub contents API in this pass.
+
+Please produce:
+1) Which of these are worthwhile KB additions right now.
+2) For each worthwhile package: a 2-4 sentence summary, a compact vulnerability table row draft, and 3-5 security posture bullet points.
+3) Any cautionary notes about scope so we do not overclaim.
