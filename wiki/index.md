@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*99 packages tracked across 8 ecosystems. Last updated: 2026-04-24.*
+*100 packages tracked across 8 ecosystems. Last updated: 2026-04-25.*
 
-## npm (77)
+## npm (78)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/react]] — core UI library · advisory mapped · two legacy pre-1.0 XSS records, with no newer direct package-level OSV / GHSA issue surfaced in this pass
 - [[npm/zod]] — schema validation library · advisory mapped · 2023 email-validation ReDoS / DoS fixed in 3.22.3
@@ -59,6 +59,7 @@
 - [[npm/nanoid]] — ID generator · advisory mapped · collision/predictability flaws fixed in 3.1.31, 3.3.8, and 5.0.9
 - [[npm/nth-check]] — selector parser utility · advisory mapped · pre-2.0.1 regex-complexity DoS fixed by parser rewrite
 - [[npm/node-fetch]] — fetch-compatible HTTP client · advisory mapped · redirect credential leakage, redirect size-limit bypass, and ReDoS history
+- [[npm/uuid]] — foundational UUID generation utility · advisory mapped · 2026 caller-supplied buffer bounds-checking flaw fixed in 14.0.0
 - [[npm/pug]] — templating engine · advisory mapped · compiler-option code-execution fixes in 3.0.1 and 3.0.3
 - [[npm/pac-resolver]] — PAC file parser / executor · advisory mapped · pre-5.0.0 code-injection history tied to unsafe PAC handling and the `degenerator` sandbox boundary
 - [[npm/next-intl]] — internationalization middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
