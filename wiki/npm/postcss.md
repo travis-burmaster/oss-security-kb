@@ -1,7 +1,7 @@
 # postcss (npm)
 
 **Registry:** npm
-**Weekly Downloads:** ~207,008,540 (2026-04-13 to 2026-04-19)
+**Weekly Downloads:** ~215,903,702 (2026-04-17 to 2026-04-23)
 **Repository:** https://github.com/postcss/postcss
 **Security Contact:** GitHub Security Advisories
 **Disclosure Policy:** https://github.com/postcss/postcss/security/advisories
@@ -11,6 +11,7 @@
 
 | Date | Auditor | Scope | Methodology | Findings | Source |
 |------|---------|-------|-------------|----------|--------|
+| 2026-04-24 | OpenClaw recurring review | package advisory refresh | public-source curation (OSV.dev package query, GitHub Advisory Database / public GHSA page, public CVE records, upstream release references, npm registry metadata, npm downloads API, local Claude-compatible proxy used only as a drafting aid) | Refreshed the page after a new XSS record (`CVE-2026-41305` / `GHSA-qx2v-qp2m-jg93`) surfaced for CSS stringify output embedded into HTML `<style>` blocks. | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
 | 2026-04-20 | OpenClaw recurring review | package advisory normalization | public-source curation (OSV.dev, GitHub Advisory Database, public CVE records, upstream release references, npm registry metadata, npm downloads API) | Added a new advisory-mapped baseline page for PostCSS's currently published package-scoped advisory history. | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
 | *No public proactive audits on record yet.* | — | — | — | — | — |
 
@@ -21,21 +22,24 @@
 | CVE-2021-23368 / GHSA-hwj9-h5mp-3pm3 | Moderate | Regular-expression denial of service during source-map parsing; public records map fixes to both the `7.x` and `8.x` lines. | 7.0.36 / 8.2.10 | https://github.com/advisories/GHSA-hwj9-h5mp-3pm3 |
 | CVE-2021-23382 / GHSA-566m-qj78-rww5 | Moderate | Another source-map parsing ReDoS in `getAnnotationURL()` / `loadAnnotation()` in `lib/previous-map.js`; public advisory data treats this as a separate fix train from the earlier 2021 record even though both bugs sit near the same feature surface. | 7.0.36 / 8.2.13 | https://github.com/advisories/GHSA-566m-qj78-rww5 |
 | CVE-2023-44270 / GHSA-7fh5-64p2-3v2j | Moderate | Carriage-return parsing discrepancy could let attacker-controlled CSS content move from a comment context into active CSS nodes in PostCSS output; GitHub's advisory specifically frames the risk around linters and other tools parsing external untrusted CSS. | 8.4.31 | https://github.com/advisories/GHSA-7fh5-64p2-3v2j |
+| CVE-2026-41305 / GHSA-qx2v-qp2m-jg93 | Moderate | Unescaped `</style>` sequences in CSS stringify output could break out of an HTML `<style>` block and enable XSS when applications parse attacker-controlled CSS and then re-embed the re-stringified output into HTML. | 8.5.10 | https://github.com/advisories/GHSA-qx2v-qp2m-jg93 |
 
 ## Security Posture Notes
 
-- PostCSS has a **small but non-trivial published package advisory history**: two 2021 ReDoS records in source-map parsing and one 2023 parser-integrity issue around carriage-return handling.
+- PostCSS has a **small but non-trivial published package advisory history**: two 2021 ReDoS records, one 2023 parser-integrity issue around carriage-return handling, and a newer 2026 XSS issue in CSS stringify output.
 - The two 2021 advisories are related but not identical. Public records keep them separate, and the `8.x` fix boundaries differ (`8.2.10` vs `8.2.13`), so downstream users should treat them as distinct fixes rather than duplicate metadata.
 - The 2023 issue is not just another availability bug. Public advisory text says it affects tools that parse **external untrusted CSS**, because content inside comments may later appear as active CSS nodes in PostCSS output.
-- Current npm metadata in this pass shows extremely high deployment volume (~207.0M downloads in the review week), so even moderate-severity parser bugs have broad downstream relevance.
+- The 2026 advisory adds a different trust-boundary lesson: even when PostCSS is operating as a formatter / serializer rather than a parser, **embedding re-stringified attacker-controlled CSS directly into HTML `<style>` blocks can become an XSS sink** if dangerous sequences such as `</style>` are not escaped.
+- Current npm metadata in this pass shows extremely high deployment volume (~215.9M downloads in the review week), so even moderate-severity parser or serializer bugs have broad downstream relevance.
+- Public evidence from this refresh points to **`8.5.10+` as the minimum release line** covering the currently published advisory set reviewed here.
 - Upstream publishes a GitHub security-advisory surface, but this review did not separately confirm a repository `SECURITY.md`; the disclosure entry above intentionally links only to the public advisory listing.
 
 ## Recommendations for Developers
 
-1. **Upgrade to `8.4.31` or newer** if you want coverage for the full currently published package advisory set reviewed in this pass.
-2. If you are pinned to older major lines, note that **`7.0.36` covers the two 2021 ReDoS fixes but not the later 2023 carriage-return parsing issue** as normalized in public advisory records.
-3. Treat PostCSS as a **parser trust-boundary component** when ingesting attacker-controlled or third-party CSS, especially in linters, build services, SaaS analyzers, and any workflow that feeds PostCSS output into later security-relevant logic.
-4. Regression-test source-map parsing and odd comment / line-ending cases if you maintain wrappers around PostCSS or expose CSS processing to untrusted users.
+1. **Upgrade to `8.5.10` or newer** if you want coverage for the full currently published package advisory set reviewed in this pass.
+2. If you are pinned to older major lines, note that **`7.0.36` covers the two 2021 ReDoS fixes but not the later 2023 and 2026 issues** as normalized in public advisory records.
+3. Treat PostCSS as a **parser and serializer trust-boundary component** when ingesting attacker-controlled or third-party CSS, especially in linters, build services, SaaS analyzers, or any workflow that parses CSS and then embeds the output back into HTML.
+4. Regression-test source-map parsing, odd comment / line-ending cases, and **HTML-embedding contexts for CSS output** if you maintain wrappers around PostCSS or expose CSS processing to untrusted users.
 
 ## Dependencies of Note
 
@@ -55,4 +59,4 @@
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-20 | Sources: 7 (OSV.dev package query for npm/postcss, OSV vulnerability records for GHSA-hwj9-h5mp-3pm3 / GHSA-566m-qj78-rww5 / GHSA-7fh5-64p2-3v2j, GitHub Advisory Database entries for the same GHSA IDs, public CVE records via advisory aliases, upstream release references linked from the advisory records, npm registry metadata, npm downloads API)*
+*Last updated: 2026-04-24 | Sources: 8 (OSV.dev package query for npm/postcss, OSV vulnerability records for GHSA-hwj9-h5mp-3pm3 / GHSA-566m-qj78-rww5 / GHSA-7fh5-64p2-3v2j / GHSA-qx2v-qp2m-jg93, GitHub Advisory Database entries for the same GHSA IDs, public CVE records via advisory aliases, upstream release references linked from the advisory records including `8.5.10`, npm registry metadata, npm downloads API)*
