@@ -1,0 +1,68 @@
+Review the gathered public evidence and propose evidence-backed OSS KB updates. Do not fabricate findings. Be conservative.
+
+Candidate 1: postcss
+- Existing KB page currently lists 3 advisories through CVE-2023-44270 / GHSA-7fh5-64p2-3v2j fixed in 8.4.31.
+- New OSV/GHSA evidence:
+  - GHSA-qx2v-qp2m-jg93 aliases=['CVE-2026-41305'] severity=MODERATE
+  - summary: PostCSS has XSS via Unescaped </style> in its CSS Stringify Output
+  - affected range: introduced 0, fixed 8.5.10
+  - details excerpt: # PostCSS: XSS via Unescaped `</style>` in CSS Stringify Output
+
+## Summary
+
+PostCSS v8.5.5 (latest) does not escape `</style>` sequences when stringifying CSS ASTs. When user-submitted CSS is parsed and re-stringified for embedding in HTML `<style>` tags, `</style>` in CSS values breaks out of the style context, enabling XSS.
+
+## Proof of Concept
+
+```javascript
+const postcss = require('postcss');
+
+// Parse user CSS and re-stringify for page embedding
+const userCSS = 'body { content: "</style><script>alert(1)</script><style>"; }';
+const ast = postcss.parse(userCSS);
+const output = ast.toResult().css;
+const html = `<style>${output}</style>`;
+
+console.log(html);
+// <style>body { content: "</st
+  - references: ['https://github.com/postcss/postcss/security/advisories/GHSA-qx2v-qp2m-jg93', 'https://nvd.nist.gov/vuln/detail/CVE-2026-41305', 'https://github.com/postcss/postcss', 'https://github.com/postcss/postcss/releases/tag/8.5.10']
+- NPM downloads this week: 215903702
+
+Candidate 2: basic-ftp
+- Existing KB page currently lists 3 advisories through GHSA-6v7q-wjvx-w8wg fixed in 5.2.2.
+- New OSV/GHSA evidence:
+  - GHSA-rp42-5vxx-qpwr aliases=None severity=HIGH
+  - summary: basic-ftp vulnerable to denial of service via unbounded memory consumption in Client.list()
+  - affected range: introduced 0, fixed 5.3.0 (last_known_affected_version_range <= 5.2.2)
+  - details excerpt: ### Summary
+`basic-ftp@5.2.2` is vulnerable to denial of service through unbounded memory growth while processing directory listings from a remote FTP server. A malicious or compromised server can send an extremely large or never-ending listing response to `Client.list()`, causing the client process to consume memory until it becomes unstable or crashes.
+
+### Details
+The issue is in the package's default directory listing flow.
+
+`Client.list()` reaches `dist/Client.js`, where the full listing response is downloaded into a `StringWriter` before parsing:
+
+File: `dist/Client.js:516-527`
+
+```js
+async _requestListWithCommand(command) {
+    const buffer = new StringWriter_1.StringWriter();
+    await (0, transfer_1.downloadTo)(buffer, {
+        ftp: this.ftp,
+        tracker: this._progressTracker,
+        command,
+        remotePath: "",
+        type: "list"
+    });
+    const text = buffer.get
+  - references: ['https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-rp42-5vxx-qpwr', 'https://github.com/patrickjuchli/basic-ftp']
+- NPM downloads this week: 25440970
+
+Candidate 3: debug
+- Existing KB already captures GHSA-4x49-vf9v-38px / CVE-2025-59144, and OSV also lists MAL-2025-46974 and GHSA-8mgj-vmr8-frr6 as aliases of the same compromised-release incident, so likely no substantive page change needed unless you think alias normalization matters.
+
+Please return:
+1) which page(s) merit updates,
+2) concise evidence-backed wording for any new Known Vulnerabilities rows,
+3) any posture/recommendation tweaks,
+4) whether debug should remain unchanged.
