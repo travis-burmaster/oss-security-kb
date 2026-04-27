@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*103 packages tracked across 8 ecosystems. Last updated: 2026-04-25.*
+*104 packages tracked across 8 ecosystems. Last updated: 2026-04-27.*
 
-## npm (81)
+## npm (82)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/ajv]] — JSON Schema validator · advisory mapped · prototype-pollution and `$data` / pattern ReDoS history across 6.x and 8.x
 - [[npm/async]] — async control-flow utility · advisory mapped · prototype-pollution issue fixed in 2.6.4 and 3.2.2
@@ -65,6 +65,7 @@
 - [[npm/uuid]] — foundational UUID generation utility · advisory mapped · 2026 caller-supplied buffer bounds-checking flaw fixed in 14.0.0
 - [[npm/pug]] — templating engine · advisory mapped · compiler-option code-execution fixes in 3.0.1 and 3.0.3
 - [[npm/pac-resolver]] — PAC file parser / executor · advisory mapped · pre-5.0.0 code-injection history tied to unsafe PAC handling and the `degenerator` sandbox boundary
+- [[npm/next]] — Next.js framework · advisory mapped · 2026 App Router Server Function DoS (CVE-2026-23869) fixed in 15.5.15 / 16.2.3
 - [[npm/next-intl]] — internationalization middleware package · advisory mapped · 2026 open redirect fix in 4.9.1
 - [[npm/passport]] — authentication middleware foundation · advisory mapped · pre-0.6.0 session-fixation issue in login/logout session handling
 - [[npm/path-parse]] — path parsing ponyfill · advisory mapped · pre-1.0.7 ReDoS fixed in 1.0.7
