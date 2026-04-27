@@ -23,7 +23,7 @@
 | GHSA-37ch-88jc-xwx2 / CVE-2026-4867 | High | Legacy 0.1.x releases remained vulnerable to ReDoS via multiple route parameters; public records map the follow-on fix to 0.1.13. | 0.1.13 | [GitHub Advisory Database](https://github.com/advisories/GHSA-37ch-88jc-xwx2) |
 | GHSA-27v5-c462-wpq7 / CVE-2026-4923 | Moderate | Modern 8.x releases were vulnerable to ReDoS via multiple wildcards until 8.4.0 restricted wildcard backtracking. | 8.4.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-27v5-c462-wpq7) |
 | GHSA-j3q9-mxjg-w52f / CVE-2026-4926 | High | Modern 8.x releases were vulnerable to denial of service via sequential optional groups until 8.4.0 rejected large optional-route combinations. | 8.4.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-j3q9-mxjg-w52f) |
-| Issue #433 | Medium (TBD) | Publicly filed manual-review issue: trailing backslash produces `undefined` in a path token and null bytes pass through parser output; kept separate from the published GHSA/CVE set. | unfixed (as of 2026-04-07) | [Issue #433](https://github.com/pillarjs/path-to-regexp/issues/433) |
+| Issue #433 | No assigned severity (public GitHub issue only; no CVE/GHSA issued as of 2026-04-27) | Publicly filed manual-review issue: trailing backslash produces `undefined` in a path token and null bytes pass through parser output. Kept separate from the published GHSA/CVE set until upstream or a CNA issues an advisory. | unfixed (as of 2026-04-07) | [pillarjs/path-to-regexp#433](https://github.com/pillarjs/path-to-regexp/issues/433) |
 
 ## Security Posture Notes
 
