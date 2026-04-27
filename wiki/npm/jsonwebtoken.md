@@ -23,7 +23,7 @@
 | CVE-2022-23541 / GHSA-hjrf-2m68-5959 | Moderate | A poorly implemented key retrieval function could let applications verify forged tokens when they mixed symmetric and asymmetric verification through the same callback path. | 9.0.0 | https://github.com/auth0/node-jsonwebtoken/security/advisories/GHSA-hjrf-2m68-5959 |
 | CVE-2022-23540 / GHSA-qwph-4952-7xr6 | Moderate | `jwt.verify()` could accept the `none` algorithm when no algorithms were specified and a falsy key/secret was supplied, producing signature-validation bypass in affected call patterns. | 9.0.0 | https://github.com/auth0/node-jsonwebtoken/security/advisories/GHSA-qwph-4952-7xr6 |
 | CVE-2022-23529 / GHSA-27h2-hvpr-p74q | Rejected CVE | GitHub later clarified the reported RCE scenario depended on insecure calling code, and NVD marks CVE-2022-23529 as rejected. Track it as a cautionary ecosystem discussion, not a confirmed package vulnerability. | N/A | https://nvd.nist.gov/vuln/detail/CVE-2022-23529 |
-| Issue #1021 | Low–Medium (TBD) | `clockTolerance: Number.MAX_SAFE_INTEGER` can effectively disable expiration enforcement; public issue filed, not yet a published GHSA/CVE. | unfixed (as of 2026-04-07) | https://github.com/auth0/node-jsonwebtoken/issues/1021 |
+| Issue #1021 | No assigned severity (public GitHub issue only; no CVE/GHSA issued as of 2026-04-27) | Reported behavior: `clockTolerance: Number.MAX_SAFE_INTEGER` can effectively disable expiration enforcement. This is a publicly filed issue, not a published advisory. | unfixed (as of 2026-04-07) | [auth0/node-jsonwebtoken#1021](https://github.com/auth0/node-jsonwebtoken/issues/1021) |
 
 *Full CVE history: https://osv.dev/list?ecosystem=npm&q=jsonwebtoken*
 
