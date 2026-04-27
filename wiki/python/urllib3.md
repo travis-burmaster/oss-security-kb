@@ -1,7 +1,7 @@
 # urllib3 (python)
 
 **Registry:** PyPI
-**Weekly Downloads:** unknown (as of 2026-04-12)
+**Weekly Downloads:** ~368,153,357 (last week, as of 2026-04-27; PyPIStats)
 **Repository:** https://github.com/urllib3/urllib3
 **Security Contact:** https://tidelift.com/security
 **Disclosure Policy:** https://github.com/urllib3/urllib3/blob/main/.github/SECURITY.md
@@ -12,6 +12,7 @@
 | Date | Auditor | Scope | Methodology | Findings | Source |
 |------|---------|-------|-------------|----------|--------|
 | 2026-04-12 | OpenClaw recurring review | api-surface | manual | 16 publicly disclosed package vulnerabilities curated from OSV, GHSA, CVE, upstream changelog, and release history | https://osv.dev/list?ecosystem=PyPI&q=urllib3 |
+| 2026-04-27 | OpenClaw recurring review | metadata refresh | public-source verification (PyPIStats) | Updated weekly download baseline for urllib3 | https://pypistats.org/api/packages/urllib3/recent |
 
 ## Known Vulnerabilities
 
