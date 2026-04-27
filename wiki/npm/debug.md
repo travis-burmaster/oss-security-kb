@@ -17,7 +17,7 @@
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| GHSA-4x49-vf9v-38px / CVE-2025-59144 | High | `debug@4.4.2` was published with malicious code after an npm account takeover; the maintainer advisory says browser-targeted cryptocurrency-transaction redirection was the observed payload, npm removed the bad version, and users should purge caches / rebuild bundles. | 4.4.3 | [GitHub Advisory Database](https://github.com/advisories/GHSA-4x49-vf9v-38px) |
+| GHSA-4x49-vf9v-38px / CVE-2025-59144 | High | `debug@4.4.2` was published with malicious code after an npm account takeover; the maintainer advisory says browser-targeted cryptocurrency-transaction redirection was the observed payload, npm removed the bad version, and users should purge caches / rebuild bundles. | 4.4.3 | [GitHub Advisory Database](https://github.com/advisories/GHSA-4x49-vf9v-38px) (see also [GHSA-8mgj-vmr8-frr6](https://github.com/advisories/GHSA-8mgj-vmr8-frr6) alias) |
 | GHSA-gxpj-cx7g-858c / CVE-2017-16137 | Low | Regular-expression denial of service when untrusted input reaches the `%o` formatter; public advisory history says the bug was fixed, later reintroduced in the 3.2.x line, and repatched. | 2.6.9 / 3.1.0 / 3.2.7 / 4.3.1 | [GitHub Advisory Database](https://github.com/advisories/GHSA-gxpj-cx7g-858c) |
 | GHSA-9vvw-cc9w-f27h / CVE-2017-20165 | High | Publicly reviewed inefficient-regular-expression-complexity issue affecting `src/node.js` / `useColors`; GitHub Advisory Database points to the same general hardening lineage as the older ReDoS record, but tracks it separately and maps fixes to the 2.6.x and 3.0.x lines. | 2.6.9 / 3.1.0 | [GitHub Advisory Database](https://github.com/advisories/GHSA-9vvw-cc9w-f27h) |
 
@@ -47,4 +47,4 @@
 - [[npm/minimist]]
 
 ---
-*Last updated: 2026-04-12 | Sources: 7 (GitHub Advisory Database, OSV.dev package query, NVD CVE record, upstream issue thread, GitHub security-policy page, npm registry metadata, npm downloads API)*
+*Last updated: 2026-04-26 | Sources: 8 (GitHub Advisory Database, OSV.dev package query, OSV malicious-package entry MAL-2025-46974, NVD CVE record, upstream issue thread, GitHub security-policy page, npm registry metadata, npm downloads API)*
