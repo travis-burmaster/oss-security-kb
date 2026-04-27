@@ -1,7 +1,8 @@
 # openssl@3 (homebrew)
 
 **Registry:** Homebrew
-**Weekly Downloads:** ~112,175 installs/week equivalent from 30-day analytics (as of 2026-04-11)
+**Stable Version:** 3.6.2 (Homebrew formula)
+**30-day Installs:** 534,400 (Homebrew analytics; as of 2026-04-27)
 **Repository:** https://github.com/openssl/openssl
 **Security Contact:** https://www.openssl.org/community/omc.html
 **Disclosure Policy:** https://www.openssl.org/policies/secpolicy.html
@@ -19,12 +20,15 @@
 |-------------|----------|-------------|----------|--------|
 | Review pending | — | This page has not yet been populated with formula-specific advisory history. Start with upstream OpenSSL advisories, Homebrew formula update history, and related distro package timelines. | — | https://osv.dev/list?q=openssl |
 
+> Note: OSV searches for `openssl` typically return upstream and distro-scoped package records (Debian, SUSE, openEuler, etc.), not Homebrew-scoped advisories.
+> Treat OSV as an upstream/distro evidence source and separately confirm which versions Homebrew shipped.
+
 *Formula page: https://formulae.brew.sh/formula/openssl@3*
 
 ## Security Posture Notes
 
 - `openssl@3` is a high-value Homebrew anchor because many developer tools and local services rely on it directly or indirectly for TLS, certificate handling, and cryptographic primitives on macOS systems.
-- Homebrew analytics currently report 480,749 installs over 30 days, which makes this formula useful as a site seed even though formula analytics are not equivalent to registry package downloads.
+- Homebrew analytics currently report 534,400 installs over 30 days (as of 2026-04-27), which makes this formula useful as a site seed even though formula analytics are not equivalent to registry package downloads.
 - The interesting future work here is not just upstream OpenSSL CVEs, but also how quickly Homebrew packaged fixes after upstream releases and whether formula-specific patching or lag ever created meaningful exposure windows.
 
 ## Dependencies of Note
@@ -43,4 +47,4 @@
 - [[homebrew/index]]
 
 ---
-*Last updated: 2026-04-11 | Sources: 4 (Homebrew formula API, formula page, upstream repository, OpenSSL security policy)*
+*Last updated: 2026-04-27 | Sources: 4 (Homebrew formula API, formula page, upstream repository, OpenSSL security policy)*
