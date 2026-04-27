@@ -1,0 +1,175 @@
+{
+  "aliases": [
+    "openssl",
+    "openssl@3.6"
+  ],
+  "analytics": {
+    "build_error": {
+      "30d": {
+        "openssl@3": 4311
+      }
+    },
+    "install": {
+      "30d": {
+        "openssl@3": 534400,
+        "openssl@3 --HEAD": 160
+      },
+      "365d": {
+        "openssl@3": 5582792,
+        "openssl@3 --HEAD": 1432
+      },
+      "90d": {
+        "openssl@3": 1568926,
+        "openssl@3 --HEAD": 360
+      }
+    },
+    "install_on_request": {
+      "30d": {
+        "openssl@3": 77331,
+        "openssl@3 --HEAD": 151
+      },
+      "365d": {
+        "openssl@3": 850446,
+        "openssl@3 --HEAD": 1392
+      },
+      "90d": {
+        "openssl@3": 219775,
+        "openssl@3 --HEAD": 347
+      }
+    }
+  },
+  "autobump": true,
+  "bottle": {
+    "stable": {
+      "files": {
+        "arm64_linux": {
+          "cellar": "/home/linuxbrew/.linuxbrew/Cellar",
+          "sha256": "00604552976a76cb23daac747aae0ef790d3332f08ef69b043c35850f6b00304",
+          "url": "https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:00604552976a76cb23daac747aae0ef790d3332f08ef69b043c35850f6b00304"
+        },
+        "arm64_sequoia": {
+          "cellar": "/opt/homebrew/Cellar",
+          "sha256": "2cedb13f5dc6fb1480f3cb4c92dce58d6cfef2a7bfe46026dd4a5f7305d951ac",
+          "url": "https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:2cedb13f5dc6fb1480f3cb4c92dce58d6cfef2a7bfe46026dd4a5f7305d951ac"
+        },
+        "arm64_sonoma": {
+          "cellar": "/opt/homebrew/Cellar",
+          "sha256": "aaa5f4f3d87868ecd5f5fd6967da0c305eb335a58171faba193e9c7e39fbf35c",
+          "url": "https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:aaa5f4f3d87868ecd5f5fd6967da0c305eb335a58171faba193e9c7e39fbf35c"
+        },
+        "arm64_tahoe": {
+          "cellar": "/opt/homebrew/Cellar",
+          "sha256": "6f3029073c7e53fcf8f777bed99f25dd2992c5deed3662d739d052e6b594ba60",
+          "url": "https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:6f3029073c7e53fcf8f777bed99f25dd2992c5deed3662d739d052e6b594ba60"
+        },
+        "sequoia": {
+          "cellar": "/usr/local/Cellar",
+          "sha256": "722be745fc5be0e1d8fa653482db3fdbc84f940456fe8f59ddd0b8f3f343e686",
+          "url": "https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:722be745fc5be0e1d8fa653482db3fdbc84f940456fe8f59ddd0b8f3f343e686"
+        },
+        "sonoma": {
+          "cellar": "/usr/local/Cellar",
+          "sha256": "a49cb0d2f17fc2866ca7a5a212e2e0d2721718e1c3d4f7c3817d9afbb64142e9",
+          "url": "https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:a49cb0d2f17fc2866ca7a5a212e2e0d2721718e1c3d4f7c3817d9afbb64142e9"
+        },
+        "tahoe": {
+          "cellar": "/usr/local/Cellar",
+          "sha256": "cd84b6d838d68506a8e75dfb94d3d528624ba5b37b3a51000da981a1662eb2b6",
+          "url": "https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:cd84b6d838d68506a8e75dfb94d3d528624ba5b37b3a51000da981a1662eb2b6"
+        },
+        "x86_64_linux": {
+          "cellar": "/home/linuxbrew/.linuxbrew/Cellar",
+          "sha256": "3a0921a100c10db526e51889e874eb963ca6c450ef8bb08af3f0d714c598d983",
+          "url": "https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:3a0921a100c10db526e51889e874eb963ca6c450ef8bb08af3f0d714c598d983"
+        }
+      },
+      "rebuild": 0,
+      "root_url": "https://ghcr.io/v2/homebrew/core"
+    }
+  },
+  "build_dependencies": [],
+  "caveats": "To add additional certificates, place .pem files in\n  $HOMEBREW_PREFIX/etc/openssl@3/certs\n\nand run\n  $HOMEBREW_PREFIX/opt/openssl@3/bin/c_rehash\n",
+  "compatibility_version": 1,
+  "conflicts_with": [],
+  "conflicts_with_reasons": [],
+  "dependencies": [
+    "ca-certificates"
+  ],
+  "deprecate_args": null,
+  "deprecated": false,
+  "deprecation_date": null,
+  "deprecation_reason": null,
+  "deprecation_replacement_cask": null,
+  "deprecation_replacement_formula": null,
+  "desc": "Cryptography and SSL/TLS Toolkit",
+  "disable_args": null,
+  "disable_date": null,
+  "disable_reason": null,
+  "disable_replacement_cask": null,
+  "disable_replacement_formula": null,
+  "disabled": false,
+  "full_name": "openssl@3",
+  "generated_date": "2026-04-27",
+  "homepage": "https://openssl-library.org",
+  "installed": [],
+  "keg_only": false,
+  "keg_only_reason": null,
+  "license": "Apache-2.0",
+  "link_overwrite": [
+    "bin/c_rehash",
+    "bin/openssl",
+    "include/openssl/*",
+    "lib/libcrypto*",
+    "lib/libssl*",
+    "lib/pkgconfig/libcrypto.pc",
+    "lib/pkgconfig/libssl.pc",
+    "lib/pkgconfig/openssl.pc",
+    "share/doc/openssl/*",
+    "share/man/man*/*ssl"
+  ],
+  "linked_keg": null,
+  "name": "openssl@3",
+  "no_autobump_message": null,
+  "oldnames": [],
+  "optional_dependencies": [],
+  "options": [],
+  "outdated": false,
+  "pinned": false,
+  "post_install_defined": true,
+  "pour_bottle_only_if": null,
+  "recommended_dependencies": [],
+  "requirements": [],
+  "revision": 0,
+  "ruby_source_checksum": {
+    "sha256": "b6ef6022949c04dc0ebe70b90b73f89025231c7b9312185cb77a98ffff7cd2dc"
+  },
+  "ruby_source_path": "Formula/o/openssl@3.rb",
+  "service": null,
+  "skip_livecheck": false,
+  "tap": "homebrew/core",
+  "tap_git_head": "35ef9f9c9b11eff7ca495975a75d09962c9f51f8",
+  "test_dependencies": [],
+  "urls": {
+    "stable": {
+      "checksum": "aaf51a1fe064384f811daeaeb4ec4dce7340ec8bd893027eee676af31e83a04f",
+      "revision": null,
+      "tag": null,
+      "url": "https://github.com/openssl/openssl/releases/download/openssl-3.6.2/openssl-3.6.2.tar.gz",
+      "using": null
+    }
+  },
+  "uses_from_macos": [],
+  "uses_from_macos_bounds": [],
+  "variations": {},
+  "version_scheme": 0,
+  "versioned_formulae": [
+    "openssl@4",
+    "openssl@3.5",
+    "openssl@3.0"
+  ],
+  "versions": {
+    "bottle": true,
+    "head": null,
+    "stable": "3.6.2"
+  }
+}
