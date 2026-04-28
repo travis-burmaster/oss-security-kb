@@ -25,6 +25,7 @@
 | CVE-2019-20922 / GHSA-62gr-4qp9-h98f | moderate | Regular-expression denial of service in 4.x releases. | 4.4.5 | https://osv.dev/vulnerability/GHSA-62gr-4qp9-h98f |
 | CVE-2021-23369 / GHSA-f2jv-r9rf-7988 | critical | Remote code execution when compiling attacker-controlled templates / AST-like input; upstream `v4.7.7` release notes call out stricter prototype-property access checks in this security-fix window. | 4.7.7 | https://osv.dev/vulnerability/GHSA-f2jv-r9rf-7988 |
 | CVE-2021-23383 / GHSA-765h-qjxv-5f44 | high | Prototype-pollution / prototype-property access issue in older lines, remediated in `4.7.7`. | 4.7.7 | https://osv.dev/vulnerability/GHSA-765h-qjxv-5f44 |
+| CVE-2026-33937 / GHSA-2w6w-674q-4c4q | CVSS 3.1 9.8 (from OSV CVE record) | `Handlebars.compile()` accepts a pre-parsed AST object; public advisory records describe a JavaScript-injection / RCE path when attacker-controlled AST `NumberLiteral.value` is emitted into generated JS without sanitization. | 4.7.9 | https://github.com/advisories/GHSA-2w6w-674q-4c4q |
 | GHSA-2qvq-rjwj-gvw9 / GHSA-2w6w-674q-4c4q / GHSA-3mfm-83xf-c92r / GHSA-442j-39wm-28r2 / GHSA-7rx3-28cr-v5wh / GHSA-9cx6-37pm-9jff / GHSA-xhpv-hc6g-r9c6 / GHSA-xjpj-3mr7-gcpf | multiple | Coordinated `v4.7.9` security cluster covering prototype-pollution-to-XSS via partial resolution, several AST type-confusion / JavaScript-injection paths, property-access / blocklist bypasses, CLI precompiler injection, and malformed-decorator compilation DoS. The upstream `v4.7.9` release explicitly lists all eight advisories under one security-fix commit. | 4.7.9 | https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9 |
 
 ## Security Posture Notes
@@ -56,4 +57,4 @@
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-16 | Sources: 8 (OSV.dev, GitHub Advisory Database / upstream GitHub security advisories, public CVE aliases, upstream release notes, upstream SECURITY.md, GitHub release metadata, npm registry metadata, npm downloads API)*
+*Last updated: 2026-04-28 | Sources: 10 (OSV.dev, GitHub Advisory Database / upstream GitHub security advisories, public CVE aliases, upstream release notes, upstream SECURITY.md, GitHub release metadata, npm registry metadata, npm downloads API, OSV CVE JSON for CVE-2026-33937, GitHub Advisory Database page for GHSA-2w6w-674q-4c4q)*
