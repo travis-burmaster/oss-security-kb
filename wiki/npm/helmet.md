@@ -33,6 +33,7 @@
 1. **Review major-version default changes** before upgrades so expected hardening behavior remains explicit.
 2. **Treat CSP as application-specific policy** rather than assuming generic defaults are sufficient.
 3. **Keep monitoring public advisories** even though none were confirmed in this pass.
+4. **Watch for typosquats / namespace confusion:** searching OSV for the term `helmet` returns many **MAL (malicious package)** records for unrelated npm packages that merely contain `helmet` in their name; do not confuse those with the legitimate `npm/helmet` middleware package. (This note is about search results and supply-chain risk, not a direct vulnerability in `helmet`.)
 
 ## Open Questions
 
