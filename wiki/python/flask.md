@@ -17,7 +17,7 @@
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| CVE-2026-27205 / GHSA-68rp-wp8r-4726 | Low | Flask did not mark the session as accessed for some key-only operations such as `in` and `len`, so `Vary: Cookie` could be omitted in some cache-sensitive flows. | 3.1.3 | https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726 |
+| CVE-2026-27205 / GHSA-68rp-wp8r-4726 | Low | Flask did not mark the session as accessed for some **key-only operations** (for example the Python `in` operator), so the response could omit `Vary: Cookie` in some cache-sensitive flows. The advisory states that **all versions prior to 3.1.3** are affected. | 3.1.3 | https://github.com/pallets/flask/security/advisories/GHSA-68rp-wp8r-4726 |
 | CVE-2025-47278 / GHSA-4grg-w6v8-c28g | Low | Flask 3.1.0 reversed signing-key order when `SECRET_KEY_FALLBACKS` was enabled, causing new session signing to use a fallback key rather than the current key. | 3.1.1 | https://github.com/pallets/flask/security/advisories/GHSA-4grg-w6v8-c28g |
 | CVE-2023-30861 / GHSA-m2qf-hxjv-5gpq / PYSEC-2023-62 | High | Responses could miss `Vary: Cookie` when a permanent session cookie was refreshed without the session being accessed or modified, allowing cache-mediated disclosure in specific proxy setups. | 2.2.5, 2.3.2 | https://github.com/pallets/flask/security/advisories/GHSA-m2qf-hxjv-5gpq |
 | CVE-2019-1010083 / GHSA-5wv5-4vpf-pj6m / PYSEC-2019-179 | High | Crafted encoded JSON data could trigger unexpected memory usage and denial of service in pre-1.0 releases. Public records note this may overlap the earlier 2018 JSON-memory advisory. | 1.0 | https://github.com/advisories/GHSA-5wv5-4vpf-pj6m |
