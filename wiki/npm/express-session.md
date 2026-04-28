@@ -19,7 +19,9 @@
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| No package-level GHSA / OSV record clearly confirmed in this review pass | — | Public-source review did **not** surface a clean, package-scoped OSV entry for `npm/express-session`. Some public search results and third-party references appear to mix in typosquats, downstream misuse, or unrelated packages, so this page intentionally avoids attributing unverified advisories to `express-session` itself. | — | https://osv.dev/ |
+| No package-level GHSA / OSV record clearly confirmed in this review pass | — | Public-source review did **not** surface a clean, package-scoped OSV entry for `npm/express-session`.
+
+**Typosquat / namespace-confusion warning (evidence-backed):** an OSV query for the string `express-session` surfaced **MAL (malicious package) records** for similarly named packages (for example: `express-session-js`, `express-session-vailidator`, and `express-session-validator`). These are **not** the legitimate `express-session` package, so this page intentionally avoids attributing those malicious-package advisories to `express-session` itself. | — | https://osv.dev/list?ecosystem=npm&q=express-session |
 
 ## Security Posture Notes
 
