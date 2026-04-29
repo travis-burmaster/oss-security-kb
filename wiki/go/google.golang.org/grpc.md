@@ -30,6 +30,8 @@
 - Upstream's published gRPC CVE process is a comparatively mature disclosure signal, and the v1.79.3 release notes explicitly document the 2026 authorization-bypass fix.
 - Exploitability is highly deployment-dependent: the 2026 authz bypass requires path-based authorization logic with a permissive fallback, and the 2024 logging issue depends on application code logging contexts that contain metadata.
 
+- The 2026 authorization-bypass advisory explicitly calls out a mismatch between **non-canonical** `:path` strings accepted by the server router and the **canonical** path patterns used by path-based authorization interceptors; that makes canonicalization (and avoiding permissive fallback rules) a key operational takeaway for affected deployments.
+
 ## Dependencies of Note
 
 - `google.golang.org/grpc/authz` is a high-value adjacent surface because official path-based authorization logic was directly implicated in the 2026 bypass conditions.
