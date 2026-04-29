@@ -1,0 +1,1017 @@
+{
+  "vulns": [
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-2v35-w6hq-6mfw/GHSA-2v35-w6hq-6mfw.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "0.8.13"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-2v35-w6hq-6mfw/GHSA-2v35-w6hq-6mfw.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0.9.0"
+                },
+                {
+                  "fixed": "0.9.10"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-2v35-w6hq-6mfw/GHSA-2v35-w6hq-6mfw.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "xmldom",
+            "purl": "pkg:npm/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "last_affected": "0.6.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2026-41673"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-674"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2026-04-22T20:23:57Z",
+        "nvd_published_at": null,
+        "severity": "HIGH"
+      },
+      "details": "## Summary\n\nSeven recursive traversals in `lib/dom.js` operate without a depth limit. A sufficiently deeply\nnested DOM tree causes a `RangeError: Maximum call stack size exceeded`, crashing the application.\n\n**Reported operations:**\n- `Node.prototype.normalize()` \u2014 reported by @praveen-kv (email 2026-04-05) and @KarimTantawey (GHSA-fwmp-8wwc-qhv6, via `DOMParser.parseFromString()`)\n- `XMLSerializer.serializeToString()` \u2014 reported by @Jvr2022 (GHSA-2v35-w6hq-6mfw) and @KarimTantawey (GHSA-j2hf-fqwf-rrjf)\n\n**Additionally, discovered in research:**\n- `Element.getElementsByTagName()` / `getElementsByTagNameNS()` / `getElementsByClassName()` / `getElementById()`\n- `Node.cloneNode(true)`\n- `Document.importNode(node, true)`\n- `node.textContent` (getter)\n- `Node.isEqualNode(other)`\n\nAll seven share the same root cause: pure-JavaScript recursive tree traversal with no depth guard.\nA single deeply nested document (parsed successfully) triggers any or all of these operations.\n\n---\n\n## Details\n\n### Root cause\n\n`lib/dom.js` implements DOM tree traversals as depth-first recursive functions. Each level of\nelement nesting adds one JavaScript call frame. The JS engine's call stack is finite; once\nexhausted, a `RangeError: Maximum call stack size exceeded` is thrown. This error may not be\ncaught reliably at stack-exhaustion depths because the catch handler itself requires stack\nframes to execute \u2014 especially in async scenarios, where an uncaught `RangeError` inside a\ncallback or promise chain can crash the entire Node.js process.\n\nParsing a deeply nested document **succeeds** \u2014 the SAX parser in `lib/sax.js` is iterative.\nThe crash occurs during subsequent operations on the parsed DOM.\n\n### `Node.prototype.normalize()` \u2014 reported by @praveen-kv\n\n[`lib/dom.js:1296\u20131308`](https://github.com/xmldom/xmldom/blob/9ef2fd297ca527a05ecb11979850317a927cd20c/lib/dom.js#L1296-L1308) (main):\n\n```js\nnormalize: function () {\n    var child = this.firstChild;\n    while (child) {\n        var next = child.nextSibling;\n        if (next && next.nodeType == TEXT_NODE && child.nodeType == TEXT_NODE) {\n            this.removeChild(next);\n            child.appendData(next.data);\n        } else {\n            child.normalize();   // recursive call \u2014 no depth guard\n            child = next;\n        }\n    }\n},\n```\n\nCrash threshold (Node.js 18, default stack): ~10,000 levels.\n\n### `XMLSerializer.serializeToString()` \u2014 reported by @Jvr2022\n\n[`lib/dom.js:2790\u20132974`](https://github.com/xmldom/xmldom/blob/9ef2fd297ca527a05ecb11979850317a927cd20c/lib/dom.js#L2790-L2974) (main):\nThe internal `serializeToString` worker recurses into child nodes at four call sites, each\npassing a `visibleNamespaces.slice()` copy. The per-frame allocation causes earlier stack\nexhaustion than `normalize()`.\n\nCrash threshold (Node.js 18, default stack): ~5,000 levels.\n\n### Additional recursive entry points\n\nAll five crash at ~10,000 levels on Node.js 18.\n\n| Function                    | Definition                                                                                                           | Public API entry point(s)                                                                            | Crash depth (Node.js 18) |\n|-----------------------------|----------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|--------------------------|\n| `_visitNode`                | [`lib/dom.js:1529`](https://github.com/xmldom/xmldom/blob/9ef2fd297ca527a05ecb11979850317a927cd20c/lib/dom.js#L1529) | `getElementsByTagName()`, `getElementsByTagNameNS()`, `getElementsByClassName()`, `getElementById()` | ~10,000 levels           |\n| `cloneNode` (module fn)     | [`lib/dom.js:3037`](https://github.com/xmldom/xmldom/blob/9ef2fd297ca527a05ecb11979850317a927cd20c/lib/dom.js#L3037) | `Node.prototype.cloneNode(true)`                                                                     | ~10,000 levels           |\n| `importNode` (module fn)    | [`lib/dom.js:2975`](https://github.com/xmldom/xmldom/blob/9ef2fd297ca527a05ecb11979850317a927cd20c/lib/dom.js#L2975) | `Document.prototype.importNode(node, true)`                                                          | ~10,000 levels           |\n| `getTextContent` (inner fn) | [`lib/dom.js:3130`](https://github.com/xmldom/xmldom/blob/9ef2fd297ca527a05ecb11979850317a927cd20c/lib/dom.js#L3130) | `node.textContent` (getter)                                                                          | ~10,000 levels           |\n| `isEqualNode`               | [`lib/dom.js:1120`](https://github.com/xmldom/xmldom/blob/9ef2fd297ca527a05ecb11979850317a927cd20c/lib/dom.js#L1120) | `Node.prototype.isEqualNode(other)`                                                                  | ~10,000 levels           |\n\nBoth active branches (`main` and `release-0.8.x`) are identically affected. The unscoped `xmldom`\npackage (\u2264 0.6.0) carries the same recursive patterns from its initial commit.\n\n### Browser behavior\n\nTested with Chromium 147 (Playwright headless). Chromium's native C++ implementations of all\nseven DOM methods are **iterative** \u2014 they traverse the DOM without consuming JS call stack frames.\nAll seven succeed at depths up to 20,000 without any crash.\n\nWhen `@xmldom/xmldom` is bundled and run in a browser context the same recursive JS code executes\nunder the browser's V8 stack limit (~12,000\u201313,000 frames). The crash thresholds are similar to\nthose observed on Node.js 18 (~5,000 for `serializeToString`, ~10,000 for the remaining six).\n\nThe vulnerability is specific to xmldom's pure-JavaScript recursive implementation, not an\ninherent property of the DOM operations.\n\n---\n\n## PoC\n\n### `normalize()` (from @praveen-kv report, 2026-04-05)\n\n```js\nconst { DOMParser } = require('@xmldom/xmldom');\n\nfunction generateNestedXML(depth) {\n    return '<root>' + '<a>'.repeat(depth) + 'text' + '</a>'.repeat(depth) + '</root>';\n}\n\nconst doc = new DOMParser().parseFromString(generateNestedXML(10000), 'text/xml');\ndoc.documentElement.normalize();\n// RangeError: Maximum call stack size exceeded\n```\n\n### `XMLSerializer.serializeToString()` (from GHSA-2v35-w6hq-6mfw)\n\n```js\nconst { DOMParser, XMLSerializer } = require('@xmldom/xmldom');\n\nconst depth = 5000;\nconst xml = '<a>'.repeat(depth) + '</a>'.repeat(depth);\nconst doc = new DOMParser().parseFromString(xml, 'text/xml');\nnew XMLSerializer().serializeToString(doc);\n// RangeError: Maximum call stack size exceeded\n```\n\nThe other methods have been verified using similar pocs.\n\n---\n\n## Impact\n\nAny service that accepts attacker-controlled XML and subsequently calls any of the seven affected\nDOM operations can be forced into a reliable denial of service with a single crafted payload.\n\nThe immediate result is an uncaught `RangeError` and failed request processing. In deployments\nwhere uncaught exceptions terminate the worker or process, the impact can extend beyond a single\nrequest and disrupt service availability more broadly.\n\nNo authentication, special options, or invalid XML is required. A valid, deeply nested XML\ndocument is enough.\n\n---\n\n## Disclosure\n\nThe `normalize()` vector was publicly disclosed at 2026-04-06T11:25:07Z via\n[xmldom/xmldom#987](https://github.com/xmldom/xmldom/pull/987) (closed without merge).\n`serializeToString()` and the five additional recursive entry points were not mentioned in that PR.\n\n---\n\n## Fix Applied\n\nAll seven affected traversals have been converted from recursive to iterative implementations, eliminating call-stack consumption on deep trees.\n\n### `walkDOM` utility\n\nA new `walkDOM(node, context, callbacks)` utility is introduced. It traverses the subtree rooted at `node` in depth-first order using an explicit JavaScript array as a stack, consuming heap memory instead of call-stack frames. `context` is an arbitrary value threaded through the walk \u2014 each `callbacks.enter(node, context)` call returns the context to pass to that node's children, enabling per-branch state (e.g. namespace snapshots in the serializer). `callbacks.exit(node, context)` (optional) is called in post-order after all children have been visited.\n\nThe following six operations are re-implemented on top of `walkDOM`:\n\n| Operation | Public entry point(s) |\n|---|---|\n| `_visitNode` helper | `getElementsByTagName()`, `getElementsByTagNameNS()`, `getElementsByClassName()`, `getElementById()` |\n| `getTextContent` inner function | `node.textContent` getter |\n| `cloneNode` module function | `Node.prototype.cloneNode(true)` |\n| `importNode` module function | `Document.prototype.importNode(node, true)` |\n| `serializeToString` worker | `XMLSerializer.prototype.serializeToString()`, `Node.prototype.toString()`, `NodeList.prototype.toString()` |\n| `normalize` | `Node.prototype.normalize()` |\n\n`normalize` uses `walkDOM` with a `null` context and an `enter` callback that merges adjacent Text children of the current node before `walkDOM` reads and queues those children \u2014 so the surviving post-merge children are what the walker descends into.\n\n### Custom iterative loop for `isEqualNode`\n\nOne function cannot use `walkDOM`:\n\n**`Node.prototype.isEqualNode(other)`** (0.9.x only; absent from 0.8.x) compares two trees in parallel. It maintains an explicit stack of `{node, other}` node pairs \u2014 one node from each tree \u2014 which cannot be expressed with `walkDOM`'s single-tree visitor.\n\n### After the fix\n\nAll seven entry points succeed on trees of arbitrary depth without throwing `RangeError`. The original PoCs still demonstrate the vulnerability on unpatched versions and confirm the fix on patched versions.",
+      "id": "GHSA-2v35-w6hq-6mfw",
+      "modified": "2026-04-28T13:59:15.640042069Z",
+      "published": "2026-04-22T20:23:57Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/security/advisories/GHSA-2v35-w6hq-6mfw"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/17678a2a73ecbd1a2da90f3d47dc23da9cef81aa"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/291257493cb0eb6980eda83b162a9c4e6d7d2597"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/2d6d6916ed8a4c223db1f6d7560ab4544c465b0f"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/430357c7b6333108856e917bf2367afe5ceb6f8a"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/4845ef109221df0890825de2822fbe77afba3afe"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/8834218c85ac2a4d757b9587c9028e67c2f7b6c3"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/8b7cfd1491314abdc347261921d7334ff15f7112"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/b0620383abc1df067f3ce1014c43ae1bc1161eeb"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/e6edcab6bef5bcdba0b220bb35442aa72f452b84"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/xmldom/xmldom"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.8.13"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.9.10"
+        }
+      ],
+      "related": [
+        "CGA-rgv3-m59p-mrqg"
+      ],
+      "schema_version": "1.7.5",
+      "severity": [
+        {
+          "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+          "type": "CVSS_V4"
+        }
+      ],
+      "summary": "xmldom: Uncontrolled recursion in XML serialization leads to DoS"
+    },
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/08/GHSA-5fg8-2547-mr8q/GHSA-5fg8-2547-mr8q.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "xmldom",
+            "purl": "pkg:npm/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "last_affected": "0.6.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/08/GHSA-5fg8-2547-mr8q/GHSA-5fg8-2547-mr8q.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "0.7.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2021-32796"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-116"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2021-08-02T23:21:11Z",
+        "nvd_published_at": "2021-07-27T22:15:00Z",
+        "severity": "MODERATE"
+      },
+      "details": "### Impact\nxmldom versions 0.6.0 and older do not correctly escape special characters when serializing elements removed from their ancestor. This may lead to unexpected syntactic changes during XML processing in some downstream applications.\n\n### Patches\nUpdate to one of the fixed versions of `@xmldom/xmldom` (`>=0.7.0`)\n\nSee issue #271 for the status of publishing `xmldom` to npm or join #270 for Q&A/discussion until it's resolved.\n\n### Workarounds\n\nDownstream applications can validate the input and reject the maliciously crafted documents.\n\n### References\n\nSimilar to this one reported on the Go standard library:\n\n- https://mattermost.com/blog/coordinated-disclosure-go-xml-vulnerabilities/\n- https://mattermost.com/blog/securing-xml-implementations-across-the-web/\n\n### For more information\n\nIf you have any questions or comments about this advisory:\n\n* Open an issue in [`xmldom/xmldom`](https://github.com/xmldom/xmldom)\n* Email us: send an email to **all** addresses that are shown by `npm owner ls @xmldom/xmldom`\n",
+      "id": "GHSA-5fg8-2547-mr8q",
+      "modified": "2026-03-13T22:15:17.751493Z",
+      "published": "2021-08-03T16:57:05Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/security/advisories/GHSA-5fg8-2547-mr8q"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-32796"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/7b4b743917a892d407356e055b296dcd6d107e8b"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/xmldom/xmldom"
+        },
+        {
+          "type": "WEB",
+          "url": "https://mattermost.com/blog/coordinated-disclosure-go-xml-vulnerabilities"
+        },
+        {
+          "type": "WEB",
+          "url": "https://mattermost.com/blog/securing-xml-implementations-across-the-web"
+        },
+        {
+          "type": "WEB",
+          "url": "https://www.npmjs.com/package/@xmldom/xmldom"
+        }
+      ],
+      "related": [
+        "CVE-2021-32796"
+      ],
+      "schema_version": "1.7.5",
+      "severity": [
+        {
+          "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "type": "CVSS_V3"
+        }
+      ],
+      "summary": "Misinterpretation of malicious XML input"
+    },
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/11/GHSA-crh6-fp67-6883/GHSA-crh6-fp67-6883.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "xmldom",
+            "purl": "pkg:npm/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "last_affected": "0.6.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/11/GHSA-crh6-fp67-6883/GHSA-crh6-fp67-6883.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "0.7.7"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/11/GHSA-crh6-fp67-6883/GHSA-crh6-fp67-6883.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0.8.0"
+                },
+                {
+                  "fixed": "0.8.4"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/11/GHSA-crh6-fp67-6883/GHSA-crh6-fp67-6883.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0.9.0-beta.1"
+                },
+                {
+                  "fixed": "0.9.0-beta.4"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2022-39353"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-1288",
+          "CWE-20"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2022-11-01T17:29:11Z",
+        "nvd_published_at": "2022-11-02T17:15:00Z",
+        "severity": "CRITICAL"
+      },
+      "details": "### Impact\nxmldom parses XML that is not well-formed because it contains multiple top level elements, and adds all root nodes to the `childNodes` collection of the `Document`, without reporting any error or throwing.\nThis breaks the assumption that there is only a single root node in the tree, which led to https://nvd.nist.gov/vuln/detail/CVE-2022-39299 and is a potential issue for dependents.\n\n### Patches\nUpdate to `@xmldom/xmldom@~0.7.7`, `@xmldom/xmldom@~0.8.4` (dist-tag `latest`) or `@xmldom/xmldom@>=0.9.0-beta.4` (dist-tag `next`).\n\n### Workarounds\nOne of the following approaches might help, depending on your use case:\n- Instead of searching for elements in the whole DOM, only search in the `documentElement`.\n- Reject a document with a document that has more then 1 `childNode`.\n\n### References\n- https://nvd.nist.gov/vuln/detail/CVE-2022-39299\n- https://github.com/jindw/xmldom/issues/150\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Email us at security@xmldom.org\n",
+      "id": "GHSA-crh6-fp67-6883",
+      "modified": "2023-11-08T04:10:19.676368Z",
+      "published": "2022-11-01T17:29:11Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/security/advisories/GHSA-crh6-fp67-6883"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-39353"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/jindw/xmldom/issues/150"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/52a708360c35aa160fcca8621720d71fd0f95f1a"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/7ff7c10ab2961703ac1752e95b4ff60ee4ee6643"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/c02f786216bed70825f9a351c65e61500f51e931"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/xmldom/xmldom"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.7.7"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.8.4"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.9.0-beta.4"
+        },
+        {
+          "type": "WEB",
+          "url": "https://lists.debian.org/debian-lts-announce/2023/01/msg00000.html"
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "type": "CVSS_V3"
+        }
+      ],
+      "summary": "xmldom allows multiple root nodes in a DOM"
+    },
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-f6ww-3ggp-fr8h/GHSA-f6ww-3ggp-fr8h.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "0.8.13"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-f6ww-3ggp-fr8h/GHSA-f6ww-3ggp-fr8h.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0.9.0"
+                },
+                {
+                  "fixed": "0.9.10"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-f6ww-3ggp-fr8h/GHSA-f6ww-3ggp-fr8h.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "xmldom",
+            "purl": "pkg:npm/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "last_affected": "0.6.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2026-41674"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-91"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2026-04-22T20:19:12Z",
+        "nvd_published_at": null,
+        "severity": "HIGH"
+      },
+      "details": "## Summary\n\nThe package serializes `DocumentType` node fields (`internalSubset`, `publicId`, `systemId`) verbatim\nwithout any escaping or validation. When these fields are set programmatically to attacker-controlled\nstrings, `XMLSerializer.serializeToString` can produce output where the DOCTYPE declaration is\nterminated early and arbitrary markup appears outside it.\n\n---\n\n## Details\n\n`DOMImplementation.createDocumentType(qualifiedName, publicId, systemId, internalSubset)` validates\nonly `qualifiedName` against the XML QName production. The remaining three arguments are stored\nas-is with no validation.\n\nThe XMLSerializer emits `DocumentType` nodes as:\n\n```\n<!DOCTYPE name[ PUBLIC pubid][ SYSTEM sysid][ [internalSubset]]>\n```\n\nAll fields are pushed into the output buffer verbatim \u2014 no escaping, no quoting added.\n\n**`internalSubset` injection:** The serializer wraps `internalSubset` with ` [` and `]`. A value\ncontaining `]>` closes the internal subset and the DOCTYPE declaration at the injection point.\nAny content after `]>` in `internalSubset` appears outside the DOCTYPE in the serialized output as\nraw XML markup. Reported by @TharVid (GHSA-f6ww-3ggp-fr8h). Affected: `@xmldom/xmldom` \u2265 0.9.0\nvia `createDocumentType` API; 0.8.x only via direct property write.\n\n**`publicId` injection:** The serializer emits `publicId` verbatim after `PUBLIC` with no\nquoting added. A value containing an injected system identifier (e.g.,\n`\"pubid\" SYSTEM \"evil\"`) breaks the intended quoting context, injecting a fake SYSTEM entry\ninto the serialized DOCTYPE declaration. Identified during internal security research. Affected:\nboth branches, all versions back to 0.1.0.\n\n**`systemId` injection:** The serializer emits `systemId` verbatim. A value containing `>`\nterminates the DOCTYPE declaration early; content after `>` appears as raw XML markup outside\nthe DOCTYPE context. Identified during internal security research. Affected: both branches, all\nversions back to 0.1.0.\n\nThe parse path is safe: the SAX parser enforces the `PubidLiteral` and `SystemLiteral` grammar\nproductions, which exclude the relevant characters, and the internal subset parser only accepts a\nsubset it can structurally validate. The vulnerability is reachable only through programmatic\n`createDocumentType` calls with attacker-controlled arguments.\n\n---\n\n## Affected code\n\n**`lib/dom.js` \u2014 `createDocumentType` (lines 898\u2013910):**\n\n```js\ncreateDocumentType: function (qualifiedName, publicId, systemId, internalSubset) {\n    validateQualifiedName(qualifiedName);          // only qualifiedName is validated\n    var node = new DocumentType(PDC);\n    node.name = qualifiedName;\n    node.nodeName = qualifiedName;\n    node.publicId = publicId || '';               // stored verbatim\n    node.systemId = systemId || '';               // stored verbatim\n    node.internalSubset = internalSubset || '';   // stored verbatim\n    node.childNodes = new NodeList();\n    return node;\n},\n```\n\n**`lib/dom.js` \u2014 serializer DOCTYPE case (lines 2948\u20132964):**\n\n```js\ncase DOCUMENT_TYPE_NODE:\n    var pubid = node.publicId;\n    var sysid = node.systemId;\n    buf.push(g.DOCTYPE_DECL_START, ' ', node.name);\n    if (pubid) {\n        buf.push(' ', g.PUBLIC, ' ', pubid);\n        if (sysid && sysid !== '.') {\n            buf.push(' ', sysid);\n        }\n    } else if (sysid && sysid !== '.') {\n        buf.push(' ', g.SYSTEM, ' ', sysid);\n    }\n    if (node.internalSubset) {\n        buf.push(' [', node.internalSubset, ']');  // internalSubset emitted verbatim\n    }\n    buf.push('>');\n    return;\n```\n\n---\n\n## PoC\n\n### internalSubset injection\n\n```js\nconst { DOMImplementation, XMLSerializer } = require('@xmldom/xmldom');\n\nconst impl = new DOMImplementation();\nconst doctype = impl.createDocumentType(\n    'root',\n    '',\n    '',\n    ']><injected/><![CDATA['\n);\nconst doc = impl.createDocument(null, 'root', doctype);\nconst xml = new XMLSerializer().serializeToString(doc);\nconsole.log(xml);\n// <!DOCTYPE root []><injected/><![CDATA[]><root/>\n//                   ^^^^^^^^^^  injected element outside DOCTYPE\n```\n\n### publicId quoting context break\n\n```js\nconst { DOMImplementation, XMLSerializer } = require('@xmldom/xmldom');\n\nconst impl = new DOMImplementation();\nconst doctype = impl.createDocumentType(\n    'root',\n    '\"injected PUBLIC_ID\" SYSTEM \"evil\"',\n    '',\n    ''\n);\nconst doc = impl.createDocument(null, 'root', doctype);\nconsole.log(new XMLSerializer().serializeToString(doc));\n// <!DOCTYPE root PUBLIC \"injected PUBLIC_ID\" SYSTEM \"evil\"><root/>\n// quoting context broken \u2014 SYSTEM entry injected\n```\n\n### systemId injection\n\n```js\nconst { DOMImplementation, XMLSerializer } = require('@xmldom/xmldom');\n\nconst impl = new DOMImplementation();\nconst doctype = impl.createDocumentType(\n    'root',\n    '',\n    '\"sysid\"><injected attr=\"pwn\"/>',\n    ''\n);\nconst doc = impl.createDocument(null, 'root', doctype);\nconsole.log(new XMLSerializer().serializeToString(doc));\n// <!DOCTYPE root SYSTEM \"sysid\"><injected attr=\"pwn\"/>><root/>\n// > in sysid closes DOCTYPE early; <injected/> appears as sibling element\n```\n\n---\n\n## Impact\n\nAn application that programmatically constructs `DocumentType` nodes from user-controlled data and\nthen serializes the document can emit a DOCTYPE declaration where the internal subset is closed\nearly or where injected SYSTEM entities or other declarations appear in the serialized output.\n\nDownstream XML parsers that re-parse the serialized output and expand entities from the injected\nDOCTYPE declarations may be susceptible to XXE-class attacks if they enable entity expansion.\n\n---\n\n## Fix Applied\n\n> **\u26a0 Opt-in required.** Protection is not automatic. Existing serialization calls remain\n> vulnerable unless `{ requireWellFormed: true }` is explicitly passed. Applications that pass\n> untrusted data to `createDocumentType()` or write untrusted values directly to a\n> `DocumentType` node's `publicId`, `systemId`, or `internalSubset` properties should audit\n> all `serializeToString()` call sites and add the option.\n\n`XMLSerializer.serializeToString()` now accepts an options object as a second argument. When `{ requireWellFormed: true }` is passed, the serializer validates the `DocumentType` node's `publicId`, `systemId`, and `internalSubset` fields before emitting the DOCTYPE declaration and throws `InvalidStateError` if any field contains an injection sequence:\n\n- **`publicId`**: throws if non-empty and does not match the XML `PubidLiteral` production (XML 1.0 [12])\n- **`systemId`**: throws if non-empty and does not match the XML `SystemLiteral` production (XML 1.0 [11])\n- **`internalSubset`**: throws if it contains `]>` (which closes the internal subset and DOCTYPE declaration early)\n\nAll three checks apply regardless of how the invalid value entered the node \u2014 whether via `createDocumentType` arguments or a subsequent direct property write.\n\n### PoC \u2014 fixed path\n\n```js\nconst { DOMImplementation, XMLSerializer } = require('@xmldom/xmldom');\nconst impl = new DOMImplementation();\n\n// internalSubset injection\nconst dt1 = impl.createDocumentType('root', '', '', ']><injected/><![CDATA[');\nconst doc1 = impl.createDocument(null, 'root', dt1);\n\n// Default (unchanged): verbatim \u2014 injection present\nconsole.log(new XMLSerializer().serializeToString(doc1));\n// <!DOCTYPE root []><injected/><![CDATA[]><root/>\n\n// Opt-in guard: throws InvalidStateError\ntry {\n  new XMLSerializer().serializeToString(doc1, { requireWellFormed: true });\n} catch (e) {\n  console.log(e.name, e.message);\n  // InvalidStateError: DocumentType internalSubset contains \"]>\"\n}\n```\n\nThe guard also covers post-creation property writes:\n\n```js\nconst dt2 = impl.createDocumentType('root', '', '');\ndt2.systemId = '\"sysid\"><injected attr=\"pwn\"/>';\nconst doc2 = impl.createDocument(null, 'root', dt2);\nnew XMLSerializer().serializeToString(doc2, { requireWellFormed: true });\n// InvalidStateError: DocumentType systemId is not a valid SystemLiteral\n```\n\n### Why the default stays verbatim\n\nThe W3C DOM Parsing and Serialization spec \u00a73.2.1.3 defines a `require well-formed` flag whose **default value is `false`**. With the flag unset, the spec permits verbatim serialization of DOCTYPE fields. Unconditionally throwing would be a behavioral breaking change with no spec justification. The opt-in `requireWellFormed: true` flag allows applications that require injection safety to enable strict mode without breaking existing deployments.\n\n### Residual limitation\n\n`createDocumentType(qualifiedName, publicId, systemId[, internalSubset])` does not validate `publicId`, `systemId`, or `internalSubset` at creation time. This creation-time validation is a breaking change and is deferred to a future breaking release.\n\nWhen the default serialization path is used (without `requireWellFormed: true`), all three fields are still emitted verbatim. Applications that do not pass `requireWellFormed: true` remain exposed.",
+      "id": "GHSA-f6ww-3ggp-fr8h",
+      "modified": "2026-04-28T13:59:15.022411133Z",
+      "published": "2026-04-22T20:19:12Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/security/advisories/GHSA-f6ww-3ggp-fr8h"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/372008f9ae0e20fd69f761c7b79e202598267314"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/xmldom/xmldom"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.8.13"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.9.10"
+        }
+      ],
+      "related": [
+        "CGA-93f6-hh34-rp9x"
+      ],
+      "schema_version": "1.7.5",
+      "severity": [
+        {
+          "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N",
+          "type": "CVSS_V4"
+        }
+      ],
+      "summary": "xmldom has XML injection through unvalidated DocumentType serialization"
+    },
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/03/GHSA-h6q6-9hqw-rwfv/GHSA-h6q6-9hqw-rwfv.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "xmldom",
+            "purl": "pkg:npm/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "0.5.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2021-21366"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-115",
+          "CWE-436"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2021-03-12T16:21:24Z",
+        "nvd_published_at": "2021-03-12T17:15:00Z",
+        "severity": "MODERATE"
+      },
+      "details": "### Impact\n\nxmldom versions 0.4.0 and older do not correctly preserve [system identifiers](https://www.w3.org/TR/2008/REC-xml-20081126/#d0e4313), [FPIs](https://en.wikipedia.org/wiki/Formal_Public_Identifier) or [namespaces](https://www.w3.org/TR/xml-names11/) when repeatedly parsing and serializing maliciously crafted documents.\n\nThis may lead to unexpected syntactic changes during XML processing in some downstream applications.\n\n### Patches\n\nUpdate to 0.5.0 (once it is released)\n\n### Workarounds\n\nDownstream applications can validate the input and reject the maliciously crafted documents.\n\n### References\n\nSimilar to this one reported on the Go standard library:\n\n- https://mattermost.com/blog/coordinated-disclosure-go-xml-vulnerabilities/\n\n### For more information\n\nIf you have any questions or comments about this advisory:\n\n* Open an issue in [`xmldom/xmldom`](https://github.com/xmldom/xmldom)\n* Email us: send an email to **all** addresses that are shown by `npm owner ls xmldom`",
+      "id": "GHSA-h6q6-9hqw-rwfv",
+      "modified": "2026-03-13T22:00:13.359414Z",
+      "published": "2021-03-12T22:39:39Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/security/advisories/GHSA-h6q6-9hqw-rwfv"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-21366"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/d4201b9dfbf760049f457f9f08a3888d48835135"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/xmldom/xmldom"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.5.0"
+        },
+        {
+          "type": "WEB",
+          "url": "https://lists.debian.org/debian-lts-announce/2023/01/msg00000.html"
+        },
+        {
+          "type": "WEB",
+          "url": "https://www.npmjs.com/package/xmldom"
+        }
+      ],
+      "related": [
+        "CVE-2021-21366"
+      ],
+      "schema_version": "1.7.5",
+      "severity": [
+        {
+          "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
+          "type": "CVSS_V3"
+        }
+      ],
+      "summary": "Misinterpretation of malicious XML input"
+    },
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-j759-j44w-7fr8/GHSA-j759-j44w-7fr8.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "0.8.13"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-j759-j44w-7fr8/GHSA-j759-j44w-7fr8.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0.9.0"
+                },
+                {
+                  "fixed": "0.9.10"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-j759-j44w-7fr8/GHSA-j759-j44w-7fr8.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "xmldom",
+            "purl": "pkg:npm/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "last_affected": "0.6.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2026-41672"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-91"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2026-04-22T20:16:07Z",
+        "nvd_published_at": null,
+        "severity": "HIGH"
+      },
+      "details": "## Summary\n\nThe package allows attacker-controlled comment content to be serialized into XML without validating or neutralizing comment breaking sequences. As a result, an attacker can terminate the comment early and inject arbitrary XML nodes into the serialized output.\n\n---\n\n## Details\n\nThe issue is in the DOM construction and serialization flow for comment nodes.\n\nWhen `createComment(data)` is called, the supplied string is stored as comment data through the generic character-data handling path. That content is kept as-is. Later, when the document is serialized, the serializer writes comment nodes by concatenating the XML comment delimiters with the stored `node.data` value directly.\n\nThat behavior is unsafe because XML comments are a syntax-sensitive context. If attacker-controlled input contains a sequence that closes the comment, the serializer does not preserve it as literal comment text. Instead, it emits output where the remainder of the payload is treated as live XML markup.\n\nThis is a real injection bug, not a formatting issue. The serializer already applies context-aware handling in other places, such as escaping text nodes and rewriting unsafe CDATA terminators. Comment content does not receive equivalent treatment. Because of that gap, untrusted data can break out of the comment boundary and modify the structure of the final XML document.\n\n---\n\n## PoC\n\n```js\nconst { DOMImplementation, DOMParser, XMLSerializer } = require('@xmldom/xmldom');\n\nconst doc = new DOMImplementation().createDocument(null, 'root', null);\n\ndoc.documentElement.appendChild(\n  doc.createComment('--><injected attr=\"1\"/><!--')\n);\n\nconst xml = new XMLSerializer().serializeToString(doc);\nconsole.log(xml);\n// <root><!----><injected attr=\"1\"/><!----></root>\n\nconst reparsed = new DOMParser().parseFromString(xml, 'text/xml');\nconsole.log(reparsed.documentElement.childNodes.item(1).nodeName);\n// injected\n```\n\n---\n\n## Impact\n\nAn application that uses the package to build XML from untrusted input can be made to emit attacker-controlled elements outside the intended comment boundary. That allows the attacker to alter the meaning and structure of generated XML documents.\n\nIn practice, this can affect any workflow that generates XML and then stores it, forwards it, signs it, or hands it to another parser. Realistic targets include XML-based configuration, policy documents, and message formats where downstream consumers trust the serialized structure.\n\n---\n\n## Disclosure\n\nThis vulnerability was publicly disclosed at 2026-04-06T11:25:07Z via [xmldom/xmldom#987](https://github.com/xmldom/xmldom/pull/987), which was subsequently closed without being merged.\n\n---\n\n## Fix Applied\n\n> **\u26a0 Opt-in required.** Protection is not automatic. Existing serialization calls remain\n> vulnerable unless `{ requireWellFormed: true }` is explicitly passed. Applications that pass\n> untrusted data to `createComment()` or mutate comment nodes with untrusted input (via\n> `appendData`, `insertData`, `replaceData`, `.data =`, or `.textContent =`) should audit all\n> `serializeToString()` call sites and add the option.\n\n`XMLSerializer.serializeToString()` now accepts an options object as a second argument. When `{ requireWellFormed: true }` is passed, the serializer throws `InvalidStateError` before emitting a Comment node whose `.data` would produce malformed XML.\n\nOn `@xmldom/xmldom` \u2265 0.9.10, the full W3C DOM Parsing \u00a73.2.1.4 check is applied: throws if `.data` contains `--` anywhere, ends with `-`, or contains characters outside the XML Char production.\n\nOn `@xmldom/xmldom` \u2265 0.8.13 (LTS), only the `-->` injection sequence is checked. The `0.8.x` SAX parser accepts comments containing `--` (without `>`), so throwing on bare `--` would break a previously-working round-trip on that branch. The `-->` check is sufficient to prevent injection.\n\n### PoC \u2014 fixed path\n\n```js\nconst { DOMImplementation, XMLSerializer } = require('@xmldom/xmldom');\n\nconst doc = new DOMImplementation().createDocument(null, 'root', null);\ndoc.documentElement.appendChild(doc.createComment('--><injected attr=\"1\"/><!--'));\n\n// Default (unchanged): verbatim \u2014 injection present\nconst unsafe = new XMLSerializer().serializeToString(doc);\nconsole.log(unsafe);\n// <root><!----><injected attr=\"1\"/><!----></root>\n\n// Opt-in guard: throws InvalidStateError before serializing\ntry {\n  new XMLSerializer().serializeToString(doc, { requireWellFormed: true });\n} catch (e) {\n  console.log(e.name, e.message);\n  // InvalidStateError: The comment node data contains \"--\" or ends with \"-\"  (0.9.x)\n  // InvalidStateError: The comment node data contains \"-->\"  (0.8.x \u2014 only --> is checked)\n}\n```\n\n### Why the default stays verbatim\n\nThe W3C DOM Parsing and Serialization spec \u00a73.2.1.4 defines a `require well-formed` flag whose **default value is `false`**. With the flag unset, the spec explicitly permits serializing ill-formed comment content verbatim \u2014 this is also the behavior of browser implementations (Chrome, Firefox, Safari): `new XMLSerializer().serializeToString(doc)` produces the injection sequence without error in all major browsers.\n\nUnconditionally throwing would be a behavioral breaking change with no spec justification. The opt-in `requireWellFormed: true` flag allows applications that require injection safety to enable strict mode without breaking existing deployments.\n\n### Residual limitation\n\nThe fix operates at serialization time only. There is no creation-time check in `createComment` \u2014 the spec does not require one for comment data. Any path that leads to a Comment node with `--` in its data (`createComment`, `appendData`, `.data =`, etc.) produces a node that serializes safely only when `{ requireWellFormed: true }` is passed to `serializeToString`.",
+      "id": "GHSA-j759-j44w-7fr8",
+      "modified": "2026-04-28T13:59:15.176350510Z",
+      "published": "2026-04-22T20:16:07Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/security/advisories/GHSA-j759-j44w-7fr8"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/pull/987"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/b397540889086da868c30c366ad5c220d1a750c7"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/fda7cc313de30243fea35cada64e0bb12099c2a1"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/xmldom/xmldom"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.8.13"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.9.10"
+        }
+      ],
+      "related": [
+        "CGA-jvgx-jqpq-fxfm"
+      ],
+      "schema_version": "1.7.5",
+      "severity": [
+        {
+          "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N",
+          "type": "CVSS_V4"
+        }
+      ],
+      "summary": "xmldom has XML node injection through unvalidated comment serialization"
+    },
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-wh4c-j3r5-mjhp/GHSA-wh4c-j3r5-mjhp.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "xmldom",
+            "purl": "pkg:npm/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "last_affected": "0.6.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-wh4c-j3r5-mjhp/GHSA-wh4c-j3r5-mjhp.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "0.8.12"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-wh4c-j3r5-mjhp/GHSA-wh4c-j3r5-mjhp.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0.9.0"
+                },
+                {
+                  "fixed": "0.9.9"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2026-34601"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-91"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2026-04-01T00:19:06Z",
+        "nvd_published_at": "2026-04-02T18:16:31Z",
+        "severity": "HIGH"
+      },
+      "details": "## Summary\n\n`@xmldom/xmldom` allows attacker-controlled strings containing the CDATA terminator `]]>` to be inserted into a `CDATASection` node. During serialization, `XMLSerializer` emitted the CDATA content verbatim without rejecting or safely splitting the terminator. As a result, data intended to remain text-only became **active XML markup** in the serialized output, enabling XML structure\ninjection and downstream business-logic manipulation.\n\nThe sequence `]]>` is not allowed inside CDATA content and must be rejected or safely handled during serialization. ([MDN Web Docs](https://developer.mozilla.org/))\n\n### Attack surface\n\n`Document.createCDATASection(data)` is the most direct entry point, but it is not the only one. The WHATWG DOM spec intentionally does not validate `]]>` in mutation methods \u2014 only `createCDATASection` carries that guard. The following paths therefore also allow `]]>` to enter a CDATASection node and reach the serializer:\n\n- `CharacterData.appendData()`\n- `CharacterData.replaceData()`\n- `CharacterData.insertData()`\n- Direct assignment to `.data`\n- Direct assignment to `.textContent`\n\n(Note: assigning to `.nodeValue` does **not** update `.data` in this implementation \u2014 the serializer reads `.data` directly \u2014 so `.nodeValue` is not an exploitable path.)\n\n### Parse path\n\nParsing XML that contains a CDATA section is **not** affected. The SAX parser's non-greedy `CDSect` regex stops at the first `]]>`, so parsed CDATA data never contains the terminator.\n\n---\n\n## Impact\n\nIf an application uses `xmldom` to generate \"trusted\" XML documents that embed **untrusted user input** inside CDATA (a common pattern in exports, feeds, SOAP/XML integrations, etc.), an attacker can inject additional XML elements/attributes into the generated document.\n\nThis can lead to:\n\n- Integrity violation of generated XML documents.\n- Business-logic injection in downstream consumers (e.g., injecting `<approved>true</approved>`,  `<role>admin</role>`, workflow flags, or other security-relevant elements).\n- Unexpected privilege/workflow decisions if downstream logic assumes injected nodes cannot appear.\n\nThis issue does **not** require malformed parsers or browser behavior; it is caused by serialization producing attacker-influenced XML markup.\n\n---\n\n## Root Cause (with file + line numbers)\n\n**File:** `lib/dom.js`\n\n### 1. No validation in `createCDATASection`\n\n`createCDATASection: function (data)` accepts any string and appends it directly.\n\n- **Lines 2216\u20132221** (0.9.8)\n\n### 2. Unsafe CDATA serialization\n\nSerializer prints CDATA sections as:\n\n```\n<![CDATA[ + node.data + ]]>\n```\n\nwithout handling `]]>` in the data.\n\n- **Lines 2919\u20132920** (0.9.8)\n\nBecause CDATA content is emitted verbatim, an embedded `]]>` closes the CDATA section early and the remainder of the attacker-controlled payload is interpreted as markup in the serialized XML.\n\n---\n\n## Proof of Concept \u2014 Fix A: `createCDATASection` now throws\n\nOn patched versions, passing `]]>` directly to `createCDATASection` throws `InvalidCharacterError` instead of silently accepting the payload:\n\n```js\nconst { DOMImplementation } = require('./lib');\n\nconst doc = new DOMImplementation().createDocument(null, 'root', null);\ntry {\n  doc.createCDATASection('SAFE]]><injected attr=\"pwn\"/>');\n  console.log('VULNERABLE \u2014 no error thrown');\n} catch (e) {\n  console.log('FIXED \u2014 threw:', e.name); // InvalidCharacterError\n}\n```\n\nExpected output on patched versions:\n\n```\nFIXED \u2014 threw: InvalidCharacterError\n```\n\n---\n\n## Proof of Concept \u2014 Fix B: mutation vector now safe\n\nOn patched versions, injecting `]]>` via a mutation method (`appendData`, `replaceData`, `.data =`, `.textContent =`) no longer produces injectable output. The serializer splits the terminator so the result round-trips as safe text:\n\n```js\nconst { DOMImplementation, XMLSerializer } = require('./lib');\nconst { DOMParser } = require('./lib');\n\nconst doc = new DOMImplementation().createDocument(null, 'root', null);\n\n// Start with safe data, then mutate to include the terminator\nconst cdata = doc.createCDATASection('safe');\ndoc.documentElement.appendChild(cdata);\ncdata.appendData(']]><injected attr=\"pwn\"/><more>TEXT</more><![CDATA[');\n\nconst out = new XMLSerializer().serializeToString(doc);\nconsole.log('Serialized:', out);\n\nconst reparsed = new DOMParser().parseFromString(out, 'text/xml');\nconst injected = reparsed.getElementsByTagName('injected').length > 0;\nconsole.log('Injected element found in reparsed doc:', injected);\n// VULNERABLE: true  |  FIXED: false\n```\n\nExpected output on patched versions:\n\n```\nSerialized: <root><![CDATA[safe]]]]><![CDATA[><injected attr=\"pwn\"/><more>TEXT</more><![CDATA[]]></root>\nInjected element found in reparsed doc: false\n```\n\n---\n\n## Fix Applied\n\nBoth mitigations were implemented:\n\n### Option A \u2014 Strict/spec-aligned: reject `]]>` in `createCDATASection()`\n\n`Document.createCDATASection(data)` now throws `InvalidCharacterError` (per the [WHATWG DOM spec](https://dom.spec.whatwg.org/#dom-document-createcdatasection)) when `data` contains `]]>`. This closes the direct entry point.\n\nCode that previously passed a string containing `]]>` to `createCDATASection` and relied on the silent/unsafe behaviour will now receive `InvalidCharacterError`. Use a mutation method such as `appendData` if you intentionally need `]]>` in a CDATASection node's data (the serializer split in Option B will keep the output safe).\n\n### Option B \u2014 Defensive serialization: split the terminator during serialization\n\n`XMLSerializer` now replaces every occurrence of `]]>` in CDATA section data with the split sequence `]]]]><![CDATA[>` before emitting. This closes all mutation-vector paths that Option A alone cannot guard, and means the serialized output is always well-formed XML regardless of how `]]>` entered the node.",
+      "id": "GHSA-wh4c-j3r5-mjhp",
+      "modified": "2026-04-07T00:44:23.404742474Z",
+      "published": "2026-04-01T00:19:06Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/security/advisories/GHSA-wh4c-j3r5-mjhp"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34601"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/2b852e836ab86dbbd6cbaf0537f584dd0b5ac184"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/xmldom/xmldom"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.8.12"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.9.9"
+        }
+      ],
+      "related": [
+        "CGA-5hr8-xvjm-6p6p"
+      ],
+      "schema_version": "1.7.5",
+      "severity": [
+        {
+          "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "type": "CVSS_V3"
+        }
+      ],
+      "summary": "xmldom: XML injection via unsafe CDATA serialization allows attacker-controlled markup insertion"
+    },
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-x6wf-f3px-wcqx/GHSA-x6wf-f3px-wcqx.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "0.8.13"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-x6wf-f3px-wcqx/GHSA-x6wf-f3px-wcqx.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "@xmldom/xmldom",
+            "purl": "pkg:npm/%40xmldom/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0.9.0"
+                },
+                {
+                  "fixed": "0.9.10"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        },
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-x6wf-f3px-wcqx/GHSA-x6wf-f3px-wcqx.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "xmldom",
+            "purl": "pkg:npm/xmldom"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "last_affected": "0.6.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2026-41675"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-91"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2026-04-22T20:17:58Z",
+        "nvd_published_at": null,
+        "severity": "HIGH"
+      },
+      "details": "## Summary\n\nThe package allows attacker-controlled processing instruction data to be serialized into XML without validating or neutralizing the PI-closing sequence `?>`. As a result, an attacker can terminate the processing instruction early and inject arbitrary XML nodes into the serialized output.\n\n---\n\n## Details\n\nThe issue is in the DOM construction and serialization flow for processing instruction nodes.\n\nWhen `createProcessingInstruction(target, data)` is called, the supplied `data` string is stored directly on the node without validation. Later, when the document is serialized, the serializer writes PI nodes by concatenating `<?`, the target, a space, `node.data`, and `?>` directly.\n\nThat behavior is unsafe because processing instructions are a syntax-sensitive context. The closing delimiter `?>` terminates the PI. If attacker-controlled input contains `?>`, the serializer does not preserve it as literal PI content. Instead, it emits output where the remainder of the payload is treated as live XML markup.\n\nThe same class of vulnerability was previously addressed for CDATA sections (GHSA-wh4c-j3r5-mjhp / CVE-2026-34601), where `]]>` in CDATA data was handled by splitting. The serializer applies no equivalent protection to processing instruction data.\n\n---\n\n## Affected code\n\n**`lib/dom.js` \u2014 `createProcessingInstruction` (lines 2240\u20132246):**\n\n```js\ncreateProcessingInstruction: function (target, data) {\n    var node = new ProcessingInstruction(PDC);\n    node.ownerDocument = this;\n    node.childNodes = new NodeList();\n    node.nodeName = node.target = target;\n    node.nodeValue = node.data = data;\n    return node;\n},\n```\n\nNo validation is performed on `data`. Any string including `?>` is stored as-is.\n\n**`lib/dom.js` \u2014 serializer PI case (line 2966):**\n\n```js\ncase PROCESSING_INSTRUCTION_NODE:\n    return buf.push('<?', node.target, ' ', node.data, '?>');\n```\n\n`node.data` is emitted verbatim. If it contains `?>`, that sequence terminates the PI in the output\nstream and the remainder appears as active XML markup.\n\n**Contrast \u2014 CDATA (line 2945, patched):**\n\n```js\ncase CDATA_SECTION_NODE:\n    return buf.push(g.CDATA_START, node.data.replace(/]]>/g, ']]]]><![CDATA[>'), g.CDATA_END);\n```\n\n---\n\n## PoC\n\n### Minimal (from @tlsbollei report, 2026-04-01)\n\n```js\nconst { DOMImplementation, XMLSerializer } = require('@xmldom/xmldom');\n\nconst doc = new DOMImplementation().createDocument(null, 'r', null);\ndoc.documentElement.appendChild(\n    doc.createProcessingInstruction('a', '?><z/><?q ')\n);\nconsole.log(new XMLSerializer().serializeToString(doc));\n// <r><?a ?><z/><?q ?></r>\n//          ^^^^ injected <z/> element is active markup\n```\n\n### With re-parse verification (from @tlsbollei report)\n\n```js\nconst assert = require('assert');\nconst { DOMParser, XMLSerializer } = require('@xmldom/xmldom');\n\nconst doc = new DOMParser().parseFromString('<r/>', 'application/xml');\ndoc.documentElement.appendChild(doc.createProcessingInstruction('a', '?><z/><?q '));\nconst xml = new XMLSerializer().serializeToString(doc);\nassert.strictEqual(new DOMParser().parseFromString(xml, 'application/xml')\n    .getElementsByTagName('z').length, 1); // passes \u2014 z is a real element\n```\n\n---\n\n## Impact\n\nAn application that uses the package to build XML from untrusted input can be made to emit attacker-controlled elements outside the intended PI boundary. That allows the attacker to alter the meaning and structure of generated XML documents.\n\nIn practice, this can affect any workflow that generates XML and then stores it, forwards it, signs it, or hands it to another parser. Realistic targets include XML-based configuration, policy documents, and message formats where downstream consumers trust the serialized structure.\n\nAs noted by @tlsbollei: this is the same delimiter-driven XML injection bug class previously addressed by GHSA-wh4c-j3r5-mjhp for `createCDATASection()`. Fixing CDATA while leaving PI creation and PI serialization unguarded leaves the same standards-constrained issue open for another node type.\n\n---\n\n## Disclosure\n\nThis vulnerability was publicly disclosed at 2026-04-06T11:25:07Z via\n[xmldom/xmldom#987](https://github.com/xmldom/xmldom/pull/987), which was subsequently closed\nwithout being merged.\n\n---\n\n## Fix Applied\n\n> **\u26a0 Opt-in required.** Protection is not automatic. Existing serialization calls remain\n> vulnerable unless `{ requireWellFormed: true }` is explicitly passed. Applications that pass\n> untrusted data to `createProcessingInstruction()` or mutate PI nodes with untrusted input\n> (via `.data =` or `CharacterData` mutation methods) should audit all `serializeToString()`\n> call sites and add the option.\n\n`XMLSerializer.serializeToString()` now accepts an options object as a second argument. When `{ requireWellFormed: true }` is passed, the serializer throws `InvalidStateError` before emitting any ProcessingInstruction node whose `.data` contains `?>`. This check applies regardless of how `?>` entered the node \u2014 whether via `createProcessingInstruction` directly or a subsequent mutation (`.data =`, `CharacterData` methods).\n\nOn `@xmldom/xmldom` \u2265 0.9.10, the serializer additionally applies the full W3C DOM Parsing \u00a73.2.1.7 checks when `requireWellFormed: true`:\n\n1. **Target check**: throws `InvalidStateError` if the PI target contains a `:` character or is an ASCII case-insensitive match for `\"xml\"`.\n2. **Data Char check**: throws `InvalidStateError` if the PI data contains characters outside the XML Char production.\n3. **Data sequence check**: throws `InvalidStateError` if the PI data contains `?>`.\n\nOn `@xmldom/xmldom` \u2265 0.8.13 (LTS), only the `?>` data check (check 3) is applied. The target and XML Char checks are not included in the LTS fix.\n\n### PoC \u2014 fixed path\n\n```js\nconst { DOMImplementation, XMLSerializer } = require('@xmldom/xmldom');\n\nconst doc = new DOMImplementation().createDocument(null, 'r', null);\ndoc.documentElement.appendChild(doc.createProcessingInstruction('a', '?><z/><?q '));\n\n// Default (unchanged): verbatim \u2014 injection present\nconst unsafe = new XMLSerializer().serializeToString(doc);\nconsole.log(unsafe);\n// <r><?a ?><z/><?q ?></r>\n\n// Opt-in guard: throws InvalidStateError before serializing\ntry {\n  new XMLSerializer().serializeToString(doc, { requireWellFormed: true });\n} catch (e) {\n  console.log(e.name, e.message);\n  // InvalidStateError: The ProcessingInstruction data contains \"?>\"\n}\n```\n\nThe guard catches `?>` regardless of when it was introduced:\n\n```js\n// Post-creation mutation: also caught at serialization time\nconst pi = doc.createProcessingInstruction('target', 'safe data');\ndoc.documentElement.appendChild(pi);\npi.data = 'safe?><injected/>';\nnew XMLSerializer().serializeToString(doc, { requireWellFormed: true });\n// InvalidStateError: The ProcessingInstruction data contains \"?>\"\n```\n\n### Why the default stays verbatim\n\nThe W3C DOM Parsing and Serialization spec \u00a73.2.1.3 defines a `require well-formed` flag whose **default value is `false`**. With the flag unset, the spec explicitly permits serializing PI data verbatim. This matches browser behavior: Chrome, Firefox, and Safari all emit `?>` in PI data verbatim by default without error.\n\nUnconditionally throwing would be a behavioral breaking change with no spec justification. The opt-in `requireWellFormed: true` flag allows applications that require injection safety to enable strict mode without breaking existing code.\n\n### Residual limitation\n\n`createProcessingInstruction(target, data)` does not validate `data` at creation time. The WHATWG DOM spec (\u00a74.5 step 2) mandates an `InvalidCharacterError` when `data` contains `?>`; enforcing this check unconditionally at creation time is a breaking change and is deferred to a future breaking release.\n\nWhen the default serialization path is used (without `requireWellFormed: true`), PI data containing `?>` is still emitted verbatim. Applications that do not pass `requireWellFormed: true` remain exposed.",
+      "id": "GHSA-x6wf-f3px-wcqx",
+      "modified": "2026-04-28T13:59:15.550395458Z",
+      "published": "2026-04-22T20:17:58Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/security/advisories/GHSA-x6wf-f3px-wcqx"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/commit/7207a4b0e0bcc228868075ed991665ef9f73b1c2"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/xmldom/xmldom"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.8.13"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/xmldom/xmldom/releases/tag/0.9.10"
+        }
+      ],
+      "related": [
+        "CGA-q8q8-3c7r-m9jv"
+      ],
+      "schema_version": "1.7.5",
+      "severity": [
+        {
+          "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N",
+          "type": "CVSS_V4"
+        }
+      ],
+      "summary": "xmldom has XML node injection through unvalidated processing instruction serialization"
+    }
+  ]
+}
