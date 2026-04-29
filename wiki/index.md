@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*104 packages tracked across 8 ecosystems. Last updated: 2026-04-28.*
+*105 packages tracked across 8 ecosystems. Last updated: 2026-04-29.*
 
-## npm (82)
+## npm (83)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/ajv]] — JSON Schema validator · advisory mapped · prototype-pollution and `$data` / pattern ReDoS history across 6.x and 8.x
 - [[npm/async]] — async control-flow utility · advisory mapped · prototype-pollution issue fixed in 2.6.4 and 3.2.2
@@ -36,6 +36,7 @@
 - [[npm/cookie-signature]] — signed-cookie helper · advisory mapped · historical timing-attack fix in 1.0.4
 - [[npm/cross-spawn]] — process-spawn helper · advisory mapped · 2024 ReDoS fix chain across 6.x and 7.x
 - [[npm/debug]] — debug logging utility · advisory mapped · supply-chain compromise in 4.4.2 plus older ReDoS history
+- [[npm/openssl]] — deprecated OpenSSL CLI wrapper · advisory mapped · critical command-execution advisory with no published fix version
 - [[npm/ejs]] — server-side templating engine · advisory mapped · historical renderFile/input-validation bugs plus later SSTI and prototype-pollution hardening
 - [[npm/fastify]] — high-performance Node.js web framework · advisory mapped · recurring Content-Type parsing / validation-boundary flaws plus proxy-trust and DoS history
 - [[npm/express]] — dominant Node.js web framework · advisory mapped · public package history plus deeper 2026 source review
