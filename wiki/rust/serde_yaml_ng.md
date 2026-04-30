@@ -19,7 +19,7 @@
 |-------------|----------|-------------|----------|--------|
 | acatton/serde-yaml-ng#32 | Low | `parse_unsigned_int` (`src/de.rs:936`) strips a leading `+` before inspecting `0x` / `0o` / `0b` prefixes, and `parse_negative_int` (`src/de.rs:1034`) explicitly accepts `-0x` / `-0o` / `-0b` prefixes. Inputs like `+0x10`, `+0o17`, `+0b11`, `-0x10`, `-0o17`, `-0b11` therefore deserialize as integers even though the YAML 1.2 Core schema forbids signs on non-decimal literals. In `#[serde(untagged)]` enums a value the author wrote as a string can silently dispatch to the integer variant, creating a type-confusion footgun for config and credential parsers that accept YAML from partly-untrusted sources. | Open | https://github.com/acatton/serde-yaml-ng/issues/32 |
 
-*Full CVE history: https://osv.dev/list?ecosystem=crates.io&q=serde_yaml_ng* (no package-scoped OSV entries at time of review)
+*Full advisory history (OSV): https://osv.dev/list?ecosystem=crates.io&q=serde_yaml_ng* (no package-scoped OSV entries at time of review)
 
 ## Security Posture Notes
 

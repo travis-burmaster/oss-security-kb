@@ -20,7 +20,7 @@
 |-------------|----------|-------------|----------|--------|
 | No package-level OSV / RustSec record clearly confirmed in this review pass | — | Public-source review did **not** surface a direct package-scoped advisory for `crates.io/serde`. Related advisories in the broader Serde ecosystem apply to separate crates such as `serde_yaml`, `serde_yml`, `serde_cbor`, `serde-json-wasm`, and `rmp-serde`, not to the core `serde` crate itself. | — | https://api.osv.dev/v1/query |
 
-*Full CVE history: https://osv.dev/list?ecosystem=crates.io&q=serde*
+*Full advisory history (OSV): https://osv.dev/list?ecosystem=crates.io&q=serde*
 
 ## Security Posture Notes
 
