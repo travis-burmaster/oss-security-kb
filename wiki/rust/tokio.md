@@ -23,7 +23,7 @@
 | GHSA-4q83-7cq4-p6wg / RUSTSEC-2023-0005 | Moderate | `tokio::io::ReadHalf<T>::unsplit` was unsound and could violate the `Pin` contract under uncommon but real `!Unpin` / `io-util` usage, so this is best treated as a memory-safety break rather than a generic remote exploit claim. | 1.18.5 / 1.20.4 / 1.24.2 | https://rustsec.org/advisories/RUSTSEC-2023-0005.html |
 | GHSA-rr8g-9fpq-6wmg / RUSTSEC-2025-0023 | Moderate | Tokio's broadcast channel could call `Clone` in parallel while requiring only `Send`, creating unsoundness for values whose `Clone` behavior depends on the value also being `Sync`. | 1.38.2 / 1.42.1 / 1.43.1 / 1.44.2 | https://rustsec.org/advisories/RUSTSEC-2025-0023.html |
 
-*Full CVE history: https://osv.dev/list?ecosystem=crates.io&q=tokio*
+*Full advisory history (OSV): https://osv.dev/list?ecosystem=crates.io&q=tokio*
 
 ## Security Posture Notes
 
