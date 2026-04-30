@@ -5,7 +5,7 @@
 **Repository:** https://github.com/nodejs/undici
 **Security Contact:** https://github.com/nodejs/undici/security
 **Disclosure Policy:** https://github.com/nodejs/undici/blob/main/SECURITY.md
-**Current Status:** advisory mapped
+**Current Status:** advisory-mapped
 
 ## Audit History
 

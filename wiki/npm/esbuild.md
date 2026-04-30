@@ -29,6 +29,7 @@
 - The package's footprint is still hard to ignore: **~200.6M weekly downloads** in this review window, making even a dev-only exposure worth documenting because it appears in an enormous number of local build workflows.
 - Real-world exposure depends heavily on use of `--serve` / `serve()` and on local network / browser conditions; teams using esbuild only as a bundler without the development server are outside the core published impact.
 - No additional package-scoped OSV records for `esbuild` were surfaced in this review pass.
+- OSV's **UI list view** at `https://osv.dev/list?ecosystem=npm&package=esbuild` returned *no results* during this run, but the OSV API `v1/query` endpoint returned the `GHSA-67mh-4wv8-2f99` record for `ecosystem=npm, name=esbuild`. Until that UI behavior is understood, treat the GitHub Advisory Database / upstream GHSA page as the canonical cross-link, and use OSV API queries for verification.
 
 ## Recommendations for Developers
 
