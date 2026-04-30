@@ -32,6 +32,24 @@
 
 - The 2026 authorization-bypass advisory explicitly calls out a mismatch between **non-canonical** `:path` strings accepted by the server router and the **canonical** path patterns used by path-based authorization interceptors; that makes canonicalization (and avoiding permissive fallback rules) a key operational takeaway for affected deployments.
 
+### Operational Takeaways (GHSA-p77j-4mvh-x3m3)
+
+**Affected only when all of the following are true (per the published advisory):**
+
+- The server uses **path-based authorization interceptors** (for example `google.golang.org/grpc/authz`, or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`).
+- The authorization policy has **deny rules written for canonical paths** (starting with `/`) but permits other requests via a **fallback allow rule**.
+- An attacker can send **raw HTTP/2 frames** with a malformed `:path` pseudo-header directly to the gRPC server.
+
+**Root cause:** gRPC-Go previously accepted HTTP/2 `:path` values without a leading slash (e.g., `Service/Method` instead of `/Service/Method`) and still routed them. Authorization interceptors evaluated the raw, non-canonical path string, so deny rules written against canonical paths failed to match, allowing bypass when a fallback allow rule existed.
+
+**Fix behavior:** Upgrading to **v1.79.3+** causes requests whose `:path` does not begin with `/` to be rejected with a `codes.Unimplemented` error.
+
+**Workarounds (if upgrade is blocked):**
+
+- Add an **outermost interceptor** that validates `info.FullMethod` begins with `/` and rejects malformed requests before authorization logic runs.
+- Enforce strict HTTP/2 pseudo-header compliance at an ingress proxy / load balancer that rejects or normalizes malformed `:path` values.
+- Harden auth policy toward **default-deny** rather than relying on permissive fallback allow rules.
+
 ## Dependencies of Note
 
 - `google.golang.org/grpc/authz` is a high-value adjacent surface because official path-based authorization logic was directly implicated in the 2026 bypass conditions.
@@ -49,4 +67,4 @@
 - [[go/index]]
 
 ---
-*Last updated: 2026-04-11 | Sources: 7 (OSV package query, GHSA advisory pages, upstream grpc-go release notes, NVD CVE records)*
+*Last updated: 2026-04-30 | Sources: 7 (OSV package query, GHSA advisory pages, upstream grpc-go release notes, NVD CVE records)*
