@@ -1,6 +1,7 @@
 # Python / PyPI Index
 
 ## Seed Pages
+- [[python/cryptography]] — foundational crypto + X.509/TLS library · advisory mapped (seed) · certificate-validation semantics advisories
 - [[python/flask]] — dominant Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
 - [[python/jinja2]] — dominant Python templating engine · advisory mapped · recurring sandbox-escape, xmlattr injection, and ReDoS history
 - [[python/pyyaml]] — dominant Python YAML parser · advisory mapped · long-running unsafe-deserialization / arbitrary-code-execution fix train through 5.4
