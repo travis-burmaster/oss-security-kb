@@ -96,7 +96,9 @@
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 2026 EncryptedXml resource-consumption DoS fixed in 8.0.3 / 9.0.15 / 10.0.6
 
-## Python / PyPI (6)
+## Python / PyPI (8)
+- [[python/litellm]] — LLM gateway/proxy package · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-2)
+- [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3)
 - [[python/flask]] — Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
 - [[python/jinja2]] — Python templating engine · advisory mapped · recurring sandbox breakouts, xmlattr injection, and ReDoS history
 - [[python/pyyaml]] — YAML parser and emitter for Python · advisory mapped · long-running unsafe-deserialization / arbitrary-code-execution vulnerability chain addressed through successive fixes up to version 5.4

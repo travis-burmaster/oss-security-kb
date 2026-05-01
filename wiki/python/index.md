@@ -1,6 +1,8 @@
 # Python / PyPI Index
 
 ## Seed Pages
+- [[python/litellm]] — LLM gateway/proxy package · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-2)
+- [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3)
 - [[python/flask]] — dominant Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
 - [[python/jinja2]] — dominant Python templating engine · advisory mapped · recurring sandbox-escape, xmlattr injection, and ReDoS history
 - [[python/pyyaml]] — dominant Python YAML parser · advisory mapped · long-running unsafe-deserialization / arbitrary-code-execution fix train through 5.4
