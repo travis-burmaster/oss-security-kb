@@ -3,8 +3,8 @@
 **Registry:** pkg.go.dev
 **Weekly Downloads:** unknown (as of 2026-04-27)
 **Repository:** https://github.com/gorilla/schema
-**Security Contact:** unknown (no published security policy URL in public repo metadata)
-**Disclosure Policy:** unknown (no published security policy URL in public repo metadata)
+**Security Contact:** https://github.com/gorilla/schema/security/policy
+**Disclosure Policy:** https://github.com/gorilla/schema/security/policy
 **Current Status:** advisory-mapped
 
 ## Audit History
