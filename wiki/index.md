@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*105 packages tracked across 8 ecosystems. Last updated: 2026-04-29.*
+*106 packages tracked across 8 ecosystems. Last updated: 2026-04-29.*
 
 ## npm (83)
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
@@ -91,9 +91,10 @@
 - [[rust/serde_yaml_ng]] — active fork of archived serde_yaml · audit ingested · YAML 1.2 Core schema signed non-decimal integer parsing gap filed as acatton/serde-yaml-ng#32
 - [[rust/tokio]] — async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 
-## .NET / NuGet (2)
+## .NET / NuGet (3)
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
+- [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 2026 EncryptedXml resource-consumption DoS fixed in 8.0.3 / 9.0.15 / 10.0.6
 
 ## Python / PyPI (6)
 - [[python/flask]] — Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
