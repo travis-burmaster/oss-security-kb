@@ -47,7 +47,7 @@
 - The package is high-blast-radius infrastructure. Weekly npm downloads in this pass were ~80.1M, and undici also matters beyond direct npm installs because it underpins modern Node.js HTTP client behavior and is closely associated with the platform's `fetch()` stack.
 - The advisory trail shows active maintenance across multiple major lines instead of "fix only latest" behavior. Several 2024-2026 records list coordinated fixes for both 5.x/6.x or 6.x/7.x, which is a good signal for downstream users pinned below latest.
 - Upstream publishes a `SECURITY.md` and uses GitHub Security Advisories, which gives the package a cleaner public disclosure path than many similarly critical npm transport libraries.
-- npm registry metadata gathered in this pass showed `latest=8.1.0`, which is newer than every fixed version in the currently published OSV set captured here.
+- npm registry metadata gathered in this pass showed `latest=8.2.0`, which is newer than every fixed version in the currently published OSV set captured here.
 
 ## Recommendations for Developers
 
@@ -78,4 +78,4 @@
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-16 | Sources: 7 (OSV.dev package query for npm/undici, GitHub Advisory Database / public GHSA pages for 22 published records, public CVE aliases surfaced through OSV, upstream SECURITY.md, npm registry metadata, npm downloads API, local proxy draft assist via the configured Claude-compatible proxy at 127.0.0.1:8319 used only as a drafting aid)*
+*Last updated: 2026-05-02 | Sources: 7 (OSV.dev package query for npm/undici, GitHub Advisory Database / public GHSA pages for 22 published records, public CVE aliases surfaced through OSV, upstream SECURITY.md, npm registry metadata, npm downloads API, local proxy draft assist via the configured Claude-compatible proxy at 127.0.0.1:8319 used only as a drafting aid)*
