@@ -59,4 +59,4 @@
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-24 | Sources: 8 (OSV.dev package query for npm/tar-fs, OSV vulnerability records for the four GHSA entries, GitHub Advisory Database / public GitHub security advisories, public CVE / NVD records, maintainer fix commits, Debian LTS advisories, npm registry metadata, npm downloads API)*
+*Last updated: 2026-05-02 | Sources: 8 (OSV.dev package query for npm/tar-fs, OSV vulnerability records for the four GHSA entries, GitHub Advisory Database / public GitHub security advisories, public CVE / NVD records, maintainer fix commits, Debian LTS advisories, npm registry metadata, npm downloads API)*

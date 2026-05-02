@@ -55,5 +55,5 @@
 - [[npm/express]]
 
 ---
-*Last updated: 2026-04-13 | Sources: 6 (OSV package query, GitHub Security Advisories, CVE / NVD aliases surfaced through OSV, npm registry metadata, npm downloads API, public fix references / repo security-policy check)*
+*Last updated: 2026-05-02 | Sources: 6 (OSV package query, GitHub Security Advisories, CVE / NVD aliases surfaced through OSV, npm registry metadata, npm downloads API, public fix references / repo security-policy check)*
 *Auditor contact: [@travis-burmaster](https://github.com/travis-burmaster)*
