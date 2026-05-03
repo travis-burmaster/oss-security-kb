@@ -32,6 +32,24 @@
 
 *Later public advisories also exist for the `ssh/agent` surface (`GO-2025-4116`, `GO-2025-4134`, `GO-2025-4135` / fixes in `0.43.0` and `0.45.0`), but the table above captures the clearest module-wide lineage for this first pass.*
 
+### 2025 `ssh` / `ssh/agent` advisory cluster (Nov 2025)
+
+Public OSV listings show multiple advisories disclosed in November 2025 affecting the `ssh` and `ssh/agent` surfaces within `golang.org/x/crypto`:
+
+- `GO-2025-4116`
+- `GO-2025-4134`
+- `GO-2025-4135`
+
+**Fixed versions:** this page previously noted fixes in **`0.43.0`** and **`0.45.0`**, but the exact mapping of which advisory is fixed in which version is **not captured in the sources referenced in this section**. Follow-up should confirm fix boundaries via the OSV detail pages and the corresponding GitHub Advisory Database (GHSA) entries.
+
+**Evidence / follow-up links:**
+
+- OSV listing for `golang.org/x/crypto`: https://osv.dev/list?ecosystem=Go&q=golang.org%2Fx%2Fcrypto
+- OSV details:
+  - https://osv.dev/vulnerability/GO-2025-4116
+  - https://osv.dev/vulnerability/GO-2025-4134
+  - https://osv.dev/vulnerability/GO-2025-4135
+
 *Full CVE / GO vulnerability history: https://osv.dev/list?ecosystem=Go&q=golang.org%2Fx%2Fcrypto*
 
 ## Security Posture Notes
