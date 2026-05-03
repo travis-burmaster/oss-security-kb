@@ -29,28 +29,21 @@
 | CVE-2023-48795 / GHSA-45x7-px36-x8w8 / GO-2023-2402 | Moderate | The Terrapin SSH prefix-truncation weakness affected `ssh` secure-channel integrity and could suppress early post-handshake messages such as `SSH_MSG_EXT_INFO`. | `0.17.0` / `0.0.0-20231218163308-9d2ee975ef9f` | https://github.com/advisories/GHSA-45x7-px36-x8w8 |
 | CVE-2024-45337 / GHSA-v778-237x-gjrc / GO-2024-3321 | Critical | Applications that misused `ServerConfig.PublicKeyCallback` could make authorization decisions based on a key the client never proved ownership of; `v0.31.0` added a partial mitigation and stronger guidance. | `0.31.0` | https://github.com/advisories/GHSA-v778-237x-gjrc |
 | CVE-2025-22869 / GHSA-hcg3-q754-cr77 / GO-2025-3487 | High | `ssh` servers implementing file-transfer protocols could accumulate data in memory during slow or incomplete key exchange, enabling denial of service. | `0.35.0` | https://github.com/advisories/GHSA-hcg3-q754-cr77 |
+| GO-2025-4116 / GHSA-56w8-48fp-6mgv / CVE-2025-47913 | Moderate | `ssh/agent`: panic DoS when an SSH client receives `SSH_AGENT_SUCCESS` while expecting a typed response. | 0.43.0 | https://api.osv.dev/v1/vulns/GO-2025-4116 |
+| GO-2025-4134 / GHSA-j5w8-q4qc-rx2x / CVE-2025-58181 | High | `ssh`: unbounded memory consumption when parsing GSSAPI auth requests (mechanism count not validated). | 0.45.0 | https://api.osv.dev/v1/vulns/GO-2025-4134 |
+| GO-2025-4135 / GHSA-f6x5-jh6r-wrfv / CVE-2025-47914 | Moderate | `ssh/agent`: malformed constraint message may panic (out-of-bounds read), causing denial of service. | 0.45.0 | https://api.osv.dev/v1/vulns/GO-2025-4135 |
 
 *Later public advisories also exist for the `ssh/agent` surface (`GO-2025-4116`, `GO-2025-4134`, `GO-2025-4135` / fixes in `0.43.0` and `0.45.0`), but the table above captures the clearest module-wide lineage for this first pass.*
 
 ### 2025 `ssh` / `ssh/agent` advisory cluster (Nov 2025)
 
-Public OSV listings show multiple advisories disclosed in November 2025 affecting the `ssh` and `ssh/agent` surfaces within `golang.org/x/crypto`:
+Public OSV records (and their GHSA/CVE aliases) show multiple advisories disclosed in November 2025 affecting the `ssh` and `ssh/agent` surfaces within `golang.org/x/crypto`:
 
-- `GO-2025-4116`
-- `GO-2025-4134`
-- `GO-2025-4135`
+- `GO-2025-4116` (aliases: `GHSA-56w8-48fp-6mgv`, `CVE-2025-47913`) — fixed in **`0.43.0`**. Source: https://api.osv.dev/v1/vulns/GO-2025-4116
+- `GO-2025-4134` (aliases: `GHSA-j5w8-q4qc-rx2x`, `CVE-2025-58181`) — fixed in **`0.45.0`**. Source: https://api.osv.dev/v1/vulns/GO-2025-4134
+- `GO-2025-4135` (aliases: `GHSA-f6x5-jh6r-wrfv`, `CVE-2025-47914`) — fixed in **`0.45.0`**. Source: https://api.osv.dev/v1/vulns/GO-2025-4135
 
-**Fixed versions:** this page previously noted fixes in **`0.43.0`** and **`0.45.0`**, but the exact mapping of which advisory is fixed in which version is **not captured in the sources referenced in this section**. Follow-up should confirm fix boundaries via the OSV detail pages and the corresponding GitHub Advisory Database (GHSA) entries.
-
-**Evidence / follow-up links:**
-
-- OSV listing for `golang.org/x/crypto`: https://osv.dev/list?ecosystem=Go&q=golang.org%2Fx%2Fcrypto
-- OSV details:
-  - https://osv.dev/vulnerability/GO-2025-4116
-  - https://osv.dev/vulnerability/GO-2025-4134
-  - https://osv.dev/vulnerability/GO-2025-4135
-
-*Full CVE / GO vulnerability history: https://osv.dev/list?ecosystem=Go&q=golang.org%2Fx%2Fcrypto*
+The original disclosure includes a Go announcement post that covers at least `GO-2025-4134` and `GO-2025-4135`: https://groups.google.com/g/golang-announce/c/w-oX3UxNcZA
 
 ## Security Posture Notes
 
