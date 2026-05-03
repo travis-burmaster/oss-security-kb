@@ -5,6 +5,9 @@
 **Repository:** https://github.com/gorilla/schema
 **Security Contact:** https://github.com/gorilla/schema/security/policy
 **Disclosure Policy:** https://github.com/gorilla/schema/security/policy
+
+> Note: The OSV record for this issue is GO-2024-2958 (reviewed). It aliases CVE-2024-37298 and GHSA-3669-72x9-r9p3.
+
 **Current Status:** advisory-mapped
 
 ## Audit History
@@ -17,7 +20,7 @@
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| CVE-2024-37298 / GHSA-3669-72x9-r9p3 / GO-2024-2958 | (not consistently stated across sources) | Potential memory exhaustion / denial of service via sparse slice deserialization when decoding form values into structs containing slices-of-structs using `schema.Decoder.Decode`. Attacker-controlled indices like `arr.1000000000.Val=1` can force large allocations. | 1.4.1 | https://github.com/gorilla/schema/security/advisories/GHSA-3669-72x9-r9p3 |
+| CVE-2024-37298 / GHSA-3669-72x9-r9p3 / GO-2024-2958 | (not consistently stated across sources) | Potential memory exhaustion / denial of service via sparse slice deserialization when decoding form values into structs containing slices-of-structs using `schema.Decoder.Decode`. Attacker-controlled indices like `arr.1000000000.Val=1` can force large allocations. | 1.4.1 | https://osv.dev/vulnerability/GO-2024-2958 · https://pkg.go.dev/vuln/GO-2024-2958 · https://github.com/gorilla/schema/security/advisories/GHSA-3669-72x9-r9p3 |
 
 *Full OSV history: https://osv.dev/list?ecosystem=Go&q=github.com/gorilla/schema*
 
@@ -25,10 +28,10 @@
 
 - **What the bug is (public description):** The GitHub advisory describes a denial-of-service scenario where attacker-controlled form keys can specify extremely large sparse indices for a slice-of-struct field, causing `Decoder.Decode()` to allocate a huge slice and exhaust memory.
 - **Where it manifests:** The reviewed Go vuln record points at `decoder.go#L223` for the allocation path involved in the sparse slice behavior. (Reference URL below.)
-- **Fix and mitigation lever:** The reviewed Go vuln record marks the issue fixed in **v1.4.1**, and the linked fix commit introduces/uses a `Decoder.MaxSize` limit (commit adds tests exercising `MaxSize` behavior), providing a library-level control to cap slice growth from decoded indices.
+- **Fix and mitigation lever:** The reviewed Go vuln record (GO-2024-2958) marks the issue fixed in **v1.4.1** and links to the upstream fix commit (`cd59f2f…`) and the relevant allocation site in `decoder.go#L223`. (Avoid over-interpreting mitigation details beyond what the advisory/commit explicitly shows.)
 - **Exposure boundary:** Practical exposure typically involves decoding attacker-controlled query/body form parameters (`r.Form`) into Go structs with slice-of-struct fields.
 - **Project activity:** Public GitHub repository metadata shows the repo is **not archived** and had activity as of **2024-08-19**, so this is not primarily an abandoned-project story.
-- **Disclosure metadata gap:** Public repository metadata indicates `security_policy_url: null`, and no disclosure policy was confirmed in this pass. Treat the GitHub advisory as the canonical published record for the vulnerability.
+- **Disclosure metadata:** The repository publishes a security-policy page via GitHub at https://github.com/gorilla/schema/security/policy. Treat the GHSA page as the canonical published record for this vulnerability.
 
 ## Dependencies of Note
 
