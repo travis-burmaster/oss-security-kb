@@ -1,0 +1,214 @@
+Review gathered PUBLIC evidence for npm handlebars KB update. Do not fabricate. Identify if these OSV records should be added to existing page and propose concise evidence-backed markdown row/note updates only.
+Existing page excerpt:
+# handlebars (npm)
+
+**Registry:** npm
+**Weekly Downloads:** ~35,940,075 (last week, fetched 2026-04-16)
+**Repository:** https://github.com/handlebars-lang/handlebars.js
+**Security Contact:** GitHub Security Advisory
+**Disclosure Policy:** https://github.com/handlebars-lang/handlebars.js/security
+**Current Status:** advisory-mapped
+
+## Audit History
+
+| Date | Auditor | Scope | Methodology | Findings | Source |
+|------|---------|-------|-------------|----------|--------|
+| 2026-04-16 | OpenClaw recurring review | package advisory mapping | public-source curation (OSV.dev, GitHub Advisory Database / upstream GitHub security advisories, public CVE aliases, upstream release notes, npm registry metadata, npm downloads API) | Added a new advisory-mapped baseline page for Handlebars' published vulnerability history, including the large 2026 `v4.7.9` fix cluster. | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
+| *No public proactive audits on record yet.* | — | — | — | — | — |
+
+## Known Vulnerabilities
+
+| CVE / Issue | Severity | Description | Fixed in | Source |
+|-------------|----------|-------------|----------|--------|
+| CVE-2015-8861 / GHSA-9prh-257w-9277 | moderate | Historical XSS issue in older Handlebars releases; OSV tracks the public advisory lineage as fixed in the `4.0.0` line. | 4.0.0 | https://osv.dev/vulnerability/GHSA-9prh-257w-9277 |
+| GHSA-q42p-pg8m-cqh6 | high | Prototype-pollution bug with multiple fix trains across older major/minor lines. | 3.0.7 / 4.0.14 / 4.1.2 | https://osv.dev/vulnerability/GHSA-q42p-pg8m-cqh6 |
+| GHSA-2cf5-4w76-r9qv / GHSA-q2c6-c6pm-g3gh | critical | Arbitrary-code-execution advisory lineage in older compiler/runtime behavior; OSV shows fixes first landing in `3.0.8`, `4.5.2`, and then `4.5.3` depending on the tracked advisory record. | 3.0.8 / 4.5.2 / 4.5.3 | https://osv.dev/vulnerability/GHSA-2cf5-4w76-r9qv |
+| CVE-2019-19919 / GHSA-w457-6q6x-cgp9 and GHSA-g9r4-xpmj-mj65 | critical | Follow-on prototype-pollution hardening issues in the 3.x and 4.x lines; OSV records fixes in `4.3.0` and `4.5.3`, with `3.0.8` covering the older branch. | 3.0.8 / 4.3.0 / 4.5.3 | https://osv.dev/vulnerability/GHSA-w457-6q6x-cgp9 |
+| CVE-2019-20922 / GHSA-62gr-4qp9-h98f | moderate | Regular-expression denial of service in 4.x releases. | 4.4.5 | https://osv.dev/vulnerability/GHSA-62gr-4qp9-h98f |
+| CVE-2021-23369 / GHSA-f2jv-r9rf-7988 | critical | Remote code execution when compiling attacker-controlled templates / AST-like input; upstream `v4.7.7` release notes call out stricter prototype-property access checks in this security-fix window. | 4.7.7 | https://osv.dev/vulnerability/GHSA-f2jv-r9rf-7988 |
+| CVE-2021-23383 / GHSA-765h-qjxv-5f44 | high | Prototype-pollution / prototype-property access issue in older lines, remediated in `4.7.7`. | 4.7.7 | https://osv.dev/vulnerability/GHSA-765h-qjxv-5f44 |
+| CVE-2026-33937 / GHSA-2w6w-674q-4c4q | CVSS 3.1 9.8 (from OSV CVE record) | `Handlebars.compile()` accepts a pre-parsed AST object; public advisory records describe a JavaScript-injection / RCE path when attacker-controlled AST `NumberLiteral.value` is emitted into generated JS without sanitization. | 4.7.9 | https://github.com/advisories/GHSA-2w6w-674q-4c4q |
+| GHSA-2qvq-rjwj-gvw9 / GHSA-2w6w-674q-4c4q / GHSA-3mfm-83xf-c92r / GHSA-442j-39wm-28r2 / GHSA-7rx3-28cr-v5wh / GHSA-9cx6-37pm-9jff / GHSA-xhpv-hc6g-r9c6 / GHSA-xjpj-3mr7-gcpf | multiple | Coordinated `v4.7.9` security cluster covering pr
+
+OSV GHSA-3cqr JSON:
+{"id": "GHSA-3cqr-58rm-57f8", "summary": "Arbitrary Code Execution in Handlebars", "details": "Handlebars before 3.0.8 and 4.x before 4.5.3 is vulnerable to Arbitrary Code Execution. The lookup helper fails to properly validate templates, allowing attackers to submit templates that execute arbitrary JavaScript. This can be used to run arbitrary code on a server processing Handlebars templates or in a victim's browser (effectively serving as XSS).", "aliases": ["CVE-2019-20920"], "modified": "2026-03-13T21:56:47.659989Z", "published": "2022-02-10T20:38:19Z", "related": ["CGA-q4g4-27f3-92vf"], "database_specific": {"nvd_published_at": "2020-09-30T18:15:00Z", "github_reviewed_at": "2021-04-22T23:38:32Z", "severity": "HIGH", "github_reviewed": true, "cwe_ids": ["CWE-94"]}, "references": [{"type": "ADVISORY", "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-20920"}, {"type": "WEB", "url": "https://github.com/handlebars-lang/handlebars.js/commit/156061eb7707575293613d7fdf90e2bdaac029ee"}, {"type": "WEB", "url": "https://github.com/handlebars-lang/handlebars.js/commit/d54137810a49939fd2ad01a91a34e182ece4528e"}, {"type": "WEB", "url": "https://snyk.io/vuln/SNYK-JS-HANDLEBARS-534478"}, {"type": "WEB", "url": "https://www.npmjs.com/advisories/1316"}, {"type": "WEB", "url": "https://www.npmjs.com/advisories/1324"}, {"type": "WEB", "url": "https://www.npmjs.com/package/handlebars"}], "affected": [{"package": {"name": "handlebars", "ecosystem": "npm", "purl": "pkg:npm/handlebars"}, "ranges": [{"type": "SEMVER", "events": [{"introduced": "0"}, {"fixed": "3.0.8"}]}], "database_specific": {"source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/02/GHSA-3cqr-58rm-57f8/GHSA-3cqr-58rm-57f8.json"}}, {"package": {"name": "handlebars", "ecosystem": "npm", "purl": "pkg:npm/handlebars"}, "ranges": [{"type": "SEMVER", "events": [{"introduced": "4.0.0"}, {"fixed": "4.5.3"}]}], "database_specific": {"source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/02/GHSA-3cqr-58rm-57f8/GHSA-3cqr-58rm-57f8.json"}}], "schema_version": "1.7.5", "severity": [{"type": "CVSS_V3", "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:L/A:L"}]}
+
+OSV GHSA-f52g JSON:
+{"id": "GHSA-f52g-6jhx-586p", "summary": "Denial of Service in handlebars", "details": "Affected versions of `handlebars` are vulnerable to Denial of Service. The package's parser may be forced into an endless loop while processing specially-crafted templates. This may allow attackers to exhaust system resources leading to Denial of Service.\n\n\n## Recommendation\n\nUpgrade to version 4.4.5 or later.", "modified": "2020-08-31T18:54:21Z", "published": "2020-09-03T23:20:12Z", "database_specific": {"nvd_published_at": null, "cwe_ids": ["CWE-400"], "github_reviewed_at": "2020-08-31T18:54:21Z", "severity": "MODERATE", "github_reviewed": true}, "references": [{"type": "WEB", "url": "https://www.npmjs.com/advisories/1300"}], "affected": [{"package": {"name": "handlebars", "ecosystem": "npm", "purl": "pkg:npm/handlebars"}, "ranges": [{"type": "SEMVER", "events": [{"introduced": "4.0.0"}, {"fixed": "4.4.5"}]}], "database_specific": {"source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2020/09/GHSA-f52g-6jhx-586p/GHSA-f52g-6jhx-586p.json"}}], "schema_version": "1.7.3"}
+
+Upstream release notes excerpts:
+# Release Notes
+
+## Development
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.4.5...master)
+
+## v4.4.5 - October 20th, 2019
+Bugfixes: 
+
+- Contents of raw-blocks must be matched with non-eager regex-matching - 8d5530e, #1579
+
+
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.4.4...v4.4.5)
+
+## v4.4.4 - October 20th, 2019
+Bugfixes:
+- fix: prevent zero length tokens in raw-blocks (#1577, #1578) - f1752fe
+
+Chore: 
+- chore: link to s3 bucket with https, add "npm ci" to build instructions - 0b593bf
+
+Compatibility notes:
+- no compatibility issues are expected
+
+
+--- v4.5.3 ---
+# Release Notes
+
+## Development
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.5.3...master)
+
+## v4.5.3 - November 18th, 2019
+Bugfixes:
+
+- fix: add "no-prototype-builtins" eslint-rule and fix all occurences - f7f05d7
+- fix: add more properties required to be enumerable - 1988878
+
+Chores / Build:
+- fix: use !== 0 instead of != 0 - c02b05f
+- add chai and dirty-chai and sinon, for cleaner test-assertions and spies, 
+  deprecate old assertion-methods  - 93e284e, 886ba86, 0817dad, 93516a0
+
+Security:
+
+- The properties `__proto__`, `__defineGetter__`, `__defineSetter__` and `__lookupGetter__` 
+  have been added to the list of "properties that must be enumerable".
+  If a property by that name is found and not enumerable on its parent, 
+  it will silently evaluate to `undefined`. This is done in both the compiled template and the "lookup"-helper. 
+  This will prevent new Remote-Code-Execution exploits that have been
+  published recently.
+
+Compatibility notes: 
+
+- Due to the security-fixes. The semantics of the templates using
+  `__proto__`, `__defineGetter__`, `__defineSetter__` and `__lookupGetter__` in the respect that those expression now return 
+  `undefined` rather than their actual value from the proto.
+- The semantics have not changed in cases where the properties are  enumerable, as in:
+
+```js
+{
+  __proto__: 'some string'
+}
+```
+
+- The change may be breaking in that respect, but we still only 
+  increase the patch-version, because the incompatible use-cases
+  are not intended, undocumented and far less important than fixing
+  Remote-Code-Execution exploits on existing systems.
+
+
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.5.2...v4.5.3)
+
+## v4.5.2 - November 13th, 2019
+# Bugfixes
+
+- fix: use String(field) in lookup when checking for "constructor" - d541378
+- test: add fluent API for testing Handlebars - c2ac79c
+
+Compatibility notes:
+- no incompatibility are to be expected
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.5.1...v4.5.2)
+
+## v4.5.1 - October 29th, 2019
+Bugfixs
+
+- fix: move "eslint-plugin-compat" to devDependencies - 5e9d17f (#1589)
+
+Compatibility notes:
+- No compatibility issues are to be expected
+
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.5.0...v4.5.1)
+
+## v4.5.0 - October 28th, 2019
+Features / Improvements
+- Add method Handlebars.parseWithoutProcessing (#1584) - 62ed3c2
+- add guard to if & unless helpers (#1549)
+- show source location for the strict lookup exceptions - feb60f8
+
+Bugfixes:
+- Use objects for hash value tracking - 7fcf9d2
+
+Chore:
+- Resolve deprecation warning message from eslint while running eslint (#1586) - 7052e88
+- chore: add eslint-plugin-compat and eslint-plugin-es5 - 088e618
+
+Compatibility notes:
+- No compatibility issues are to be expected
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.4.5...v4.5.0)
+
+## v4.4.5 - October 20th, 2019
+Bugfixes: 
+
+- Contents of raw-blocks must be matched with non-eager regex-matching - 8d5530e, #1579
+
+
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.4.4...v4.4.5)
+
+## v4.4.4 - October 20th, 2019
+Bugfixes:
+- fix: prevent zero length tokens in raw-blocks (#1577, #1578) - f1752fe
+
+Chore: 
+- chore: link to s3 bucket with https, add "npm ci" to build instructions - 0b593bf
+
+Compatibility notes:
+- no compatibility issues are expected
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.4.3...v4.4.4)
+
+## v4.4.3 - October 8th, 2019
+Bugfixes
+
+Typings:
+- add missing type fields to AST typings and add tests for them - 0440af2
+
+
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.4.2...v4.4.3)
+
+## v4.4.2 - October 2nd, 2019
+- chore: fix grunt-saucelabs dependency - b7eada0
+
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.4.1...v4.4.2)
+
+## v4.4.1 - October 2nd, 2019
+- [#1562](https://github.com/wycats/handlebars.js/issues/1562) - Error message for syntax error missing location in 4.2.1+
+
+
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.4.0...v4.4.1)
+
+## v4.4.0 - September 29th, 2019
+- Added support for iterable objects in {{#each}} helper (#1557) - cf7545e
+
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.3.4...v4.4.0)
+
+## v4.3.4 - September 28th, 2019
+- fix: harden "propertyIsEnumerable"-check - ff4d827
+
+Compatibility notes:
+- No incompatibilities are known.
+
+[Commits](https://github.com/wycats/handlebars.js/compare/v4.3.3...v4.3.4)
+
+## v4.3.3 - September 27th, 2019
+ - fix test case for browsers that do not support _
