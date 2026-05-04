@@ -11,6 +11,7 @@
 
 | Date | Auditor | Scope | Methodology | Findings | Source |
 |------|---------|-------|-------------|----------|--------|
+| 2026-05-04 | OpenClaw recurring review | OSV cross-check for advisory gaps | public-source curation (OSV.dev records for GHSA-3cqr-58rm-57f8 and GHSA-f52g-6jhx-586p, CVE record, upstream release notes) | Added CVE-2019-20920 / GHSA-3cqr-58rm-57f8 and noted GHSA-f52g-6jhx-586p as an OSV duplicate/parallel record for the existing 4.4.5 DoS fix. | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
 | 2026-04-16 | OpenClaw recurring review | package advisory mapping | public-source curation (OSV.dev, GitHub Advisory Database / upstream GitHub security advisories, public CVE aliases, upstream release notes, npm registry metadata, npm downloads API) | Added a new advisory-mapped baseline page for Handlebars' published vulnerability history, including the large 2026 `v4.7.9` fix cluster. | [oss-security-kb](https://github.com/travis-burmaster/oss-security-kb) |
 | *No public proactive audits on record yet.* | — | — | — | — | — |
 
@@ -22,7 +23,8 @@
 | GHSA-q42p-pg8m-cqh6 | high | Prototype-pollution bug with multiple fix trains across older major/minor lines. | 3.0.7 / 4.0.14 / 4.1.2 | https://osv.dev/vulnerability/GHSA-q42p-pg8m-cqh6 |
 | GHSA-2cf5-4w76-r9qv / GHSA-q2c6-c6pm-g3gh | critical | Arbitrary-code-execution advisory lineage in older compiler/runtime behavior; OSV shows fixes first landing in `3.0.8`, `4.5.2`, and then `4.5.3` depending on the tracked advisory record. | 3.0.8 / 4.5.2 / 4.5.3 | https://osv.dev/vulnerability/GHSA-2cf5-4w76-r9qv |
 | CVE-2019-19919 / GHSA-w457-6q6x-cgp9 and GHSA-g9r4-xpmj-mj65 | critical | Follow-on prototype-pollution hardening issues in the 3.x and 4.x lines; OSV records fixes in `4.3.0` and `4.5.3`, with `3.0.8` covering the older branch. | 3.0.8 / 4.3.0 / 4.5.3 | https://osv.dev/vulnerability/GHSA-w457-6q6x-cgp9 |
-| CVE-2019-20922 / GHSA-62gr-4qp9-h98f | moderate | Regular-expression denial of service in 4.x releases. | 4.4.5 | https://osv.dev/vulnerability/GHSA-62gr-4qp9-h98f |
+| CVE-2019-20920 / GHSA-3cqr-58rm-57f8 | high | Arbitrary code execution via the `lookup` helper failing to validate templates; public records describe attacker-supplied templates executing arbitrary JavaScript in server-side or browser contexts. Upstream `v4.5.3` release notes describe blocking several prototype-related property names to prevent recently published RCE exploits. | 3.0.8 / 4.5.3 | https://osv.dev/vulnerability/GHSA-3cqr-58rm-57f8 |
+| CVE-2019-20922 / GHSA-62gr-4qp9-h98f / GHSA-f52g-6jhx-586p | moderate | Regular-expression denial of service in 4.x releases. OSV also tracks GHSA-f52g-6jhx-586p for the same `4.4.5` raw-block parsing fix window. | 4.4.5 | https://osv.dev/vulnerability/GHSA-62gr-4qp9-h98f |
 | CVE-2021-23369 / GHSA-f2jv-r9rf-7988 | critical | Remote code execution when compiling attacker-controlled templates / AST-like input; upstream `v4.7.7` release notes call out stricter prototype-property access checks in this security-fix window. | 4.7.7 | https://osv.dev/vulnerability/GHSA-f2jv-r9rf-7988 |
 | CVE-2021-23383 / GHSA-765h-qjxv-5f44 | high | Prototype-pollution / prototype-property access issue in older lines, remediated in `4.7.7`. | 4.7.7 | https://osv.dev/vulnerability/GHSA-765h-qjxv-5f44 |
 | CVE-2026-33937 / GHSA-2w6w-674q-4c4q | CVSS 3.1 9.8 (from OSV CVE record) | `Handlebars.compile()` accepts a pre-parsed AST object; public advisory records describe a JavaScript-injection / RCE path when attacker-controlled AST `NumberLiteral.value` is emitted into generated JS without sanitization. | 4.7.9 | https://github.com/advisories/GHSA-2w6w-674q-4c4q |
@@ -32,7 +34,7 @@
 
 - Handlebars has a **long, security-relevant history** across XSS, prototype pollution, arbitrary code execution / JavaScript injection, and parser / compiler denial-of-service classes. This is not a one-off advisory package.
 - The package's 2026 `v4.7.9` release matters because it fixed **eight published advisories at once**, suggesting a concentrated hardening pass over compiler, runtime, partial resolution, and access-control boundaries rather than one isolated bug.
-- Public release notes show several earlier security inflection points as well: `v4.3.0` tightened constructor / `lookup` behavior to prevent RCE, `v4.4.5` addressed the published ReDoS issue, `v4.5.3` continued the 2019 hardening sequence, and `v4.7.7` tightened prototype-property access checks.
+- Public release notes show several earlier security inflection points as well: `v4.3.0` tightened constructor / `lookup` behavior to prevent RCE, `v4.4.5` addressed the published raw-block parsing / ReDoS issue, `v4.5.3` continued the 2019 RCE hardening sequence around prototype-related property names and the `lookup` helper, and `v4.7.7` tightened prototype-property access checks.
 - Upstream `SECURITY.md` currently recommends staying on the latest versions and marks `< 4.7` unsupported. That aligns with the advisory record: older lines accumulated repeated fix trains and are poor long-term risk bets.
 - Real-world exploitability is highly context-dependent. Many Handlebars findings require one of these conditions: attacker-controlled template compilation, attacker-controlled AST input, unsafe use of dynamic partials or precompiler options, or a separate prototype-pollution primitive elsewhere in the app stack.
 - Operationally, the safest posture is to treat Handlebars as a package that should be **kept current and isolated from untrusted template / AST inputs**, not as a passive formatting helper.
@@ -57,4 +59,4 @@
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-28 | Sources: 10 (OSV.dev, GitHub Advisory Database / upstream GitHub security advisories, public CVE aliases, upstream release notes, upstream SECURITY.md, GitHub release metadata, npm registry metadata, npm downloads API, OSV CVE JSON for CVE-2026-33937, GitHub Advisory Database page for GHSA-2w6w-674q-4c4q)*
+*Last updated: 2026-05-04 | Sources: 13 (OSV.dev, GitHub Advisory Database / upstream GitHub security advisories, public CVE aliases, public CVE record for CVE-2019-20920, upstream release notes including v4.4.5 and v4.5.3, upstream SECURITY.md, GitHub release/tag metadata, npm registry metadata, npm downloads API, OSV CVE JSON for CVE-2026-33937, GitHub Advisory Database page for GHSA-2w6w-674q-4c4q)*

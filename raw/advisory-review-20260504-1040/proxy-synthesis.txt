@@ -1,0 +1,54 @@
+## Review Summary
+
+I examined the two provided OSV records against the existing page content.
+
+---
+
+### 1. GHSA-3cqr-58rm-57f8 / CVE-2019-20920
+
+**Finding: This is a distinct advisory NOT currently on the page and should be added.**
+
+- **CVE:** CVE-2019-20920
+- **GHSA:** GHSA-3cqr-58rm-57f8
+- **Summary:** Arbitrary Code Execution via the `lookup` helper failing to properly validate templates, allowing arbitrary JavaScript execution.
+- **Severity:** HIGH (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:L/A:L)
+- **CWE:** CWE-94 (Code Injection)
+- **Fixed in:** 3.0.8 / 4.5.3
+- **Published:** 2022-02-10 (NVD: 2020-09-30)
+- **Corroborated by:** upstream v4.5.3 release notes explicitly describe adding `__proto__`, `__defineGetter__`, `__defineSetter__`, `__lookupGetter__` to the blocked-properties list and state: *"This will prevent new Remote-Code-Execution exploits that have been published recently."* Commits `156061e` and `d541378` are referenced in the OSV record and match the v4.5.2/v4.5.3 changelogs.
+
+This is distinct from the existing rows: GHSA-2cf5-4w76-r9qv covers a different advisory lineage (fixes in 4.5.2/4.5.3), GHSA-w457-6q6x-cgp9 covers CVE-2019-19919 (prototype-pollution hardening), and GHSA-q42p-pg8m-cqh6 covers a separate prototype-pollution bug (fixed in 4.0.14/4.1.2). CVE-2019-20920 has its own distinct NVD entry and Snyk advisory (SNYK-JS-HANDLEBARS-534478).
+
+---
+
+### 2. GHSA-f52g-6jhx-586p
+
+**Finding: This is likely already covered by the existing CVE-2019-20922 / GHSA-62gr-4qp9-h98f row, but should be noted as a related alias/duplicate.**
+
+- Both describe Denial of Service in handlebars 4.x, both fixed in 4.4.5.
+- GHSA-f52g has no CVE alias; GHSA-62gr maps to CVE-2019-20922.
+- The upstream v4.4.5 release notes confirm a single bugfix: *"Contents of raw-blocks must be matched with non-eager regex-matching"* (commit `8d5530e`, #1579), which is the same underlying fix.
+- GHSA-f52g references npm advisory 1300; GHSA-62gr references the NVD CVE. They describe the same vulnerability from different advisory sources.
+
+**Recommendation:** Add GHSA-f52g-6jhx-586p as a known alias to the existing row rather than a new row.
+
+---
+
+## Proposed Markdown Changes
+
+### Addition to Known Vulnerabilities table (new row, insert after the CVE-2019-19919 row):
+
+```markdown
+| CVE-2019-20920 / GHSA-3cqr-58rm-57f8 | high | Arbitrary code execution via the `lookup` helper failing to validate templates; attackers can submit templates that execute arbitrary JavaScript in server-side or browser contexts (CWE-94). Upstream v4.5.3 release notes confirm blocking `__proto__`, `__defineGetter__`, `__defineSetter__`, `__lookupGetter__` to prevent published RCE exploits. | 3.0.8 / 4.5.3 | https://osv.dev/vulnerability/GHSA-3cqr-58rm-57f8 |
+```
+
+### Modification to existing CVE-2019-20922 row (add alias note):
+
+```markdown
+| CVE-2019-20922 / GHSA-62gr-4qp9-h98f / GHSA-f52g-6jhx-586p | moderate | Regular-expression denial of service in 4.x releases (raw-block parsing). GHSA-f52g-6jhx-586p is a duplicate advisory for the same underlying fix (commit `8d5530e`, v4.4.5 release notes). | 4.4.5 | https://osv.dev/vulnerability/GHSA-62gr-4qp9-h98f |
+```
+
+### Audit History table update (new row):
+
+```markdown
+| 2026-04-16 | OpenClaw recurring review | OSV cross-check | public-source curation (OSV.dev
