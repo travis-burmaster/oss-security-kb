@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*108 packages tracked across 9 ecosystems. Last updated: 2026-05-03.*
+*111 packages tracked across 9 ecosystems. Last updated: 2026-05-04.*
 
-## npm (83)
+## npm (85)
 
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/ajv]] — JSON Schema validator · advisory mapped · prototype-pollution and `$data` / pattern ReDoS history across 6.x and 8.x
@@ -22,6 +22,7 @@
 - [[npm/markdown-it]] — Markdown parser · advisory mapped · published ReDoS / resource-exhaustion history through 14.1.1
 - [[npm/handlebars]] — templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster
 - [[npm/highlight.js]] — syntax highlighter · advisory mapped · prototype pollution plus grammar-driven ReDoS / freeze history fixed through 10.4.1
+- [[npm/prismjs]] — syntax highlighter · advisory mapped · plugin XSS, grammar ReDoS, and DOM-clobbering history fixed through 1.30.0
 - [[npm/mdast-util-to-hast]] — Markdown AST→HTML AST transformer · advisory mapped · class-injection / unsanitized class attribute issue fixed in 13.2.1
 - [[npm/helmet]] — security-header middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass; strong disclosure posture via upstream SECURITY.md
 - [[npm/ws]] — WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
@@ -40,6 +41,7 @@
 - [[npm/debug]] — debug logging utility · advisory mapped · supply-chain compromise in 4.4.2 plus older ReDoS history
 - [[npm/openssl]] — deprecated OpenSSL CLI wrapper · advisory mapped · critical command-execution advisory with no published fix version
 - [[npm/ejs]] — server-side templating engine · advisory mapped · historical renderFile/input-validation bugs plus later SSTI and prototype-pollution hardening
+- [[npm/elliptic]] — JavaScript elliptic-curve crypto library · advisory mapped · signature malleability, ECDH validation, ECDSA private-key extraction, and one currently unfixed deterministic-`k` advisory
 - [[npm/fastify]] — high-performance Node.js web framework · advisory mapped · recurring Content-Type parsing / validation-boundary flaws plus proxy-trust and DoS history
 - [[npm/express]] — dominant Node.js web framework · advisory mapped · public package history plus deeper 2026 source review
 - [[npm/express-session]] — HTTP session middleware for Express · baseline stub · high-usage package with no direct GHSA / OSV advisories confirmed at package level; notable dependency-context risk via `cookie` 0.7.x lineage and `cookie-signature` timing-attack fix history

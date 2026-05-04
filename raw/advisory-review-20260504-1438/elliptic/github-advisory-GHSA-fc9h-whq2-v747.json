@@ -1,0 +1,145 @@
+{
+  "credits": [
+    {
+      "type": "analyst",
+      "user": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/1439341?v=4",
+        "events_url": "https://api.github.com/users/martincostello/events{/privacy}",
+        "followers_url": "https://api.github.com/users/martincostello/followers",
+        "following_url": "https://api.github.com/users/martincostello/following{/other_user}",
+        "gists_url": "https://api.github.com/users/martincostello/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/martincostello",
+        "id": 1439341,
+        "login": "martincostello",
+        "node_id": "MDQ6VXNlcjE0MzkzNDE=",
+        "organizations_url": "https://api.github.com/users/martincostello/orgs",
+        "received_events_url": "https://api.github.com/users/martincostello/received_events",
+        "repos_url": "https://api.github.com/users/martincostello/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/martincostello/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/martincostello/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/martincostello",
+        "user_view_type": "public"
+      }
+    },
+    {
+      "type": "analyst",
+      "user": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/10195482?v=4",
+        "events_url": "https://api.github.com/users/IchordeDionysos/events{/privacy}",
+        "followers_url": "https://api.github.com/users/IchordeDionysos/followers",
+        "following_url": "https://api.github.com/users/IchordeDionysos/following{/other_user}",
+        "gists_url": "https://api.github.com/users/IchordeDionysos/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/IchordeDionysos",
+        "id": 10195482,
+        "login": "IchordeDionysos",
+        "node_id": "MDQ6VXNlcjEwMTk1NDgy",
+        "organizations_url": "https://api.github.com/users/IchordeDionysos/orgs",
+        "received_events_url": "https://api.github.com/users/IchordeDionysos/received_events",
+        "repos_url": "https://api.github.com/users/IchordeDionysos/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/IchordeDionysos/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/IchordeDionysos/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/IchordeDionysos",
+        "user_view_type": "public"
+      }
+    },
+    {
+      "type": "analyst",
+      "user": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/201460394?v=4",
+        "events_url": "https://api.github.com/users/tal-sealsecurity/events{/privacy}",
+        "followers_url": "https://api.github.com/users/tal-sealsecurity/followers",
+        "following_url": "https://api.github.com/users/tal-sealsecurity/following{/other_user}",
+        "gists_url": "https://api.github.com/users/tal-sealsecurity/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/tal-sealsecurity",
+        "id": 201460394,
+        "login": "tal-sealsecurity",
+        "node_id": "U_kgDODAIKqg",
+        "organizations_url": "https://api.github.com/users/tal-sealsecurity/orgs",
+        "received_events_url": "https://api.github.com/users/tal-sealsecurity/received_events",
+        "repos_url": "https://api.github.com/users/tal-sealsecurity/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/tal-sealsecurity/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/tal-sealsecurity/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/tal-sealsecurity",
+        "user_view_type": "public"
+      }
+    }
+  ],
+  "cve_id": "CVE-2024-48948",
+  "cvss": {
+    "score": 4.8,
+    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L"
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "score": 4.8,
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L"
+    },
+    "cvss_v4": {
+      "score": 2.3,
+      "vector_string": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:P/VC:N/VI:L/VA:L/SC:N/SI:N/SA:N"
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-347",
+      "name": "Improper Verification of Cryptographic Signature"
+    }
+  ],
+  "description": "The Elliptic prior to 6.6.0 for Node.js, in its for ECDSA implementation, does not correctly verify valid signatures if the hash contains at least four leading 0 bytes and when the order of the elliptic curve's base point is smaller than the hash, because of an _truncateToN anomaly. This leads to valid signatures being rejected. Legitimate transactions or communications may be incorrectly flagged as invalid.",
+  "epss": {
+    "percentage": 0.00162,
+    "percentile": 0.36998
+  },
+  "ghsa_id": "GHSA-fc9h-whq2-v747",
+  "github_reviewed_at": "2024-10-17T22:05:18Z",
+  "html_url": "https://github.com/advisories/GHSA-fc9h-whq2-v747",
+  "identifiers": [
+    {
+      "type": "GHSA",
+      "value": "GHSA-fc9h-whq2-v747"
+    },
+    {
+      "type": "CVE",
+      "value": "CVE-2024-48948"
+    }
+  ],
+  "nvd_published_at": "2024-10-15T14:15:05Z",
+  "published_at": "2024-10-15T15:30:56Z",
+  "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2024-48948",
+    "https://github.com/indutny/elliptic/issues/321",
+    "https://github.com/indutny/elliptic/pull/322",
+    "https://github.com/indutny/elliptic/commit/34c853478cec1be4e37260ed2cb12cdbdc6402cf",
+    "https://security.netapp.com/advisory/ntap-20241220-0004",
+    "https://blog.trailofbits.com/2025/11/18/we-found-cryptography-bugs-in-the-elliptic-library-using-wycheproof",
+    "https://github.com/advisories/GHSA-fc9h-whq2-v747"
+  ],
+  "repository_advisory_url": null,
+  "severity": "low",
+  "source_code_location": "https://github.com/indutny/elliptic",
+  "summary": "Valid ECDSA signatures erroneously rejected in Elliptic",
+  "type": "reviewed",
+  "updated_at": "2025-11-27T08:43:19Z",
+  "url": "https://api.github.com/advisories/GHSA-fc9h-whq2-v747",
+  "vulnerabilities": [
+    {
+      "first_patched_version": "6.6.0",
+      "package": {
+        "ecosystem": "npm",
+        "name": "elliptic"
+      },
+      "vulnerable_functions": [],
+      "vulnerable_version_range": "< 6.6.0"
+    }
+  ],
+  "withdrawn_at": null
+}

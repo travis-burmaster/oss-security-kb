@@ -1,0 +1,74 @@
+{
+  "credits": [],
+  "cve_id": "CVE-2021-23341",
+  "cvss": {
+    "score": null,
+    "vector_string": null
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "score": 0.0,
+      "vector_string": null
+    },
+    "cvss_v4": {
+      "score": 0.0,
+      "vector_string": null
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-400",
+      "name": "Uncontrolled Resource Consumption"
+    }
+  ],
+  "description": "The package prismjs before 1.23.0 are vulnerable to Regular Expression Denial of Service (ReDoS) via the `prism-asciidoc`, `prism-rest`, `prism-tap` and `prism-eiffel` components.",
+  "epss": {
+    "percentage": 0.01762,
+    "percentile": 0.825
+  },
+  "ghsa_id": "GHSA-h4hr-7fg3-h35w",
+  "github_reviewed_at": "2021-02-24T07:34:23Z",
+  "html_url": "https://github.com/advisories/GHSA-h4hr-7fg3-h35w",
+  "identifiers": [
+    {
+      "type": "GHSA",
+      "value": "GHSA-h4hr-7fg3-h35w"
+    },
+    {
+      "type": "CVE",
+      "value": "CVE-2021-23341"
+    }
+  ],
+  "nvd_published_at": "2021-02-18T16:15:00Z",
+  "published_at": "2021-03-01T19:52:33Z",
+  "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2021-23341",
+    "https://github.com/PrismJS/prism/issues/2583",
+    "https://github.com/PrismJS/prism/pull/2584",
+    "https://github.com/PrismJS/prism/commit/c2f6a64426f44497a675cb32dccb079b3eff1609",
+    "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARS-1076583",
+    "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1076582",
+    "https://snyk.io/vuln/SNYK-JS-PRISMJS-1076581",
+    "https://www.npmjs.com/package/prismjs",
+    "https://github.com/advisories/GHSA-h4hr-7fg3-h35w"
+  ],
+  "repository_advisory_url": null,
+  "severity": "high",
+  "source_code_location": "",
+  "summary": "Denial of service in prismjs",
+  "type": "reviewed",
+  "updated_at": "2023-09-05T22:59:25Z",
+  "url": "https://api.github.com/advisories/GHSA-h4hr-7fg3-h35w",
+  "vulnerabilities": [
+    {
+      "first_patched_version": "1.23.0",
+      "package": {
+        "ecosystem": "npm",
+        "name": "prismjs"
+      },
+      "vulnerable_functions": [],
+      "vulnerable_version_range": "< 1.23.0"
+    }
+  ],
+  "withdrawn_at": null
+}
