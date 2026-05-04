@@ -7,6 +7,7 @@
 - [[npm/async]] — async control-flow utility · advisory mapped · prototype-pollution issue fixed in 2.6.4 and 3.2.2
 - [[npm/graphql]] — GraphQL reference implementation · advisory mapped · 2023 overlapping-fields resource-exhaustion / DoS fixed in 16.8.1
 - [[npm/react]] — core UI library · advisory mapped · two legacy pre-1.0 XSS records, with no newer direct package-level OSV / GHSA issue surfaced in this pass
+- [[npm/react-server-dom-webpack]] — React Server Components webpack transport package · advisory mapped · 2025-2026 RSC RCE, source-code exposure, and DoS fix train through 19.0.5 / 19.1.6 / 19.2.5
 - [[npm/zod]] — schema validation library · advisory mapped · 2023 email-validation ReDoS / DoS fixed in 3.22.3
 - [[npm/ip]] — IP address helper · advisory mapped · SSRF-relevant private/public classification bypasses including an unresolved incomplete-fix chain through 2.0.1
 - [[npm/cookie-parser]] — Express cookie middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass, but relevant dependency context via cookie 0.7.x
