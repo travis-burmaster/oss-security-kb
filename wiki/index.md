@@ -1,14 +1,15 @@
 # OSS Security KB — Master Index
 
-*111 packages tracked across 9 ecosystems. Last updated: 2026-05-04.*
+*112 packages tracked across 9 ecosystems. Last updated: 2026-05-04.*
 
-## npm (85)
+## npm (86)
 
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing history plus 2026 supply-chain compromise
 - [[npm/ajv]] — JSON Schema validator · advisory mapped · prototype-pollution and `$data` / pattern ReDoS history across 6.x and 8.x
 - [[npm/async]] — async control-flow utility · advisory mapped · prototype-pollution issue fixed in 2.6.4 and 3.2.2
 - [[npm/graphql]] — GraphQL reference implementation · advisory mapped · 2023 overlapping-fields resource-exhaustion / DoS fixed in 16.8.1
 - [[npm/react]] — core UI library · advisory mapped · two legacy pre-1.0 XSS records, with no newer direct package-level OSV / GHSA issue surfaced in this pass
+- [[npm/react-server-dom-webpack]] — React Server Components webpack transport package · advisory mapped · 2025-2026 RSC RCE, source-code exposure, and DoS fix train through 19.0.5 / 19.1.6 / 19.2.5
 - [[npm/zod]] — schema validation library · advisory mapped · 2023 email-validation ReDoS / DoS fixed in 3.22.3
 - [[npm/esbuild]] — JavaScript bundler / dev server · advisory mapped · dev-server CORS exposure fixed in 0.25.0
 - [[npm/vite]] — dominant frontend build tool / dev server · advisory mapped · dense dev-server file-boundary, cross-origin exposure, and XSS history through the 2026 fix train
