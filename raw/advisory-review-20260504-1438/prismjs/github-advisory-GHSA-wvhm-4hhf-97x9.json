@@ -1,0 +1,95 @@
+{
+  "credits": [
+    {
+      "type": "analyst",
+      "user": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/1499192?v=4",
+        "events_url": "https://api.github.com/users/masatokinugawa/events{/privacy}",
+        "followers_url": "https://api.github.com/users/masatokinugawa/followers",
+        "following_url": "https://api.github.com/users/masatokinugawa/following{/other_user}",
+        "gists_url": "https://api.github.com/users/masatokinugawa/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/masatokinugawa",
+        "id": 1499192,
+        "login": "masatokinugawa",
+        "node_id": "MDQ6VXNlcjE0OTkxOTI=",
+        "organizations_url": "https://api.github.com/users/masatokinugawa/orgs",
+        "received_events_url": "https://api.github.com/users/masatokinugawa/received_events",
+        "repos_url": "https://api.github.com/users/masatokinugawa/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/masatokinugawa/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/masatokinugawa/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/masatokinugawa",
+        "user_view_type": "public"
+      }
+    }
+  ],
+  "cve_id": "CVE-2020-15138",
+  "cvss": {
+    "score": 7.1,
+    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:L"
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "score": 7.1,
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:L"
+    },
+    "cvss_v4": {
+      "score": 0.0,
+      "vector_string": null
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "description": "### Impact\nThe easing preview of the Previewers plugin has an XSS vulnerability that allows attackers to execute arbitrary code in Safari and Internet Explorer.\n\nThis impacts all Safari and Internet Explorer users of Prism >=v1.1.0 that use the _Previewers_ plugin (>=v1.10.0) or the _Previewer: Easing_ plugin (v1.1.0 to v1.9.0).\n\n### Patches\nThis problem is patched in v1.21.0.\n\n### Workarounds\nTo workaround the issue without upgrading, [disable the easing preview](https://prismjs.com/plugins/previewers/#disabling-a-previewer) on all impacted code blocks. You need Prism v1.10.0 or newer to apply this workaround.\n\n### References\nThe vulnerability was introduced by this [commit](https://github.com/PrismJS/prism/commit/4303c940d3d3a20e8ce7635bf23331c75060f5c5) on Sep 29, 2015 and fixed by [Masato Kinugawa](https://twitter.com/kinugawamasato) (#2506).\n\n### For more information\nIf you have any questions or comments about this advisory, please [open an issue](https://github.com/PrismJS/prism/issues).",
+  "epss": {
+    "percentage": 0.00864,
+    "percentile": 0.74515
+  },
+  "ghsa_id": "GHSA-wvhm-4hhf-97x9",
+  "github_reviewed_at": "2020-08-07T16:19:07Z",
+  "html_url": "https://github.com/advisories/GHSA-wvhm-4hhf-97x9",
+  "identifiers": [
+    {
+      "type": "GHSA",
+      "value": "GHSA-wvhm-4hhf-97x9"
+    },
+    {
+      "type": "CVE",
+      "value": "CVE-2020-15138"
+    }
+  ],
+  "nvd_published_at": null,
+  "published_at": "2020-08-07T22:28:30Z",
+  "references": [
+    "https://github.com/PrismJS/prism/security/advisories/GHSA-wvhm-4hhf-97x9",
+    "https://github.com/PrismJS/prism/pull/2506/commits/7bd7de05edf71112a3a77f87901a2409c9c5c20c",
+    "https://prismjs.com/plugins/previewers/#disabling-a-previewer",
+    "https://nvd.nist.gov/vuln/detail/CVE-2020-15138",
+    "https://github.com/advisories/GHSA-wvhm-4hhf-97x9"
+  ],
+  "repository_advisory_url": "https://api.github.com/repos/PrismJS/prism/security-advisories/GHSA-wvhm-4hhf-97x9",
+  "severity": "high",
+  "source_code_location": "",
+  "summary": "Cross-Site Scripting in Prism",
+  "type": "reviewed",
+  "updated_at": "2023-01-09T05:03:59Z",
+  "url": "https://api.github.com/advisories/GHSA-wvhm-4hhf-97x9",
+  "vulnerabilities": [
+    {
+      "first_patched_version": "1.21.0",
+      "package": {
+        "ecosystem": "npm",
+        "name": "prismjs"
+      },
+      "vulnerable_functions": [],
+      "vulnerable_version_range": ">= 1.1.0, < 1.21.0"
+    }
+  ],
+  "withdrawn_at": null
+}

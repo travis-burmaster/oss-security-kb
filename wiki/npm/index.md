@@ -18,6 +18,7 @@
 - [[npm/markdown-it]] — Markdown parser · advisory mapped · three published ReDoS / resource-exhaustion records through 14.1.1
 - [[npm/handlebars]] — widely used templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster
 - [[npm/highlight.js]] — syntax highlighter · advisory mapped · prototype pollution plus grammar-driven ReDoS / freeze history fixed through 10.4.1
+- [[npm/prismjs]] — syntax highlighter · advisory mapped · plugin XSS, grammar ReDoS, and DOM-clobbering history fixed through 1.30.0
 - [[npm/helmet]] — security-header middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass; strong disclosure posture via upstream SECURITY.md
 - [[npm/ws]] — widely used WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history
@@ -33,6 +34,7 @@
 - [[npm/fastify]] — high-performance Node.js web framework · advisory mapped · recurring Content-Type parsing / validation-boundary flaws plus proxy-trust and DoS history
 - [[npm/vite]] — dominant frontend build tool / dev server · advisory mapped · dense dev-server file-boundary, cross-origin exposure, and XSS history through the 2026 fix train
 - [[npm/ejs]] — server-side templating engine · advisory mapped · historical renderFile/input-validation bugs plus later SSTI and prototype-pollution hardening
+- [[npm/elliptic]] — JavaScript elliptic-curve crypto library · advisory mapped · signature malleability, ECDH validation, ECDSA private-key extraction, and one currently unfixed deterministic-`k` advisory
 - [[npm/express]] — core web framework · advisory mapped · public package history plus a deeper 2026 source review
 - [[npm/express-session]] — session middleware · baseline stub · high-usage package with cautious public-source baseline and deployment-boundary notes
 - [[npm/follow-redirects]] — redirect-following HTTP helper · advisory mapped · repeated redirect credential / header leakage history

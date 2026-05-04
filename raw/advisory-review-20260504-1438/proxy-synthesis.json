@@ -1,0 +1,21 @@
+{
+  "id": "msg_01JqAPGAZnAwx88EvQumTk17",
+  "object": "chat.completion",
+  "created": 1777923563,
+  "model": "claude-opus-4-6",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "# OSS Security KB Update Proposal\n\n## Package: `elliptic`\n\n**Weekly Downloads:** ~13.9M\n\n### Proposed Updates\n\n#### 1. CRITICAL: Private Key Extraction via Malformed ECDSA Signing Input (GHSA-vjh7-7g9h-fjfh)\n- **Action:** Add new KB entry\n- **Severity:** CRITICAL\n- **Summary:** Signing a malformed input (e.g., a string or number, which could originate from unsanitized JSON network input) can cause nonce (`k`) reuse across different messages, enabling full private key extraction from ECDSA signatures.\n- **Root Cause:** After BN conversion, different `msg` inputs can produce equivalent `nonce` arrays, violating the uniqueness requirement for `k` in ECDSA.\n- **Fix:** Upgrade to \u22656.6.1\n- **Caveat:** The advisory details appear truncated in the source data; full technical scope should be verified against the upstream advisory.\n\n#### 2. UNPATCHED: Incorrect `k` Computation Leading to Secret Key Exposure (CVE-2025-14505 / GHSA-848j-6mx2-7j84)\n- **Action:** Add new KB entry with **unfixed** flag\n- **Severity:** LOW (per advisory; practical impact may be higher in cryptographic contexts)\n- **Summary:** The RFC 6979 deterministic `k` generation incorrectly computes the byte-length of `k` when it has leading zeros, causing truncation. This produces incorrect signatures and, under certain conditions, may allow attackers to derive the secret key via cryptanalysis.\n- **Fix:** **No fix available as of this review.** No patched version listed.\n- **Caveat:** Advisory text is truncated. The absence of a fix version is a significant operational risk given the package's download volume. Monitor upstream closely.\n\n#### 3. Signature Malleability Cluster (CVE-2024-42459, CVE-2024-42460, CVE-2024-42461)\n- **Action:** Add/update KB entries (three related LOW-severity issues, all fixed in 6.5.7)\n- **Summary:** Version 6.5.6 contained three signature malleability flaws:\n  - **EDDSA:** Missing signature length check allows zero-byte append/removal (GHSA-f7q4-pwc6-w24p)\n  - **ECDSA:** Missing check that leading bit of `r` and `s` is zero (GHSA-977x-g7h5-7qgw)\n  - **ECDSA:** BER-encoded signatures accepted, enabling malleability (GHSA-49q7-c7j4-3p7m)\n- **Fix:** Upgrade to \u22656.5.7\n\n#### 4. EDDSA Signature Uniqueness Bypass (CVE-2024-48949 / GHSA-434g-2637-qmqr)\n- **Action:** Add KB entry\n- **Severity:** LOW\n- **Summary:** EDDSA `verify` omits bounds check (`sig.S().gte(curve.n) || sig.S().isNeg()`), allowing signature malleability. Impact depends on whether the application relies on signature uniqueness.\n- **Fix:** Upgrade to \u22656.5.6\n\n#### 5. Valid ECDSA Signatures Erroneously Rejected (CVE-2024-48948 / GHSA-fc9h-whq2-v747)\n- **Action:** Add KB entry\n- **Severity:** LOW (availability/correctness impact, not confidentiality)\n- **Summary:** `_truncateToN` anomaly causes valid ECDSA signatures to be rejected when the hash has \u22654 leading zero bytes and the curve order is smaller than the hash.\n- **Fix:** Upgrade to \u22656.6.0\n\n#### 6. Existing Entries (Verify Current)\n- **CVE-2020-13822** (HIGH, fix \u22656.5.3): ECDSA signature malleability \u2014 confirm KB entry exists.\n- **CVE-2020-28498** (MODERATE, fix \u22656.5.4): Missing curve point validation in ECDH \u2014 confirm KB entry exists.\n\n### Recommended Minimum Version: **6.6.1** (addresses all fixed issues)\n**\u26a0\ufe0f Caveat:** CVE-2025-14505 remains unpatched. Applications performing ECDSA signing should assess exposure independently.\n\n---\n\n## Package: `prismjs`\n\n**Weekly Downloads:** ~20.8M\n\n### Proposed Updates\n\n#### 1. DOM Clobbering Leading to XSS (CVE-2024-53382 / GHSA-x7hr-w5r2-h6wg)\n- **Action:** Add new KB entry\n- **Severity:** MODERATE\n- **Summary:** Through version 1.29.0, attacker-injected HTML elements can shadow `document.currentScript`, enabling"
+      },
+      "finish_reason": "max_tokens"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3362,
+    "completion_tokens": 1200,
+    "total_tokens": 4562
+  }
+}
