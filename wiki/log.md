@@ -1,3 +1,6 @@
+## [2026-05-05] advisory-review | org.apache.commons:commons-compress (Maven)
+Ran a public-information-only review pass across Maven package gaps, with `org.apache.commons:commons-compress` selected as the clean substantive update. Evidence was saved under `raw/advisory-review-20260505-1537/` from OSV.dev package and vulnerability records, the public GitHub Advisory Database aliases referenced by OSV, Apache Commons Compress security documentation, public CVE aliases, and the required local Claude-compatible proxy at `http://127.0.0.1:8319`. The proxy synthesis step succeeded and was used only as a drafting aid; final edits were checked back against saved public evidence. Added a new advisory-mapped Maven package page covering 11 public denial-of-service / resource-exhaustion advisories across DUMP, Pack200, TAR, ZIP, 7Z, and BZip2 archive/compression surfaces, updated the Maven index, and repaired root-index omissions for existing evidence-backed pages (`minimatch`, `merge`, `github.com/gorilla/schema`, and the Linux Copy Fail note) so navigation/counts match the checked-in wiki pages.
+
 ## 2026-05-04 — React Server Components package gap: react-server-dom-webpack
 
 ## 2026-05-04 — npm next advisory refresh

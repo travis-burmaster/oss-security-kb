@@ -8,7 +8,8 @@ Scope notes:
 
 ## Packages
 
+- [[maven/org.apache.commons/commons-compress]] — Apache Commons archive compression/extraction library · advisory mapped · malformed archive DoS / resource-exhaustion history fixed through 1.26.0
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression RCE risk when evaluating untrusted expressions (CVE-2024-36404)
 
 ---
-*Last updated: 2026-05-03*
+*Last updated: 2026-05-05*
