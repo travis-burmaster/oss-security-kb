@@ -1,0 +1,74 @@
+{
+  "ghsa_id": "GHSA-h27x-g6w4-24gq",
+  "cve_id": "CVE-2026-27979",
+  "url": "https://api.github.com/advisories/GHSA-h27x-g6w4-24gq",
+  "html_url": "https://github.com/advisories/GHSA-h27x-g6w4-24gq",
+  "summary": "Next.js: Unbounded postponed resume buffering can lead to DoS",
+  "description": "## Summary\nA request containing the `next-resume: 1` header (corresponding with a PPR resume request) would buffer request bodies without consistently enforcing `maxPostponedStateSize` in certain setups. The previous mitigation protected minimal-mode deployments, but equivalent non-minimal deployments remained vulnerable to the same unbounded postponed resume-body buffering behavior.\n\n## Impact\nIn applications using the App Router with Partial Prerendering capability enabled (via `experimental.ppr` or `cacheComponents`), an attacker could send oversized `next-resume` POST payloads that were buffered without consistent size enforcement in non-minimal deployments, causing excessive memory usage and potential denial of service.\n\n## Patches\nFixed by enforcing size limits across all postponed-body buffering paths and erroring when limits are exceeded.  \n\n## Workarounds\nIf upgrade is not immediately possible:\n- Block requests containing the `next-resume` header, as this is never valid to be sent from an untrusted client.",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": "https://api.github.com/repos/vercel/next.js/security-advisories/GHSA-h27x-g6w4-24gq",
+  "source_code_location": "https://github.com/vercel/next.js",
+  "identifiers": [
+    {
+      "value": "GHSA-h27x-g6w4-24gq",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2026-27979",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://github.com/vercel/next.js/security/advisories/GHSA-h27x-g6w4-24gq",
+    "https://github.com/vercel/next.js/commit/c885d4825f800dd1e49ead37274dcd08cdd6f3f1",
+    "https://github.com/vercel/next.js/releases/tag/v16.1.7",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-27979",
+    "https://github.com/advisories/GHSA-h27x-g6w4-24gq"
+  ],
+  "published_at": "2026-03-17T16:16:49Z",
+  "updated_at": "2026-03-19T18:31:03Z",
+  "github_reviewed_at": "2026-03-17T16:16:49Z",
+  "nvd_published_at": "2026-03-18T01:16:04Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 16.0.1, < 16.1.7",
+      "first_patched_version": "16.1.7",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": null,
+      "score": 0.0
+    },
+    "cvss_v4": {
+      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N",
+      "score": 6.9
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-770",
+      "name": "Allocation of Resources Without Limits or Throttling"
+    }
+  ],
+  "credits": [
+
+  ],
+  "cvss": {
+    "vector_string": null,
+    "score": null
+  },
+  "epss": {
+    "percentage": 0.00019,
+    "percentile": 0.05116
+  }
+}

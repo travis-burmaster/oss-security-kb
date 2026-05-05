@@ -1,0 +1,121 @@
+{
+  "ghsa_id": "GHSA-jcc7-9wpm-mj36",
+  "cve_id": "CVE-2026-27977",
+  "url": "https://api.github.com/advisories/GHSA-jcc7-9wpm-mj36",
+  "html_url": "https://github.com/advisories/GHSA-jcc7-9wpm-mj36",
+  "summary": "Next.js: null origin can bypass dev HMR websocket CSRF checks",
+  "description": "## Summary\nIn `next dev`, cross-site protections for internal development endpoints could treat `Origin: null` as a bypass case even when [`allowedDevOrigins`](https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins) is configured. This could allow privacy-sensitive or opaque browser contexts, such as sandboxed documents, to access privileged internal dev-server functionality unexpectedly.\n\n## Impact\nIf a developer visits attacker-controlled content while running an affected `next dev` server with [`allowedDevOrigins`](https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins) configured, attacker-controlled browser code may be able to connect to internal development endpoints and interact with sensitive dev-server functionality that should have remained blocked.\n\nThis issue affects development mode only. It does not affect `next start`, and it does not expose internal debugging functionality to the network by default.\n\n## Patches\nFixed by validating `Origin: null` through the same cross-site origin-allowance checks used for other origins on internal development endpoints.\n\n## Workarounds\nIf upgrade is not immediately possible:\n- Do not expose `next dev` to untrusted networks.\n- If you use [`allowedDevOrigins`](https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins), reject requests and websocket upgrades with `Origin: null` for internal dev endpoints at your proxy.",
+  "type": "reviewed",
+  "severity": "low",
+  "repository_advisory_url": "https://api.github.com/repos/vercel/next.js/security-advisories/GHSA-jcc7-9wpm-mj36",
+  "source_code_location": "https://github.com/vercel/next.js",
+  "identifiers": [
+    {
+      "value": "GHSA-jcc7-9wpm-mj36",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2026-27977",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://github.com/vercel/next.js/security/advisories/GHSA-jcc7-9wpm-mj36",
+    "https://github.com/vercel/next.js/commit/862f9b9bb41d235e0d8cf44aa811e7fd118cee2a",
+    "https://github.com/vercel/next.js/releases/tag/v16.1.7",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-27977",
+    "https://github.com/advisories/GHSA-jcc7-9wpm-mj36"
+  ],
+  "published_at": "2026-03-17T15:29:48Z",
+  "updated_at": "2026-03-25T18:51:20Z",
+  "github_reviewed_at": "2026-03-17T15:29:48Z",
+  "nvd_published_at": "2026-03-18T00:16:19Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 16.0.1, < 16.1.7",
+      "first_patched_version": "16.1.7",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": null,
+      "score": 0.0
+    },
+    "cvss_v4": {
+      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "score": 2.3
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-1385",
+      "name": "Missing Origin Validation in WebSockets"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "radu33",
+        "id": 6622317,
+        "node_id": "MDQ6VXNlcjY2MjIzMTc=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/6622317?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/radu33",
+        "html_url": "https://github.com/radu33",
+        "followers_url": "https://api.github.com/users/radu33/followers",
+        "following_url": "https://api.github.com/users/radu33/following{/other_user}",
+        "gists_url": "https://api.github.com/users/radu33/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/radu33/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/radu33/subscriptions",
+        "organizations_url": "https://api.github.com/users/radu33/orgs",
+        "repos_url": "https://api.github.com/users/radu33/repos",
+        "events_url": "https://api.github.com/users/radu33/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/radu33/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "finder"
+    },
+    {
+      "user": {
+        "login": "xdavidhu",
+        "id": 18151245,
+        "node_id": "MDQ6VXNlcjE4MTUxMjQ1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/18151245?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/xdavidhu",
+        "html_url": "https://github.com/xdavidhu",
+        "followers_url": "https://api.github.com/users/xdavidhu/followers",
+        "following_url": "https://api.github.com/users/xdavidhu/following{/other_user}",
+        "gists_url": "https://api.github.com/users/xdavidhu/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/xdavidhu/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/xdavidhu/subscriptions",
+        "organizations_url": "https://api.github.com/users/xdavidhu/orgs",
+        "repos_url": "https://api.github.com/users/xdavidhu/repos",
+        "events_url": "https://api.github.com/users/xdavidhu/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/xdavidhu/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "finder"
+    }
+  ],
+  "cvss": {
+    "vector_string": null,
+    "score": null
+  },
+  "epss": {
+    "percentage": 7.0e-05,
+    "percentile": 0.00451
+  }
+}

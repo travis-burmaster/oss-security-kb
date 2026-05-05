@@ -1,0 +1,86 @@
+{
+  "ghsa_id": "GHSA-5vj8-3v2h-h38v",
+  "cve_id": null,
+  "url": "https://api.github.com/advisories/GHSA-5vj8-3v2h-h38v",
+  "html_url": "https://github.com/advisories/GHSA-5vj8-3v2h-h38v",
+  "summary": "Remote Code Execution in next",
+  "description": "Versions of `next` prior to 5.1.0 are vulnerable to Remote Code Execution. The `/path:` route fails to properly sanitize input and passes it to a `require()` call. This allows attackers to execute JavaScript code on the server. Note that prior version 0.9.9 package `next` npm package hosted a different utility (0.4.1 being the latest version of that codebase), and this advisory does not apply to those versions.\n\n## Recommendation\n\nUpgrade to version 5.1.0.",
+  "type": "reviewed",
+  "severity": "high",
+  "repository_advisory_url": null,
+  "source_code_location": "https://github.com/vercel/next.js",
+  "identifiers": [
+    {
+      "value": "GHSA-5vj8-3v2h-h38v",
+      "type": "GHSA"
+    }
+  ],
+  "references": [
+    "https://www.npmjs.com/advisories/1538",
+    "https://github.com/advisories/GHSA-5vj8-3v2h-h38v"
+  ],
+  "published_at": "2020-09-04T18:04:08Z",
+  "updated_at": "2023-01-09T05:04:26Z",
+  "github_reviewed_at": "2020-08-31T19:02:46Z",
+  "nvd_published_at": null,
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 0.9.9, < 5.1.0",
+      "first_patched_version": "5.1.0",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": null,
+      "score": 0.0
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-20",
+      "name": "Improper Input Validation"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "medikoo",
+        "id": 122434,
+        "node_id": "MDQ6VXNlcjEyMjQzNA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/122434?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/medikoo",
+        "html_url": "https://github.com/medikoo",
+        "followers_url": "https://api.github.com/users/medikoo/followers",
+        "following_url": "https://api.github.com/users/medikoo/following{/other_user}",
+        "gists_url": "https://api.github.com/users/medikoo/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/medikoo/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/medikoo/subscriptions",
+        "organizations_url": "https://api.github.com/users/medikoo/orgs",
+        "repos_url": "https://api.github.com/users/medikoo/repos",
+        "events_url": "https://api.github.com/users/medikoo/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/medikoo/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cvss": {
+    "vector_string": null,
+    "score": null
+  }
+}

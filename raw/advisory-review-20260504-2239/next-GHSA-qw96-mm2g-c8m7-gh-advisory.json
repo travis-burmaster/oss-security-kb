@@ -1,0 +1,72 @@
+{
+  "ghsa_id": "GHSA-qw96-mm2g-c8m7",
+  "cve_id": "CVE-2018-18282",
+  "url": "https://api.github.com/advisories/GHSA-qw96-mm2g-c8m7",
+  "html_url": "https://github.com/advisories/GHSA-qw96-mm2g-c8m7",
+  "summary": "Next.js has cross site scripting (XSS) vulnerability via the 404 or 500 /_error page",
+  "description": "Next.js 7.0.0 and 7.0.1 has XSS via the 404 or 500 /_error page.",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": null,
+  "source_code_location": "https://github.com/zeit/next.js",
+  "identifiers": [
+    {
+      "value": "GHSA-qw96-mm2g-c8m7",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2018-18282",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2018-18282",
+    "https://github.com/advisories/GHSA-qw96-mm2g-c8m7",
+    "https://github.com/zeit/next.js/releases/tag/7.0.2"
+  ],
+  "published_at": "2018-10-15T21:43:12Z",
+  "updated_at": "2023-01-09T05:03:35Z",
+  "github_reviewed_at": "2020-06-16T21:53:04Z",
+  "nvd_published_at": null,
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 7.0.0, < 7.0.2",
+      "first_patched_version": "7.0.2",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "score": 6.1
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "credits": [
+
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+    "score": 6.1
+  },
+  "epss": {
+    "percentage": 0.00257,
+    "percentile": 0.48695
+  }
+}
