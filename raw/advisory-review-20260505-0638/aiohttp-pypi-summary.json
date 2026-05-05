@@ -1,0 +1,129 @@
+{
+  "info": {
+    "name": "aiohttp",
+    "version": "3.13.5",
+    "summary": "Async http client/server framework (asyncio)",
+    "project_url": "https://pypi.org/project/aiohttp/",
+    "project_urls": {
+      "CI: GitHub Actions": "https://github.com/aio-libs/aiohttp/actions?query=workflow%3ACI",
+      "Chat: Matrix": "https://matrix.to/#/#aio-libs:matrix.org",
+      "Chat: Matrix Space": "https://matrix.to/#/#aio-libs-space:matrix.org",
+      "Coverage: codecov": "https://codecov.io/github/aio-libs/aiohttp",
+      "Docs: Changelog": "https://docs.aiohttp.org/en/stable/changes.html",
+      "Docs: RTD": "https://docs.aiohttp.org",
+      "GitHub: issues": "https://github.com/aio-libs/aiohttp/issues",
+      "GitHub: repo": "https://github.com/aio-libs/aiohttp",
+      "Homepage": "https://github.com/aio-libs/aiohttp"
+    },
+    "requires_python": ">=3.9",
+    "license_expression": null
+  },
+  "urls": [
+    {
+      "comment_text": null,
+      "digests": {
+        "blake2b_256": "bd85cebc47ee74d8b408749073a1a46c6fcba13d170dc8af7e61996c6c9394ac",
+        "md5": "11b7b93211722a39dd44fa05a8df8edf",
+        "sha256": "02222e7e233295f40e011c1b00e3b0bd451f22cf853a0304c3595633ee47da4b"
+      },
+      "downloads": -1,
+      "filename": "aiohttp-3.13.5-cp310-cp310-macosx_10_9_universal2.whl",
+      "has_sig": false,
+      "md5_digest": "11b7b93211722a39dd44fa05a8df8edf",
+      "packagetype": "bdist_wheel",
+      "python_version": "cp310",
+      "requires_python": ">=3.9",
+      "size": 750547,
+      "upload_time": "2026-03-31T21:56:30",
+      "upload_time_iso_8601": "2026-03-31T21:56:30.024763Z",
+      "url": "https://files.pythonhosted.org/packages/bd/85/cebc47ee74d8b408749073a1a46c6fcba13d170dc8af7e61996c6c9394ac/aiohttp-3.13.5-cp310-cp310-macosx_10_9_universal2.whl",
+      "yanked": false,
+      "yanked_reason": null
+    },
+    {
+      "comment_text": null,
+      "digests": {
+        "blake2b_256": "0598afd308e35b9d3d8c9ec54c0918f1d722c86dc17ddfec272fcdbcce5a3124",
+        "md5": "95a2166f094c68cae1a6e2ddcbb8854e",
+        "sha256": "bace460460ed20614fa6bc8cb09966c0b8517b8c58ad8046828c6078d25333b5"
+      },
+      "downloads": -1,
+      "filename": "aiohttp-3.13.5-cp310-cp310-macosx_10_9_x86_64.whl",
+      "has_sig": false,
+      "md5_digest": "95a2166f094c68cae1a6e2ddcbb8854e",
+      "packagetype": "bdist_wheel",
+      "python_version": "cp310",
+      "requires_python": ">=3.9",
+      "size": 503535,
+      "upload_time": "2026-03-31T21:56:31",
+      "upload_time_iso_8601": "2026-03-31T21:56:31.935145Z",
+      "url": "https://files.pythonhosted.org/packages/05/98/afd308e35b9d3d8c9ec54c0918f1d722c86dc17ddfec272fcdbcce5a3124/aiohttp-3.13.5-cp310-cp310-macosx_10_9_x86_64.whl",
+      "yanked": false,
+      "yanked_reason": null
+    },
+    {
+      "comment_text": null,
+      "digests": {
+        "blake2b_256": "6f4d926c183e06b09d5270a309eb50fbde7b09782bfd305dec1e800f329834fb",
+        "md5": "79e9f6f63a986f9425947fa4eae29a25",
+        "sha256": "8f546a4dc1e6a5edbb9fd1fd6ad18134550e096a5a43f4ad74acfbd834fc6670"
+      },
+      "downloads": -1,
+      "filename": "aiohttp-3.13.5-cp310-cp310-macosx_11_0_arm64.whl",
+      "has_sig": false,
+      "md5_digest": "79e9f6f63a986f9425947fa4eae29a25",
+      "packagetype": "bdist_wheel",
+      "python_version": "cp310",
+      "requires_python": ">=3.9",
+      "size": 497830,
+      "upload_time": "2026-03-31T21:56:33",
+      "upload_time_iso_8601": "2026-03-31T21:56:33.654627Z",
+      "url": "https://files.pythonhosted.org/packages/6f/4d/926c183e06b09d5270a309eb50fbde7b09782bfd305dec1e800f329834fb/aiohttp-3.13.5-cp310-cp310-macosx_11_0_arm64.whl",
+      "yanked": false,
+      "yanked_reason": null
+    },
+    {
+      "comment_text": null,
+      "digests": {
+        "blake2b_256": "e4d6f47d1c690f115a5c2a5e8938cce4a232a5be9aac5c5fb2647efcbbbda333",
+        "md5": "eba5d27203c152f20c50fc762a9860af",
+        "sha256": "c86969d012e51b8e415a8c6ce96f7857d6a87d6207303ab02d5d11ef0cad2274"
+      },
+      "downloads": -1,
+      "filename": "aiohttp-3.13.5-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+      "has_sig": false,
+      "md5_digest": "eba5d27203c152f20c50fc762a9860af",
+      "packagetype": "bdist_wheel",
+      "python_version": "cp310",
+      "requires_python": ">=3.9",
+      "size": 1682474,
+      "upload_time": "2026-03-31T21:56:35",
+      "upload_time_iso_8601": "2026-03-31T21:56:35.513865Z",
+      "url": "https://files.pythonhosted.org/packages/e4/d6/f47d1c690f115a5c2a5e8938cce4a232a5be9aac5c5fb2647efcbbbda333/aiohttp-3.13.5-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+      "yanked": false,
+      "yanked_reason": null
+    },
+    {
+      "comment_text": null,
+      "digests": {
+        "blake2b_256": "0144056fd37b1bb52eac760303e5196acc74d9d546631b035704ae5927f7b4ac",
+        "md5": "2689f5f830c1fd44594e2556ffa30311",
+        "sha256": "b6f6cd1560c5fa427e3b6074bb24d2c64e225afbb7165008903bd42e4e33e28a"
+      },
+      "downloads": -1,
+      "filename": "aiohttp-3.13.5-cp310-cp310-manylinux2014_armv7l.manylinux_2_17_armv7l.manylinux_2_31_armv7l.whl",
+      "has_sig": false,
+      "md5_digest": "2689f5f830c1fd44594e2556ffa30311",
+      "packagetype": "bdist_wheel",
+      "python_version": "cp310",
+      "requires_python": ">=3.9",
+      "size": 1655259,
+      "upload_time": "2026-03-31T21:56:37",
+      "upload_time_iso_8601": "2026-03-31T21:56:37.843652Z",
+      "url": "https://files.pythonhosted.org/packages/01/44/056fd37b1bb52eac760303e5196acc74d9d546631b035704ae5927f7b4ac/aiohttp-3.13.5-cp310-cp310-manylinux2014_armv7l.manylinux_2_17_armv7l.manylinux_2_31_armv7l.whl",
+      "yanked": false,
+      "yanked_reason": null
+    }
+  ],
+  "source": "https://pypi.org/pypi/aiohttp/json"
+}

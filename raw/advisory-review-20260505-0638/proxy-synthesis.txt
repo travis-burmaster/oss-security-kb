@@ -1,0 +1,79 @@
+# OSS Security Knowledge Base – Drafting Aid: aiohttp (PyPI)
+
+## Recommended KB Status
+
+**HIGH CONCERN – Active Maintenance, Frequent Vulnerabilities**
+
+aiohttp has a substantial and growing vulnerability history (30+ advisories spanning 2021–2026), with large batches of fixes in recent releases. The project is actively maintained with responsive patching, but the attack surface (HTTP parsing, static file serving, multipart handling) continues to yield new issues. The minimum safe version is **3.13.4** (latest security release).
+
+---
+
+## Vulnerability Clusters
+
+### 1. HTTP Request/Response Smuggling & Parsing (8 CVEs)
+- CVE-2023-37276, CVE-2023-47627, CVE-2023-47641, CVE-2024-23829, CVE-2024-52304, CVE-2025-53643, CVE-2026-34520, CVE-2026-34525
+- **Root causes:** Inconsistent C/Python parser behavior, lenient separators, incorrect chunk extension/trailer parsing, null byte acceptance, duplicate Host header acceptance
+- **Impact:** Request smuggling, integrity bypass, header injection
+
+### 2. Denial of Service (8 CVEs)
+- CVE-2024-30251, CVE-2024-52303, CVE-2025-69223, CVE-2025-69227, CVE-2025-69228, CVE-2025-69229, CVE-2026-34513, CVE-2026-34517, CVE-2026-22815, CVE-2026-34516
+- **Root causes:** Zip bombs via auto_decompress, unbounded DNS cache, large payloads, memory leaks in middleware, unlimited trailer headers, multipart header/size bypass
+- **Impact:** Resource exhaustion, service unavailability (CVSS High availability impact in several)
+
+### 3. Path Traversal & Static File Exposure (4 CVEs)
+- CVE-2024-23334, CVE-2024-42367, CVE-2025-69226, CVE-2026-34515
+- **Root causes:** Insufficient symlink protection, directory traversal in static handler, UNC path SSRF on Windows, brute-force path component leakage
+- **Impact:** Confidential file read, credential theft (Windows NTLM), information disclosure
+
+### 4. Injection (CRLF / Header / Response Splitting) (5 CVEs)
+- CVE-2023-49081, CVE-2023-49082, CVE-2026-34514, CVE-2026-34519, CVE-2026-34520
+- **Root causes:** Insufficient validation of version/method/reason-phrase/content-type inputs
+- **Impact:** Header injection, response splitting, potential XSS or cache poisoning
+
+### 5. Information Leakage & Redirect Issues (3 CVEs)
+- CVE-2021-21330, CVE-2024-27306, CVE-2026-34518
+- **Root causes:** Open redirect in middleware, XSS in directory listings, credential header leakage on cross-origin redirect
+- **Impact:** Cookie/auth token exposure, reflected XSS
+
+### 6. Unicode/Encoding Issues (2 CVEs)
+- CVE-2025-69224, CVE-2025-69225
+- **Root causes:** Unicode match groups for ASCII protocol elements, parsing discrepancies
+- **Impact:** Protocol-level confusion, potential smuggling
+
+---
+
+## Fixed-Version Highlights
+
+| Version | Key Fixes |
+|---------|-----------|
+| **3.13.4** | 10 CVEs (2026-series batch): CRLF injection, response splitting, multipart bypass, DNS cache DoS, header injection, Windows SSRF, credential leak, trailer limits, duplicate Host |
+| **3.13.3** | 8 CVEs: zip bomb, large payload DoS, chunked DoS, cookie parser storm, unicode parsing, path leak, assert bypass |
+| **3.12.14** | CVE-2025-53643: chunked trailer smuggling |
+| **3.10.11** | CVE-2024-52303 (memory leak), CVE-2024-52304 (chunk extension smuggling) |
+| **3.10.2** | CVE-2024-42367: symlink path traversal |
+| **3.9.4** | CVE-2024-30251 (malformed POST DoS), CVE-2024-27306 (XSS) |
+| **3.9.2** | CVE-2024-23334 (directory traversal), CVE-2024-23829 (parser leniency) |
+| **3.9.0** | CVE-2023-49081, CVE-2023-49082 (CRLF injection) |
+| **3.8.6** | CVE-2023-47627, vulnerable dependency smuggling |
+| **3.8.5** | CVE-2023-37276 (llhttp smuggling) |
+
+---
+
+## Posture Notes
+
+- **Positive:** Maintainers issue advisories promptly, provide clear fix commits, coordinate with GHSA/NVD, and batch related fixes into coherent releases.
+- **Concern:** The sheer volume (10 CVEs in a single 3.13.4 release) indicates ongoing discovery of fundamental parsing/protocol weaknesses. The dual C (llhttp) + Python parser architecture creates a persistent class of inconsistency bugs.
+- **Deployment risk:** Any deployment on versions < 3.13.4 is exposed to multiple remotely exploitable issues requiring no authentication.
+- **Windows-specific:** CVE-2026-34515 (UNC SSRF/NTLM theft) is critical for Windows deployments.
+
+---
+
+## Next-Review Suggestions
+
+1. **Trigger:** Immediately on any new aiohttp release (high advisory velocity; 18 CVEs in 2025–2026 alone).
+2. **Focus areas for next review:**
+   - WebSocket handling (not yet represented but likely next attack surface)
+   - Interaction between aiohttp and downstream ASGI/proxy configurations (smuggling amplification)
+   - Performance of size/rate limits introduced in 3.13.x under adversarial conditions
+3. **Recommend:** Consumers pin to ≥ 3.13.4 and subscribe to `aio-libs/aiohttp` security advisories.
+4. **Scheduled review:** No later than Q4 2025 (or sooner if new advisory published).
