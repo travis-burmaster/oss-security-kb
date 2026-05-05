@@ -1,0 +1,161 @@
+{
+  "ghsa_id": "GHSA-w37m-7fhw-fmv9",
+  "cve_id": null,
+  "url": "https://api.github.com/advisories/GHSA-w37m-7fhw-fmv9",
+  "html_url": "https://github.com/advisories/GHSA-w37m-7fhw-fmv9",
+  "summary": "Next Server Actions Source Code Exposure ",
+  "description": "A vulnerability affects certain React packages for versions 19.0.0, 19.0.1, 19.1.0, 19.1.1, 19.1.2, 19.2.0, and 19.2.1 and frameworks that use the affected packages, including Next.js 15.x and 16.x using the App Router. The issue is tracked upstream as [CVE-2025-55183](https://www.cve.org/CVERecord?id=CVE-2025-55183).\n\nA malicious HTTP request can be crafted and sent to any App Router endpoint that can return the compiled source code of [Server Functions](https://react.dev/reference/rsc/server-functions). This could reveal business logic, but would not expose secrets unless they were hardcoded directly into [Server Function](https://react.dev/reference/rsc/server-functions) code.",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": "https://api.github.com/repos/vercel/next.js/security-advisories/GHSA-w37m-7fhw-fmv9",
+  "source_code_location": "https://github.com/vercel/next.js",
+  "identifiers": [
+    {
+      "value": "GHSA-w37m-7fhw-fmv9",
+      "type": "GHSA"
+    }
+  ],
+  "references": [
+    "https://github.com/vercel/next.js/security/advisories/GHSA-w37m-7fhw-fmv9",
+    "https://nextjs.org/blog/security-update-2025-12-11",
+    "https://www.cve.org/CVERecord?id=CVE-2025-55183",
+    "https://github.com/advisories/GHSA-w37m-7fhw-fmv9"
+  ],
+  "published_at": "2025-12-11T22:49:56Z",
+  "updated_at": "2025-12-11T22:49:56Z",
+  "github_reviewed_at": "2025-12-11T22:49:56Z",
+  "nvd_published_at": null,
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.0.0-canary.0, < 15.0.6",
+      "first_patched_version": "15.0.6",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.1.1-canary.0, < 15.1.10",
+      "first_patched_version": "15.1.10",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.2.0-canary.0, < 15.2.7",
+      "first_patched_version": "15.2.7",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.3.0-canary.0, < 15.3.7",
+      "first_patched_version": "15.3.7",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.4.0-canary.0, < 15.4.9",
+      "first_patched_version": "15.4.9",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.5.1-canary.0, < 15.5.8",
+      "first_patched_version": "15.5.8",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.6.0-canary.0, < 15.6.0-canary.59",
+      "first_patched_version": "15.6.0-canary.59",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 16.0.0-beta.0, < 16.0.9",
+      "first_patched_version": "16.0.9",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 16.1.0-canary.0, < 16.1.0-canary.17",
+      "first_patched_version": "16.1.0-canary.17",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+      "score": 5.3
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-497",
+      "name": "Exposure of Sensitive System Information to an Unauthorized Control Sphere"
+    },
+    {
+      "cwe_id": "CWE-502",
+      "name": "Deserialization of Untrusted Data"
+    },
+    {
+      "cwe_id": "CWE-1395",
+      "name": "Dependency on Vulnerable Third-Party Component"
+    }
+  ],
+  "credits": [
+
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+    "score": 5.3
+  }
+}

@@ -1,0 +1,347 @@
+{
+  "ghsa_id": "GHSA-9qr9-h5gf-34mp",
+  "cve_id": null,
+  "url": "https://api.github.com/advisories/GHSA-9qr9-h5gf-34mp",
+  "html_url": "https://github.com/advisories/GHSA-9qr9-h5gf-34mp",
+  "summary": "Next.js is vulnerable to RCE in React flight protocol",
+  "description": "A vulnerability affects certain React packages<sup>1</sup> for versions 19.0.0, 19.1.0, 19.1.1, and 19.2.0 and frameworks that use the affected packages, including Next.js 15.x and 16.x using the App Router. The issue is tracked upstream as [CVE-2025-55182](https://www.cve.org/CVERecord?id=CVE-2025-55182). \n\nFixed in:\nReact: 19.0.1, 19.1.2, 19.2.1\nNext.js: 15.0.5, 15.1.9, 15.2.6, 15.3.6, 15.4.8, 15.5.7, 16.0.7, 15.6.0-canary.58, 16.1.0-canary.12+\n\nThe vulnerability also affects experimental canary releases starting with 14.3.0-canary.77. Users on any of the 14.3 canary builds should either downgrade to a 14.x stable release or 14.3.0-canary.76.\n\nAll users of stable 15.x or 16.x Next.js versions should upgrade to a patched, stable version immediately.\n\n<sup>1</sup> The affected React packages are:\n- react-server-dom-parcel\n- react-server-dom-turbopack\n- react-server-dom-webpack",
+  "type": "reviewed",
+  "severity": "critical",
+  "repository_advisory_url": "https://api.github.com/repos/vercel/next.js/security-advisories/GHSA-9qr9-h5gf-34mp",
+  "source_code_location": "https://github.com/vercel/next.js",
+  "identifiers": [
+    {
+      "value": "GHSA-9qr9-h5gf-34mp",
+      "type": "GHSA"
+    }
+  ],
+  "references": [
+    "https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp",
+    "https://nvd.nist.gov/vuln/detail/CVE-2025-55182",
+    "https://github.com/facebook/react/security/advisories/GHSA-fv66-9v8q-g76r",
+    "https://github.com/vitejs/vite-plugin-react/security/advisories/GHSA-fmh4-wr37-44fp",
+    "https://github.com/advisories/GHSA-9qr9-h5gf-34mp"
+  ],
+  "published_at": "2025-12-03T19:07:11Z",
+  "updated_at": "2025-12-11T19:31:08Z",
+  "github_reviewed_at": "2025-12-03T19:07:11Z",
+  "nvd_published_at": "2025-12-03T18:15:47Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 14.3.0-canary.77, < 15.0.5",
+      "first_patched_version": "15.0.5",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.2.0-canary.0, < 15.2.6",
+      "first_patched_version": "15.2.6",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.3.0-canary.0, < 15.3.6",
+      "first_patched_version": "15.3.6",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.4.0-canary.0, < 15.4.8",
+      "first_patched_version": "15.4.8",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 16.0.0-canary.0, < 16.0.7",
+      "first_patched_version": "16.0.7",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.1.0-canary.0, < 15.1.9",
+      "first_patched_version": "15.1.9",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.5.0-canary.0, < 15.5.7",
+      "first_patched_version": "15.5.7",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+      "score": 10.0
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-502",
+      "name": "Deserialization of Untrusted Data"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "lachlan2k",
+        "id": 4683714,
+        "node_id": "MDQ6VXNlcjQ2ODM3MTQ=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/4683714?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/lachlan2k",
+        "html_url": "https://github.com/lachlan2k",
+        "followers_url": "https://api.github.com/users/lachlan2k/followers",
+        "following_url": "https://api.github.com/users/lachlan2k/following{/other_user}",
+        "gists_url": "https://api.github.com/users/lachlan2k/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/lachlan2k/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/lachlan2k/subscriptions",
+        "organizations_url": "https://api.github.com/users/lachlan2k/orgs",
+        "repos_url": "https://api.github.com/users/lachlan2k/repos",
+        "events_url": "https://api.github.com/users/lachlan2k/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/lachlan2k/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "reporter"
+    },
+    {
+      "user": {
+        "login": "bytera",
+        "id": 23092186,
+        "node_id": "MDQ6VXNlcjIzMDkyMTg2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/23092186?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/bytera",
+        "html_url": "https://github.com/bytera",
+        "followers_url": "https://api.github.com/users/bytera/followers",
+        "following_url": "https://api.github.com/users/bytera/following{/other_user}",
+        "gists_url": "https://api.github.com/users/bytera/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/bytera/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/bytera/subscriptions",
+        "organizations_url": "https://api.github.com/users/bytera/orgs",
+        "repos_url": "https://api.github.com/users/bytera/repos",
+        "events_url": "https://api.github.com/users/bytera/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/bytera/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "larskaare",
+        "id": 10708951,
+        "node_id": "MDQ6VXNlcjEwNzA4OTUx",
+        "avatar_url": "https://avatars.githubusercontent.com/u/10708951?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/larskaare",
+        "html_url": "https://github.com/larskaare",
+        "followers_url": "https://api.github.com/users/larskaare/followers",
+        "following_url": "https://api.github.com/users/larskaare/following{/other_user}",
+        "gists_url": "https://api.github.com/users/larskaare/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/larskaare/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/larskaare/subscriptions",
+        "organizations_url": "https://api.github.com/users/larskaare/orgs",
+        "repos_url": "https://api.github.com/users/larskaare/repos",
+        "events_url": "https://api.github.com/users/larskaare/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/larskaare/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "mswilson",
+        "id": 1986233,
+        "node_id": "MDQ6VXNlcjE5ODYyMzM=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1986233?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/mswilson",
+        "html_url": "https://github.com/mswilson",
+        "followers_url": "https://api.github.com/users/mswilson/followers",
+        "following_url": "https://api.github.com/users/mswilson/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mswilson/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/mswilson/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mswilson/subscriptions",
+        "organizations_url": "https://api.github.com/users/mswilson/orgs",
+        "repos_url": "https://api.github.com/users/mswilson/repos",
+        "events_url": "https://api.github.com/users/mswilson/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/mswilson/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "conorfitch",
+        "id": 173908980,
+        "node_id": "U_kgDOCl2j9A",
+        "avatar_url": "https://avatars.githubusercontent.com/u/173908980?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/conorfitch",
+        "html_url": "https://github.com/conorfitch",
+        "followers_url": "https://api.github.com/users/conorfitch/followers",
+        "following_url": "https://api.github.com/users/conorfitch/following{/other_user}",
+        "gists_url": "https://api.github.com/users/conorfitch/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/conorfitch/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/conorfitch/subscriptions",
+        "organizations_url": "https://api.github.com/users/conorfitch/orgs",
+        "repos_url": "https://api.github.com/users/conorfitch/repos",
+        "events_url": "https://api.github.com/users/conorfitch/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/conorfitch/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "tockn",
+        "id": 29294540,
+        "node_id": "MDQ6VXNlcjI5Mjk0NTQw",
+        "avatar_url": "https://avatars.githubusercontent.com/u/29294540?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/tockn",
+        "html_url": "https://github.com/tockn",
+        "followers_url": "https://api.github.com/users/tockn/followers",
+        "following_url": "https://api.github.com/users/tockn/following{/other_user}",
+        "gists_url": "https://api.github.com/users/tockn/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/tockn/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/tockn/subscriptions",
+        "organizations_url": "https://api.github.com/users/tockn/orgs",
+        "repos_url": "https://api.github.com/users/tockn/repos",
+        "events_url": "https://api.github.com/users/tockn/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/tockn/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "yusuke-koyoshi",
+        "id": 92022336,
+        "node_id": "U_kgDOBXwmQA",
+        "avatar_url": "https://avatars.githubusercontent.com/u/92022336?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/yusuke-koyoshi",
+        "html_url": "https://github.com/yusuke-koyoshi",
+        "followers_url": "https://api.github.com/users/yusuke-koyoshi/followers",
+        "following_url": "https://api.github.com/users/yusuke-koyoshi/following{/other_user}",
+        "gists_url": "https://api.github.com/users/yusuke-koyoshi/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/yusuke-koyoshi/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/yusuke-koyoshi/subscriptions",
+        "organizations_url": "https://api.github.com/users/yusuke-koyoshi/orgs",
+        "repos_url": "https://api.github.com/users/yusuke-koyoshi/repos",
+        "events_url": "https://api.github.com/users/yusuke-koyoshi/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/yusuke-koyoshi/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "bottarocarlo",
+        "id": 29379533,
+        "node_id": "MDQ6VXNlcjI5Mzc5NTMz",
+        "avatar_url": "https://avatars.githubusercontent.com/u/29379533?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/bottarocarlo",
+        "html_url": "https://github.com/bottarocarlo",
+        "followers_url": "https://api.github.com/users/bottarocarlo/followers",
+        "following_url": "https://api.github.com/users/bottarocarlo/following{/other_user}",
+        "gists_url": "https://api.github.com/users/bottarocarlo/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/bottarocarlo/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/bottarocarlo/subscriptions",
+        "organizations_url": "https://api.github.com/users/bottarocarlo/orgs",
+        "repos_url": "https://api.github.com/users/bottarocarlo/repos",
+        "events_url": "https://api.github.com/users/bottarocarlo/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/bottarocarlo/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "jcburgo",
+        "id": 135140309,
+        "node_id": "U_kgDOCA4T1Q",
+        "avatar_url": "https://avatars.githubusercontent.com/u/135140309?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jcburgo",
+        "html_url": "https://github.com/jcburgo",
+        "followers_url": "https://api.github.com/users/jcburgo/followers",
+        "following_url": "https://api.github.com/users/jcburgo/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jcburgo/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jcburgo/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jcburgo/subscriptions",
+        "organizations_url": "https://api.github.com/users/jcburgo/orgs",
+        "repos_url": "https://api.github.com/users/jcburgo/repos",
+        "events_url": "https://api.github.com/users/jcburgo/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jcburgo/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+    "score": 10.0
+  }
+}

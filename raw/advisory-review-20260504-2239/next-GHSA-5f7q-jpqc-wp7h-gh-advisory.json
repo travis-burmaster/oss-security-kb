@@ -1,0 +1,293 @@
+{
+  "ghsa_id": "GHSA-5f7q-jpqc-wp7h",
+  "cve_id": "CVE-2025-59472",
+  "url": "https://api.github.com/advisories/GHSA-5f7q-jpqc-wp7h",
+  "html_url": "https://github.com/advisories/GHSA-5f7q-jpqc-wp7h",
+  "summary": "Next.js has Unbounded Memory Consumption via PPR Resume Endpoint ",
+  "description": "A denial of service vulnerability exists in Next.js versions with Partial Prerendering (PPR) enabled when running in minimal mode. The PPR resume endpoint accepts unauthenticated POST requests with the `Next-Resume: 1` header and processes attacker-controlled postponed state data. Two closely related vulnerabilities allow an attacker to crash the server process through memory exhaustion:\n\n1. **Unbounded request body buffering**: The server buffers the entire POST request body into memory using `Buffer.concat()` without enforcing any size limit, allowing arbitrarily large payloads to exhaust available memory.\n\n2. **Unbounded decompression (zipbomb)**: The resume data cache is decompressed using `inflateSync()` without limiting the decompressed output size. A small compressed payload can expand to hundreds of megabytes or gigabytes, causing memory exhaustion.\n\nBoth attack vectors result in a fatal V8 out-of-memory error (`FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory`) causing the Node.js process to terminate. The zipbomb variant is particularly dangerous as it can bypass reverse proxy request size limits while still causing large memory allocation on the server.\n\nTo be affected, an application must run with `experimental.ppr: true` or `cacheComponents: true` configured along with the NEXT_PRIVATE_MINIMAL_MODE=1 environment variable.\n\nStrongly consider upgrading to 15.6.0-canary.61 or 16.1.5 to reduce risk and prevent availability issues in Next applications.",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": "https://api.github.com/repos/vercel/next.js/security-advisories/GHSA-5f7q-jpqc-wp7h",
+  "source_code_location": "https://github.com/vercel/next.js",
+  "identifiers": [
+    {
+      "value": "GHSA-5f7q-jpqc-wp7h",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2025-59472",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+    "https://nvd.nist.gov/vuln/detail/CVE-2025-59472",
+    "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472",
+    "https://github.com/advisories/GHSA-5f7q-jpqc-wp7h"
+  ],
+  "published_at": "2026-01-28T15:20:55Z",
+  "updated_at": "2026-04-08T20:56:19Z",
+  "github_reviewed_at": "2026-01-28T15:20:55Z",
+  "nvd_published_at": "2026-01-26T22:15:53Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 16.0.0-beta.0, < 16.1.5",
+      "first_patched_version": "16.1.5",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.6.0-canary.0, < 15.6.0-canary.61",
+      "first_patched_version": "15.6.0-canary.61",
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.0.0-canary.0, <= 15.0.0-canary.205",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.0.1-canary.0, <= 15.0.1-canary.3",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.0.2-canary.0, <= 15.0.2-canary.11",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.0.3-canary.0, <= 15.0.3-canary.9",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.0.4-canary.0, <= 15.0.4-canary.52",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.1.1-canary.0, <= 15.1.1-canary.27",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.2.0-canary.0, <= 15.2.0-canary.77",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.2.1-canary.0, <= 15.2.1-canary.6",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.2.2-canary.0, <= 15.2.2-canary.7",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.3.0-canary.0, <= 15.3.0-canary.46",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.3.1-canary.0, <= 15.3.1-canary.15",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.4.0-canary.0, <= 15.4.0-canary.130",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.4.2-canary.0, <= 15.4.2-canary.56",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    },
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 15.5.1-canary.0, <= 15.5.1-canary.39",
+      "first_patched_version": null,
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+      "score": 5.9
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-400",
+      "name": "Uncontrolled Resource Consumption"
+    },
+    {
+      "cwe_id": "CWE-409",
+      "name": "Improper Handling of Highly Compressed Data (Data Amplification)"
+    },
+    {
+      "cwe_id": "CWE-770",
+      "name": "Allocation of Resources Without Limits or Throttling"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "cylewaitforit",
+        "id": 54253392,
+        "node_id": "MDQ6VXNlcjU0MjUzMzky",
+        "avatar_url": "https://avatars.githubusercontent.com/u/54253392?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/cylewaitforit",
+        "html_url": "https://github.com/cylewaitforit",
+        "followers_url": "https://api.github.com/users/cylewaitforit/followers",
+        "following_url": "https://api.github.com/users/cylewaitforit/following{/other_user}",
+        "gists_url": "https://api.github.com/users/cylewaitforit/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/cylewaitforit/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/cylewaitforit/subscriptions",
+        "organizations_url": "https://api.github.com/users/cylewaitforit/orgs",
+        "repos_url": "https://api.github.com/users/cylewaitforit/repos",
+        "events_url": "https://api.github.com/users/cylewaitforit/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/cylewaitforit/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "jesvinjames",
+        "id": 13866345,
+        "node_id": "MDQ6VXNlcjEzODY2MzQ1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/13866345?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jesvinjames",
+        "html_url": "https://github.com/jesvinjames",
+        "followers_url": "https://api.github.com/users/jesvinjames/followers",
+        "following_url": "https://api.github.com/users/jesvinjames/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jesvinjames/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jesvinjames/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jesvinjames/subscriptions",
+        "organizations_url": "https://api.github.com/users/jesvinjames/orgs",
+        "repos_url": "https://api.github.com/users/jesvinjames/repos",
+        "events_url": "https://api.github.com/users/jesvinjames/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jesvinjames/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+    "score": 5.9
+  },
+  "epss": {
+    "percentage": 0.00089,
+    "percentile": 0.25489
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "ghsa_id": "GHSA-x56p-c8cg-q435",
+  "cve_id": "CVE-2020-15242",
+  "url": "https://api.github.com/advisories/GHSA-x56p-c8cg-q435",
+  "html_url": "https://github.com/advisories/GHSA-x56p-c8cg-q435",
+  "summary": "Open Redirect in Next.js versions",
+  "description": "### Impact\n\n- **Affected**: Users of Next.js between 9.5.0 and 9.5.3 \n- **Not affected**: Deployments on Vercel ([https://vercel.com](https://vercel.com)) are not affected\n- **Not affected**: Deployments using `next export`\n\nWe recommend everyone to upgrade regardless of whether you can reproduce the issue or not.\n\n### Patches\n\nhttps://github.com/vercel/next.js/releases/tag/v9.5.4\n\n### References\n\nhttps://github.com/vercel/next.js/releases/tag/v9.5.4\n\n",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": "https://api.github.com/repos/vercel/next.js/security-advisories/GHSA-x56p-c8cg-q435",
+  "source_code_location": "https://github.com/vercel/next.js",
+  "identifiers": [
+    {
+      "value": "GHSA-x56p-c8cg-q435",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2020-15242",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://github.com/vercel/next.js/security/advisories/GHSA-x56p-c8cg-q435",
+    "https://github.com/zeit/next.js/releases/tag/v9.5.4",
+    "https://nvd.nist.gov/vuln/detail/CVE-2020-15242",
+    "https://github.com/advisories/GHSA-x56p-c8cg-q435"
+  ],
+  "published_at": "2020-10-08T19:28:07Z",
+  "updated_at": "2023-01-09T05:03:55Z",
+  "github_reviewed_at": "2020-10-08T19:27:38Z",
+  "nvd_published_at": null,
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "next"
+      },
+      "vulnerable_version_range": ">= 9.5.0, < 9.5.4",
+      "first_patched_version": "9.5.4",
+      "vulnerable_functions": [
+
+      ]
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:N/A:N",
+      "score": 4.7
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-601",
+      "name": "URL Redirection to Untrusted Site ('Open Redirect')"
+    }
+  ],
+  "credits": [
+
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:N/A:N",
+    "score": 4.7
+  },
+  "epss": {
+    "percentage": 0.00211,
+    "percentile": 0.43446
+  }
+}
