@@ -1,0 +1,3 @@
+Pillow (PyPI) - deferred high-blast-radius image parsing library gap
+Django (PyPI) - deferred high-volume web framework, too large unless dedicated
+aiohttp (PyPI) - HTTP client/server library gap candidate
