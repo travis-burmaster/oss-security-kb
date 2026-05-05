@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*112 packages tracked across 9 ecosystems. Last updated: 2026-05-04.*
+*113 packages tracked across 9 ecosystems. Last updated: 2026-05-05.*
 
 ## npm (86)
 
@@ -101,7 +101,7 @@
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 2026 EncryptedXml resource-consumption DoS fixed in 8.0.3 / 9.0.15 / 10.0.6
 
-## Python / PyPI (8)
+## Python / PyPI (9)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-2)
 - [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3)
 - [[python/flask]] — Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
@@ -109,6 +109,7 @@
 - [[python/pyyaml]] — YAML parser and emitter for Python · advisory mapped · long-running unsafe-deserialization / arbitrary-code-execution vulnerability chain addressed through successive fixes up to version 5.4
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
 - [[python/urllib3]] — transport-layer HTTP library · advisory mapped · redirect, CRLF, TLS, and request-smuggling relevance
+- [[python/cryptography]] — foundational Python cryptography library · advisory mapped · primitive, X.509/PKCS, buffer-boundary, and bundled-OpenSSL wheel history
 - [[python/werkzeug]] — foundational WSGI / request utility library · advisory mapped · debugger, multipart-parser, and Windows path-containment history through 3.1.6
 
 ## Go (8)
