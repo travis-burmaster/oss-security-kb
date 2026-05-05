@@ -1,0 +1,66 @@
+# KB Page Proposal: PyPI `cryptography`
+
+## Recommendation: **CREATE PAGE** — Strongly Justified
+
+This is one of the most critical packages in the Python ecosystem (~261M weekly downloads), serving as the foundational cryptographic library. The advisory history is substantial (19 tracked advisories), spans 2016–2026, and reveals clearly identifiable recurring bug classes. The evidence is entirely public and well-documented.
+
+---
+
+## Proposed Page Structure
+
+### Package Overview
+
+| Field | Value |
+|---|---|
+| **Package** | `cryptography` |
+| **Ecosystem** | PyPI |
+| **Repository** | https://github.com/pyca/cryptography |
+| **Current Version** | 48.0.0 |
+| **Weekly Downloads** | ~261M |
+| **Maintainer** | pyca (Python Cryptographic Authority) |
+
+---
+
+### Recurring Bug Classes
+
+The 19 advisories cluster into **four distinct, evidence-backed recurring classes**:
+
+#### 1. Bundled Vulnerable OpenSSL in Wheels (8 advisories)
+
+This is the single most frequent issue. The `cryptography` package ships pre-compiled wheels that statically link OpenSSL. When upstream OpenSSL discloses vulnerabilities, the wheels must be rebuilt and re-released.
+
+| Advisory | CVE | Fixed Version |
+|---|---|---|
+| GHSA-39hc-v87j-747x | — | 38.0.3 |
+| GHSA-x4qr-2fvf-3mr5 | CVE-2023-0286 | 39.0.1 |
+| GHSA-5cpq-8wj7-hf2v | — | 41.0.0 |
+| GHSA-jm77-qphf-c4w8 | — | 41.0.3 |
+| GHSA-v8gr-m533-ghj9 | — | 41.0.4 |
+| GHSA-9v9h-cgj8-h64p | CVE-2024-0727 | 42.0.2 |
+| GHSA-h4gh-qq45-vh27 | — | 43.0.1 |
+| GHSA-79v4-65xg-pq4g | CVE-2024-12797 | 44.0.1 |
+
+**Pattern:** Roughly one to three times per major release cycle from v38 through v44. This is an inherent architectural consequence of vendoring a C dependency in binary wheels. Users installing from source against a system OpenSSL are not affected by this class.
+
+**Recommendation for consumers:** Monitor `cryptography` releases closely; wheel-bundled OpenSSL updates often lack their own CVE (4 of 8 have no CVE), making them easy to miss in automated scanning.
+
+#### 2. Null Pointer Dereference / Parsing Crashes (2 advisories)
+
+| Advisory | CVE | Fixed Version | Detail |
+|---|---|---|---|
+| GHSA-jfhm-5ghh-2f97 | CVE-2023-49083 | 41.0.6 | NULL-dereference loading PKCS7 certificates |
+| GHSA-9v9h-cgj8-h64p | CVE-2024-0727 | 42.0.2 | Null pointer dereference in PKCS12 parsing |
+
+**Pattern:** Both involve parsing untrusted certificate/key container formats (PKCS7, PKCS12) and result in denial-of-service via crashes. The PKCS12 issue originates in bundled OpenSSL, creating overlap with class 1.
+
+#### 3. Cryptographic Implementation Flaws (5 advisories)
+
+Issues in the actual cryptographic logic or protocol handling:
+
+| Advisory | CVE | Fixed Version | Detail |
+|---|---|---|---|
+| GHSA-q3cj-2r34-2cwc | CVE-2016-9243 | 1.5.3 | HKDF incorrect derivation (allowed empty-info bypass) |
+| GHSA-fcf9-3qw3-gxmj | CVE-2018-10903 | 2.3 | GCM tag not verified by finalize_with_tag |
+| GHSA-hggm-jpg3-v476 | CVE-2020-25659 | 3.2.1 | Bleichenbacher timing side-channel in RSA PKCS#1 v1.5 decryption |
+| GHSA-3ww4-gg4f-jr7f | CVE-2023-50782 | 42.0.0 | Bleichenbacher timing oracle attack (RSA PKCS#1 v1.5) |
+| GHSA-r6ph-v2qm-q3c2 | CVE-2026-26007 | 46.0.5 | Missing subgroup validation for SECT (binary) curves
