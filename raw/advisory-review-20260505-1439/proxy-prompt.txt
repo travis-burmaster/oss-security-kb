@@ -1,0 +1,171 @@
+Review the gathered public evidence for an OSS Security KB maintenance pass. Sources are OSV.dev package queries/vulnerability records, GitHub Advisory Database links present in OSV references, npm registry metadata/download counts, and existing KB pages. Do not fabricate findings. Recommend conservative evidence-backed KB updates only. Focus especially on whether axios needs a refresh for newly public advisories, and mention if smaller candidates should be deferred as alias-only/minor updates.
+
+Evidence summary JSON:
+[
+  {
+    "package": "axios",
+    "missing_from_page": [
+      {
+        "ids": [
+          "GHSA-3w6x-2g7m-8v23",
+          "CVE-2026-42044"
+        ],
+        "summary": "Axios: Invisible JSON Response Tampering via Prototype Pollution Gadget in `parseReviver`",
+        "modified": "2026-05-05T16:13:37.970659Z"
+      },
+      {
+        "ids": [
+          "GHSA-445q-vr5w-6q77",
+          "CVE-2026-42037"
+        ],
+        "summary": "Axios: CRLF Injection in multipart/form-data body via unsanitized blob.type in formDataToStream",
+        "modified": "2026-05-05T16:13:51.692644Z"
+      },
+      {
+        "ids": [
+          "GHSA-5c9x-8gcm-mpgx",
+          "CVE-2026-42034"
+        ],
+        "summary": "Axios' HTTP adapter-streamed uploads bypass maxBodyLength when maxRedirects: 0",
+        "modified": "2026-05-05T16:13:53.403477Z"
+      },
+      {
+        "ids": [
+          "GHSA-62hf-57xw-28j9",
+          "CVE-2026-42039"
+        ],
+        "summary": "Axios: unbounded recursion in toFormData causes DoS via deeply nested request data",
+        "modified": "2026-05-05T16:13:59.136266Z"
+      },
+      {
+        "ids": [
+          "GHSA-6chq-wfr3-2hj9",
+          "CVE-2026-42035"
+        ],
+        "summary": "Axios: Header Injection via Prototype Pollution",
+        "modified": "2026-05-05T16:12:38.576216Z"
+      },
+      {
+        "ids": [
+          "GHSA-m7pr-hjqh-92cm",
+          "CVE-2026-42038"
+        ],
+        "summary": "Axios: no_proxy bypass via IP alias allows SSRF",
+        "modified": "2026-05-05T16:14:26.691135Z"
+      },
+      {
+        "ids": [
+          "GHSA-pf86-5x62-jrwf",
+          "CVE-2026-42033"
+        ],
+        "summary": "Axios: Prototype Pollution Gadgets - Response Tampering, Data Exfiltration, and Request Hijacking",
+        "modified": "2026-05-05T16:14:06.106279Z"
+      },
+      {
+        "ids": [
+          "GHSA-pmwg-cvhr-8vh7",
+          "CVE-2026-42043"
+        ],
+        "summary": "Axios: Incomplete Fix for CVE-2025-62718 \u2014 NO_PROXY Protection Bypassed via RFC 1122 Loopback Subnet (127.0.0.0/8) in Axios 1.15.0",
+        "modified": "2026-05-05T16:14:32.607733Z"
+      },
+      {
+        "ids": [
+          "GHSA-q8qp-cvcw-x6jj",
+          "CVE-2026-42264"
+        ],
+        "summary": "Axios has prototype pollution read-side gadgets in HTTP adapter that allow credential injection and request hijacking",
+        "modified": "2026-05-05T16:14:31.621037Z"
+      },
+      {
+        "ids": [
+          "GHSA-vf2m-468p-8v99",
+          "CVE-2026-42036"
+        ],
+        "summary": "Axios: HTTP adapter streamed responses bypass maxContentLength",
+        "modified": "2026-05-05T16:13:34.207299Z"
+      },
+      {
+        "ids": [
+          "GHSA-w9j2-pvgh-6h63",
+          "CVE-2026-42041"
+        ],
+        "summary": "Axios: Authentication Bypass via Prototype Pollution Gadget in `validateStatus` Merge Strategy",
+        "modified": "2026-05-05T15:56:19.104876Z"
+      },
+      {
+        "ids": [
+          "GHSA-xhjh-pmcv-23jw",
+          "CVE-2026-42040"
+        ],
+        "summary": "Axios: Null Byte Injection via Reverse-Encoding in AxiosURLSearchParams",
+        "modified": "2026-05-05T16:13:09.962259Z"
+      },
+      {
+        "ids": [
+          "GHSA-xx6v-rp6x-q39c",
+          "CVE-2026-42042"
+        ],
+        "summary": "Axios: XSRF Token Cross-Origin Leakage via Prototype Pollution Gadget in `withXSRFToken` Boolean Coercion",
+        "modified": "2026-05-05T16:13:29.331631Z"
+      }
+    ],
+    "missing_count": 13
+  },
+  {
+    "package": "marked",
+    "missing_from_page": [
+      {
+        "ids": [
+          "GHSA-6v9c-7cg6-27q7",
+          "CVE-2026-41680"
+        ],
+        "summary": "Marked Vulnerable to OOM Denial of Service via Infinite Recursion in marked Tokenizer",
+        "modified": "2026-05-05T16:05:35.989414Z"
+      }
+    ],
+    "missing_count": 1
+  },
+  {
+    "package": "mathjs",
+    "missing_from_page": [
+      {
+        "ids": [
+          "GHSA-jvff-x2qm-6286",
+          "CVE-2026-41139"
+        ],
+        "summary": "mathjs Allows Improperly Controlled Modification of Dynamically-Determined Object Attributes",
+        "modified": "2026-04-23T14:50:33.307035Z"
+      }
+    ],
+    "missing_count": 1
+  },
+  {
+    "package": "basic-ftp",
+    "missing_from_page": [
+      {
+        "ids": [
+          "GHSA-rp42-5vxx-qpwr",
+          "CVE-2026-41324"
+        ],
+        "summary": "basic-ftp vulnerable to denial of service via unbounded memory consumption in Client.list()",
+        "modified": "2026-05-05T16:10:38.292387Z"
+      }
+    ],
+    "missing_count": 1
+  },
+  {
+    "package": "uuid",
+    "missing_from_page": [
+      {
+        "ids": [
+          "GHSA-w5hq-g745-h8pq",
+          "CVE-2026-41907"
+        ],
+        "summary": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+        "modified": "2026-05-05T16:11:22.798743Z"
+      }
+    ],
+    "missing_count": 1
+  }
+]

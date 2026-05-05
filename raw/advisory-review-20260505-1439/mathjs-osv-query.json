@@ -1,0 +1,395 @@
+{
+  "vulns": [
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-29qv-4j9f-fjw5/GHSA-29qv-4j9f-fjw5.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "mathjs",
+            "purl": "pkg:npm/mathjs"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "13.1.1"
+                },
+                {
+                  "fixed": "15.2.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2026-40897"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-915"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2026-04-16T22:38:43Z",
+        "nvd_published_at": "2026-04-24T17:16:20Z",
+        "severity": "HIGH"
+      },
+      "details": "### Impact\nThis security vulnerability allowed executing arbitrary JavaScript via the expression parser of mathjs. You can be affected when you have an application where users can evaluate arbitrary expressions using the mathjs expression parser.\n\n### Patches\nThe issue was introduced in mathjs `v13.1.1`, and patched in mathjs `v15.2.0`.\n\n### Workarounds\nThere is no workaround without upgrading to `v15.2.0`.\n\n### References\nYou can find out more via the commit fixing this issue: https://github.com/josdejong/mathjs/commit/513ab2a0e01004af91b31aada68fae8a821326ad (part of PR https://github.com/josdejong/mathjs/pull/3656).",
+      "id": "GHSA-29qv-4j9f-fjw5",
+      "modified": "2026-05-05T15:56:18.716502Z",
+      "published": "2026-04-16T22:38:43Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/security/advisories/GHSA-29qv-4j9f-fjw5"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40897"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/pull/3656"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/commit/513ab2a0e01004af91b31aada68fae8a821326ad"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/josdejong/mathjs"
+        }
+      ],
+      "related": [
+        "CGA-86p8-28p6-g554"
+      ],
+      "schema_version": "1.7.5",
+      "severity": [
+        {
+          "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "type": "CVSS_V3"
+        }
+      ],
+      "summary": "Unsafe object property setter in mathjs"
+    },
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2026/04/GHSA-jvff-x2qm-6286/GHSA-jvff-x2qm-6286.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "mathjs",
+            "purl": "pkg:npm/mathjs"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "13.1.0"
+                },
+                {
+                  "fixed": "15.2.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2026-41139"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-915"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2026-04-10T22:10:49Z",
+        "nvd_published_at": null,
+        "severity": "HIGH"
+      },
+      "details": "### Impact\nThis security vulnerability allowed executing arbitrary JavaScript via the expression parser of mathjs. You can be affected when you have an application where users can evaluate arbitrary expressions using the mathjs expression parser.\n\n### Patches\nThe issue was introduced in mathjs `v13.1.0`, and patched in mathjs `v15.2.0`.\n\n### Workarounds\nThere is no workaround without upgrading to `v15.2.0`.\n\n### References\nYou can find out more via the commit fixing this issue: https://github.com/josdejong/mathjs/commit/24d5ee7e25e85d49619b09122f055db4139bc057 (part of PR https://github.com/josdejong/mathjs/pull/3656).",
+      "id": "GHSA-jvff-x2qm-6286",
+      "modified": "2026-04-23T14:50:33.307035Z",
+      "published": "2026-04-10T22:10:49Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/security/advisories/GHSA-jvff-x2qm-6286"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/pull/3656"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/commit/0aee2f61866e35ffa0aef915221cdf6b026ffdd4"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/commit/bcf0da46f0b8577ec03c9ecd7bff8b5c2543a611"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/josdejong/mathjs"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/releases/tag/v15.2.0"
+        }
+      ],
+      "related": [
+        "CGA-7w7c-g5cw-c39p"
+      ],
+      "schema_version": "1.7.5",
+      "severity": [
+        {
+          "score": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "type": "CVSS_V3"
+        }
+      ],
+      "summary": "mathjs Allows Improperly Controlled Modification of Dynamically-Determined Object Attributes"
+    },
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2017/12/GHSA-pv8x-p9hq-j328/GHSA-pv8x-p9hq-j328.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "mathjs",
+            "purl": "pkg:npm/mathjs"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "3.17.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2017-1001003"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-88"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2020-06-16T21:50:06Z",
+        "nvd_published_at": null,
+        "severity": "CRITICAL"
+      },
+      "details": "math.js before 3.17.0 had an issue where private properties such as a constructor could be replaced by using unicode characters when creating an object.\n\n\n## Recommendation\n\nUpgrade to version 3.17.0 or later.",
+      "id": "GHSA-pv8x-p9hq-j328",
+      "modified": "2023-11-08T03:58:48.069147Z",
+      "published": "2017-12-18T22:27:53Z",
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-1001003"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/commit/a60f3c8d9dd714244aed7a5569c3dccaa3a4e761"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://github.com/advisories/GHSA-pv8x-p9hq-j328"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/blob/master/HISTORY.md#2017-11-18-version-3170"
+        },
+        {
+          "type": "WEB",
+          "url": "https://www.npmjs.com/advisories/551"
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "type": "CVSS_V3"
+        }
+      ],
+      "summary": "Arbitrary Code Execution in mathjs"
+    },
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2017/12/GHSA-vx5c-87qx-cv6c/GHSA-vx5c-87qx-cv6c.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "mathjs",
+            "purl": "pkg:npm/mathjs"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "3.17.0"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2017-1001002"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-94"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2020-06-16T21:58:44Z",
+        "nvd_published_at": null,
+        "severity": "CRITICAL"
+      },
+      "details": "math.js before 3.17.0 had an arbitrary code execution in the JavaScript engine. Creating a typed function with JavaScript code in the name could result arbitrary execution.\n\n\n## Recommendation\n\nUpdate to version 3.17.0 or later.",
+      "id": "GHSA-vx5c-87qx-cv6c",
+      "modified": "2023-11-08T03:58:48.008756Z",
+      "published": "2017-12-18T22:27:45Z",
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-1001002"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/commit/8d2d48d81b3c233fb64eb2ec1d7a9e1cf6a55a90"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://github.com/advisories/GHSA-vx5c-87qx-cv6c"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/blob/master/HISTORY.md#2017-11-18-version-3170"
+        },
+        {
+          "type": "WEB",
+          "url": "https://www.npmjs.com/advisories/552"
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "type": "CVSS_V3"
+        }
+      ],
+      "summary": "Arbitrary Code Execution in mathjs"
+    },
+    {
+      "affected": [
+        {
+          "database_specific": {
+            "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2021/05/GHSA-x2fc-mxcx-w4mf/GHSA-x2fc-mxcx-w4mf.json"
+          },
+          "package": {
+            "ecosystem": "npm",
+            "name": "mathjs",
+            "purl": "pkg:npm/mathjs"
+          },
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "7.5.1"
+                }
+              ],
+              "type": "SEMVER"
+            }
+          ]
+        }
+      ],
+      "aliases": [
+        "CVE-2020-7743"
+      ],
+      "database_specific": {
+        "cwe_ids": [
+          "CWE-915"
+        ],
+        "github_reviewed": true,
+        "github_reviewed_at": "2021-04-21T19:47:53Z",
+        "nvd_published_at": "2020-10-13T10:15:00Z",
+        "severity": "HIGH"
+      },
+      "details": "The package mathjs before 7.5.1 are vulnerable to Prototype Pollution via the deepExtend function that runs upon configuration updates.",
+      "id": "GHSA-x2fc-mxcx-w4mf",
+      "modified": "2025-01-14T08:57:11.940336Z",
+      "published": "2021-05-10T18:39:04Z",
+      "references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-7743"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/commit/ecb80514e80bce4e6ec7e71db8ff79954f07c57e"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/blob/develop/HISTORY.md#2020-10-10-version-751"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/josdejong/mathjs/blob/develop/src/utils/object.js%23L82"
+        },
+        {
+          "type": "WEB",
+          "url": "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARS-1017113"
+        },
+        {
+          "type": "WEB",
+          "url": "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWER-1017112"
+        },
+        {
+          "type": "WEB",
+          "url": "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1017111"
+        },
+        {
+          "type": "WEB",
+          "url": "https://snyk.io/vuln/SNYK-JS-MATHJS-1016401"
+        },
+        {
+          "type": "WEB",
+          "url": "https://www.npmjs.com/package/mathjs"
+        }
+      ],
+      "schema_version": "1.7.3",
+      "severity": [
+        {
+          "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "type": "CVSS_V3"
+        }
+      ],
+      "summary": "Prototype Pollution in mathjs"
+    }
+  ]
+}
