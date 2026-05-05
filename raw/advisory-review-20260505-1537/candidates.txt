@@ -1,0 +1,4 @@
+Reviewed Maven candidates at start of pass:
+- org.apache.commons:commons-compress: OSV package query returned 11 records; selected for substantive KB page.
+- com.fasterxml.jackson.core:jackson-databind: known broad advisory history; deferred to avoid rushed normalization.
+- commons-io:commons-io: OSV package query returned 2 records; deferred as lower leverage than commons-compress for this pass.
