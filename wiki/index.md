@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*123 tracked pages across 9 ecosystems. Last updated: 2026-05-07.*
+*124 tracked pages across 9 ecosystems. Last updated: 2026-05-07.*
 
 ## npm (88)
 
@@ -117,7 +117,7 @@
 - [[python/starlette]] — ASGI framework/toolkit · advisory mapped · multipart-parser and file-serving DoS / path-containment history through 0.49.1
 - [[python/fastapi]] — ASGI web framework · advisory mapped · CSRF content-type parsing and dependency-mediated multipart ReDoS history through 0.109.1
 
-## Go (9)
+## Go (10)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -127,6 +127,7 @@
 - [[go/github.com/labstack/echo-v4]] — high-usage Go web framework line · advisory mapped · static-handler traversal and open-redirect history plus support-policy context
 - [[go/golang.org-x-crypto]] — foundational Go crypto module · advisory mapped · repeated SSH boundary flaws plus cryptobyte, autocert, and openpgp security history
 - [[go/google.golang.org/grpc]] — core Go RPC framework · advisory mapped · HTTP/2 rapid reset, authz bypass, and metadata/memory exposure history
+- [[go/google.golang.org/protobuf]] — foundational Go protobuf implementation · advisory mapped · prototext panic and protojson infinite-loop DoS history
 
 ## Homebrew (1)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
