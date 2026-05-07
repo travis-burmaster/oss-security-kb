@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*119 tracked pages across 9 ecosystems. Last updated: 2026-05-05.*
+*121 tracked pages across 9 ecosystems. Last updated: 2026-05-07.*
 
 ## npm (88)
 
@@ -103,7 +103,7 @@
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
 
-## Python / PyPI (10)
+## Python / PyPI (11)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
 - [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3 / GHSA-955r-262c-33jc / MAL-2026-2254)
 - [[python/flask]] — Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
@@ -114,6 +114,7 @@
 - [[python/cryptography]] — foundational Python cryptography library · advisory mapped · primitive, X.509/PKCS, buffer-boundary, and bundled-OpenSSL wheel history
 - [[python/aiohttp]] — async HTTP client/server framework · advisory mapped · parser / request-smuggling, static-file exposure, redirect leakage, multipart, and DoS history through 3.13.4
 - [[python/werkzeug]] — foundational WSGI / request utility library · advisory mapped · debugger, multipart-parser, and Windows path-containment history through 3.1.6
+- [[python/starlette]] — ASGI framework/toolkit · advisory mapped · multipart-parser and file-serving DoS / path-containment history through 0.49.1
 
 ## Go (9)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
@@ -129,8 +130,9 @@
 ## Homebrew (1)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
 
-## Maven / Java (2)
+## Maven / Java (3)
 - [[maven/org.apache.commons/commons-compress]] — Apache Commons archive compression/extraction library · advisory mapped · malformed archive DoS / resource-exhaustion history fixed through 1.26.0
+- [[maven/org.apache.logging.log4j/log4j-core]] — Apache Log4j Core logging implementation · advisory mapped · Log4Shell / JNDI, socket deserialization, TLS hostname verification, structured-layout log injection, and log-event-loss history fixed through 2.25.4 on the 2.x line
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression evaluation RCE risk when fed untrusted expressions (CVE-2024-36404)
 
 ## Kubernetes (1)
