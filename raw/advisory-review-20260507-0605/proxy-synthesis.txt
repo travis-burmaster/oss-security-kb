@@ -1,0 +1,39 @@
+# FastAPI OSS Security KB — Proposed Update
+
+## Recommended Page Status
+
+**ACTIVE** — Two distinct confirmed vulnerabilities affecting the `fastapi` PyPI package. Evidence is consistent across multiple authoritative sources. No advisories are currently withdrawn that should be treated as live.
+
+---
+
+## Vulnerability Rows
+
+| # | CVE / Advisory IDs | Summary | Affected Versions | Fixed Version | Severity | Status | Notes |
+|---|---|---|---|---|---|---|---|
+| 1 | **CVE-2021-32677** / GHSA-8h2j-cgx8-6xv7 / PYSEC-2021-100 | **CSRF via permissive Content-Type parsing** — FastAPI parsed request bodies as JSON regardless of `Content-Type` header, allowing CSRF attacks via `text/plain` payloads (which bypass CORS preflight) when cookie-based auth was used. | `< 0.65.2` | `0.65.2` | High (CVSS:3.1 AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:N — 8.2) | **Fixed** | Fix commit: `fa7e3c99`. Note: v0.65.3 relaxed the fix to also accept requests with *no* Content-Type header (to avoid breaking existing clients), while still rejecting `text/plain`. |
+| 2 | **CVE-2024-24762** / GHSA-2jv5-9r88-3w3p / PYSEC-2024-38 | **Content-Type Header ReDoS via python-multipart** — A malicious `Content-Type` header could trigger catastrophic regex backtracking in `python-multipart`'s header parser, stalling the event loop indefinitely (DoS). Affects any FastAPI endpoint reading form data. | `< 0.109.1` | `0.109.1` | High (CVSS:3.1 AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H — 7.5) | **Fixed** | Root cause is in `python-multipart ≤ 0.0.6` (fixed in 0.0.7). FastAPI 0.109.1 pins `python-multipart>=0.0.7`. Also tracked under Starlette (GHSA-93gm-qmq6-w238). |
+
+---
+
+## Duplicate / Withdrawn Advisory Notes
+
+| Advisory | Disposition | Rationale |
+|---|---|---|
+| **GHSA-qf9m-vfgh-m389** | **Duplicate — Withdrawn** | Explicitly withdrawn on 2024-02-16. Was a FastAPI-specific mirror of GHSA-2jv5-9r88-3w3p (the canonical python-multipart advisory). `withdrawn_at: "2024-02-16T23:37:39Z"`. PYSEC-2024-38 lists it as an alias but should *not* be treated as a separate vulnerability. |
+| **PYSEC-2021-100** vs **GHSA-8h2j-cgx8-6xv7** | **Same vulnerability** | Both map to CVE-2021-32677 and list each other as aliases. Identical affected range, fix commit, and description. Consolidate as a single row. |
+
+---
+
+## Security Posture Notes
+
+1. **Low advisory count.** FastAPI has only **two confirmed, non-withdrawn CVEs** to date across its entire release history (since 2018). This is a relatively small attack surface for the framework itself.
+2. **Dependency-inherited risk.** CVE-2024-24762 is fundamentally a `python-multipart` vulnerability. FastAPI's fix was a minimum-version pin. Organizations should also verify `python-multipart` is updated independently, as it may be installed by other packages (Starlette, etc.).
+3. **CSRF fix refinement.** The CVE-2021-32677 fix was partially relaxed in v0.65.3 to accept requests with *no* Content-Type header (assumed JSON), while still blocking explicit `text/plain`. This is a deliberate trade-off between compatibility and strictness — worth noting for security audits.
+4. **Maintained project.** Both issues received upstream patches promptly with published security advisories, fix commits, and release notes. Security contact (`security@tiangolo.com`) is documented.
+
+---
+
+## Open Questions
+
+1. **Starlette/Uvicorn surface:** FastAPI delegates heavily to Starlette and Uvicorn. Are there Starlette-specific advisories (e.g., GHSA-93gm-qmq6-w238 for the same ReDoS) that should be cross-referenced or tracked on a separate KB page?
+2. **python-multipart attribution:** Should CVE-2024-24762 be tracked primarily on a `python-multipart` KB page with a cross
