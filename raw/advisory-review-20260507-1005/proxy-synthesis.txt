@@ -1,0 +1,51 @@
+# OSS Security KB Update Proposal: `com.fasterxml.jackson.core:jackson-databind`
+
+---
+
+## Reviewed Target
+
+**Maven coordinate:** `com.fasterxml.jackson.core:jackson-databind`
+**Total known OSV records:** 69
+**Representative records reviewed:** 12 (spanning 2017–2022)
+**Maintainer guidance reviewed:** FasterXML wiki — "Jackson Polymorphic Deserialization CVE Criteria"
+
+---
+
+## Suggested KB Page Summary
+
+### Overview
+
+`jackson-databind` is the core data-binding component of the Jackson JSON library for Java. It has accumulated **69 publicly tracked vulnerability records** in OSV, making it one of the most CVE-dense Maven artifacts. The vast majority (~60+) relate to **polymorphic deserialization gadget-chain attacks** that require a non-default configuration ("Default Typing" or equivalent `@JsonTypeInfo` on `Object`-typed fields) **plus** a vulnerable third-party gadget class on the classpath.
+
+### Vulnerability Taxonomy
+
+| Category | Representative CVEs | Severity | Era | Notes |
+|---|---|---|---|---|
+| **Polymorphic deser RCE gadgets** | CVE-2017-7525, CVE-2017-15095, CVE-2018-7489, CVE-2018-14719, CVE-2019-20330, CVE-2020-8840 | Critical / High | 2017–2020 | Require Default Typing **enabled** + specific gadget lib on classpath. Mitigated by class blocklist in ≤2.9.x; by `PolymorphicTypeValidator` in ≥2.10. |
+| **Polymorphic deser info-disclosure** | CVE-2019-12086 | Medium | 2019 | Same preconditions; leaks server-side file content. |
+| **XXE via `DOMDeserializer`** | CVE-2020-25649 | High | 2020 | Does **not** require Default Typing. Applies broadly. Fixed in 2.6.7.4, 2.9.10.7, 2.10.5.1. |
+| **Denial of Service (stack overflow / resource)** | CVE-2020-36518, CVE-2022-42003, CVE-2022-42004, CVE-2021-46877 | High / Medium | 2020–2022 | Deeply nested JSON or `UNWRAP_SINGLE_VALUE_ARRAYS` causing stack overflow or excessive memory use. No special config required beyond accepting untrusted input. |
+
+### Recommended Minimum Safe Versions
+
+| Release line | Minimum patched version | Covers through |
+|---|---|---|
+| 2.13.x | **2.13.4.2** | CVE-2022-42003, CVE-2022-42004 |
+| 2.12.x | **2.12.7.1** | CVE-2022-42003, CVE-2022-42004 |
+| 2.14+ / 2.15+ / 2.16+ / 2.17+ | Latest stable | No outstanding public CVEs at time of review |
+| ≤2.9.x | **EOL — upgrade required** | Blocklist-based mitigation is no longer actively maintained by upstream |
+
+### Key Maintainer-Stated Caveats (Verbatim-Aligned)
+
+1. **Default Typing is opt-in.** Polymorphic deser gadget CVEs "do NOT work against default configuration of `ObjectMapper`." Applicability is conditional, not binary.
+2. **≥2.10 uses `PolymorphicTypeValidator`**, a whitelist-based approach that replaces the blocklist. The maintainer considers 2.10+ **not vulnerable in the same sense** to gadget-chain CVEs.
+3. **Blocklist maintenance for ≤2.9 has ceased** (approximately 90 classes across 30–40 libraries as of 2.9.10.6). No further releases are expected.
+4. **CVE-2020-25649 (XXE) and the DoS family (CVE-2020-36518, CVE-2022-42003/42004, CVE-2021-46877) are unconditional** — they do not require Default Typing and affect all users processing untrusted input.
+
+---
+
+## Important Caveats for KB Consumers
+
+- **Do not treat all 69 CVEs equally.** Most are gadget-class blocklist additions relevant only when Default Typing is enabled on ≤2.9.x. A blanket "critical" flag for all of them over-estimates risk for default-config deployments.
+- **CVE-2020-25649 and the DoS CVEs are the highest-priority items** for broadly deployed services because they require no special configuration to exploit.
+- **Transitive dependency exposure is common.** `jackson-databind` is pulled in by Spring Boot, Dropwizard
