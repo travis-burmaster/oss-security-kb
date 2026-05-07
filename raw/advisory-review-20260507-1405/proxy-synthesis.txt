@@ -1,0 +1,61 @@
+# OSS Knowledge Base Update Proposal: `google.golang.org/protobuf`
+
+## 1. Package Identity
+
+| Field | Value |
+|---|---|
+| **Module** | `google.golang.org/protobuf` |
+| **Source Repository** | https://github.com/protocolbuffers/protobuf-go |
+| **Ecosystem** | Go |
+| **PURL** | `pkg:golang/google.golang.org/protobuf` |
+| **Description** | Go language implementation of Protocol Buffers (protobuf), Google's data interchange format. Successor to `github.com/golang/protobuf`. |
+| **License** | BSD-3-Clause |
+| **Current Stable** | v1.36.x (verify at release time) |
+| **Maintainer** | Google / Protocol Buffers team |
+
+---
+
+## 2. Vulnerability Table (Normalized, Deduplicated)
+
+Two distinct vulnerabilities are evidenced. Each has a GHSA identifier **and** a GO advisory identifier — these are aliases for the same issue, not separate vulnerabilities.
+
+| # | Canonical ID | Aliases | CVE | Summary | Affected Range | Fixed In | Severity | Affected Subpackages |
+|---|---|---|---|---|---|---|---|---|
+| 1 | **GHSA-8r3f-844c-mc37** | GO-2024-2611 | CVE-2024-24786 | `protojson.Unmarshal` infinite loop on certain invalid JSON input | `< 1.33.0` | **v1.33.0** | Medium (DoS / infinite loop) | `google.golang.org/protobuf/encoding/protojson`, `google.golang.org/protobuf/internal/encoding/json` |
+| 2 | **GHSA-hw7c-3rfg-p46j** | GO-2023-1631 | CVE-2023-24535 | Panic (nil-pointer / index out of range) leading to denial of service when parsing crafted protobuf messages | `>= 1.29.0, < 1.29.1` | **v1.29.1** | Medium (DoS / panic) | Root module (`google.golang.org/protobuf`) |
+
+### Normalization Notes
+
+* **GHSA-8r3f-844c-mc37 = GO-2024-2611 = CVE-2024-24786** — single record. The GHSA entry lists three affected packages; these are **sub-packages within the same Go module**, not independent libraries. The fix commit (`f01a588e`) and the single release tag `v1.33.0` resolve all three simultaneously because Go modules version at the module root.
+* **GHSA-hw7c-3rfg-p46j = GO-2023-1631 = CVE-2023-24535** — single record. Narrow affected window (only v1.29.0).
+
+---
+
+## 3. Detailed Vulnerability Analysis
+
+### CVE-2024-24786 — protojson Infinite Loop
+
+* **Root Cause:** The JSON decoder in `internal/encoding/json` did not properly detect certain malformed JSON token sequences, causing `protojson.Unmarshal` to loop indefinitely.
+* **Attack Vector:** Any service that accepts untrusted JSON and unmarshals it into a protobuf message via `protojson.Unmarshal` or `protojson.UnmarshalOptions.Unmarshal`.
+* **Impact:** Denial of service (goroutine hangs forever consuming CPU). No data confidentiality or integrity impact.
+* **Fix:** CL 569356 / commit `f01a588e5810b90996452eec4a28f22a0afae023`, released as v1.33.0.
+* **Downstream Signal:** Fedora advisory issued; NetApp advisory issued; oss-security disclosure 2024-03-08.
+
+### CVE-2023-24535 — Panic on Crafted Input
+
+* **Root Cause:** Parsing specific crafted protobuf input triggered an unrecovered panic (likely nil dereference or slice bounds check).
+* **Attack Vector:** Any service that parses untrusted protobuf wire-format or text-format messages.
+* **Impact:** Denial of service (process crash). No data confidentiality or integrity impact.
+* **Fix:** CL 475995, released as v1.29.1.
+* **Note:** Only v1.29.0 is affected; earlier versions and v1.29.1+ are unaffected.
+
+---
+
+## 4. Security Posture Assessment
+
+| Dimension | Assessment |
+|---|---|
+| **Vulnerability Density** | Low — 2 CVEs across 5+ years of the v2 module |
+| **Response Time** | Fast — both issues received point releases promptly |
+| **Disclosure Practice** | Coordinated via Go vulnerability database and GHSA; public CL references |
+| **Maintenance Activity** | Actively maintained by Google;

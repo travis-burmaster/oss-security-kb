@@ -10,6 +10,7 @@
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
 - [[go/golang.org-x-crypto]] — foundational Go crypto module · advisory mapped · repeated SSH boundary flaws plus cryptobyte, autocert, and openpgp security history
 - [[go/google.golang.org/grpc]] — core Go gRPC transport stack · advisory mapped · transport, metadata, and authz-sensitive surface
+- [[go/google.golang.org/protobuf]] — foundational Go protobuf implementation · advisory mapped · prototext panic and protojson infinite-loop DoS history
 
 ## Future Targets
 - `go.opentelemetry.io/otel` — broad instrumentation surface with high downstream blast radius
