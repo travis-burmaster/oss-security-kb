@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*129 tracked pages across 9 ecosystems. Last updated: 2026-05-08.*
+*130 tracked pages across 9 ecosystems. Last updated: 2026-05-08.*
 
 ## npm (88)
 
@@ -103,12 +103,13 @@
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
 
-## Python / PyPI (14)
+## Python / PyPI (15)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
 - [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3 / GHSA-955r-262c-33jc / MAL-2026-2254)
 - [[python/flask]] — Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
 - [[python/jinja2]] — Python templating engine · advisory mapped · recurring sandbox breakouts, xmlattr injection, and ReDoS history
 - [[python/pyyaml]] — YAML parser and emitter for Python · advisory mapped · long-running unsafe-deserialization / arbitrary-code-execution vulnerability chain addressed through successive fixes up to version 5.4
+- [[python/pillow]] — Python Imaging Library fork · advisory mapped · dense parser-boundary history across image decoder memory corruption, decompression / allocation DoS, ImageMath code execution, and 2026 PSD / FITS / PDF fixes through 12.2.0
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
 - [[python/urllib3]] — transport-layer HTTP library · advisory mapped · redirect, CRLF, TLS, and request-smuggling relevance
 - [[python/cryptography]] — foundational Python cryptography library · advisory mapped · primitive, X.509/PKCS, buffer-boundary, and bundled-OpenSSL wheel history
