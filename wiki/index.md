@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*125 tracked pages across 9 ecosystems. Last updated: 2026-05-07.*
+*126 tracked pages across 9 ecosystems. Last updated: 2026-05-08.*
 
 ## npm (88)
 
@@ -117,7 +117,7 @@
 - [[python/starlette]] — ASGI framework/toolkit · advisory mapped · multipart-parser and file-serving DoS / path-containment history through 0.49.1
 - [[python/fastapi]] — ASGI web framework · advisory mapped · CSRF content-type parsing and dependency-mediated multipart ReDoS history through 0.109.1
 
-## Go (11)
+## Go (12)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -125,6 +125,7 @@
 - [[go/github.com/gorilla/schema]] — form decoder · advisory mapped · sparse slice-index deserialization memory-exhaustion DoS fixed in v1.4.1
 - [[go/github.com/gorilla/websocket]] — foundational Go WebSocket implementation · advisory mapped · integer-overflow / read-limit bypass DoS fixed in 1.4.1
 - [[go/github.com/labstack/echo-v4]] — high-usage Go web framework line · advisory mapped · static-handler traversal and open-redirect history plus support-policy context
+- [[go/github.com/prometheus/client_golang]] — Prometheus Go instrumentation library · advisory mapped · promhttp method-label cardinality DoS fixed in 1.11.1
 - [[go/go.opentelemetry.io/otel]] — core OpenTelemetry-Go API / propagation module · advisory mapped · multi-value W3C baggage header allocation-amplification DoS fixed in 1.41.0
 - [[go/golang.org-x-crypto]] — foundational Go crypto module · advisory mapped · repeated SSH boundary flaws plus cryptobyte, autocert, and openpgp security history
 - [[go/google.golang.org/grpc]] — core Go RPC framework · advisory mapped · HTTP/2 rapid reset, authz bypass, and metadata/memory exposure history
