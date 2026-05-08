@@ -1,0 +1,194 @@
+Buffer overflow when pwfeedback is set in sudoers | Sudo
+Open Navigation
+Close Navigation
+Sudo
+GitHub
+Blog
+Toggle Dark/Light/Auto mode
+Toggle Dark/Light/Auto mode
+Toggle Dark/Light/Auto mode
+Back to homepage
+Close Menu Bar
+Open Menu Bar
+About Sudo
+A Short Introduction
+A Brief History of Sudo
+Contributors
+Translations
+Sudo Plugins
+Sudo License
+Sudo Logo
+Export Controls
+Releases
+Stable Release
+Legacy Release
+Development Release
+ChangeLog
+Getting Sudo
+Source Repo
+Source Distribution
+Prebuilt Packages
+Download Mirrors
+Mirroring Sudo
+Documentation
+Manual Pages (latest)
+Cvtsudoers Manual
+Sudo Configuration Manual
+Sudo Log Client Manual
+Sudo Log Server Configuration Manual
+Sudo Log Server Manual
+Sudo Log Server Protocol Manual
+Sudo Manual
+Sudo Plugin API
+Sudo Python Plugin API
+Sudoers LDAP Manual
+Sudoers Manual
+Sudoers Time Stamp Manual
+Sudoreplay Manual
+Visudo Manual
+Manual Pages (all versions)
+README Files
+README
+README.LDAP
+Sudo Installation Notes
+Sudo Upgrade Notes
+Contributing to Sudo
+Troubleshooting FAQ
+Building Sudo Packages
+Other Documentation
+Sudo Alternatives
+Security
+Security Advisories
+Security Policy
+Static Analysis
+Fuzzing Sudo
+Sanitizers and Sudo
+Blog
+Bug Tracker
+News
+Mailing Lists
+GitHub Repo
+Git Mirror
+Mastodon
+Sudo Mastery Book
+Buffer overflow when pwfeedback is set in sudoers
+Jan 30, 2020
+Sudo’s
+pwfeedback
+option can be used to provide visual
+feedback when the user is inputting their password. For each key
+press, an asterisk is printed. This option was added in response
+to user confusion over how the standard
+Password:
+prompt
+disables the echoing of key presses. While
+pwfeedback
+is
+not enabled by default in the upstream version of sudo, some systems,
+such as Linux Mint and Elementary OS, do enable it in their default
+sudoers files.
+Due to a bug, when the
+pwfeedback
+option is enabled in the
+sudoers file, a user may be able to trigger a stack-based buffer overflow.
+This bug can be triggered even by users not listed in the sudoers file.
+There is
+no
+impact unless
+pwfeedback
+has
+been enabled.
+Sudo versions affected:
+Sudo versions 1.7.1 to 1.8.30 inclusive are affected but only if the
+pwfeedback
+option is enabled in sudoers. It was originally
+thought to not be exploitable in sudo versions 1.8.26 through 1.8.30
+but that has been shown to not be the case.
+A user with sudo privileges can check whether
+pwfeedback
+is enabled by running:
+sudo -l
+If
+pwfeedback
+is listed in the “Matching Defaults entries”
+output, the sudoers configuration is affected. In the following
+example, the sudoers configuration is vulnerable:
+Matching Defaults entries for millert on linux-build:
+insults, pwfeedback, mail_badpass, mailerpath=/usr/sbin/sendmail
+User millert may run the following commands on linux-build:
+(ALL : ALL) ALL
+CVE ID:
+This vulnerability has been assigned
+CVE-2019-18634
+in the
+Common Vulnerabilities and Exposures
+database.
+Details:
+[Exploit reproduction commands omitted from KB evidence snapshot; see upstream advisory URL in sources.md for the original public text.]
+There are two flaws that contribute to this vulnerability:
+The
+pwfeedback
+option is not ignored, as it should be,
+when reading from something other than the user’s terminal,
+/dev/tty
+. The use of the
+-S
+option should
+effectively disable
+pwfeedback
+.
+The code that erases the line of asterisks does not
+properly reset the buffer position if there is a write
+error, but it does reset the remaining buffer length.
+As a result, the
+getln()
+function can write past the
+end of the buffer, leading to an overflow.
+If the user can cause sudo to receive a write error when it attempts
+to erase the line of asterisks, the bug can be triggered. Because
+the remaining buffer length is not reset correctly on write error
+when the line is erased, a buffer on the stack can be overflowed.
+Impact:
+There is
+no
+impact unless
+pwfeedback
+has
+been enabled in the sudoers file.
+If
+pwfeedback
+is enabled in sudoers, the stack overflow
+may allow unprivileged users to escalate to the root account.
+Because the attacker has complete control of the data used to
+overflow the buffer, there is a high likelihood of exploitability.
+Workaround:
+If the sudoers file has
+pwfeedback
+enabled, disabling it
+by prepending an exclamation point is sufficient to prevent
+exploitation of the bug. For example, change:
+Defaults pwfeedback
+To:
+Defaults !pwfeedback
+After disabling
+pwfeedback
+in sudoers using the visudo
+command, the example
+sudo -l
+output becomes:
+Matching Defaults entries for millert on linux-build:
+insults, mail_badpass, mailerpath=/usr/sbin/sendmail
+User millert may run the following commands on linux-build:
+(ALL : ALL) ALL
+Revisions:
+This advisory was originally released on January 30, 2020. It was revised
+on February 5, 2020 with additional exploitation details.
+Fix:
+The bug is fixed in sudo 1.8.31.
+Credit:
+Joe Vennix from Apple Information Security found and analyzed the
+bug.
+William Bowling reported a way to exploit the bug in sudo 1.8.26
+though 1.8.30.
+Potential bypass of Runas user restrictions
+Symbolic link attack in SELinux-enabled sudoedit
