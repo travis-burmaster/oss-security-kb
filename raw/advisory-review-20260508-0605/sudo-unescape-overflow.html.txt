@@ -1,0 +1,162 @@
+Buffer overflow in command line unescaping | Sudo
+Open Navigation
+Close Navigation
+Sudo
+GitHub
+Blog
+Toggle Dark/Light/Auto mode
+Toggle Dark/Light/Auto mode
+Toggle Dark/Light/Auto mode
+Back to homepage
+Close Menu Bar
+Open Menu Bar
+About Sudo
+A Short Introduction
+A Brief History of Sudo
+Contributors
+Translations
+Sudo Plugins
+Sudo License
+Sudo Logo
+Export Controls
+Releases
+Stable Release
+Legacy Release
+Development Release
+ChangeLog
+Getting Sudo
+Source Repo
+Source Distribution
+Prebuilt Packages
+Download Mirrors
+Mirroring Sudo
+Documentation
+Manual Pages (latest)
+Cvtsudoers Manual
+Sudo Configuration Manual
+Sudo Log Client Manual
+Sudo Log Server Configuration Manual
+Sudo Log Server Manual
+Sudo Log Server Protocol Manual
+Sudo Manual
+Sudo Plugin API
+Sudo Python Plugin API
+Sudoers LDAP Manual
+Sudoers Manual
+Sudoers Time Stamp Manual
+Sudoreplay Manual
+Visudo Manual
+Manual Pages (all versions)
+README Files
+README
+README.LDAP
+Sudo Installation Notes
+Sudo Upgrade Notes
+Contributing to Sudo
+Troubleshooting FAQ
+Building Sudo Packages
+Other Documentation
+Sudo Alternatives
+Security
+Security Advisories
+Security Policy
+Static Analysis
+Fuzzing Sudo
+Sanitizers and Sudo
+Blog
+Bug Tracker
+News
+Mailing Lists
+GitHub Repo
+Git Mirror
+Mastodon
+Sudo Mastery Book
+Buffer overflow in command line unescaping
+Jan 26, 2021
+A serious heap-based buffer overflow has been discovered in sudo
+that is exploitable by any local user. It has been given the name
+Baron Samedit
+by its discoverer. The bug can be leveraged
+to elevate privileges to root, even if the user is not listed in
+the sudoers file. User authentication is not required to exploit
+the bug.
+Sudo versions affected:
+Sudo versions 1.7.7 through 1.7.10p9, 1.8.2 through 1.8.31p2, and
+1.9.0 through 1.9.5p1 are affected.
+CVE ID:
+This vulnerability has been assigned
+CVE-2021-3156
+in the
+Common Vulnerabilities and Exposures
+database.
+Details:
+When sudo runs a command in
+shell
+mode, either via the
+-s
+or
+-i
+command line option, it
+escapes special characters in the command’s arguments with a backslash.
+The sudoers policy plugin will then remove the escape characters from
+the arguments before evaluating the sudoers policy (which doesn’t
+expect the escape characters) if the command is being run in shell
+mode.
+A bug in the code that removes the escape characters will read
+beyond the last character of a string if it ends with an unescaped
+backslash character. Under normal circumstances, this bug would
+be harmless since sudo has escaped all the backslashes in the
+command’s arguments. However, due to a different bug, this time
+in the command line parsing code, it is possible to run
+sudoedit
+with either the
+-s
+or
+-i
+options,
+setting a flag that indicates shell mode is enabled. Because a
+command is not actually being run, sudo does
+not
+escape special characters. Finally, the code that decides whether
+to remove the escape characters did not check whether a command is
+actually being run, just that the shell flag is set. This inconsistency
+is what makes the bug exploitable.
+To test whether your version of sudo is vulnerable, the following
+command can be used:
+[specific invocation omitted]
+A
+vulnerable
+version of sudo will
+either
+prompt
+for a password or display an error similar to:
+sudoedit: /: not a regular file
+A
+patched
+version of sudo will simply display a
+usage statement, for example:
+usage: sudoedit [-AknS] [-a type] [-C num] [-c class] [-D directory] [-g group]
+[-h host] [-p prompt] [-R directory] [-T timeout] [-u user]
+file ...
+If the sudoers plugin has been patched but the sudo front-end has
+not, the following error will be displayed:
+sudoedit: invalid mode flags from sudo front end: 0x20002
+Patching either the sudo front-end or the sudoers plugin is sufficient
+to prevent exploitation, but applying the complete patch is the
+safest approach.
+For more information, see
+The Qualys advisory
+.
+Impact:
+A local user may be able to exploit sudo to elevate privileges to
+root as long as the sudoers file (usually /etc/sudoers) is present.
+Workaround:
+None. Sudo version 1.8.32, 1.9.5p2 or a patched vendor-supported version
+must be installed.
+Fix:
+The bug is fixed in sudo 1.8.32 and 1.9.5p2.
+Credit:
+Thanks to the Qualys Security Advisory team for their detailed bug
+report and explanation of its implications.
+Symbolic link attack in SELinux-enabled sudoedit
+Sudoedit can edit arbitrary files

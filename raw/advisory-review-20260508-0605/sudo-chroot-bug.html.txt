@@ -1,0 +1,129 @@
+Local Privilege Escalation via chroot option | Sudo
+Open Navigation
+Close Navigation
+Sudo
+GitHub
+Blog
+Toggle Dark/Light/Auto mode
+Toggle Dark/Light/Auto mode
+Toggle Dark/Light/Auto mode
+Back to homepage
+Close Menu Bar
+Open Menu Bar
+About Sudo
+A Short Introduction
+A Brief History of Sudo
+Contributors
+Translations
+Sudo Plugins
+Sudo License
+Sudo Logo
+Export Controls
+Releases
+Stable Release
+Legacy Release
+Development Release
+ChangeLog
+Getting Sudo
+Source Repo
+Source Distribution
+Prebuilt Packages
+Download Mirrors
+Mirroring Sudo
+Documentation
+Manual Pages (latest)
+Cvtsudoers Manual
+Sudo Configuration Manual
+Sudo Log Client Manual
+Sudo Log Server Configuration Manual
+Sudo Log Server Manual
+Sudo Log Server Protocol Manual
+Sudo Manual
+Sudo Plugin API
+Sudo Python Plugin API
+Sudoers LDAP Manual
+Sudoers Manual
+Sudoers Time Stamp Manual
+Sudoreplay Manual
+Visudo Manual
+Manual Pages (all versions)
+README Files
+README
+README.LDAP
+Sudo Installation Notes
+Sudo Upgrade Notes
+Contributing to Sudo
+Troubleshooting FAQ
+Building Sudo Packages
+Other Documentation
+Sudo Alternatives
+Security
+Security Advisories
+Security Policy
+Static Analysis
+Fuzzing Sudo
+Sanitizers and Sudo
+Blog
+Bug Tracker
+News
+Mailing Lists
+GitHub Repo
+Git Mirror
+Mastodon
+Sudo Mastery Book
+Local Privilege Escalation via chroot option
+Jun 30, 2025
+An attacker can leverage sudo’s
+-R
+(
+--chroot
+) option to run
+arbitrary commands as root, even if they are not listed in the
+sudoers file.
+Sudo versions affected:
+Sudo versions 1.9.14 to 1.9.17 inclusive are affected.
+CVE ID:
+This vulnerability has been assigned
+CVE-2025-32463
+in the
+Common Vulnerabilities and Exposures
+database.
+Details:
+Sudo’s
+-R
+(
+--chroot
+) option is intended to allow the user to
+run a command with a user-selected root directory if the sudoers
+file allows it.  A change was made in sudo 1.9.14 to resolve paths
+via
+chroot()
+using the user-specified root directory while the
+sudoers file was still being evaluated.  It is possible for an
+attacker to trick sudo into loading an arbitrary shared library by
+creating an
+/etc/nsswitch.conf
+file under the user-specified root
+directory.
+The change from sudo 1.9.14 has been reverted in sudo 1.9.17p1 and
+the chroot feature has been marked as deprecated.  It will be removed
+entirely in a future sudo release.  Because of the way sudo resolves
+commands, supporting a user-specified chroot directory is error-prone
+and this feature does not appear to be widely used.
+A more detailed description of the bug and its effects can be
+found in the
+Stratascale advisory
+.
+Impact:
+On systems that support
+/etc/nsswitch.conf
+a user may be
+able to run arbitrary commands as root.
+Fix:
+The bug is fixed in sudo 1.9.17p1.
+Credit:
+Thanks to Rich Mirch from Stratascale Cyber Research Unit (CRU) for
+reporting and analyzing the bug.  His advisory may be found at
+https://www.stratascale.com/vulnerability-alert-CVE-2025-32463-sudo-chroot
+.
+Local Privilege Escalation via host option

@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*127 tracked pages across 9 ecosystems. Last updated: 2026-05-08.*
+*128 tracked pages across 9 ecosystems. Last updated: 2026-05-08.*
 
 ## npm (88)
 
@@ -144,6 +144,7 @@
 ## Kubernetes (1)
 - [[kubernetes/kube-apiserver]] — control-plane API surface · audit ingested · RBAC, admission, authn, and impersonation risk review
 
-## Linux (2)
+## Linux (3)
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
 - [[linux/openssl]] — cross-distro cryptographic library anchor · baseline stub · upstream-first page for future distro normalization
+- [[linux/sudo]] — privilege-boundary package · advisory mapped · pwfeedback, Baron Samedit, host-option, and chroot local privilege-escalation history
