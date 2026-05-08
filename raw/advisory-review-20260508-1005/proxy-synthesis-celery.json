@@ -1,0 +1,21 @@
+{
+  "id": "msg_01SmTYTerZC2HuwLA7ipwCXz",
+  "object": "chat.completion",
+  "created": 1778252800,
+  "model": "claude-opus-4-6",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "# OSS Security KB Page: PyPI `celery`\n\n## Overview\n\nCelery is a widely-used distributed task queue for Python. The following security review is based on publicly disclosed vulnerabilities with confirmed advisories and fixes.\n\n---\n\n## Known Vulnerabilities\n\n### 1. CVE-2021-23727 \u2014 OS Command Injection via Backend Metadata Deserialization\n\n| Field | Detail |\n|---|---|\n| **CVE** | CVE-2021-23727 |\n| **Aliases** | GHSA-q4xr-rc97-m4xx, PYSEC-2021-858, SNYK-PYTHON-CELERY-2314953 |\n| **Severity** | High (command injection) |\n| **Affected Versions** | < 5.2.2 |\n| **Fixed In** | 5.2.2 |\n| **Summary** | Celery by default trusts messages and metadata stored in result backends. When task metadata is read from the backend, it is deserialized without sufficient validation. An attacker who can gain access to or manipulate the backend (result store) can inject and execute arbitrary OS commands through crafted metadata, potentially leading to full system compromise. |\n| **Root Cause** | Unsafe deserialization of backend-stored task metadata, combined with implicit trust of backend content. |\n| **Fix Reference** | [Commit 1f7ad7e](https://github.com/celery/celery/commit/1f7ad7e6df1e02039b6ab9eec617d283598cad6b) |\n\n**Recommendation:** Upgrade to Celery \u2265 5.2.2. Additionally, restrict access to result backends (e.g., Redis, RabbitMQ) with strong authentication and network segmentation to reduce the attack surface for backend manipulation.\n\n---\n\n### 2. CVE-2011-4356 \u2014 Local Privilege Escalation via Improper UID/GID Handling\n\n| Field | Detail |\n|---|---|\n| **CVE** | CVE-2011-4356 |\n| **Aliases** | GHSA-rpc6-h455-3rx5, PYSEC-2011-17 |\n| **Severity** | Moderate (local privilege escalation) |\n| **Affected Versions** | 2.1.x; 2.2.x < 2.2.8; 2.3.x < 2.3.4; 2.4.x < 2.4.4 |\n| **Fixed In** | 2.2.8, 2.3.4, 2.4.4 |\n| **Summary** | When the `--uid` and `--gid` arguments are used with `celerybeat`, `celeryd_detach`, `celeryd-multi`, or `celeryev`, Celery changes the effective user/group ID but not the real ID. This discrepancy allows a local attacker to escalate privileges by executing crafted code within the worker process that leverages the retained real ID. |\n| **Root Cause** | Incomplete privilege drop \u2014 only the effective UID/GID was changed, leaving the real UID/GID unchanged and recoverable. |\n| **Fix Reference** | [PR #544](https://github.com/celery/celery/pull/544); [Advisory CELERYSA-0001](https://github.com/celery/celery/blob/master/docs/sec/CELERYSA-0001.txt) |\n\n**Recommendation:** This vulnerability affects only very old versions (2.x). Any deployment still running Celery 2.x should upgrade immediately to a current supported release.\n\n---\n\n## General Security Recommendations\n\n- **Keep Celery up to date.** Both known CVEs have been patched; no unpatched public vulnerabilities are currently documented.\n- **Secure result backends.** CVE-2021-23727 underscores that the security of Celery's result stores (Redis, RabbitMQ, database, etc.) is critical. Apply authentication, encryption (TLS), and network-level access controls.\n- **Use safe serializers.** Configure Celery to use `json` (or another non-executable serializer) rather than `pickle` for task and result serialization to minimize deserialization attack surface (`accept_content = ['json']`).\n- **Run workers with least privilege.** Avoid running Celery workers as root. Use dedicated service accounts with minimal permissions.\n- **Monitor advisories.** Track the [Celery GitHub Security Advisories](https://github.com/celery/celery/security/advisories) and PyPI advisory feeds for future disclosures.\n\n---\n\n## Evidence Summary\n\n| Total CVEs Reviewed | 2 |\n|---|---|\n| Oldest Issue | CVE-2011-4356 (2011) |\n| Most Recent Issue | CVE-2021-23727 (2021) |\n| All Issues Patched | \u2705 Yes |\n| Fabricated/Unverified Claims | None \u2014 all entries are backed by NVD, GitHub"
+      },
+      "finish_reason": "max_tokens"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1139,
+    "completion_tokens": 1200,
+    "total_tokens": 2339
+  }
+}

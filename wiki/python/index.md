@@ -14,3 +14,4 @@
 - [[python/starlette]] — ASGI framework/toolkit · advisory mapped · multipart-parser and file-serving DoS / path-containment history through 0.49.1
 - [[python/fastapi]] — ASGI web framework · advisory mapped · CSRF content-type parsing and dependency-mediated multipart ReDoS history through 0.109.1
 - [[python/sqlalchemy]] — Python SQL toolkit / ORM · advisory mapped · compact but critical SQL-injection history around unsafe textual coercion in SQL construction APIs
+- [[python/celery]] — distributed task queue · advisory mapped · result-backend metadata command-injection and legacy worker privilege-dropping history
