@@ -1,0 +1,21 @@
+{
+  "id": "msg_0193YHenxAFK9JaHHVhWEVva",
+  "object": "chat.completion",
+  "created": 1778224066,
+  "model": "claude-opus-4-6",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "# SQLAlchemy \u2013 Security KB Update Notes\n\n## Vulnerability Rows\n\n| CVE | GHSA | Severity | CWE | Description | Affected Versions | Fixed Version | Notes |\n|-----|------|----------|-----|-------------|-------------------|---------------|-------|\n| CVE-2019-7164 | GHSA-887w-45rq-vxgf | CRITICAL (CVSS 3.0: 9.8) | CWE-89 (SQL Injection) | SQL Injection via the `order_by` parameter when accepting untrusted input | All versions < 1.3.0b3 (including entire 1.2.x line) | 1.3.0b3 (main branch); **never backported to 1.2.x** per advisory details | Fix commit `30307c4`. Issue #4481 confirms the root cause is textual coercion of raw strings in `order_by()`. |\n| CVE-2019-7548 | GHSA-38fc-9xqv-7f7q | CRITICAL (CVSS 3.0: 7.8 local / CVSS 4.0: 9.3 network) | CWE-89 (SQL Injection) | SQL Injection via the `group_by` parameter when accepting untrusted input | All versions < 1.2.19 | 1.2.19 | Issue #4510 explicitly backports the `order_by`/`group_by` text coercion fix to the 1.2.x branch. |\n\n## Posture Notes\n\n- **Root Cause (both CVEs):** SQLAlchemy historically accepted raw string expressions in `order_by()`, `group_by()`, `where()`, and `filter()` via implicit textual coercion. Passing untrusted user input to these functions allowed arbitrary SQL injection.\n- **Remediation approach:** Maintainer (@zzzeek) deprecated textual coercion in these methods, raising errors instead of silently coercing strings. The fix originated in commit `30307c4` on the main branch (targeting 1.3.x). A separate backport effort (issue #4510) produced the 1.2.19 release to address `group_by`; however, the GHSA-887w-45rq-vxgf advisory explicitly states the `order_by` fix was **never backported to 1.2.x** \u2014 all 1.2.x versions remain vulnerable to CVE-2019-7164.\n- **Minimum safe versions:** \u2265 1.3.0b3 (covers both CVEs). Version 1.2.19 only addresses CVE-2019-7548 (`group_by`), **not** CVE-2019-7164 (`order_by`).\n- **Downstream impact:** Red Hat (RHSA-2019:0981, RHSA-2019:0984), Debian LTS, openSUSE, and Oracle (Jan 2021 CPU) all issued advisories/patches, indicating wide ecosystem exposure.\n- **Current status:** Both CVEs are resolved in all modern SQLAlchemy releases (1.3+, 1.4.x, 2.x). Any deployment still on 1.2.x or earlier is vulnerable.\n\n## Dependency Notes\n\n- **Ecosystem:** PyPI (`pkg:pypi/sqlalchemy`)\n- **No transitive dependency vulnerabilities noted** in these advisories; the issues are in SQLAlchemy core itself.\n- **DBAPI drivers** (e.g., `psycopg2`, `mysqlclient`) are not implicated \u2014 the injection occurs at the ORM/Core SQL construction layer before parameterization.\n\n## Open Questions\n\n1. **Backport gap for CVE-2019-7164:** The advisory states the `order_by` fix was never backported to 1.2.x. Issue #4510 references backporting both `order_by` and `group_by` to 1.2.19, but the GHSA lists 1.2.19 in the affected range for CVE-2019-7164. **Clarify:** Does 1.2.19 fully mitigate `order_by` injection, or only `group_by`? The advisory text and affected version list are contradictory.\n2. **Other text-coercion surfaces:** Issue #4481 title mentions `where()` and `filter()` in addition to `order_by`/`group_by`. Are there tracked CVEs for SQL injection via those methods, or were they considered lower risk (since they more commonly use parameterized constructs)?\n3. **CVSS discrepancy for CVE-2019-7548:** CVSS v3 scores it as local access (AV:L, 7.8) while CVSS v4 scores it as network-accessible (AV:N, 9.3). The network vector seems more realistic for a web-facing ORM. Which scoring reflects actual exploitability?\n4. **EOL status of 1.2.x:** Is the 1"
+      },
+      "finish_reason": "max_tokens"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5598,
+    "completion_tokens": 1200,
+    "total_tokens": 6798
+  }
+}

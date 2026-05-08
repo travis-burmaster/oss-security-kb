@@ -1,0 +1,366 @@
+
+### https://docs.sqlalchemy.org/en/13/changelog/changelog_12.html
+
+--- term 4510 ---
+ BY” in PostgreSQL table definitions,
+using “postgresql_partition_by”.  Pull request courtesy
+Vsevolod Solovyov. 
+  
+ 
+ 
+ 
+ 
+ 
+ mssql ¶  
+ 
+    [mssql] [bug]   ¶   Adjusted the SQL Server version detection for pyodbc to only allow for
+numeric tokens, filtering out non-integers, since the dialect does tuple-
+numeric comparisons with this value.  This is normally true for all known
+SQL Server / pyodbc drivers in any case. 
+ References:  #4227  
+ 
+ 
+ 
+ 
+ 
+ oracle ¶  
+ 
+    [oracle] [bug]   ¶   The minimum cx_Oracle version supported is 5.2 (June 2015).  Previously,
+the dialect asserted against version 5.0 but as of 1.2.2 we are using some
+symbols that did not appear until 5.2. 
+ References:  #4211  
+ 
+ 
+ 
+ 
+ 
+ misc ¶  
+ 
+    [bug] [declarative]   ¶   Removed a warning that would be emitted when calling upon
+  __table_args__  ,   __mapper_args__   as named with a   &#64;declared_attr  
+method, when called from a non-mapped declarative mixin.  Calling these
+directly is documented as the approach to use when one is overriding one
+of these methods on a mapped class.  The warning still emits for regular
+attribute names. 
+ References:  #4221  
+ 
+ 
+ 
+ 
+ 
+ 
+ 1.2.5 ¶  
+Released: March 6, 2018 
+ orm ¶  
+ 
+    [orm] [feature]  <a class="changelog-reference headerlink reference internal" href="#cha
+
+--- term order_by ---
+ternal" href="http://www.sqlalchemy.org/trac/ticket/4352">#4352  
+ 
+ 
+ 
+ 
+ 
+ sql ¶  
+ 
+    [sql] [feature]   ¶   Refactored    SQLCompiler    to expose a
+   SQLCompiler.group_by_clause()    method similar to the
+   SQLCompiler.order_by_clause()    and   SQLCompiler.limit_clause()  
+methods, which can be overridden by dialects to customize how GROUP BY
+renders.  Pull request courtesy Samuel Chou. 
+  
+ 
+ 
+    [sql] [bug]   ¶   Fixed bug where the    Enum.create_constraint    flag on  the
+   Enum    datatype would not be propagated to copies of the type, which
+affects use cases such as declarative mixins and abstract bases. 
+ References:  #4341  
+ 
+ 
+ 
+ 
+ 
+ postgresql ¶  
+ 
+    [postgresql] [bug]   ¶   Added support for the   <sp
+
+--- term group_by ---
+e class="xref py py-class docutils literal notranslate"> Column   
+that is also a primary key column.  Previously, a check for primary key
+columns declared on a single-inheritance subclass would occur before the
+column copy were allowed to pass. 
+ References:  #4352  
+ 
+ 
+ 
+ 
+ 
+ sql ¶  
+ 
+    [sql] [feature]   ¶   Refactored    SQLCompiler    to expose a
+   SQLCompiler.group_by_clause()    method similar to the
+   SQLCompiler.order_by_clause()    and   SQLCompiler.limit_clause()  
+methods, which can be overridden by dialects to customize how GROUP BY
+renders.  Pull request courtesy Samuel Chou. 
+  
+ 
+ 
+    [sql] [bug]   ¶   Fixed bug where the    Enum.create_constraint    flag on  the
+   Enum    datatype would not be propagated to copies of the type, which
+affects use cases such as declarative mixins and abstract bases. 
+ References:  #4341  
+ 
+ 
+ 
+ 
+ 
+ postgresql ¶  
+ 
+    [postgresql] [bug]  <a class="changelog-reference headerlink reference internal" hr
+
+--- term textual ---
+" title="sqlalchemy.engine.default.DefaultExecutionContext.get_current_parameters">  DefaultExecutionContext.get_current_parameters()   
+which is used within a function-based default value generator in
+order to retrieve the current parameters being passed to the statement.
+The new function differs from the
+   DefaultExecutionContext.current_parameters    attribute in
+that it also provides for optional grouping of parameters that
+correspond to a multi-valued “insert” construct.  Previously it was not
+possible to identify the subset of parameters that were relevant to
+the function call. 
+ 
+ See also 
+   Parameter helper for multi-valued INSERT with contextual default generator   
+   Context-Sensitive Default Functions   
+ 
+ References:  #4075  
+ 
+ 
+    [sql] [bug]   ¶   Fixed bug in new SQL comments feature where table and column comment
+would not be copied when using    Table.tometadata()   . 
+ References:  #4087  
+ 
+ 
+    [sql] [bug]   ¶   In release 1.1, the    Boolean    type was broken in that
+boolean coercion via   bool()   would occur for backends that did not
+feature “native boolean”, but would not occur for native boolean backends,
+meaning the string   &quot;0&quot;   now behaved inconsistently. After a poll, a
+consensus was reached that non-boolean values should be raising an error,
+especially in the ambiguous case of string   &quot;0&quot;  ; so the <a class="r
+
+### https://docs.sqlalchemy.org/en/13/changelog/changelog_13.html
+
+--- term 4481 ---
+ctinload loader strategy caused by  #4775 
+(released in version 1.3.6) where a many-to-one attribute of None would no
+longer be populated by the loader.  While this was usually not noticeable
+due to the lazyloader populating None upon get, it would lead to a detached
+instance error if the object were detached. 
+ References:  #4872  
+ 
+ 
+    [orm] [bug]   ¶   Passing a plain string expression to    Session.query()    is deprecated,
+as all string coercions were removed in  #4481  and this one should
+have been included.   The    literal_column()    function may be used to
+produce a textual column expression. 
+ References:  #4873  
+ 
+ 
+    [orm] [bug]   ¶   A warning is emitted for a condition in which the    Session    may
+implicitly swap an object out of the identity map for another one with the
+same primary key, detaching the old one, which can be an observed result of
+load operations which occur within the    SessionEvents.after_flush()   
+hook.  The warning is intended to notify the user that some special
+condition has caused this to happen and that the previous object may not be
+in the expected state. 
+ References:  #4890  
+ 
+ 
+ 
+ 
+ 
+ engine ¶  
+ 
+    [engine] [usecase]  <a class="changelog-reference headerlink reference interna
+
+--- term order_by ---
+    Sequence    being associated
+with more than one    Table    at a time. 
+ References:  #6071  
+ 
+ 
+ 
+ 
+ 
+ postgresql ¶  
+ 
+    [postgresql] [bug]   ¶   Fixed issue where using    aggregate_order_by    would
+return ARRAY(NullType) under certain conditions, interfering with
+the ability of the result object to return data correctly. 
+ References:  #5989  
+ 
+ 
+    [postgresql] [bug] [reflection]   ¶   Fixed issue in PostgreSQL reflection where a column expressing “NOT NULL”
+will supersede the nullability of a corresponding domain. 
+ References:  #6161  
+ 
+ 
+    [postgresql] [bug] [types]   ¶   Adjusted the psycopg2 dialect to emit an explicit PostgreSQL-style cast for
+bound parameters that contain ARRAY elements. This allows the full range of
+datatypes to function correctly within arrays. The asyncpg dialect already
+generated these internal casts in the final statement. This also includes
+support for array slice updates as well as the PostgreSQL-specific
+  ARRAY.contains()   method. 
+ References:  #6023  
+ 
+ 
+ 
+ 
+ 
+ mssql ¶  
+ 
+    [mssql] [bug] [reflection]  <a class="
+
+--- term group_by ---
+ against a target
+many-to-one relationship where an object with the correct primary key is
+present, however it’s an instance of a sibling class, does not correctly
+return None as is the case when the lazy loader actually emits a load for
+that row. 
+ References:  #5210  
+ 
+ 
+    [orm] [performance]   ¶   Modified the queries used by subqueryload and selectinload to no longer
+ORDER BY the primary key of the parent entity;  this ordering was there to
+allow the rows as they come in to be copied into lists directly with a
+minimal level of Python-side collation.   However, these ORDER BY clauses
+can negatively impact the performance of the query as in many scenarios
+these columns are derived from a subquery or are otherwise not actual
+primary key columns such that SQL planners cannot make use of indexes. The
+Python-side collation uses the native itertools.group_by() to collate the
+incoming rows, and has been modified to allow multiple
+row-groups-per-parent to be assembled together using list.extend(), which
+should still allow for relatively fast Python-side performance.  There will
+still be an ORDER BY present for a relationship that includes an explicit
+order_by parameter, however this is the only ORDER BY that will be added to
+the query for both kinds of loading. 
+ References:  #5162  
+ 
+ 
+ 
+ 
+ 
+ orm declarative ¶  
+ 
+    [orm] [declarative] [bug]   ¶   The string argument accepted as the first positional argument by the
+   relationship()    function when using the Declarative API is no longer
+interpreted using the Python   eval()   function; instead, the name is dot
+separated and the names are looked up directly in the name resolution
+dictionary without treating the value as a Python expression.  However,
+passing a string argument to the other    relationship()    parameters
+that necessarily must accept Python expressions will still use   eval()  ;
+the documentation has been clarified to ensure that there is no ambiguity
+that this is in use.
+
+--- term textual ---
+29b3ea2cd1418ca86e">¶   Fixed deprecation warnings that arose as a result of the release of PyMySQL
+1.0, including deprecation warnings for the “db” and “passwd” parameters
+now replaced with “database” and “password”. 
+ References:  #5821  
+ 
+ 
+    [mysql] [bug]   ¶   Fixed regression from SQLAlchemy 1.3.20 caused by the fix for
+ #5462  which adds double-parenthesis for MySQL functional
+expressions in indexes, as is required by the backend, this inadvertently
+extended to include arbitrary    text()    expressions as well as
+Alembic’s internal textual component,  which are required by Alembic for
+arbitrary index expressions which don’t imply double parenthesis.  The
+check has been narrowed to include only binary/ unary/functional
+expressions directly. 
+ References:  #5800  
+ 
+ 
+ 
+ 
+ 
+ oracle ¶  
+ 
+    [oracle] [bug]   ¶   Fixed regression in Oracle dialect introduced by  #4894  in
+SQLAlchemy 1.3.11 where use of a SQL expression in RETURNING for an UPDATE
+would fail to compile, due to a check for “server_default” when an
+arbitrary SQL expression is not a column. 
+ References:  #5813  
+ 
+ 
+    [oracle] [bug]   ¶   Fixed bug in Oracle dialect where retriving a CLOB/BLOB column via
+   Insert.returning()    would fail as the LOB value would need to be
+read when returned; additionally, repaired support for retrieval of Unicode
+values via RETURNING under Python 2. 
+ References:  #5812  
+ 
+ 
+ 
+ 
+ 
+ misc<a class="headerlink" href="#change-1.
+
+### https://docs.sqlalchemy.org/en/13/changelog/changelog_07.html
+
+--- term order_by ---
+eference internal" href="#change-7a5dc641918acd3079fdf695b99feac6">¶   Fixed the repr() of Enum to include
+the “name” and “native_enum” flags.  Helps
+Alembic autogenerate. 
+  
+ 
+ 
+ 
+ 
+ 
+ sql ¶  
+ 
+    [sql] [bug]   ¶   Fixed the DropIndex construct to support
+an Index associated with a Table in a remote
+schema. 
+ References:  #2571  
+ 
+ 
+    [sql] [bug]   ¶   Fixed bug in over() construct whereby
+passing an empty list for either partition_by
+or order_by, as opposed to None, would fail
+to generate correctly.
+Courtesy Gunnlaugur Þór Briem. 
+ References:  #2574  
+ 
+ 
+    [sql] [bug]   ¶   Fixed CTE bug whereby positional
+bound parameters present in the CTEs themselves
+would corrupt the overall ordering of
+bound parameters.  This primarily
+affected SQL Server as the platform with
+positional binds + CTE support. 
+ References:  #2521  
+ 
+ 
+    [sql] [bug]   ¶   Fixed more un-intuitivenesses in CTEs
+which prevented referring to a CTE in a union
+of itself without it being aliased.
+CTEs now render uniquely
+on name, rendering the outermost CTE of a given
+name only - all other references are rendered
+just as the name.   This even includes other
+CTE/SELECTs that refer to different versions
+of the same CTE object, such as a SELECT
+or a UNION ALL of that SELECT. We are
+somewhat loosening the usual link between object
+identity and lexical identity in this case.
+A true name conflict between two unrelated
+CTEs now raises an error. 
+  
+ 
+ 
+    [sql] [bug]   ¶   quoting is applied to the column names
+inside the WITH RECURSIVE clause of a
+common table expression according to the
+quoting rules for the originating Column. 
+ References: <a class="reference external" href="http://www.sqlalchemy.org/trac/tic
