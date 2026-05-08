@@ -1,0 +1,113 @@
+Pillow OSV package query returned 118 records, including duplicate aliases/PYSEC records and OSS-Fuzz records.
+
+ID: GHSA-3f63-hfp8-52jq
+Aliases: BIT-pillow-2023-50447, CVE-2023-50447
+Severity: CRITICAL
+Summary: Arbitrary Code Execution in Pillow
+Fixed: 10.2.0
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2023-50447 ; https://pillow.readthedocs.io/en/stable/releasenotes/10.2.0.html#security
+Details: Pillow through 10.1.0 allows PIL.ImageMath.eval Arbitrary Code Execution via the environment parameter, a different vulnerability than CVE-2022-22817 (which was about the expression parameter).
+
+ID: GHSA-44wm-f244-xhp3
+Aliases: BIT-pillow-2024-28219, CVE-2024-28219
+Severity: HIGH
+Summary: Pillow buffer overflow vulnerability
+Fixed: 10.3.0
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2024-28219 ; https://pillow.readthedocs.io/en/stable/releasenotes/10.3.0.html#security
+Details: In _imagingcms.c in Pillow before 10.3.0, a buffer overflow exists because strcpy is used instead of strncpy.
+
+ID: GHSA-7534-mm45-c74v
+Aliases: BIT-pillow-2021-34552, CVE-2021-34552, PYSEC-2021-331
+Severity: CRITICAL
+Summary: Buffer Overflow in Pillow
+Fixed: 8.3.0
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2021-34552 ; https://github.com/advisories/GHSA-7534-mm45-c74v ; https://pillow.readthedocs.io/en/stable/releasenotes/8.3.0.html#buffer-overflow ; https://pillow.readthedocs.io/en/stable/releasenotes/index.html
+Details: Pillow through 8.2.0 and PIL (aka Python Imaging Library) through 1.1.7 allow an attacker to pass controlled parameters directly into a convert function to trigger a buffer overflow in Convert.c.
+
+ID: GHSA-8ghj-p4vj-mr35
+Aliases: BIT-pillow-2023-44271, CVE-2023-44271, PYSEC-2023-227
+Severity: HIGH
+Summary: Pillow Denial of Service vulnerability
+Fixed: 10.0.0
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2023-44271
+Details: An issue was discovered in Pillow before 10.0.0. It is a Denial of Service that uncontrollably allocates memory to process a given task, potentially causing a service to crash by having it run out of memory. This occurs for truetype in ImageFont when textlength in an ImageDraw instance operates on a long text argument.
+
+ID: GHSA-8m9x-pxwq-j236
+Aliases: CVE-2014-3007, PYSEC-2014-87
+Severity: CRITICAL
+Summary: Pillow command injection
+Fixed: 2.5.0
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2014-3007
+Details: Python Image Library (PIL) 1.1.7 and earlier and Pillow before 2.5.0 might allow remote attackers to execute arbitrary commands via shell metacharacters in unspecified vectors related to CVE-2014-1932, possibly JpegImagePlugin.py.
+
+ID: GHSA-8vj2-vxx3-667w
+Aliases: BIT-pillow-2022-22817, CVE-2022-22817, PYSEC-2022-10
+Severity: CRITICAL
+Summary: Arbitrary expression injection in Pillow
+Fixed: 9.0.1
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2022-22817 ; https://github.com/advisories/GHSA-8vj2-vxx3-667w ; https://pillow.readthedocs.io/en/stable/releasenotes/9.0.0.html#restrict-builtins-available-to-imagemath-eval ; https://pillow.readthedocs.io/en/stable/releasenotes/9.0.1.html#security
+Details: `PIL.ImageMath.eval` in Pillow before 9.0.0 allows evaluation of arbitrary expressions, such as ones that use the Python exec method `ImageMath.eval("exec(exit())")`.  While Pillow 9.0.0 restricted top-level builtins available to PIL.ImageMath.eval(), it did not prevent builtins available to lambda expressions. These are now also restricted in 9.0.1.
+
+ID: GHSA-98vv-pw6r-q6q4
+Aliases: BIT-pillow-2021-23437, CVE-2021-23437, PYSEC-2021-317, SNYK-PYTHON-PILLOW-1319443
+Severity: HIGH
+Summary: Uncontrolled Resource Consumption in pillow
+Fixed: 8.3.2
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2021-23437 ; https://github.com/advisories/GHSA-98vv-pw6r-q6q4 ; https://pillow.readthedocs.io/en/stable/releasenotes/8.3.2.html
+Details: The package pillow 5.2.0 and before 8.3.2 are vulnerable to Regular Expression Denial of Service (ReDoS) via the getrgb function.
+
+ID: GHSA-9j59-75qj-795w
+Aliases: BIT-pillow-2022-24303, CVE-2022-24303, PYSEC-2022-168
+Severity: HIGH
+Summary: Path traversal in Pillow
+Fixed: 9.0.1
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2022-24303 ; https://github.com/advisories/GHSA-9j59-75qj-795w ; https://pillow.readthedocs.io/en/stable/releasenotes/9.0.1.html#security
+Details: Pillow before 9.0.1 allows attackers to delete files because spaces in temporary pathnames are mishandled.
+
+ID: GHSA-cfh3-3jmp-rvhc
+Aliases: BIT-pillow-2026-25990, CVE-2026-25990
+Severity: HIGH
+Summary: Pillow affected by out-of-bounds write when loading PSD images
+Fixed: 12.1.1
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2026-25990 ; https://pillow.readthedocs.io/en/stable/releasenotes/12.1.1.html
+Details: ### Impact An out-of-bounds write may be triggered when loading a specially crafted PSD image. Pillow >= 10.3.0 users are affected.  ### Patches Pillow 12.1.1 will be released shortly with a fix for this.  ### Workarounds `Image.open()` has a `formats` parameter that can be used to prevent PSD images from being opened.  ### References Pillow 12.1.1 will add release notes at https://pillow.readthedocs.io/en/stable/releasenotes/index.html
+
+ID: GHSA-pwv6-vv43-88gr
+Aliases: CVE-2026-42311, ECHO-4895-da6a-8b1f
+Severity: HIGH
+Summary: Pillow has an OOB Write with Invalid PSD Tile Extents (Integer Overflow)
+Fixed: 12.2.0
+Refs: 
+Details: ### Impact Processing a malicious PSD file could lead to memory corruption, potentially resulting in a crash or arbitrary code execution.  ### Patches Patched version: 12.2.0  Pillow 12.1.1 addressed CVE-2026-25990 by adding checks for tile extents in PSD image decoding/encoding to prevent an out-of-bounds write. However, the bounds checks computed tile extent sums using types susceptible to integer overflow, meaning a PSD image with carefully chosen tile dimensions could produce values that wra
+
+ID: GHSA-r73j-pqj5-w3x7
+Aliases: CVE-2026-42310
+Severity: MODERATE
+Summary: Pillow has a PDF Parsing Trailer Infinite Loop (DoS)
+Fixed: 12.2.0
+Refs: 
+Details: ### Impact An attacker can supply a malicious PDF that causes the process to hang indefinitely, consuming 100% CPU and making the application unresponsive.  ### Patches Patched version: 12.2.0.  PdfParser (introduced in Pillow 4.2.0) follows Prev pointers in PDF trailers to read cross-reference sections. If a trailer's Prev pointer references an offset that has already been processed — either pointing to itself or forming a longer cycle — the parser enters an infinite loop. Pillow now tracks pre
+
+ID: GHSA-whj4-6x5x-4v2j
+Aliases: BIT-pillow-2026-40192, CVE-2026-40192, ECHO-1c52-724c-58ad
+Severity: HIGH
+Summary: FITS GZIP decompression bomb in Pillow
+Fixed: 12.2.0
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2026-40192 ; https://pillow.readthedocs.io/en/stable/releasenotes/12.2.0.html#prevent-fits-decompression-bomb
+Details: ### Impact Pillow did not limit the amount of GZIP-compressed data read when decoding a FITS image, making it vulnerable to decompression bomb attacks. A specially crafted FITS file could cause unbounded memory consumption, leading to denial of service (OOM crash or severe performance degradation).  ### Patches The amount of data read is now limited to the necessary amount. Fixed in Pillow 12.2.0 (PR #9521).  ### Workarounds Avoid Pillow >= 10.3.0, < 12.2.0 Only open [specific image formats](htt
+
+ID: GHSA-x895-2wrm-hvp7
+Aliases: CVE-2014-1932, PYSEC-2014-22
+Severity: HIGH
+Summary: PIL and Pillow Vulnerable to Symlink Attack on Tmpfiles
+Fixed: 2.3.1
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2014-1932
+Details: The (1) `load_djpeg` function in `JpegImagePlugin.py`, (2) `Ghostscript` function in `EpsImagePlugin.py`, (3) `load` function in `IptcImagePlugin.py`, and (4) `_copy` function in `Image.py` in Python Image Library (PIL) 1.1.7 and earlier and Pillow before 2.3.1 do not properly create temporary files, which allow local users to overwrite arbitrary files and obtain sensitive information via a symlink attack on the temporary file.
+
+ID: GHSA-xg8h-j46f-w952
+Aliases: BIT-pillow-2025-48379, CVE-2025-48379, PYSEC-2025-61
+Severity: HIGH
+Summary: Pillow vulnerability can cause write buffer overflow on BCn encoding
+Fixed: 11.3.0
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2025-48379
+Details: There is a heap buffer overflow when writing a sufficiently large (>64k encoded with default settings) image in the DDS format due to writing into a buffer without checking for available space.   This only affects users who save untrusted data as a compressed DDS image.   * Unclear how large the potential write could be. It is likely limited by process segfault, so it's not necessarily deterministic. It may be practically unbounded.  * Unclear if there's a restriction on the bytes that could be 
