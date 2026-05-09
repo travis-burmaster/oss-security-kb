@@ -18,3 +18,4 @@
 - [[python/sqlalchemy]] — Python SQL toolkit / ORM · advisory mapped · compact but critical SQL-injection history around unsafe textual coercion in SQL construction APIs
 - [[python/pydantic]] — Python data-validation library · advisory mapped · compact DoS history in date / datetime and email-validation boundaries
 - [[python/celery]] — distributed task queue · advisory mapped · result-backend metadata command-injection and legacy worker privilege-dropping history
+- [[python/twisted]] — event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
