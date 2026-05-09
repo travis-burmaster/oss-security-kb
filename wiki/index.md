@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*135 tracked pages across 9 ecosystems. Last updated: 2026-05-09.*
+*137 tracked pages across 9 ecosystems. Last updated: 2026-05-09.*
 
-## npm (88)
+## npm (89)
 
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing / prototype-pollution gadget history plus 2026 supply-chain compromise
 - [[npm/ajv]] — JSON Schema validator · advisory mapped · prototype-pollution and `$data` / pattern ReDoS history across 6.x and 8.x
@@ -55,6 +55,7 @@
 - [[npm/jsonwebtoken]] — token verification library · advisory mapped · verification-semantic and key-confusion history
 - [[npm/js-yaml]] — YAML parser · audit ingested · historical RCE plus disputed 2026 alias-expansion DoS finding
 - [[npm/serialize-javascript]] — JavaScript serialization helper · advisory mapped · repeated browser/SSR injection history plus 2026 CPU-exhaustion DoS
+- [[npm/koa]] — Koa web framework · advisory mapped · ReDoS, redirect-helper XSS, open-redirect, and host-header injection history through 2.16.2 / 3.1.2
 - [[npm/koa-router]] — Koa routing middleware · audit ingested · 2026 v15.4.0 source review, prefix-strip boundary bug filed as koajs/router#232
 - [[npm/loader-utils]] — webpack ecosystem utility · advisory mapped · 2022 ReDoS pair plus prototype-pollution fixes across 1.x, 2.x, and 3.x
 - [[npm/lodash]] — lodash utility library · advisory mapped · prototype pollution, ReDoS, and template-injection history
@@ -93,7 +94,8 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (4)
+## Rust / crates.io (5)
+- [[rust/h2]] — HTTP/2 implementation · advisory mapped · resource-exhaustion / DoS history through 0.3.26 / 0.4.4
 - [[rust/hyper]] — foundational Rust HTTP implementation · advisory mapped · HTTP/1 parser/request-smuggling, header-injection, TLS hostname-verification, and parser soundness history
 - [[rust/serde]] — foundational serialization framework · baseline stub · no direct package-scoped OSV / RustSec advisory confirmed in this pass, but very high ecosystem blast radius
 - [[rust/serde_yaml_ng]] — active fork of archived serde_yaml · audit ingested · YAML 1.2 Core schema signed non-decimal integer parsing gap filed as acatton/serde-yaml-ng#32
