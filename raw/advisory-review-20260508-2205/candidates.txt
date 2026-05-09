@@ -1,0 +1,4 @@
+Reviewed candidates at 2026-05-09T03:05:39Z
+- PyPI django: high-usage Python web framework; missing KB page; dense public security release history. Selected for substantive update.
+- PyPI twisted: high-usage async networking framework; missing KB page; future candidate.
+- Maven org.springframework:spring-core: high-usage framework package; missing KB page; future candidate.

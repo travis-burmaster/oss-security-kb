@@ -1,0 +1,41 @@
+# OSS Security KB — Proposed Page: Django (PyPI)
+
+---
+
+## 1. Recommended KB Status Line
+
+**Package:** `django` (PyPI)
+**Ecosystem:** Python / PyPI
+**Repository:** https://github.com/django/django
+**KB Status:** **ADD — High Priority.** Django is one of the most widely depended-upon PyPI packages, has a mature but continuously active vulnerability history (≥275 unique OSV records), and is currently absent from the KB. Omission represents a significant coverage gap.
+
+---
+
+## 2. Representative Vulnerability Classes & Evidence Rows
+
+The following rows are drawn from the provided GitHub Advisory Database records and cross-referenced with Django's own security release archive. They are selected to cover the breadth of recurring vulnerability classes rather than to be exhaustive.
+
+| # | CVE | GHSA | Vulnerability Class | Severity | Summary | Approx. Disclosure | Source(s) |
+|---|-----|------|---------------------|----------|---------|---------------------|-----------|
+| 1 | CVE-2025-64459 | GHSA-frmv-pr5f-9mcr | **SQL Injection** | Critical | SQL injection via `_connector` keyword argument in `QuerySet`/`Q` objects | 2025-11 | GHSA, OSV |
+| 2 | CVE-2024-42005 | GHSA-pv4p-cwwg-4rph | **SQL Injection** | Critical | SQL injection vulnerability (unspecified ORM path) | 2024-08 | GHSA, OSV |
+| 3 | CVE-2024-53908 | GHSA-m9g8-fxxm-xg86 | **SQL Injection** (backend-specific) | High | SQL injection in `HasKey(lhs, rhs)` on Oracle | 2024-12 | GHSA, OSV |
+| 4 | CVE-2026-1287 | GHSA-gvg8-93h5-g6qq | **SQL Injection** | High | SQL injection issue (2026 batch) | 2026-02 | GHSA |
+| 5 | CVE-2026-3902 | GHSA-mvfq-ggxm-9mc5 | **Header Spoofing / Request Smuggling** | High | ASGI header spoofing via underscore/hyphen conflation | 2026-04 | GHSA |
+| 6 | CVE-2026-33034 | GHSA-933h-hp56-hf7m | **Resource Limit Bypass** | High | Missing/understated `Content-Length` bypasses `DATA_UPLOAD_MAX_MEMORY_SIZE` | 2026-04 | GHSA |
+| 7 | CVE-2025-32873 | GHSA-8j24-cjrq-gr2m | **Denial of Service** (ReDoS / algorithmic) | Medium | DoS via `strip_tags()` | 2025-05 | GHSA, OSV |
+| 8 | CVE-2025-48432 | GHSA-7xr5-9hcq-chf9 | **Log Injection / Output Neutralization** | Medium | Improper output neutralization for logs | 2025-06 | GHSA |
+| 9 | CVE-2024-45231 | GHSA-rrqc-c2jx-6jgv | **Information Disclosure / User Enumeration** | Medium | Enumeration of user e-mail addresses via password-reset | 2024-10 | GHSA, OSV |
+| 10 | CVE-2026-25674 | GHSA-mjgh-79qc-68w3 | **Race Condition** | Low | Race condition (details per advisory) | 2026-03 | GHSA |
+| 11 | CVE-2025-13473 | GHSA-2mcm-79hx-8fxw | **Timing Side-Channel** | Low | Observable timing discrepancy (authentication path) | 2025–2026 | GHSA |
+| 12 | CVE-2025-59682 | GHSA-q95w-c7qg-hrff | **Directory / Path Traversal** | Low | Partial directory traversal via archive extraction | 2025-10 | GHSA |
+
+### Dominant Vulnerability Class Distribution (from 40-record sample)
+
+| Class | Count in Sample | Typical Severity |
+|-------|-----------------|------------------|
+| SQL Injection | 8 | High–Critical |
+| Denial of Service (algorithmic complexity, resource exhaustion) | 8 | Medium–High |
+| Privilege / Access-Control Abuse (admin) | 3 | Low |
+| Information Disclosure / Enumeration | 3 | Low–Medium |
+| Header Spoofing / Request Handling | 2 |

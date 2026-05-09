@@ -1,0 +1,333 @@
+Review the gathered public evidence and propose evidence-backed OSS Security KB updates for the missing PyPI Django page. Do not fabricate findings. Do not include exploit steps. Synthesize into a concise package-page outline with representative vulnerability classes, evidence rows, and posture notes.
+
+Candidate context: Django is missing from the KB; Twisted and Spring Core were screened as future candidates.
+
+OSV unique records count: 275.
+Recent GitHub Advisory Database records (first 40):
+[
+  {
+    "ghsa_id": "GHSA-w26r-rmm8-9c29",
+    "cve_id": "CVE-2026-5766",
+    "severity": "medium",
+    "summary": "Django has an Improper Handling of Length Parameter Inconsistency",
+    "published_at": "2026-05-05T18:33:26Z",
+    "updated_at": "2026-05-08T22:14:39Z",
+    "html_url": "https://github.com/advisories/GHSA-w26r-rmm8-9c29"
+  },
+  {
+    "ghsa_id": "GHSA-5hrc-gvxj-w55p",
+    "cve_id": "CVE-2026-6907",
+    "severity": "low",
+    "summary": "Django Uses Cache Containing Sensitive Information",
+    "published_at": "2026-05-05T18:33:26Z",
+    "updated_at": "2026-05-08T22:15:18Z",
+    "html_url": "https://github.com/advisories/GHSA-5hrc-gvxj-w55p"
+  },
+  {
+    "ghsa_id": "GHSA-7h2m-m8vj-598h",
+    "cve_id": "CVE-2026-35192",
+    "severity": "low",
+    "summary": "Django Uses Persistent Cookies Containing Sensitive Information ",
+    "published_at": "2026-05-05T18:33:24Z",
+    "updated_at": "2026-05-08T22:14:09Z",
+    "html_url": "https://github.com/advisories/GHSA-7h2m-m8vj-598h"
+  },
+  {
+    "ghsa_id": "GHSA-pwjp-ccjc-ghwg",
+    "cve_id": "CVE-2026-4277",
+    "severity": "low",
+    "summary": "Django vulnerable to privilege abuse in GenericInlineModelAdmin",
+    "published_at": "2026-04-07T15:30:52Z",
+    "updated_at": "2026-04-08T15:40:16Z",
+    "html_url": "https://github.com/advisories/GHSA-pwjp-ccjc-ghwg"
+  },
+  {
+    "ghsa_id": "GHSA-mvfq-ggxm-9mc5",
+    "cve_id": "CVE-2026-3902",
+    "severity": "high",
+    "summary": "Django vulnerable to ASGI header spoofing via underscore/hyphen conflation",
+    "published_at": "2026-04-07T15:30:52Z",
+    "updated_at": "2026-04-08T15:39:56Z",
+    "html_url": "https://github.com/advisories/GHSA-mvfq-ggxm-9mc5"
+  },
+  {
+    "ghsa_id": "GHSA-mmwr-2jhp-mc7j",
+    "cve_id": "CVE-2026-4292",
+    "severity": "low",
+    "summary": "Django vulnerable to privilege abuse in ModelAdmin.list_editable",
+    "published_at": "2026-04-07T15:30:52Z",
+    "updated_at": "2026-04-08T15:40:26Z",
+    "html_url": "https://github.com/advisories/GHSA-mmwr-2jhp-mc7j"
+  },
+  {
+    "ghsa_id": "GHSA-933h-hp56-hf7m",
+    "cve_id": "CVE-2026-33034",
+    "severity": "high",
+    "summary": "Django: SGI requests with a missing or understated `Content-Length` header could bypass the `DATA_UPLOAD_MAX_MEMORY_SIZE` limit",
+    "published_at": "2026-04-07T15:30:51Z",
+    "updated_at": "2026-04-08T15:29:10Z",
+    "html_url": "https://github.com/advisories/GHSA-933h-hp56-hf7m"
+  },
+  {
+    "ghsa_id": "GHSA-5mf9-h53q-7mhq",
+    "cve_id": "CVE-2026-33033",
+    "severity": "medium",
+    "summary": "Django has potential DoS via MultiPartParser through crafted multipart uploads",
+    "published_at": "2026-04-07T15:30:51Z",
+    "updated_at": "2026-04-08T15:29:18Z",
+    "html_url": "https://github.com/advisories/GHSA-5mf9-h53q-7mhq"
+  },
+  {
+    "ghsa_id": "GHSA-8p8v-wh79-9r56",
+    "cve_id": "CVE-2026-25673",
+    "severity": "high",
+    "summary": "Django vulnerable to Uncontrolled Resource Consumption",
+    "published_at": "2026-03-03T15:31:41Z",
+    "updated_at": "2026-03-05T20:31:31Z",
+    "html_url": "https://github.com/advisories/GHSA-8p8v-wh79-9r56"
+  },
+  {
+    "ghsa_id": "GHSA-mjgh-79qc-68w3",
+    "cve_id": "CVE-2026-25674",
+    "severity": "low",
+    "summary": "Django has a Race Condition vulnerability",
+    "published_at": "2026-03-03T15:31:41Z",
+    "updated_at": "2026-03-04T20:24:31Z",
+    "html_url": "https://github.com/advisories/GHSA-mjgh-79qc-68w3"
+  },
+  {
+    "ghsa_id": "GHSA-6426-9fv3-65x8",
+    "cve_id": "CVE-2026-1312",
+    "severity": "medium",
+    "summary": "Django has an SQL Injection issue",
+    "published_at": "2026-02-03T15:30:24Z",
+    "updated_at": "2026-02-13T19:55:26Z",
+    "html_url": "https://github.com/advisories/GHSA-6426-9fv3-65x8"
+  },
+  {
+    "ghsa_id": "GHSA-gvg8-93h5-g6qq",
+    "cve_id": "CVE-2026-1287",
+    "severity": "high",
+    "summary": "Django has an SQL Injection issue",
+    "published_at": "2026-02-03T15:30:24Z",
+    "updated_at": "2026-02-03T19:34:25Z",
+    "html_url": "https://github.com/advisories/GHSA-gvg8-93h5-g6qq"
+  },
+  {
+    "ghsa_id": "GHSA-mwm9-4648-f68q",
+    "cve_id": "CVE-2026-1207",
+    "severity": "high",
+    "summary": "Django has an SQL Injection issue",
+    "published_at": "2026-02-03T15:30:23Z",
+    "updated_at": "2026-02-03T19:32:57Z",
+    "html_url": "https://github.com/advisories/GHSA-mwm9-4648-f68q"
+  },
+  {
+    "ghsa_id": "GHSA-4rrr-2h4v-f3j9",
+    "cve_id": "CVE-2026-1285",
+    "severity": "low",
+    "summary": "Django has Inefficient Algorithmic Complexity",
+    "published_at": "2026-02-03T15:30:23Z",
+    "updated_at": "2026-02-03T19:31:19Z",
+    "html_url": "https://github.com/advisories/GHSA-4rrr-2h4v-f3j9"
+  },
+  {
+    "ghsa_id": "GHSA-33mw-q7rj-mjwj",
+    "cve_id": "CVE-2025-14550",
+    "severity": "low",
+    "summary": "Django has Inefficient Algorithmic Complexity",
+    "published_at": "2026-02-03T15:30:23Z",
+    "updated_at": "2026-02-03T19:29:48Z",
+    "html_url": "https://github.com/advisories/GHSA-33mw-q7rj-mjwj"
+  },
+  {
+    "ghsa_id": "GHSA-2mcm-79hx-8fxw",
+    "cve_id": "CVE-2025-13473",
+    "severity": "low",
+    "summary": "Django has Observable Timing Discrepancy",
+    "published_at": "2026-02-03T15:30:23Z",
+    "updated_at": "2026-02-03T19:22:56Z",
+    "html_url": "https://github.com/advisories/GHSA-2mcm-79hx-8fxw"
+  },
+  {
+    "ghsa_id": "GHSA-vrcr-9hj9-jcg6",
+    "cve_id": "CVE-2025-64460",
+    "severity": "medium",
+    "summary": "Django is vulnerable to DoS via XML serializer text extraction",
+    "published_at": "2025-12-02T18:30:35Z",
+    "updated_at": "2025-12-03T16:59:03Z",
+    "html_url": "https://github.com/advisories/GHSA-vrcr-9hj9-jcg6"
+  },
+  {
+    "ghsa_id": "GHSA-rqw2-ghq9-44m7",
+    "cve_id": "CVE-2025-13372",
+    "severity": "medium",
+    "summary": "Django is vulnerable to SQL injection in column aliases",
+    "published_at": "2025-12-02T18:30:35Z",
+    "updated_at": "2025-12-03T14:07:28Z",
+    "html_url": "https://github.com/advisories/GHSA-rqw2-ghq9-44m7"
+  },
+  {
+    "ghsa_id": "GHSA-qw25-v68c-qjf3",
+    "cve_id": "CVE-2025-64458",
+    "severity": "high",
+    "summary": "Django has a denial-of-service vulnerability in HttpResponseRedirect and HttpResponsePermanentRedirect on Windows",
+    "published_at": "2025-11-05T15:31:07Z",
+    "updated_at": "2025-11-05T19:55:40Z",
+    "html_url": "https://github.com/advisories/GHSA-qw25-v68c-qjf3"
+  },
+  {
+    "ghsa_id": "GHSA-frmv-pr5f-9mcr",
+    "cve_id": "CVE-2025-64459",
+    "severity": "critical",
+    "summary": "Django vulnerable to SQL injection via _connector keyword argument in QuerySet and Q objects.",
+    "published_at": "2025-11-05T15:31:07Z",
+    "updated_at": "2025-11-27T08:50:20Z",
+    "html_url": "https://github.com/advisories/GHSA-frmv-pr5f-9mcr"
+  },
+  {
+    "ghsa_id": "GHSA-q95w-c7qg-hrff",
+    "cve_id": "CVE-2025-59682",
+    "severity": "low",
+    "summary": "Django vulnerable to partial directory traversal via archives",
+    "published_at": "2025-10-01T21:31:22Z",
+    "updated_at": "2025-11-05T20:47:26Z",
+    "html_url": "https://github.com/advisories/GHSA-q95w-c7qg-hrff"
+  },
+  {
+    "ghsa_id": "GHSA-hpr9-3m2g-3j9p",
+    "cve_id": "CVE-2025-59681",
+    "severity": "high",
+    "summary": "Django vulnerable to SQL injection in column aliases",
+    "published_at": "2025-10-01T21:31:21Z",
+    "updated_at": "2025-11-05T20:47:16Z",
+    "html_url": "https://github.com/advisories/GHSA-hpr9-3m2g-3j9p"
+  },
+  {
+    "ghsa_id": "GHSA-6w2r-r2m5-xq5w",
+    "cve_id": "CVE-2025-57833",
+    "severity": "high",
+    "summary": "Django is subject to SQL injection through its column aliases",
+    "published_at": "2025-09-08T18:31:31Z",
+    "updated_at": "2025-11-05T20:44:13Z",
+    "html_url": "https://github.com/advisories/GHSA-6w2r-r2m5-xq5w"
+  },
+  {
+    "ghsa_id": "GHSA-7xr5-9hcq-chf9",
+    "cve_id": "CVE-2025-48432",
+    "severity": "medium",
+    "summary": "Django Improper Output Neutralization for Logs vulnerability",
+    "published_at": "2025-06-05T03:30:58Z",
+    "updated_at": "2025-06-10T20:03:55Z",
+    "html_url": "https://github.com/advisories/GHSA-7xr5-9hcq-chf9"
+  },
+  {
+    "ghsa_id": "GHSA-8j24-cjrq-gr2m",
+    "cve_id": "CVE-2025-32873",
+    "severity": "medium",
+    "summary": "Django has a denial-of-service possibility in strip_tags()",
+    "published_at": "2025-05-08T06:30:33Z",
+    "updated_at": "2025-05-08T14:53:29Z",
+    "html_url": "https://github.com/advisories/GHSA-8j24-cjrq-gr2m"
+  },
+  {
+    "ghsa_id": "GHSA-wqfg-m96j-85vm",
+    "cve_id": "CVE-2025-27556",
+    "severity": "medium",
+    "summary": "Django Potential Denial of Service (DoS) on Windows ",
+    "published_at": "2025-04-02T15:31:37Z",
+    "updated_at": "2025-04-09T20:02:07Z",
+    "html_url": "https://github.com/advisories/GHSA-wqfg-m96j-85vm"
+  },
+  {
+    "ghsa_id": "GHSA-p3fp-8748-vqfq",
+    "cve_id": "CVE-2025-26699",
+    "severity": "medium",
+    "summary": "Django vulnerable to Allocation of Resources Without Limits or Throttling",
+    "published_at": "2025-03-06T21:31:26Z",
+    "updated_at": "2025-04-09T20:00:26Z",
+    "html_url": "https://github.com/advisories/GHSA-p3fp-8748-vqfq"
+  },
+  {
+    "ghsa_id": "GHSA-qcgg-j2x8-h9g8",
+    "cve_id": "CVE-2024-56374",
+    "severity": "medium",
+    "summary": "Django has a potential denial-of-service vulnerability in IPv6 validation",
+    "published_at": "2025-01-14T21:31:47Z",
+    "updated_at": "2025-05-20T18:06:45Z",
+    "html_url": "https://github.com/advisories/GHSA-qcgg-j2x8-h9g8"
+  },
+  {
+    "ghsa_id": "GHSA-m9g8-fxxm-xg86",
+    "cve_id": "CVE-2024-53908",
+    "severity": "high",
+    "summary": "Django SQL injection in HasKey(lhs, rhs) on Oracle",
+    "published_at": "2024-12-06T12:30:47Z",
+    "updated_at": "2025-01-14T16:37:43Z",
+    "html_url": "https://github.com/advisories/GHSA-m9g8-fxxm-xg86"
+  },
+  {
+    "ghsa_id": "GHSA-8498-2h75-472j",
+    "cve_id": "CVE-2024-53907",
+    "severity": "medium",
+    "summary": "Django denial-of-service in django.utils.html.strip_tags()",
+    "published_at": "2024-12-06T12:30:47Z",
+    "updated_at": "2025-01-14T15:59:59Z",
+    "html_url": "https://github.com/advisories/GHSA-8498-2h75-472j"
+  },
+  {
+    "ghsa_id": "GHSA-rrqc-c2jx-6jgv",
+    "cve_id": "CVE-2024-45231",
+    "severity": "medium",
+    "summary": "Django allows enumeration of user e-mail addresses",
+    "published_at": "2024-10-08T18:33:13Z",
+    "updated_at": "2024-10-30T19:02:44Z",
+    "html_url": "https://github.com/advisories/GHSA-rrqc-c2jx-6jgv"
+  },
+  {
+    "ghsa_id": "GHSA-5hgc-2vfp-mqvc",
+    "cve_id": "CVE-2024-45230",
+    "severity": "medium",
+    "summary": "Django vulnerable to denial-of-service attack via the urlize() and urlizetrunc() template filters",
+    "published_at": "2024-10-08T18:33:13Z",
+    "updated_at": "2024-10-30T19:03:35Z",
+    "html_url": "https://github.com/advisories/GHSA-5hgc-2vfp-mqvc"
+  },
+  {
+    "ghsa_id": "GHSA-pv4p-cwwg-4rph",
+    "cve_id": "CVE-2024-42005",
+    "severity": "critical",
+    "summary": "Django SQL injection vulnerability",
+    "published_at": "2024-08-07T15:30:42Z",
+    "updated_at": "2025-11-04T19:50:51Z",
+    "html_url": "https://github.com/advisories/GHSA-pv4p-cwwg-4rph"
+  },
+  {
+    "ghsa_id": "GHSA-jh75-99hh-qvx9",
+    "cve_id": "CVE-2024-41989",
+    "severity": "medium",
+    "summary": "Django memory consumption vulnerability",
+    "published_at": "2024-08-07T15:30:42Z",
+    "updated_at": "2025-11-04T19:50:26Z",
+    "html_url": "https://github.com/advisories/GHSA-jh75-99hh-qvx9"
+  },
+  {
+    "ghsa_id": "GHSA-795c-9xpc-xw6g",
+    "cve_id": "CVE-2024-41990",
+    "severity": "medium",
+    "summary": "Django vulnerable to a denial-of-service attack",
+    "published_at": "2024-08-07T15:30:42Z",
+    "updated_at": "2025-11-04T19:50:41Z",
+    "html_url": "https://github.com/advisories/GHSA-795c-9xpc-xw6g"
+  },
+  {
+    "ghsa_id": "GHSA-r836-hh6v-rg5g",
+    "cve_id": "CVE-2024-41991",
+    "severity": "medium",
+    "summary": "Django vulnerable to denial-of-service attack",
+    "published_at": "2024-08-07T15:30:42Z",
+    "updated_
+
+Maintainer evidence: Django security archive at https://docs.djangoproject.com/en/dev/releases/security/ lists dated issues, CVEs, descriptions, affected branches, disclosure links, and patches. Recent release-note snapshots saved for 5.2.7, 5.2.8, 5.2.9. Security policy at https://docs.djangoproject.com/en/dev/internals/security/.
+
+Return: 1) recommended KB status line, 2) 8-12 representative known vulnerability rows with CVE/GHSA/fixed version/source, 3) short security posture notes, 4) any caveats.

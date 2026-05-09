@@ -1,0 +1,81 @@
+GitHub Advisory Database records: 100
+GHSA-w26r-rmm8-9c29 CVE-2026-5766 medium | Django has an Improper Handling of Length Parameter Inconsistency
+GHSA-5hrc-gvxj-w55p CVE-2026-6907 low | Django Uses Cache Containing Sensitive Information
+GHSA-7h2m-m8vj-598h CVE-2026-35192 low | Django Uses Persistent Cookies Containing Sensitive Information 
+GHSA-pwjp-ccjc-ghwg CVE-2026-4277 low | Django vulnerable to privilege abuse in GenericInlineModelAdmin
+GHSA-mvfq-ggxm-9mc5 CVE-2026-3902 high | Django vulnerable to ASGI header spoofing via underscore/hyphen conflation
+GHSA-mmwr-2jhp-mc7j CVE-2026-4292 low | Django vulnerable to privilege abuse in ModelAdmin.list_editable
+GHSA-933h-hp56-hf7m CVE-2026-33034 high | Django: SGI requests with a missing or understated `Content-Length` header could bypass the `DATA_UPLOAD_MAX_MEMORY_SIZE` limit
+GHSA-5mf9-h53q-7mhq CVE-2026-33033 medium | Django has potential DoS via MultiPartParser through crafted multipart uploads
+GHSA-8p8v-wh79-9r56 CVE-2026-25673 high | Django vulnerable to Uncontrolled Resource Consumption
+GHSA-mjgh-79qc-68w3 CVE-2026-25674 low | Django has a Race Condition vulnerability
+GHSA-6426-9fv3-65x8 CVE-2026-1312 medium | Django has an SQL Injection issue
+GHSA-gvg8-93h5-g6qq CVE-2026-1287 high | Django has an SQL Injection issue
+GHSA-mwm9-4648-f68q CVE-2026-1207 high | Django has an SQL Injection issue
+GHSA-4rrr-2h4v-f3j9 CVE-2026-1285 low | Django has Inefficient Algorithmic Complexity
+GHSA-33mw-q7rj-mjwj CVE-2025-14550 low | Django has Inefficient Algorithmic Complexity
+GHSA-2mcm-79hx-8fxw CVE-2025-13473 low | Django has Observable Timing Discrepancy
+GHSA-vrcr-9hj9-jcg6 CVE-2025-64460 medium | Django is vulnerable to DoS via XML serializer text extraction
+GHSA-rqw2-ghq9-44m7 CVE-2025-13372 medium | Django is vulnerable to SQL injection in column aliases
+GHSA-qw25-v68c-qjf3 CVE-2025-64458 high | Django has a denial-of-service vulnerability in HttpResponseRedirect and HttpResponsePermanentRedirect on Windows
+GHSA-frmv-pr5f-9mcr CVE-2025-64459 critical | Django vulnerable to SQL injection via _connector keyword argument in QuerySet and Q objects.
+GHSA-q95w-c7qg-hrff CVE-2025-59682 low | Django vulnerable to partial directory traversal via archives
+GHSA-hpr9-3m2g-3j9p CVE-2025-59681 high | Django vulnerable to SQL injection in column aliases
+GHSA-6w2r-r2m5-xq5w CVE-2025-57833 high | Django is subject to SQL injection through its column aliases
+GHSA-7xr5-9hcq-chf9 CVE-2025-48432 medium | Django Improper Output Neutralization for Logs vulnerability
+GHSA-8j24-cjrq-gr2m CVE-2025-32873 medium | Django has a denial-of-service possibility in strip_tags()
+GHSA-wqfg-m96j-85vm CVE-2025-27556 medium | Django Potential Denial of Service (DoS) on Windows 
+GHSA-p3fp-8748-vqfq CVE-2025-26699 medium | Django vulnerable to Allocation of Resources Without Limits or Throttling
+GHSA-qcgg-j2x8-h9g8 CVE-2024-56374 medium | Django has a potential denial-of-service vulnerability in IPv6 validation
+GHSA-m9g8-fxxm-xg86 CVE-2024-53908 high | Django SQL injection in HasKey(lhs, rhs) on Oracle
+GHSA-8498-2h75-472j CVE-2024-53907 medium | Django denial-of-service in django.utils.html.strip_tags()
+GHSA-rrqc-c2jx-6jgv CVE-2024-45231 medium | Django allows enumeration of user e-mail addresses
+GHSA-5hgc-2vfp-mqvc CVE-2024-45230 medium | Django vulnerable to denial-of-service attack via the urlize() and urlizetrunc() template filters
+GHSA-pv4p-cwwg-4rph CVE-2024-42005 critical | Django SQL injection vulnerability
+GHSA-jh75-99hh-qvx9 CVE-2024-41989 medium | Django memory consumption vulnerability
+GHSA-795c-9xpc-xw6g CVE-2024-41990 medium | Django vulnerable to a denial-of-service attack
+GHSA-r836-hh6v-rg5g CVE-2024-41991 medium | Django vulnerable to denial-of-service attack
+GHSA-f6f8-9mx6-9mx2 CVE-2024-39614 high | Django vulnerable to Denial of Service
+GHSA-9jmf-237g-qf46 CVE-2024-39330 high | Django Path Traversal vulnerability
+GHSA-x7q2-wr7g-xqmf CVE-2024-39329 medium | Django vulnerable to user enumeration attack
+GHSA-qg2p-9jwr-mmqf CVE-2024-38875 high | Django vulnerable to Denial of Service
+GHSA-vm8q-m57g-pff3 CVE-2024-27351 medium | Regular expression denial-of-service in Django
+GHSA-xxj9-f6rv-m3x4 CVE-2024-24680 high | Django denial-of-service attack in the intcomma template filter
+GHSA-h8gc-pgj2-vjm3 CVE-2023-43665 high | Django Denial-of-service in django.utils.text.Truncator
+GHSA-7h4p-27mh-hmrw CVE-2023-41164 medium | Django Denial of service vulnerability in django.utils.encoding.uri_to_iri
+GHSA-qmf9-6jqf-j8fq CVE-2023-46695 high | Django potential denial of service vulnerability in UsernameField on Windows
+GHSA-jh3w-4vvf-mjgr CVE-2023-36053 high | Django has regular expression denial of service vulnerability in EmailValidator/URLValidator
+GHSA-r3xc-prgr-mg9p CVE-2023-31047 critical | Django bypasses validation when using one form field to upload multiple files
+GHSA-2hrw-hx67-34x6 CVE-2023-24580 high | Resource exhaustion in Django
+GHSA-q2jf-h9jm-m7p4 CVE-2023-23969 high | Django contains Uncontrolled Resource Consumption via cached header
+GHSA-qrw5-5h28-6cmg CVE-2022-41323 high | Django denial-of-service vulnerability in internationalized URLs
+GHSA-8x94-hmjh-97hq CVE-2022-36359 high | Django vulnerable to Reflected File Download attack
+GHSA-p64x-8rxx-wf6q CVE-2022-34265 critical | Django `Trunc()` and `Extract()` database functions vulnerable to SQL Injection
+GHSA-78vx-ggch-wghm CVE-2012-3442 critical | Django Allows Redirect via Data URL
+GHSA-59w8-4wm2-4xw8 CVE-2012-3443 high | Django Image Field Vulnerable to Image Decompression Bombs
+GHSA-5h2q-4hrp-v9rr CVE-2012-3444 high | Django vulnerable to Improper Restriction of Operations within the Bounds of a Memory Buffer
+GHSA-2655-q453-22f9 CVE-2012-4520 high | Django Allows Arbitrary URL Generation
+GHSA-qrh7-x6fp-c2mp CVE-2013-1664 medium | XML Entity Expansion (XEE) in Django
+GHSA-x64m-686f-fmm3 CVE-2013-1665 medium | XML External Entity (XXE) in Django
+GHSA-vjjp-9r83-22rc CVE-2013-4315 high | Django Directory Traversal via ssi template tag
+GHSA-4c42-4rxm-x6qf CVE-2013-1443 high | Django Denial of Service Vulnerability in the authentication framework 
+GHSA-46x4-9jmv-jc8p CVE-2016-2048 high | Django Access Restrictions Bypass 
+GHSA-6565-fg86-6jcx CVE-2015-2241 medium | Django Cross-site Scripting Vulnerability
+GHSA-6wgp-fwfm-mxp3 CVE-2015-3982 medium | Django allows user sessions hijacking via an empty string in the session key
+GHSA-6wcr-wcqm-3mfh CVE-2015-8213 medium | Django settings leak in date template filter
+GHSA-7qfw-j7hp-v45g CVE-2015-0219 medium | Django WSGI Header Spoofing Vulnerability
+GHSA-jhjg-w2cp-5j44 CVE-2015-0221 high | Django DoS in django.views.static.serve
+GHSA-6g95-x6cj-mg4v CVE-2015-0222 high | Django database denial-of-service with ModelMultipleChoiceField
+GHSA-gv98-g628-m9x5 CVE-2015-0220 medium | Django Cross-site Scripting Vulnerability
+GHSA-x38m-486c-2wr9 CVE-2015-5964 medium | Denial-of-service possibility in logout() view by filling session store
+GHSA-rvq6-mrpv-m6rm CVE-2014-0472 critical | Code Injection in Django
+GHSA-89hj-xfx5-7q66 CVE-2014-0473 high | Django Reuses Cached CSRF Token
+GHSA-wqjj-hx84-v449 CVE-2014-0474 high | Django Vulnerable to MySQL Injection
+GHSA-q7q2-qf2q-rw3w CVE-2014-1418 critical | Django Vulnerable to Cache Poisoning
+GHSA-4894-5vqc-6r2r CVE-2013-4249 medium | Django cross-site scripting (XSS) vulnerability in the AdminURLFieldWidget widget
+GHSA-pw27-w7w4-9qc7 CVE-2016-2512 medium | Django XSS Vulnerability
+GHSA-fp6p-5xvw-m74f CVE-2016-2513 low | Django User Enumeration Vulnerability
+GHSA-q5qw-4364-5hhm CVE-2015-5144 high | Django Vulnerable to HTTP Response Splitting Attack
+GHSA-cqf7-ff9h-7967 CVE-2015-5145 high | Django ReDoS in validators.URLValidator
+GHSA-pgxh-wfw4-jx2v CVE-2015-5963 medium | Django denial of service via empty session record creation
+GHSA-3f2c-jm6v-cr35 CVE-2016-9014 critical | Django DNS Rebinding Vulnerability
