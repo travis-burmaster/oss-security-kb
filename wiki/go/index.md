@@ -11,5 +11,6 @@
 - [[go/github.com/prometheus/client_golang]] — Prometheus Go instrumentation library · advisory mapped · promhttp method-label cardinality DoS fixed in 1.11.1
 - [[go/go.opentelemetry.io/otel]] — core OpenTelemetry-Go API / propagation module · advisory mapped · multi-value W3C baggage header allocation-amplification DoS fixed in 1.41.0
 - [[go/golang.org-x-crypto]] — foundational Go crypto module · advisory mapped · repeated SSH boundary flaws plus cryptobyte, autocert, and openpgp security history
+- [[go/golang.org-x-net]] — foundational Go networking module · advisory mapped · HTTP/2 DoS / request-smuggling, HTML rendering / parser, and proxy-boundary history through 2025
 - [[go/google.golang.org/grpc]] — core Go gRPC transport stack · advisory mapped · transport, metadata, and authz-sensitive surface
 - [[go/google.golang.org/protobuf]] — foundational Go protobuf implementation · advisory mapped · prototext panic and protojson infinite-loop DoS history
