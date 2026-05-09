@@ -1,0 +1,3 @@
+Maven org.springframework:spring-core
+PyPI MarkupSafe
+npm lodash-es

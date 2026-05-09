@@ -1,0 +1,416 @@
+[
+  {
+    "id": "GHSA-4487-x383-qpph",
+    "aliases": [
+      "CVE-2018-1272"
+    ],
+    "cve": "CVE-2018-1272",
+    "summary": "Possible privilege escalation in org.springframework:spring-core",
+    "details": "Spring Framework, versions 5.0 prior to 5.0.5 and versions 4.3 prior to 4.3.15 and older unsupported versions, provide client-side support for multipart requests. When Spring MVC or Spring WebFlux server application (server A) receives input from a remote client, and then uses that input to make a multipart request to another server (server B), it can be exposed to an attack, where an extra multipart is inserted in the content of the request from server A, causing server B to use the wrong value for a part it expects. This could to lead privilege escalation, for example, if the part content represents a username or user roles.",
+    "severity": "CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+    "fixed": [
+      "4.3.15",
+      "5.0.5"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-1272",
+      "https://github.com/spring-projects/spring-framework/commit/ab2410c754b67902f002bfcc0c3895bd7772d39",
+      "https://github.com/spring-projects/spring-framework/commit/e02ff3a0da50744b0980d5d665fd242eedea767",
+      "https://access.redhat.com/errata/RHSA-2018:1320",
+      "https://access.redhat.com/errata/RHSA-2018:2669",
+      "https://github.com/advisories/GHSA-4487-x383-qpph",
+      "https://pivotal.io/security/cve-2018-1272",
+      "https://www.oracle.com/security-alerts/cpujul2020.html"
+    ]
+  },
+  {
+    "id": "GHSA-45vg-2v73-vm62",
+    "aliases": [
+      "CVE-2015-0201"
+    ],
+    "cve": "CVE-2015-0201",
+    "summary": "Moderate severity vulnerability that affects org.springframework:spring-core",
+    "details": "The Java SockJS client in Pivotal Spring Framework 4.1.x before 4.1.5 generates predictable session ids, which allows remote attackers to send messages to other sessions via unspecified vectors.",
+    "severity": "MODERATE",
+    "fixed": [
+      "4.1.5"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-0201",
+      "https://github.com/spring-projects/spring-framework/commit/d63cfc8eebc396be009e733a81ebb4c984811f6e",
+      "https://github.com/spring-projects/spring-framework/commit/dc5b5ca8ee09c890352f89b2dae58bc0132d6545",
+      "https://github.com/advisories/GHSA-45vg-2v73-vm62",
+      "https://github.com/spring-projects/spring-framework",
+      "https://pivotal.io/security/cve-2015-0201"
+    ]
+  },
+  {
+    "id": "GHSA-6gf2-pvqw-37ph",
+    "aliases": [
+      "CVE-2021-22060"
+    ],
+    "cve": "CVE-2021-22060",
+    "summary": "Log entry injection in Spring Framework",
+    "details": "In Spring Framework versions 5.3.0 - 5.3.13, 5.2.0 - 5.2.18, and older unsupported versions, it is possible for a user to provide malicious input to cause the insertion of additional log entries. This is a follow-up to CVE-2021-22096 that protects against additional types of input and in more places of the Spring Framework codebase.",
+    "severity": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N",
+    "fixed": [
+      "5.2.19",
+      "5.3.14"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-22060",
+      "https://tanzu.vmware.com/security/cve-2021-22060",
+      "https://www.oracle.com/security-alerts/cpuapr2022.html"
+    ]
+  },
+  {
+    "id": "GHSA-8crv-49fr-2h6j",
+    "aliases": [
+      "CVE-2016-5007"
+    ],
+    "cve": "CVE-2016-5007",
+    "summary": "Spring Security and Spring Framework may not recognize certain paths that should be protected",
+    "details": "Both Spring Security 3.2.x, 4.0.x, 4.1.0 and the Spring Framework 3.2.x, 4.0.x, 4.1.x, 4.2.x (as well as other unsupported versions) rely on URL pattern mappings for authorization and for mapping requests to controllers respectively. Differences in the strictness of the pattern matching mechanisms, for example with regards to space trimming in path segments, can lead Spring Security to not recognize certain paths as not protected that are in fact mapped to Spring MVC controllers that should be protected. The problem is compounded by the fact that the Spring Framework provides richer features with regards to pattern matching as well as by the fact that pattern matching in each Spring Security",
+    "severity": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+    "fixed": [
+      "4.1.1",
+      "4.3.1"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-5007",
+      "https://github.com/spring-projects/spring-security/issues/3964",
+      "https://github.com/spring-projects/spring-framework/commit/a30ab30e4e9ae021fdda04e9abfc228476b846b5",
+      "https://github.com/spring-projects/spring-security/commit/e4c13e3c0ee7f06f59d3b43ca6734215ad7d8974",
+      "https://github.com/advisories/GHSA-8crv-49fr-2h6j",
+      "https://pivotal.io/security/cve-2016-5007",
+      "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html",
+      "http://www.oracle.com/technetwork/security-advisory/cpuapr2018-3678067.html"
+    ]
+  },
+  {
+    "id": "GHSA-cxrj-66c5-9fmh",
+    "aliases": [
+      "CVE-2018-1258"
+    ],
+    "cve": "CVE-2018-1258",
+    "summary": "Spring Framework when used in combination with any versions of Spring Security contains an authorization bypass",
+    "details": "Spring Framework version 5.0.5 when used in combination with any versions of Spring Security contains an authorization bypass when using method security. An unauthorized malicious user can gain unauthorized access to methods that should be restricted.",
+    "severity": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+    "fixed": [
+      "5.0.6.RELEASE"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-1258",
+      "https://github.com/spring-projects/spring-framework/commit/7b8fa90d96aaf751a3256fa755d5f17e081c20f1",
+      "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html",
+      "https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html",
+      "https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html",
+      "https://www.oracle.com/security-alerts/cpuoct2021.html",
+      "https://www.oracle.com/security-alerts/cpujul2020.html",
+      "https://www.oracle.com/security-alerts/cpujan2021.html"
+    ]
+  },
+  {
+    "id": "GHSA-f26x-pr96-vw86",
+    "aliases": [
+      "CVE-2018-11040"
+    ],
+    "cve": "CVE-2018-11040",
+    "summary": "Moderate severity vulnerability that affects org.springframework:spring-core",
+    "details": "Spring Framework, versions 5.0.x prior to 5.0.7 and 4.3.x prior to 4.3.18 and older unsupported versions, allows web applications to enable cross-domain requests via JSONP (JSON with Padding) through AbstractJsonpResponseBodyAdvice for REST controllers and MappingJackson2JsonView for browser requests. Both are not enabled by default in Spring Framework nor Spring Boot, however, when MappingJackson2JsonView is configured in an application, JSONP support is automatically ready to use through the \"jsonp\" and \"callback\" JSONP parameters, enabling cross-domain requests.",
+    "severity": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+    "fixed": [
+      "4.3.18.RELEASE",
+      "5.0.7.RELEASE"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-11040",
+      "https://github.com/spring-projects/spring-framework/commit/874859493bbda59739c38c7e52eb3625f247b93a",
+      "https://github.com/spring-projects/spring-framework/commit/b80c13b722bb207ddf43f53a007ee3ddc1dd2e26",
+      "https://github.com/advisories/GHSA-f26x-pr96-vw86",
+      "https://github.com/spring-projects/spring-framework",
+      "https://lists.debian.org/debian-lts-announce/2021/04/msg00022.html",
+      "https://pivotal.io/security/cve-2018-11040",
+      "https://www.oracle.com/security-alerts/cpujan2020.html"
+    ]
+  },
+  {
+    "id": "GHSA-f866-m9mv-2xr3",
+    "aliases": [
+      "CVE-2011-2894"
+    ],
+    "cve": "CVE-2011-2894",
+    "summary": "Spring Framework and Spring Security vulnerable to Deserialization of Untrusted Data",
+    "details": "Spring Framework 3.0.0 through 3.0.5, Spring Security 3.0.0 through 3.0.5 and 2.0.0 through 2.0.6, and possibly other versions deserialize objects from untrusted sources, which allows remote attackers to bypass intended security restrictions and execute untrusted code by (1) serializing a java.lang.Proxy instance and using InvocationHandler, or (2) accessing internal AOP interfaces, as demonstrated using deserialization of a DefaultListableBeanFactory instance to execute arbitrary commands via the java.lang.Runtime class.",
+    "severity": "MODERATE",
+    "fixed": [
+      "2.0.7",
+      "3.0.6"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2011-2894",
+      "https://github.com/spring-projects/spring-framework/commit/070a723ef2c886770a063eb9a67f84f74e06edfb",
+      "https://exchange.xforce.ibmcloud.com/vulnerabilities/69687",
+      "https://github.com/spring-projects/spring-framework",
+      "https://web.archive.org/web/20120307233721/http://www.springsource.com/security/cve-2011-2894",
+      "http://osvdb.org/75263",
+      "http://securityreason.com/securityalert/8405",
+      "http://www.redhat.com/support/errata/RHSA-2011-1334.html"
+    ]
+  },
+  {
+    "id": "GHSA-ffvq-7w96-97p7",
+    "aliases": [
+      "CVE-2018-15756"
+    ],
+    "cve": "CVE-2018-15756",
+    "summary": "Denial of Service in Spring Framework",
+    "details": "Spring Framework, version 5.1, versions 5.0.x prior to 5.0.10, versions 4.3.x prior to 4.3.20, and older unsupported versions on the 4.2.x branch provide support for range requests when serving static resources through the ResourceHttpRequestHandler, or starting in 5.0 when an annotated controller returns an org.springframework.core.io.Resource. A malicious user (or attacker) can add a range header with a high number of ranges, or with wide ranges that overlap, or both, for a denial of service attack. This vulnerability affects applications that depend on either spring-webmvc or spring-webflux. Such applications must also have a registration for serving static resources (e.g. JS, CSS, images",
+    "severity": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+    "fixed": [
+      "4.3.20.RELEASE",
+      "5.0.10.RELEASE",
+      "5.1.1.RELEASE"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-15756",
+      "https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html",
+      "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html",
+      "https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html",
+      "https://www.oracle.com/security-alerts/cpuoct2021.html",
+      "https://www.oracle.com/security-alerts/cpujul2020.html",
+      "https://www.oracle.com/security-alerts/cpujan2021.html",
+      "https://www.oracle.com/security-alerts/cpujan2020.html"
+    ]
+  },
+  {
+    "id": "GHSA-g8hw-794c-4j9g",
+    "aliases": [
+      "CVE-2018-1271"
+    ],
+    "cve": "CVE-2018-1271",
+    "summary": "Path Traversal in org.springframework:spring-core",
+    "details": "Spring Framework, versions 5.0 prior to 5.0.5 and versions 4.3 prior to 4.3.15 and older unsupported versions, allow applications to configure Spring MVC to serve static resources (e.g. CSS, JS, images). When static resources are served from a file system on Windows (as opposed to the classpath, or the ServletContext), a malicious user can send a request using a specially crafted URL that can lead a directory traversal attack.",
+    "severity": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+    "fixed": [
+      "4.3.15",
+      "5.0.5"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-1271",
+      "https://github.com/spring-projects/spring-framework/commit/0e28bee0f155b9bf240b4bafc4646e4810cb23f8",
+      "https://github.com/spring-projects/spring-framework/commit/13356a7ee2240f740737c5c83bdccdacc30603ab",
+      "https://github.com/spring-projects/spring-framework/commit/695bf2961feffd35b5560ccc982a2189dcca611f",
+      "https://github.com/spring-projects/spring-framework/commit/91b803a2310344d925e5d4b1709bbcea90375548",
+      "https://github.com/spring-projects/spring-framework/commit/98ad23bef8e2e04143f8f5b201380543a8d8c0c3",
+      "https://github.com/spring-projects/spring-framework/commit/b9ebdaaf3710db473a2e1fec8641c316483a22aa",
+      "https://github.com/spring-projects/spring-framework/commit/f046a066eceefa0799d1bc89bd6e1318f39bdf69"
+    ]
+  },
+  {
+    "id": "GHSA-jmp9-x22r-554x",
+    "aliases": [
+      "CVE-2025-41249"
+    ],
+    "cve": "CVE-2025-41249",
+    "summary": "Spring Framework annotation detection mechanism may result in improper authorization",
+    "details": "The Spring Framework annotation detection mechanism may not correctly resolve annotations on methods within type hierarchies with a parameterized super type with unbounded generics. This can be an issue if such annotations are used for authorization decisions.\n\nYour application may be affected by this if you are using Spring Security's @EnableMethodSecurity\u00a0feature.\n\nYou are not affected by this if you are not using @EnableMethodSecurity\u00a0or if you do not use security annotations on methods in generic superclasses or generic interfaces.\n\nThis CVE is published in conjunction with  CVE-2025-41248 https://spring.io/security/cve-2025-41248 .",
+    "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+    "fixed": [
+      "6.2.11"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-41249",
+      "https://github.com/spring-projects/spring-framework/issues/35342",
+      "https://github.com/spring-projects/spring-framework/commit/6d710d482a6785b069e35022e81758953afc21ff",
+      "https://github.com/spring-projects/spring-framework",
+      "https://github.com/spring-projects/spring-framework/releases/tag/v6.2.11",
+      "https://spring.io/security/cve-2025-41249"
+    ]
+  },
+  {
+    "id": "GHSA-pgf9-h69p-pcgf",
+    "aliases": [
+      "CVE-2015-5211"
+    ],
+    "cve": "CVE-2015-5211",
+    "summary": "Files or Directories Accessible to External Parties in org.springframework:spring-core",
+    "details": "Under some situations, the Spring Framework 4.2.0 to 4.2.1, 4.0.0 to 4.1.7, 3.2.0 to 3.2.14 and older unsupported versions is vulnerable to a Reflected File Download (RFD) attack. The attack involves a malicious user crafting a URL with a batch script extension that results in the response being downloaded rather than rendered and also includes some input reflected in the response.",
+    "severity": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+    "fixed": [
+      "3.2.15",
+      "4.1.8",
+      "4.2.2"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-5211",
+      "https://github.com/spring-projects/spring-framework/commit/03f547eb9868f48f44d59b56067d4ac4740672c3",
+      "https://github.com/spring-projects/spring-framework/commit/2bd1daa75ee0b8ec33608ca6ab065ef3e1815543",
+      "https://github.com/spring-projects/spring-framework/commit/a95c3d820dbc4c3ae752f1b3ee22ee860b162402",
+      "https://github.com/advisories/GHSA-pgf9-h69p-pcgf",
+      "https://github.com/spring-projects/spring-framework",
+      "https://lists.debian.org/debian-lts-announce/2019/07/msg00012.html",
+      "https://pivotal.io/security/cve-2015-5211"
+    ]
+  },
+  {
+    "id": "GHSA-r4q3-7g4q-x89m",
+    "aliases": [
+      "CVE-2024-22233"
+    ],
+    "cve": "CVE-2024-22233",
+    "summary": "Spring Framework server Web DoS Vulnerability",
+    "details": "In Spring Framework versions 6.0.15 and 6.1.2, it is possible for a user to provide specially crafted HTTP requests that may cause a denial-of-service (DoS) condition.\n\nSpecifically, an application is vulnerable when all of the following are true:\n\n  *  the application uses Spring MVC\n  *  Spring Security 6.1.6+ or 6.2.1+ is on the classpath\n\n\nTypically, Spring Boot applications need the org.springframework.boot:spring-boot-starter-web\u00a0and org.springframework.boot:spring-boot-starter-security\u00a0dependencies to meet all conditions.",
+    "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+    "fixed": [
+      "6.0.16",
+      "6.1.3"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-22233",
+      "https://security.netapp.com/advisory/ntap-20240614-0005",
+      "https://spring.io/security/cve-2024-22233"
+    ]
+  },
+  {
+    "id": "GHSA-rcpf-vj53-7h2m",
+    "aliases": [
+      "CVE-2018-1257"
+    ],
+    "cve": "CVE-2018-1257",
+    "summary": "Denial of Service in org.springframework:spring-core",
+    "details": "Spring Framework, versions 5.0.x prior to 5.0.6, versions 4.3.x prior to 4.3.17, and older unsupported versions allows applications to expose STOMP over WebSocket endpoints with a simple, in-memory STOMP broker through the spring-messaging module. A malicious user (or attacker) can craft a message to the broker that can lead to a regular expression, denial of service attack.",
+    "severity": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+    "fixed": [
+      "4.3.17",
+      "5.0.6"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-1257",
+      "https://github.com/spring-projects/spring-framework/commit/246a6db1cad205ca9b6fca00c544ab7443ba202",
+      "https://github.com/spring-projects/spring-framework/commit/ff2228fdaf131d57b5c8c5918ee8d07c6dd9bba",
+      "https://access.redhat.com/errata/RHSA-2018:1809",
+      "https://access.redhat.com/errata/RHSA-2018:3768",
+      "https://github.com/advisories/GHSA-rcpf-vj53-7h2m",
+      "https://github.com/spring-projects/spring-framework",
+      "https://pivotal.io/security/cve-2018-1257"
+    ]
+  },
+  {
+    "id": "GHSA-rfmp-97jj-h8m6",
+    "aliases": [
+      "CVE-2021-22096"
+    ],
+    "cve": "CVE-2021-22096",
+    "summary": "Improper Output Neutralization for Logs in Spring Framework",
+    "details": "In Spring Framework versions 5.3.0 - 5.3.10, 5.2.0 - 5.2.17, and older unsupported versions, it is possible for a user to provide malicious input to cause the insertion of additional log entries.",
+    "severity": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N",
+    "fixed": [
+      "5.2.18",
+      "5.3.11"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-22096",
+      "https://github.com/spring-projects/spring-framework",
+      "https://security.netapp.com/advisory/ntap-20211125-0005",
+      "https://tanzu.vmware.com/security/cve-2021-22096",
+      "https://www.oracle.com/security-alerts/cpuapr2022.html"
+    ]
+  },
+  {
+    "id": "GHSA-rhcg-rwhx-qj3j",
+    "aliases": [
+      "CVE-2014-3578"
+    ],
+    "cve": "CVE-2014-3578",
+    "summary": "Improper Limitation of a Pathname to a Restricted Directory in Spring Framework",
+    "details": "Directory traversal vulnerability in Pivotal Spring Framework 3.x before 3.2.9 and 4.0 before 4.0.5 allows remote attackers to read arbitrary files via a crafted URL.",
+    "severity": "MODERATE",
+    "fixed": [
+      "3.2.9",
+      "4.0.5"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2014-3578",
+      "https://github.com/spring-projects/spring-framework/issues/16414",
+      "https://github.com/spring-projects/spring-framework/commit/748167bfa33c3c69db2d8dbdc3a0e9da692da3a0",
+      "https://github.com/spring-projects/spring-framework/commit/8ee465103850a3dca018273fe5952e40d5c45a66",
+      "https://github.com/spring-projects/spring-framework/commit/f6fddeb6eb7da625fd711ab371ff16512f431e8d",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=1131882",
+      "https://github.com/spring-projects/spring-framework",
+      "https://lists.debian.org/debian-lts-announce/2019/07/msg00012.html"
+    ]
+  },
+  {
+    "id": "GHSA-v596-fwhq-8x48",
+    "aliases": [
+      "CVE-2018-1199"
+    ],
+    "cve": "CVE-2018-1199",
+    "summary": "Improper Input Validation in org.springframework.security:spring-security-core, org.springframework.security:spring-security-core , and org.springframework:spring-core",
+    "details": "Spring Security (Spring Security 4.1.x before 4.1.5, 4.2.x before 4.2.4, and 5.0.x before 5.0.1; and Spring Framework 4.3.x before 4.3.14 and 5.0.x before 5.0.3) does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification. Some Servlet containers include path parameters in the value returned for getPathInfo() and some do not. Spring Security uses the value returned by getPathInfo() as part of the process of mapping requests to security constraints",
+    "severity": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+    "fixed": [
+      "4.1.5",
+      "4.2.4",
+      "4.3.14",
+      "5.0.1",
+      "5.0.3"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-1199",
+      "https://github.com/spring-projects/spring-framework/commit/554662ebab87af97ba25d0c9f5449c7acda8df9c",
+      "https://github.com/spring-projects/spring-framework/commit/73a81f98d40eb6f5faa91aceb868db53fae2a94b",
+      "https://github.com/spring-projects/spring-framework/commit/e6e6b8f4adcad99d133de97fcfac5ae5dd14153c",
+      "https://github.com/spring-projects/spring-security/commit/0eef5b4b425ab42b9fa0fde1a3f36a37b92558f",
+      "https://github.com/spring-projects/spring-security/commit/65da28e4bf62f58fb130ba727cbbd621b44a36d",
+      "https://github.com/spring-projects/spring-security/commit/cb8041ba67635edafcc934498ef82707157fd22",
+      "https://access.redhat.com/errata/RHSA-2018:2405"
+    ]
+  },
+  {
+    "id": "GHSA-wjjr-h4wh-w6vv",
+    "aliases": [
+      "CVE-2009-1190"
+    ],
+    "cve": "CVE-2009-1190",
+    "summary": "Spring Framework Inefficient Regular Expression Complexity",
+    "details": "Algorithmic complexity vulnerability in the java.util.regex.Pattern.compile method in Sun Java Development Kit (JDK) before 1.6, when used with spring.jar in SpringSource Spring Framework 1.1.0 through 2.5.6 and 3.0.0.M1 through 3.0.0.M2 and dm Server 1.0.0 through 1.0.2, allows remote attackers to cause a denial of service (CPU consumption) via serializable data with a long regex string containing multiple optional groups, a related issue to CVE-2004-2540.",
+    "severity": "MODERATE",
+    "fixed": [
+      "3.0.0.RELEASE"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2009-1190",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=497161",
+      "https://exchange.xforce.ibmcloud.com/vulnerabilities/50083",
+      "http://www.packetstormsecurity.org/hitb06/DAY_1_-_Marc_Schoenefeld_-_Pentesting_Java_J2EE.pdf",
+      "http://www.springsource.com/securityadvisory"
+    ]
+  },
+  {
+    "id": "GHSA-wv88-pf73-x22p",
+    "aliases": [
+      "CVE-2011-2730"
+    ],
+    "cve": "CVE-2011-2730",
+    "summary": "Improper Neutralization of Directives in Dynamically Evaluated Code in Spring Framework",
+    "details": "VMware SpringSource Spring Framework before 2.5.6.SEC03, 2.5.7.SR023, and 3.x before 3.0.6, when a container supports Expression Language (EL), evaluates EL expressions in tags twice, which allows remote attackers to obtain sensitive information via a (1) name attribute in a (a) spring:hasBindErrors tag; (2) path attribute in a (b) spring:bind or (c) spring:nestedpath tag; (3) arguments, (4) code, (5) text, (6) var, (7) scope, or (8) message attribute in a (d) spring:message or (e) spring:theme tag; or (9) var, (10) scope, or (11) value attribute in a (f) spring:transform tag, aka \"Expression Language Injection.\"",
+    "severity": "HIGH",
+    "fixed": [
+      "2.5.6.SEC03",
+      "2.5.7.SR023",
+      "3.0.6"
+    ],
+    "refs": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2011-2730",
+      "https://github.com/spring-projects/spring-framework/commit/62ccc8dd7e645fb91705d44919abac838cb5ca3f",
+      "https://github.com/spring-projects/spring-framework/commit/9772eb8410e37cd0bdec0d1b133218446c778beb",
+      "https://github.com/spring-projects/spring-framework/commit/b8d86330d1fadc645630416c3aaebf131bf749fc",
+      "https://docs.google.com/document/d/1dc1xxO8UMFaGLOwgkykYdghGWm_2Gn0iCrxFsympqcE/edit",
+      "https://github.com/spring-projects/spring-framework",
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=677814",
+      "http://rhn.redhat.com/errata/RHSA-2013-0191.html"
+    ]
+  }
+]
