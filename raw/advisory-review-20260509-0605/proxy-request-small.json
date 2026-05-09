@@ -1,0 +1,10 @@
+{
+  "model": "claude-opus-4-6",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Evidence-backed OSS KB review. Public sources only. Candidates: Maven org.springframework:spring-core (OSV query returned 18 GHSA/CVE records), PyPI MarkupSafe (OSV returned zero), npm lodash-es (OSV returned lodash-family records but existing KB already has lodash page). Should we add a Maven spring-core page? Summarize main themes conservatively; do not invent findings.\n\nSpring-core public advisory IDs: CVE-2009-1190, CVE-2011-2730, CVE-2011-2894, CVE-2014-3578, CVE-2015-0201, CVE-2015-5211, CVE-2016-5007, CVE-2018-1199, CVE-2018-1257, CVE-2018-1258, CVE-2018-1271, CVE-2018-1272, CVE-2018-11040, CVE-2018-15756, CVE-2021-22060, CVE-2021-22096, CVE-2024-22233, CVE-2025-41249. Fixed-version evidence is in OSV details saved locally.\n"
+    }
+  ],
+  "max_tokens": 800
+}
