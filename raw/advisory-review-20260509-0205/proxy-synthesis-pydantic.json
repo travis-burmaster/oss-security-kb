@@ -1,0 +1,21 @@
+{
+  "id": "msg_016f3SCbGwCn6RZsE6adJ5MZ",
+  "object": "chat.completion",
+  "created": 1778310420,
+  "model": "claude-opus-4-6",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "# OSS Security Knowledge Base: PyPI `pydantic`\n\n## Package Overview\n\n| Field | Value |\n|-------|-------|\n| **Package** | `pydantic` |\n| **Ecosystem** | PyPI |\n| **Summary** | Data validation using Python type hints |\n| **Latest Version** | 2.13.4 |\n| **Source** | https://github.com/pydantic/pydantic |\n| **Documentation** | https://docs.pydantic.dev |\n\n---\n\n## Known Vulnerabilities\n\n### CVE-2021-29510 \u2014 Infinite loop via \"infinity\" input to datetime/date fields\n\n| Field | Detail |\n|-------|--------|\n| **IDs** | GHSA-5jqp-qgf6-3pvh / PYSEC-2021-47 / CVE-2021-29510 |\n| **Note** | GHSA-5jqp-qgf6-3pvh and PYSEC-2021-47 are **duplicates** describing the same vulnerability. |\n| **Severity** | MODERATE (CVSS 3.1: AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L) |\n| **Type** | Denial of Service (CPU exhaustion) |\n| **Affected** | `< 1.6.2`, `1.7.0\u20131.7.3`, `1.8.0\u20131.8.1` |\n| **Fixed in** | `1.6.2`, `1.7.4`, `1.8.2` |\n| **Status** | **Resolved.** Latest version 2.13.4 is not affected. |\n\n### CVE-2024-3772 \u2014 Regular expression denial of service via crafted email string\n\n| Field | Detail |\n|-------|--------|\n| **IDs** | GHSA-mr82-8j83-vxmv / CVE-2024-3772 |\n| **Severity** | MODERATE (CVSS 3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H) |\n| **Type** | ReDoS in `validate_email` |\n| **Affected** | `< 1.10.13` (v1.x branch), `2.0.0\u20132.3.x` (v2.x branch) |\n| **Fixed in** | `1.10.13`, `2.4.0` |\n| **Fix details** | v1.10.13 backported max-length check to `validate_email` (PR #7673). v2.4.0 included the fix via PR #7360. |\n| **Status** | **Resolved.** Latest version 2.13.4 is not affected. |\n\n---\n\n## Security Posture Notes\n\n- **All known CVEs are fixed** in the current latest version (2.13.4). Users on any version \u2265 2.4.0 are clear of all listed vulnerabilities.\n- **Both historical vulnerabilities are DoS-class** (availability impact only); neither involves data confidentiality or integrity compromise.\n- CVE-2024-3772 is network-exploitable (AV:N) but requires high attack complexity (AC:H), making it the more impactful of the two in practice for internet-facing services accepting user-supplied email strings.\n- The project has an active security advisory process via GitHub Security Advisories and has demonstrated timely backporting to the v1.x maintenance branch.\n- No code execution, authentication bypass, or data leakage vulnerabilities have been reported.\n\n## Users on Legacy v1.x Branch\n\n- Must be on **\u2265 1.10.13** to be patched against CVE-2024-3772 (ReDoS).\n- Must be on **\u2265 1.8.2** (or 1.7.4 / 1.6.2 for respective minor lines) to be patched against CVE-2021-29510.\n- v1.x is in maintenance mode; migration to v2.x is recommended for ongoing security support.\n\n---\n\n## Open Questions\n\n1. **Pydantic-core attack surface**: Since v2, much validation logic has moved to the Rust-based `pydantic-core` crate. Are there separate vulnerability disclosures tracked for `pydantic-core` that should be cross-referenced here?\n2. **Email validation delegation**: In v2.x, email validation may partially depend on the `email-validator` package. Is the ReDoS fix entirely within pydantic, or does it also require a minimum `email-validator` version?\n3. **v1.x EOL date**: No clear end-of-life date found in the evidence. When will security backports to v1.x cease?\n\n---\n\n## Next Review Targets\n\n- **`pydantic-core`** (PyPI) \u2014 Rust-based validation engine used by pydantic v2+"
+      },
+      "finish_reason": "max_tokens"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2615,
+    "completion_tokens": 1200,
+    "total_tokens": 3815
+  }
+}
