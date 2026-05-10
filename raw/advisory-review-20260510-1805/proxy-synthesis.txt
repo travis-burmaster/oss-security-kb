@@ -1,0 +1,50 @@
+# OSS Security KB Page: Maven `org.bouncycastle:bcprov-jdk18on`
+
+## Page Title
+
+**Bouncy Castle Java Provider (bcprov-jdk18on) — Security Advisory Summary**
+
+---
+
+## Concise Risk Themes
+
+| # | Risk Theme | Description |
+|---|-----------|-------------|
+| 1 | **Timing Side-Channel Attacks** | RSA key exchange and other cryptographic operations vulnerable to timing-based information leakage, potentially enabling key recovery (Marvin Attack variant, covert timing channels). |
+| 2 | **Denial of Service (DoS) / Resource Exhaustion** | Crafted inputs (certificates, ASN.1 structures, signatures) trigger infinite loops, excessive CPU usage, or unbounded memory allocation. |
+| 3 | **Injection Vulnerabilities (LDAP)** | Insufficient input sanitization in certificate store lookups allows LDAP injection, potentially leading to unauthorized directory queries or data exfiltration. |
+| 4 | **DNS Poisoning** | Flawed certificate validation logic susceptible to DNS poisoning during revocation or certificate path checks. |
+
+---
+
+## Representative Advisories with Fixed Versions
+
+| GHSA ID | CVE | Summary | Severity Theme | Fixed Version |
+|---------|-----|---------|---------------|---------------|
+| GHSA-v435-xc8x-wvr9 | CVE-2024-30171 | RSA key exchange timing side-channel ("The Marvin Attack") | Timing Side-Channel | **1.78** |
+| GHSA-p93r-85wp-75v3 | CVE-2026-5598 | Covert timing channel vulnerability in cryptographic operations | Timing Side-Channel | **1.84** |
+| GHSA-8xfc-gm6g-vgpv | CVE-2024-29857 | Certificate parsing causes high CPU during parameter evaluation | DoS / CPU Exhaustion | **1.78** |
+| GHSA-m44j-cfrm-g8qc | CVE-2024-30172 | Crafted signature + public key triggers infinite loop | DoS / Infinite Loop | **1.78** |
+| GHSA-67mf-3cr5-8w23 | CVE-2025-8885 | Excessive allocation via ASN1ObjectIdentifier processing | DoS / Memory Exhaustion | **1.78** |
+| GHSA-wjxj-5m7g-mg7q | CVE-2023-33202 | Denial of Service through crafted input | DoS | **1.73** |
+| GHSA-4h8f-2wvx-gg5w | CVE-2024-34447 | DNS poisoning via Java Cryptography API | DNS Poisoning | **1.78** |
+| GHSA-c3fc-8qff-9hwx | CVE-2026-0636 | LDAP injection in certificate store operations | Injection | **1.84** |
+| GHSA-hr8g-6v94-x4m9 | CVE-2023-33201 | LDAP injection vulnerability | Injection | **1.74** |
+
+---
+
+## Minimum Safe Version Guidance
+
+| Milestone | Minimum Version | Advisories Resolved |
+|-----------|----------------|---------------------|
+| Pre-2023 issues resolved | **1.74** | CVE-2023-33201, CVE-2023-33202 |
+| Bulk 2024 fixes (timing, DoS, DNS) | **1.78** | CVE-2024-30171, CVE-2024-30172, CVE-2024-29857, CVE-2024-34447, CVE-2025-8885 |
+| All known advisories resolved | **1.84** (current release) | CVE-2026-0636, CVE-2026-5598 |
+
+**Recommendation:** Upgrade to **≥ 1.84** to address all publicly-disclosed advisories as of 2026-05-10.
+
+---
+
+## Index Summary
+
+> **org.bouncycastle:bcprov-jdk18on** is the Bouncy Castle lightweight cryptography provider for Java (JDK 18+). It has accumulated 9 publicly-disclosed vulnerabilities spanning timing side-channels (including Marvin Attack variants), multiple denial-of-service vectors (infinite loops, CPU/memory exhaustion via malformed certificates and ASN.1 structures), LDAP injection in X.509 certificate store lookups, and DNS poisoning in certificate validation. All known issues are remediated in the current release **1.84**. Projects using versions prior to 1.78 carry the highest aggregate risk. Continuous monitoring is advised given the library's broad role in TLS, certificate handling, and cryptographic primitive implementations across the Java ecosystem.

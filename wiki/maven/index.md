@@ -14,6 +14,7 @@ Scope notes:
 - [[maven/org.apache.logging.log4j/log4j-core]] — Apache Log4j Core logging implementation · advisory mapped · Log4Shell / JNDI, socket deserialization, TLS hostname verification, structured-layout log injection, and log-event-loss history fixed through 2.25.4 on the 2.x line
 - [[maven/org.yaml/snakeyaml]] — SnakeYAML YAML parser · advisory mapped · unsafe Java object construction / deserialization RCE, alias expansion, nested collection resource exhaustion, and parser stack-overflow DoS history through 2.0+
 - [[maven/org.apache.tomcat.embed/tomcat-embed-core]] — Apache Tomcat embedded servlet-container core · advisory mapped · HTTP parsing, HTTP/2 and multipart DoS, security-constraint / CLIENT_CERT auth bypass, open redirect, and logging / information-disclosure history through 2026
+- [[maven/org.bouncycastle/bcprov-jdk18on]] — Bouncy Castle Java cryptography provider · advisory mapped · timing side channels, certificate / ASN.1 DoS, LDAP injection, and DNS-poisoning-relevant certificate-validation history fixed through 1.84
 - [[maven/org.springframework/spring-core]] — Spring Framework core package · advisory mapped · path/resource handling, authorization-boundary, logging, JSONP, deserialization, and web DoS history through CVE-2025-41249
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression RCE risk when evaluating untrusted expressions (CVE-2024-36404)
 
