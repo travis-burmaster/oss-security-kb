@@ -1,0 +1,2 @@
+Substantive target: org.apache.tomcat.embed:tomcat-embed-core (Maven)
+Comparison targets: django (PyPI), openssh (Linux)
