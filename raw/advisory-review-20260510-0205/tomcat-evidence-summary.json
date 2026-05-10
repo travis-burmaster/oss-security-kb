@@ -1,0 +1,314 @@
+{
+  "package": "org.apache.tomcat.embed:tomcat-embed-core",
+  "osv_vuln_count": 64,
+  "class_counts": [
+    [
+      "DoS / resource exhaustion / HTTP2",
+      21
+    ],
+    [
+      "information disclosure / logging / credentials",
+      14
+    ],
+    [
+      "authn/authz / security-constraint bypass",
+      13
+    ],
+    [
+      "HTTP parsing / request validation / smuggling",
+      11
+    ],
+    [
+      "RCE / JSP or persistence edge cases",
+      5
+    ],
+    [
+      "open redirect",
+      3
+    ],
+    [
+      "path traversal / file boundary",
+      1
+    ]
+  ],
+  "cve_year_counts": {
+    "2008": 1,
+    "2014": 1,
+    "2017": 4,
+    "2018": 7,
+    "2019": 7,
+    "2020": 2,
+    "2021": 3,
+    "2022": 2,
+    "2023": 8,
+    "2024": 6,
+    "2025": 14,
+    "2026": 9
+  },
+  "selected_records": [
+    {
+      "id": "GHSA-24j9-x2wg-9qv6",
+      "aliases": [
+        "BIT-tomcat-2026-34500",
+        "CVE-2026-34500"
+      ],
+      "summary": "Apache Tomcat: CLIENT_CERT authentication does not fail as expected",
+      "fixed": [
+        "10.1.54",
+        "11.0.21",
+        "9.0.117"
+      ],
+      "modified": "2026-04-13T12:56:14.086675831Z",
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34500",
+        "https://github.com/apache/tomcat",
+        "https://lists.apache.org/thread/7rcl4zdxryc8hy3htyfyxkbqpxjtfdl2",
+        "http://www.openwall.com/lists/oss-security/2026/04/09/29"
+      ]
+    },
+    {
+      "id": "GHSA-25xr-qj8w-c4vf",
+      "aliases": [
+        "BIT-tomcat-2025-53506",
+        "CVE-2025-53506"
+      ],
+      "summary": "Apache Tomcat Coyote vulnerable to Denial of Service via excessive HTTP/2 streams",
+      "fixed": [
+        "10.1.43",
+        "11.0.9",
+        "9.0.107"
+      ],
+      "modified": "2026-03-06T21:48:52.680071Z",
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-53506",
+        "https://github.com/apache/tomcat/commit/2aa6261276ebe50b99276953591e3a2be7898bdb",
+        "https://github.com/apache/tomcat/commit/434772930f362145516dd60681134e7f0cf8115b",
+        "https://github.com/apache/tomcat/commit/be8f330f83ceddaf3baeed57522e571572b6b99b",
+        "https://github.com/apache/tomcat",
+        "https://lists.apache.org/thread/p09775q0rd185m6zz98krg0fp45j8kr0"
+      ]
+    },
+    {
+      "id": "GHSA-95jq-rwvf-vjx4",
+      "aliases": [
+        "BIT-tomcat-2026-29145",
+        "CVE-2026-29145"
+      ],
+      "summary": "Apache Tomcat: CLIENT_CERT authentication does not fail as expected",
+      "fixed": [
+        "10.1.53",
+        "11.0.20",
+        "9.0.116"
+      ],
+      "modified": "2026-04-16T16:29:27.102290174Z",
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-29145",
+        "https://github.com/apache/tomcat",
+        "https://lists.apache.org/thread/yz5fxmhd2j43wgqykssdo7kltws57jfz",
+        "http://www.openwall.com/lists/oss-security/2026/04/09/23"
+      ]
+    },
+    {
+      "id": "GHSA-c9hw-wf7x-jp9j",
+      "aliases": [
+        "BIT-tomcat-2020-1938",
+        "CVE-2020-1938"
+      ],
+      "summary": "Improper Privilege Management in Tomcat",
+      "fixed": [
+        "7.0.100",
+        "8.5.51",
+        "9.0.31"
+      ],
+      "modified": "2026-02-04T02:18:04.769552Z",
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-1938",
+        "https://lists.apache.org/thread.html/re5eecbe5bf967439bafeeaa85987b3a43f0e6efe06b6976ee768cde2@%3Cusers.tomcat.apache.org%3E",
+        "https://lists.apache.org/thread.html/re5eecbe5bf967439bafeeaa85987b3a43f0e6efe06b6976ee768cde2%40%3Cusers.tomcat.apache.org%3E",
+        "https://lists.apache.org/thread.html/rd50baccd1bbb96c2327d5a8caa25a49692b3d68d96915bd1cfbb9f8b@%3Cusers.tomcat.apache.org%3E",
+        "https://lists.apache.org/thread.html/rd50baccd1bbb96c2327d5a8caa25a49692b3d68d96915bd1cfbb9f8b%40%3Cusers.tomcat.apache.org%3E",
+        "https://lists.apache.org/thread.html/rd0774c95699d5aeb5e16e9a600fb2ea296e81175e30a62094e27e3e7@%3Ccommits.ofbiz.apache.org%3E"
+      ]
+    },
+    {
+      "id": "GHSA-fccv-jmmp-qg76",
+      "aliases": [
+        "BIT-tomcat-2023-46589",
+        "CVE-2023-46589"
+      ],
+      "summary": "Apache Tomcat Improper Input Validation vulnerability",
+      "fixed": [
+        "10.1.16",
+        "11.0.0-M11",
+        "8.5.96",
+        "9.0.83"
+      ],
+      "modified": "2026-02-04T03:57:13.832540Z",
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-46589",
+        "https://github.com/apache/tomcat/commit/6f181e1062a472bc5f0234980f66cbde42c1041b",
+        "https://github.com/apache/tomcat/commit/7a2d8818fcea0b51747a67af9510ce7977245ebd",
+        "https://github.com/apache/tomcat/commit/aa92971e879a519384c517febc39fd04c48d4642",
+        "https://github.com/apache/tomcat/commit/b5776d769bffeade865061bc8ecbeb2b56167b08",
+        "https://github.com/apache/tomcat"
+      ]
+    },
+    {
+      "id": "GHSA-fpj8-gq4v-p354",
+      "aliases": [
+        "BIT-tomcat-2025-66614",
+        "CVE-2025-66614"
+      ],
+      "summary": "Apache Tomcat - Client certificate verification bypass",
+      "fixed": [
+        "10.1.50",
+        "11.0.15",
+        "9.0.113"
+      ],
+      "modified": "2026-03-13T10:47:36.608928Z",
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-66614",
+        "https://github.com/apache/tomcat/commit/152c14885d45f5e0a8b59bd9f93c289cfe20ce30",
+        "https://github.com/apache/tomcat/commit/258a591b61f8cf5c22109e21e5a2a38b63454fd2",
+        "https://github.com/apache/tomcat/commit/5053fa82a1b2b52756810601227984a8b71888a4",
+        "https://github.com/apache/tomcat/commit/9276b5e783c8cd5b3fe2bb716306b65004bdd940",
+        "https://github.com/apache/tomcat/commit/972f9a5e2a07674d92610c478aac1b205d60724e"
+      ]
+    },
+    {
+      "id": "GHSA-h3gc-qfqq-6h8f",
+      "aliases": [
+        "BIT-tomcat-2025-48988",
+        "CVE-2025-48988"
+      ],
+      "summary": "Apache Tomcat - DoS in multipart upload",
+      "fixed": [
+        "10.1.42",
+        "11.0.8",
+        "9.0.106"
+      ],
+      "modified": "2026-02-04T02:50:56.702210Z",
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-48988",
+        "https://github.com/apache/tomcat/commit/2b0ab14fb55d4edc896e5f1817f2ab76f714ae5e",
+        "https://github.com/apache/tomcat/commit/cdde8e655bc1c5c60a07efd216251d77c52fd7f6",
+        "https://github.com/apache/tomcat/commit/ee8042ffce4cb9324dfd79efda5984f37bbb6910",
+        "https://github.com/apache/tomcat",
+        "https://lists.apache.org/thread/nzkqsok8t42qofgqfmck536mtyzygp18"
+      ]
+    },
+    {
+      "id": "GHSA-hfrx-6qgj-fp6c",
+      "aliases": [
+        "CVE-2023-24998"
+      ],
+      "summary": "Apache Commons FileUpload denial of service vulnerability",
+      "fixed": [
+        "1.5",
+        "10.1.5",
+        "11.0.0-M5",
+        "8.5.88",
+        "9.0.71"
+      ],
+      "modified": "2026-02-04T02:13:05.118028Z",
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-24998",
+        "https://github.com/apache/commons-fileupload/commit/e20c04990f7420ca917e96a84cec58b13a1b3d17",
+        "https://github.com/apache/tomcat/commit/8a2285f13affa961cc65595aad999db5efae45ce",
+        "https://github.com/apache/tomcat/commit/9ca96c8c1eba86c0aaa2e6be581ba2a7d4d4ae6e",
+        "https://github.com/apache/tomcat/commit/cf77cc545de0488fb89e24294151504a7432df74",
+        "https://github.com/apache/tomcat/commit/d53d8e7f77042cc32a3b98f589496a1ef5088e38"
+      ]
+    },
+    {
+      "id": "GHSA-qppj-fm5r-hxr3",
+      "aliases": [
+        "BIT-apisix-2023-44487",
+        "BIT-aspnet-core-2023-44487",
+        "BIT-contour-2023-44487",
+        "BIT-dotnet-2023-44487",
+        "BIT-dotnet-sdk-2023-44487",
+        "BIT-envoy-2023-44487",
+        "BIT-golang-2023-44487",
+        "BIT-jenkins-2023-44487",
+        "BIT-kong-2023-44487",
+        "BIT-nginx-2023-44487",
+        "BIT-nginx-gateway-2023-44487",
+        "BIT-nginx-ingress-controller-2023-44487",
+        "BIT-node-2023-44487",
+        "BIT-node-min-2023-44487",
+        "BIT-solr-2023-44487",
+        "BIT-tomcat-2023-44487",
+        "BIT-varnish-2023-44487",
+        "CVE-2023-44487"
+      ],
+      "summary": "HTTP/2 Stream Cancellation Attack",
+      "fixed": [
+        "0.17.0",
+        "1.28.0",
+        "10.0.17",
+        "10.1.14",
+        "10.5.3",
+        "11.0.0-M12",
+        "11.0.17",
+        "12.0.2",
+        "8.5.94",
+        "9.0.81",
+        "9.4.53"
+      ],
+      "modified": "2026-02-04T04:29:21.661957Z",
+      "refs": [
+        "https://github.com/apple/swift-nio-http2/security/advisories/GHSA-qppj-fm5r-hxr3",
+        "https://github.com/h2o/h2o/security/advisories/GHSA-2m7v-gc89-fjqf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-44487",
+        "https://github.com/caddyserver/caddy/issues/5877",
+        "https://github.com/dotnet/announcements/issues/277",
+        "https://github.com/eclipse/jetty.project/issues/10679"
+      ]
+    },
+    {
+      "id": "GHSA-qxf4-chvg-4r8r",
+      "aliases": [
+        "BIT-tomcat-2020-1935",
+        "CVE-2020-1935"
+      ],
+      "summary": "Potential HTTP request smuggling in Apache Tomcat",
+      "fixed": [
+        "7.0.100",
+        "8.5.51",
+        "9.0.31"
+      ],
+      "modified": "2026-02-04T03:55:42.157620Z",
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-1935",
+        "https://www.oracle.com/security-alerts/cpuoct2020.html",
+        "https://www.oracle.com/security-alerts/cpujul2020.html",
+        "https://www.oracle.com/security-alerts/cpujan2021.html",
+        "https://www.debian.org/security/2020/dsa-4680",
+        "https://www.debian.org/security/2020/dsa-4673"
+      ]
+    },
+    {
+      "id": "GHSA-wm9w-rjj3-j356",
+      "aliases": [
+        "BIT-tomcat-2024-34750",
+        "CVE-2024-34750"
+      ],
+      "summary": "Apache Tomcat - Denial of Service",
+      "fixed": [
+        "10.1.25",
+        "11.0.0-M21",
+        "9.0.90"
+      ],
+      "modified": "2026-02-04T02:28:53.223858Z",
+      "refs": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-34750",
+        "https://github.com/apache/tomcat/commit/2344a4c0d03e307ba6b8ab6dc8b894cc8bac63f2",
+        "https://github.com/apache/tomcat/commit/2afae300c9ac9c0e516e2e9de580847d925365c3",
+        "https://github.com/apache/tomcat/commit/9fec9a82887853402833a80b584e3762c7423f5f",
+        "https://github.com/apache/tomcat",
+        "https://lists.apache.org/thread/4kqf0bc9gxymjc2x7v3p7dvplnl77y8l"
+      ]
+    }
+  ]
+}
