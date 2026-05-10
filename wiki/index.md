@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*140 tracked pages across 9 ecosystems. Last updated: 2026-05-10.*
+*141 tracked pages across 9 ecosystems. Last updated: 2026-05-10.*
 
-## npm (89)
+## npm (90)
 
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing / prototype-pollution gadget history plus 2026 supply-chain compromise
 - [[npm/ajv]] — JSON Schema validator · advisory mapped · prototype-pollution and `$data` / pattern ReDoS history across 6.x and 8.x
@@ -19,6 +19,7 @@
 - [[npm/http-proxy]] — foundational Node.js proxy library · advisory mapped · direct package-level DoS history fixed through 1.18.1
 - [[npm/http-proxy-middleware]] — proxy middleware · advisory mapped · path-filter DoS plus 2025 fixRequestBody flaw chain
 - [[npm/braces]] — brace-expansion utility · advisory mapped · ReDoS in 2.x plus 2024 imbalanced-input memory exhaustion fixed in 3.0.3
+- [[npm/brace-expansion]] — brace expansion parser utility · advisory mapped · ReDoS and zero-step sequence DoS history fixed across maintained major lines through 5.0.5
 - [[npm/marked]] — markdown parser · advisory mapped · repeated XSS / sanitization-boundary and ReDoS history
 - [[npm/markdown-it]] — Markdown parser · advisory mapped · published ReDoS / resource-exhaustion history through 14.1.1
 - [[npm/handlebars]] — templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster

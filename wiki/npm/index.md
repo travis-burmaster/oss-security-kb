@@ -15,6 +15,7 @@
 - [[npm/http-proxy]] — foundational Node.js proxy library · advisory mapped · direct package-level DoS history fixed through 1.18.1
 - [[npm/http-proxy-middleware]] — high-usage proxy middleware · advisory mapped · path-filter DoS plus 2025 fixRequestBody flaw chain
 - [[npm/braces]] — brace-expansion utility · advisory mapped · ReDoS in 2.x plus 2024 imbalanced-input memory exhaustion fixed in 3.0.3
+- [[npm/brace-expansion]] — brace expansion parser utility · advisory mapped · ReDoS and zero-step sequence DoS history fixed across maintained major lines through 5.0.5
 - [[npm/marked]] — widely used markdown parser · advisory mapped · repeated XSS / sanitization-boundary and ReDoS history
 - [[npm/markdown-it]] — Markdown parser · advisory mapped · three published ReDoS / resource-exhaustion records through 14.1.1
 - [[npm/handlebars]] — widely used templating engine · advisory mapped · long XSS / prototype-pollution / ACE history plus 2026 v4.7.9 fix cluster

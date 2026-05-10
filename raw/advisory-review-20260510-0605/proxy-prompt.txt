@@ -1,0 +1,35 @@
+Review the gathered public evidence and propose evidence-backed OSS Security KB updates for an npm package page. Do not fabricate findings. Keep it concise. Include: page status, vulnerability rows with fixed versions, posture notes, related pages, and any caveats. Evidence follows:
+
+Target: npm brace-expansion. Last-week downloads: 479698988. Public evidence: OSV query plus GitHub Advisory API records.
+
+GHSA-832h-xg76-4gv6 aliases=['CVE-2017-18077'] summary=ReDoS in brace-expansion affected=SEMVER introduced:0; fixed:1.1.7 details=Affected versions of `brace-expansion` are vulnerable to a regular expression denial of service condition.
+
+## Proof of Concept
+
+```
+var expand = require('brace-expansion');
+expand('{,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n}');
+```
+
+
+## Recommendation
+
+Update to version 1.1.7 or later. refs=https://nvd.nist.gov/vuln/detail/CVE-2017-18077, https://github.com/juliangruber/brace-expansion/issues/33, https://github.com/juliangruber/brace-expansion/pull/35, https://github.com/juliangruber/brace-expansion/pull/35/commits/b13381281cead487cbdbfd6a69fb097ea5e456c3, https://bugs.debian.org/862712, https://github.com/advisories/GHSA-832h-xg76-4gv6, https://github.com/juliangruber/brace-expansion, https://www.npmjs.com/advisories/338
+
+GHSA-f886-m6hf-6m8v aliases=['CVE-2026-33750'] summary=brace-expansion: Zero-step sequence causes process hang and memory exhaustion affected=SEMVER introduced:4.0.0; fixed:5.0.5 / SEMVER introduced:3.0.0; fixed:3.0.2 / SEMVER introduced:2.0.0; fixed:2.0.3 / SEMVER introduced:0; fixed:1.1.13 details=### Impact
+
+A brace pattern with a zero step value (e.g., `{1..2..0}`) causes the sequence generation loop to run indefinitely, making the process hang for seconds and allocate heaps of memory.
+
+The loop in question:
+
+https://github.com/juliangruber/brace-expansion/blob/daa71bcb4a30a2df9bcb7f7b8daaf2ab30e5794a/src/index.ts#L184
+
+`test()` is one of
+
+https://github.com/juliangruber/brace-expansion/blob/daa71bcb4a30a2df9bcb7f7b8daaf2ab30e5794a/src/index.ts#L107-L113
+
+The increment is computed as `Math.abs(0) = 0`, so the loop variable never advances. On a test machine, the process hangs for about 3.5 seconds and allocates roughly 1.9 GB of memory before throwing a `RangeError`. Setting max to any value has no effect because the limit is only checked at the output combination step, not during sequence generation.
+
+This affects any application that passes untrusted strings to expand(), or by  refs=https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-f886-m6hf-6m8v, https://nvd.nist.gov/vuln/detail/CVE-2026-33750, https://github.com/juliangruber/brace-expansion/issues/98, https://github.com/juliangruber/brace-expansion/pull/95, https://github.com/juliangruber/brace-expansion/pull/96, https://github.com/juliangruber/brace-expansion/pull/97, https://github.com/juliangruber/brace-expansion/commit/311ac0d54994158c0a384e286a7d6cbb17ee8ed5, https://github.com/juliangruber/brace-expansion/commit/7fd684f89fdde3549563d0a6522226a9189472a2
+
+GHSA-v6h2-p8h4-qcjw aliases=['CVE-2025-5889'] summary=brace-expansion Regular Expression Denial of Service vulnerability affected=SEMVER introduced:2.0.0; fixed:2.0.2 / SEMVER introduced:1.0.0; fixed:1.1.12 / SEMVER introduced:3.0.0; fixed:3.0.1 / SEMVER introduced:4.0.0; fixed:4.0.1 details=A vulnerability was found in juliangruber brace-expansion up to 1.1.11/2.0.1/3.0.0/4.0.0. It has been rated as problematic. Affected by this issue is the function expand of the file index.js. The manipulation leads to inefficient regular expression complexity. The attack may be launched remotely. The complexity of an attack is rather high. The exploitation is known to be difficult. The exploit has been disclosed to the public and may be used. Upgrading to version 1.1.12, 2.0.2, 3.0.1 and 4.0.1 is able to address this issue. The name of the patch is `a5b98a4f30d7813266b221435e1eaaf25a1b0ac5`. It is recommended to upgrade the affected component. refs=https://nvd.nist.gov/vuln/detail/CVE-2025-5889, https://github.com/juliangruber/brace-expansion/pull/65/commits/a5b98a4f30d7813266b221435e1eaaf25a1b0ac5, https://github.com/juliangruber/brace-expansion/commit/0b6a9781e18e9d2769bb2931f4856d1360243ed2, https://github.com/juliangruber/brace-expansion/commit/15f9b3c75ebf5988198241fecaebdc45eff28a9f, https://github.com/juliangruber/brace-expansion/commit/36603d5f3599a37af9e85eda30acd7d28599c36e, https://github.com/juliangruber/brace-expansion/commit/c3c73c8b088defc70851843be88ccc3af08e7217, https://gist.github.com/mmmsssttt404/37a40ce7d6e5ca604858fe30814d9466, https://github.com/juliangruber/brace-expansion
