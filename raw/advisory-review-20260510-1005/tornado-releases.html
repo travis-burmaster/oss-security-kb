@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Release notes &mdash; Tornado 6.5.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="canonical" href="https://www.tornadoweb.org/en/stable/releases.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/documentation_options.js?v=276d7aeb"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="What’s new in Tornado 6.5.5" href="releases/v6.5.5.html" />
+    <link rel="prev" title="Frequently Asked Questions" href="faq.html" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="tornado" /><meta name="readthedocs-version-slug" content="stable" /><meta name="readthedocs-resolver-filename" content="/releases.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Tornado
+          </a>
+              <div class="version">
+                6.5.5
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide.html">User’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webframework.html">Web framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http.html">HTTP servers and clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="networking.html">Asynchronous networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coroutine.html">Coroutines and concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integration with other services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.5.html">What’s new in Tornado 6.5.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.4.html">What’s new in Tornado 6.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.3.html">What’s new in Tornado 6.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.2.html">What’s new in Tornado 6.5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.1.html">What’s new in Tornado 6.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.0.html">What’s new in Tornado 6.5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.4.2.html">What’s new in Tornado 6.4.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.4.1.html">What’s new in Tornado 6.4.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.4.0.html">What’s new in Tornado 6.4.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.3.3.html">What’s new in Tornado 6.3.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.3.2.html">What’s new in Tornado 6.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.3.1.html">What’s new in Tornado 6.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.3.0.html">What’s new in Tornado 6.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.2.0.html">What’s new in Tornado 6.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.1.0.html">What’s new in Tornado 6.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.0.4.html">What’s new in Tornado 6.0.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.0.3.html">What’s new in Tornado 6.0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.0.2.html">What’s new in Tornado 6.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.0.1.html">What’s new in Tornado 6.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.0.0.html">What’s new in Tornado 6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v5.1.1.html">What’s new in Tornado 5.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v5.1.0.html">What’s new in Tornado 5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v5.0.2.html">What’s new in Tornado 5.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v5.0.1.html">What’s new in Tornado 5.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v5.0.0.html">What’s new in Tornado 5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.5.3.html">What’s new in Tornado 4.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.5.2.html">What’s new in Tornado 4.5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.5.1.html">What’s new in Tornado 4.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.5.0.html">What’s new in Tornado 4.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.4.3.html">What’s new in Tornado 4.4.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.4.2.html">What’s new in Tornado 4.4.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.4.1.html">What’s new in Tornado 4.4.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.4.0.html">What’s new in Tornado 4.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.3.0.html">What’s new in Tornado 4.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.2.1.html">What’s new in Tornado 4.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.2.0.html">What’s new in Tornado 4.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.1.0.html">What’s new in Tornado 4.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.0.2.html">What’s new in Tornado 4.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.0.1.html">What’s new in Tornado 4.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.0.0.html">What’s new in Tornado 4.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.2.2.html">What’s new in Tornado 3.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.2.1.html">What’s new in Tornado 3.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.2.0.html">What’s new in Tornado 3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.1.1.html">What’s new in Tornado 3.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.1.0.html">What’s new in Tornado 3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.0.2.html">What’s new in Tornado 3.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.0.1.html">What’s new in Tornado 3.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.0.0.html">What’s new in Tornado 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.4.1.html">What’s new in Tornado 2.4.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.4.0.html">What’s new in Tornado 2.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.3.0.html">What’s new in Tornado 2.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.2.1.html">What’s new in Tornado 2.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.2.0.html">What’s new in Tornado 2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.1.1.html">What’s new in Tornado 2.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.1.0.html">What’s new in Tornado 2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.0.0.html">What’s new in Tornado 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.2.1.html">What’s new in Tornado 1.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.2.0.html">What’s new in Tornado 1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.1.1.html">What’s new in Tornado 1.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.1.0.html">What’s new in Tornado 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.0.1.html">What’s new in Tornado 1.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.0.0.html">What’s new in Tornado 1.0</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tornado</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Release notes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/releases.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="release-notes">
+<h1>Release notes<a class="headerlink" href="#release-notes" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.5.5.html">What’s new in Tornado 6.5.5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.5.html#mar-10-2026">Mar 10, 2026</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.5.4.html">What’s new in Tornado 6.5.4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.4.html#dec-15-2025">Dec 15, 2025</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.5.3.html">What’s new in Tornado 6.5.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.3.html#dec-10-2025">Dec 10, 2025</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.5.2.html">What’s new in Tornado 6.5.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.2.html#aug-8-2025">Aug 8, 2025</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.5.1.html">What’s new in Tornado 6.5.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.1.html#may-22-2025">May 22, 2025</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.5.0.html">What’s new in Tornado 6.5.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.5.0.html#may-15-2025">May 15, 2025</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.4.2.html">What’s new in Tornado 6.4.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.4.2.html#nov-21-2024">Nov 21, 2024</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.4.1.html">What’s new in Tornado 6.4.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.4.1.html#jun-6-2024">Jun 6, 2024</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.4.0.html">What’s new in Tornado 6.4.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.4.0.html#nov-28-2023">Nov 28, 2023</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.3.3.html">What’s new in Tornado 6.3.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.3.3.html#aug-11-2023">Aug 11, 2023</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.3.2.html">What’s new in Tornado 6.3.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.3.2.html#may-13-2023">May 13, 2023</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.3.1.html">What’s new in Tornado 6.3.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.3.1.html#apr-21-2023">Apr 21, 2023</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.3.0.html">What’s new in Tornado 6.3.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.3.0.html#apr-17-2023">Apr 17, 2023</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.2.0.html">What’s new in Tornado 6.2.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.2.0.html#jul-3-2022">Jul 3, 2022</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.1.0.html">What’s new in Tornado 6.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.1.0.html#oct-30-2020">Oct 30, 2020</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.0.4.html">What’s new in Tornado 6.0.4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.0.4.html#mar-3-2020">Mar 3, 2020</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.0.3.html">What’s new in Tornado 6.0.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.0.3.html#jun-22-2019">Jun 22, 2019</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.0.2.html">What’s new in Tornado 6.0.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.0.2.html#mar-23-2019">Mar 23, 2019</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.0.1.html">What’s new in Tornado 6.0.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.0.1.html#mar-3-2019">Mar 3, 2019</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v6.0.0.html">What’s new in Tornado 6.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v6.0.0.html#mar-1-2019">Mar 1, 2019</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v5.1.1.html">What’s new in Tornado 5.1.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v5.1.1.html#sep-16-2018">Sep 16, 2018</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v5.1.0.html">What’s new in Tornado 5.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v5.1.0.html#july-12-2018">July 12, 2018</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v5.0.2.html">What’s new in Tornado 5.0.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v5.0.2.html#apr-7-2018">Apr 7, 2018</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v5.0.1.html">What’s new in Tornado 5.0.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v5.0.1.html#mar-18-2018">Mar 18, 2018</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v5.0.0.html">What’s new in Tornado 5.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v5.0.0.html#mar-5-2018">Mar 5, 2018</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.5.3.html">What’s new in Tornado 4.5.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.5.3.html#jan-6-2018">Jan 6, 2018</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.5.2.html">What’s new in Tornado 4.5.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.5.2.html#aug-27-2017">Aug 27, 2017</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.5.1.html">What’s new in Tornado 4.5.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.5.1.html#apr-20-2017">Apr 20, 2017</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.5.0.html">What’s new in Tornado 4.5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.5.0.html#apr-16-2017">Apr 16, 2017</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.4.3.html">What’s new in Tornado 4.4.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.4.3.html#mar-30-2017">Mar 30, 2017</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.4.2.html">What’s new in Tornado 4.4.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.4.2.html#oct-1-2016">Oct 1, 2016</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.4.1.html">What’s new in Tornado 4.4.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.4.1.html#jul-23-2016">Jul 23, 2016</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.4.0.html">What’s new in Tornado 4.4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.4.0.html#jul-15-2016">Jul 15, 2016</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.3.0.html">What’s new in Tornado 4.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.3.0.html#nov-6-2015">Nov 6, 2015</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.2.1.html">What’s new in Tornado 4.2.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.2.1.html#jul-17-2015">Jul 17, 2015</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.2.0.html">What’s new in Tornado 4.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.2.0.html#may-26-2015">May 26, 2015</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.1.0.html">What’s new in Tornado 4.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.1.0.html#feb-7-2015">Feb 7, 2015</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.0.2.html">What’s new in Tornado 4.0.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.0.2.html#sept-10-2014">Sept 10, 2014</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.0.1.html">What’s new in Tornado 4.0.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.0.1.html#aug-12-2014">Aug 12, 2014</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v4.0.0.html">What’s new in Tornado 4.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v4.0.0.html#july-15-2014">July 15, 2014</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v3.2.2.html">What’s new in Tornado 3.2.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.2.2.html#june-3-2014">June 3, 2014</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v3.2.1.html">What’s new in Tornado 3.2.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.2.1.html#may-5-2014">May 5, 2014</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v3.2.0.html">What’s new in Tornado 3.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.2.0.html#jan-14-2014">Jan 14, 2014</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v3.1.1.html">What’s new in Tornado 3.1.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.1.1.html#sep-1-2013">Sep 1, 2013</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v3.1.0.html">What’s new in Tornado 3.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.1.0.html#jun-15-2013">Jun 15, 2013</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v3.0.2.html">What’s new in Tornado 3.0.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.0.2.html#jun-2-2013">Jun 2, 2013</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v3.0.1.html">What’s new in Tornado 3.0.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.0.1.html#apr-8-2013">Apr 8, 2013</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v3.0.0.html">What’s new in Tornado 3.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v3.0.0.html#mar-29-2013">Mar 29, 2013</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v2.4.1.html">What’s new in Tornado 2.4.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.4.1.html#nov-24-2012">Nov 24, 2012</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v2.4.0.html">What’s new in Tornado 2.4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.4.0.html#sep-4-2012">Sep 4, 2012</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v2.3.0.html">What’s new in Tornado 2.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.3.0.html#may-31-2012">May 31, 2012</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v2.2.1.html">What’s new in Tornado 2.2.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.2.1.html#apr-23-2012">Apr 23, 2012</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v2.2.0.html">What’s new in Tornado 2.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.2.0.html#jan-30-2012">Jan 30, 2012</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v2.1.1.html">What’s new in Tornado 2.1.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.1.1.html#oct-4-2011">Oct 4, 2011</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v2.1.0.html">What’s new in Tornado 2.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.1.0.html#sep-20-2011">Sep 20, 2011</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v2.0.0.html">What’s new in Tornado 2.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v2.0.0.html#jun-21-2011">Jun 21, 2011</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v1.2.1.html">What’s new in Tornado 1.2.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.2.1.html#mar-3-2011">Mar 3, 2011</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v1.2.0.html">What’s new in Tornado 1.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.2.0.html#feb-20-2011">Feb 20, 2011</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v1.1.1.html">What’s new in Tornado 1.1.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.1.1.html#feb-8-2011">Feb 8, 2011</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v1.1.0.html">What’s new in Tornado 1.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.1.0.html#sep-7-2010">Sep 7, 2010</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v1.0.1.html">What’s new in Tornado 1.0.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.0.1.html#aug-13-2010">Aug 13, 2010</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases/v1.0.0.html">What’s new in Tornado 1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases/v1.0.0.html#july-22-2010">July 22, 2010</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="faq.html" class="btn btn-neutral float-left" title="Frequently Asked Questions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="releases/v6.5.5.html" class="btn btn-neutral float-right" title="What’s new in Tornado 6.5.5" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The Tornado Authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
