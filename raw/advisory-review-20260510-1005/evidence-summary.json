@@ -1,0 +1,265 @@
+{
+  "package": "PyPI tornado",
+  "osv_count": 14,
+  "ghsa_items": [
+    {
+      "id": "GHSA-753j-mpmx-qq6g",
+      "aliases": [],
+      "summary": "Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') in tornado",
+      "details": "### Summary\nWhen Tornado receives a request with two `Transfer-Encoding: chunked` headers, it ignores them both. This enables request smuggling when Tornado is deployed behind a proxy server that emits such requests. [Pound](https://en.wikipedia.org/wiki/Pound_(networking)) does this.\n\n### PoC\n0. Install Tornado.\n1. Start a simple Tornado server that echoes each received request's body:\n```bash\ncat << EOF > server.py\nimport asyncio\nimport tornado\n\nclass MainHandler(tornado.web.RequestHandler):\n ",
+      "fixed": [
+        "6.4.1"
+      ],
+      "references": [
+        "https://github.com/tornadoweb/tornado/security/advisories/GHSA-753j-mpmx-qq6g",
+        "https://github.com/tornadoweb/tornado/commit/d65f6e71a77f53a1ff0a0dc55704be13f04eb572",
+        "https://github.com/tornadoweb/tornado"
+      ]
+    },
+    {
+      "id": "GHSA-78cv-mqj4-43f7",
+      "aliases": [],
+      "summary": "Tornado has incomplete validation of cookie attributes",
+      "details": "Values passed to the `domain`, `path`, and `samesite` arguments of `RequestHandler.set_cookie` were not completely validated in versions of Tornado prior to 6.5.5. In particular, semicolons would be allowed, which could be used to inject attacker-controlled values for other cookie attributes.",
+      "fixed": [
+        "6.5.5"
+      ],
+      "references": [
+        "https://github.com/tornadoweb/tornado/security/advisories/GHSA-78cv-mqj4-43f7",
+        "https://github.com/tornadoweb/tornado/commit/24a2d96ea115f663b223887deb0060f13974c104",
+        "https://github.com/tornadoweb/tornado",
+        "https://github.com/tornadoweb/tornado/releases/tag/v6.5.5"
+      ]
+    },
+    {
+      "id": "GHSA-7cx3-6m66-7c5m",
+      "aliases": [
+        "CVE-2025-47287"
+      ],
+      "summary": "Tornado vulnerable to excessive logging caused by malformed multipart form data",
+      "details": "### Summary\n\nWhen Tornado's ``multipart/form-data`` parser encounters certain errors, it logs a warning but continues trying to parse the remainder of the data. This allows remote attackers to generate an extremely high volume of logs, constituting a DoS attack. This DoS is compounded by the fact that the logging subsystem is synchronous.\n\n### Affected versions\n\nAll versions of Tornado prior to 6.5 are affected. The vulnerable parser is enabled by default.\n\n### Solution\n\nUpgrade to Tornado versi",
+      "fixed": [
+        "6.5"
+      ],
+      "references": [
+        "https://github.com/tornadoweb/tornado/security/advisories/GHSA-7cx3-6m66-7c5m",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-47287",
+        "https://github.com/tornadoweb/tornado/commit/b39b892bf78fe8fea01dd45199aa88307e7162f3",
+        "https://github.com/tornadoweb/tornado",
+        "https://lists.debian.org/debian-lts-announce/2025/05/msg00038.html"
+      ]
+    },
+    {
+      "id": "GHSA-8vpw-mgpf-mpvv",
+      "aliases": [
+        "CVE-2014-9720",
+        "PYSEC-2020-213"
+      ],
+      "summary": "Tornado XSRF cookie allows side-channel attack against TLS (BREACH attack)",
+      "details": "Tornado before 3.2.2 sends arbitrary responses that contain a fixed CSRF token and may be sent with HTTP compression, which makes it easier for remote attackers to conduct a BREACH attack and determine this token via a series of crafted requests.",
+      "fixed": [
+        "3.2.2"
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2014-9720",
+        "https://github.com/tornadoweb/tornado/commit/1c36307463b1e8affae100bf9386948e6c1b2308",
+        "https://bugzilla.novell.com/show_bug.cgi?id=930362",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=1222816",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/tornado/PYSEC-2020-213.yaml"
+      ]
+    },
+    {
+      "id": "GHSA-8w49-h785-mj3c",
+      "aliases": [
+        "CVE-2024-52804"
+      ],
+      "summary": "Tornado has an HTTP cookie parsing DoS vulnerability",
+      "details": "The algorithm used for parsing HTTP cookies in Tornado versions prior to 6.4.2 sometimes has quadratic complexity, leading to excessive CPU consumption when parsing maliciously-crafted cookie headers. This parsing occurs in the event loop thread and may block the processing of other requests.\n\nSee also CVE-2024-7592 for a similar vulnerability in cpython.",
+      "fixed": [
+        "6.4.2"
+      ],
+      "references": [
+        "https://github.com/tornadoweb/tornado/security/advisories/GHSA-8w49-h785-mj3c",
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-52804",
+        "https://github.com/tornadoweb/tornado/commit/d5ba4a1695fbf7c6a3e54313262639b198291533",
+        "https://github.com/tornadoweb/tornado",
+        "https://lists.debian.org/debian-lts-announce/2025/01/msg00000.html"
+      ]
+    },
+    {
+      "id": "GHSA-f7fv-v9rh-prvc",
+      "aliases": [
+        "CVE-2012-2374",
+        "PYSEC-2012-5"
+      ],
+      "summary": "Tornado CRLF injection vulnerability",
+      "details": "CRLF injection vulnerability in the `tornado.web.RequestHandler.set_header` function in Tornado before 2.2.1 allows remote attackers to inject arbitrary HTTP headers and conduct HTTP response splitting attacks via crafted input.",
+      "fixed": [
+        "2.2.1"
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2012-2374",
+        "https://github.com/tornadoweb/tornado/commit/1ae91f6d58e6257e0ab49d295d8741ce1727bdb7",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/tornado/PYSEC-2012-5.yaml",
+        "https://github.com/tornadoweb/tornado",
+        "https://web.archive.org/web/20140720192646/http://secunia.com/advisories/49185"
+      ]
+    },
+    {
+      "id": "GHSA-fqwm-6jpj-5wxc",
+      "aliases": [
+        "CVE-2026-35536",
+        "ECHO-b644-e810-f4a8"
+      ],
+      "summary": "Tornado has cookie attribute injection via .RequestHandler.set_cookie",
+      "details": "In Tornado before 6.5.5, cookie attribute injection could occur because the domain, path, and samesite arguments to `.RequestHandler.set_cookie` were not checked for crafted characters.",
+      "fixed": [
+        "6.5.5"
+      ],
+      "references": [
+        "https://github.com/tornadoweb/tornado/security/advisories/GHSA-78cv-mqj4-43f7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-35536",
+        "https://github.com/tornadoweb/tornado",
+        "https://github.com/tornadoweb/tornado/releases/tag/v6.5.5"
+      ]
+    },
+    {
+      "id": "GHSA-hj3f-6gcp-jg8j",
+      "aliases": [
+        "CVE-2023-28370",
+        "PYSEC-2023-75"
+      ],
+      "summary": "Open redirect in Tornado",
+      "details": "Open redirect vulnerability in Tornado versions 6.3.1 and earlier allows a remote unauthenticated attacker to redirect a user to an arbitrary web site and conduct a phishing attack by having user access a specially crafted URL.",
+      "fixed": [
+        "6.3.2"
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-28370",
+        "https://github.com/tornadoweb/tornado/commit/32ad07c54e607839273b4e1819c347f5c8976b2f",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/tornado/PYSEC-2023-75.yaml",
+        "https://github.com/tornadoweb/tornado",
+        "https://github.com/tornadoweb/tornado/releases/tag/v6.3.2"
+      ]
+    },
+    {
+      "id": "GHSA-qjxf-f2mg-c6mc",
+      "aliases": [
+        "CVE-2026-31958",
+        "ECHO-5939-f806-1836"
+      ],
+      "summary": "Tornado is vulnerable to DoS due to too many multipart parts",
+      "details": "In versions of Tornado prior to 6.5.5, the only limit on the number of parts in `multipart/form-data` is the `max_body_size` setting (default 100MB). Since parsing occurs synchronously on the main thread, this creates the possibility of denial-of-service due to the cost of parsing very large multipart bodies with many parts. \n\nTornado 6.5.5 introduces new limits on the size and complexity of multipart bodies, including a default limit of 100 parts per request. These limits are configurable if ne",
+      "fixed": [
+        "6.5.5"
+      ],
+      "references": [
+        "https://github.com/tornadoweb/tornado/security/advisories/GHSA-qjxf-f2mg-c6mc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-31958",
+        "https://github.com/tornadoweb/tornado/commit/119a195e290c43ad2d63a2cf012c29d43d6ed839",
+        "https://github.com/tornadoweb/tornado",
+        "https://github.com/tornadoweb/tornado/releases/tag/v6.5.5"
+      ]
+    },
+    {
+      "id": "GHSA-qppv-j76h-2rpx",
+      "aliases": [],
+      "summary": "Tornado vulnerable to HTTP request smuggling via improper parsing of `Content-Length` fields and chunk lengths",
+      "details": "## Summary\nTornado interprets `-`, `+`, and `_` in chunk length and `Content-Length` values, which are not allowed by the HTTP RFCs. This can result in request smuggling when Tornado is deployed behind certain proxies that interpret those non-standard characters differently. This is known to apply to older versions of haproxy, although the current release is not affected.\n\n## Details\nTornado uses the `int` constructor to parse the values of `Content-Length` headers and chunk lengths in the follo",
+      "fixed": [
+        "6.3.3"
+      ],
+      "references": [
+        "https://github.com/tornadoweb/tornado/security/advisories/GHSA-qppv-j76h-2rpx",
+        "https://github.com/tornadoweb/tornado/commit/b7a5dd29bb02950303ae96055082c12a1ea0a4fe",
+        "https://github.com/tornadoweb/tornado"
+      ]
+    },
+    {
+      "id": "GHSA-w235-7p84-xx57",
+      "aliases": [],
+      "summary": "Tornado has a CRLF injection in CurlAsyncHTTPClient headers",
+      "details": "### Summary\nTornado\u2019s `curl_httpclient.CurlAsyncHTTPClient` class is vulnerable to CRLF (carriage return/line feed) injection in the request headers.\n\n### Details\nWhen an HTTP request is sent using `CurlAsyncHTTPClient`, Tornado does not reject carriage return (\\r) or line feed (\\n) characters in the request headers. As a result, if an application includes an attacker-controlled header value in a request sent using `CurlAsyncHTTPClient`, the attacker can inject arbitrary headers into the request",
+      "fixed": [
+        "6.4.1"
+      ],
+      "references": [
+        "https://github.com/tornadoweb/tornado/security/advisories/GHSA-w235-7p84-xx57",
+        "https://github.com/tornadoweb/tornado/commit/7786f09f84c9f3f2012c4cf3878417cb9f053669",
+        "https://github.com/tornadoweb/tornado"
+      ]
+    }
+  ],
+  "pypistats_recent": {
+    "data": {
+      "last_day": 2905800,
+      "last_month": 127452793,
+      "last_week": 28076659
+    },
+    "package": "tornado",
+    "type": "recent_downloads"
+  },
+  "pypi_info": {
+    "author": "Facebook",
+    "author_email": "python-tornado@googlegroups.com",
+    "bugtrack_url": null,
+    "classifiers": [
+      "License :: OSI Approved :: Apache Software License",
+      "Programming Language :: Python :: 3",
+      "Programming Language :: Python :: 3.10",
+      "Programming Language :: Python :: 3.11",
+      "Programming Language :: Python :: 3.12",
+      "Programming Language :: Python :: 3.13",
+      "Programming Language :: Python :: 3.9",
+      "Programming Language :: Python :: Implementation :: CPython",
+      "Programming Language :: Python :: Implementation :: PyPy"
+    ],
+    "description": "Tornado Web Server\n==================\n\n.. image:: https://badges.gitter.im/Join%20Chat.svg\n   :alt: Join the chat at https://gitter.im/tornadoweb/tornado\n   :target: https://gitter.im/tornadoweb/tornado?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge\n\n`Tornado <http://www.tornadoweb.org>`_ is a Python web framework and\nasynchronous networking library, originally developed at `FriendFeed\n<http://friendfeed.com>`_.  By using non-blocking network I/O, Tornado\ncan scale to tens of thousands of open connections, making it ideal for\n`long polling <http://en.wikipedia.org/wiki/Push_technology#Long_Polling>`_,\n`WebSockets <http://en.wikipedia.org/wiki/WebSocket>`_, and other\napplications that require a long-lived connection to each user.\n\nHello, world\n------------\n\nHere is a simple \"Hello, world\" example web app for Tornado:\n\n.. code-block:: python\n\n    import asyncio\n    import tornado\n\n    class MainHandler(tornado.web.RequestHandler):\n        def get(self):\n            self.write(\"Hello, world\")\n\n    def make_app():\n        return tornado.web.Application([\n            (r\"/\", MainHandler),\n        ])\n\n    async def main():\n        app = make_app()\n        app.listen(8888)\n        await asyncio.Event().wait()\n\n    if __name__ == \"__main__\":\n        asyncio.run(main())\n\nThis example does not use any of Tornado's asynchronous features; for\nthat see this `simple chat room\n<https://github.com/tornadoweb/tornado/tree/stable/demos/chat>`_.\n\nDocumentation\n-------------\n\nDocumentation and links to additional resources are available at\nhttps://www.tornadoweb.org\n",
+    "description_content_type": "text/x-rst",
+    "docs_url": null,
+    "download_url": null,
+    "downloads": {
+      "last_day": -1,
+      "last_month": -1,
+      "last_week": -1
+    },
+    "dynamic": [
+      "Author",
+      "Author-Email",
+      "Classifier",
+      "Description",
+      "Description-Content-Type",
+      "Home-Page",
+      "License",
+      "License-File",
+      "Project-Url",
+      "Requires-Python",
+      "Summary"
+    ],
+    "home_page": "http://www.tornadoweb.org/",
+    "keywords": null,
+    "license": "Apache-2.0",
+    "license_expression": null,
+    "license_files": [
+      "LICENSE"
+    ],
+    "maintainer": null,
+    "maintainer_email": null,
+    "name": "tornado",
+    "package_url": "https://pypi.org/project/tornado/",
+    "platform": null,
+    "project_url": "https://pypi.org/project/tornado/",
+    "project_urls": {
+      "Homepage": "http://www.tornadoweb.org/",
+      "Source": "https://github.com/tornadoweb/tornado"
+    },
+    "provides_extra": null,
+    "release_url": "https://pypi.org/project/tornado/6.5.5/",
+    "requires_dist": null,
+    "requires_python": ">=3.9",
+    "summary": "Tornado is a Python web framework and asynchronous networking library, originally developed at FriendFeed.",
+    "version": "6.5.5",
+    "yanked": false,
+    "yanked_reason": null
+  }
+}
