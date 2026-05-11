@@ -19,6 +19,8 @@ Scope notes:
 - [[maven/org.springframework/spring-core]] — Spring Framework core package · advisory mapped · path/resource handling, authorization-boundary, logging, JSONP, deserialization, and web DoS history through CVE-2025-41249
 - [[maven/org.springframework/spring-web]] — Spring Framework web foundation artifact · advisory mapped · URL parsing / host validation, RFD, conditional-request DoS, DataBinder, deserialization, XML-input DoS, XST, CSRF, and response-generation history through 2025
 - [[maven/org.springframework/spring-webmvc]] — Spring MVC web framework artifact · advisory mapped · data-binding RCE, static-resource/path traversal, XXE, CSRF/request-matching, RFD/XSS, cache-poisoning, SSE integrity, and DoS history through 2026
+- [[maven/org.springframework.security/spring-security-config]] — Spring Security configuration module · advisory mapped · WebFlux / servlet request-matcher and servlet-path authorization-boundary history through 2026
+- [[maven/org.springframework.security/spring-security-web]] — Spring Security web module · advisory mapped · request-matcher bypass, WebFlux static-resource authorization, security-header, SecurityContext, and X.509 identity-extraction history through 2026
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression RCE risk when evaluating untrusted expressions (CVE-2024-36404)
 
 ---
