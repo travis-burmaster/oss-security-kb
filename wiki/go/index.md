@@ -3,6 +3,7 @@
 ## Seed Pages
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
+- [[go/github.com/golang-jwt/jwt]] — Go JWT implementation · advisory mapped · v4 ParseWithClaims error-handling boundary plus ParseUnverified memory-allocation DoS history through 4.5.2 / 5.2.2
 - [[go/github.com/gorilla/mux]] — established Go router · baseline stub · no package-scoped OSV / GitHub advisory confirmed in this pass, disclosure path unclear
 - [[go/github.com/gorilla/websocket]] — foundational Go WebSocket implementation · advisory mapped · integer-overflow / read-limit bypass DoS fixed in 1.4.1
 - [[go/github.com/gorilla/schema]] — Gorilla form decoder/encoder · advisory mapped · sparse slice index memory-exhaustion DoS fixed in 1.4.1
