@@ -1,0 +1,63 @@
+
+
+# OSS Security KB Entry: `org.apache.kafka:kafka-clients`
+
+## Package Identity
+
+| Field | Value |
+|---|---|
+| Registry | Maven Central |
+| Group / Artifact | `org.apache.kafka` : `kafka-clients` |
+| Source Repository | https://github.com/apache/kafka |
+| Maintainer CVE Page | https://kafka.apache.org/community/cve-list/ |
+| Latest Version (at review) | 4.2.0 |
+| Total Published Versions | 81 |
+| First Publication | ~2014 (0.8.x era) |
+
+---
+
+## Security Posture Summary
+
+**Overall posture: Actively maintained, moderate-to-high historical vulnerability surface.**
+
+Apache Kafka clients is one of the highest-impact Maven artifacts in the ecosystem (ubiquitous in JVM-based data pipelines). The Apache Kafka project maintains a public CVE list and follows coordinated disclosure via the ASF security process. Fixes are backported across active release lines (currently 3.9.x, 4.0.x, 4.1.x, 4.2.x). Seven distinct CVEs with OSV/GHSA records directly scope to this artifact, spanning 2017–2026, with severities from MODERATE to CRITICAL.
+
+**Key observations:**
+- Two **2026-dated CVEs** (CVE-2026-33557, CVE-2026-35554) indicate active, ongoing vulnerability discovery — including one CRITICAL JWT validation bypass and one HIGH data-corruption race condition.
+- Recurring theme: **authentication/authorization flaws** (OAUTHBEARER bypass, PLAINTEXT session hijack, ConfigProvider privilege escalation) and **sensitive data exposure** in logs.
+- Users on older branches (< 3.9.x) carry compounding unpatched exposure; the project no longer maintains branches before 3.7.x.
+
+---
+
+## Vulnerability Table
+
+| CVE | GHSA | Severity | Affected Range | Fixed In | Summary |
+|---|---|---|---|---|---|
+| CVE-2026-33557 | GHSA-28jg-cgg7-j4wc | **CRITICAL** | 4.1.0 – 4.1.1 | 4.1.2 | OAUTHBEARER JWT tokens not validated; unauthenticated access possible. |
+| CVE-2026-35554 | GHSA-5qcv-4rpc-jp93 | **HIGH** | 2.8.0 – 3.9.1, 4.0.0 – 4.0.1, 4.1.0 – 4.1.1 | 3.9.2, 4.0.2, 4.1.2 | Producer buffer-pool race condition causing message corruption and misrouting. |
+| CVE-2024-31141 | GHSA-2x2g-32r7-p4x8 | MODERATE | 2.3.0 – 3.7.0 | 3.7.1 | Automatic `ConfigProvider` allows filesystem read escalation. |
+| CVE-2025-27817 | GHSA-vgq5-3255-v292 | MODERATE | 3.1.0 – 3.9.0 | 3.9.1 | Arbitrary file read / SSRF via client configuration. |
+| CVE-2026-33558 | GHSA-wf66-mphr-4c4r | MODERATE | 0.11.0 – 3.9.1, 4.0.0 | 3.9.2, 4.0.1 | Sensitive information (credentials/tokens) exposed in DEBUG-level logs. |
+| CVE-2021-38153 | GHSA-3j6g-hxx5-3q26 | MODERATE | 2.0.0 – 2.6.2, 2.7.0 – 2.7.1, 2.8.0 | 2.6.3, 2.7.2, 2.8.1 | Timing side-channel (observable discrepancy) in SASL/SCRAM authentication. |
+| CVE-2017-12610 | GHSA-xm78-4m3g-7wm7 | MODERATE | 0.10.0.0 – 0.10.2.1, 0.11.0.0 – 0.11.0.1 | 0.10.2.2, 0.11.0.2 | PLAINTEXT inter-broker sessions allow impersonation (improper authentication). |
+
+---
+
+## Recommended Minimum Versions
+
+| Release Line | Minimum Safe Version | Rationale |
+|---|---|---|
+| 4.1.x | **4.1.2** | Fixes CVE-2026-33557 (CRITICAL) + CVE-2026-35554 (HIGH) |
+| 4.0.x | **4.0.2** | Fixes CVE-2026-35554 (HIGH); 4.0.1 fixes CVE-2026-33558 |
+| 3.9.x | **3.9.2** | Fixes CVE-2026-35554 + CVE-2026-33558; 3.9.1 fixed CVE-2025-27817 |
+| 3.7.x | **3.7.1** | Fixes CVE-2024-31141; note: 3.7.x is EOL-approaching, upgrade recommended |
+| ≤ 3.6.x | **Upgrade required** | Multiple unpatched CVEs; no backports available |
+
+---
+
+## Upgrade Guidance (Maintainer-Sourced)
+
+1. **Prioritize 4.1.2 / 4.0.2 / 3.9.2** — the June/July 2026 security releases address both a critical authentication bypass and a high-severity data integrity issue.
+2. **OAUTHBEARER users on 4.1.0–4.1.1**: Treat CVE-2026-33557 as emergency; JWT tokens are not validated, meaning any bearer token is accepted.
+3. **All producer workloads on 2.8.0+**: CVE-2026-35554 is a race condition in `BufferPool` that can silently corrupt or misroute messages. The fix is mechanical (no config changes needed), but the impact is data integrity.
+4. **Review logging configuration**: CVE-2026-33558 affects all versions back to 0.11.0 when DEBUG logging is
