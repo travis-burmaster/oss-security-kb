@@ -1,0 +1,319 @@
+[
+  {
+    "id": "GHSA-26vr-8j45-3r4w",
+    "aliases": "BIT-jenkins-2021-28165, CVE-2021-28165",
+    "summary": "Jetty vulnerable to incorrect handling of invalid large TLS frame, exhausting CPU resources",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    ],
+    "fixed": [
+      "9.4.39",
+      "10.0.2",
+      "11.0.2"
+    ]
+  },
+  {
+    "id": "GHSA-5h9j-q6j2-253f",
+    "aliases": "CVE-2019-17632",
+    "summary": "Unescaped exception messages in error responses in Jetty",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+    ],
+    "fixed": [
+      "9.4.24.v20191120"
+    ]
+  },
+  {
+    "id": "GHSA-6x9x-8qw9-9pp6",
+    "aliases": "CVE-2017-7658",
+    "summary": "Jetty vulnerable to authorization bypass due to inconsistent HTTP request handling (HTTP Request Smuggling)",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    ],
+    "fixed": [
+      "9.2.25.v20180606",
+      "9.3.24.v20180605",
+      "9.4.11.v20180605"
+    ]
+  },
+  {
+    "id": "GHSA-7vx9-xjhr-rw6h",
+    "aliases": "CVE-2019-10241",
+    "summary": "Cross-site Scripting in Eclipse Jetty",
+    "severity": [
+      "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+    ],
+    "fixed": [
+      "9.2.27.v20190403",
+      "9.3.26.v20190403",
+      "9.4.16.v20190411"
+    ]
+  },
+  {
+    "id": "GHSA-84q7-p226-4x5w",
+    "aliases": "CVE-2017-7656",
+    "summary": "Jetty vulnerable to cache poisoning due to inconsistent HTTP request handling (HTTP Request Smuggling)",
+    "severity": [
+      "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+    ],
+    "fixed": [
+      "9.3.24.v20180605",
+      "9.4.11.v20180605"
+    ]
+  },
+  {
+    "id": "GHSA-86wm-rrjm-8wh8",
+    "aliases": "BIT-kafka-2020-27218, BIT-spark-2020-27218, CVE-2020-27218",
+    "summary": "Buffer not correctly recycled in Gzip Request inflation",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L"
+    ],
+    "fixed": [
+      "9.4.35.v20201120"
+    ]
+  },
+  {
+    "id": "GHSA-872g-2h8h-362q",
+    "aliases": "CVE-2016-4800",
+    "summary": "Jetty contains an alias issue that could allow unauthenticated remote code execution due to specially crafted request",
+    "severity": [
+      "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    ],
+    "fixed": [
+      "9.3.9"
+    ]
+  },
+  {
+    "id": "GHSA-8mpp-f3f7-xc28",
+    "aliases": "CVE-2022-2191",
+    "summary": "Jetty SslConnection does not release pooled ByteBuffers in case of errors",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    ],
+    "fixed": [
+      "10.0.10",
+      "11.0.10"
+    ]
+  },
+  {
+    "id": "GHSA-9rgv-h7x4-qw8g",
+    "aliases": "CVE-2018-12536",
+    "summary": "Eclipse Jetty Server generates error message containing sensitive information",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+    ],
+    "fixed": [
+      "9.3.24.v20180605",
+      "9.4.11.v20180605"
+    ]
+  },
+  {
+    "id": "GHSA-g8m5-722r-8whq",
+    "aliases": "CVE-2024-8184",
+    "summary": "Eclipse Jetty's ThreadLimitHandler.getRemote() vulnerable to remote DoS attacks",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    ],
+    "fixed": [
+      "9.4.56",
+      "10.0.24",
+      "11.0.24",
+      "12.0.9"
+    ]
+  },
+  {
+    "id": "GHSA-ghgj-3xqr-6jfm",
+    "aliases": "CVE-2015-2080",
+    "summary": "Jetty vulnerable to exposure of sensitive information to unauthenticated remote users",
+    "severity": [
+      "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+    ],
+    "fixed": [
+      "9.2.9.v20150224"
+    ]
+  },
+  {
+    "id": "GHSA-h2f4-v4c4-6wx4",
+    "aliases": "CVE-2018-12545",
+    "summary": "Uncontrolled Resource Consumption in org.eclipse.jetty:jetty-server",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    ],
+    "fixed": [
+      "9.3.25.v20180904",
+      "9.4.12.v20180830"
+    ]
+  },
+  {
+    "id": "GHSA-jg2x-r643-w2ch",
+    "aliases": "CVE-2006-6969",
+    "summary": "Jetty Uses Predictable Session Identifiers",
+    "severity": [],
+    "fixed": [
+      "4.2.27",
+      "5.1.12",
+      "6.0.2",
+      "6.1.0pre3"
+    ]
+  },
+  {
+    "id": "GHSA-m394-8rww-3jr7",
+    "aliases": "BIT-nifi-2020-27223, BIT-solr-2020-27223, BIT-spark-2020-27223, CVE-2020-27223",
+    "summary": "DOS vulnerability for Quoted Quality CSV headers",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+    ],
+    "fixed": [
+      "9.4.37",
+      "10.0.1",
+      "11.0.1"
+    ]
+  },
+  {
+    "id": "GHSA-m6cp-vxjx-65j6",
+    "aliases": "CVE-2021-34428",
+    "summary": "SessionListener can prevent a session from being invalidated breaking logout",
+    "severity": [
+      "CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+    ],
+    "fixed": [
+      "9.4.41",
+      "10.0.3",
+      "11.0.3"
+    ]
+  },
+  {
+    "id": "GHSA-mwcx-532g-8pq3",
+    "aliases": "CVE-2018-12538",
+    "summary": "Access and integrity issue within Eclipse Jetty",
+    "severity": [
+      "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+    ],
+    "fixed": [
+      "9.4.11.v20180605"
+    ]
+  },
+  {
+    "id": "GHSA-p26g-97m4-6q7c",
+    "aliases": "CVE-2023-26049",
+    "summary": "Eclipse Jetty's cookie parsing of quoted values can exfiltrate values from other cookies",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:L/I:N/A:N"
+    ],
+    "fixed": [
+      "9.4.51.v20230217",
+      "10.0.14",
+      "11.0.14",
+      "12.0.0.beta0"
+    ]
+  },
+  {
+    "id": "GHSA-q4rv-gq96-w7c5",
+    "aliases": "CVE-2024-13009",
+    "summary": "**UNSUPPORTED WHEN ASSIGNED** GzipHandler causes part of request body to be seen as request body of a separate request",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N"
+    ],
+    "fixed": [
+      "9.4.57.v20241219"
+    ]
+  },
+  {
+    "id": "GHSA-qw69-rqj8-6qw8",
+    "aliases": "CVE-2023-26048",
+    "summary": "OutOfMemoryError for large multipart without filename in Eclipse Jetty",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+    ],
+    "fixed": [
+      "9.4.51.v20230217",
+      "10.0.14",
+      "11.0.14"
+    ]
+  },
+  {
+    "id": "GHSA-qxp4-27vx-xmm3",
+    "aliases": "CVE-2011-4461",
+    "summary": "Improper Input Validation in Jetty",
+    "severity": [
+      "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+    ],
+    "fixed": [
+      "8.1.0.RC4"
+    ]
+  },
+  {
+    "id": "GHSA-r28m-g6j9-r2h5",
+    "aliases": "CVE-2019-10246",
+    "summary": "Information Exposure vulnerability in Eclipse Jetty",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+    ],
+    "fixed": [
+      "9.2.28.v20190418",
+      "9.3.27.v20190418",
+      "9.4.17.v20190418"
+    ]
+  },
+  {
+    "id": "GHSA-vgg8-72f2-qm23",
+    "aliases": "CVE-2017-7657",
+    "summary": "Critical severity vulnerability that affects org.eclipse.jetty:jetty-server",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    ],
+    "fixed": [
+      "9.2.25.v20180606",
+      "9.3.24.v20180605"
+    ]
+  },
+  {
+    "id": "GHSA-wfcc-pff6-rgc5",
+    "aliases": "CVE-2017-9735",
+    "summary": "Jetty vulnerable to exposure of sensitive information due to observable discrepancy",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+    ],
+    "fixed": [
+      "9.2.22.v20170606",
+      "9.3.20.v20170531",
+      "9.4.6.v20170531"
+    ]
+  },
+  {
+    "id": "GHSA-x3rh-m7vp-35f2",
+    "aliases": "CVE-2019-17638",
+    "summary": "Operation on a Resource after Expiration or Release in Jetty Server",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:L"
+    ],
+    "fixed": [
+      "9.4.30.v20200611"
+    ]
+  },
+  {
+    "id": "GHSA-xc67-hjx6-cgg6",
+    "aliases": "CVE-2019-10247",
+    "summary": "Installation information leak in Eclipse Jetty",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+    ],
+    "fixed": [
+      "9.2.28.v20190418",
+      "9.3.27.v20190418",
+      "9.4.17.v20190418"
+    ]
+  },
+  {
+    "id": "GHSA-xxh7-fcf3-rj7f",
+    "aliases": "CVE-2026-1605",
+    "summary": "The Eclipse Jetty Server Artifact has a Gzip request memory leak ",
+    "severity": [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    ],
+    "fixed": [
+      "12.0.32",
+      "12.1.6"
+    ]
+  }
+]
