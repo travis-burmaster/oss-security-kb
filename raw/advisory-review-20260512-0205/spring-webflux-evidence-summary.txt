@@ -1,0 +1,32 @@
+Target: org.springframework:spring-webflux (Maven)
+OSV package query returned 10 records
+- CVE-2022-22965 / GHSA-36p3-wjmg-h94x: Remote Code Execution in Spring Framework | severity=CRITICAL | fixed=5.2.20.RELEASE, 5.3.18
+  details: Spring Framework prior to versions 5.2.20 and 5.3.18 contains a remote code execution vulnerability known as `Spring4Shell`.   ## Impact  A Spring MVC or Spring WebFlux application running on JDK 9+ may be vulnerable to remote code execution (RCE) via data binding. The specific exploit requires the application to run on Tomcat as a WAR deployment. 
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2022-22965
+- CVE-2026-22737 / GHSA-4773-3jfm-qmx3: Spring Framework Improper Path Limitation with Script View Templates | severity=MODERATE | fixed=6.2.17, 7.0.6
+  details: Use of Java scripting engine enabled (e.g. JRuby, Jython) template views in Spring MVC and Spring WebFlux applications can result in disclosure of content from files outside the configured locations for script template views. This issue affects Spring Framework: from 7.0.0 through 7.0.5, from 6.2.0 through 6.2.16, from 6.1.0 through 6.1.25, from 5.
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2026-22737; https://spring.io/security/cve-2026-22737
+- CVE-2026-22740 / GHSA-5843-p793-ghmm: Spring Framework DoS with Multipart Temp Files in WebFlux | severity=LOW | fixed=6.2.18, 7.0.7
+  details: A WebFlux server application that processes multipart requests creates temp files for parts larger than 10 K. Under some circumstances, temp files may remain not deleted after the request is fully processed. This allows an attacker to consume available disk space.  Older, unsupported versions are also affected.
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2026-22740; https://spring.io/security/cve-2026-22740
+- CVE-2026-22735 / GHSA-6hcq-hmm3-jj3c: Spring MVC and WebFlux has Server Sent Event stream corruption | severity=LOW | fixed=6.2.17, 7.0.6
+  details: Spring MVC and WebFlux applications are vulnerable to stream corruption when using Server-Sent Events (SSE). This issue affects Spring Foundation: from 7.0.0 through 7.0.5, from 6.2.0 through 6.2.16, from 6.1.0 through 6.1.25, from 5.3.0 through 5.3.46.
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2026-22735; https://spring.io/security/cve-2026-22735
+- CVE-2026-22745 / GHSA-6p4f-wcwh-5vvm: Spring MVC and WebFlux applications are vulnerable to Denial of Service attacks when resolving static resources | severity=MODERATE | fixed=6.2.18, 7.0.7
+  details: Spring MVC and WebFlux applications are vulnerable to Denial of Service attacks when resolving static resources.   More precisely, an application can be vulnerable when all the following are true:    *  the application is using Spring MVC or Spring WebFlux   *  the application is serving static resources from the file system   *  the application is
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2026-22745; https://spring.io/security/cve-2026-22745
+- CVE-2020-5397 / GHSA-7pm4-g2qj-j85x: CSRF attack via CORS preflight requests with Spring MVC or Spring WebFlux | severity=MODERATE | fixed=5.2.3
+  details: Spring Framework, versions 5.2.x prior to 5.2.3 are vulnerable to CSRF attacks through CORS preflight requests that target Spring MVC (spring-webmvc module) or Spring WebFlux (spring-webflux module) endpoints. Only non-authenticated endpoints are vulnerable because preflight requests should not include credentials and therefore requests should fail
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2020-5397
+- CVE-2020-5398 / GHSA-8wx2-9q48-vm9r: RFD attack via Content-Disposition header sourced from request input by Spring MVC or Spring WebFlux Application | severity=HIGH | fixed=5.0.16.RELEASE, 5.1.13.RELEASE, 5.2.3.RELEASE
+  details: In Spring Framework, versions 5.2.x prior to 5.2.3, versions 5.1.x prior to 5.1.13, and versions 5.0.x prior to 5.0.16, an application is vulnerable to a reflected file download (RFD) attack when it sets a "Content-Disposition" header in the response where the filename attribute is derived from user supplied input.
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2020-5398
+- CVE-2024-38816 / GHSA-cx7f-g6mp-7hqm: Path traversal vulnerability in functional web frameworks | severity=HIGH | fixed=6.1.13
+  details: Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is running.  Specifically, an application is vulnera
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2024-38816; https://spring.io/security/cve-2024-38816
+- CVE-2024-38819 / GHSA-g5vr-rgqm-vf78: Spring Framework Path Traversal vulnerability | severity=HIGH | fixed=6.1.14
+  details: Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is running.
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2024-38819; https://spring.io/security/cve-2024-38819
+- CVE-2026-22741 / GHSA-wg35-8jpf-2xv3: Spring MVC and WebFlux applications are vulnerable to cache poisoning when resolving static resources. | severity=LOW | fixed=6.2.18, 7.0.7
+  details: Spring MVC and WebFlux applications are vulnerable to cache poisoning when resolving static resources.   More precisely, an application can be vulnerable when all the following are true:    *  the application is using Spring MVC or Spring WebFlux   *  the application is configuring the  resource chain support https://docs.spring.io/spring-framework
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2026-22741; https://spring.io/security/cve-2026-22741
