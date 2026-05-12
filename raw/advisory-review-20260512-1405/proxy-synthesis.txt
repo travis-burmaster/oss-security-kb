@@ -1,0 +1,62 @@
+# OSS Security KB Review: `protobufjs` (npm)
+
+## 1. Recommendation: Add a Dedicated Package Page
+
+**Strongly recommended.** The evidence clearly justifies a dedicated KB entry:
+
+- **~62 million weekly downloads** — places it among the most depended-upon npm packages.
+- **12 distinct CVEs** spanning from 2018 to May 2026, including two critical-severity issues.
+- **Two active major branches** (7.x and 8.x) receiving parallel security patches, creating upgrade complexity for consumers.
+
+---
+
+## 2. Key Vulnerability Themes (Evidence-Backed)
+
+### A. Prototype Pollution / Prototype Injection (Recurring)
+The dominant theme across the package's history. Each generation of the vulnerability has manifested slightly differently:
+
+| CVE | Severity | Summary | Fixed In |
+|-----|----------|---------|----------|
+| CVE-2023-36665 (GHSA-h755) | **Critical 9.8** | Prototype Pollution via `load`/`parse` | 6.11.4 / 7.2.5 |
+| CVE-2022-25878 (GHSA-g954) | High 7.5 | Prototype Pollution in `util.setProperty` | 6.10.3 / 6.11.3 |
+| CVE-2026-44292 (GHSA-fx83) | Medium 5.3 | Prototype injection in generated message constructors | 7.5.6 / 8.0.2 |
+| CVE-2026-44291 (GHSA-75px) | High 8.1 | Code generation gadget *after* prototype pollution | 7.5.6 / 8.0.2 |
+
+**Observation:** The April 2026 fixes in v7.5.5 explicitly "do not allow setting `__proto__` in Message constructor" (#2126), confirming that even after prior fixes, new prototype-related vectors kept surfacing. The v7.5.6/8.0.2 wave then addressed a further *chain* where prototype pollution enabled code generation abuse.
+
+### B. Code Injection via Code Generation
+Two 2026 CVEs target protobufjs's dynamic code-generation path:
+
+| CVE | Severity | Summary | Fixed In |
+|-----|----------|---------|----------|
+| CVE-2026-41242 (GHSA-xq3m) | **Critical 9.8** | Arbitrary code execution | 7.5.5 / 8.0.1 |
+| CVE-2026-44293 (GHSA-66ff) | High (no CVSS score published) | Code injection through bytes field defaults in generated `toObject` | 7.5.6 / 8.0.2 |
+
+These highlight that the library's runtime code-generation model (using `new Function()`) remains an inherently high-risk surface. Crafted `.proto` definitions or field values can escape the generated code template.
+
+### C. Denial of Service
+| CVE | Severity | Vector | Fixed In |
+|-----|----------|--------|----------|
+| CVE-2018-3738 (GHSA-762f) | Medium 5.5 | Unspecified (historical) | 5.0.3 / 6.8.6 |
+| CVE-2026-44294 (GHSA-2pr8) | Medium 5.3 | Crafted field names in generated code | 7.5.6 / 8.0.2 |
+| CVE-2026-44289 (GHSA-685m) | High 7.5 | Unbounded protobuf recursion | 7.5.6 / 8.0.2 |
+| CVE-2026-44290 (GHSA-jvwf) | High 7.5 | Process-wide DoS via unsafe option paths | 7.5.6 / 8.0.2 |
+
+The recursion and option-path DoS issues are notable because they can crash a Node.js process from untrusted protobuf input without requiring prototype pollution.
+
+### D. Input Validation / Encoding
+| CVE | Severity | Vector | Fixed In |
+|-----|----------|--------|----------|
+| CVE-2026-44288 (GHSA-q6x5) | Medium 5.3 | Overlong UTF-8 decoding | 7.5.6 / 8.0.2 / 1.1.1 |
+
+This is a correctness/security issue: accepting overlong UTF-8 sequences can bypass string-level security checks downstream.
+
+---
+
+## 3. Fixed-Version Map (Minimum Safe Versions)
+
+Based on all known advisories, the **minimum versions that resolve every known CVE** are:
+
+| Branch | Minimum Safe Version | Notes |
+|--------|---------------------|-------|
+| **1.x** | **1.1.1** | Only UTF-8 fix applicable |
