@@ -1,0 +1,189 @@
+Package: org.springframework.security:spring-security-core (Maven)
+OSV package query: https://osv.dev/list?ecosystem=Maven&q=org.springframework.security%3Aspring-security-core
+Count: 31
+
+ID: GHSA-27xw-p8v6-9jjr Aliases: CVE-2018-15801 Severity: HIGH
+Summary: Spring Security vulnerable to Authorization Bypass
+Details: Spring Security versions 5.1.x prior to 5.1.2 contain an authorization bypass vulnerability during JWT issuer validation. In order to be impacted, the same private key for an honest issuer and a malicious user must be used when signing JWTs. In that case, a malicious user could fashion signed JWTs with the malicious issuer URL that may be granted f
+Fixed: 5.1.2
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2018-15801; https://github.com/spring-projects/spring-security/commit/c70b65c5df0e170a2d34d812b83db0b7bc71ea25; https://github.com/advisories/GHSA-27xw-p8v6-9jjr; https://github.com/spring-projects/spring-security
+
+ID: GHSA-2ppp-9496-p23q Aliases: CVE-2020-5408 Severity: MODERATE
+Summary: Insufficient Entropy in Spring Security
+Details: Spring Security versions 5.3.x prior to 5.3.2, 5.2.x prior to 5.2.4, 5.1.x prior to 5.1.10, 5.0.x prior to 5.0.16 and 4.2.x prior to 4.2.16 use a fixed null initialization vector with CBC Mode in the implementation of the queryable text encryptor. A malicious user with access to the data that has been encrypted using such an encryptor may be able t
+Fixed: 4.2.16, 5.0.16, 5.1.10, 5.2.4, 5.3.2
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2020-5408; https://tanzu.vmware.com/security/cve-2020-5408; https://www.oracle.com/security-alerts/cpuApr2021.html; https://www.oracle.com/security-alerts/cpujan2021.html
+
+ID: GHSA-3295-h9qx-r82x Aliases: CVE-2010-3700 Severity: MODERATE
+Summary: Authentication Bypass Using an Alternate Path or Channel in SpringSource Spring Security and Acegi Security
+Details: VMware SpringSource Spring Security 2.x before 2.0.6 and 3.x before 3.0.4, and Acegi Security 1.0.0 through 1.0.7, as used in IBM WebSphere Application Server (WAS) 6.1 and 7.0, allows remote attackers to bypass security constraints via a path parameter.
+Fixed: 2.0.6, 3.0.4
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2010-3700; https://issues.apache.org/bugzilla/show_bug.cgi?id=25015; https://web.archive.org/web/20110802082343/http://www.springsource.com/security/cve-2010-3700
+
+ID: GHSA-3533-rvpc-6x56 Aliases: CVE-2012-5055 Severity: MODERATE
+Summary: Exposure of Sensitive Information to an Unauthorized Actor in Spring Security
+Details: DaoAuthenticationProvider in VMware SpringSource Spring Security before 2.0.8, 3.0.x before 3.0.8, and 3.1.x before 3.1.3 does not check the password if the user is not found, which makes the response delay shorter and might allow remote attackers to enumerate valid usernames via a series of login requests.
+Fixed: 2.0.8, 3.0.8, 3.1.3
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2012-5055; http://support.springsource.com/security/CVE-2012-5055
+
+ID: GHSA-4644-hg35-55m9 Aliases: CVE-2011-2731 Severity: MODERATE
+Summary: Concurrent Execution using Shared Resource with Improper Synchronization in Spring Security
+Details: Race condition in the RunAsManager mechanism in VMware SpringSource Spring Security before 2.0.7 and 3.0.x before 3.0.6 stores the Authentication object in the shared security context, which allows attackers to gain privileges via a crafted thread.
+Fixed: 2.0.7, 3.0.6
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2011-2731; https://github.com/spring-projects/spring-security; http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=677814; http://support.springsource.com/security/cve-2011-2731
+
+ID: GHSA-48rw-j489-928m Aliases: CVE-2020-5407 Severity: HIGH
+Summary: Signature wrapping vulnerability in Spring Security
+Details: Spring Security versions 5.2.x prior to 5.2.4 and 5.3.x prior to 5.3.2 contain a signature wrapping vulnerability during SAML response validation. When using the spring-security-saml2-service-provider component, a malicious user can carefully modify an otherwise valid SAML response and append an arbitrary assertion that Spring Security will accept 
+Fixed: 5.2.4, 5.3.2
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2020-5407; https://lists.apache.org/thread.html/r73af928cf64bebf78b7fa4bc56a5253273ec7829f5f5827f64c72fc7@%3Cissues.servicemix.apache.org%3E; https://lists.apache.org/thread.html/ra19a4e7236877fe12bfb52db07b27ad72d9e7a9f5e27bba7e928e18a@%3Cdev.geode.apache.org%3E; https://lists.apache.org/thread.html/rd99601fbca514f214f88f9e53fd5be3cfbff05b350c994b4ec2e184c@%3Cdev.geode.apache.org%3E
+
+ID: GHSA-5xm9-rf63-wj7h Aliases: CVE-2011-2732 Severity: MODERATE
+Summary: Improper Control of Generation of Code in Spring Security
+Details: CRLF injection vulnerability in the logout functionality in VMware SpringSource Spring Security before 2.0.7 and 3.0.x before 3.0.6 allows remote attackers to inject arbitrary HTTP headers and conduct HTTP response splitting attacks via the spring-security-redirect parameter.
+Fixed: 2.0.7, 3.0.6
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2011-2732; https://github.com/spring-projects/spring-security; http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=677814; http://support.springsource.com/security/cve-2011-2732
+
+ID: GHSA-8crv-49fr-2h6j Aliases: CVE-2016-5007 Severity: HIGH
+Summary: Spring Security and Spring Framework may not recognize certain paths that should be protected
+Details: Both Spring Security 3.2.x, 4.0.x, 4.1.0 and the Spring Framework 3.2.x, 4.0.x, 4.1.x, 4.2.x (as well as other unsupported versions) rely on URL pattern mappings for authorization and for mapping requests to controllers respectively. Differences in the strictness of the pattern matching mechanisms, for example with regards to space trimming in path
+Fixed: 4.1.1, 4.3.1
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2016-5007; https://github.com/spring-projects/spring-security/issues/3964; https://github.com/spring-projects/spring-framework/commit/a30ab30e4e9ae021fdda04e9abfc228476b846b5; https://github.com/spring-projects/spring-security/commit/e4c13e3c0ee7f06f59d3b43ca6734215ad7d8974
+
+ID: GHSA-8v5q-rhf3-jphm Aliases: CVE-2025-41248 Severity: HIGH
+Summary: Spring Security annotation detection mechanism has authorization bypass
+Details: The Spring Security annotation detection mechanism may not correctly resolve annotations on methods within type hierarchies with a parameterized super type with unbounded generics. This can be an issue when using @PreAuthorize and other method security annotations, resulting in an authorization bypass.  Your application may be affected by this if y
+Fixed: 6.4.10, 6.5.4
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2025-41248; https://github.com/spring-projects/spring-security/issues/17898; https://github.com/spring-projects/spring-security/issues/17899; https://github.com/spring-projects/spring-security/commit/d0f93fa6d8338149943ae640c53db07de827867f
+
+ID: GHSA-9pp5-9c7g-4r83 Aliases: CVE-2025-41232 Severity: CRITICAL
+Summary: Spring Security authorization bypass for method security annotations on private methods
+Details: Spring Security Aspects may not correctly locate method security annotations on private methods. This can cause an authorization bypass.  Your application may be affected by this if the following are true:    *  You are using @EnableMethodSecurity(mode=ASPECTJ) and spring-security-aspects, and   *  You have Spring Security method annotations on a p
+Fixed: 6.4.6
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2025-41232; https://github.com/spring-projects/spring-security/commit/bf2aaa1b1830e534ba651d422545ac08a115151b; https://github.com/spring-projects/spring-security/commit/c972de5369a1261ab674a3f5e3a80e8ce3e8cdfb; https://github.com/spring-projects/spring-security
+
+ID: GHSA-f3jh-qvm4-mg39 Aliases: CVE-2024-22257 Severity: HIGH
+Summary: Erroneous authentication pass in Spring Security
+Details: In Spring Security, versions 5.7.x prior to 5.7.12, 5.8.x prior to 5.8.11, versions 6.0.x prior to 6.0.9, versions 6.1.x prior to 6.1.8, versions 6.2.x prior to 6.2.3, an application is possible vulnerable to broken access control when it directly uses the AuthenticatedVoter#vote passing a null Authentication parameter.  Specifically, an applicatio
+Fixed: 5.7.12, 5.8.11, 6.1.8, 6.2.3
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2024-22257; https://github.com/spring-projects/spring-security/commit/5a7f12f1a9fdb4edaab6f61495f1d781a7273b61; https://github.com/spring-projects/spring-security; https://security.netapp.com/advisory/ntap-20240419-0005
+
+ID: GHSA-f866-m9mv-2xr3 Aliases: CVE-2011-2894 Severity: MODERATE
+Summary: Spring Framework and Spring Security vulnerable to Deserialization of Untrusted Data
+Details: Spring Framework 3.0.0 through 3.0.5, Spring Security 3.0.0 through 3.0.5 and 2.0.0 through 2.0.6, and possibly other versions deserialize objects from untrusted sources, which allows remote attackers to bypass intended security restrictions and execute untrusted code by (1) serializing a java.lang.Proxy instance and using InvocationHandler, or (2)
+Fixed: 2.0.7, 3.0.6
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2011-2894; https://github.com/spring-projects/spring-framework/commit/070a723ef2c886770a063eb9a67f84f74e06edfb; https://exchange.xforce.ibmcloud.com/vulnerabilities/69687; https://github.com/spring-projects/spring-framework
+
+ID: GHSA-gv9v-c375-hvmg Aliases: CVE-2014-0097 Severity: HIGH
+Summary: Improper Authentication in Spring Security
+Details: The ActiveDirectoryLdapAuthenticator in Spring Security 3.2.0 to 3.2.1 and 3.1.0 to 3.1.5 does not check the password length. If the directory allows anonymous binds then it may incorrectly authenticate a user who supplies an empty password.
+Fixed: 3.1.5.RELEASE, 3.2.2.RELEASE
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2014-0097; https://github.com/spring-projects/spring-security/commit/7dbb8e777ece8675f3333a1ef1cb4d6b9be80395; https://github.com/spring-projects/spring-security/commit/88559882e967085c47a7e1dcbc4dc32c2c796868; https://github.com/spring-projects/spring-security/commit/a7005bd74241ac8e2e7b38ae31bc4b0f641ef973
+
+ID: GHSA-hh32-7344-cg2f Aliases: CVE-2022-22978 Severity: CRITICAL
+Summary: Authorization bypass in Spring Security
+Details: In Spring Security versions 5.5.6 and 5.5.7 and older unsupported versions, RegexRequestMatcher can easily be misconfigured to be bypassed on some servlet containers. Applications using RegexRequestMatcher with `.` in the regular expression are possibly vulnerable to an authorization bypass.
+Fixed: 5.4.11, 5.5.7, 5.6.4
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2022-22978; https://github.com/anchore/grype/issues/2158; https://github.com/spring-projects/spring-security; https://github.com/spring-projects/spring-security/blob/main/web/src/main/java/org/springframework/security/web/util/matcher/RegexRequestMatcher.java
+
+ID: GHSA-hh3m-g4qj-4835 Aliases: CVE-2025-22223 Severity: MODERATE
+Summary: Spring Security Vulnerable to Authorization Bypass via Security Annotations
+Details: Spring Security 6.4.0 - 6.4.3 may not correctly locate method security annotations on parameterized types or methods. This may cause an authorization bypass.   You are not affected if you are not using @EnableMethodSecurity, or you do not have method security annotations on parameterized types or methods, or all method security annotations are atta
+Fixed: 6.4.4
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2025-22223; https://github.com/spring-projects/spring-security/commit/dc2e1af2dab8ef81cd4edd25b56a2babeaab8cf9; https://github.com/spring-projects/spring-security; https://spring.io/security/cve-2025-22223
+
+ID: GHSA-hmqf-wpq9-jq83 Aliases: CVE-2024-38810 Severity: MODERATE
+Summary: Spring Security Missing Authorization vulnerability
+Details: Missing Authorization When Using @AuthorizeReturnObject in Spring Security 6.3.0 and 6.3.1 allows attacker to render security annotations inaffective.
+Fixed: 6.3.2
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2024-38810; https://github.com/spring-projects/spring-security; https://spring.io/security/cve-2024-38810
+
+ID: GHSA-mmmh-wcxm-2wr4 Aliases: CVE-2022-31692 Severity: CRITICAL
+Summary: Spring Security authorization rules can be bypassed via forward or include dispatcher types
+Details: Spring Security, versions 5.7 prior to 5.7.5 and 5.6 prior to 5.6.9 could be susceptible to authorization rules bypass via forward or include dispatcher types. Specifically, an application is vulnerable when all of the following are true: The application expects that Spring Security applies security to forward and include dispatcher types. The appl
+Fixed: 5.6.9, 5.7.5
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2022-31692; https://github.com/spring-projects/spring-security; https://security.netapp.com/advisory/ntap-20221215-0010; https://tanzu.vmware.com/security/cve-2022-31692
+
+ID: GHSA-q3v6-hm2v-pw99 Aliases: CVE-2024-38827 Severity: MODERATE
+Summary: Spring Framework has Authorization Bypass for Case Sensitive Comparisons
+Details: The usage of String.toLowerCase() and String.toUpperCase() has some Locale dependent exceptions that could potentially result in authorization rules not working properly.
+Fixed: 5.7.14, 5.8.16, 6.0.14, 6.1.12, 6.2.8, 6.3.5
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2024-38827; https://github.com/spring-projects/spring-framework/issues/33708; https://github.com/spring-projects/spring-framework/issues/34232; https://github.com/spring-projects/spring-framework/commit/11d4272ff48b4a4dabc4b28dfbff0364a4204bc9
+
+ID: GHSA-v2r2-7qm7-jj6v Aliases: CVE-2019-3795 Severity: MODERATE
+Summary: Spring Security uses insufficiently random values
+Details: Spring Security versions 4.2.x prior to 4.2.12, 5.0.x prior to 5.0.12, and 5.1.x prior to 5.1.5 contain an insecure randomness vulnerability when using SecureRandomFactoryBean#setSeed to configure a SecureRandom instance. In order to be impacted, an honest application must provide a seed and make the resulting random material available to an attack
+Fixed: 4.2.12, 5.0.12, 5.1.5
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2019-3795; https://github.com/advisories/GHSA-v2r2-7qm7-jj6v; https://lists.debian.org/debian-lts-announce/2019/05/msg00026.html; https://pivotal.io/security/cve-2019-3795
+
+ID: GHSA-v33x-prhc-gph5 Aliases: CVE-2019-11272 Severity: HIGH
+Summary: Insufficiently Protected Credentials and Improper Authentication in Spring Security
+Details: Spring Security, versions 4.2.x up to 4.2.12, and older unsupported versions support plain text passwords using PlaintextPasswordEncoder. If an application using an affected version of Spring Security is leveraging PlaintextPasswordEncoder and a user has a null encoded password, a malicious user (or attacker) can authenticate using a password of ?n
+Fixed: 4.2.13, 4.2.13.RELEASE
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2019-11272; https://lists.debian.org/debian-lts-announce/2019/07/msg00008.html; https://pivotal.io/security/cve-2019-11272
+
+ID: GHSA-v35c-49j6-q8hq Aliases: CVE-2016-9879 Severity: HIGH
+Summary: Security Constraint Bypass in Spring Security
+Details: Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with an encoded "/" to a request, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below). So
+Fixed: 3.2.10.RELEASE, 4.1.4.RELEASE, 4.2.1.RELEASE
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2016-9879; https://access.redhat.com/errata/RHSA-2017:1832; https://pivotal.io/security/cve-2016-9879; http://www.securityfocus.com/bid/95142
+
+ID: GHSA-v596-fwhq-8x48 Aliases: CVE-2018-1199 Severity: MODERATE
+Summary: Improper Input Validation in org.springframework.security:spring-security-core, org.springframework.security:spring-security-core , and org.springframework:spring-core
+Details: Spring Security (Spring Security 4.1.x before 4.1.5, 4.2.x before 4.2.4, and 5.0.x before 5.0.1; and Spring Framework 4.3.x before 4.3.14 and 5.0.x before 5.0.3) does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. 
+Fixed: 4.1.5, 4.2.4, 4.3.14, 5.0.1, 5.0.3
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2018-1199; https://github.com/spring-projects/spring-framework/commit/554662ebab87af97ba25d0c9f5449c7acda8df9c; https://github.com/spring-projects/spring-framework/commit/73a81f98d40eb6f5faa91aceb868db53fae2a94b; https://github.com/spring-projects/spring-framework/commit/e6e6b8f4adcad99d133de97fcfac5ae5dd14153c
+
+ID: GHSA-vhrg-v3cv-p247 Aliases: CVE-2017-4995 Severity: HIGH
+Summary: Deserialization of Untrusted Data in Spring Security
+Details: An issue was discovered in Pivotal Spring Security 4.2.0.RELEASE through 4.2.2.RELEASE, and Spring Security 5.0.0.M1. When configured to enable default typing, Jackson contained a deserialization vulnerability that could lead to arbitrary code execution. Jackson fixed this vulnerability by blacklisting known "deserialization gadgets." Spring Securi
+Fixed: 4.2.3.RELEASE, 5.0.0.M2
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2017-4995; https://github.com/FasterXML/jackson-databind/issues/1599; https://github.com/spring-projects/spring-security/issues/4370; https://github.com/FasterXML/jackson-databind/commit/60d459cedcf079c6106ae7da2ac562bc32dcabe1
+
+ID: GHSA-vqxh-445g-37fc Aliases: CVE-2025-22234 Severity: MODERATE
+Summary: Spring Security has a broken timing attack mitigation implemented in DaoAuthenticationProvide
+Details: The fix applied in CVE-2025-22228 inadvertently broke the timing attack mitigation implemented in DaoAuthenticationProvider. This can allow attackers to infer valid usernames or other authentication behavior via response-time differences under certain configurations.
+Fixed: 6.3.9, 6.4.5
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2025-22234; https://github.com/spring-projects/spring-security; https://spring.io/security/cve-2025-22234
+
+ID: GHSA-vxf7-qj7q-83fh Aliases: CVE-2026-22746 Severity: LOW
+Summary: Spring Security Vulnerable to User Attribute Enumeration when Using DaoAuthenticationProvider
+Details: Vulnerability in Spring Spring Security. If an application is using the UserDetails#isEnabled, #isAccountNonExpired, or #isAccountNonLocked user attributes, to enable, expire, or lock users, then DaoAuthenticationProvider's timing attack defense can be bypassed for users who are disabled, expired, or locked. This issue affects Spring Security: from
+Fixed: 6.5.10, 7.0.5
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2026-22746; https://github.com/spring-projects/spring-security; https://spring.io/security/cve-2026-22746
+
+ID: GHSA-w3w6-26f2-p474 Aliases: CVE-2024-22234 Severity: HIGH
+Summary: Broken Access Control in Spring Security With Direct Use of isFullyAuthenticated
+Details: In Spring Security, versions 6.1.x prior to 6.1.7 and versions 6.2.x prior to 6.2.2, an application is vulnerable to broken access control when it directly uses the AuthenticationTrustResolver.isFullyAuthenticated(Authentication) method.  Specifically, an application is vulnerable if:    *  The application uses AuthenticationTrustResolver.isFullyAu
+Fixed: 6.1.7, 6.2.2
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2024-22234; https://github.com/spring-projects/spring-security/commit/750cb30ce44d279c2f54c845d375e6a58bded569; https://github.com/spring-projects/spring-security; https://security.netapp.com/advisory/ntap-20240315-0003
+
+ID: GHSA-w9jg-gvgr-354m Aliases: CVE-2021-22119 Severity: HIGH
+Summary: Resource Exhaustion in Spring Security
+Details: Spring Security versions 5.5.x prior to 5.5.1, 5.4.x prior to 5.4.7, 5.3.x prior to 5.3.10 and 5.2.x prior to 5.2.11 are susceptible to a Denial-of-Service (DoS) attack via the initiation of the Authorization Request in an OAuth 2.0 Client Web and WebFlux application. A malicious user or attacker can send multiple requests initiating the Authorizat
+Fixed: 5.2.11, 5.3.10, 5.4.7, 5.5.1
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2021-22119; https://github.com/spring-projects/spring-security/pull/9513; https://github.com/spring-projects/spring-security; https://lists.apache.org/thread.html/r08a449010786e0bcffa4b5781b04fcb55d6eafa62cb79b8347680aad@%3Cissues.nifi.apache.org%3E
+
+ID: GHSA-wmv4-5w76-vp9g Aliases: CVE-2014-3527 Severity: CRITICAL
+Summary: Authorization Bypass in Spring Security
+Details: When using Spring Security's CAS Proxy ticket authentication a malicious CAS Service could trick another CAS Service into authenticating a proxy ticket that was not associated. This is due to the fact that the proxy ticket authentication uses the information from the HttpServletRequest which is populated based upon untrusted information within the 
+Fixed: 3.1.7, 3.2.5
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2014-3527; https://github.com/spring-projects/spring-security/issues/2907; https://github.com/spring-projects/spring-security/commit/934937d9c1dc20c396b96c08310b72cfa627acb; https://github.com/spring-projects/spring-security
+
+ID: GHSA-wx54-3278-m5g4 Aliases: CVE-2022-22976 Severity: MODERATE
+Summary: Integer overflow in BCrypt class in Spring Security
+Details: Spring Security versions 5.5.x prior to 5.5.7, 5.6.x prior to 5.6.4, and earlier unsupported versions contain an integer overflow vulnerability. When using the BCrypt class with the maximum work factor (31), the encoder does not perform any salt rounds, due to an integer overflow error. The default settings are not affected by this CVE.
+Fixed: 5.5.7, 5.6.4
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2022-22976; https://github.com/spring-projects/spring-security/commit/388a7b62b906bd56deadb7ca45248fa1a63bdf12; https://github.com/spring-projects/spring-security/commit/a40f73521c0dd88b879ff6165d280e78bdf8154f; https://github.com/spring-projects/spring-security
+
+ID: GHSA-x2wq-9x2f-fhj7 Aliases: CVE-2026-22751 Severity: MODERATE
+Summary: Spring Security Core has a TOCTOU race condition when One-Time Token login with JdbcOneTimeTokenService is configured
+Details: Vulnerability in Spring Spring Security. Applications that explicitly configure One-Time Token login with JdbcOneTimeTokenService are vulnerable to a Time-of-check Time-of-use (TOCTOU) race condition. This issue affects Spring Security: from 6.4.0 through 6.4.15, from 6.5.0 through 6.5.9, from 7.0.0 through 7.0.4.
+Fixed: 6.5.10, 7.0.5
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2026-22751; https://github.com/spring-projects/spring-security/commit/163772775036c4146815a5266874278c6f45f047; https://github.com/spring-projects/spring-security/commit/4187af38b251fc97fdf9949f7869618111e6e261; https://github.com/spring-projects/spring-security
+
+ID: GHSA-x873-6rgc-94jc Aliases: CVE-2023-20862 Severity: MODERATE
+Summary: Spring Security logout not clearing security context
+Details: In Spring Security, versions 5.7.x prior to 5.7.8, versions 5.8.x prior to 5.8.3, and versions 6.0.x prior to 6.0.3, the logout support does not properly clean the security context if using serialized versions. Additionally, it is not possible to explicitly save an empty security context to the HttpSessionSecurityContextRepository. This vulnerabili
+Fixed: 5.7.8, 5.8.3, 6.0.3
+Refs: https://nvd.nist.gov/vuln/detail/CVE-2023-20862; https://github.com/spring-projects/spring-security; https://security.netapp.com/advisory/ntap-20230526-0002; https://spring.io/security/cve-2023-20862
