@@ -1,0 +1,9 @@
+{
+  "data": {
+    "last_day": 5178720,
+    "last_month": 128009195,
+    "last_week": 30653412
+  },
+  "package": "gunicorn",
+  "type": "recent_downloads"
+}

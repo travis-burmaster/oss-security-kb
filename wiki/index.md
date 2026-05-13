@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*163 tracked pages across 9 ecosystems. Last updated: 2026-05-13.*
+*167 tracked pages across 9 ecosystems. Last updated: 2026-05-13.*
 
 ## npm (91)
 
@@ -108,10 +108,11 @@
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
 
-## Python / PyPI (23)
+## Python / PyPI (26)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
 - [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3 / GHSA-955r-262c-33jc / MAL-2026-2254)
 - [[python/flask]] — Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
+- [[python/flask-cors]] — Flask CORS extension · advisory mapped · directory traversal plus 2024 CORS matching / private-network-header / debug-log injection fix train through 6.0.0
 - [[python/jinja2]] — Python templating engine · advisory mapped · recurring sandbox breakouts, xmlattr injection, and ReDoS history
 - [[python/pyyaml]] — YAML parser and emitter for Python · advisory mapped · long-running unsafe-deserialization / arbitrary-code-execution vulnerability chain addressed through successive fixes up to version 5.4
 - [[python/django]] — Python web framework · advisory mapped · mature public security-release archive with recurring SQL-injection, ASGI/header-boundary, upload-limit, cache/session, traversal, and DoS history through 2026
@@ -123,6 +124,8 @@
 - [[python/cryptography]] — foundational Python cryptography library · advisory mapped · primitive, X.509/PKCS, buffer-boundary, and bundled-OpenSSL wheel history
 - [[python/paramiko]] — Python SSH2 protocol library · advisory mapped · server-mode authentication bypasses, private-key file race, SSH Terrapin, legacy randomness, and 2026 SHA-1 algorithm record
 - [[python/aiohttp]] — async HTTP client/server framework · advisory mapped · parser / request-smuggling, static-file exposure, redirect leakage, multipart, and DoS history through 3.13.4
+- [[python/gunicorn]] — WSGI HTTP server · advisory mapped · CRLF response/header injection plus 2024 HTTP request/response-smuggling parser-boundary fixes through 22.0.0
+- [[python/uvicorn]] — ASGI HTTP server · advisory mapped · 2020 log-injection and HTTP response-splitting records fixed in 0.11.7
 - [[python/werkzeug]] — foundational WSGI / request utility library · advisory mapped · debugger, multipart-parser, and Windows path-containment history through 3.1.6
 - [[python/starlette]] — ASGI framework/toolkit · advisory mapped · multipart-parser and file-serving DoS / path-containment history through 0.49.1
 - [[python/fastapi]] — ASGI web framework · advisory mapped · CSRF content-type parsing and dependency-mediated multipart ReDoS history through 0.109.1
