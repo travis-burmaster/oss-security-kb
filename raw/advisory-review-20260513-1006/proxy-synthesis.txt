@@ -1,0 +1,76 @@
+# OSS Security KB Page: `python-multipart` (PyPI)
+
+## Package Overview
+
+| Field | Detail |
+|---|---|
+| **PyPI Package** | `python-multipart` |
+| **Latest Version** | 0.0.28 (released 2026-05-10) |
+| **Source Repository** | https://github.com/Kludex/python-multipart |
+| **Documentation** | https://kludex.github.io/python-multipart/ |
+| **License** | Apache-2.0 |
+| **Popularity (PyPIStats)** | ~16.4M downloads/day; ~359M downloads/month |
+
+The package is a critical dependency in the Python web ecosystem, widely used by **Starlette** and **FastAPI** for parsing `multipart/form-data` and URL-encoded form submissions.
+
+---
+
+## Security Advisory Summary
+
+Five distinct security advisories have been published against this package, all now fixed in released versions.
+
+### 1. CVE-2024-24762 — Content-Type Header ReDoS
+| Field | Detail |
+|---|---|
+| **GHSA** | GHSA-2jv5-9r88-3w3p |
+| **Aliases** | CVE-2024-24762, GHSA-qf9m-vfgh-m389, PYSEC-2024-38 |
+| **Severity** | HIGH |
+| **Affected Versions** | < 0.0.7 |
+| **Fixed Version** | 0.0.7 |
+| **Fix Commit** | `20f0ef6b4e4caf7d69a667c54dff57fe467109a4` |
+
+**Description:** The regex used to parse the HTTP `Content-Type` header options was vulnerable to catastrophic backtracking (ReDoS). A crafted `Content-Type` value could stall the main event loop indefinitely, blocking all request processing. This affects any application using form data parsed by `python-multipart`. Downstream fixes were also applied in Starlette and FastAPI.
+
+---
+
+### 2. CVE-2024-53981 — DoS via Deformed Multipart Boundary
+| Field | Detail |
+|---|---|
+| **GHSA** | GHSA-59g5-xgcq-4qw3 |
+| **Severity** | HIGH |
+| **Affected Versions** | < 0.0.18 |
+| **Fixed Version** | 0.0.18 |
+| **Fix Commit** | `c4fe4d3cebc08c660e57dd709af1ffa7059b3177` |
+
+**Description:** The parser processed bytes one-at-a-time when skipping line breaks before the first boundary and trailing bytes after the last boundary, emitting a log event for each byte. Malicious requests with large data outside boundary delimiters caused excessive logging, high CPU usage, and event-loop stalling in ASGI applications. Independently reported by @Startr4ck (via Starlette advisory) and @mnqazi (via email).
+
+---
+
+### 3. CVE-2026-24486 — Arbitrary File Write via Path Traversal (Non-Default Config)
+| Field | Detail |
+|---|---|
+| **GHSA** | GHSA-wp53-j4wj-2cfg |
+| **Severity** | HIGH |
+| **Affected Versions** | < 0.0.22 |
+| **Fixed Version** | 0.0.22 |
+| **Fix Commit** | `9433f4bbc9652bdde82bbe380984e32f8cfc89c4` |
+
+**Description:** When using the non-default configuration options `UPLOAD_DIR` combined with `UPLOAD_KEEP_FILENAME=True`, `os.path.join()` behavior allowed absolute-path filenames (e.g., beginning with `/`) to escape the intended upload directory. An attacker could write uploaded files to arbitrary filesystem locations. The fix strips directory path components from uploaded filenames.
+
+**Note:** Only affects applications explicitly opting into both `UPLOAD_DIR` and `UPLOAD_KEEP_FILENAME=True`.
+
+---
+
+### 4. CVE-2026-40347 — DoS via Large Multipart Preamble or Epilogue
+| Field | Detail |
+|---|---|
+| **GHSA** | GHSA-mj87-hwqh-73pj |
+| **Severity** | MODERATE |
+| **Affected Versions** | < 0.0.26 |
+| **Fixed Version** | 0.0.26 |
+
+**Description:** Parsing time grew linearly with attacker-controlled preamble (data before first boundary) or epilogue (data after closing boundary) size due to inefficient per-byte CR/LF handling and continued epilogue processing. The fix skips ahead to the next boundary candidate during preamble and immediately discards epilogue data.
+
+---
+
+### 5. CVE-2026-42561 — DoS via
