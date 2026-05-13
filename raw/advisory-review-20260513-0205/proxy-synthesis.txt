@@ -1,0 +1,33 @@
+
+
+# OSS Security KB — PyPI `paramiko` — Proposed Page
+
+## Page Metadata
+
+| Field | Value |
+|---|---|
+| Package | `paramiko` |
+| Registry | PyPI |
+| Repository | `github.com/paramiko/paramiko` |
+| Latest Release | 5.0.0 (2026-05-09) |
+| Security Policy | Public (`github.com/paramiko/paramiko` — SECURITY.md) |
+| Weekly Downloads | *Data unavailable (PyPI Stats API returned HTTP 429 during collection)* |
+
+---
+
+## Package Summary
+
+Paramiko is a pure-Python implementation of the SSHv2 protocol, providing both client and server functionality. It is widely used for programmatic SSH connections, SFTP transfers, and SSH tunneling. Because it implements the full SSH protocol stack—including key exchange, host-key verification, authentication, and channel multiplexing—its attack surface spans cryptographic primitives, protocol-state machines, and local file operations.
+
+---
+
+## Advisory Table
+
+| # | Identifiers | Severity | Summary | Affected | Fixed | Notes |
+|---|---|---|---|---|---|---|
+| 1 | GHSA-wqmm-q65g-2hqr / CVE-2008-0299 / PYSEC-2008-8 | High | `RandomPool` state reuse allows sensitive-information exposure via predictable random values. | Early 1.x releases | ~1.7.2 (backports to 1.7.1-patch3 in some distros) | Legacy issue; only relevant to very old installations. Fixed ranges differ between GHSA and PyPA; represent conservatively as early 1.7.x. |
+| 2 | GHSA-232r-66cg-79px / CVE-2018-7750 / PYSEC-2018-19 | Critical | **Server mode only.** Authentication-check bypass: channel-open and other post-authentication requests processed before authentication completes. | <1.17.6, <1.18.5, <2.0.8, <2.1.5, <2.2.3, <2.3.2, <2.4.1 | 1.17.6, 1.18.5, 2.0.8, 2.1.5, 2.2.3, 2.3.2, 2.4.1 | Affects only applications using Paramiko as an SSH server. Client-only use is not affected per upstream changelog. |
+| 3 | GHSA-f2j6-wrhh-v25m / CVE-2018-1000805 / PYSEC-2018-69 | High | **Server mode only.** Auth bypass allowing hostile clients to appear authenticated; potential RCE depending on server application logic. Root cause: shared client/server message-handling tables. | <2.0.9, <2.1.6, <2.2.4, <2.3.3, <2.4.2 | 2.0.9, 2.1.6, 2.2.4, 2.3.3, 2.4.2 | Distinct from #2; separate state-machine bug. Fix separated client and server message handler tables. Server mode only. |
+| 4 | GHSA-f8q4-jwww-x3wv / CVE-2022-24302 / PYSEC-2022-166 | High | Race condition in `PKey.write_private_key_file`: file created before permissions set, allowing local attacker to read private-key material. | <2.9.3, >=2.10.0 <2.10.1 | 2.9.3, 2.10.1 | Fix uses `os.open`/`os.fdopen` to set mode atomically at creation. Requires local attacker with read access to target directory. |
+| 5 | GHSA-45x7-px36-x8w8 / CVE-2023-48795 | Medium | SSH "Terrapin" prefix-truncation attack against strict key-exchange integrity. Protocol-level issue requiring MITM position and both endpoints to negotiate affected algorithms. | >=2.5.0, <3.4.0 | 3.4.0 | Paramiko impact limited to encrypt-then-MAC with CBC ciphers in its implemented algorithm set. Mitigation: upgrade, or use `disabled_algorithms` to remove affected algorithms. Requires cooperating peer to also support strict-kex. |
+| 6 | GHSA-r374-rxx8-8654 / CVE-2026-44405 | Low | SHA-1 algorithm permitted in `rsakey.py` through 4.0.0. Identified in public OSTIF audit. | ≤4.0.0 (before commit `a4489456…`) | 5.0.0 (2026-05-09) | Low severity per advisory. Public references: OSTIF audit PDF, fixing commit. No exploitation claims
