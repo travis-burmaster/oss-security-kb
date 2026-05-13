@@ -1,0 +1,719 @@
+--- 5.0.0 ---
+ doesn’t
+come up much in the real world, but was causing warnings in the test suite.
+[
+Support
+]
+#2178
+:
+Apply
+codespell
+to the codebase, which found a
+lot of very old minor spelling mistakes in docstrings. Also modernize many
+instances of
+*largs
+vs
+*args
+and
+**kwarg
+vs
+**kwargs
+. Patch
+courtesy of Yaroslav Halchenko, with review from Brian Skinn.
+5.0.0
+2026-05-09
+[
+Feature
+]
+:
+Added a new, optional
+file_format
+keyword argument to
+PKey.write_private_key
+and
+PKey.write_private_key_file
+to
+allow writing out OpenSSH-style private key files in addition to the legacy
+PEM format.
+Warning
+While the default format remains PEM in Paramiko 5, future major releases
+are likely to change that default to the OpenSSH format. We recommend
+updating any key-writing code you have to be explicit now, to insulate
+yourself from such an update.
+[
+Bug
+]
+:
+Added a
+password
+kwarg to
+PKey.from_type_string
+so it can handle encrypted keys like
+most other PKey constructors already could.
+[
+Bug
+]
+:
+Fix
+Ed25519Key
+’s internals
+such that it no longer throws
+AttributeError
+during calls to
+__repr__
+when only partly initialized. This isn’t a normal runtime problem (it only
+happens inside error handling for fatal errors like “not a valid private
+key”) but was perennially complicating test failure diagnosis and similar
+scenarios.
+[
+Support
+]
+:
+Removed the
+demos/
+fol
+
+--- 4.0.0 ---
+ate_key_file
+methods; with other
+recent changes, having individual implementations on the child classes made
+no sense, so key writing is now implemented in
+PKey
+itself and the included child classes such as
+ECDSAKey
+no longer define their own such methods,
+instead simply exposing their underlying cryptographic private key objects as
+.private_key
+.
+4.0.0
+2025-08-03
+[
+Support
+]
+#973
+:
+Removed support for the DSA (aka DSS) key algorithm, as it has
+been badly outdated and insecure for a decade or more at this point, and was
+recently completely removed from OpenSSH as well.
+If you were still using DSA out of sheer inertia: we strongly recommend
+upgrading to Ed25519 (or maybe ECDSA).
+If you were still using DSA because of target hosts you do not control:
+please continue using Paramiko 3.x.
+[
+Support
+]
+:
+Administrivia update:
+dropped support for Python <3.9
+migrated packaging metadata and practices to use
+pyproject.toml
+removed the now-vestigial
+ed25519
+packaging ‘extra’ (support for this
+hasn’t required additional dependencies in a number of releases now, just
+the core ones)
+moved Invoke requirement to core dependencies, and removed
+paramiko[invoke]
+from extras
+with those two changes,
+paramiko[all]
+becomes much less useful, and has
+itself been axed
+removed the very old and wizened
+setup_helper.py
+which was only needed
+on ancient (for 
+
+--- 3.4.0 ---
+kiptest check to work with newer versions
+of Cryptography. Props to Paul Howarth for the patch.
+[
+Bug
+]
+#2419
+:
+(fixed in
+#2421
+) Massage our import of the TripleDES
+cipher to support Cryptography >=43; this should prevent
+CryptographyDeprecationWarning
+from appearing upon import. Thanks to
+Erick Alejo for the report and Bryan Banda for the patch.
+3.4.0
+2023-12-18
+[
+Feature
+]
+:
+Transport
+grew a new
+packetizer_class
+kwarg for overriding
+the packet-handler class used internally. Mostly for testing, but advanced
+users may find this useful when doing deep hacks.
+[
+Bug
+]
+:
+Tweak
+ext-info-(c|s)
+detection during KEXINIT protocol
+phase; the original implementation made assumptions based on an OpenSSH
+implementation detail.
+[
+Bug
+]
+:
+Address
+CVE 2023-48795
+(aka
+the “Terrapin Attack”, a vulnerability found in the SSH protocol re:
+treatment of packet sequence numbers) as follows:
+The vulnerability only impacts encrypt-then-MAC digest algorithms in
+tandem with CBC ciphers, and ChaCha20-poly1305; of these, Paramiko
+currently only implements
+hmac-sha2-(256|512)-etm
+in tandem with
+AES-CBC
+. If you are unable to upgrade to Paramiko versions containing
+the below fixes right away, you may instead use the
+disabled_algorithms
+connection option to disable the ETM MACs and/or
+the CBC ciphers (this option is present in Paramiko >=2.6).
+As the fix for 
+
+--- 2.10.1 ---
+vor of memory leak for long-running processes. Catch & patch via Richard
+Kojedzinszky.
+[
+Bug
+]
+#1963
+:
+(via
+#1977
+) Certificate-based pubkey auth was
+inadvertently broken when adding SHA2 support; this has been fixed. Reported
+by Erik Forsberg and fixed by Jun Omae.
+2.9.3
+2022-03-18
+[
+Bug
+]
+#2001
+:
+Fix Python 2 compatibility breakage introduced in 2.10.1. Spotted
+by Christian Hammond.
+Warning
+This is almost certainly the last time we will fix Python 2 related
+errors! Please see
+the roadmap
+.
+[
+Bug
+]
+#2002
+:
+(via
+#2003
+) Switch from module-global to thread-local
+storage when recording thread IDs for a logging helper; this should avoid one
+flavor of memory leak for long-running processes. Catch & patch via Richard
+Kojedzinszky.
+[
+Bug
+]
+#1963
+:
+(via
+#1977
+) Certificate-based pubkey auth was
+inadvertently broken when adding SHA2 support; this has been fixed. Reported
+by Erik Forsberg and fixed by Jun Omae.
+2.10.2
+2022-03-14
+[
+Bug
+]
+#2001
+:
+Fix Python 2 compatibility breakage introduced in 2.10.1. Spotted
+by Christian Hammond.
+Warning
+This is almost certainly the last time we will fix Python 2 related
+errors! Please see
+the roadmap
+.
+2.10.1
+2022-03-11
+[
+Bug
+]
+:
+(
+CVE-2022-24302
+) Creation
+of new private key files using
+PKey
+subclasses was subject
+to a race condition between file creation & mode modification, which could be
+exploited 
+
+--- 2.9.3 ---
+l
+storage when recording thread IDs for a logging helper; this should avoid one
+flavor of memory leak for long-running processes. Catch & patch via Richard
+Kojedzinszky.
+[
+Bug
+]
+#1963
+:
+(via
+#1977
+) Certificate-based pubkey auth was
+inadvertently broken when adding SHA2 support; this has been fixed. Reported
+by Erik Forsberg and fixed by Jun Omae.
+2.9.3
+2022-03-18
+[
+Bug
+]
+#2001
+:
+Fix Python 2 compatibility breakage introduced in 2.10.1. Spotted
+by Christian Hammond.
+Warning
+This is almost certainly the last time we will fix Python 2 related
+errors! Please see
+the roadmap
+.
+[
+Bug
+]
+#2002
+:
+(via
+#2003
+) Switch from module-global to thread-local
+storage when recording thread IDs for a logging helper; this should avoid one
+flavor of memory leak for long-running processes. Catch & patch via Richard
+Kojedzinszky.
+[
+Bug
+]
+#1963
+:
+(via
+#1977
+) Certificate-based pubkey auth was
+inadvertently broken when adding SHA2 support; this has been fixed. Reported
+by Erik Forsberg and fixed by Jun Omae.
+2.10.2
+2022-03-14
+[
+Bug
+]
+#2001
+:
+Fix Python 2 compatibility breakage introduced in 2.10.1. Spotted
+by Christian Hammond.
+Warning
+This is almost certainly the last time we will fix Python 2 related
+errors! Please see
+the roadmap
+.
+2.10.1
+2022-03-11
+[
+Bug
+]
+:
+(
+CVE-2022-24302
+) Creation
+of new private key files using
+PKey
+subclasses was subject
+to a 
+
+--- 2.4.2 ---
+ing
+This change is backwards incompatible
+if
+you are unable to upgrade your
+version of Cryptography. Please see
+Cryptography’s own changelog
+for details on what may
+change when you upgrade; for the most part the only changes involved
+dropping older Python versions (such as 2.6, 3.3, or some PyPy editions)
+which Paramiko itself has already dropped.
+2.4.2
+2018-09-18
+[
+Bug
+]
+#1283
+:
+Fix exploit (CVE-2018-1000805) in Paramiko’s server mode (
+not
+client mode) where hostile clients could trick the server into thinking they
+were authenticated without actually submitting valid authentication.
+Specifically, steps have been taken to start separating client and server
+related message types in the message handling tables within
+Transport
+and
+AuthHandler
+; this work is not complete but enough has been performed to
+close off this particular exploit (which was the only obvious such exploit
+for this particular channel).
+Thanks to Daniel Hoffman for the detailed report.
+[
+Bug
+]
+:
+Modify protocol message handling such that
+Transport
+does not
+respond to
+MSG_UNIMPLEMENTED
+with its own
+MSG_UNIMPLEMENTED
+. This
+behavior probably didn’t cause any outright errors, but it doesn’t seem to
+conform to the RFCs and could cause (non-infinite) feedback loops in some
+scenarios (usually those involving Paramiko on both ends).
+[
+Support
+]
+#1262
+:
+Add
+*.pub
+files
+
+--- 2.4.1 ---
+ior probably didn’t cause any outright errors, but it doesn’t seem to
+conform to the RFCs and could cause (non-infinite) feedback loops in some
+scenarios (usually those involving Paramiko on both ends).
+[
+Support
+]
+#1262
+:
+Add
+*.pub
+files to the MANIFEST so distributed
+source packages contain some necessary test assets. Credit: Alexander
+Kapshuna.
+2.4.1
+2018-03-12
+[
+Bug
+]
+#1039
+:
+Ed25519 auth key decryption raised an unexpected exception when
+given a unicode password string (typical in python 3). Report by Theodor van
+Nahl and fix by Pierce Lopez.
+[
+Bug
+]
+#1168
+:
+Add newer key classes for Ed25519 and ECDSA to
+paramiko.__all__
+so that code introspecting that attribute, or using
+from
+paramiko
+import
+*
+(such as some IDEs) sees them. Thanks to
+@patriksevallius
+for the patch.
+[
+Bug
+]
+#1175
+:
+Fix a security flaw (CVE-2018-7750) in Paramiko’s server
+mode (emphasis on
+server
+mode; this does
+not
+impact
+client
+use!)
+where authentication status was not checked before processing channel-open
+and other requests typically only sent after authenticating. Big thanks to
+Matthijs Kooijman for the report.
+2.3.2
+2018-03-12
+[
+Bug
+]
+#1108
+:
+Rename a private method keyword argument (which was named
+async
+) so that we’re compatible with the upcoming Python 3.7 release
+(where
+async
+is a new keyword.) Thanks to
+@vEpiphyte
+for the report.
+[
+Bug
+]
+#1039
+:
+
+
+--- Terrapin ---
+
+kwarg for overriding
+the packet-handler class used internally. Mostly for testing, but advanced
+users may find this useful when doing deep hacks.
+[
+Bug
+]
+:
+Tweak
+ext-info-(c|s)
+detection during KEXINIT protocol
+phase; the original implementation made assumptions based on an OpenSSH
+implementation detail.
+[
+Bug
+]
+:
+Address
+CVE 2023-48795
+(aka
+the “Terrapin Attack”, a vulnerability found in the SSH protocol re:
+treatment of packet sequence numbers) as follows:
+The vulnerability only impacts encrypt-then-MAC digest algorithms in
+tandem with CBC ciphers, and ChaCha20-poly1305; of these, Paramiko
+currently only implements
+hmac-sha2-(256|512)-etm
+in tandem with
+AES-CBC
+. If you are unable to upgrade to Paramiko versions containing
+the below fixes right away, you may instead use the
+disabled_algorithms
+connection option to disable the ETM MACs and/or
+the CBC ciphers (this option is present in Paramiko >=2.6).
+As the fix for the vulnerability requires both ends of the connection to
+cooperate, the below changes will only take effect when the remote end is
+OpenSSH >= 9.6 (or equivalent, such as Paramiko in server mode, as of
+this patch version) and configured to use the new “strict kex” mode.
+Paramiko will always attempt to use “strict kex” mode if offered by the
+server, unless you override this by specifying
+strict_kex=False
+in
+Transpor
+
+--- CVE-2022-24302 ---
+ding SHA2 support; this has been fixed. Reported
+by Erik Forsberg and fixed by Jun Omae.
+2.10.2
+2022-03-14
+[
+Bug
+]
+#2001
+:
+Fix Python 2 compatibility breakage introduced in 2.10.1. Spotted
+by Christian Hammond.
+Warning
+This is almost certainly the last time we will fix Python 2 related
+errors! Please see
+the roadmap
+.
+2.10.1
+2022-03-11
+[
+Bug
+]
+:
+(
+CVE-2022-24302
+) Creation
+of new private key files using
+PKey
+subclasses was subject
+to a race condition between file creation & mode modification, which could be
+exploited by an attacker with knowledge of where the Paramiko-using code
+would write out such files.
+This has been patched by using
+os.open
+and
+os.fdopen
+to ensure new files
+are opened with the correct mode immediately. We’ve left the subsequent
+explicit
+chmod
+in place to minimize any possible disruption, though it
+may get removed in future backwards-incompatible updates.
+Thanks to Jan Schejbal for the report & feedback on the solution, and to
+Jeremy Katz at Tidelift for coordinating the disclosure.
+2.10.0
+2022-03-11
+[
+Feature
+]
+#1509
+:
+(via
+#1868
+,
+#1837
+) Add support for OpenSSH’s
+Windows agent as a fallback when Putty/WinPageant isn’t available or
+functional. Reported by
+@benj56
+with patches/PRs from
+@lewgordon
+and
+Patrick Spendrin.
+[
+Feature
+]
+#1976
+:
+Add support for the
+%C
+token when parsing SSH config
+files. Foundationa
+
+--- CVE-2018-1000805 ---
+ou are unable to upgrade your
+version of Cryptography. Please see
+Cryptography’s own changelog
+for details on what may
+change when you upgrade; for the most part the only changes involved
+dropping older Python versions (such as 2.6, 3.3, or some PyPy editions)
+which Paramiko itself has already dropped.
+2.4.2
+2018-09-18
+[
+Bug
+]
+#1283
+:
+Fix exploit (CVE-2018-1000805) in Paramiko’s server mode (
+not
+client mode) where hostile clients could trick the server into thinking they
+were authenticated without actually submitting valid authentication.
+Specifically, steps have been taken to start separating client and server
+related message types in the message handling tables within
+Transport
+and
+AuthHandler
+; this work is not complete but enough has been performed to
+close off this particular exploit (which was the only obvious such exploit
+for this particular channel).
+Thanks to Daniel Hoffman for the detailed report.
+[
+Bug
+]
+:
+Modify protocol message handling such that
+Transport
+does not
+respond to
+MSG_UNIMPLEMENTED
+with its own
+MSG_UNIMPLEMENTED
+. This
+behavior probably didn’t cause any outright errors, but it doesn’t seem to
+conform to the RFCs and could cause (non-infinite) feedback loops in some
+scenarios (usually those involving Paramiko on both ends).
+[
+Support
+]
+#1262
+:
+Add
+*.pub
+files to the MANIFEST so distributed
+source package
+
+--- CVE-2018-7750 ---
+rd string (typical in python 3). Report by Theodor van
+Nahl and fix by Pierce Lopez.
+[
+Bug
+]
+#1168
+:
+Add newer key classes for Ed25519 and ECDSA to
+paramiko.__all__
+so that code introspecting that attribute, or using
+from
+paramiko
+import
+*
+(such as some IDEs) sees them. Thanks to
+@patriksevallius
+for the patch.
+[
+Bug
+]
+#1175
+:
+Fix a security flaw (CVE-2018-7750) in Paramiko’s server
+mode (emphasis on
+server
+mode; this does
+not
+impact
+client
+use!)
+where authentication status was not checked before processing channel-open
+and other requests typically only sent after authenticating. Big thanks to
+Matthijs Kooijman for the report.
+2.3.2
+2018-03-12
+[
+Bug
+]
+#1108
+:
+Rename a private method keyword argument (which was named
+async
+) so that we’re compatible with the upcoming Python 3.7 release
+(where
+async
+is a new keyword.) Thanks to
+@vEpiphyte
+for the report.
+[
+Bug
+]
+#1039
+:
+Ed25519 auth key decryption raised an unexpected exception when
+given a unicode password string (typical in python 3). Report by Theodor van
+Nahl and fix by Pierce Lopez.
+[
+Bug
+]
+#1168
+:
+Add newer key classes for Ed25519 and ECDSA to
+paramiko.__all__
+so that code introspecting that attribute, or using
+from
+paramiko
+import
+*
+(such as some IDEs) sees them. Thanks to
+@patriksevallius
+for the patch.
+[
+Bug
+]
+#1175
+:
+Fix a security flaw (CVE-2018-7750) in Paramiko’s serv

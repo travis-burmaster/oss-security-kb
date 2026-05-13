@@ -1,0 +1,80 @@
+1:Paramiko Security Audit
+82:1.2.2. Paramiko
+148:3.3. Findings Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+200:Paramiko’s compliance to SSH RFCs
+212:9.1. Cryptographic primitives used in Paramiko . . . . . . . . . . . . . . . . . . . . . 69
+254:12.1. Paramiko’s CI . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+337:Paramiko is a pure Python implementation of SSHv2, providing both client and server
+343:This engagement encompasses a comprehensive assessment of the Paramiko library, along
+350:The Paramiko library is designed to be compact, easy to understand, and limited in functionality to minimize the attack surface. Attacks on SSH implementations are well researched and
+351:documented, so OSTIF will direct its efforts towards examining Paramiko’s testing, building,
+353:examine how the Paramiko initiative ensures that its dependencies are properly implemented.
+354:Finally, a manual code review will be conducted to verify correctness and that Paramiko is not
+360:triaged to focus on the use cases that affect Paramiko. All remaining time and resources that
+361:are available after the review of the Paramiko use-case should be used in a time-boxed and riskbased approach to evaluate the rest of the Cryptography project.
+363:invoked by Cryptography and Paramiko. If a researcher finds a potential bug in OpenSSL or
+374:3.3. Findings Summary
+423:MEDIUM-24 Wrong type usage in SHA-1 in KexGSSGroup1 and paramiko/
+430:CVE impacting black
+458:Paramiko and
+608:Remove support for RSA with SHA-1.
+704:Paramiko should implement these controls by default or put the different
+738:audit of Paramiko performed by an audit firm. Since critical security features of Paramiko
+740:specifically, how Paramiko uses it.
+744:During the audit period, we found a few issues, but nothing that raises Paramiko or
+755:As part of the agreement, Quarkslab reviewed the fixes published by Paramiko to address
+768:Support for using SHA-1 when signing with RSA was
+784:The group exchange methods using SHA-1 were removed.
+808:The key exchange methods using SHA-1 were removed,
+1008:Paramiko is a pure Python implementation of the SSHv2 protocol, providing both client
+1011:files. Using Paramiko directly is best for those requiring advanced or low-level control, or who
+1014:• Paramiko critical cryptographic functions;
+1016:• CI/CD CircleCI for Paramiko and Github Actions for (PYCA) Cryptography.
+1031:Source code of the Paramiko https://github.com/
+1211:graphic features in Paramiko. In 2021, its backend was largely rewritten in Rust, utilizing
+1441:Paramiko is a library based on many RFCs defining the SSH protocol and its extensions. A
+1443:reference implementation for Paramiko.
+1444:Documentation for Paramiko is divided between two sites: one part is at the link
+1451:found in the repository. Additionally, the main maintainer of Paramiko proposes a roadmap on
+1481:Paramiko can be installed via the PyPI package manager.
+1493:To facilitate its development, Paramiko has listed the tools it uses in pyproject.toml. With
+1494:the release of version 4.0, Paramiko now supports managing dependencies with the package and
+1504:Paramiko includes demos of server and client instances in its repository. However, these are
+1517:Paramiko’s code structure is straightforward: the source code of the package is composed of
+1577:Listing 3: Structure of Paramiko’s source code.
+1583:Figure 2: High-level code structure of Paramiko.
+1586:Paramiko has four core dependencies:
+1605:In summary, the code quality of the Paramiko project is excellent. The code is generally well
+1608:Type-hints (introduced in Python 3.5) are not used for Paramiko. It can be of great help to
+1610:Paramiko employs several tools to ensure a top-notch codebase:
+1619:CVE impacting black
+1628:CVE-2024-21503 impacts black prior to version 24.3.0. As of version 4.0, Paramiko has
+1652:Paramiko’s code. This can lead to improper check or handling of exceptional conditions as
+1658:Paramiko has a good collection of tests, with files targeting specific features such as
+1959:Listing 4: Structure of Paramiko tests
+2038:Using GSS-API with Paramiko on Linux systems requires a working installation of GSSAPI itself. This is indicated in the documentation, however, testing this feature also requires
+2076:Paramiko’s CI runs the tests on several Python versions, including Python 3.12. The pipeline
+2087:test the GSS-API integration in Paramiko, meaning that this feature is not tested regularly,
+2096:cases that impact Paramiko.
+2097:For this purpose, we have listed all the calls to cryptography modules in Paramiko. These
+2116:‣ SHA-1 for legacy Diffie-Hellman and DSA operations kex_group14.py:25
+2132:Both Paramiko and Cryptography are fuzzed as part of the OSS-Fuzz project.
+2133:OSS-Fuzz reported four public issues on Paramiko (see here), none are relevant to security:
+2135:bug reports can be explained in part by poor coverage of the project: only 28% of Paramiko is
+2165:The following hypotheses have been considered to evaluate Paramiko’s implementation of
+2168:For the scope of this audit, all the RFCs implemented by Paramiko for the SSHv2
+2171:All Paramiko’s dependencies are assumed safe and are out of the scope of this audit
+2174:Fuzzing is not considered a high priority testing approach, as harnesses for Paramiko
+2177:evaluation of Paramiko to assess high-assurance cryptography (see Section 7.2).
+2179:Paramiko will not be tested against advanced side-channel attacks. Instead, it only
+2182:We will not consider Paramiko implementation and deployment for Windows targets.
+2185:For the audit of Paramiko we concentrate on two areas:
+2187:Ensure that Paramiko’s implementation of cryptographic primitives has reliable entropy
+2197:Ensure that Paramiko’s build and deployment are safe against supply chain attacks.
+2200:The steps involved in the security evaluation of the Paramiko and Cryptography libraries
+2219:8. Paramiko’s compliance to SSH RFCs
+2247:Within Paramiko’s host key system, multiple key types (RSA, ECDSA, Ed25519) are
+2320:Paramiko Transport class (transport.py:219-239) defines a list of preferred algorithms
+2400:• Paramiko implements ordered preference lists for all cryptographic algorithms through
+2412:• Paramiko supports configurable public key algorithm preferences through preferred_keys
+2415:• Paramiko provides the ServerInterface class where servers can configure authentication
