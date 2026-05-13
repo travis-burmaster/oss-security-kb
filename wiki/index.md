@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*157 tracked pages across 9 ecosystems. Last updated: 2026-05-12.*
+*158 tracked pages across 9 ecosystems. Last updated: 2026-05-13.*
 
 ## npm (91)
 
@@ -148,12 +148,13 @@
 ## Homebrew (1)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
 
-## Maven / Java (20)
+## Maven / Java (21)
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
 - [[maven/com.fasterxml.jackson.core/jackson-databind]] — Jackson data-binding library · advisory mapped · dense polymorphic-deserialization gadget CVE history plus XXE and resource-exhaustion records through 2022
 - [[maven/org.apache.commons/commons-compress]] — Apache Commons archive compression/extraction library · advisory mapped · malformed archive DoS / resource-exhaustion history fixed through 1.26.0
 - [[maven/org.apache.logging.log4j/log4j-core]] — Apache Log4j Core logging implementation · advisory mapped · Log4Shell / JNDI, socket deserialization, TLS hostname verification, structured-layout log injection, and log-event-loss history fixed through 2.25.4 on the 2.x line
+- [[maven/org.apache.httpcomponents/httpclient]] — Apache HttpComponents HttpClient 4.x · advisory mapped · TLS hostname-verification, proxy credential leakage, SSL-handshake DoS, and malformed-URI host-confusion history through 4.5.13 / 5.0.3
 - [[maven/org.apache.kafka/kafka-clients]] — Apache Kafka Java client library · advisory mapped · OAUTHBEARER / JWT validation, producer buffer-pool misrouting, client config file/SSRF, sensitive logging, and impersonation history through 4.2.0
 - [[maven/org.yaml/snakeyaml]] — SnakeYAML YAML parser · advisory mapped · unsafe Java object construction / deserialization RCE, alias expansion, nested collection resource exhaustion, and parser stack-overflow DoS history through 2.0+
 - [[maven/io.netty/netty-codec-http]] — Netty HTTP/1.x codec · advisory mapped · request-smuggling / parser-boundary, response-splitting, CRLF injection, decompression DoS, and local disclosure history through the 4.1.133.Final / 4.2.13.Final fix cluster
