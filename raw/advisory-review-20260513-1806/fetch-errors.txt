@@ -1,0 +1,2 @@
+https://raw.githubusercontent.com/benoitc/gunicorn/master/docs/source/2024-news.rst
+https://raw.githubusercontent.com/benoitc/gunicorn/master/docs/source/news.rst

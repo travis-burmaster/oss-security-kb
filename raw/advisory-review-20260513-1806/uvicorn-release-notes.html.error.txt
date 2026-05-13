@@ -1,0 +1,2 @@
+https://www.uvicorn.org/release-notes/
+URLError(gaierror(-3, 'Temporary failure in name resolution'))

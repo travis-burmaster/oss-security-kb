@@ -1,0 +1,47 @@
+## gunicorn
+PyPI version: 26.0.0
+Project URLs: {'Changelog': 'https://gunicorn.org/news/', 'Documentation': 'https://gunicorn.org', 'Homepage': 'https://gunicorn.org', 'Issue tracker': 'https://github.com/benoitc/gunicorn/issues', 'Source code': 'https://github.com/benoitc/gunicorn'}
+Downloads recent: {'last_day': 5178720, 'last_month': 128009195, 'last_week': 30653412}
+- GHSA-32pc-xphx-q4f6 ['CVE-2018-1000164', 'PYSEC-2018-55'] Gunicorn contains Improper Neutralization of CRLF sequences in HTTP headers fixed= ['19.5.0']
+ refs= ['https://nvd.nist.gov/vuln/detail/CVE-2018-1000164', 'https://github.com/benoitc/gunicorn/issues/1227', 'https://epadillas.github.io/2018/04/02/http-header-splitting-in-gunicorn-19.4.5', 'https://github.com/advisories/GHSA-32pc-xphx-q4f6', 'https://github.com/benoitc/gunicorn']
+- GHSA-hc5x-x2vx-497g ['CVE-2024-6827'] Gunicorn HTTP Request/Response Smuggling vulnerability fixed= ['22.0.0']
+ refs= ['https://nvd.nist.gov/vuln/detail/CVE-2024-6827', 'https://github.com/benoitc/gunicorn/issues/3087', 'https://github.com/benoitc/gunicorn/issues/3278', 'https://github.com/benoitc/gunicorn/pull/3113', 'https://github.com/benoitc/gunicorn']
+- GHSA-w3h3-4rj7-4ph4 ['CVE-2024-1135'] Request smuggling leading to endpoint restriction bypass in Gunicorn fixed= ['22.0.0']
+ refs= ['https://nvd.nist.gov/vuln/detail/CVE-2024-1135', 'https://github.com/benoitc/gunicorn/issues/3091', 'https://github.com/benoitc/gunicorn/pull/3113', 'https://github.com/benoitc/gunicorn/commit/ac29c9b0a758d21f1e0fb3b3457239e523fa9f1d', 'https://github.com/benoitc/gunicorn']
+- PYSEC-2018-55 ['CVE-2018-1000164', 'GHSA-32pc-xphx-q4f6'] None fixed= ['19.5.0']
+ refs= ['https://github.com/benoitc/gunicorn/issues/1227', 'https://epadillas.github.io/2018/04/02/http-header-splitting-in-gunicorn-19.4.5', 'https://lists.debian.org/debian-lts-announce/2018/04/msg00022.html', 'https://www.debian.org/security/2018/dsa-4186', 'https://usn.ubuntu.com/4022-1/']
+
+## uvicorn
+PyPI version: 0.46.0
+Project URLs: {'Changelog': 'https://uvicorn.dev/release-notes', 'Funding': 'https://github.com/sponsors/encode', 'Homepage': 'https://uvicorn.dev/', 'Source': 'https://github.com/Kludex/uvicorn'}
+Downloads recent: {'last_day': 21624498, 'last_month': 492031878, 'last_week': 126235318}
+- GHSA-33c7-2mpw-hg34 ['CVE-2020-7694', 'PYSEC-2020-150', 'SNYK-PYTHON-UVICORN-575560'] Log injection in uvicorn fixed= ['0.11.7']
+ refs= ['https://nvd.nist.gov/vuln/detail/CVE-2020-7694', 'https://github.com/encode/uvicorn/issues/723', 'https://github.com/encode/uvicorn/commit/895807f94ea9a8e588605c12076b7d7517cda503', 'https://github.com/encode/uvicorn', 'https://github.com/pypa/advisory-database/tree/main/vulns/uvicorn/PYSEC-2020-150.yaml']
+- GHSA-f97h-2pfx-f59f ['CVE-2020-7695', 'PYSEC-2020-151', 'SNYK-PYTHON-UVICORN-570471'] HTTP response splitting in uvicorn fixed= ['0.11.7']
+ refs= ['https://nvd.nist.gov/vuln/detail/CVE-2020-7695', 'https://github.com/encode/uvicorn', 'https://github.com/pypa/advisory-database/tree/main/vulns/uvicorn/PYSEC-2020-151.yaml', 'https://snyk.io/vuln/SNYK-PYTHON-UVICORN-570471']
+- PYSEC-2020-150 ['CVE-2020-7694', 'GHSA-33c7-2mpw-hg34', 'SNYK-PYTHON-UVICORN-575560'] None fixed= ['0.11.7']
+ refs= ['https://snyk.io/vuln/SNYK-PYTHON-UVICORN-575560', 'https://github.com/encode/uvicorn', 'https://github.com/advisories/GHSA-33c7-2mpw-hg34']
+- PYSEC-2020-151 ['CVE-2020-7695', 'GHSA-f97h-2pfx-f59f', 'SNYK-PYTHON-UVICORN-570471'] None fixed= ['0.11.7']
+ refs= ['https://snyk.io/vuln/SNYK-PYTHON-UVICORN-570471', 'https://github.com/encode/uvicorn', 'https://github.com/advisories/GHSA-f97h-2pfx-f59f']
+
+## flask-cors
+PyPI version: 6.0.2
+Project URLs: {'Documentation': 'https://corydolphin.github.io/flask-cors/', 'Homepage': 'https://corydolphin.github.io/flask-cors/', 'Repository': 'https://github.com/corydolphin/flask-cors'}
+Downloads recent: {'last_day': 1966331, 'last_month': 52732357, 'last_week': 12061991}
+- GHSA-43qf-4rqw-9q2g ['CVE-2024-6866'] Flask-CORS vulnerable to Improper Handling of Case Sensitivity fixed= ['6.0.0']
+ refs= ['https://nvd.nist.gov/vuln/detail/CVE-2024-6866', 'https://github.com/corydolphin/flask-cors/commit/eb39516a3c96b90d0ae5f51293972395ec3ef358', 'https://github.com/corydolphin/flask-cors', 'https://github.com/corydolphin/flask-cors/blob/4.0.1/flask_cors/extension.py#L195', 'https://huntr.com/bounties/808c11af-faee-43a8-824b-b5ab4f62b9e6']
+- GHSA-7rxf-gvfg-47g4 ['CVE-2024-6839'] Flask-CORS improper regex path matching vulnerability fixed= ['6.0.0']
+ refs= ['https://nvd.nist.gov/vuln/detail/CVE-2024-6839', 'https://github.com/corydolphin/flask-cors/commit/e970988bea563e05e8b8f53fa7bcc134b5bf5c5f', 'https://github.com/corydolphin/flask-cors', 'https://github.com/corydolphin/flask-cors/blob/4.0.1/flask_cors/core.py#L73', 'https://huntr.com/bounties/403eb1fc-86f4-4820-8eba-0f3dfae9f2b4']
+- GHSA-84pr-m4jr-85g5 ['CVE-2024-1681'] flask-cors vulnerable to log injection when the log level is set to debug fixed= ['4.0.1']
+ refs= ['https://nvd.nist.gov/vuln/detail/CVE-2024-1681', 'https://github.com/corydolphin/flask-cors', 'https://github.com/corydolphin/flask-cors/blob/40acc8092332dfed4bb54d7a4f89a6d479466de7/flask_cors/extension.py#L194', 'https://huntr.com/bounties/25a7a0ba-9fa2-4777-acb6-03e5539bb644', 'https://lists.debian.org/debian-lts-announce/2025/05/msg00049.html']
+- GHSA-8vgw-p6qm-5gr7 ['CVE-2024-6844'] Flask-CORS allows for inconsistent CORS matching fixed= ['6.0.0']
+ refs= ['https://nvd.nist.gov/vuln/detail/CVE-2024-6844', 'https://github.com/corydolphin/flask-cors/commit/35d875319621bd129a38b2b823abf4a2f6cda536', 'https://github.com/corydolphin/flask-cors', 'https://github.com/corydolphin/flask-cors/blob/main/flask_cors/extension.py#L193', 'https://huntr.com/bounties/731a6cd4-d05f-4fe6-8f5b-fe088d7b34e0']
+- GHSA-hxwh-jpp2-84pm ['CVE-2024-6221', 'PYSEC-2024-71'] Flask-CORS allows the `Access-Control-Allow-Private-Network` CORS header to be set to true by default fixed= ['4.0.2']
+ refs= ['https://nvd.nist.gov/vuln/detail/CVE-2024-6221', 'https://github.com/corydolphin/flask-cors/issues/362', 'https://github.com/corydolphin/flask-cors/pull/363', 'https://github.com/corydolphin/flask-cors/pull/368', 'https://github.com/corydolphin/flask-cors/commit/03aa3f8e2256437f7bad96422a747b98ab5e31bf']
+- GHSA-xc3p-ff3m-f46v ['CVE-2020-25032', 'PYSEC-2020-43'] Flask-Cors Directory Traversal vulnerability fixed= ['3.0.9']
+ refs= ['https://nvd.nist.gov/vuln/detail/CVE-2020-25032', 'https://github.com/corydolphin/flask-cors/commit/67c4b2cc98ae87cf1fa7df4f97fd81b40c79b895', 'https://github.com/advisories/GHSA-xc3p-ff3m-f46v', 'https://github.com/corydolphin/flask-cors', 'https://github.com/corydolphin/flask-cors/releases/tag/3.0.9']
+- PYSEC-2020-43 ['CVE-2020-25032', 'GHSA-xc3p-ff3m-f46v'] None fixed= ['3.0.9']
+ refs= ['https://github.com/corydolphin/flask-cors/releases/tag/3.0.9', 'http://lists.opensuse.org/opensuse-security-announce/2020-09/msg00028.html', 'http://lists.opensuse.org/opensuse-security-announce/2020-09/msg00032.html', 'http://lists.opensuse.org/opensuse-security-announce/2020-09/msg00039.html', 'http://lists.opensuse.org/opensuse-security-announce/2020-09/msg00048.html']
+- PYSEC-2024-71 ['CVE-2024-6221', 'GHSA-hxwh-jpp2-84pm'] None fixed= ['4.0.2']
+ refs= ['https://huntr.com/bounties/a42935fc-6f57-4818-bca4-3d528235df4d', 'https://github.com/corydolphin/flask-cors/commit/7ae310c56ac30e0b94fb42129aa377bf633256ec']
+
