@@ -1,0 +1,50 @@
+# Evidence summary: Maven org.apache.httpcomponents:httpclient
+
+Public sources gathered: OSV package query and individual records; cve.org records; Maven Central metadata; Apache HttpComponents release/security pages where available.
+
+## CVE-2012-6153 / GHSA-2x83-r56g-cv47
+- Summary: Improper certificate validation in org.apache.httpcomponents:httpclient
+- Severity: HIGH
+- Fixed in ranges: 4.2.3
+- Details: http/conn/ssl/AbstractVerifier.java in Apache Commons HttpClient before 4.2.3 does not properly verify that the server hostname matches a domain name in the subject's Common Name (CN) or subjectAltName field of the X.509 certificate, which allows man-in-the-middle attackers to spoof SSL servers via a certificate with a subject that specifies a common name in a field that is not the CN field. NOTE: this issue exists because of an incomplete fix for CVE-2012-5783.
+- References: https://nvd.nist.gov/vuln/detail/CVE-2012-6153; https://github.com/apache/httpcomponents-client/commit/6e14fc146a66e0f3eb362f45f95d1a58ee18886a; https://github.com/apache/httpcomponents-client/commit/b930227f907af1198765fc47beabbddae344ca7b; https://access.redhat.com/solutions/1165533; https://bugzilla.redhat.com/show_bug.cgi?id=1129916; https://github.com/advisories/GHSA-2x83-r56g-cv47
+
+## CVE-2020-13956 / GHSA-7r82-7xv7-xcpj
+- Summary: Cross-site scripting in Apache HttpClient
+- Severity: MODERATE
+- Fixed in ranges: 4.5.13, 5.0.3
+- Details: Apache HttpClient versions prior to version 4.5.13 and 5.0.3 can misinterpret malformed authority component in request URIs passed to the library as java.net.URI object and pick the wrong target host for request execution.
+- References: https://nvd.nist.gov/vuln/detail/CVE-2020-13956; https://lists.apache.org/thread.html/re504acd4d63b8df2a7353658f45c9a3137e5f80e41cf7de50058b2c1@%3Cissues.solr.apache.org%3E; https://lists.apache.org/thread.html/rd5ab56beb2ac6879f6ab427bc4e5f7691aed8362d17b713f61779858@%3Cissues.hive.apache.org%3E; https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26@%3Ccommits.pulsar.apache.org%3E; https://lists.apache.org/thread.html/rcd9ad5dda60c82ab0d0c9bd3e9cb1dc740804451fc20c7f451ef5cc4@%3Cgitbox.hive.apache.org%3E; https://lists.apache.org/thread.html/rcced7ed3237c29cd19c1e9bf465d0038b8b2e967b99fc283db7ca553@%3Cdev.ranger.apache.org%3E
+
+## CVE-2014-3577 / GHSA-cfh5-3ghh-wfjx
+- Summary: Improper Verification of Cryptographic Signature in org.apache.httpcomponents:httpclient
+- Severity: MODERATE
+- Fixed in ranges: 4.3.5
+- Details: org.apache.http.conn.ssl.AbstractVerifier in Apache HttpComponents HttpClient before 4.3.5 and HttpAsyncClient before 4.0.2 does not properly verify that the server hostname matches a domain name in the subject's Common Name (CN) or subjectAltName field of the X.509 certificate, which allows man-in-the-middle attackers to spoof SSL servers via a "CN=" string in a field in the distinguished name (DN) of a certificate, as demonstrated by the "foo,CN=www.apache.org" string in the O field.
+- References: https://nvd.nist.gov/vuln/detail/CVE-2014-3577; https://github.com/apache/httpcomponents-client/commit/51cc67567765d67f878f0dcef61b5ded454d3122; https://svn.apache.org/viewvc?view=revision&revision=1614064; https://security.netapp.com/advisory/ntap-20231027-0003; https://lists.apache.org/thread.html/rff42cfa5e7d75b7c1af0e37589140a8f1999e578a75738740b244bd4@%3Ccommits.cxf.apache.org%3E; https://lists.apache.org/thread.html/rfb87e0bf3995e7d560afeed750fac9329ff5f1ad49da365129b7f89e@%3Ccommits.cxf.apache.org%3E
+
+## CVE-2015-5262 / GHSA-fmj5-wv96-r2ch
+- Summary: Denial of service vulnerability in org.apache.httpcomponents:httpclient
+- Severity: MODERATE
+- Fixed in ranges: 4.3.6
+- Details: http/conn/ssl/SSLConnectionSocketFactory.java in Apache HttpComponents HttpClient before 4.3.6 ignores the http.socket.timeout configuration setting during an SSL handshake, which allows remote attackers to cause a denial of service (HTTPS call hang) via unspecified vectors.
+- References: https://nvd.nist.gov/vuln/detail/CVE-2015-5262; https://bugzilla.redhat.com/show_bug.cgi?id=1261538; https://github.com/advisories/GHSA-fmj5-wv96-r2ch; https://issues.apache.org/jira/browse/HTTPCLIENT-1478; https://jenkins.io/security/advisory/2018-02-26; https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f%40%3Cdev.drill.apache.org%3E
+
+## CVE-2011-1498 / GHSA-gw85-4gmf-m7rh
+- Summary: Exposure of Sensitive Information to an Unauthorized Actor in Apache HttpClient
+- Severity: MODERATE
+- Fixed in ranges: 4.1.1
+- Details: Apache HttpClient 4.x before 4.1.1 in Apache HttpComponents, when used with an authenticating proxy server, sends the Proxy-Authorization header to the origin server, which allows remote web servers to obtain sensitive information by logging this header.
+- References: https://nvd.nist.gov/vuln/detail/CVE-2011-1498; https://github.com/apache/httpcomponents-client/commit/a572756592c969affd0ce87885724e74839176fb; https://bugzilla.redhat.com/show_bug.cgi?id=709531; https://github.com/apache/httpcomponents-client; https://issues.apache.org/jira/browse/HTTPCLIENT-1061; http://lists.fedoraproject.org/pipermail/package-announce/2011-June/061440.html
+
+## CVE-2013-4366 / GHSA-pqwh-44jj-p5rm
+- Summary: Hostname verification in Apache HttpClient 4.3 was disabled by default
+- Severity: CRITICAL
+- Fixed in ranges: 4.3.1
+- Details: http/impl/client/HttpClientBuilder.java in Apache HttpClient 4.3.x before 4.3.1 does not ensure that X509HostnameVerifier is not null, which allows attackers to have unspecified impact via vectors involving hostname verification.
+- References: https://nvd.nist.gov/vuln/detail/CVE-2013-4366; https://github.com/apache/httpcomponents-client/commit/08140864e3e4c0994e094c4cf0507932baf6a66; http://svn.apache.org/r1528614; http://www.apache.org/dist/httpcomponents/httpclient/RELEASE_NOTES-4.3.x.txt
+
+## Maven Central metadata
+- Latest version reported: 4.5.14
+- Version count: 55
+- Timestamp: 1669833654000

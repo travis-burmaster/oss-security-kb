@@ -1,0 +1,54 @@
+{
+  "response": {
+    "docs": [
+      {
+        "a": "httpclient",
+        "ec": [
+          "-sources.jar",
+          ".pom",
+          "-javadoc.jar",
+          "-tests.jar",
+          ".jar"
+        ],
+        "g": "org.apache.httpcomponents",
+        "id": "org.apache.httpcomponents:httpclient",
+        "latestVersion": "4.5.14",
+        "p": "jar",
+        "repositoryId": "central",
+        "text": [
+          "org.apache.httpcomponents",
+          "httpclient",
+          "-sources.jar",
+          ".pom",
+          "-javadoc.jar",
+          "-tests.jar",
+          ".jar"
+        ],
+        "timestamp": 1669833654000,
+        "versionCount": 55
+      }
+    ],
+    "numFound": 1,
+    "start": 0
+  },
+  "responseHeader": {
+    "QTime": 1,
+    "params": {
+      "core": "",
+      "fl": "id,g,a,latestVersion,p,ec,repositoryId,text,timestamp,versionCount",
+      "indent": "off",
+      "q": "g:\"org.apache.httpcomponents\" AND a:\"httpclient\"",
+      "rows": "20",
+      "sort": "score desc,timestamp desc,g asc,a asc",
+      "spellcheck": "true",
+      "spellcheck.count": "5",
+      "start": "",
+      "version": "2.2",
+      "wt": "json"
+    },
+    "status": 0
+  },
+  "spellcheck": {
+    "suggestions": []
+  }
+}
