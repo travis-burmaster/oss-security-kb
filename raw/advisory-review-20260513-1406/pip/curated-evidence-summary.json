@@ -1,0 +1,328 @@
+{
+  "package": "pip",
+  "ecosystem": "PyPI",
+  "current_version": "26.1.1",
+  "project_urls": {
+    "Changelog": "https://pip.pypa.io/en/stable/news/",
+    "Documentation": "https://pip.pypa.io",
+    "Homepage": "https://pip.pypa.io/",
+    "Source": "https://github.com/pypa/pip"
+  },
+  "osv_records": [
+    {
+      "id": "GHSA-4gv5-qhvr-36vv",
+      "aliases": [
+        "CVE-2013-1888",
+        "PYSEC-2013-9"
+      ],
+      "summary": "Improper Link Resolution Before File Access in pip",
+      "details": "pip before 1.3 allows local users to overwrite arbitrary files via a symlink attack on a file in the /tmp/pip-build temporary directory.",
+      "severity": "MODERATE",
+      "affected": [
+        {
+          "package": "pip",
+          "fixed": [
+            "1.3"
+          ],
+          "last_affected": []
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2013-1888",
+        "https://github.com/pypa/pip/issues/725",
+        "https://github.com/pypa/pip/pull/734/files",
+        "https://github.com/pypa/pip/pull/780/files",
+        "https://github.com/advisories/GHSA-4gv5-qhvr-36vv",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pip/PYSEC-2013-9.yaml",
+        "https://github.com/pypa/pip",
+        "http://lists.fedoraproject.org/pipermail/package-announce/2013-May/105952.html"
+      ]
+    },
+    {
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "aliases": [
+        "CVE-2025-8869"
+      ],
+      "summary": "pip's fallback tar extraction doesn't check symbolic links point to extraction directory",
+      "details": "When extracting a tar archive pip may not check symbolic links point into the extraction directory if the tarfile module doesn't implement PEP 706. Note that upgrading pip to a \"fixed\" version for this vulnerability doesn't fix all known vulnerabilities that are remediated by using a Python version that implements PEP 706. Note that this is a vulnerability in pip's fallback implementation of tar extraction for Python versions that don't implement PEP 706 and therefore are not secure to all vulnerabilities in the Python 'tarfile' module. If you're using a Python version that implements PEP 706 then pip doesn't use the \"vulnerable\" fallback code. Mitigations include upgrading to a version of pip that includes the fix, upgrading to a Python version that implements PEP 706 (Python >=3.9.17, >=3.10.12, >=3.11.4, or >=3.12), applying the linked patch, or inspecting source distributions (sdists",
+      "severity": "MODERATE",
+      "affected": [
+        {
+          "package": "pip",
+          "fixed": [
+            "25.3"
+          ],
+          "last_affected": []
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-8869",
+        "https://github.com/pypa/pip/pull/13550",
+        "https://github.com/pypa/pip/commit/f2b92314da012b9fffa36b3f3e67748a37ef464a",
+        "https://github.com/pypa/pip",
+        "https://lists.debian.org/debian-lts-announce/2025/10/msg00028.html",
+        "https://mail.python.org/archives/list/security-announce@python.org/thread/IF5A3GCJY3VH7BVHJKOWOJFKTW7VFQEN",
+        "https://pip.pypa.io/en/stable/news/#v25-2"
+      ]
+    },
+    {
+      "id": "GHSA-53mr-44pp-crf4",
+      "aliases": [
+        "CVE-2014-8991",
+        "PYSEC-2014-11"
+      ],
+      "summary": "pip lack of randomness in build directory",
+      "details": "pip 1.3 through 1.5.6 allows local users to cause a denial of service (prevention of package installation) by creating a `/tmp/pip-build-*` file for another user.",
+      "severity": "MODERATE",
+      "affected": [
+        {
+          "package": "pip",
+          "fixed": [
+            "6.0"
+          ],
+          "last_affected": []
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2014-8991",
+        "https://github.com/pypa/pip/pull/2122",
+        "https://github.com/pypa/pip/commit/043fe9f5700315d97f83609c1f59deece8f1b901",
+        "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=725847",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pip/PYSEC-2014-11.yaml",
+        "https://github.com/pypa/pip",
+        "http://www.openwall.com/lists/oss-security/2014/11/19/17",
+        "http://www.openwall.com/lists/oss-security/2014/11/20/6"
+      ]
+    },
+    {
+      "id": "GHSA-58qw-9mgm-455v",
+      "aliases": [
+        "CVE-2026-3219"
+      ],
+      "summary": "pip has an interpretation conflict due to handling both concatenated tar and ZIP files as ZIP files",
+      "details": "pip handles concatenated tar and ZIP files as ZIP files regardless of filename or whether a file is both a tar and ZIP file. This behavior could result in confusing installation behavior, such as installing \"incorrect\" files according to the filename of the archive. New behavior only proceeds with installation if the file identifies uniquely as a ZIP or tar archive, not as both.",
+      "severity": "MODERATE",
+      "affected": [
+        {
+          "package": "pip",
+          "fixed": [],
+          "last_affected": [
+            "26.0.1"
+          ]
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-3219",
+        "https://github.com/pypa/pip/pull/13870",
+        "https://github.com/pypa/pip",
+        "https://mail.python.org/archives/list/security-announce@python.org/thread/QAJ5JIVWWCAJ4EZL2FP5MOOW35JS7LRJ",
+        "http://www.openwall.com/lists/oss-security/2026/04/20/8"
+      ]
+    },
+    {
+      "id": "GHSA-5xp3-jfq3-5q8x",
+      "aliases": [
+        "CVE-2021-3572",
+        "PYSEC-2021-437"
+      ],
+      "summary": "Improper Input Validation in pip",
+      "details": "A flaw was found in python-pip in the way it handled Unicode separators in git references. A remote attacker could possibly use this issue to install a different revision on a repository. The highest threat from this vulnerability is to data integrity. This is fixed in python-pip version 21.1.",
+      "severity": "HIGH",
+      "affected": [
+        {
+          "package": "pip",
+          "fixed": [
+            "21.1"
+          ],
+          "last_affected": []
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2021-3572",
+        "https://github.com/pypa/pip/pull/9827",
+        "https://github.com/pypa/pip/commit/e46bdda9711392fec0c45c1175bae6db847cb30b",
+        "https://access.redhat.com/errata/RHSA-2021:3254",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=1962856",
+        "https://github.com/advisories/GHSA-5xp3-jfq3-5q8x",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pip/PYSEC-2021-437.yaml",
+        "https://github.com/pypa/pip"
+      ]
+    },
+    {
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "aliases": [
+        "CVE-2026-1703"
+      ],
+      "summary": "pip Path Traversal vulnerability",
+      "details": "When pip is installing and extracting a maliciously crafted wheel archive, files may be extracted outside the installation directory. The path traversal is limited to prefixes of the installation directory, thus isn't able to inject or overwrite executable files in typical situations.",
+      "severity": "LOW",
+      "affected": [
+        {
+          "package": "pip",
+          "fixed": [
+            "26.0"
+          ],
+          "last_affected": []
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-1703",
+        "https://github.com/pypa/pip/pull/13777",
+        "https://github.com/pypa/pip/commit/8e227a9be4faa9594e05d02ca05a413a2a4e7735",
+        "https://github.com/pypa/pip",
+        "https://mail.python.org/archives/list/security-announce@python.org/thread/WIEA34D4TABF2UNQJAOMXKCICSPBE2DJ"
+      ]
+    },
+    {
+      "id": "GHSA-c5h8-cq4v-cvfm",
+      "aliases": [
+        "CVE-2013-5123",
+        "PYSEC-2019-160"
+      ],
+      "summary": "Improper Authentication in pip",
+      "details": "The mirroring support (-M, --use-mirrors) in Python Pip before 1.5 uses insecure DNS querying and authenticity checks which allows attackers to perform man-in-the-middle attacks.",
+      "severity": "HIGH",
+      "affected": [
+        {
+          "package": "pip",
+          "fixed": [
+            "1.5"
+          ],
+          "last_affected": []
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2013-5123",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2013-5123",
+        "https://bugzilla.suse.com/show_bug.cgi?id=CVE-2013-5123",
+        "https://github.com/advisories/GHSA-c5h8-cq4v-cvfm",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pip/PYSEC-2019-160.yaml",
+        "https://security-tracker.debian.org/tracker/CVE-2013-5123",
+        "http://lists.fedoraproject.org/pipermail/package-announce/2015-April/155248.html",
+        "http://lists.fedoraproject.org/pipermail/package-announce/2015-April/155291.html"
+      ]
+    },
+    {
+      "id": "GHSA-g3p5-fjj9-h8gj",
+      "aliases": [
+        "CVE-2013-1629",
+        "PYSEC-2013-8"
+      ],
+      "summary": "Improper Input Validation in pip",
+      "details": "pip before 1.3 uses HTTP to retrieve packages from the PyPI repository, and does not perform integrity checks on package contents, which allows man-in-the-middle attackers to execute arbitrary code via a crafted response to a \"pip install\" operation.",
+      "severity": "HIGH",
+      "affected": [
+        {
+          "package": "pip",
+          "fixed": [
+            "1.3"
+          ],
+          "last_affected": []
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2013-1629",
+        "https://github.com/pypa/pip/issues/425",
+        "https://github.com/pypa/pip/pull/791/files",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=968059",
+        "https://github.com/advisories/GHSA-g3p5-fjj9-h8gj",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pip/PYSEC-2013-8.yaml",
+        "https://github.com/pypa/pip",
+        "http://www.pip-installer.org/en/latest/installing.html"
+      ]
+    },
+    {
+      "id": "GHSA-gpvv-69j7-gwj8",
+      "aliases": [
+        "CVE-2019-20916",
+        "PYSEC-2020-173"
+      ],
+      "summary": "Path Traversal in pip",
+      "details": "The pip package before 19.2 for Python allows Directory Traversal when a URL is given in an install command, because a Content-Disposition header can have ../ in a filename, as demonstrated by overwriting the /root/.ssh/authorized_keys file. This occurs in _download_http_url in _internal/download.py. A fix was committed 6704f2ace.",
+      "severity": "HIGH",
+      "affected": [
+        {
+          "package": "pip",
+          "fixed": [
+            "19.2"
+          ],
+          "last_affected": []
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2019-20916",
+        "https://github.com/pypa/pip/issues/6413",
+        "https://github.com/gzpan123/pip/commit/a4c735b14a62f9cb864533808ac63936704f2ace",
+        "https://github.com/advisories/GHSA-gpvv-69j7-gwj8",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pip/PYSEC-2020-173.yaml",
+        "https://github.com/pypa/pip",
+        "https://github.com/pypa/pip/compare/19.1.1...19.2",
+        "https://lists.debian.org/debian-lts-announce/2020/09/msg00010.html"
+      ]
+    },
+    {
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "aliases": [
+        "CVE-2026-6357"
+      ],
+      "summary": "pip Vulnerable to Inclusion of Functionality from Untrusted Control Sphere",
+      "details": "pip prior to version 26.1 would run self-update check functionality after installing wheel files which required importing well-known Python modules names. These module imports were intentionally deferred to increase startup time of the pip CLI. The patch changes self-update functionality to run before wheels are installed to prevent newly-installed modules from being imported shortly after the installation of a wheel package. Users should still review package contents prior to installation.",
+      "severity": "MODERATE",
+      "affected": [
+        {
+          "package": "pip",
+          "fixed": [
+            "26.1"
+          ],
+          "last_affected": []
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-6357",
+        "https://github.com/pypa/pip/pull/13923",
+        "https://github.com/pypa/pip/commit/b369bfc96cc524e00c267e1693290e6599c36bad",
+        "https://github.com/pypa/pip",
+        "https://ichard26.github.io/blog/2026/04/whats-new-in-pip-26.1/#security-fixes",
+        "http://www.openwall.com/lists/oss-security/2026/04/27/7"
+      ]
+    },
+    {
+      "id": "GHSA-mq26-g339-26xf",
+      "aliases": [
+        "CVE-2023-5752",
+        "PYSEC-2023-228"
+      ],
+      "summary": "Command Injection in pip when used with Mercurial",
+      "details": "When installing a package from a Mercurial VCS URL, e.g. `pip install hg+...`, with pip prior to v23.3, the specified Mercurial revision could be used to inject arbitrary configuration options to the `hg clone` call (e.g. `--config`). Controlling the Mercurial configuration can modify how and which repository is installed. This vulnerability does not affect users who aren't installing from Mercurial.",
+      "severity": "MODERATE",
+      "affected": [
+        {
+          "package": "pip",
+          "fixed": [
+            "23.3"
+          ],
+          "last_affected": []
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-5752",
+        "https://github.com/pypa/pip/pull/12306",
+        "https://github.com/pypa/pip/commit/389cb799d0da9a840749fcd14878928467ed49b4",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pip/PYSEC-2023-228.yaml",
+        "https://github.com/pypa/pip",
+        "https://lists.debian.org/debian-lts-announce/2025/10/msg00028.html",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/622OZXWG72ISQPLM5Y57YCVIMWHD4C3U",
+        "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/65UKKF5LBHEFDCUSPBHUN4IHYX7SRMHH"
+      ]
+    }
+  ],
+  "pypistats_recent": {
+    "data": {
+      "last_day": 28742844,
+      "last_month": 647331629,
+      "last_week": 176037165
+    },
+    "package": "pip",
+    "type": "recent_downloads"
+  }
+}
