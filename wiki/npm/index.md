@@ -72,7 +72,7 @@
 - [[npm/path-to-regexp]] — routing parser · advisory mapped · legacy and modern ReDoS / route-expansion hardening history
 - [[npm/postcss]] — CSS parser / transform foundation · advisory mapped · source-map ReDoS pair plus 2023 carriage-return parsing integrity bug
 - [[npm/qs]] — query-string parser · advisory mapped · prototype-pollution and parser-limit bypass history
-- [[npm/semver]] — version parsing infrastructure · advisory mapped · ReDoS history
+- [[npm/semver]] — version parsing infrastructure · audit ingested · ReDoS hardening reviewed
 - [[npm/dompurify]] — HTML sanitizer · advisory mapped · dense mutation-XSS / configuration-bypass history plus recent 3.3.2 and 3.4.0 hardening releases
 - [[npm/sanitize-html]] — HTML sanitizer · advisory mapped · repeated XSS / sanitization-bypass, input-validation, ReDoS, and information-exposure fixes through 2.17.3
 - [[npm/shell-quote]] — shell-escaping helper · advisory mapped · two published command-injection fixes with the later regex hardening in 1.7.3
