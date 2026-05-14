@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*171 tracked pages across 9 ecosystems. Last updated: 2026-05-14.*
+*172 tracked pages across 9 ecosystems. Last updated: 2026-05-14.*
 
-## npm (92)
+## npm (93)
 
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing / prototype-pollution gadget history plus 2026 supply-chain compromise
 - [[npm/ajv]] — JSON Schema validator · advisory mapped · prototype-pollution and `$data` / pattern ReDoS history across 6.x and 8.x
@@ -46,6 +46,7 @@
 - [[npm/openssl]] — deprecated OpenSSL CLI wrapper · advisory mapped · critical command-execution advisory with no published fix version
 - [[npm/ejs]] — server-side templating engine · advisory mapped · historical renderFile/input-validation bugs plus later SSTI and prototype-pollution hardening
 - [[npm/elliptic]] — JavaScript elliptic-curve crypto library · advisory mapped · signature malleability, ECDH validation, ECDSA private-key extraction, and one currently unfixed deterministic-`k` advisory
+- [[npm/node-forge]] — JavaScript cryptography / PKI toolkit · advisory mapped · signature-verification, certificate-chain, ASN.1 parser, BigInteger DoS, URL parsing, and prototype-pollution history through 1.4.0
 - [[npm/fastify]] — high-performance Node.js web framework · advisory mapped · recurring Content-Type parsing / validation-boundary flaws plus proxy-trust and DoS history
 - [[npm/express]] — dominant Node.js web framework · advisory mapped · public package history plus deeper 2026 source review
 - [[npm/express-session]] — HTTP session middleware for Express · baseline stub · high-usage package with no direct GHSA / OSV advisories confirmed at package level; notable dependency-context risk via `cookie` 0.7.x lineage and `cookie-signature` timing-attack fix history

@@ -38,6 +38,7 @@
 - [[npm/vite]] — dominant frontend build tool / dev server · advisory mapped · dense dev-server file-boundary, cross-origin exposure, and XSS history through the 2026 fix train
 - [[npm/ejs]] — server-side templating engine · advisory mapped · historical renderFile/input-validation bugs plus later SSTI and prototype-pollution hardening
 - [[npm/elliptic]] — JavaScript elliptic-curve crypto library · advisory mapped · signature malleability, ECDH validation, ECDSA private-key extraction, and one currently unfixed deterministic-`k` advisory
+- [[npm/node-forge]] — JavaScript cryptography / PKI toolkit · advisory mapped · signature-verification, certificate-chain, ASN.1 parser, BigInteger DoS, URL parsing, and prototype-pollution history through 1.4.0
 - [[npm/express]] — core web framework · advisory mapped · public package history plus a deeper 2026 source review
 - [[npm/express-session]] — session middleware · baseline stub · high-usage package with cautious public-source baseline and deployment-boundary notes
 - [[npm/follow-redirects]] — redirect-following HTTP helper · advisory mapped · repeated redirect credential / header leakage history
