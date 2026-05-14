@@ -12,6 +12,7 @@
 - [[python/pip]] — Python package installer · advisory mapped · archive-extraction, VCS reference, installer import-order, and legacy transport / temp-dir security history through 26.1
 - [[python/setuptools]] — Python packaging/build backend toolkit · advisory mapped · package-index transport, parsing, command-execution, and download path-traversal history through 78.1.1
 - [[python/requests]] — dominant Python HTTP client · advisory mapped · credential, redirect, proxy, and TLS-boundary history
+- [[python/redis]] — Redis client / redis-py · advisory mapped · async connection-cancellation race-condition data-leak chain fixed through 4.4.4 / 4.5.4
 - [[python/httpx]] — async/sync Python HTTP client · advisory mapped · compact URL input-validation history with duplicate-advisory fixed-version discrepancy
 - [[python/urllib3]] — foundational Python HTTP transport library · advisory mapped · redirect, TLS, parser, and decompression-security history
 - [[python/cryptography]] — foundational Python cryptography library · advisory mapped · primitive, X.509/PKCS, buffer-boundary, and bundled-OpenSSL wheel history

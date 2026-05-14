@@ -1,0 +1,2 @@
+HTTP Error 404: Not Found
+https://github.com/redis/redis-py/security/advisories/GHSA-8fww-64cx-x8p5
