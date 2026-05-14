@@ -10,6 +10,7 @@
 - [[python/django]] — dominant Python web framework · advisory mapped · mature public security-release archive with recurring SQL-injection, ASGI/header-boundary, upload-limit, cache/session, traversal, and DoS history through 2026
 - [[python/pillow]] — Python Imaging Library fork · advisory mapped · dense parser-boundary history across image decoder memory corruption, decompression / allocation DoS, ImageMath code execution, and 2026 PSD / FITS / PDF fixes through 12.2.0
 - [[python/pip]] — Python package installer · advisory mapped · archive-extraction, VCS reference, installer import-order, and legacy transport / temp-dir security history through 26.1
+- [[python/setuptools]] — Python packaging/build backend toolkit · advisory mapped · package-index transport, parsing, command-execution, and download path-traversal history through 78.1.1
 - [[python/requests]] — dominant Python HTTP client · advisory mapped · credential, redirect, proxy, and TLS-boundary history
 - [[python/httpx]] — async/sync Python HTTP client · advisory mapped · compact URL input-validation history with duplicate-advisory fixed-version discrepancy
 - [[python/urllib3]] — foundational Python HTTP transport library · advisory mapped · redirect, TLS, parser, and decompression-security history

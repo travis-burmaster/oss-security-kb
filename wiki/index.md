@@ -1,8 +1,8 @@
 # OSS Security KB — Master Index
 
-*167 tracked pages across 9 ecosystems. Last updated: 2026-05-13.*
+*170 tracked pages across 9 ecosystems. Last updated: 2026-05-13.*
 
-## npm (91)
+## npm (92)
 
 - [[npm/axios]] — axios HTTP client · advisory mapped · SSRF / DoS / request-routing / prototype-pollution gadget history plus 2026 supply-chain compromise
 - [[npm/ajv]] — JSON Schema validator · advisory mapped · prototype-pollution and `$data` / pattern ReDoS history across 6.x and 8.x
@@ -53,6 +53,7 @@
 - [[npm/form-data]] — multipart request builder · advisory mapped · 2025 predictable-boundary fix across 2.x, 3.x, and 4.x
 - [[npm/got]] — HTTP client · advisory mapped · redirect-to-UNIX-socket boundary flaw fixed in 11.8.5 and 12.1.0
 - [[npm/glob-parent]] — glob utility dependency · advisory mapped · two ReDoS fixes across 5.1.2 and 6.0.1
+- [[npm/glob]] — glob CLI/library package · advisory mapped · CLI `-c` / `--cmd` command-injection flaw fixed in 10.5.0 / 11.1.0
 - [[npm/undici]] — modern HTTP client / fetch foundation · advisory mapped · recurring redirect leakage, CRLF injection, and 2026 WebSocket / DoS cluster
 - [[npm/jsonwebtoken]] — token verification library · advisory mapped · verification-semantic and key-confusion history
 - [[npm/js-yaml]] — YAML parser · audit ingested · historical RCE plus disputed 2026 alias-expansion DoS finding
@@ -108,7 +109,7 @@
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
 
-## Python / PyPI (26)
+## Python / PyPI (27)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
 - [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3 / GHSA-955r-262c-33jc / MAL-2026-2254)
 - [[python/flask]] — Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
@@ -118,6 +119,7 @@
 - [[python/django]] — Python web framework · advisory mapped · mature public security-release archive with recurring SQL-injection, ASGI/header-boundary, upload-limit, cache/session, traversal, and DoS history through 2026
 - [[python/pillow]] — Python Imaging Library fork · advisory mapped · dense parser-boundary history across image decoder memory corruption, decompression / allocation DoS, ImageMath code execution, and 2026 PSD / FITS / PDF fixes through 12.2.0
 - [[python/pip]] — Python package installer · advisory mapped · archive-extraction, VCS reference, installer import-order, and legacy transport / temp-dir security history through 26.1
+- [[python/setuptools]] — Python packaging/build backend toolkit · advisory mapped · package-index transport, parsing, command-execution, and download path-traversal history through 78.1.1
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
 - [[python/httpx]] — async/sync Python HTTP client · advisory mapped · URL input-validation issue with public fixed-version discrepancy
 - [[python/urllib3]] — transport-layer HTTP library · advisory mapped · redirect, CRLF, TLS, and request-smuggling relevance
@@ -155,7 +157,7 @@
 ## Homebrew (1)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
 
-## Maven / Java (22)
+## Maven / Java (23)
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
 - [[maven/org.apache.commons/commons-lang3]] — Apache Commons Lang utility library · advisory mapped · `ClassUtils.getClass(...)` uncontrolled-recursion DoS fixed in 3.18.0
@@ -164,6 +166,7 @@
 - [[maven/org.apache.logging.log4j/log4j-core]] — Apache Log4j Core logging implementation · advisory mapped · Log4Shell / JNDI, socket deserialization, TLS hostname verification, structured-layout log injection, and log-event-loss history fixed through 2.25.4 on the 2.x line
 - [[maven/org.apache.httpcomponents/httpclient]] — Apache HttpComponents HttpClient 4.x · advisory mapped · TLS hostname-verification, proxy credential leakage, SSL-handshake DoS, and malformed-URI host-confusion history through 4.5.13 / 5.0.3
 - [[maven/org.apache.kafka/kafka-clients]] — Apache Kafka Java client library · advisory mapped · OAUTHBEARER / JWT validation, producer buffer-pool misrouting, client config file/SSRF, sensitive logging, and impersonation history through 4.2.0
+- [[maven/org.apache.zookeeper/zookeeper]] — Apache ZooKeeper coordination service · advisory mapped · quorum auth, AdminServer, ACL / watcher, TLS hostname-verification, logging exposure, and DoS history through 3.9.5
 - [[maven/org.yaml/snakeyaml]] — SnakeYAML YAML parser · advisory mapped · unsafe Java object construction / deserialization RCE, alias expansion, nested collection resource exhaustion, and parser stack-overflow DoS history through 2.0+
 - [[maven/io.netty/netty-codec-http]] — Netty HTTP/1.x codec · advisory mapped · request-smuggling / parser-boundary, response-splitting, CRLF injection, decompression DoS, and local disclosure history through the 4.1.133.Final / 4.2.13.Final fix cluster
 - [[maven/org.eclipse.jetty/jetty-server]] — Eclipse Jetty server core artifact · advisory mapped · HTTP request-smuggling / parser-boundary, resource-exhaustion DoS, information-disclosure, error-response XSS, session/logout, cookie, gzip, and TLS handling history through 2026
