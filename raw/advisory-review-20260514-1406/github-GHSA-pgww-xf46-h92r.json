@@ -1,0 +1,81 @@
+{
+  "ghsa_id": "GHSA-pgww-xf46-h92r",
+  "cve_id": "CVE-2020-27783",
+  "url": "https://api.github.com/advisories/GHSA-pgww-xf46-h92r",
+  "html_url": "https://github.com/advisories/GHSA-pgww-xf46-h92r",
+  "summary": "lxml vulnerable to Cross-site Scripting",
+  "description": "A XSS vulnerability was discovered in python-lxml's clean module. The module's parser didn't properly imitate browsers, which caused different behaviors between the sanitizer and the user's page. A remote attacker could exploit this flaw to run arbitrary HTML/JS code.",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": null,
+  "source_code_location": " https://github.com/lxml/lxml",
+  "identifiers": [
+    {
+      "value": "GHSA-pgww-xf46-h92r",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2020-27783",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2020-27783",
+    "https://github.com/lxml/lxml/commit/a105ab8dc262ec6735977c25c13f0bdfcdec72a7",
+    "https://bugzilla.redhat.com/show_bug.cgi?id=1901633",
+    "https://lists.debian.org/debian-lts-announce/2020/12/msg00028.html",
+    "https://snyk.io/vuln/SNYK-PYTHON-LXML-1047473",
+    "https://www.debian.org/security/2020/dsa-4810",
+    "https://advisory.checkmarx.net/advisory/CX-2020-4286",
+    "https://www.oracle.com//security-alerts/cpujul2021.html",
+    "https://github.com/advisories/GHSA-pgww-xf46-h92r",
+    "https://github.com/pypa/advisory-database/tree/main/vulns/lxml/PYSEC-2020-62.yaml",
+    "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/JKG67GPGTV23KADT4D4GK4RMHSO4CIQL",
+    "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TMHVKRUT22LVWNL3TB7HPSDHJT74Q3JK",
+    "https://pypi.org/project/lxml",
+    "https://security.netapp.com/advisory/ntap-20210521-0003",
+    "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/JKG67GPGTV23KADT4D4GK4RMHSO4CIQL",
+    "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/TMHVKRUT22LVWNL3TB7HPSDHJT74Q3JK"
+  ],
+  "published_at": "2021-01-07T21:54:01Z",
+  "updated_at": "2025-12-20T05:13:58Z",
+  "github_reviewed_at": "2021-01-07T21:53:43Z",
+  "nvd_published_at": "2020-12-03T17:15:00Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "lxml"
+      },
+      "vulnerable_version_range": "< 4.6.2",
+      "first_patched_version": "4.6.2",
+      "vulnerable_functions": []
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "score": 6.1
+    },
+    "cvss_v4": {
+      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N",
+      "score": 5.3
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "credits": [],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+    "score": 6.1
+  },
+  "epss": {
+    "percentage": 0.01246,
+    "percentile": 0.79149
+  }
+}
