@@ -44,6 +44,7 @@
 - [[npm/form-data]] — multipart request builder · advisory mapped · 2025 predictable-boundary fix across 2.x, 3.x, and 4.x
 - [[npm/got]] — HTTP client · advisory mapped · redirect-to-UNIX-socket boundary flaw fixed in 11.8.5 and 12.1.0
 - [[npm/glob-parent]] — glob utility dependency · advisory mapped · two ReDoS fixes across 5.1.2 and 6.0.1
+- [[npm/glob]] — glob CLI/library package · advisory mapped · CLI `-c` / `--cmd` command-injection flaw fixed in 10.5.0 / 11.1.0
 - [[npm/undici]] — modern HTTP client / fetch foundation · advisory mapped · recurring redirect leakage, CRLF injection, and 2026 WebSocket / DoS cluster
 - [[npm/jsonwebtoken]] — JWT verification surface · advisory mapped · 9.0.0 security watershed and one rejected CVE to interpret carefully
 - [[npm/js-yaml]] — YAML parser · audit ingested · historical RCE plus 2026 alias-expansion DoS finding
