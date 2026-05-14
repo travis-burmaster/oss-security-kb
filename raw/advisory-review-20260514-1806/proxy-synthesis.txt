@@ -1,0 +1,40 @@
+## Suggested Edit Plan
+
+### 1. `wiki/npm/merge.md`
+
+**Update the two existing vulnerability entries to add the now-confirmed CVE IDs and enrich references:**
+
+**GHSA-f9cm-qmx5-m98h entry:**
+- Add `CVE-2018-16469` as the CVE ID (confirmed via both OSV and GitHub Advisory API).
+- Confirm severity: **High**.
+- Confirm affected range: `<1.2.1`, fixed in `1.2.1`.
+- Add references:
+  - NVD: `https://nvd.nist.gov/vuln/detail/CVE-2018-16469`
+  - HackerOne report 381194: `https://hackerone.com/reports/381194`
+  - npm advisory 722
+
+- Remove or update the statement that "public sources did not provide CVE IDs" — this is no longer accurate.
+
+**GHSA-7wpw-2hjm-89gp entry:**
+- Add `CVE-2020-28499` as the CVE ID (confirmed via both OSV and GitHub Advisory API).
+- Confirm severity: **High**.
+- Confirm affected range: `<2.1.1`, fixed in `2.1.1`.
+- Add references:
+  - NVD: `https://nvd.nist.gov/vuln/detail/CVE-2020-28499`
+  - Fix commit: `https://github.com/yeikos/js.merge/commit/7b0ddc2701d813f2ba289b32d6a4b9d4cc235fb4`
+  - Snyk advisory (link if available)
+
+### 2. `wiki/npm/index.md`
+
+- If the index entry for `merge` currently notes "no CVEs identified" or similar, update to reflect that two CVEs are now documented (`CVE-2018-16469`, `CVE-2020-28499`).
+- No other structural changes needed.
+
+### 3. `wiki/log.md`
+
+- Append a log entry noting:
+  - Date of update.
+  - Summary: "Added CVE IDs for npm package `merge` — CVE-2018-16469 (GHSA-f9cm-qmx5-m98h) and CVE-2020-28499 (GHSA-7wpw-2hjm-89gp) — confirmed via OSV and GitHub Advisory API. Updated references with NVD links, HackerOne report, fix commit, and npm advisory."
+
+### Rationale
+
+All changes are strictly evidence-backed: both CVE aliases are confirmed by two independent authoritative sources (OSV and GitHub Advisory API). No new vulnerabilities are being added; only missing metadata (CVE IDs, references) is being filled in for already-documented advisories.

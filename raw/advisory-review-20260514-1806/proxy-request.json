@@ -1,0 +1,10 @@
+{
+  "model": "claude-opus-4-6",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Review this public evidence for npm package `merge` and propose evidence-backed OSS Security KB updates only. Do not fabricate. Evidence summary:\n- Current wiki/npm/merge.md lists GHSA-f9cm-qmx5-m98h and GHSA-7wpw-2hjm-89gp, and says public sources did not provide CVE IDs.\n- OSV detail for GHSA-f9cm-qmx5-m98h aliases CVE-2018-16469, summary Prototype Pollution in merge, npm package merge, affected <1.2.1 fixed 1.2.1.\n- GitHub Advisory API for GHSA-f9cm-qmx5-m98h has cve_id CVE-2018-16469, severity high, vulnerable range <1.2.1, first patched 1.2.1, references NVD, HackerOne report 381194, npm advisory 722, GHSA.\n- OSV detail for GHSA-7wpw-2hjm-89gp aliases CVE-2020-28499, summary Prototype Pollution in merge, npm package merge, affected <2.1.1 fixed 2.1.1.\n- GitHub Advisory API for GHSA-7wpw-2hjm-89gp has cve_id CVE-2020-28499, severity high, vulnerable range <2.1.1, first patched 2.1.1, references NVD, upstream commit 7b0ddc2701d813f2ba289b32d6a4b9d4cc235fb4, Snyk, VulDB, GHSA.\nReturn a concise suggested edit plan for wiki/npm/merge.md, wiki/npm/index.md if needed, and wiki/log.md if needed.\n"
+    }
+  ],
+  "max_tokens": 1200
+}

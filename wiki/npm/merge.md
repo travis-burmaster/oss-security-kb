@@ -16,13 +16,14 @@
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| GHSA-f9cm-qmx5-m98h | High | Prototype Pollution in `merge` affecting versions `< 1.2.1`. | 1.2.1 | https://github.com/advisories/GHSA-f9cm-qmx5-m98h |
-| GHSA-7wpw-2hjm-89gp | High | Prototype Pollution in `merge` affecting versions `< 2.1.1`. | 2.1.1 | https://github.com/advisories/GHSA-7wpw-2hjm-89gp |
+| CVE-2018-16469 / GHSA-f9cm-qmx5-m98h | High | Prototype Pollution in `merge` affecting versions `< 1.2.1`. | 1.2.1 | https://github.com/advisories/GHSA-f9cm-qmx5-m98h |
+| CVE-2020-28499 / GHSA-7wpw-2hjm-89gp | High | Prototype Pollution in `merge` affecting versions `< 2.1.1`. | 2.1.1 | https://github.com/advisories/GHSA-7wpw-2hjm-89gp |
 
 ## Security Posture Notes
 
 - Both published advisories are **prototype-pollution** class issues, disclosed in 2018 and again in 2021. This is a useful cautionary example for consumers: security fixes in one major line do not always carry forward automatically.
-- In this pass, public sources reviewed did **not** provide CVE IDs for these GHSAs; the KB records them by GHSA identifier.
+- A 2026-05-14 public-source refresh confirmed CVE aliases for both advisories through OSV and the GitHub Advisory API: `CVE-2018-16469` for `GHSA-f9cm-qmx5-m98h` and `CVE-2020-28499` for `GHSA-7wpw-2hjm-89gp`.
+- GitHub's advisory record for `GHSA-f9cm-qmx5-m98h` references the public NVD record, HackerOne report 381194, and npm advisory 722; the record for `GHSA-7wpw-2hjm-89gp` references the public NVD record and upstream fix commit `7b0ddc2701d813f2ba289b32d6a4b9d4cc235fb4`.
 - npm registry metadata reports `latest` as **2.1.1**, which matches the patched version for the newer advisory.
 
 ## Dependencies of Note
@@ -31,7 +32,6 @@
 
 ## Open Questions
 
-- Do OSV / public CVE records assign CVE IDs to either GHSA (not observed in this pass)?
 - Is there any published maintainer advisory / release note text describing the exact patch behavior in 1.2.1 and 2.1.1?
 
 ## Related Pages
@@ -39,4 +39,4 @@
 - [[npm/index]]
 
 ---
-*Last updated: 2026-04-26 | Sources: GitHub Advisory Database (2 advisories), OSV.dev (2 entries), npm registry metadata*
+*Last updated: 2026-05-14 | Sources: GitHub Advisory Database (2 advisories, including GitHub Advisory API CVE aliases), OSV.dev package query and vulnerability details (2 entries), public NVD aliases referenced by GHSA/OSV, HackerOne report / npm advisory reference for CVE-2018-16469, upstream fix-commit reference for CVE-2020-28499, npm registry metadata, local Claude-compatible proxy synthesis saved under `raw/advisory-review-20260514-1806/` and used only as a drafting aid*

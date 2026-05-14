@@ -27,7 +27,7 @@
 - [[npm/prismjs]] — syntax highlighter · advisory mapped · plugin XSS, grammar ReDoS, and DOM-clobbering history fixed through 1.30.0
 - [[npm/protobufjs]] — protobuf serialization library · advisory mapped · prototype-pollution / generated-code injection and parser DoS history through the 7.5.6 / 8.0.2 fix train
 - [[npm/mdast-util-to-hast]] — Markdown AST→HTML AST transformer · advisory mapped · class-injection / unsanitized class attribute issue fixed in 13.2.1
-- [[npm/merge]] — object merge utility · advisory mapped · prototype-pollution fixes in 1.2.1 and 2.1.1
+- [[npm/merge]] — object merge utility · advisory mapped · prototype-pollution CVEs fixed in 1.2.1 and 2.1.1
 - [[npm/helmet]] — security-header middleware · baseline stub · no package-level GHSA / OSV record confirmed in this pass; strong disclosure posture via upstream SECURITY.md
 - [[npm/ws]] — WebSocket library · advisory mapped · repeated header-parser and resource-exhaustion / DoS history
 - [[npm/tar]] — archive extraction library · advisory mapped · long-running symlink / hardlink traversal, overwrite, and path-sanitization history

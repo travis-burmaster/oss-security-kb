@@ -1,7 +1,7 @@
 # npm Index
 
 ## Advisory-Mapped / Audited Pages
-- [[npm/merge]] — object merge utility · advisory mapped · two high-severity prototype-pollution advisories fixed in 1.2.1 and 2.1.1
+- [[npm/merge]] — object merge utility · advisory mapped · two high-severity prototype-pollution advisories (CVE-2018-16469, CVE-2020-28499) fixed in 1.2.1 and 2.1.1
 - [[npm/axios]] — widely used HTTP client · advisory mapped · broad SSRF / DoS / request-routing / prototype-pollution gadget history plus 2026 supply-chain compromise
 - [[npm/ajv]] — JSON Schema validator · advisory mapped · prototype-pollution and `$data` / pattern ReDoS history across 6.x and 8.x
 - [[npm/async]] — async control-flow utility · advisory mapped · prototype-pollution issue fixed in 2.6.4 and 3.2.2
