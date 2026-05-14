@@ -15,6 +15,7 @@ Scope notes:
 - [[maven/org.apache.commons/commons-compress]] — Apache Commons archive compression/extraction library · advisory mapped · malformed archive DoS / resource-exhaustion history fixed through 1.26.0
 - [[maven/org.apache.logging.log4j/log4j-core]] — Apache Log4j Core logging implementation · advisory mapped · Log4Shell / JNDI, socket deserialization, TLS hostname verification, structured-layout log injection, and log-event-loss history fixed through 2.25.4 on the 2.x line
 - [[maven/org.apache.httpcomponents/httpclient]] — Apache HttpComponents HttpClient 4.x · advisory mapped · TLS hostname-verification, proxy credential leakage, SSL-handshake DoS, and malformed-URI host-confusion history through 4.5.13 / 5.0.3
+- [[maven/org.apache.httpcomponents.client5/httpclient5]] — Apache HttpComponents HttpClient 5.x · advisory mapped · TLS domain-check regression and SCRAM-SHA-256 mutual-authentication verification history through 5.6.1
 - [[maven/org.apache.kafka/kafka-clients]] — Apache Kafka Java client library · advisory mapped · OAUTHBEARER / JWT validation, producer buffer-pool misrouting, client config file/SSRF, sensitive logging, and impersonation history through 4.2.0
 - [[maven/org.apache.zookeeper/zookeeper]] — Apache ZooKeeper coordination service · advisory mapped · quorum auth, AdminServer, ACL / watcher, TLS hostname-verification, logging exposure, and DoS history through 3.9.5
 - [[maven/org.yaml/snakeyaml]] — SnakeYAML YAML parser · advisory mapped · unsafe Java object construction / deserialization RCE, alias expansion, nested collection resource exhaustion, and parser stack-overflow DoS history through 2.0+
@@ -33,4 +34,4 @@ Scope notes:
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression RCE risk when evaluating untrusted expressions (CVE-2024-36404)
 
 ---
-*Last updated: 2026-05-13*
+*Last updated: 2026-05-14*
