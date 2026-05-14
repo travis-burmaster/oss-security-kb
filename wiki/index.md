@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*172 tracked pages across 9 ecosystems. Last updated: 2026-05-14.*
+*173 tracked pages across 9 ecosystems. Last updated: 2026-05-14.*
 
 ## npm (93)
 
@@ -110,7 +110,7 @@
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
 
-## Python / PyPI (28)
+## Python / PyPI (29)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
 - [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3 / GHSA-955r-262c-33jc / MAL-2026-2254)
 - [[python/flask]] — Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
@@ -124,6 +124,7 @@
 - [[python/requests]] — Python HTTP client · advisory mapped · redirect, proxy, TLS, and credential-handling history
 - [[python/redis]] — Redis client / redis-py · advisory mapped · async connection-cancellation race-condition data-leak chain fixed through 4.4.4 / 4.5.4
 - [[python/httpx]] — async/sync Python HTTP client · advisory mapped · URL input-validation issue with public fixed-version discrepancy
+- [[python/h11]] — pure-Python HTTP/1.1 state machine · advisory mapped · malformed chunked-transfer parsing / request-smuggling boundary fixed in 0.16.0
 - [[python/urllib3]] — transport-layer HTTP library · advisory mapped · redirect, CRLF, TLS, and request-smuggling relevance
 - [[python/cryptography]] — foundational Python cryptography library · advisory mapped · primitive, X.509/PKCS, buffer-boundary, and bundled-OpenSSL wheel history
 - [[python/paramiko]] — Python SSH2 protocol library · advisory mapped · server-mode authentication bypasses, private-key file race, SSH Terrapin, legacy randomness, and 2026 SHA-1 algorithm record
@@ -159,7 +160,7 @@
 ## Homebrew (1)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
 
-## Maven / Java (23)
+## Maven / Java (24)
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
 - [[maven/org.apache.commons/commons-lang3]] — Apache Commons Lang utility library · advisory mapped · `ClassUtils.getClass(...)` uncontrolled-recursion DoS fixed in 3.18.0
@@ -167,6 +168,7 @@
 - [[maven/org.apache.commons/commons-compress]] — Apache Commons archive compression/extraction library · advisory mapped · malformed archive DoS / resource-exhaustion history fixed through 1.26.0
 - [[maven/org.apache.logging.log4j/log4j-core]] — Apache Log4j Core logging implementation · advisory mapped · Log4Shell / JNDI, socket deserialization, TLS hostname verification, structured-layout log injection, and log-event-loss history fixed through 2.25.4 on the 2.x line
 - [[maven/org.apache.httpcomponents/httpclient]] — Apache HttpComponents HttpClient 4.x · advisory mapped · TLS hostname-verification, proxy credential leakage, SSL-handshake DoS, and malformed-URI host-confusion history through 4.5.13 / 5.0.3
+- [[maven/org.apache.httpcomponents.client5/httpclient5]] — Apache HttpComponents HttpClient 5.x · advisory mapped · TLS domain-check regression and SCRAM-SHA-256 mutual-authentication verification history through 5.6.1
 - [[maven/org.apache.kafka/kafka-clients]] — Apache Kafka Java client library · advisory mapped · OAUTHBEARER / JWT validation, producer buffer-pool misrouting, client config file/SSRF, sensitive logging, and impersonation history through 4.2.0
 - [[maven/org.apache.zookeeper/zookeeper]] — Apache ZooKeeper coordination service · advisory mapped · quorum auth, AdminServer, ACL / watcher, TLS hostname-verification, logging exposure, and DoS history through 3.9.5
 - [[maven/org.yaml/snakeyaml]] — SnakeYAML YAML parser · advisory mapped · unsafe Java object construction / deserialization RCE, alias expansion, nested collection resource exhaustion, and parser stack-overflow DoS history through 2.0+

@@ -14,6 +14,7 @@
 - [[python/requests]] — dominant Python HTTP client · advisory mapped · credential, redirect, proxy, and TLS-boundary history
 - [[python/redis]] — Redis client / redis-py · advisory mapped · async connection-cancellation race-condition data-leak chain fixed through 4.4.4 / 4.5.4
 - [[python/httpx]] — async/sync Python HTTP client · advisory mapped · compact URL input-validation history with duplicate-advisory fixed-version discrepancy
+- [[python/h11]] — pure-Python HTTP/1.1 state machine · advisory mapped · malformed chunked-transfer parsing / request-smuggling boundary fixed in 0.16.0
 - [[python/urllib3]] — foundational Python HTTP transport library · advisory mapped · redirect, TLS, parser, and decompression-security history
 - [[python/cryptography]] — foundational Python cryptography library · advisory mapped · primitive, X.509/PKCS, buffer-boundary, and bundled-OpenSSL wheel history
 - [[python/paramiko]] — Python SSH2 protocol library · advisory mapped · server-mode auth bypasses, private-key file race, SSH Terrapin, legacy randomness, and 2026 SHA-1 algorithm record
