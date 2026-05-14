@@ -1,0 +1,90 @@
+{
+  "info": {
+    "author": "lxml dev team",
+    "author_email": "lxml@lxml.de",
+    "bugtrack_url": null,
+    "classifiers": [
+      "Development Status :: 5 - Production/Stable",
+      "Intended Audience :: Developers",
+      "Intended Audience :: Information Technology",
+      "Operating System :: OS Independent",
+      "Programming Language :: C",
+      "Programming Language :: Cython",
+      "Programming Language :: Python :: 3",
+      "Programming Language :: Python :: 3.10",
+      "Programming Language :: Python :: 3.11",
+      "Programming Language :: Python :: 3.12",
+      "Programming Language :: Python :: 3.13",
+      "Programming Language :: Python :: 3.14",
+      "Programming Language :: Python :: 3.8",
+      "Programming Language :: Python :: 3.9",
+      "Topic :: Software Development :: Libraries :: Python Modules",
+      "Topic :: Text Processing :: Markup :: HTML",
+      "Topic :: Text Processing :: Markup :: XML"
+    ],
+    "description": "lxml is a Pythonic, mature binding for the libxml2 and libxslt libraries.\r\nIt provides safe and convenient access to these libraries using the\r\nElementTree API.\r\n\r\nIt extends the ElementTree API significantly to offer support for XPath,\r\nRelaxNG, XML Schema, XSLT, C14N and much more.\r\n\r\nTo contact the project, go to the `project home page <https://lxml.de/>`_\r\nor see our bug tracker at https://launchpad.net/lxml\r\n\r\nIn case you want to use the current in-development version of lxml,\r\nyou can get it from the github repository at\r\nhttps://github.com/lxml/lxml .  Note that this requires Cython to\r\nbuild the sources, see the build instructions on the project home page.\r\n\r\n\r\nAfter an official release of a new stable series, bug fixes may become available at\r\nhttps://github.com/lxml/lxml/tree/lxml-6.1 .\r\nRunning ``pip install https://github.com/lxml/lxml/archive/refs/heads/lxml-6.1.tar.gz``\r\nwill install the unreleased branch state as soon as a maintenance branch has been established.\r\nNote that this requires Cython to be installed at an appropriate version for the build.\r\n\r\n6.1.0 (2026-04-17)\r\n==================\r\n\r\nThis release fixes a possible external entity injection (XXE) vulnerability in\r\n``iterparse()`` and the ``ETCompatXMLParser``.\r\n\r\nFeatures added\r\n--------------\r\n\r\n* GH#486: The HTML ARIA accessibility attributes were added to the set of safe attributes\r\n  in ``lxml.html.defs``.  This allows ``lxml_html_clean`` to pass them through.\r\n  Patch by oomsveta.\r\n\r\n* The default chunk size for reading from file-likes in ``iterparse()`` is now configurable\r\n  with a new ``chunk_size`` argument.\r\n\r\nBugs fixed\r\n----------\r\n\r\n* LP#2146291: The ``resolve_entities`` option was still set to ``True`` for\r\n  ``iterparse`` and ``ETCompatXMLParser``, allowing for external entity injection (XXE)\r\n  when using these parsers without setting this option explicitly.\r\n  The default was now changed to ``'internal'`` only (as for the normal XML and HTML parsers\r\n  since lxml 5.0).\r\n  Issue found by Sihao Qiu as CVE-2026-41066.\r\n\r\n\r\n",
+    "description_content_type": null,
+    "docs_url": null,
+    "download_url": null,
+    "downloads": {
+      "last_day": -1,
+      "last_month": -1,
+      "last_week": -1
+    },
+    "dynamic": [
+      "Author",
+      "Author-Email",
+      "Classifier",
+      "Description",
+      "Home-Page",
+      "License",
+      "License-File",
+      "Maintainer",
+      "Maintainer-Email",
+      "Project-Url",
+      "Provides-Extra",
+      "Requires-Python",
+      "Summary"
+    ],
+    "home_page": "https://lxml.de/",
+    "keywords": null,
+    "license": "BSD-3-Clause",
+    "license_expression": null,
+    "license_files": [
+      "LICENSE.txt",
+      "LICENSES.txt"
+    ],
+    "maintainer": "lxml dev team",
+    "maintainer_email": "lxml@lxml.de",
+    "name": "lxml",
+    "package_url": "https://pypi.org/project/lxml/",
+    "platform": null,
+    "project_url": "https://pypi.org/project/lxml/",
+    "project_urls": {
+      "Bug Tracker": "https://bugs.launchpad.net/lxml",
+      "Homepage": "https://lxml.de/",
+      "Source": "https://github.com/lxml/lxml"
+    },
+    "provides_extra": [
+      "source",
+      "cssselect",
+      "html5",
+      "htmlsoup",
+      "html-clean"
+    ],
+    "release_url": "https://pypi.org/project/lxml/6.1.0/",
+    "requires_dist": [
+      "cssselect>=0.7; extra == \"cssselect\"",
+      "html5lib; extra == \"html5\"",
+      "BeautifulSoup4; extra == \"htmlsoup\"",
+      "lxml_html_clean; extra == \"html-clean\""
+    ],
+    "requires_python": ">=3.8",
+    "summary": "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.",
+    "version": "6.1.0",
+    "yanked": false,
+    "yanked_reason": null
+  },
+  "last_serial": 36231053,
+  "latest": "6.1.0"
+}

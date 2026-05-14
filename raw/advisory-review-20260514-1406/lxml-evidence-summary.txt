@@ -1,0 +1,35 @@
+Evidence summary for PyPI lxml KB page
+OSV package query URL: https://osv.dev/list?ecosystem=PyPI&q=lxml
+PyPI latest: 6.1.0
+Repository/source: https://github.com/lxml/lxml
+PyPIStats last_week: 89197199
+
+- GHSA-55x5-fj6c-h6m8 CVE-2021-43818 medium lxml's HTML Cleaner allows crafted and SVG embedded scripts to pass through
+  affected < 4.6.5 patched 4.6.5
+  refs: https://github.com/lxml/lxml/security/advisories/GHSA-55x5-fj6c-h6m8 ; https://github.com/lxml/lxml/commit/12fa9669007180a7bb87d990c375cf91ca5b664a ; https://github.com/lxml/lxml/commit/a3eacbc0dcf1de1c822ec29fb7d090a4b1712a9c#diff-59130575b4fb2932c957db2922977d7d89afb0b2085357db1a14615a2fcad776 ; https://github.com/lxml/lxml/commit/f2330237440df7e8f39c3ad1b1aa8852be3b27c0
+
+- GHSA-57qw-cc2g-pv5p CVE-2014-3146 medium lxml Cross-site Scripting Via Control Characters
+  affected < 3.3.5 patched 3.3.5
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2014-3146 ; http://advisories.mageia.org/MGASA-2014-0218.html ; http://lists.opensuse.org/opensuse-updates/2014-05/msg00083.html ; http://lxml.de/3.3/changes-3.3.5.html
+
+- GHSA-jq4v-f5q6-mjqq CVE-2021-28957 medium lxml vulnerable to Cross-Site Scripting 
+  affected < 4.6.3 patched 4.6.3
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2021-28957 ; https://github.com/lxml/lxml/pull/316 ; https://github.com/lxml/lxml/pull/316/commits/10ec1b4e9f93713513a3264ed6158af22492f270 ; https://github.com/lxml/lxml/commit/2d01a1ba8984e0483ce6619b972832377f208a0d
+
+- GHSA-pgww-xf46-h92r CVE-2020-27783 medium lxml vulnerable to Cross-site Scripting
+  affected < 4.6.2 patched 4.6.2
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2020-27783 ; https://github.com/lxml/lxml/commit/a105ab8dc262ec6735977c25c13f0bdfcdec72a7 ; https://bugzilla.redhat.com/show_bug.cgi?id=1901633 ; https://lists.debian.org/debian-lts-announce/2020/12/msg00028.html
+
+- GHSA-vfmq-68hx-4jfw CVE-2026-41066 high lxml: Default configuration of iterparse() and ETCompatXMLParser() allows XXE to local files
+  affected < 6.1.0 patched 6.1.0
+  refs: https://github.com/lxml/lxml/security/advisories/GHSA-vfmq-68hx-4jfw ; https://bugs.launchpad.net/lxml/+bug/2146291 ; https://github.com/lxml/lxml/releases/tag/lxml-6.1.0 ; https://nvd.nist.gov/vuln/detail/CVE-2026-41066
+
+- GHSA-wrxv-2j5q-m38w CVE-2022-2309 medium lxml NULL Pointer Dereference allows attackers to cause a denial of service
+  affected < 4.9.1 patched 4.9.1
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2022-2309 ; https://github.com/lxml/lxml/commit/86368e9cf70a0ad23cccd5ee32de847149af0c6f ; https://huntr.dev/bounties/8264e74f-edda-4c40-9956-49de635105ba ; https://github.com/lxml/lxml/blob/master/CHANGES.txt
+
+- GHSA-xp26-p53h-6h2p CVE-2018-19787 medium Improper Neutralization of Input During Web Page Generation in LXML
+  affected < 4.2.5 patched 4.2.5
+  refs: https://nvd.nist.gov/vuln/detail/CVE-2018-19787 ; https://github.com/lxml/lxml/commit/6be1d081b49c97cfd7b3fbd934a193b668629109 ; https://lists.debian.org/debian-lts-announce/2018/12/msg00001.html ; https://lists.debian.org/debian-lts-announce/2020/11/msg00044.html
+
+Changelog excerpts exist in raw lxml-CHANGES.txt, including 6.1.0 XXE CVE-2026-41066, 4.6.5 CVE-2021-43818, 4.6.3 CVE-2021-28957, 4.6.2 CVE-2020-27783, 4.2.5 CVE-2018-19787, 4.9.2/4.9.1 CVE-2022-2309 context.

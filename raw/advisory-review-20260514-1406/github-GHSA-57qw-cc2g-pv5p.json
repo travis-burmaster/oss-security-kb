@@ -1,0 +1,112 @@
+{
+  "ghsa_id": "GHSA-57qw-cc2g-pv5p",
+  "cve_id": "CVE-2014-3146",
+  "url": "https://api.github.com/advisories/GHSA-57qw-cc2g-pv5p",
+  "html_url": "https://github.com/advisories/GHSA-57qw-cc2g-pv5p",
+  "summary": "lxml Cross-site Scripting Via Control Characters",
+  "description": "Incomplete blacklist vulnerability in the `lxml.html.clean` module in lxml before 3.3.5 allows remote attackers to conduct cross-site scripting (XSS) attacks via control characters in the link scheme to the `clean_html` function.",
+  "type": "reviewed",
+  "severity": "medium",
+  "repository_advisory_url": null,
+  "source_code_location": "https://github.com/lxml/lxml",
+  "identifiers": [
+    {
+      "value": "GHSA-57qw-cc2g-pv5p",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2014-3146",
+      "type": "CVE"
+    }
+  ],
+  "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2014-3146",
+    "http://advisories.mageia.org/MGASA-2014-0218.html",
+    "http://lists.opensuse.org/opensuse-updates/2014-05/msg00083.html",
+    "http://lxml.de/3.3/changes-3.3.5.html",
+    "http://seclists.org/fulldisclosure/2014/Apr/210",
+    "http://seclists.org/fulldisclosure/2014/Apr/319",
+    "http://www.debian.org/security/2014/dsa-2941",
+    "http://www.openwall.com/lists/oss-security/2014/05/09/7",
+    "http://www.ubuntu.com/usn/USN-2217-1",
+    "https://github.com/lxml/lxml/pull/273",
+    "https://github.com/lxml/lxml/commit/3f3082e0a67851cde26a48da3d1f4b75d8aa07ec",
+    "https://github.com/lxml/lxml/commit/86e81ab393ba14c1be71284675851a3bdce57d69",
+    "https://github.com/lxml/lxml/commit/e86b294f1f81b899a59925123560ff924a72f1cc",
+    "https://web.archive.org/web/20140724172044/http://secunia.com/advisories/58013",
+    "https://web.archive.org/web/20140805110535/http://secunia.com/advisories/59008",
+    "https://web.archive.org/web/20140806061046/http://secunia.com/advisories/58744",
+    "https://web.archive.org/web/20141017122607/https://mailman-mail5.webfaction.com/pipermail/lxml/2014-April/007128.html",
+    "https://web.archive.org/web/20150523055039/http://www.mandriva.com/en/support/security/advisories/advisory/MDVSA-2015:112/?name=MDVSA-2015:112",
+    "https://web.archive.org/web/20200228180542/http://www.securityfocus.com/bid/67159",
+    "https://github.com/pypa/advisory-database/tree/main/vulns/lxml/PYSEC-2014-9.yaml",
+    "https://mailman-mail5.webfaction.com/pipermail/lxml/2014-April/007128.html",
+    "https://github.com/advisories/GHSA-57qw-cc2g-pv5p"
+  ],
+  "published_at": "2022-05-14T04:01:59Z",
+  "updated_at": "2024-09-30T17:03:33Z",
+  "github_reviewed_at": "2023-08-04T20:12:48Z",
+  "nvd_published_at": "2014-05-14T19:55:00Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "lxml"
+      },
+      "vulnerable_version_range": "< 3.3.5",
+      "first_patched_version": "3.3.5",
+      "vulnerable_functions": []
+    }
+  ],
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "score": 6.1
+    },
+    "cvss_v4": {
+      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N",
+      "score": 5.3
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "credits": [
+    {
+      "user": {
+        "login": "joshbressers",
+        "id": 1692786,
+        "node_id": "MDQ6VXNlcjE2OTI3ODY=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1692786?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/joshbressers",
+        "html_url": "https://github.com/joshbressers",
+        "followers_url": "https://api.github.com/users/joshbressers/followers",
+        "following_url": "https://api.github.com/users/joshbressers/following{/other_user}",
+        "gists_url": "https://api.github.com/users/joshbressers/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/joshbressers/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/joshbressers/subscriptions",
+        "organizations_url": "https://api.github.com/users/joshbressers/orgs",
+        "repos_url": "https://api.github.com/users/joshbressers/repos",
+        "events_url": "https://api.github.com/users/joshbressers/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/joshbressers/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+    "score": 6.1
+  },
+  "epss": {
+    "percentage": 0.04268,
+    "percentile": 0.88725
+  }
+}

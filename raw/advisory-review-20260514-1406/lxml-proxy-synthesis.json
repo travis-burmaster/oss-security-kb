@@ -1,0 +1,21 @@
+{
+  "id": "msg_01QBDGURRJ3HEGinqSZ4sK4i",
+  "object": "chat.completion",
+  "created": 1778785728,
+  "model": "claude-opus-4-6",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "# Proposed OSS Security KB Page: PyPI `lxml`\n\n---\n\n## Package Overview\n\n| Field | Value |\n|---|---|\n| **Ecosystem** | PyPI |\n| **Package name** | `lxml` |\n| **Latest version** | 6.1.0 |\n| **Source repository** | https://github.com/lxml/lxml |\n| **Weekly downloads (PyPI)** | ~89.2 million |\n| **OSV query** | https://osv.dev/list?ecosystem=PyPI&q=lxml |\n\n**Summary:** `lxml` is a high-performance Python binding for the libxml2 and libxslt C libraries, widely used for XML/HTML parsing, transformation, and sanitisation. Its massive download volume makes every vulnerability high-impact across the Python ecosystem.\n\n---\n\n## Known Vulnerabilities (7 confirmed, chronological by patch)\n\n### 1. CVE-2014-3146 \u2014 XSS via Control Characters (Medium)\n| Detail | |\n|---|---|\n| GHSA | GHSA-57qw-cc2g-pv5p |\n| Affected | < 3.3.5 |\n| Fixed in | **3.3.5** |\n| Description | The HTML cleaner did not strip ASCII control characters, enabling cross-site scripting payloads to bypass sanitisation. |\n| References | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2014-3146), [Changelog](http://lxml.de/3.3/changes-3.3.5.html) |\n\n### 2. CVE-2018-19787 \u2014 Improper Neutralization in `lxml.html.clean` (Medium)\n| Detail | |\n|---|---|\n| GHSA | GHSA-xp26-p53h-6h2p |\n| Affected | < 4.2.5 |\n| Fixed in | **4.2.5** |\n| Description | Crafted `link` elements with `javascript:` URLs in the `href` attribute were not sanitised by the Cleaner. |\n| Key commit | [6be1d08](https://github.com/lxml/lxml/commit/6be1d081b49c97cfd7b3fbd934a193b668629109) |\n\n### 3. CVE-2020-27783 \u2014 XSS in `lxml.html.clean` (Medium)\n| Detail | |\n|---|---|\n| GHSA | GHSA-pgww-xf46-h92r |\n| Affected | < 4.6.2 |\n| Fixed in | **4.6.2** |\n| Description | The Cleaner failed to remove certain SVG/`<noscript>` content, allowing script execution in cleaned output. |\n| Key commit | [a105ab8](https://github.com/lxml/lxml/commit/a105ab8dc262ec6735977c25c13f0bdfcdec72a7) |\n\n### 4. CVE-2021-28957 \u2014 XSS via `Cleaner` formaction Attribute (Medium)\n| Detail | |\n|---|---|\n| GHSA | GHSA-jq4v-f5q6-mjqq |\n| Affected | < 4.6.3 |\n| Fixed in | **4.6.3** |\n| Description | The `formaction` attribute on form-related elements was not removed by the Cleaner, enabling script-context injection. |\n| Key commit | [2d01a1b](https://github.com/lxml/lxml/commit/2d01a1ba8984e0483ce6619b972832377f208a0d) |\n\n### 5. CVE-2021-43818 \u2014 SVG/Script Bypass in HTML Cleaner (Medium)\n| Detail | |\n|---|---|\n| GHSA | GHSA-55x5-fj6c-h6m8 |\n| Affected | < 4.6.5 |\n| Fixed in | **4.6.5** |\n| Description | Crafted SVG elements and embedded script content could pass through the Cleaner even when `scripts=True` and `javascript=True`. Multiple commits addressed the issue. |\n| Key commits | [12fa966](https://github.com/lxml/lxml/commit/12fa9669007180a7bb87d990c375cf91ca5b664a), [f233023](https://github.com/lxml/lxml/commit/f2330237440df7e8f39c3ad1b1aa8852be3b27c0) |\n\n### 6. CVE-2022-2309 \u2014 NULL Pointer Dereference / DoS (Medium)\n| Detail | |\n|---|---|\n| GHSA | GHSA-wrxv-2j5q-m38w |\n| Affected | < 4.9.1 |"
+      },
+      "finish_reason": "max_tokens"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1577,
+    "completion_tokens": 1199,
+    "total_tokens": 2776
+  }
+}
