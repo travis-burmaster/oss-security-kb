@@ -1,0 +1,80 @@
+[
+  {
+    "ecosystem": "PyPI",
+    "package": "bleach",
+    "osv_count": 10,
+    "sample_ids": [
+      "GHSA-m6xf-fq7q-8743",
+      "GHSA-m9mq-p2f9-cfqv",
+      "GHSA-q65m-pv3f-wr5r",
+      "GHSA-vqhp-cxgc-6wmm",
+      "GHSA-vv2x-vrpj-qqpq",
+      "PYSEC-2018-51",
+      "PYSEC-2020-27",
+      "PYSEC-2020-28"
+    ],
+    "file": "PyPI-bleach-osv.json"
+  },
+  {
+    "ecosystem": "PyPI",
+    "package": "python-jose",
+    "osv_count": 6,
+    "sample_ids": [
+      "GHSA-6c5p-j8vq-pqhj",
+      "GHSA-cjwg-qfpm-7377",
+      "GHSA-w799-prg3-cx77",
+      "PYSEC-2017-28",
+      "PYSEC-2024-232",
+      "PYSEC-2024-233"
+    ],
+    "file": "PyPI-python-jose-osv.json"
+  },
+  {
+    "ecosystem": "npm",
+    "package": "adm-zip",
+    "osv_count": 1,
+    "sample_ids": [
+      "GHSA-3v6h-hqm4-2rg6"
+    ],
+    "file": "npm-adm-zip-osv.json"
+  },
+  {
+    "ecosystem": "npm",
+    "package": "decompress",
+    "osv_count": 1,
+    "sample_ids": [
+      "GHSA-qgfr-5hqp-vrw9"
+    ],
+    "file": "npm-decompress-osv.json"
+  },
+  {
+    "ecosystem": "npm",
+    "package": "html-minifier",
+    "osv_count": 1,
+    "sample_ids": [
+      "GHSA-pfq8-rq6v-vf5m"
+    ],
+    "file": "npm-html-minifier-osv.json"
+  },
+  {
+    "ecosystem": "Maven",
+    "package": "com.google.guava:guava",
+    "osv_count": 3,
+    "sample_ids": [
+      "GHSA-5mg8-w23w-74h3",
+      "GHSA-7g45-4rm6-3mm3",
+      "GHSA-mvr2-9pj6-7w5j"
+    ],
+    "file": "Maven-com.google.guava__guava-osv.json"
+  },
+  {
+    "ecosystem": "Go",
+    "package": "github.com/redis/go-redis/v9",
+    "osv_count": 2,
+    "sample_ids": [
+      "GHSA-92cp-5422-2mw7",
+      "GO-2025-3540"
+    ],
+    "file": "Go-github.com_redis_go-redis_v9-osv.json"
+  }
+]

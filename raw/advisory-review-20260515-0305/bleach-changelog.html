@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bleach changes &#8212; Bleach 6.3.0 20251027 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=0850e8db"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Migrating from the html5lib sanitizer" href="migrating.html" />
+    <link rel="prev" title="Bleach development" href="dev.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="bleach" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/changes.html" /><meta name="readthedocs-http-status" content="200" /></head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="bleach-changes">
+<span id="changes-chapter"></span><h1>Bleach changes<a class="headerlink" href="#bleach-changes" title="Link to this heading">¶</a></h1>
+<section id="version-6-4-0-tbd">
+<h2>Version 6.4.0 (TBD)<a class="headerlink" href="#version-6-4-0-tbd" title="Link to this heading">¶</a></h2>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul class="simple">
+<li><p>Dropped support for pypy 3.10. (#764)</p></li>
+</ul>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul>
+<li><p>Add support for pypy 3.11. (#764)</p></li>
+<li><p>Drop version max in tinycss2 pin. (#772)</p>
+<p>This removes one of the things we had to keep checking and updating. Users
+now own the responsibility for correctness with the version of tinycss2
+they’re using.</p>
+</li>
+</ul>
+</section>
+<section id="version-6-3-0-october-27th-2025">
+<h2>Version 6.3.0 (October 27th, 2025)<a class="headerlink" href="#version-6-3-0-october-27th-2025" title="Link to this heading">¶</a></h2>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul class="simple">
+<li><p>Dropped support for Python 3.9. (#756)</p></li>
+</ul>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Add support for Python 3.14. (#758)</p></li>
+<li><p>Fix wbr handling. (#488)</p></li>
+</ul>
+</section>
+<section id="version-6-2-0-october-29th-2024">
+<h2>Version 6.2.0 (October 29th, 2024)<a class="headerlink" href="#version-6-2-0-october-29th-2024" title="Link to this heading">¶</a></h2>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul class="simple">
+<li><p>Dropped support for Python 3.8. (#737)</p></li>
+</ul>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Add support for Python 3.13. (#736)</p></li>
+<li><p>Remove six depdenncy. (#618)</p></li>
+<li><p>Update known-good versions for tinycss2. (#732)</p></li>
+<li><p>Fix additional &lt; followed by characters and EOF issues. (#728)</p></li>
+</ul>
+</section>
+<section id="version-6-1-0-october-6th-2023">
+<h2>Version 6.1.0 (October 6th, 2023)<a class="headerlink" href="#version-6-1-0-october-6th-2023" title="Link to this heading">¶</a></h2>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul class="simple">
+<li><p>Dropped support for Python 3.7. (#709)</p></li>
+</ul>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Add support for Python 3.12. (#710)</p></li>
+<li><p>Fix linkify with arrays in querystring (#436)</p></li>
+<li><p>Handle more cases with &lt; followed by character data (#705)</p></li>
+<li><p>Fix entities inside a tags in linkification (#704)</p></li>
+<li><p>Update cap for tinycss2 to &lt;1.3 (#702)</p></li>
+<li><p>Updated Sphinx requirement</p></li>
+<li><p>Add dependabot for github actions and update github actions</p></li>
+</ul>
+</section>
+<section id="version-6-0-0-january-23rd-2023">
+<h2>Version 6.0.0 (January 23rd, 2023)<a class="headerlink" href="#version-6-0-0-january-23rd-2023" title="Link to this heading">¶</a></h2>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.clean</span></code>, <code class="docutils literal notranslate"><span class="pre">bleach.sanitizer.Cleaner</span></code>,
+<code class="docutils literal notranslate"><span class="pre">bleach.html5lib_shim.BleachHTMLParser</span></code>: the <code class="docutils literal notranslate"><span class="pre">tags</span></code> and <code class="docutils literal notranslate"><span class="pre">protocols</span></code>
+arguments were changed from lists to sets.</p>
+<p>Old pre-6.0.0:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bleach</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span>
+    <span class="s2">&quot;some text&quot;</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;img&quot;</span><span class="p">],</span>
+    <span class="c1">#    ^               ^ list</span>
+    <span class="n">protocols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;https&quot;</span><span class="p">],</span>
+    <span class="c1">#         ^               ^ list</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>New 6.0.0 and later:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bleach</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span>
+    <span class="s2">&quot;some text&quot;</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;img&quot;</span><span class="p">},</span>
+    <span class="c1">#    ^               ^ set</span>
+    <span class="n">protocols</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;https&quot;</span><span class="p">},</span>
+    <span class="c1">#         ^               ^ set</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.linkify</span></code>, <code class="docutils literal notranslate"><span class="pre">bleach.linkifier.Linker</span></code>: the <code class="docutils literal notranslate"><span class="pre">skip_tags</span></code> and
+<code class="docutils literal notranslate"><span class="pre">recognized_tags</span></code> arguments were changed from lists to sets.</p>
+<p>Old pre-6.0.0:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bleach</span><span class="o">.</span><span class="n">linkify</span><span class="p">(</span>
+    <span class="s2">&quot;some text&quot;</span><span class="p">,</span>
+    <span class="n">skip_tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">],</span>
+    <span class="c1">#         ^     ^ list</span>
+<span class="p">)</span>
+
+<span class="n">linker</span> <span class="o">=</span> <span class="n">Linker</span><span class="p">(</span>
+    <span class="n">skip_tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">],</span>
+    <span class="c1">#         ^     ^ list</span>
+    <span class="n">recognized_tags</span><span class="o">=</span><span class="n">html5lib_shim</span><span class="o">.</span><span class="n">HTML_TAGS</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;custom-element&quot;</span><span class="p">],</span>
+    <span class="c1">#                                       ^ ^                ^ list</span>
+    <span class="c1">#                                       |</span>
+    <span class="c1">#                                       | list concatenation</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>New 6.0.0 and later:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bleach</span><span class="o">.</span><span class="n">linkify</span><span class="p">(</span>
+    <span class="s2">&quot;some text&quot;</span><span class="p">,</span>
+    <span class="n">skip_tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;pre&quot;</span><span class="p">},</span>
+    <span class="c1">#         ^     ^ set</span>
+<span class="p">)</span>
+
+<span class="n">linker</span> <span class="o">=</span> <span class="n">Linker</span><span class="p">(</span>
+    <span class="n">skip_tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;pre&quot;</span><span class="p">},</span>
+    <span class="c1">#         ^     ^ set</span>
+    <span class="n">recognized_tags</span><span class="o">=</span><span class="n">html5lib_shim</span><span class="o">.</span><span class="n">HTML_TAGS</span> <span class="o">|</span> <span class="p">{</span><span class="s2">&quot;custom-element&quot;</span><span class="p">},</span>
+    <span class="c1">#                                       ^ ^                ^ set</span>
+    <span class="c1">#                                       |</span>
+    <span class="c1">#                                       | union operator</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.sanitizer.BleachSanitizerFilter</span></code>: <code class="docutils literal notranslate"><span class="pre">strip_allowed_elements</span></code> is now
+<code class="docutils literal notranslate"><span class="pre">strip_allowed_tags</span></code>. We now use “tags” everywhere rather than a mishmash
+of “tags” in some places and “elements” in others.</p></li>
+</ul>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul>
+<li><p>Add support for Python 3.11. (#675)</p></li>
+<li><p>Fix API weirness in <code class="docutils literal notranslate"><span class="pre">BleachSanitizerFilter</span></code>. (#649)</p>
+<p>We’re using “tags” instead of “elements” everywhere–no more weird
+overloading of “elements” anymore.</p>
+<p>Also, it no longer calls the superclass constructor.</p>
+</li>
+<li><p>Add warning when <code class="docutils literal notranslate"><span class="pre">css_sanitizer</span></code> isn’t set, but the <code class="docutils literal notranslate"><span class="pre">style</span></code>
+attribute is allowed. (#676)</p></li>
+<li><p>Fix linkify handling of character entities. (#501)</p></li>
+<li><p>Rework dev dependencies to use <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code> and
+<code class="docutils literal notranslate"><span class="pre">requirements-flake8.txt</span></code> instead of extras.</p></li>
+<li><p>Fix project infrastructure to be tox-based so it’s easier to have CI
+run the same things we’re running in development and with flake8
+in an isolated environment.</p></li>
+<li><p>Update action versions in CI.</p></li>
+<li><p>Switch to f-strings where possible. Make tests parametrized to be
+easier to read/maintain.</p></li>
+</ul>
+</section>
+<section id="version-5-0-1-june-27th-2022">
+<h2>Version 5.0.1 (June 27th, 2022)<a class="headerlink" href="#version-5-0-1-june-27th-2022" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Add missing comma to tinycss2 require. Thank you, &#64;shadchin!</p></li>
+<li><p>Add url parse tests based on wpt url tests. (#688)</p></li>
+<li><p>Support scheme-less urls if “https” is in allow list. (#662)</p></li>
+<li><p>Handle escaping <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> in edge cases where it doesn’t start a tag. (#544)</p></li>
+<li><p>Fix reference warnings in docs. (#660)</p></li>
+<li><p>Correctly urlencode email address parts. Thank you, &#64;larseggert! (#659)</p></li>
+</ul>
+</section>
+<section id="version-5-0-0-april-7th-2022">
+<h2>Version 5.0.0 (April 7th, 2022)<a class="headerlink" href="#version-5-0-0-april-7th-2022" title="Link to this heading">¶</a></h2>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">clean</span></code> and <code class="docutils literal notranslate"><span class="pre">linkify</span></code> now preserve the order of HTML attributes. Thank
+you, &#64;askoretskly! (#566)</p></li>
+<li><p>Drop support for Python 3.6. Thank you, &#64;hugovk! (#629)</p></li>
+<li><p>CSS sanitization in style tags is completely different now. If you’re using
+Bleach <code class="docutils literal notranslate"><span class="pre">clean</span></code> to sanitize css in style tags, you’ll need to update your
+code and you’ll need to install the <code class="docutils literal notranslate"><span class="pre">css</span></code> extras:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s1">&#39;bleach[css]&#39;</span>
+</pre></div>
+</div>
+<p>See <a class="reference external" href="https://bleach.readthedocs.io/en/latest/clean.html#sanitizing-css">the documentation on sanitizing CSS for how to do it</a>. (#633)</p>
+</li>
+</ul>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul>
+<li><p>Rework dev dependencies. We no longer have
+<code class="docutils literal notranslate"><span class="pre">requirements-dev.in</span></code>/<code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code>. Instead, we’re using
+<code class="docutils literal notranslate"><span class="pre">dev</span></code> extras.</p>
+<p>See <a class="reference external" href="https://bleach.readthedocs.io/en/latest/dev.html">development docs</a>
+for more details. (#620)</p>
+</li>
+<li><p>Add newline when dropping block-level tags. Thank you, &#64;jvanasco! (#369)</p></li>
+</ul>
+</section>
+<section id="version-4-1-0-august-25th-2021">
+<h2>Version 4.1.0 (August 25th, 2021)<a class="headerlink" href="#version-4-1-0-august-25th-2021" title="Link to this heading">¶</a></h2>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li><p>Python 3.9 support</p></li>
+</ul>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Update sanitizer clean to use vendored 3.6.14 stdlib urllib.parse to
+fix test failures on Python 3.9. (#536)</p></li>
+</ul>
+</section>
+<section id="version-4-0-0-august-3rd-2021">
+<h2>Version 4.0.0 (August 3rd, 2021)<a class="headerlink" href="#version-4-0-0-august-3rd-2021" title="Link to this heading">¶</a></h2>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul class="simple">
+<li><p>Drop support for unsupported Python versions &lt;3.6. (#520)</p></li>
+</ul>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li><p>fix attribute name in the linkify docs (thanks &#64;CheesyFeet!)</p></li>
+</ul>
+</section>
+<section id="version-3-3-1-july-14th-2021">
+<h2>Version 3.3.1 (July 14th, 2021)<a class="headerlink" href="#version-3-3-1-july-14th-2021" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li><p>add more tests for CVE-2021-23980 / GHSA-vv2x-vrpj-qqpq</p></li>
+<li><p>bump python version to 3.8 for tox doc, vendorverify, and lint targets</p></li>
+<li><p>update bug report template tag</p></li>
+<li><p>update vendorverify script to detect and fail when extra files are vendored</p></li>
+<li><p>update release process docs to check vendorverify passes locally</p></li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>remove extra vendored django present in the v3.3.0 whl (#595)</p></li>
+<li><p>duplicate h1 header doc fix (thanks Nguyễn Gia Phong / &#64;McSinyx!)</p></li>
+</ul>
+</section>
+<section id="version-3-3-0-february-1st-2021">
+<h2>Version 3.3.0 (February 1st, 2021)<a class="headerlink" href="#version-3-3-0-february-1st-2021" title="Link to this heading">¶</a></h2>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul class="simple">
+<li><p>clean escapes HTML comments even when strip_comments=False</p></li>
+</ul>
+<p><strong>Security fixes</strong></p>
+<ul class="simple">
+<li><p>Fix bug 1621692 / GHSA-m6xf-fq7q-8743. See the advisory for details.</p></li>
+</ul>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<p>None</p>
+</section>
+<section id="version-3-2-3-january-26th-2021">
+<h2>Version 3.2.3 (January 26th, 2021)<a class="headerlink" href="#version-3-2-3-january-26th-2021" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>fix clean and linkify raising ValueErrors for certain inputs. Thank you &#64;Google-Autofuzz.</p></li>
+</ul>
+</section>
+<section id="version-3-2-2-january-20th-2021">
+<h2>Version 3.2.2 (January 20th, 2021)<a class="headerlink" href="#version-3-2-2-january-20th-2021" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li><p>Migrate CI to Github Actions. Thank you &#64;hugovk.</p></li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>fix linkify raising an IndexError on certain inputs. Thank you &#64;Google-Autofuzz.</p></li>
+</ul>
+</section>
+<section id="version-3-2-1-september-18th-2020">
+<h2>Version 3.2.1 (September 18th, 2020)<a class="headerlink" href="#version-3-2-1-september-18th-2020" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>change linkifier to add rel=”nofollow” as documented. Thank you &#64;mitar.</p></li>
+<li><p>suppress html5lib sanitizer DeprecationWarnings (#557)</p></li>
+</ul>
+</section>
+<section id="version-3-2-0-september-16th-2020">
+<h2>Version 3.2.0 (September 16th, 2020)<a class="headerlink" href="#version-3-2-0-september-16th-2020" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">html5lib</span></code> dependency to version 1.1.0. Thank you Sam Sneddon.</p></li>
+<li><p>update tests_website terminology. Thank you Thomas Grainger.</p></li>
+</ul>
+</section>
+<section id="version-3-1-5-april-29th-2020">
+<h2>Version 3.1.5 (April 29th, 2020)<a class="headerlink" href="#version-3-1-5-april-29th-2020" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>replace missing <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> dependency with <code class="docutils literal notranslate"><span class="pre">packaging</span></code>. Thank you Benjamin Peterson.</p></li>
+</ul>
+</section>
+<section id="version-3-1-4-march-24th-2020">
+<h2>Version 3.1.4 (March 24th, 2020)<a class="headerlink" href="#version-3-1-4-march-24th-2020" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.clean</span></code> behavior parsing style attributes could result in a
+regular expression denial of service (ReDoS).</p>
+<p>Calls to <code class="docutils literal notranslate"><span class="pre">bleach.clean</span></code> with an allowed tag with an allowed
+<code class="docutils literal notranslate"><span class="pre">style</span></code> attribute were vulnerable to ReDoS. For example,
+<code class="docutils literal notranslate"><span class="pre">bleach.clean(...,</span> <span class="pre">attributes={'a':</span> <span class="pre">['style']})</span></code>.</p>
+<p>This issue was confirmed in Bleach versions v3.1.3, v3.1.2, v3.1.1,
+v3.1.0, v3.0.0, v2.1.4, and v2.1.3. Earlier versions used a similar
+regular expression and should be considered vulnerable too.</p>
+<p>Anyone using Bleach &lt;=v3.1.3 is encouraged to upgrade.</p>
+<p><a class="reference external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1623633">https://bugzilla.mozilla.org/show_bug.cgi?id=1623633</a></p>
+</li>
+</ul>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul class="simple">
+<li><p>Style attributes with dashes, or single or double quoted values are
+cleaned instead of passed through.</p></li>
+</ul>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<p>None</p>
+</section>
+<section id="version-3-1-3-march-17th-2020">
+<h2>Version 3.1.3 (March 17th, 2020)<a class="headerlink" href="#version-3-1-3-march-17th-2020" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul class="simple">
+<li><p>Drop support for Python 3.4. Thank you, &#64;hugovk!</p></li>
+<li><p>Drop deprecated <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">test</span></code> support. Thank you, &#64;jdufresne! (#507)</p></li>
+</ul>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li><p>Add support for Python 3.8. Thank you, &#64;jdufresne!</p></li>
+<li><p>Add support for PyPy 7. Thank you, &#64;hugovk!</p></li>
+<li><p>Add pypy3 testing to tox and travis. Thank you, &#64;jdufresne!</p></li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Add relative link to code of conduct. (#442)</p></li>
+<li><p>Fix typo: curren -&gt; current in tests/test_clean.py Thank you, timgates42! (#504)</p></li>
+<li><p>Fix handling of non-ascii style attributes. Thank you, &#64;sekineh! (#426)</p></li>
+<li><p>Simplify tox configuration. Thank you, &#64;jdufresne!</p></li>
+<li><p>Make documentation reproducible. Thank you, &#64;lamby!</p></li>
+<li><p>Fix typos in code comments. Thank you, &#64;zborboa-g!</p></li>
+<li><p>Fix exception value testing. Thank you, &#64;mastizada!</p></li>
+<li><p>Fix parser-tags NoneType exception. Thank you, &#64;bope!</p></li>
+<li><p>Improve TLD support in linkify. Thank you, &#64;pc-coholic!</p></li>
+</ul>
+</section>
+<section id="version-3-1-2-march-11th-2020">
+<h2>Version 3.1.2 (March 11th, 2020)<a class="headerlink" href="#version-3-1-2-march-11th-2020" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.clean</span></code> behavior parsing embedded MathML and SVG content
+with RCDATA tags did not match browser behavior and could result in
+a mutation XSS.</p>
+<p>Calls to <code class="docutils literal notranslate"><span class="pre">bleach.clean</span></code> with <code class="docutils literal notranslate"><span class="pre">strip=False</span></code> and <code class="docutils literal notranslate"><span class="pre">math</span></code> or
+<code class="docutils literal notranslate"><span class="pre">svg</span></code> tags and one or more of the RCDATA tags <code class="docutils literal notranslate"><span class="pre">script</span></code>,
+<code class="docutils literal notranslate"><span class="pre">noscript</span></code>, <code class="docutils literal notranslate"><span class="pre">style</span></code>, <code class="docutils literal notranslate"><span class="pre">noframes</span></code>, <code class="docutils literal notranslate"><span class="pre">iframe</span></code>, <code class="docutils literal notranslate"><span class="pre">noembed</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">xmp</span></code> in the allowed tags whitelist were vulnerable to a mutation
+XSS.</p>
+<p>This security issue was confirmed in Bleach version v3.1.1. Earlier
+versions are likely affected too.</p>
+<p>Anyone using Bleach &lt;=v3.1.1 is encouraged to upgrade.</p>
+<p><a class="reference external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1621692">https://bugzilla.mozilla.org/show_bug.cgi?id=1621692</a></p>
+</li>
+</ul>
+<p><strong>Backwards incompatible changes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<p>None</p>
+</section>
+<section id="version-3-1-1-february-13th-2020">
+<h2>Version 3.1.1 (February 13th, 2020)<a class="headerlink" href="#version-3-1-1-february-13th-2020" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.clean</span></code> behavior parsing <code class="docutils literal notranslate"><span class="pre">noscript</span></code> tags did not match
+browser behavior.</p>
+<p>Calls to <code class="docutils literal notranslate"><span class="pre">bleach.clean</span></code> allowing <code class="docutils literal notranslate"><span class="pre">noscript</span></code> and one or more of
+the raw text tags (<code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">textarea</span></code>, <code class="docutils literal notranslate"><span class="pre">script</span></code>, <code class="docutils literal notranslate"><span class="pre">style</span></code>,
+<code class="docutils literal notranslate"><span class="pre">noembed</span></code>, <code class="docutils literal notranslate"><span class="pre">noframes</span></code>, <code class="docutils literal notranslate"><span class="pre">iframe</span></code>, and <code class="docutils literal notranslate"><span class="pre">xmp</span></code>) were vulnerable
+to a mutation XSS.</p>
+<p>This security issue was confirmed in Bleach versions v2.1.4, v3.0.2,
+and v3.1.0. Earlier versions are probably affected too.</p>
+<p>Anyone using Bleach &lt;=v3.1.0 is highly encouraged to upgrade.</p>
+<p><a class="reference external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1615315">https://bugzilla.mozilla.org/show_bug.cgi?id=1615315</a></p>
+</li>
+</ul>
+<p><strong>Backwards incompatible changes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<p>None</p>
+</section>
+<section id="version-3-1-0-january-9th-2019">
+<h2>Version 3.1.0 (January 9th, 2019)<a class="headerlink" href="#version-3-1-0-january-9th-2019" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Backwards incompatible changes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">recognized_tags</span></code> argument to the linkify <code class="docutils literal notranslate"><span class="pre">Linker</span></code> class. This
+fixes issues when linkifying on its own and having some tags get escaped.
+It defaults to a list of HTML5 tags. Thank you, Chad Birch! (#409)</p></li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">six&gt;=1.9</span></code> to requirements. Thank you, Dave Shawley (#416)</p></li>
+<li><p>Fix cases where attribute names could have invalid characters in them.
+(#419)</p></li>
+<li><p>Fix problems with <code class="docutils literal notranslate"><span class="pre">LinkifyFilter</span></code> not being able to match links
+across <code class="docutils literal notranslate"><span class="pre">&amp;amp;</span></code>. (#422)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">InputStreamWithMemory</span></code> when the <code class="docutils literal notranslate"><span class="pre">BleachHTMLParser</span></code> is
+parsing <code class="docutils literal notranslate"><span class="pre">meta</span></code> tags. (#431)</p></li>
+<li><p>Fix doctests. (#357)</p></li>
+</ul>
+</section>
+<section id="version-3-0-2-october-11th-2018">
+<h2>Version 3.0.2 (October 11th, 2018)<a class="headerlink" href="#version-3-0-2-october-11th-2018" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Backwards incompatible changes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Merge <code class="docutils literal notranslate"><span class="pre">Characters</span></code> tokens after sanitizing them. This fixes issues in the
+<code class="docutils literal notranslate"><span class="pre">LinkifyFilter</span></code> where it was only linkifying parts of urls. (#374)</p></li>
+</ul>
+</section>
+<section id="version-3-0-1-october-9th-2018">
+<h2>Version 3.0.1 (October 9th, 2018)<a class="headerlink" href="#version-3-0-1-october-9th-2018" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Backwards incompatible changes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li><p>Support Python 3.7. It supported Python 3.7 just fine, but we added 3.7 to
+the list of Python environments we test so this is now officially supported.
+(#377)</p></li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">list</span></code> object has no attribute <code class="docutils literal notranslate"><span class="pre">lower</span></code> in <code class="docutils literal notranslate"><span class="pre">clean</span></code>. (#398)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">abbr</span></code> getting escaped in <code class="docutils literal notranslate"><span class="pre">linkify</span></code>. (#400)</p></li>
+</ul>
+</section>
+<section id="version-3-0-0-october-3rd-2018">
+<h2>Version 3.0.0 (October 3rd, 2018)<a class="headerlink" href="#version-3-0-0-october-3rd-2018" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul>
+<li><p>A bunch of functions were moved from one module to another.</p>
+<p>These were moved from <code class="docutils literal notranslate"><span class="pre">bleach.sanitizer</span></code> to <code class="docutils literal notranslate"><span class="pre">bleach.html5lib_shim</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">convert_entity</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">convert_entities</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">match_entity</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">next_possible_entity</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BleachHTMLSerializer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BleachHTMLTokenizer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BleachHTMLParser</span></code></p></li>
+</ul>
+<p>These functions and classes weren’t documented and aren’t part of the
+public API, but people read code and might be using them so we’re
+considering it an incompatible API change.</p>
+<p>If you’re using them, you’ll need to update your code.</p>
+</li>
+</ul>
+<p><strong>Features</strong></p>
+<ul>
+<li><p>Bleach no longer depends on html5lib. html5lib==1.0.1 is now vendored into
+Bleach. You can remove it from your requirements file if none of your other
+requirements require html5lib.</p>
+<p>This means Bleach will now work fine with other libraries that depend on
+html5lib regardless of what version of html5lib they require. (#386)</p>
+</li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Fixed tags getting added when using clean or linkify. This was a
+long-standing regression from the Bleach 2.0 rewrite. (#280, #392)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">&lt;isindex&gt;</span></code> getting replaced with a string. Now it gets escaped or
+stripped depending on whether it’s in the allowed tags or not. (#279)</p></li>
+</ul>
+</section>
+<section id="version-2-1-4-august-16th-2018">
+<h2>Version 2.1.4 (August 16th, 2018)<a class="headerlink" href="#version-2-1-4-august-16th-2018" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul class="simple">
+<li><p>Dropped support for Python 3.3. (#328)</p></li>
+</ul>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Handle ambiguous ampersands in correctly. (#359)</p></li>
+</ul>
+</section>
+<section id="version-2-1-3-march-5th-2018">
+<h2>Version 2.1.3 (March 5th, 2018)<a class="headerlink" href="#version-2-1-3-march-5th-2018" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<ul>
+<li><p>Attributes that have URI values weren’t properly sanitized if the
+values contained character entities. Using character entities, it
+was possible to construct a URI value with a scheme that was not
+allowed that would slide through unsanitized.</p>
+<p>This security issue was introduced in Bleach 2.1. Anyone using
+Bleach 2.1 is highly encouraged to upgrade.</p>
+<p><a class="reference external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1442745">https://bugzilla.mozilla.org/show_bug.cgi?id=1442745</a></p>
+</li>
+</ul>
+<p><strong>Backwards incompatible changes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Fixed some other edge cases for attribute URI value sanitizing and
+improved testing of this code.</p></li>
+</ul>
+</section>
+<section id="version-2-1-2-december-7th-2017">
+<h2>Version 2.1.2 (December 7th, 2017)<a class="headerlink" href="#version-2-1-2-december-7th-2017" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Backwards incompatible changes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Support html5lib-python 1.0.1. (#337)</p></li>
+<li><p>Add deprecation warning for supporting html5lib-python &lt; 1.0.</p></li>
+<li><p>Switch to semver.</p></li>
+</ul>
+</section>
+<section id="version-2-1-1-october-2nd-2017">
+<h2>Version 2.1.1 (October 2nd, 2017)<a class="headerlink" href="#version-2-1-1-october-2nd-2017" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<p>None</p>
+<p><strong>Backwards incompatible changes</strong></p>
+<p>None</p>
+<p><strong>Features</strong></p>
+<p>None</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> opening files when <code class="docutils literal notranslate"><span class="pre">LANG=</span></code>. (#324)</p></li>
+</ul>
+</section>
+<section id="version-2-1-september-28th-2017">
+<h2>Version 2.1 (September 28th, 2017)<a class="headerlink" href="#version-2-1-september-28th-2017" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<ul>
+<li><p>Convert control characters (backspace particularly) to “?” preventing
+malicious copy-and-paste situations. (#298)</p>
+<p>See <a class="reference external" href="https://github.com/mozilla/bleach/issues/298">https://github.com/mozilla/bleach/issues/298</a> for more details.</p>
+<p>This affects all previous versions of Bleach. Check the comments on that
+issue for ways to alleviate the issue if you can’t upgrade to Bleach 2.1.</p>
+</li>
+</ul>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul class="simple">
+<li><p>Redid versioning. <code class="docutils literal notranslate"><span class="pre">bleach.VERSION</span></code> is no longer available. Use the string
+version at <code class="docutils literal notranslate"><span class="pre">bleach.__version__</span></code> and parse it with
+<code class="docutils literal notranslate"><span class="pre">pkg_resources.parse_version</span></code>. (#307)</p></li>
+<li><p>clean, linkify: linkify and clean should only accept text types; thank you,
+Janusz! (#292)</p></li>
+<li><p>clean, linkify: accept only unicode or utf-8-encoded str (#176)</p></li>
+</ul>
+<p><strong>Features</strong></p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.clean()</span></code> no longer unescapes entities including ones that are missing
+a <code class="docutils literal notranslate"><span class="pre">;</span></code> at the end which can happen in urls and other places. (#143)</p></li>
+<li><p>linkify: fix http links inside of mailto links; thank you, sedrubal! (#300)</p></li>
+<li><p>clarify security policy in docs (#303)</p></li>
+<li><p>fix dependency specification for html5lib 1.0b8, 1.0b9, and 1.0b10; thank you,
+Zoltán! (#268)</p></li>
+<li><p>add Bleach vs. html5lib comparison to README; thank you, Stu Cox! (#278)</p></li>
+<li><p>fix KeyError exceptions on tags without href attr; thank you, Alex Defsen!
+(#273)</p></li>
+<li><p>add test website and scripts to test <code class="docutils literal notranslate"><span class="pre">bleach.clean()</span></code> output in browser;
+thank you, Greg Guthe!</p></li>
+</ul>
+</section>
+<section id="version-2-0-march-8th-2017">
+<h2>Version 2.0 (March 8th, 2017)<a class="headerlink" href="#version-2-0-march-8th-2017" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<ul class="simple">
+<li><p>None</p></li>
+</ul>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul>
+<li><p>Removed support for Python 2.6. (#206)</p></li>
+<li><p>Removed support for Python 3.2. (#224)</p></li>
+<li><p>Bleach no longer supports html5lib &lt; 0.99999999 (8 9s).</p>
+<p>This version is a rewrite to use the new sanitizing API since the old
+one was dropped in html5lib 0.99999999 (8 9s).</p>
+<p>If you’re using 0.9999999 (7 9s) upgrade to 0.99999999 (8 9s) or higher.</p>
+<p>If you’re using 1.0b8 (equivalent to 0.9999999 (7 9s)), upgrade to 1.0b9
+(equivalent to 0.99999999 (8 9s)) or higher.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.clean</span></code> and friends were rewritten</p>
+<p><code class="docutils literal notranslate"><span class="pre">clean</span></code> was reimplemented as an html5lib filter and happens at a different
+step in the HTML parsing -&gt; traversing -&gt; serializing process. Because of
+that, there are some differences in clean’s output as compared with previous
+versions.</p>
+<p>Amongst other things, this version will add end tags even if the tag in
+question is to be escaped.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.clean</span></code> and friends attribute callables now take three arguments:
+tag, attribute name and attribute value. Previously they only took attribute
+name and attribute value.</p>
+<p>All attribute callables will need to be updated.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.linkify</span></code> was rewritten</p>
+<p><code class="docutils literal notranslate"><span class="pre">linkify</span></code> was reimplemented as an html5lib Filter. As such, it no longer
+accepts a <code class="docutils literal notranslate"><span class="pre">tokenizer</span></code> argument.</p>
+<p>The callback functions for adjusting link attributes now takes a namespaced
+attribute.</p>
+<p>Previously you’d do something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_protocol</span><span class="p">(</span><span class="n">attrs</span><span class="p">,</span> <span class="n">is_new</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;http:&#39;</span><span class="p">,</span> <span class="s1">&#39;https:&#39;</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">attrs</span>
+</pre></div>
+</div>
+<p>Now it’s more like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_protocol</span><span class="p">(</span><span class="n">attrs</span><span class="p">,</span> <span class="n">is_new</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="kc">None</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;href&#39;</span><span class="p">),</span> <span class="sa">u</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s1">&#39;http:&#39;</span><span class="p">,</span> <span class="s1">&#39;https:&#39;</span><span class="p">)):</span>
+        <span class="c1">#            ^^^^^^^^^^^^^^^</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">attrs</span>
+</pre></div>
+</div>
+<p>Further, you need to make sure you’re always using unicode values. If you
+don’t then html5lib will raise an assertion error that the value is not
+unicode.</p>
+<p>All linkify filters will need to be updated.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.linkify</span></code> and friends had a <code class="docutils literal notranslate"><span class="pre">skip_pre</span></code> argument–that’s been
+replaced with a more general <code class="docutils literal notranslate"><span class="pre">skip_tags</span></code> argument.</p>
+<p>Before, you might do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bleach</span><span class="o">.</span><span class="n">linkify</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">skip_pre</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The equivalent with Bleach 2.0 is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bleach</span><span class="o">.</span><span class="n">linkify</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">skip_tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pre&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>You can skip other tags, too, like <code class="docutils literal notranslate"><span class="pre">style</span></code> or <code class="docutils literal notranslate"><span class="pre">script</span></code> or other places
+where you don’t want linkification happening.</p>
+<p>All uses of linkify that use <code class="docutils literal notranslate"><span class="pre">skip_pre</span></code> will need to be updated.</p>
+</li>
+</ul>
+<p><strong>Changes</strong></p>
+<ul class="simple">
+<li><p>Supports Python 3.6.</p></li>
+<li><p>Supports html5lib &gt;= 0.99999999 (8 9s).</p></li>
+<li><p>There’s a <code class="docutils literal notranslate"><span class="pre">bleach.sanitizer.Cleaner</span></code> class that you can instantiate with your
+favorite clean settings for easy reuse.</p></li>
+<li><p>There’s a <code class="docutils literal notranslate"><span class="pre">bleach.linkifier.Linker</span></code> class that you can instantiate with your
+favorite linkify settings for easy reuse.</p></li>
+<li><p>There’s a <code class="docutils literal notranslate"><span class="pre">bleach.linkifier.LinkifyFilter</span></code> which is an htm5lib filter that
+you can pass as a filter to <code class="docutils literal notranslate"><span class="pre">bleach.sanitizer.Cleaner</span></code> allowing you to clean
+and linkify in one pass.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bleach.clean</span></code> and friends can now take a callable as an attributes arg value.</p></li>
+<li><p>Tons of bug fixes.</p></li>
+<li><p>Cleaned up tests.</p></li>
+<li><p>Documentation fixes.</p></li>
+</ul>
+</section>
+<section id="version-1-5-november-4th-2016">
+<h2>Version 1.5 (November 4th, 2016)<a class="headerlink" href="#version-1-5-november-4th-2016" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<ul class="simple">
+<li><p>None</p></li>
+</ul>
+<p><strong>Backwards incompatible changes</strong></p>
+<ul>
+<li><p>clean: The list of <code class="docutils literal notranslate"><span class="pre">ALLOWED_PROTOCOLS</span></code> now defaults to http, https and
+mailto.</p>
+<p>Previously it was a long list of protocols something like ed2k, ftp, http,
+https, irc, mailto, news, gopher, nntp, telnet, webcal, xmpp, callto, feed,
+urn, aim, rsync, tag, ssh, sftp, rtsp, afs, data. (#149)</p>
+</li>
+</ul>
+<p><strong>Changes</strong></p>
+<ul class="simple">
+<li><p>clean: Added <code class="docutils literal notranslate"><span class="pre">protocols</span></code> to arguments list to let you override the list of
+allowed protocols. Thank you, Andreas Malecki! (#149)</p></li>
+<li><p>linkify: Fix a bug involving periods at the end of an email address. Thank you,
+Lorenz Schori! (#219)</p></li>
+<li><p>linkify: Fix linkification of non-ascii ports. Thank you Alexandre, Macabies!
+(#207)</p></li>
+<li><p>linkify: Fix linkify inappropriately removing node tails when dropping nodes.
+(#132)</p></li>
+<li><p>Fixed a test that failed periodically. (#161)</p></li>
+<li><p>Switched from nose to py.test. (#204)</p></li>
+<li><p>Add test matrix for all supported Python and html5lib versions. (#230)</p></li>
+<li><p>Limit to html5lib <code class="docutils literal notranslate"><span class="pre">&gt;=0.999,!=0.9999,!=0.99999,&lt;0.99999999</span></code> because 0.9999
+and 0.99999 are busted.</p></li>
+<li><p>Add support for <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">test</span></code>. (#97)</p></li>
+</ul>
+</section>
+<section id="version-1-4-3-may-23rd-2016">
+<h2>Version 1.4.3 (May 23rd, 2016)<a class="headerlink" href="#version-1-4-3-may-23rd-2016" title="Link to this heading">¶</a></h2>
+<p><strong>Security fixes</strong></p>
+<ul class="simple">
+<li><p>None</p></li>
+</ul>
+<p><strong>Changes</strong></p>
+<ul class="simple">
+<li><p>Limit to html5lib <code class="docutils literal notranslate"><span class="pre">&gt;=0.999,&lt;0.99999999</span></code> because of impending change to
+sanitizer api. #195</p></li>
+</ul>
+</section>
+<section id="version-1-4-2-september-11-2015">
+<h2>Version 1.4.2 (September 11, 2015)<a class="headerlink" href="#version-1-4-2-september-11-2015" title="Link to this heading">¶</a></h2>
+<p><strong>Changes</strong></p>
+<ul class="simple">
+<li><p>linkify: Fix hang in linkify with <code class="docutils literal notranslate"><span class="pre">parse_email=True</span></code>. (#124)</p></li>
+<li><p>linkify: Fix crash in linkify when removing a link that is a first-child. (#136)</p></li>
+<li><p>Updated TLDs.</p></li>
+<li><p>linkify: Don’t remove exterior brackets when linkifying. (#146)</p></li>
+</ul>
+</section>
+<section id="version-1-4-1-december-15-2014">
+<h2>Version 1.4.1 (December 15, 2014)<a class="headerlink" href="#version-1-4-1-december-15-2014" title="Link to this heading">¶</a></h2>
+<p><strong>Changes</strong></p>
+<ul class="simple">
+<li><p>Consistent order of attributes in output.</p></li>
+<li><p>Python 3.4 support.</p></li>
+</ul>
+</section>
+<section id="version-1-4-january-12-2014">
+<h2>Version 1.4 (January 12, 2014)<a class="headerlink" href="#version-1-4-january-12-2014" title="Link to this heading">¶</a></h2>
+<p><strong>Changes</strong></p>
+<ul class="simple">
+<li><p>linkify: Update linkify to use etree type Treewalker instead of simpletree.</p></li>
+<li><p>Updated html5lib to version <code class="docutils literal notranslate"><span class="pre">&gt;=0.999</span></code>.</p></li>
+<li><p>Update all code to be compatible with Python 3 and 2 using six.</p></li>
+<li><p>Switch to Apache License.</p></li>
+</ul>
+</section>
+<section id="version-1-3">
+<h2>Version 1.3<a class="headerlink" href="#version-1-3" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Used by Python 3-only fork.</p></li>
+</ul>
+</section>
+<section id="version-1-2-2-may-18-2013">
+<h2>Version 1.2.2 (May 18, 2013)<a class="headerlink" href="#version-1-2-2-may-18-2013" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Pin html5lib to version 0.95 for now due to major API break.</p></li>
+</ul>
+</section>
+<section id="version-1-2-1-february-19-2013">
+<h2>Version 1.2.1 (February 19, 2013)<a class="headerlink" href="#version-1-2-1-february-19-2013" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">clean()</span></code> no longer considers <code class="docutils literal notranslate"><span class="pre">feed:</span></code> an acceptable protocol due to
+inconsistencies in browser behavior.</p></li>
+</ul>
+</section>
+<section id="version-1-2-january-28-2013">
+<h2>Version 1.2 (January 28, 2013)<a class="headerlink" href="#version-1-2-january-28-2013" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linkify()</span></code> has changed considerably. Many keyword arguments have been
+replaced with a single callbacks list. Please see the documentation for more
+information.</p></li>
+<li><p>Bleach will no longer consider unacceptable protocols when linkifying.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linkify()</span></code> now takes a tokenizer argument that allows it to skip
+sanitization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delinkify()</span></code> is gone.</p></li>
+<li><p>Removed exception handling from <code class="docutils literal notranslate"><span class="pre">_render</span></code>. <code class="docutils literal notranslate"><span class="pre">clean()</span></code> and <code class="docutils literal notranslate"><span class="pre">linkify()</span></code> may
+now throw.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linkify()</span></code> correctly ignores case for protocols and domain names.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linkify()</span></code> correctly handles markup within an &lt;a&gt; tag.</p></li>
+</ul>
+</section>
+<section id="version-1-1-5">
+<h2>Version 1.1.5<a class="headerlink" href="#version-1-1-5" title="Link to this heading">¶</a></h2>
+</section>
+<section id="version-1-1-4">
+<h2>Version 1.1.4<a class="headerlink" href="#version-1-1-4" title="Link to this heading">¶</a></h2>
+</section>
+<section id="version-1-1-3-july-10-2012">
+<h2>Version 1.1.3 (July 10, 2012)<a class="headerlink" href="#version-1-1-3-july-10-2012" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Fix parsing bare URLs when parse_email=True.</p></li>
+</ul>
+</section>
+<section id="version-1-1-2-june-1-2012">
+<h2>Version 1.1.2 (June 1, 2012)<a class="headerlink" href="#version-1-1-2-june-1-2012" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Fix hang in style attribute sanitizer. (#61)</p></li>
+<li><p>Allow <code class="docutils literal notranslate"><span class="pre">/</span></code> in style attribute values.</p></li>
+</ul>
+</section>
+<section id="version-1-1-1-february-17-2012">
+<h2>Version 1.1.1 (February 17, 2012)<a class="headerlink" href="#version-1-1-1-february-17-2012" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Fix tokenizer for html5lib 0.9.5.</p></li>
+</ul>
+</section>
+<section id="version-1-1-0-october-24-2011">
+<h2>Version 1.1.0 (October 24, 2011)<a class="headerlink" href="#version-1-1-0-october-24-2011" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linkify()</span></code> now understands port numbers. (#38)</p></li>
+<li><p>Documented character encoding behavior. (#41)</p></li>
+<li><p>Add an optional target argument to <code class="docutils literal notranslate"><span class="pre">linkify()</span></code>.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">delinkify()</span></code> method. (#45)</p></li>
+<li><p>Support subdomain whitelist for <code class="docutils literal notranslate"><span class="pre">delinkify()</span></code>. (#47, #48)</p></li>
+</ul>
+</section>
+<section id="version-1-0-4-september-2-2011">
+<h2>Version 1.0.4 (September 2, 2011)<a class="headerlink" href="#version-1-0-4-september-2-2011" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Switch to SemVer git tags.</p></li>
+<li><p>Make <code class="docutils literal notranslate"><span class="pre">linkify()</span></code> smarter about trailing punctuation. (#30)</p></li>
+<li><p>Pass <code class="docutils literal notranslate"><span class="pre">exc_info</span></code> to logger during rendering issues.</p></li>
+<li><p>Add wildcard key for attributes. (#19)</p></li>
+<li><p>Make <code class="docutils literal notranslate"><span class="pre">linkify()</span></code> use the <code class="docutils literal notranslate"><span class="pre">HTMLSanitizer</span></code> tokenizer. (#36)</p></li>
+<li><p>Fix URLs wrapped in parentheses. (#23)</p></li>
+<li><p>Make <code class="docutils literal notranslate"><span class="pre">linkify()</span></code> UTF-8 safe. (#33)</p></li>
+</ul>
+</section>
+<section id="version-1-0-3-june-14-2011">
+<h2>Version 1.0.3 (June 14, 2011)<a class="headerlink" href="#version-1-0-3-june-14-2011" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linkify()</span></code> works with 3rd level domains. (#24)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clean()</span></code> supports vendor prefixes in style values. (#31, #32)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">linkify()</span></code> email escaping.</p></li>
+</ul>
+</section>
+<section id="version-1-0-2-june-6-2011">
+<h2>Version 1.0.2 (June 6, 2011)<a class="headerlink" href="#version-1-0-2-june-6-2011" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linkify()</span></code> supports email addresses.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clean()</span></code> supports callables in attributes filter.</p></li>
+</ul>
+</section>
+<section id="version-1-0-1-april-12-2011">
+<h2>Version 1.0.1 (April 12, 2011)<a class="headerlink" href="#version-1-0-1-april-12-2011" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linkify()</span></code> doesn’t drop trailing slashes. (#21)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linkify()</span></code> won’t linkify ‘libgl.so.1’. (#22)</p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Bleach</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="clean.html">Sanitizing text fragments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linkify.html">Linkifying text fragments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goals.html">Goals of Bleach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev.html">Bleach development</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bleach changes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-6-4-0-tbd">Version 6.4.0 (TBD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-6-3-0-october-27th-2025">Version 6.3.0 (October 27th, 2025)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-6-2-0-october-29th-2024">Version 6.2.0 (October 29th, 2024)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-6-1-0-october-6th-2023">Version 6.1.0 (October 6th, 2023)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-6-0-0-january-23rd-2023">Version 6.0.0 (January 23rd, 2023)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-5-0-1-june-27th-2022">Version 5.0.1 (June 27th, 2022)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-5-0-0-april-7th-2022">Version 5.0.0 (April 7th, 2022)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-4-1-0-august-25th-2021">Version 4.1.0 (August 25th, 2021)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-4-0-0-august-3rd-2021">Version 4.0.0 (August 3rd, 2021)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-3-1-july-14th-2021">Version 3.3.1 (July 14th, 2021)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-3-0-february-1st-2021">Version 3.3.0 (February 1st, 2021)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-2-3-january-26th-2021">Version 3.2.3 (January 26th, 2021)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-2-2-january-20th-2021">Version 3.2.2 (January 20th, 2021)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-2-1-september-18th-2020">Version 3.2.1 (September 18th, 2020)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-2-0-september-16th-2020">Version 3.2.0 (September 16th, 2020)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-1-5-april-29th-2020">Version 3.1.5 (April 29th, 2020)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-1-4-march-24th-2020">Version 3.1.4 (March 24th, 2020)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-1-3-march-17th-2020">Version 3.1.3 (March 17th, 2020)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-1-2-march-11th-2020">Version 3.1.2 (March 11th, 2020)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-1-1-february-13th-2020">Version 3.1.1 (February 13th, 2020)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-1-0-january-9th-2019">Version 3.1.0 (January 9th, 2019)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-0-2-october-11th-2018">Version 3.0.2 (October 11th, 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-0-1-october-9th-2018">Version 3.0.1 (October 9th, 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-0-0-october-3rd-2018">Version 3.0.0 (October 3rd, 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-2-1-4-august-16th-2018">Version 2.1.4 (August 16th, 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-2-1-3-march-5th-2018">Version 2.1.3 (March 5th, 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-2-1-2-december-7th-2017">Version 2.1.2 (December 7th, 2017)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-2-1-1-october-2nd-2017">Version 2.1.1 (October 2nd, 2017)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-2-1-september-28th-2017">Version 2.1 (September 28th, 2017)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-2-0-march-8th-2017">Version 2.0 (March 8th, 2017)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-5-november-4th-2016">Version 1.5 (November 4th, 2016)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-4-3-may-23rd-2016">Version 1.4.3 (May 23rd, 2016)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-4-2-september-11-2015">Version 1.4.2 (September 11, 2015)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-4-1-december-15-2014">Version 1.4.1 (December 15, 2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-4-january-12-2014">Version 1.4 (January 12, 2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-3">Version 1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-2-2-may-18-2013">Version 1.2.2 (May 18, 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-2-1-february-19-2013">Version 1.2.1 (February 19, 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-2-january-28-2013">Version 1.2 (January 28, 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-1-5">Version 1.1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-1-4">Version 1.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-1-3-july-10-2012">Version 1.1.3 (July 10, 2012)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-1-2-june-1-2012">Version 1.1.2 (June 1, 2012)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-1-1-february-17-2012">Version 1.1.1 (February 17, 2012)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-1-0-october-24-2011">Version 1.1.0 (October 24, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-0-4-september-2-2011">Version 1.0.4 (September 2, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-0-3-june-14-2011">Version 1.0.3 (June 14, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-0-2-june-6-2011">Version 1.0.2 (June 6, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-0-1-april-12-2011">Version 1.0.1 (April 12, 2011)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migrating.html">Migrating from the html5lib sanitizer</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="dev.html" title="previous chapter">Bleach development</a></li>
+      <li>Next: <a href="migrating.html" title="next chapter">Migrating from the html5lib sanitizer</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2012-2015, James Socol; 2015-2017, Mozilla Foundation.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.4</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/changes.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
