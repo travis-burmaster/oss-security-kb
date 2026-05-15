@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*177 tracked pages across 9 ecosystems. Last updated: 2026-05-15.*
+*178 tracked pages across 9 ecosystems. Last updated: 2026-05-15.*
 
 ## npm (93)
 
@@ -164,9 +164,10 @@
 ## Homebrew (1)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
 
-## Maven / Java (24)
+## Maven / Java (25)
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
+- [[maven/com.google.guava/guava]] — Google Guava core Java utility library · advisory mapped · deserialization allocation DoS plus local temp-file / temp-directory exposure history fixed through the 24.1.1 and 32.0.x lines
 - [[maven/org.apache.commons/commons-lang3]] — Apache Commons Lang utility library · advisory mapped · `ClassUtils.getClass(...)` uncontrolled-recursion DoS fixed in 3.18.0
 - [[maven/com.fasterxml.jackson.core/jackson-databind]] — Jackson data-binding library · advisory mapped · dense polymorphic-deserialization gadget CVE history plus XXE and resource-exhaustion records through 2022
 - [[maven/org.apache.commons/commons-compress]] — Apache Commons archive compression/extraction library · advisory mapped · malformed archive DoS / resource-exhaustion history fixed through 1.26.0
