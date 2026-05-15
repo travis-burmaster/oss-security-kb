@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*176 tracked pages across 9 ecosystems. Last updated: 2026-05-15.*
+*177 tracked pages across 9 ecosystems. Last updated: 2026-05-15.*
 
 ## npm (93)
 
@@ -110,7 +110,7 @@
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
 
-## Python / PyPI (32)
+## Python / PyPI (33)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
 - [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3 / GHSA-955r-262c-33jc / MAL-2026-2254)
 - [[python/flask]] — Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
@@ -120,6 +120,7 @@
 - [[python/lxml]] — XML / HTML parser and libxml2 binding · advisory mapped · recurring HTML-cleaner XSS bypasses plus parser DoS / XXE history through 6.1.0
 - [[python/bleach]] — HTML sanitization library · advisory mapped · URI-scheme bypass, repeated mutation-XSS allowlist pitfalls, and style-attribute ReDoS history through 3.3.0
 - [[python/python-jose]] — JOSE / JWT implementation · advisory mapped · HMAC timing, ECDSA key algorithm-confusion, and compressed-JWE DoS history through 3.4.0
+- [[python/pyjwt]] — JWT implementation · advisory mapped · key-confusion, issuer partial-match, and JOSE `crit` header verification-boundary history through 2.12.0
 - [[python/django]] — Python web framework · advisory mapped · mature public security-release archive with recurring SQL-injection, ASGI/header-boundary, upload-limit, cache/session, traversal, and DoS history through 2026
 - [[python/pillow]] — Python Imaging Library fork · advisory mapped · dense parser-boundary history across image decoder memory corruption, decompression / allocation DoS, ImageMath code execution, and 2026 PSD / FITS / PDF fixes through 12.2.0
 - [[python/pip]] — Python package installer · advisory mapped · archive-extraction, VCS reference, installer import-order, and legacy transport / temp-dir security history through 26.1
