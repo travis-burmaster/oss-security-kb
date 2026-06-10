@@ -1,0 +1,50 @@
+site_name: OSS Security Knowledge Base
+site_description: >-
+  Who has actually audited the open source packages you depend on?
+  Audit coverage tracking for the most-downloaded packages across npm,
+  PyPI, crates.io, Go, NuGet, Homebrew, Kubernetes, and Linux.
+site_url: https://travis-burmaster.github.io/oss-security-kb/
+repo_url: https://github.com/travis-burmaster/oss-security-kb
+repo_name: travis-burmaster/oss-security-kb
+edit_uri: edit/main/wiki/
+
+docs_dir: wiki
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+  features:
+    - search.suggest
+    - search.highlight
+    - navigation.top
+    - navigation.indexes
+    - content.action.edit
+    - toc.follow
+
+plugins:
+  - search
+
+hooks:
+  - hooks/wikilinks.py
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences

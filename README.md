@@ -1,6 +1,11 @@
 # OSS Security Knowledge Base
 
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](LICENSE)
+[![Website](https://img.shields.io/badge/website-travis--burmaster.github.io%2Foss--security--kb-blue)](https://travis-burmaster.github.io/oss-security-kb/)
+
 A public, LLM-maintained knowledge base tracking **security audit coverage** of the most-downloaded open source packages across all major ecosystems.
+
+> **How much of this can I trust?** See [METHODOLOGY.md](METHODOLOGY.md) — it explains exactly what is LLM advisory-mapping (verifiable lookups, every row linked to a primary source) versus human-verified source review, and how to check any claim yourself.
 
 > Built in the [Karpathy llm-wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): raw sources feed into a persistent, compounding wiki maintained by LLMs.
 
@@ -86,10 +91,14 @@ This is **not** a replacement for OSV, NVD, or Snyk. It's a **coverage layer on 
 | socket.dev | Behavioral anomalies | Historical research coverage |
 | **This KB** | — | **Who looked, when, what they found or didn't find** |
 
-## Vercel Website
+## Website
 
-A searchable web interface is planned at `oss-security.burmaster.com`. The GitHub repo is the source of truth; the website is a read-only view.
+A searchable web interface is published at **[travis-burmaster.github.io/oss-security-kb](https://travis-burmaster.github.io/oss-security-kb/)** (built from `wiki/` on every push). The GitHub repo is the source of truth; the website is a read-only view.
+
+## License
+
+The contents of this knowledge base are licensed under [CC BY 4.0](LICENSE). Use it, build on it, cite it — attribution appreciated.
 
 ---
 
-*Maintained by [Travis Burmaster](https://github.com/travis-burmaster) with LLM assistance. Not affiliated with any CVE authority or standards body.*
+*Maintained by [Travis Burmaster](https://github.com/travis-burmaster) with LLM assistance. Not affiliated with any CVE authority or standards body. See [METHODOLOGY.md](METHODOLOGY.md) for what that means in practice.*
