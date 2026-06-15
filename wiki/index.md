@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*181 tracked pages across 9 ecosystems. Last updated: 2026-06-15.*
+*184 tracked pages across 9 ecosystems. Last updated: 2026-06-15.*
 
 ## npm (93)
 
@@ -98,12 +98,13 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (6)
+## Rust / crates.io (7)
 - [[rust/h2]] — HTTP/2 implementation · advisory mapped · resource-exhaustion / DoS history through 0.3.26 / 0.4.4
 - [[rust/hyper]] — foundational Rust HTTP implementation · advisory mapped · HTTP/1 parser/request-smuggling, header-injection, TLS hostname-verification, and parser soundness history
 - [[rust/openssl]] — Rust bindings for OpenSSL · advisory mapped · 10 RUSTSEC advisories across MitM / use-after-free / arbitrary file read / UB / thread-safety history through RUSTSEC-2025-0022
 - [[rust/serde]] — foundational serialization framework · baseline stub · no direct package-scoped OSV / RustSec advisory confirmed in this pass, but very high ecosystem blast radius
 - [[rust/serde_yaml_ng]] — active fork of archived serde_yaml · audit ingested · YAML 1.2 Core schema signed non-decimal integer parsing gap filed as acatton/serde-yaml-ng#32
+- [[rust/reqwest]] — dominant Rust HTTP client · advisory mapped · no direct RustSec/GHSA advisories on record; ~126M weekly downloads with high ecosystem exposure
 - [[rust/tokio]] — async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 
 ## .NET / NuGet (4)
@@ -193,11 +194,13 @@
 - [[maven/org.springframework.security/spring-security-web]] — Spring Security web module · advisory mapped · request-matcher bypass, WebFlux static-resource authorization, security-header, SecurityContext, and X.509 identity-extraction history through 2026
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression evaluation RCE risk when fed untrusted expressions (CVE-2024-36404)
 
-## Kubernetes (1)
+## Kubernetes (2)
 - [[kubernetes/kube-apiserver]] — control-plane API surface · audit ingested · RBAC, admission, authn, and impersonation risk review
+- [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, adjacent-network access, seccomp bypass, Windows command injection, gitRepo RCE, and checkpoint-API disk-fill history through CVE-2025-0426
 
-## Linux (4)
+## Linux (5)
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
+- [[linux/curl]] — CLI/library URL transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential/protocol-selection history through CVE-2025-0167
 - [[linux/openssl]] — cross-distro cryptographic library anchor · baseline stub · upstream-first page for future distro normalization
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin, and VerifyHostKeyDNS MITM history through 9.9p2
 - [[linux/sudo]] — privilege-boundary package · advisory mapped · pwfeedback, Baron Samedit, host-option, and chroot local privilege-escalation history
