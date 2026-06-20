@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*186 tracked pages across 9 ecosystems. Last updated: 2026-06-18.*
+*189 tracked pages across 9 ecosystems. Last updated: 2026-06-20.*
 
 ## npm (93)
 
@@ -98,19 +98,22 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (8)
+## Rust / crates.io (10)
 - [[rust/base64]] — base64 encoding/decoding library · advisory mapped · RUSTSEC-2017-0004 heap overflow in encode path (CVSS 9.8), fixed in 0.5.2; ~250M weekly downloads
 - [[rust/h2]] — HTTP/2 implementation · advisory mapped · resource-exhaustion / DoS history through 0.3.26 / 0.4.4
 - [[rust/hyper]] — foundational Rust HTTP implementation · advisory mapped · HTTP/1 parser/request-smuggling, header-injection, TLS hostname-verification, and parser soundness history
 - [[rust/openssl]] — Rust bindings for OpenSSL · advisory mapped · 10 RUSTSEC advisories across MitM / use-after-free / arbitrary file read / UB / thread-safety history through RUSTSEC-2025-0022
+- [[rust/regex]] — canonical Rust regex engine · advisory mapped · RUSTSEC-2022-0013 / CVE-2022-24713 complexity-limit ReDoS fixed in 1.5.5; ~183M weekly downloads
+- [[rust/ring]] — widely used Rust cryptographic library · advisory mapped · RUSTSEC-2025-0009 / CVE-2025-4432 AES/QUIC overflow-check panic DoS fixed in 0.17.12; 0.16.x unmaintained (RUSTSEC-2025-0010)
 - [[rust/serde]] — foundational serialization framework · baseline stub · no direct package-scoped OSV / RustSec advisory confirmed in this pass, but very high ecosystem blast radius
 - [[rust/serde_yaml_ng]] — active fork of archived serde_yaml · audit ingested · YAML 1.2 Core schema signed non-decimal integer parsing gap filed as acatton/serde-yaml-ng#32
 - [[rust/reqwest]] — dominant Rust HTTP client · advisory mapped · no direct RustSec/GHSA advisories on record; ~126M weekly downloads with high ecosystem exposure
 - [[rust/tokio]] — async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 
-## .NET / NuGet (4)
+## .NET / NuGet (5)
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
+- [[dotnet/SixLabors.ImageSharp]] — .NET image processing library · advisory mapped · 7 GHSA advisories (CVE-2024-27929 through CVE-2025-54575) across PNG/JPEG/TGA/GIF decoders: use-after-free, memory-exhaustion DoS, data leakage, OOB write, and infinite-loop history
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
 
