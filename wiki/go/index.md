@@ -16,3 +16,4 @@
 - [[go/google.golang.org/grpc]] — core Go gRPC transport stack · advisory mapped · transport, metadata, and authz-sensitive surface
 - [[go/google.golang.org/protobuf]] — foundational Go protobuf implementation · advisory mapped · prototext panic and protojson infinite-loop DoS history
 - [[go/go.etcd.io/etcd-v3]] — distributed key-value store (Kubernetes backing store) · advisory mapped · 18 advisories spanning CSRF, RBAC bypass, WAL DoS, gateway TLS/auth, credential logging, debug-endpoint RCE, and 2026 gRPC auth-bypass cluster
+- [[go/golang.org-x-text]] — foundational Go text / i18n / Unicode module · advisory mapped · UTF-16 decoder infinite loop, BCP 47 language tag OOB read panic, and ParseAcceptLanguage quadratic-time DoS fixed through 0.3.8
