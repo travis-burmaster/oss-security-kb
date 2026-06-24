@@ -4,6 +4,7 @@
 - [[rust/tokio]] — dominant async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 
 ## Advisory-Mapped / Audited Pages
+- [[rust/actix-web]] — high-performance Rust web framework · advisory mapped · 2018 memory-safety cluster (RUSTSEC-2018-0019 / CVE-2018-25024/25025/25026 Critical CVSS 9.8), actix-http BodyStream UAF (CVE-2020-35901 High), HTTP/1 request-smuggling (CVE-2021-38512 High), and 2026 actix-files information-exposure and panic-DoS cluster plus actix-http CL.TE smuggling (GHSA-xhj4-vrgc-hr34) fixed in actix-http 3.12.1; ~663K/week
 - [[rust/base64]] — base64 encoding/decoding library · advisory mapped · RUSTSEC-2017-0004 integer overflow / heap overflow in encode path (CVSS 9.8), fixed in 0.5.2; ~250M weekly downloads
 - [[rust/chrono]] — dominant date-and-time library · advisory mapped · RUSTSEC-2020-0159 / CVE-2020-26235 localtime_r segfault via concurrent env-var mutation, fixed in 0.4.20; ~125.7M weekly downloads
 - [[rust/h2]] — HTTP/2 implementation · advisory mapped · resource-exhaustion / DoS history through 0.3.26 / 0.4.4
@@ -15,4 +16,5 @@
 - [[rust/serde]] — foundational serialization framework · baseline stub · no direct package-scoped OSV / RustSec advisory confirmed in this pass, but very high ecosystem blast radius
 - [[rust/serde_json]] — de facto standard Rust JSON library · baseline stub · no direct package-scoped RustSec/GHSA advisory confirmed; 1B+ all-time crates.io downloads (~16.1M/week); high ecosystem blast radius
 - [[rust/serde_yaml_ng]] — actively maintained fork of the archived `serde_yaml` crate · audit ingested · YAML 1.2 Core schema integer-parse conformance gap filed as acatton/serde-yaml-ng#32
+- [[rust/rand]] — de facto Rust random-number-generation library · advisory mapped · RUSTSEC-2026-0097 / GHSA-cq8v-f236-94qc unsoundness when log+thread_rng features enabled (aliased mutable references, informational, fixed in 0.10.1 / 0.9.3 / 0.8.6); ~23.7M/week; ~1.3B total downloads
 - [[rust/reqwest]] — dominant Rust HTTP client · advisory mapped · no direct RustSec/GHSA advisories on record; ~126M weekly downloads with high ecosystem exposure
