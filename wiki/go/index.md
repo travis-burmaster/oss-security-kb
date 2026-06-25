@@ -17,3 +17,4 @@
 - [[go/google.golang.org/protobuf]] — foundational Go protobuf implementation · advisory mapped · prototext panic and protojson infinite-loop DoS history
 - [[go/go.etcd.io/etcd-v3]] — distributed key-value store (Kubernetes backing store) · advisory mapped · 18 advisories spanning CSRF, RBAC bypass, WAL DoS, gateway TLS/auth, credential logging, debug-endpoint RCE, and 2026 gRPC auth-bypass cluster
 - [[go/golang.org-x-text]] — foundational Go text / i18n / Unicode module · advisory mapped · UTF-16 decoder infinite loop, BCP 47 language tag OOB read panic, and ParseAcceptLanguage quadratic-time DoS fixed through 0.3.8
+- [[go/gopkg.in/yaml.v3]] — canonical Go YAML library (v3) · advisory mapped · CVE-2022-28948 / GHSA-hp87-p4gw-j4gq Unmarshal panic DoS on malformed input fixed in v3.0.1; 34,113 importers; note yaml.v2 (60K+ importers) carries a separate three-advisory DoS chain (CVE-2019-11254, CVE-2021-4235, CVE-2022-3064)

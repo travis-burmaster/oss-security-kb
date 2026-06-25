@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*199 tracked pages across 9 ecosystems. Last updated: 2026-06-24.*
+*202 tracked pages across 9 ecosystems. Last updated: 2026-06-25.*
 
 ## npm (93)
 
@@ -98,8 +98,9 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (15)
+## Rust / crates.io (17)
 - [[rust/actix-web]] — actix-web Rust web framework · advisory mapped · 2018 memory-safety cluster (RUSTSEC-2018-0019 / CVE-2018-25024/25025/25026 Critical), actix-http BodyStream UAF, HTTP/1 request-smuggling, and 2026 actix-files info-exposure and CL.TE smuggling fix train through actix-http 3.12.1
+- [[rust/axum]] — axum Rust web framework · advisory mapped · RUSTSEC-2022-0055 / CVE-2022-3212 no-default-body-limit DoS in axum-core extractors fixed in axum ≥ 0.5.16; ~7.0M/week est., ~361.7M total downloads
 - [[rust/base64]] — base64 encoding/decoding library · advisory mapped · RUSTSEC-2017-0004 heap overflow in encode path (CVSS 9.8), fixed in 0.5.2; ~250M weekly downloads
 - [[rust/chrono]] — dominant date-and-time library · advisory mapped · RUSTSEC-2020-0159 / CVE-2020-26235 localtime_r segfault via concurrent env-var mutation, fixed in 0.4.20
 - [[rust/h2]] — HTTP/2 implementation · advisory mapped · resource-exhaustion / DoS history through 0.3.26 / 0.4.4
@@ -108,6 +109,7 @@
 - [[rust/regex]] — canonical Rust regex engine · advisory mapped · RUSTSEC-2022-0013 / CVE-2022-24713 complexity-limit ReDoS fixed in 1.5.5; ~183M weekly downloads
 - [[rust/ring]] — widely used Rust cryptographic library · advisory mapped · RUSTSEC-2025-0009 / CVE-2025-4432 AES/QUIC overflow-check panic DoS fixed in 0.17.12; 0.16.x unmaintained (RUSTSEC-2025-0010)
 - [[rust/rustls]] — dominant pure-Rust TLS implementation · advisory mapped · RUSTSEC-2024-0336 close_notify DoS (High) and RUSTSEC-2024-0399 fragmented-ClientHello panic DoS through 0.23.18
+- [[rust/rustls-webpki]] — X.509 certificate verification engine for rustls · advisory mapped · 5 advisories from 2023–2026: CPU DoS in cert path building, CRL revocation bypass and pre-auth CRL panic DoS, and name constraint bypasses fixed in 0.103.13; ~12.1M/week est.
 - [[rust/serde]] — foundational serialization framework · baseline stub · no direct package-scoped OSV / RustSec advisory confirmed in this pass, but very high ecosystem blast radius
 - [[rust/serde_json]] — de facto standard Rust JSON library · baseline stub · no direct package-scoped RustSec/GHSA advisory confirmed; 1B+ all-time crates.io downloads; high ecosystem blast radius
 - [[rust/serde_yaml_ng]] — active fork of archived serde_yaml · audit ingested · YAML 1.2 Core schema signed non-decimal integer parsing gap filed as acatton/serde-yaml-ng#32
@@ -157,7 +159,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (16)
+## Go (17)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -174,6 +176,7 @@
 - [[go/google.golang.org/protobuf]] — foundational Go protobuf implementation · advisory mapped · prototext panic and protojson infinite-loop DoS history
 - [[go/go.etcd.io/etcd-v3]] — distributed key-value store (Kubernetes backing store) · advisory mapped · 18 advisories spanning CSRF, RBAC bypass, WAL DoS, gateway TLS/auth issues, credential logging, debug-endpoint RCE (CVE-2021-28235), and 2026 gRPC auth-bypass cluster fixed in 3.6.9–3.6.11
 - [[go/golang.org-x-text]] — foundational Go text / i18n / Unicode module · advisory mapped · UTF-16 decoder infinite loop, BCP 47 language tag OOB read panic, and ParseAcceptLanguage quadratic-time DoS through 0.3.8
+- [[go/gopkg.in/yaml.v3]] — canonical Go YAML library (v3) · advisory mapped · CVE-2022-28948 / GHSA-hp87-p4gw-j4gq Unmarshal panic DoS fixed in v3.0.1; 34,113 importers
 
 ## Homebrew (1)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
