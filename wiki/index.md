@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*207 tracked pages across 9 ecosystems. Last updated: 2026-06-28.*
+*210 tracked pages across 9 ecosystems. Last updated: 2026-07-03.*
 
 ## npm (93)
 
@@ -98,7 +98,8 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (19)
+## Rust / crates.io (20)
+- [[rust/crossbeam]] — crossbeam concurrency workspace · advisory mapped · 2 Critical CVSS 9.8 (double-free in epoch GC, data race in work-stealing deque), bounded-channel UB, 2025 Channel::drop double-free, and 4 unsoundness advisories across the crossbeam monorepo
 - [[rust/actix-web]] — actix-web Rust web framework · advisory mapped · 2018 memory-safety cluster (RUSTSEC-2018-0019 / CVE-2018-25024/25025/25026 Critical), actix-http BodyStream UAF, HTTP/1 request-smuggling, and 2026 actix-files info-exposure and CL.TE smuggling fix train through actix-http 3.12.1
 - [[rust/axum]] — axum Rust web framework · advisory mapped · RUSTSEC-2022-0055 / CVE-2022-3212 no-default-body-limit DoS in axum-core extractors fixed in axum ≥ 0.5.16; ~7.0M/week est., ~361.7M total downloads
 - [[rust/base64]] — base64 encoding/decoding library · advisory mapped · RUSTSEC-2017-0004 heap overflow in encode path (CVSS 9.8), fixed in 0.5.2; ~250M weekly downloads
@@ -119,8 +120,9 @@
 - [[rust/time]] — date-and-time library · advisory mapped · RUSTSEC-2020-0071 localtime_r segfault on Unix (0.1.x permanently affected, 0.2.7–0.2.22 fixed in 0.2.23) and RUSTSEC-2026-0009 / CVE-2026-25727 RFC 2822 stack-exhaustion DoS fixed in 0.3.47; ~738M total downloads
 - [[rust/tokio]] — async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 
-## .NET / NuGet (6)
+## .NET / NuGet (7)
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
+- [[dotnet/RestSharp]] — lightweight .NET HTTP client · advisory mapped · ReDoS in DateTime parsing (CVE-2021-27293 High, fixed ≥ 106.11.8-alpha.0.13) and CRLF injection / header injection (CVE-2024-45302 Moderate, fixed ≥ 112.0.0); 561.7M total downloads
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
 - [[dotnet/Npgsql]] — open-source .NET data provider for PostgreSQL · advisory mapped · CVE-2024-32655 / GHSA-x9vc-6hfv-hg8c integer overflow in WriteBind() enabling wire-protocol SQL injection (High CVSS 9.1), fixed across supported branches through 8.0.3; 871M+ total downloads
 - [[dotnet/SixLabors.ImageSharp]] — .NET image processing library · advisory mapped · 7 GHSA advisories (CVE-2024-27929 through CVE-2025-54575) across PNG/JPEG/TGA/GIF decoders: use-after-free, memory-exhaustion DoS, data leakage, OOB write, and infinite-loop history
@@ -220,9 +222,10 @@
 - [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, adjacent-network access, seccomp bypass, Windows command injection, gitRepo RCE, and checkpoint-API disk-fill history through CVE-2025-0426
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
 
-## Linux (6)
+## Linux (7)
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
 - [[linux/curl]] — CLI/library URL transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential/protocol-selection history through CVE-2025-0167
+- [[linux/glibc]] — GNU C Library · advisory mapped · GHOST heap overflow (CVE-2015-0235 Critical), getaddrinfo stack overflow (CVE-2015-7547 High), iconv assertion abort, mq_notify use-after-free, Looney Tunables ld.so LPE (CVE-2023-4911 High / CISA KEV), and 2026 getrandom entropy flaw
 - [[linux/nginx]] — dominant web server and reverse proxy · advisory mapped · range-filter integer overflow, HTTP request smuggling, critical DNS resolver off-by-one, and ngx_http_mp4_module memory-corruption/disclosure cluster through CVE-2024-7347
 - [[linux/openssl]] — cross-distro cryptographic library anchor · baseline stub · upstream-first page for future distro normalization
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin, and VerifyHostKeyDNS MITM history through 9.9p2

@@ -4,6 +4,7 @@
 - [[rust/tokio]] — dominant async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 
 ## Advisory-Mapped / Audited Pages
+- [[rust/crossbeam]] — crossbeam concurrency workspace (crossbeam, crossbeam-channel, crossbeam-deque, crossbeam-utils, crossbeam-queue) · advisory mapped · 2 Critical CVSS 9.8 (double-free in epoch GC RUSTSEC-2018-0009, data race in work-stealing deque RUSTSEC-2021-0093), bounded-channel UB RUSTSEC-2020-0052, 2025 Channel::drop double-free RUSTSEC-2025-0024, and 4 unsoundness advisories; ~7.9M/week (crossbeam-channel)
 - [[rust/actix-web]] — high-performance Rust web framework · advisory mapped · 2018 memory-safety cluster (RUSTSEC-2018-0019 / CVE-2018-25024/25025/25026 Critical CVSS 9.8), actix-http BodyStream UAF (CVE-2020-35901 High), HTTP/1 request-smuggling (CVE-2021-38512 High), and 2026 actix-files information-exposure and panic-DoS cluster plus actix-http CL.TE smuggling (GHSA-xhj4-vrgc-hr34) fixed in actix-http 3.12.1; ~663K/week
 - [[rust/axum]] — high-performance Rust web framework (tokio-rs) · advisory mapped · RUSTSEC-2022-0055 / CVE-2022-3212 no-default-body-limit DoS in axum-core extractors (Form/Json/String), fixed in axum ≥ 0.5.16; ~7.0M/week est., ~361.7M total downloads
 - [[rust/base64]] — base64 encoding/decoding library · advisory mapped · RUSTSEC-2017-0004 integer overflow / heap overflow in encode path (CVSS 9.8), fixed in 0.5.2; ~250M weekly downloads
