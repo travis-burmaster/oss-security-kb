@@ -4,7 +4,6 @@
 - [[rust/tokio]] — dominant async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 
 ## Advisory-Mapped / Audited Pages
-- [[rust/crossbeam]] — crossbeam concurrency workspace (crossbeam, crossbeam-channel, crossbeam-deque, crossbeam-utils, crossbeam-queue) · advisory mapped · 2 Critical CVSS 9.8 (double-free in epoch GC RUSTSEC-2018-0009, data race in work-stealing deque RUSTSEC-2021-0093), bounded-channel UB RUSTSEC-2020-0052, 2025 Channel::drop double-free RUSTSEC-2025-0024, and 4 unsoundness advisories; ~7.9M/week (crossbeam-channel)
 - [[rust/actix-web]] — high-performance Rust web framework · advisory mapped · 2018 memory-safety cluster (RUSTSEC-2018-0019 / CVE-2018-25024/25025/25026 Critical CVSS 9.8), actix-http BodyStream UAF (CVE-2020-35901 High), HTTP/1 request-smuggling (CVE-2021-38512 High), and 2026 actix-files information-exposure and panic-DoS cluster plus actix-http CL.TE smuggling (GHSA-xhj4-vrgc-hr34) fixed in actix-http 3.12.1; ~663K/week
 - [[rust/axum]] — high-performance Rust web framework (tokio-rs) · advisory mapped · RUSTSEC-2022-0055 / CVE-2022-3212 no-default-body-limit DoS in axum-core extractors (Form/Json/String), fixed in axum ≥ 0.5.16; ~7.0M/week est., ~361.7M total downloads
 - [[rust/base64]] — base64 encoding/decoding library · advisory mapped · RUSTSEC-2017-0004 integer overflow / heap overflow in encode path (CVSS 9.8), fixed in 0.5.2; ~250M weekly downloads
@@ -23,3 +22,4 @@
 - [[rust/serde_yaml_ng]] — actively maintained fork of the archived `serde_yaml` crate · audit ingested · YAML 1.2 Core schema integer-parse conformance gap filed as acatton/serde-yaml-ng#32
 - [[rust/smallvec]] — small vector optimization library · advisory mapped · 5 advisories 2018–2021 across double-free, memory corruption, unsoundness, and buffer overflow in grow/insert paths (4× Critical CVSS 9.8); all fixed ≥ 1.6.1; ~15.4M/week est., ~930M total downloads
 - [[rust/time]] — date-and-time library · advisory mapped · RUSTSEC-2020-0071 localtime_r segfault on Unix (0.1.x permanently affected, 0.2.7–0.2.22 fixed in 0.2.23) and RUSTSEC-2026-0009 / CVE-2026-25727 RFC 2822 stack-exhaustion DoS fixed in 0.3.47; ~10.8M/week est., ~738M total downloads
+- [[rust/tower-http]] — Tower HTTP middleware layer (axum foundation) · advisory mapped · RUSTSEC-2022-0043 / GHSA-qrqq-9c63-xfrg Windows path traversal in ServeDir (also filed as RUSTSEC-2021-0135); Windows only, fixed ≥ 0.2.1; ~7.5M/week est., ~331M total downloads
