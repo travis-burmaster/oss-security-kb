@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*210 tracked pages across 9 ecosystems. Last updated: 2026-07-03.*
+*209 tracked pages across 9 ecosystems. Last updated: 2026-07-06.*
 
 ## npm (93)
 
@@ -99,7 +99,6 @@
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
 ## Rust / crates.io (20)
-- [[rust/crossbeam]] — crossbeam concurrency workspace · advisory mapped · 2 Critical CVSS 9.8 (double-free in epoch GC, data race in work-stealing deque), bounded-channel UB, 2025 Channel::drop double-free, and 4 unsoundness advisories across the crossbeam monorepo
 - [[rust/actix-web]] — actix-web Rust web framework · advisory mapped · 2018 memory-safety cluster (RUSTSEC-2018-0019 / CVE-2018-25024/25025/25026 Critical), actix-http BodyStream UAF, HTTP/1 request-smuggling, and 2026 actix-files info-exposure and CL.TE smuggling fix train through actix-http 3.12.1
 - [[rust/axum]] — axum Rust web framework · advisory mapped · RUSTSEC-2022-0055 / CVE-2022-3212 no-default-body-limit DoS in axum-core extractors fixed in axum ≥ 0.5.16; ~7.0M/week est., ~361.7M total downloads
 - [[rust/base64]] — base64 encoding/decoding library · advisory mapped · RUSTSEC-2017-0004 heap overflow in encode path (CVSS 9.8), fixed in 0.5.2; ~250M weekly downloads
@@ -119,10 +118,10 @@
 - [[rust/smallvec]] — small vector optimization library · advisory mapped · 5 advisories 2018–2021 across double-free, memory corruption, unsoundness, and buffer overflow in grow/insert paths (4× Critical CVSS 9.8); all fixed ≥ 1.6.1; ~930M total downloads
 - [[rust/time]] — date-and-time library · advisory mapped · RUSTSEC-2020-0071 localtime_r segfault on Unix (0.1.x permanently affected, 0.2.7–0.2.22 fixed in 0.2.23) and RUSTSEC-2026-0009 / CVE-2026-25727 RFC 2822 stack-exhaustion DoS fixed in 0.3.47; ~738M total downloads
 - [[rust/tokio]] — async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
+- [[rust/tower-http]] — Tower HTTP middleware layer (axum foundation) · advisory mapped · RUSTSEC-2022-0043 / GHSA-qrqq-9c63-xfrg Windows path traversal in ServeDir fixed ≥ 0.2.1; ~7.5M/week est., ~331M total downloads
 
-## .NET / NuGet (7)
+## .NET / NuGet (6)
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
-- [[dotnet/RestSharp]] — lightweight .NET HTTP client · advisory mapped · ReDoS in DateTime parsing (CVE-2021-27293 High, fixed ≥ 106.11.8-alpha.0.13) and CRLF injection / header injection (CVE-2024-45302 Moderate, fixed ≥ 112.0.0); 561.7M total downloads
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
 - [[dotnet/Npgsql]] — open-source .NET data provider for PostgreSQL · advisory mapped · CVE-2024-32655 / GHSA-x9vc-6hfv-hg8c integer overflow in WriteBind() enabling wire-protocol SQL injection (High CVSS 9.1), fixed across supported branches through 8.0.3; 871M+ total downloads
 - [[dotnet/SixLabors.ImageSharp]] — .NET image processing library · advisory mapped · 7 GHSA advisories (CVE-2024-27929 through CVE-2025-54575) across PNG/JPEG/TGA/GIF decoders: use-after-free, memory-exhaustion DoS, data leakage, OOB write, and infinite-loop history
@@ -164,7 +163,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (19)
+## Go (20)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -184,6 +183,7 @@
 - [[go/gopkg.in/yaml.v3]] — canonical Go YAML library (v3) · advisory mapped · CVE-2022-28948 / GHSA-hp87-p4gw-j4gq Unmarshal panic DoS fixed in v3.0.1; 34,113 importers
 - [[go/github.com/hashicorp/go-getter]] — HashiCorp file-download library · advisory mapped · 10 GHSA advisories 2022–2026 across command injection, SSRF/protocol-switching, path traversal, git argument injection, git config code execution, symlink escape, and 2026 arbitrary-file-read; fixed through v1.8.6
 - [[go/github.com/go-jose/go-jose]] — Go JOSE/JWE/JWS/JWT implementation (successor to square/go-jose) · advisory mapped · 7 advisories 2016–2026 across ECDH-ES key disclosure, CBC-HMAC overflow, signature bypass, PBES2 DoS, JWE decompression bomb, parsing DoS, and 2026 key-wrapping panic; fixed through v4.1.4 / v3.0.5
+- [[go/github.com/moby/moby]] — Moby / Docker Engine container runtime · advisory mapped · 21 advisories 2021–2026: data directory permissions, OCI manifest ambiguity, inheritable capabilities, Swarm encrypted overlay cluster (CVE-2023-28840/28841/28842), AuthZ plugin bypass regression (CVE-2024-41110 Critical CVSS 9.9), classic builder cache poisoning, firewalld iptables-rule loss cluster, AuthZ oversized-request incomplete fix (CVE-2026-34040 High), and 2026 docker-cp / PUT-archive race-condition and binary-execution cluster through Docker Engine 29.5.1
 
 ## Homebrew (1)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
@@ -222,10 +222,9 @@
 - [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, adjacent-network access, seccomp bypass, Windows command injection, gitRepo RCE, and checkpoint-API disk-fill history through CVE-2025-0426
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
 
-## Linux (7)
+## Linux (6)
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
 - [[linux/curl]] — CLI/library URL transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential/protocol-selection history through CVE-2025-0167
-- [[linux/glibc]] — GNU C Library · advisory mapped · GHOST heap overflow (CVE-2015-0235 Critical), getaddrinfo stack overflow (CVE-2015-7547 High), iconv assertion abort, mq_notify use-after-free, Looney Tunables ld.so LPE (CVE-2023-4911 High / CISA KEV), and 2026 getrandom entropy flaw
 - [[linux/nginx]] — dominant web server and reverse proxy · advisory mapped · range-filter integer overflow, HTTP request smuggling, critical DNS resolver off-by-one, and ngx_http_mp4_module memory-corruption/disclosure cluster through CVE-2024-7347
 - [[linux/openssl]] — cross-distro cryptographic library anchor · baseline stub · upstream-first page for future distro normalization
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin, and VerifyHostKeyDNS MITM history through 9.9p2
