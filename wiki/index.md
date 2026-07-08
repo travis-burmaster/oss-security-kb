@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*211 tracked pages across 9 ecosystems. Last updated: 2026-07-07.*
+*216 tracked pages across 9 ecosystems. Last updated: 2026-07-08.*
 
 ## npm (93)
 
@@ -98,20 +98,22 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (20)
+## Rust / crates.io (22)
 - [[rust/actix-web]] — actix-web Rust web framework · advisory mapped · 2018 memory-safety cluster (RUSTSEC-2018-0019 / CVE-2018-25024/25025/25026 Critical), actix-http BodyStream UAF, HTTP/1 request-smuggling, and 2026 actix-files info-exposure and CL.TE smuggling fix train through actix-http 3.12.1
 - [[rust/axum]] — axum Rust web framework · advisory mapped · RUSTSEC-2022-0055 / CVE-2022-3212 no-default-body-limit DoS in axum-core extractors fixed in axum ≥ 0.5.16; ~7.0M/week est., ~361.7M total downloads
 - [[rust/base64]] — base64 encoding/decoding library · advisory mapped · RUSTSEC-2017-0004 heap overflow in encode path (CVSS 9.8), fixed in 0.5.2; ~250M weekly downloads
+- [[rust/bytes]] — zero-copy byte-buffer library (Tokio ecosystem) · advisory mapped · RUSTSEC-2026-0007 / CVE-2026-25541 / GHSA-434x-w66g-qw3r BytesMut::reserve integer overflow enabling OOB slices in release builds (Moderate), fixed in ≥ 1.11.1; ~14.5M/week est., ~836M total downloads
 - [[rust/chrono]] — dominant date-and-time library · advisory mapped · RUSTSEC-2020-0159 / CVE-2020-26235 localtime_r segfault via concurrent env-var mutation, fixed in 0.4.20
+- [[rust/crossbeam]] — concurrent data-structures workspace · advisory mapped · RUSTSEC-2018-0009 (Critical double-free in MsQueue/SegQueue), RUSTSEC-2021-0093 (Critical Stealer data race underpinning tokio/rayon), RUSTSEC-2025-0024 (High Channel::drop double-free regression); 9 advisories total; ~7.9M/week est.
 - [[rust/h2]] — HTTP/2 implementation · advisory mapped · resource-exhaustion / DoS history through 0.3.26 / 0.4.4
 - [[rust/hyper]] — foundational Rust HTTP implementation · advisory mapped · HTTP/1 parser/request-smuggling, header-injection, TLS hostname-verification, and parser soundness history
 - [[rust/openssl]] — Rust bindings for OpenSSL · advisory mapped · 10 RUSTSEC advisories across MitM / use-after-free / arbitrary file read / UB / thread-safety history through RUSTSEC-2025-0022
 - [[rust/regex]] — canonical Rust regex engine · advisory mapped · RUSTSEC-2022-0013 / CVE-2022-24713 complexity-limit ReDoS fixed in 1.5.5; ~183M weekly downloads
 - [[rust/ring]] — widely used Rust cryptographic library · advisory mapped · RUSTSEC-2025-0009 / CVE-2025-4432 AES/QUIC overflow-check panic DoS fixed in 0.17.12; 0.16.x unmaintained (RUSTSEC-2025-0010)
-- [[rust/rustls]] — dominant pure-Rust TLS implementation · advisory mapped · RUSTSEC-2024-0336 close_notify DoS (High) and RUSTSEC-2024-0399 fragmented-ClientHello panic DoS through 0.23.18
+- [[rust/rustls]] — dominant pure-Rust TLS implementation · advisory mapped · RUSTSEC-2024-0336 close_notify DoS (High) and RUSTSEC-2024-0399 fragmented-ClientHello panic DoS through 0.23.18; ~165M weekly downloads
 - [[rust/rustls-webpki]] — X.509 certificate verification engine for rustls · advisory mapped · 5 advisories from 2023–2026: CPU DoS in cert path building, CRL revocation bypass and pre-auth CRL panic DoS, and name constraint bypasses fixed in 0.103.13; ~12.1M/week est.
 - [[rust/serde]] — foundational serialization framework · baseline stub · no direct package-scoped OSV / RustSec advisory confirmed in this pass, but very high ecosystem blast radius
-- [[rust/serde_json]] — de facto standard Rust JSON library · baseline stub · no direct package-scoped RustSec/GHSA advisory confirmed; 1B+ all-time crates.io downloads; high ecosystem blast radius
+- [[rust/serde_json]] — de facto standard Rust JSON library · baseline stub · no direct package-scoped RustSec/GHSA advisory confirmed; 1B+ all-time crates.io downloads (~16.1M/week); high ecosystem blast radius
 - [[rust/serde_yaml_ng]] — active fork of archived serde_yaml · audit ingested · YAML 1.2 Core schema signed non-decimal integer parsing gap filed as acatton/serde-yaml-ng#32
 - [[rust/rand]] — de facto Rust RNG library · advisory mapped · RUSTSEC-2026-0097 / GHSA-cq8v-f236-94qc unsoundness when log+thread_rng features enabled (informational, fixed in 0.10.1 / 0.9.3 / 0.8.6); ~1.3B total downloads
 - [[rust/reqwest]] — dominant Rust HTTP client · advisory mapped · no direct RustSec/GHSA advisories on record; ~126M weekly downloads with high ecosystem exposure
@@ -185,9 +187,10 @@
 - [[go/github.com/go-jose/go-jose]] — Go JOSE/JWE/JWS/JWT implementation (successor to square/go-jose) · advisory mapped · 7 advisories 2016–2026 across ECDH-ES key disclosure, CBC-HMAC overflow, signature bypass, PBES2 DoS, JWE decompression bomb, parsing DoS, and 2026 key-wrapping panic; fixed through v4.1.4 / v3.0.5
 - [[go/github.com/moby/moby]] — Moby / Docker Engine container runtime · advisory mapped · 21 advisories 2021–2026: data directory permissions, OCI manifest ambiguity, inheritable capabilities, Swarm encrypted overlay cluster (CVE-2023-28840/28841/28842), AuthZ plugin bypass regression (CVE-2024-41110 Critical CVSS 9.9), classic builder cache poisoning, firewalld iptables-rule loss cluster, AuthZ oversized-request incomplete fix (CVE-2026-34040 High), and 2026 docker-cp / PUT-archive race-condition and binary-execution cluster through Docker Engine 29.5.1
 
-## Homebrew (2)
+## Homebrew (3)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
 - [[homebrew/git]] — developer VCS formula tracking upstream git-scm.com · advisory mapped · 7 CVEs including Critical CVE-2024-32002 (macOS submodule+symlink RCE on case-insensitive FS)
+- [[homebrew/wget]] — GNU Wget CLI download tool · advisory mapped · CVE-2024-38428 (Critical CVSS 9.1: URL semicolon mishandling enabling SSRF/credential exposure, fixed ≥ 1.25.0) and CVE-2016-4971 (High CVSS 8.8: HTTP-to-FTP redirect arbitrary file write, fixed ≥ 1.18)
 
 ## Maven / Java (25)
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
@@ -223,10 +226,12 @@
 - [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, adjacent-network access, seccomp bypass, Windows command injection, gitRepo RCE, and checkpoint-API disk-fill history through CVE-2025-0426
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
 
-## Linux (7)
+## Linux (9)
+- [[linux/bash]] — GNU Bourne-Again SHell · advisory mapped · ShellShock cluster (CVE-2014-6271 Critical CVSS 9.8 and 3 incomplete-fix follow-ons) plus heap-buffer overflow in parameter_transform.c (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
 - [[linux/curl]] — CLI/library URL transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential/protocol-selection history through CVE-2025-0167
 - [[linux/git]] — foundational VCS pre-installed on all Linux systems · advisory mapped · two Critical RCE batches (2023-01, 2024-05), path traversal via git apply, submodule config injection, and case-insensitive FS clone hook execution (CVE-2024-32002)
+- [[linux/glibc]] — GNU C Library · advisory mapped · GHOST heap overflow (CVE-2015-0235 Critical), getaddrinfo stack overflow (CVE-2015-7547 High), iconv assertion abort, mq_notify UAF, Looney Tunables ld.so LPE in CISA KEV (CVE-2023-4911 High), and 2026 getrandom entropy flaw
 - [[linux/nginx]] — dominant web server and reverse proxy · advisory mapped · range-filter integer overflow, HTTP request smuggling, critical DNS resolver off-by-one, and ngx_http_mp4_module memory-corruption/disclosure cluster through CVE-2024-7347
 - [[linux/openssl]] — cross-distro cryptographic library anchor · baseline stub · upstream-first page for future distro normalization
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin, and VerifyHostKeyDNS MITM history through 9.9p2
