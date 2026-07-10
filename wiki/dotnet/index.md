@@ -8,3 +8,4 @@
 - [[dotnet/System.Text.Json]] — built-in .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/RestSharp]] — lightweight .NET HTTP client library · advisory mapped · ReDoS in DateTime parsing (CVE-2021-27293 High CVSS 7.5, fixed 106.11.8-alpha.0.13) and CRLF injection in AddHeader enabling header injection / SSRF (CVE-2024-45302 Moderate, fixed 112.0.0); 561.7M total downloads
 - [[dotnet/System.Security.Cryptography.Xml]] — .NET encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
+- [[dotnet/Microsoft.Data.SqlClient]] — primary .NET ADO.NET driver for Microsoft SQL Server · advisory mapped · CVE-2022-41064 / GHSA-8g2p-5pqh-5jmc async timeout cross-query information disclosure (Moderate CVSS 7.1, fixed 1.1.4/2.1.2) and CVE-2024-0056 / GHSA-98g6-xh36-x2p7 security feature bypass (High CVSS 7.7, fixed 2.1.7/3.1.5/4.0.5/5.1.3)
