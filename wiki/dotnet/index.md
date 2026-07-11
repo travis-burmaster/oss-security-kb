@@ -8,3 +8,4 @@
 - [[dotnet/System.Text.Json]] — built-in .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/RestSharp]] — lightweight .NET HTTP client library · advisory mapped · ReDoS in DateTime parsing (CVE-2021-27293 High CVSS 7.5, fixed 106.11.8-alpha.0.13) and CRLF injection in AddHeader enabling header injection / SSRF (CVE-2024-45302 Moderate, fixed 112.0.0); 561.7M total downloads
 - [[dotnet/System.Security.Cryptography.Xml]] — .NET encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
+- [[dotnet/YamlDotNet]] — dominant .NET YAML parsing and serialization library · advisory mapped · insecure deserialization / arbitrary type instantiation via YAML type tags (GHSA-rpch-cqj9-h65r / CVE-2018-1000210 High CVSS 9.0, fixed ≥ 5.0.0); latest stable 18.1.0

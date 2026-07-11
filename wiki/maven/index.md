@@ -8,6 +8,7 @@ Scope notes:
 
 ## Packages
 
+- [[maven/com.h2database/h2]] — H2 embedded RDBMS (Java) · advisory mapped · 2 Critical CVSS 9.8 advisories (JNDI Console RCE CVE-2021-42392, JDBC URL RCE CVE-2022-23221), XXE (CVE-2021-23463 High CVSS 7.6), and plaintext credential exposure (CVE-2022-45868 High); fixed across 2.0.x through 2.2.220; ubiquitous Spring Boot test dependency
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
 - [[maven/com.google.guava/guava]] — Google Guava core Java utility library · advisory mapped · deserialization allocation DoS plus local temp-file / temp-directory exposure history fixed through the 24.1.1 and 32.0.x lines
@@ -35,4 +36,4 @@ Scope notes:
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression RCE risk when evaluating untrusted expressions (CVE-2024-36404)
 
 ---
-*Last updated: 2026-05-15*
+*Last updated: 2026-07-11*

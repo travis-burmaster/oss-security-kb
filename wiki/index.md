@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*216 tracked pages across 9 ecosystems. Last updated: 2026-07-08.*
+*220 tracked pages across 9 ecosystems. Last updated: 2026-07-11.*
 
 ## npm (93)
 
@@ -122,13 +122,15 @@
 - [[rust/tokio]] — async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 - [[rust/tower-http]] — Tower HTTP middleware layer (axum foundation) · advisory mapped · RUSTSEC-2022-0043 / GHSA-qrqq-9c63-xfrg Windows path traversal in ServeDir fixed ≥ 0.2.1; ~7.5M/week est., ~331M total downloads
 
-## .NET / NuGet (6)
+## .NET / NuGet (8)
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
 - [[dotnet/Npgsql]] — open-source .NET data provider for PostgreSQL · advisory mapped · CVE-2024-32655 / GHSA-x9vc-6hfv-hg8c integer overflow in WriteBind() enabling wire-protocol SQL injection (High CVSS 9.1), fixed across supported branches through 8.0.3; 871M+ total downloads
+- [[dotnet/RestSharp]] — lightweight .NET HTTP client library · advisory mapped · ReDoS in DateTime parsing (CVE-2021-27293 High CVSS 7.5) and CRLF injection enabling header injection / SSRF (CVE-2024-45302 Moderate, fixed 112.0.0); 561.7M total downloads
 - [[dotnet/SixLabors.ImageSharp]] — .NET image processing library · advisory mapped · 7 GHSA advisories (CVE-2024-27929 through CVE-2025-54575) across PNG/JPEG/TGA/GIF decoders: use-after-free, memory-exhaustion DoS, data leakage, OOB write, and infinite-loop history
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
+- [[dotnet/YamlDotNet]] — dominant .NET YAML parsing and serialization library · advisory mapped · insecure deserialization / arbitrary type instantiation via YAML type tags fixed in 5.0.0 (GHSA-rpch-cqj9-h65r / CVE-2018-1000210 High CVSS 9.0)
 
 ## Python / PyPI (33)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
@@ -187,12 +189,14 @@
 - [[go/github.com/go-jose/go-jose]] — Go JOSE/JWE/JWS/JWT implementation (successor to square/go-jose) · advisory mapped · 7 advisories 2016–2026 across ECDH-ES key disclosure, CBC-HMAC overflow, signature bypass, PBES2 DoS, JWE decompression bomb, parsing DoS, and 2026 key-wrapping panic; fixed through v4.1.4 / v3.0.5
 - [[go/github.com/moby/moby]] — Moby / Docker Engine container runtime · advisory mapped · 21 advisories 2021–2026: data directory permissions, OCI manifest ambiguity, inheritable capabilities, Swarm encrypted overlay cluster (CVE-2023-28840/28841/28842), AuthZ plugin bypass regression (CVE-2024-41110 Critical CVSS 9.9), classic builder cache poisoning, firewalld iptables-rule loss cluster, AuthZ oversized-request incomplete fix (CVE-2026-34040 High), and 2026 docker-cp / PUT-archive race-condition and binary-execution cluster through Docker Engine 29.5.1
 
-## Homebrew (3)
+## Homebrew (4)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
+- [[homebrew/curl]] — macOS Homebrew curl formula (OpenSSL-backed) · advisory mapped · 6 upstream CVEs through CVE-2025-0167 plus Homebrew-specific macOS patch-lag and OpenSSL-vs-LibreSSL backend context
 - [[homebrew/git]] — developer VCS formula tracking upstream git-scm.com · advisory mapped · 7 CVEs including Critical CVE-2024-32002 (macOS submodule+symlink RCE on case-insensitive FS)
 - [[homebrew/wget]] — GNU Wget CLI download tool · advisory mapped · CVE-2024-38428 (Critical CVSS 9.1: URL semicolon mishandling enabling SSRF/credential exposure, fixed ≥ 1.25.0) and CVE-2016-4971 (High CVSS 8.8: HTTP-to-FTP redirect arbitrary file write, fixed ≥ 1.18)
 
-## Maven / Java (25)
+## Maven / Java (26)
+- [[maven/com.h2database/h2]] — H2 embedded RDBMS (Java) · advisory mapped · 2 Critical CVSS 9.8 advisories (CVE-2021-42392 JNDI/Console RCE + CVE-2022-23221 JDBC URL RCE), XXE (CVE-2021-23463 High), and plaintext credential exposure (CVE-2022-45868 High); fixed across 2.0.x through 2.2.220; ubiquitous Spring Boot test dependency
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
 - [[maven/com.google.guava/guava]] — Google Guava core Java utility library · advisory mapped · deserialization allocation DoS plus local temp-file / temp-directory exposure history fixed through the 24.1.1 and 32.0.x lines
