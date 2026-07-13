@@ -13,6 +13,7 @@ Scope notes:
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
 - [[maven/com.google.guava/guava]] — Google Guava core Java utility library · advisory mapped · deserialization allocation DoS plus local temp-file / temp-directory exposure history fixed through the 24.1.1 and 32.0.x lines
 - [[maven/org.apache.commons/commons-lang3]] — Apache Commons Lang utility library · advisory mapped · `ClassUtils.getClass(...)` uncontrolled-recursion DoS fixed in 3.18.0
+- [[maven/org.apache.commons/commons-text]] — Apache Commons Text string interpolation library · advisory mapped · CVE-2022-42889 / GHSA-599f-7c49-w659 Text4Shell Critical CVSS 9.8: `StringSubstitutor` default-enabled `script:` / `dns:` / `url:` lookups enable RCE and SSRF when processing untrusted strings; fixed 1.10.0 (disables dangerous interpolators by default)
 - [[maven/com.fasterxml.jackson.core/jackson-databind]] — Jackson data-binding library · advisory mapped · dense polymorphic-deserialization gadget CVE history plus XXE and resource-exhaustion records through 2022
 - [[maven/org.apache.commons/commons-compress]] — Apache Commons archive compression/extraction library · advisory mapped · malformed archive DoS / resource-exhaustion history fixed through 1.26.0
 - [[maven/org.apache.logging.log4j/log4j-core]] — Apache Log4j Core logging implementation · advisory mapped · Log4Shell / JNDI, socket deserialization, TLS hostname verification, structured-layout log injection, and log-event-loss history fixed through 2.25.4 on the 2.x line
@@ -36,4 +37,4 @@ Scope notes:
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression RCE risk when evaluating untrusted expressions (CVE-2024-36404)
 
 ---
-*Last updated: 2026-07-11*
+*Last updated: 2026-07-13*
