@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*220 tracked pages across 9 ecosystems. Last updated: 2026-07-11.*
+*223 tracked pages across 9 ecosystems. Last updated: 2026-07-13.*
 
 ## npm (93)
 
@@ -98,7 +98,7 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (22)
+## Rust / crates.io (23)
 - [[rust/actix-web]] — actix-web Rust web framework · advisory mapped · 2018 memory-safety cluster (RUSTSEC-2018-0019 / CVE-2018-25024/25025/25026 Critical), actix-http BodyStream UAF, HTTP/1 request-smuggling, and 2026 actix-files info-exposure and CL.TE smuggling fix train through actix-http 3.12.1
 - [[rust/axum]] — axum Rust web framework · advisory mapped · RUSTSEC-2022-0055 / CVE-2022-3212 no-default-body-limit DoS in axum-core extractors fixed in axum ≥ 0.5.16; ~7.0M/week est., ~361.7M total downloads
 - [[rust/base64]] — base64 encoding/decoding library · advisory mapped · RUSTSEC-2017-0004 heap overflow in encode path (CVSS 9.8), fixed in 0.5.2; ~250M weekly downloads
@@ -112,6 +112,7 @@
 - [[rust/ring]] — widely used Rust cryptographic library · advisory mapped · RUSTSEC-2025-0009 / CVE-2025-4432 AES/QUIC overflow-check panic DoS fixed in 0.17.12; 0.16.x unmaintained (RUSTSEC-2025-0010)
 - [[rust/rustls]] — dominant pure-Rust TLS implementation · advisory mapped · RUSTSEC-2024-0336 close_notify DoS (High) and RUSTSEC-2024-0399 fragmented-ClientHello panic DoS through 0.23.18; ~165M weekly downloads
 - [[rust/rustls-webpki]] — X.509 certificate verification engine for rustls · advisory mapped · 5 advisories from 2023–2026: CPU DoS in cert path building, CRL revocation bypass and pre-auth CRL panic DoS, and name constraint bypasses fixed in 0.103.13; ~12.1M/week est.
+- [[rust/mio]] — foundational non-blocking I/O event loop (Tokio substrate) · advisory mapped · RUSTSEC-2020-0081 / CVE-2020-35922 unsound SocketAddr memory-layout cast and RUSTSEC-2024-0019 / CVE-2024-27308 Windows named-pipe use-after-free; fixed through 0.8.11 / 1.x; ~846M total downloads
 - [[rust/serde]] — foundational serialization framework · baseline stub · no direct package-scoped OSV / RustSec advisory confirmed in this pass, but very high ecosystem blast radius
 - [[rust/serde_json]] — de facto standard Rust JSON library · baseline stub · no direct package-scoped RustSec/GHSA advisory confirmed; 1B+ all-time crates.io downloads (~16.1M/week); high ecosystem blast radius
 - [[rust/serde_yaml_ng]] — active fork of archived serde_yaml · audit ingested · YAML 1.2 Core schema signed non-decimal integer parsing gap filed as acatton/serde-yaml-ng#32
@@ -167,7 +168,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (20)
+## Go (21)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -188,6 +189,7 @@
 - [[go/github.com/hashicorp/go-getter]] — HashiCorp file-download library · advisory mapped · 10 GHSA advisories 2022–2026 across command injection, SSRF/protocol-switching, path traversal, git argument injection, git config code execution, symlink escape, and 2026 arbitrary-file-read; fixed through v1.8.6
 - [[go/github.com/go-jose/go-jose]] — Go JOSE/JWE/JWS/JWT implementation (successor to square/go-jose) · advisory mapped · 7 advisories 2016–2026 across ECDH-ES key disclosure, CBC-HMAC overflow, signature bypass, PBES2 DoS, JWE decompression bomb, parsing DoS, and 2026 key-wrapping panic; fixed through v4.1.4 / v3.0.5
 - [[go/github.com/moby/moby]] — Moby / Docker Engine container runtime · advisory mapped · 21 advisories 2021–2026: data directory permissions, OCI manifest ambiguity, inheritable capabilities, Swarm encrypted overlay cluster (CVE-2023-28840/28841/28842), AuthZ plugin bypass regression (CVE-2024-41110 Critical CVSS 9.9), classic builder cache poisoning, firewalld iptables-rule loss cluster, AuthZ oversized-request incomplete fix (CVE-2026-34040 High), and 2026 docker-cp / PUT-archive race-condition and binary-execution cluster through Docker Engine 29.5.1
+- [[go/github.com/tidwall/gjson]] — fast Go JSON path extraction library · advisory mapped · OOB panic cluster CVE-2020-35380/36066/36067 (3× High) fixed across 1.6.4–1.6.6 plus ReDoS CVE-2021-42836 (High CVSS 9.1) fixed in 1.9.3; 10,420+ importers; current 1.19.0 unaffected
 
 ## Homebrew (4)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
@@ -195,12 +197,13 @@
 - [[homebrew/git]] — developer VCS formula tracking upstream git-scm.com · advisory mapped · 7 CVEs including Critical CVE-2024-32002 (macOS submodule+symlink RCE on case-insensitive FS)
 - [[homebrew/wget]] — GNU Wget CLI download tool · advisory mapped · CVE-2024-38428 (Critical CVSS 9.1: URL semicolon mishandling enabling SSRF/credential exposure, fixed ≥ 1.25.0) and CVE-2016-4971 (High CVSS 8.8: HTTP-to-FTP redirect arbitrary file write, fixed ≥ 1.18)
 
-## Maven / Java (26)
+## Maven / Java (27)
 - [[maven/com.h2database/h2]] — H2 embedded RDBMS (Java) · advisory mapped · 2 Critical CVSS 9.8 advisories (CVE-2021-42392 JNDI/Console RCE + CVE-2022-23221 JDBC URL RCE), XXE (CVE-2021-23463 High), and plaintext credential exposure (CVE-2022-45868 High); fixed across 2.0.x through 2.2.220; ubiquitous Spring Boot test dependency
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
 - [[maven/com.google.guava/guava]] — Google Guava core Java utility library · advisory mapped · deserialization allocation DoS plus local temp-file / temp-directory exposure history fixed through the 24.1.1 and 32.0.x lines
 - [[maven/org.apache.commons/commons-lang3]] — Apache Commons Lang utility library · advisory mapped · `ClassUtils.getClass(...)` uncontrolled-recursion DoS fixed in 3.18.0
+- [[maven/org.apache.commons/commons-text]] — Apache Commons Text string interpolation library · advisory mapped · CVE-2022-42889 / GHSA-599f-7c49-w659 Text4Shell Critical CVSS 9.8: StringSubstitutor default `script:` / `dns:` / `url:` lookups enable RCE and SSRF on untrusted input; fixed 1.10.0
 - [[maven/com.fasterxml.jackson.core/jackson-databind]] — Jackson data-binding library · advisory mapped · dense polymorphic-deserialization gadget CVE history plus XXE and resource-exhaustion records through 2022
 - [[maven/org.apache.commons/commons-compress]] — Apache Commons archive compression/extraction library · advisory mapped · malformed archive DoS / resource-exhaustion history fixed through 1.26.0
 - [[maven/org.apache.logging.log4j/log4j-core]] — Apache Log4j Core logging implementation · advisory mapped · Log4Shell / JNDI, socket deserialization, TLS hostname verification, structured-layout log injection, and log-event-loss history fixed through 2.25.4 on the 2.x line
