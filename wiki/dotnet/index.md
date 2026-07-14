@@ -1,6 +1,7 @@
 # .NET / NuGet Index
 
 ## Seed Pages
+- [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver (transitive dep of EF Core SQL Server) · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High CVSS C:H/I:H, TLS bypass enabling network MitM of SQL traffic, CWE-319); current stable 7.0.2 unaffected
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · deeply nested JSON DoS fixed in 13.0.1
 - [[dotnet/Npgsql]] — open-source .NET data provider for PostgreSQL · advisory mapped · CVE-2024-32655 / GHSA-x9vc-6hfv-hg8c integer overflow in WriteBind() enabling wire-protocol SQL injection (High CVSS 9.1), fixed across supported branches through 8.0.3; 871M+ total downloads
