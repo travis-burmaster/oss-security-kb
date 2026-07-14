@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*223 tracked pages across 9 ecosystems. Last updated: 2026-07-13.*
+*226 tracked pages across 9 ecosystems. Last updated: 2026-07-14.*
 
 ## npm (93)
 
@@ -98,7 +98,7 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (23)
+## Rust / crates.io (24)
 - [[rust/actix-web]] — actix-web Rust web framework · advisory mapped · 2018 memory-safety cluster (RUSTSEC-2018-0019 / CVE-2018-25024/25025/25026 Critical), actix-http BodyStream UAF, HTTP/1 request-smuggling, and 2026 actix-files info-exposure and CL.TE smuggling fix train through actix-http 3.12.1
 - [[rust/axum]] — axum Rust web framework · advisory mapped · RUSTSEC-2022-0055 / CVE-2022-3212 no-default-body-limit DoS in axum-core extractors fixed in axum ≥ 0.5.16; ~7.0M/week est., ~361.7M total downloads
 - [[rust/base64]] — base64 encoding/decoding library · advisory mapped · RUSTSEC-2017-0004 heap overflow in encode path (CVSS 9.8), fixed in 0.5.2; ~250M weekly downloads
@@ -108,6 +108,7 @@
 - [[rust/h2]] — HTTP/2 implementation · advisory mapped · resource-exhaustion / DoS history through 0.3.26 / 0.4.4
 - [[rust/hyper]] — foundational Rust HTTP implementation · advisory mapped · HTTP/1 parser/request-smuggling, header-injection, TLS hostname-verification, and parser soundness history
 - [[rust/openssl]] — Rust bindings for OpenSSL · advisory mapped · 10 RUSTSEC advisories across MitM / use-after-free / arbitrary file read / UB / thread-safety history through RUSTSEC-2025-0022
+- [[rust/quinn]] — dominant Rust QUIC implementation (quinn + quinn-proto) · advisory mapped · 5 advisories (RUSTSEC-2021-0035 through RUSTSEC-2026-0185): DoS via unknown frame panic, invalid transport params, OOM stream reassembly; quinn-proto ≥ 0.11.15 required; ~225M/~231M total downloads
 - [[rust/regex]] — canonical Rust regex engine · advisory mapped · RUSTSEC-2022-0013 / CVE-2022-24713 complexity-limit ReDoS fixed in 1.5.5; ~183M weekly downloads
 - [[rust/ring]] — widely used Rust cryptographic library · advisory mapped · RUSTSEC-2025-0009 / CVE-2025-4432 AES/QUIC overflow-check panic DoS fixed in 0.17.12; 0.16.x unmaintained (RUSTSEC-2025-0010)
 - [[rust/rustls]] — dominant pure-Rust TLS implementation · advisory mapped · RUSTSEC-2024-0336 close_notify DoS (High) and RUSTSEC-2024-0399 fragmented-ClientHello panic DoS through 0.23.18; ~165M weekly downloads
@@ -123,7 +124,8 @@
 - [[rust/tokio]] — async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 - [[rust/tower-http]] — Tower HTTP middleware layer (axum foundation) · advisory mapped · RUSTSEC-2022-0043 / GHSA-qrqq-9c63-xfrg Windows path traversal in ServeDir fixed ≥ 0.2.1; ~7.5M/week est., ~331M total downloads
 
-## .NET / NuGet (8)
+## .NET / NuGet (9)
+- [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High, TLS bypass enabling network MitM, CWE-319); current stable 7.0.2 unaffected; transitive dep of EF Core SQL Server
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
 - [[dotnet/Npgsql]] — open-source .NET data provider for PostgreSQL · advisory mapped · CVE-2024-32655 / GHSA-x9vc-6hfv-hg8c integer overflow in WriteBind() enabling wire-protocol SQL injection (High CVSS 9.1), fixed across supported branches through 8.0.3; 871M+ total downloads
@@ -191,10 +193,11 @@
 - [[go/github.com/moby/moby]] — Moby / Docker Engine container runtime · advisory mapped · 21 advisories 2021–2026: data directory permissions, OCI manifest ambiguity, inheritable capabilities, Swarm encrypted overlay cluster (CVE-2023-28840/28841/28842), AuthZ plugin bypass regression (CVE-2024-41110 Critical CVSS 9.9), classic builder cache poisoning, firewalld iptables-rule loss cluster, AuthZ oversized-request incomplete fix (CVE-2026-34040 High), and 2026 docker-cp / PUT-archive race-condition and binary-execution cluster through Docker Engine 29.5.1
 - [[go/github.com/tidwall/gjson]] — fast Go JSON path extraction library · advisory mapped · OOB panic cluster CVE-2020-35380/36066/36067 (3× High) fixed across 1.6.4–1.6.6 plus ReDoS CVE-2021-42836 (High CVSS 9.1) fixed in 1.9.3; 10,420+ importers; current 1.19.0 unaffected
 
-## Homebrew (4)
+## Homebrew (5)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
 - [[homebrew/curl]] — macOS Homebrew curl formula (OpenSSL-backed) · advisory mapped · 6 upstream CVEs through CVE-2025-0167 plus Homebrew-specific macOS patch-lag and OpenSSL-vs-LibreSSL backend context
 - [[homebrew/git]] — developer VCS formula tracking upstream git-scm.com · advisory mapped · 7 CVEs including Critical CVE-2024-32002 (macOS submodule+symlink RCE on case-insensitive FS)
+- [[homebrew/imagemagick]] — image-processing formula · advisory mapped · 4 representative advisories from 698+ CVE history: ImageTragick CVE-2016-3714 (CISA KEV, RCE), CVE-2022-44268 (PNG file read), CVE-2023-34151 (SVG/MVG integer overflow), CVE-2026-61857 (XMP UAF crash); ≥ 7.1.2-26 required
 - [[homebrew/wget]] — GNU Wget CLI download tool · advisory mapped · CVE-2024-38428 (Critical CVSS 9.1: URL semicolon mishandling enabling SSRF/credential exposure, fixed ≥ 1.25.0) and CVE-2016-4971 (High CVSS 8.8: HTTP-to-FTP redirect arbitrary file write, fixed ≥ 1.18)
 
 ## Maven / Java (27)
