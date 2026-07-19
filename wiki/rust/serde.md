@@ -1,7 +1,7 @@
 # serde (rust)
 
 **Registry:** crates.io
-**Weekly Downloads:** ~156,618,523 recent downloads (as of 2026-04-20)
+**Weekly Downloads:** ~236,866,583 recent 90-day downloads (~26.3M/week est.) (as of 2026-07-19)
 **Repository:** https://github.com/serde-rs/serde
 **Security Contact:** none listed
 **Disclosure Policy:** none listed
@@ -18,14 +18,14 @@
 
 | CVE / Issue | Severity | Description | Fixed in | Source |
 |-------------|----------|-------------|----------|--------|
-| No package-level OSV / RustSec record clearly confirmed in this review pass | — | Public-source review did **not** surface a direct package-scoped advisory for `crates.io/serde`. Related advisories in the broader Serde ecosystem apply to separate crates such as `serde_yaml`, `serde_yml`, `serde_cbor`, `serde-json-wasm`, and `rmp-serde`, not to the core `serde` crate itself. | — | https://api.osv.dev/v1/query |
+| No package-level OSV / RustSec record confirmed (reconfirmed 2026-07-19) | — | Two independent search passes (2026-04-20 and 2026-07-19) found no advisory in rustsec/advisory-db path `crates/serde/`. Related advisories in the broader Serde ecosystem apply to separate crates: `serde_yaml`, `serde_yml` (RUSTSEC-2025-0068 unmaintained), `serde_cbor` (RUSTSEC-2021-0127 unmaintained), `serde-json-wasm` (RUSTSEC-2024-0012 stack-overflow), `rmp-serde` (RUSTSEC-2022-0092 unsound), and others — **not** to the core `serde` crate itself. | — | https://github.com/rustsec/advisory-db/tree/main/crates |
 
 *Full advisory history (OSV): https://osv.dev/list?ecosystem=crates.io&q=serde*
 
 ## Security Posture Notes
 
 - `serde` is foundational Rust serialization / deserialization infrastructure with an extremely large downstream footprint, so any future package-level advisory would likely have wide ecosystem blast radius.
-- Public advisory evidence in this pass remained **empty for the core crate itself**: the OSV package query returned no records, and RustSec search results surfaced only related crates rather than `serde` directly.
+- Public advisory evidence remained **empty for the core crate itself** across two search passes (2026-04-20 and 2026-07-19): RustSec advisory-db search surfaced only related crates, not `serde` directly. Current version: 1.0.229 (July 18, 2026).
 - That distinction matters. Security findings in format adapters and wrappers such as `serde_yaml`, `serde_yml`, `serde_cbor`, `serde-json-wasm`, or `rmp-serde` should not be collapsed into the `serde` page unless a public record explicitly scopes the issue to `serde` itself.
 - No repository-root `SECURITY.md` was confirmed in this pass, and the upstream README evidence reviewed here did not surface a dedicated disclosure-policy URL. That is a documentation / process gap, not a vulnerability finding.
 - Operationally, most practical security risk around Serde often lives in **format-specific parsing crates, untrusted input handling, and downstream type / validation assumptions**, not necessarily in the core trait / derive framework alone.
@@ -49,4 +49,4 @@
 - [[rust/index]]
 
 ---
-*Last updated: 2026-04-20 | Sources: 6 (OSV API package query for crates.io/serde, OSV package search page for serde, RustSec advisory search results, crates.io API metadata, upstream README, repository security-policy check, local proxy draft assist via the configured Claude-compatible proxy at 127.0.0.1:8319 used only as a drafting aid)*
+*Last updated: 2026-07-19 | Sources: 4 (rustsec/advisory-db crates/serde path search confirming no direct advisory; crates.io API metadata for download counts and current version 1.0.229; upstream serde-rs/serde repository check; prior 2026-04-20 pass evidence)*
