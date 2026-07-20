@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*226 tracked pages across 9 ecosystems. Last updated: 2026-07-14.*
+*229 tracked pages across 9 ecosystems. Last updated: 2026-07-20.*
 
 ## npm (93)
 
@@ -170,7 +170,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (21)
+## Go (22)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -192,6 +192,7 @@
 - [[go/github.com/go-jose/go-jose]] — Go JOSE/JWE/JWS/JWT implementation (successor to square/go-jose) · advisory mapped · 7 advisories 2016–2026 across ECDH-ES key disclosure, CBC-HMAC overflow, signature bypass, PBES2 DoS, JWE decompression bomb, parsing DoS, and 2026 key-wrapping panic; fixed through v4.1.4 / v3.0.5
 - [[go/github.com/moby/moby]] — Moby / Docker Engine container runtime · advisory mapped · 21 advisories 2021–2026: data directory permissions, OCI manifest ambiguity, inheritable capabilities, Swarm encrypted overlay cluster (CVE-2023-28840/28841/28842), AuthZ plugin bypass regression (CVE-2024-41110 Critical CVSS 9.9), classic builder cache poisoning, firewalld iptables-rule loss cluster, AuthZ oversized-request incomplete fix (CVE-2026-34040 High), and 2026 docker-cp / PUT-archive race-condition and binary-execution cluster through Docker Engine 29.5.1
 - [[go/github.com/tidwall/gjson]] — fast Go JSON path extraction library · advisory mapped · OOB panic cluster CVE-2020-35380/36066/36067 (3× High) fixed across 1.6.4–1.6.6 plus ReDoS CVE-2021-42836 (High CVSS 9.1) fixed in 1.9.3; 10,420+ importers; current 1.19.0 unaffected
+- [[go/github.com/miekg/dns]] — foundational Go DNS client/server library (CoreDNS, Consul) · advisory mapped · 3 advisories 2017–2019: TCP timing DoS (GHSA-p55x-7x9v-q8m4 High), ParseZone nil-ptr-deref DoS (GHSA-9jcx-pr2f-qvq5 High), predictable TXID DNS forgery via math/rand (GHSA-44r7-7p62-q3fr Moderate); fixed through 1.1.25; 16,234+ importers
 
 ## Homebrew (5)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
@@ -229,14 +230,15 @@
 - [[maven/org.springframework.security/spring-security-web]] — Spring Security web module · advisory mapped · request-matcher bypass, WebFlux static-resource authorization, security-header, SecurityContext, and X.509 identity-extraction history through 2026
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression evaluation RCE risk when fed untrusted expressions (CVE-2024-36404)
 
-## Kubernetes (5)
+## Kubernetes (6)
+- [[kubernetes/kube-proxy]] — network rules / service proxy DaemonSet · advisory mapped · loopback-access bypass (CVE-2020-8558 High AV:A, shared with kubelet) and Windows LoadBalancer traffic-forwarding bypass (CVE-2021-25736 Moderate); also a chained exploitation target in CVE-2026-31431 (copy.fail) kernel privilege escalation
 - [[kubernetes/containerd]] — container runtime (OCI/CRI) · advisory mapped · 21 GHSA advisories spanning CRI plugin boundary failures, UID mishandling, side-channel exposure, and 2026 checkpoint/restore exploitation cluster through CVE-2026-53492
 - [[kubernetes/helm]] — CNCF-graduated Kubernetes package manager · advisory mapped · 27 GHSA advisories spanning Helm 2 Tiller TLS/symlink, plugin zip-slip and injection, lookup data leakage, credential forwarding, strvals OOM/stack-overflow, chartutil JSON-schema panics, and 2026 Helm v4 plugin path traversal cluster through CVE-2026-35204
 - [[kubernetes/kube-apiserver]] — control-plane API surface · audit ingested · RBAC, admission, authn, and impersonation risk review
 - [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, adjacent-network access, seccomp bypass, Windows command injection, gitRepo RCE, and checkpoint-API disk-fill history through CVE-2025-0426
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
 
-## Linux (9)
+## Linux (10)
 - [[linux/bash]] — GNU Bourne-Again SHell · advisory mapped · ShellShock cluster (CVE-2014-6271 Critical CVSS 9.8 and 3 incomplete-fix follow-ons) plus heap-buffer overflow in parameter_transform.c (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
 - [[linux/curl]] — CLI/library URL transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential/protocol-selection history through CVE-2025-0167
@@ -246,3 +248,4 @@
 - [[linux/openssl]] — cross-distro cryptographic library anchor · baseline stub · upstream-first page for future distro normalization
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin, and VerifyHostKeyDNS MITM history through 9.9p2
 - [[linux/sudo]] — privilege-boundary package · advisory mapped · pwfeedback, Baron Samedit, host-option, and chroot local privilege-escalation history
+- [[linux/systemd]] — dominant Linux init system and service manager · advisory mapped · 6 advisories: notify-socket DoS, systemd-resolved OOB write (CVE-2017-9445 High AV:N) and UAF (CVE-2022-2526 Critical AV:N), journald stack clash (CVE-2018-16864), unit-name stack exhaustion (CVE-2021-33910), and udev local root execution (CVE-2026-40225)
