@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*229 tracked pages across 9 ecosystems. Last updated: 2026-07-20.*
+*231 tracked pages across 9 ecosystems. Last updated: 2026-07-22.*
 
 ## npm (93)
 
@@ -170,7 +170,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (22)
+## Go (23)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -193,6 +193,7 @@
 - [[go/github.com/moby/moby]] — Moby / Docker Engine container runtime · advisory mapped · 21 advisories 2021–2026: data directory permissions, OCI manifest ambiguity, inheritable capabilities, Swarm encrypted overlay cluster (CVE-2023-28840/28841/28842), AuthZ plugin bypass regression (CVE-2024-41110 Critical CVSS 9.9), classic builder cache poisoning, firewalld iptables-rule loss cluster, AuthZ oversized-request incomplete fix (CVE-2026-34040 High), and 2026 docker-cp / PUT-archive race-condition and binary-execution cluster through Docker Engine 29.5.1
 - [[go/github.com/tidwall/gjson]] — fast Go JSON path extraction library · advisory mapped · OOB panic cluster CVE-2020-35380/36066/36067 (3× High) fixed across 1.6.4–1.6.6 plus ReDoS CVE-2021-42836 (High CVSS 9.1) fixed in 1.9.3; 10,420+ importers; current 1.19.0 unaffected
 - [[go/github.com/miekg/dns]] — foundational Go DNS client/server library (CoreDNS, Consul) · advisory mapped · 3 advisories 2017–2019: TCP timing DoS (GHSA-p55x-7x9v-q8m4 High), ParseZone nil-ptr-deref DoS (GHSA-9jcx-pr2f-qvq5 High), predictable TXID DNS forgery via math/rand (GHSA-44r7-7p62-q3fr Moderate); fixed through 1.1.25; 16,234+ importers
+- [[go/github.com/jackc/pgx]] — dominant pure-Go PostgreSQL driver and toolkit · advisory mapped · 7 advisories 2024–2026: SQL injection via simple-protocol line comment (CVE-2024-27289, v4), SQL injection via 4 GB message-size integer overflow (CVE-2024-27304, v4/v5), Pipeline panic DoS (GHSA-fqpg-rq76-99pq, v5), pgproto3/v2 DataRow negative-length panic DoS (CVE-2026-32286 High CVSS 7.5), two memory-safety vulnerabilities (CVE-2026-33815/33816 High, fixed v5.9.0), and SQL injection via dollar-quoted string literal placeholder confusion (CVE-2026-41889, simple protocol; v4/v3 EOL/no patch); fixed through v5.9.2; 13,000+ pkg.go.dev importers
 
 ## Homebrew (5)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
@@ -230,7 +231,8 @@
 - [[maven/org.springframework.security/spring-security-web]] — Spring Security web module · advisory mapped · request-matcher bypass, WebFlux static-resource authorization, security-header, SecurityContext, and X.509 identity-extraction history through 2026
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression evaluation RCE risk when fed untrusted expressions (CVE-2024-36404)
 
-## Kubernetes (6)
+## Kubernetes (7)
+- [[kubernetes/ingress-nginx]] — most widely deployed Kubernetes ingress controller · advisory mapped · 12 GHSA advisories 2021–2025: annotation/path-field credential-disclosure cluster (CVE-2021-25742/25745/25746/25748), path-sanitization log_format bypass (CVE-2022-4886 High CVSS 8.1), annotation command-injection pair (CVE-2023-5043/5044 High), annotation-validation bypass (CVE-2024-7646 Critical CVSS 9.9), and IngressNightmare cluster (CVE-2025-1097/1098/24514 Critical + CVE-2025-1974 Critical CVSS 9.8 unauthenticated RCE via admission webhook); fixed through 1.11.5 / 1.12.1
 - [[kubernetes/kube-proxy]] — network rules / service proxy DaemonSet · advisory mapped · loopback-access bypass (CVE-2020-8558 High AV:A, shared with kubelet) and Windows LoadBalancer traffic-forwarding bypass (CVE-2021-25736 Moderate); also a chained exploitation target in CVE-2026-31431 (copy.fail) kernel privilege escalation
 - [[kubernetes/containerd]] — container runtime (OCI/CRI) · advisory mapped · 21 GHSA advisories spanning CRI plugin boundary failures, UID mishandling, side-channel exposure, and 2026 checkpoint/restore exploitation cluster through CVE-2026-53492
 - [[kubernetes/helm]] — CNCF-graduated Kubernetes package manager · advisory mapped · 27 GHSA advisories spanning Helm 2 Tiller TLS/symlink, plugin zip-slip and injection, lookup data leakage, credential forwarding, strvals OOM/stack-overflow, chartutil JSON-schema panics, and 2026 Helm v4 plugin path traversal cluster through CVE-2026-35204
