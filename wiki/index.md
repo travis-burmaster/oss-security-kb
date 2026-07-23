@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*231 tracked pages across 9 ecosystems. Last updated: 2026-07-22.*
+*234 tracked pages across 9 ecosystems. Last updated: 2026-07-23.*
 
 ## npm (93)
 
@@ -195,12 +195,13 @@
 - [[go/github.com/miekg/dns]] — foundational Go DNS client/server library (CoreDNS, Consul) · advisory mapped · 3 advisories 2017–2019: TCP timing DoS (GHSA-p55x-7x9v-q8m4 High), ParseZone nil-ptr-deref DoS (GHSA-9jcx-pr2f-qvq5 High), predictable TXID DNS forgery via math/rand (GHSA-44r7-7p62-q3fr Moderate); fixed through 1.1.25; 16,234+ importers
 - [[go/github.com/jackc/pgx]] — dominant pure-Go PostgreSQL driver and toolkit · advisory mapped · 7 advisories 2024–2026: SQL injection via simple-protocol line comment (CVE-2024-27289, v4), SQL injection via 4 GB message-size integer overflow (CVE-2024-27304, v4/v5), Pipeline panic DoS (GHSA-fqpg-rq76-99pq, v5), pgproto3/v2 DataRow negative-length panic DoS (CVE-2026-32286 High CVSS 7.5), two memory-safety vulnerabilities (CVE-2026-33815/33816 High, fixed v5.9.0), and SQL injection via dollar-quoted string literal placeholder confusion (CVE-2026-41889, simple protocol; v4/v3 EOL/no patch); fixed through v5.9.2; 13,000+ pkg.go.dev importers
 
-## Homebrew (5)
+## Homebrew (6)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
 - [[homebrew/curl]] — macOS Homebrew curl formula (OpenSSL-backed) · advisory mapped · 6 upstream CVEs through CVE-2025-0167 plus Homebrew-specific macOS patch-lag and OpenSSL-vs-LibreSSL backend context
 - [[homebrew/git]] — developer VCS formula tracking upstream git-scm.com · advisory mapped · 7 CVEs including Critical CVE-2024-32002 (macOS submodule+symlink RCE on case-insensitive FS)
 - [[homebrew/imagemagick]] — image-processing formula · advisory mapped · 4 representative advisories from 698+ CVE history: ImageTragick CVE-2016-3714 (CISA KEV, RCE), CVE-2022-44268 (PNG file read), CVE-2023-34151 (SVG/MVG integer overflow), CVE-2026-61857 (XMP UAF crash); ≥ 7.1.2-26 required
 - [[homebrew/wget]] — GNU Wget CLI download tool · advisory mapped · CVE-2024-38428 (Critical CVSS 9.1: URL semicolon mishandling enabling SSRF/credential exposure, fixed ≥ 1.25.0) and CVE-2016-4971 (High CVSS 8.8: HTTP-to-FTP redirect arbitrary file write, fixed ≥ 1.18)
+- [[homebrew/ffmpeg]] — multimedia codec/processing framework · advisory mapped · 4 representative advisories from 700+ CVE history: PNM heap overflow (CVE-2024-7055 Medium, fixed 7.0.2), audio resampler heap overflow (CVE-2024-7272 Medium, fixed 5.1.6/6.0+), HLS M3U8 concat/subfile arbitrary file read pair (CVE-2016-1897/1898 Moderate, fixed ≥ 3.0); current formula 8.1.2
 
 ## Maven / Java (27)
 - [[maven/com.h2database/h2]] — H2 embedded RDBMS (Java) · advisory mapped · 2 Critical CVSS 9.8 advisories (CVE-2021-42392 JNDI/Console RCE + CVE-2022-23221 JDBC URL RCE), XXE (CVE-2021-23463 High), and plaintext credential exposure (CVE-2022-45868 High); fixed across 2.0.x through 2.2.220; ubiquitous Spring Boot test dependency
@@ -240,7 +241,7 @@
 - [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, adjacent-network access, seccomp bypass, Windows command injection, gitRepo RCE, and checkpoint-API disk-fill history through CVE-2025-0426
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
 
-## Linux (10)
+## Linux (12)
 - [[linux/bash]] — GNU Bourne-Again SHell · advisory mapped · ShellShock cluster (CVE-2014-6271 Critical CVSS 9.8 and 3 incomplete-fix follow-ons) plus heap-buffer overflow in parameter_transform.c (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
 - [[linux/curl]] — CLI/library URL transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential/protocol-selection history through CVE-2025-0167
@@ -251,3 +252,5 @@
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin, and VerifyHostKeyDNS MITM history through 9.9p2
 - [[linux/sudo]] — privilege-boundary package · advisory mapped · pwfeedback, Baron Samedit, host-option, and chroot local privilege-escalation history
 - [[linux/systemd]] — dominant Linux init system and service manager · advisory mapped · 6 advisories: notify-socket DoS, systemd-resolved OOB write (CVE-2017-9445 High AV:N) and UAF (CVE-2022-2526 Critical AV:N), journald stack clash (CVE-2018-16864), unit-name stack exhaustion (CVE-2021-33910), and udev local root execution (CVE-2026-40225)
+- [[linux/wget]] — GNU Wget CLI download tool · advisory mapped · 6 advisories covering FTP redirect file write (CVE-2016-4971 High), xattr credential exposure (CVE-2018-20483 High), buffer overflow (CVE-2019-5953 Critical), shorthand URL SSRF (CVE-2024-10524 Moderate), URL semicolon SSRF (CVE-2024-38428 Critical CVSS 9.1, fixed ≥ 1.25.0), and FTP PASV SSRF (CVE-2026-15146 Moderate, 2026)
+- [[linux/tar]] — GNU tar archive utility · advisory mapped · 5 advisories covering historical /.. traversal (CVE-2002-0399, CVE-2007-4131), POINTYFEATHER safer_name_suffix bypass (CVE-2016-6321 High CVSS 7.5, fixed ≥ 1.30), V7 mtime OOB read (CVE-2022-48303 High), and two-step symlink traversal bypass (CVE-2025-45582 Moderate, affects ≤ 1.35)
