@@ -8,6 +8,8 @@
 - [[homebrew/imagemagick]] — image-processing formula · advisory mapped · 4 representative advisories from 698+ CVE history: ImageTragick CVE-2016-3714 (High RCE via shell-metachar delegate injection, CISA KEV), CVE-2022-44268 (High PNG arbitrary file read), CVE-2023-34151 (High SVG/MVG integer overflow), CVE-2026-61857 (Moderate XMP heap UAF crash); fixed in ≥ 7.1.2-26
 - [[homebrew/wget]] — GNU Wget CLI download tool · advisory mapped · CVE-2024-38428 (Critical CVSS 9.1: semicolon userinfo mishandling enabling SSRF/credential exposure, fixed ≥ 1.25.0) and CVE-2016-4971 (High CVSS 8.8: HTTP-to-FTP redirect arbitrary file write, fixed ≥ 1.18)
 
+- [[homebrew/ffmpeg]] — multimedia codec/processing framework · advisory mapped · 4 representative advisories from 700+ CVE history: PNM heap overflow (CVE-2024-7055 Medium, fixed 7.0.2), audio resampler heap overflow (CVE-2024-7272 Medium, fixed 5.1.6/6.0+), HLS M3U8 concat/subfile arbitrary file read (CVE-2016-1897/1898 Moderate); current formula 8.1.2
+
 ## Future Targets
 - `sqlite` — embedded database dependency used by many local tools
 - `git-lfs` — Git Large File Storage; separate CVE history from upstream git
