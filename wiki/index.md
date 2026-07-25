@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*234 tracked pages across 9 ecosystems. Last updated: 2026-07-23.*
+*236 tracked pages across 9 ecosystems. Last updated: 2026-07-25.*
 
 ## npm (93)
 
@@ -98,7 +98,9 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (24)
+## Rust / crates.io (26)
+- [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
+- [[rust/wasmtime]] — BytecodeAlliance production WebAssembly runtime · advisory mapped · 16 advisories 2021–2026 spanning Cranelift miscompilation sandbox escapes (RUSTSEC-2023-0090 Critical CVSS 9.9), externref/pooling UAF cluster, and 2026 guest-triggered DoS train; current stable 47.0.2 unaffected
 - [[rust/actix-web]] — actix-web Rust web framework · advisory mapped · 2018 memory-safety cluster (RUSTSEC-2018-0019 / CVE-2018-25024/25025/25026 Critical), actix-http BodyStream UAF, HTTP/1 request-smuggling, and 2026 actix-files info-exposure and CL.TE smuggling fix train through actix-http 3.12.1
 - [[rust/axum]] — axum Rust web framework · advisory mapped · RUSTSEC-2022-0055 / CVE-2022-3212 no-default-body-limit DoS in axum-core extractors fixed in axum ≥ 0.5.16; ~7.0M/week est., ~361.7M total downloads
 - [[rust/base64]] — base64 encoding/decoding library · advisory mapped · RUSTSEC-2017-0004 heap overflow in encode path (CVSS 9.8), fixed in 0.5.2; ~250M weekly downloads
