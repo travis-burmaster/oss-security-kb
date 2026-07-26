@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*236 tracked pages across 9 ecosystems. Last updated: 2026-07-25.*
+*238 tracked pages across 9 ecosystems. Last updated: 2026-07-26.*
 
 ## npm (93)
 
@@ -98,7 +98,8 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (26)
+## Rust / crates.io (27)
+- [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
 - [[rust/wasmtime]] — BytecodeAlliance production WebAssembly runtime · advisory mapped · 16 advisories 2021–2026 spanning Cranelift miscompilation sandbox escapes (RUSTSEC-2023-0090 Critical CVSS 9.9), externref/pooling UAF cluster, and 2026 guest-triggered DoS train; current stable 47.0.2 unaffected
 - [[rust/actix-web]] — actix-web Rust web framework · advisory mapped · 2018 memory-safety cluster (RUSTSEC-2018-0019 / CVE-2018-25024/25025/25026 Critical), actix-http BodyStream UAF, HTTP/1 request-smuggling, and 2026 actix-files info-exposure and CL.TE smuggling fix train through actix-http 3.12.1
@@ -234,7 +235,8 @@
 - [[maven/org.springframework.security/spring-security-web]] — Spring Security web module · advisory mapped · request-matcher bypass, WebFlux static-resource authorization, security-header, SecurityContext, and X.509 identity-extraction history through 2026
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression evaluation RCE risk when fed untrusted expressions (CVE-2024-36404)
 
-## Kubernetes (7)
+## Kubernetes (8)
+- [[kubernetes/argo-cd]] — Argo CD CNCF GitOps delivery tool · advisory mapped · 56 public GHSA advisories 2018–2026 (31 individually mapped): Critical auth bypass (CVE-2022-24768 CVSS 9.9, CVE-2022-29165 9.8, CVE-2024-21652 9.8), Critical OIDC JWT bypass (CVE-2023-22482), Critical cluster-secret RBAC bypass (CVE-2023-23947), Critical ServerSideDiff secret extraction (CVE-2026-42880 9.1); recurring SSO/symlink/brute-force-bypass history; fixed through v3.4.2
 - [[kubernetes/ingress-nginx]] — most widely deployed Kubernetes ingress controller · advisory mapped · 12 GHSA advisories 2021–2025: annotation/path-field credential-disclosure cluster (CVE-2021-25742/25745/25746/25748), path-sanitization log_format bypass (CVE-2022-4886 High CVSS 8.1), annotation command-injection pair (CVE-2023-5043/5044 High), annotation-validation bypass (CVE-2024-7646 Critical CVSS 9.9), and IngressNightmare cluster (CVE-2025-1097/1098/24514 Critical + CVE-2025-1974 Critical CVSS 9.8 unauthenticated RCE via admission webhook); fixed through 1.11.5 / 1.12.1
 - [[kubernetes/kube-proxy]] — network rules / service proxy DaemonSet · advisory mapped · loopback-access bypass (CVE-2020-8558 High AV:A, shared with kubelet) and Windows LoadBalancer traffic-forwarding bypass (CVE-2021-25736 Moderate); also a chained exploitation target in CVE-2026-31431 (copy.fail) kernel privilege escalation
 - [[kubernetes/containerd]] — container runtime (OCI/CRI) · advisory mapped · 21 GHSA advisories spanning CRI plugin boundary failures, UID mishandling, side-channel exposure, and 2026 checkpoint/restore exploitation cluster through CVE-2026-53492
