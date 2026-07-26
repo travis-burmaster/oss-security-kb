@@ -11,5 +11,6 @@
 - [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, adjacent-network access, seccomp bypass, Windows command injection, gitRepo RCE, and checkpoint-API disk-fill history through CVE-2025-0426
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · CVE-2019-5736 /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
 
+- [[kubernetes/argo-cd]] — Argo CD GitOps continuous delivery tool · advisory mapped · 56 public GHSA advisories 2018–2026 (31 individually mapped): Critical CVSS 9.9 privilege escalation (CVE-2022-24768), Critical CVSS 9.8 JWT blind-trust auth bypass (CVE-2022-29165 / CVE-2024-21652), Critical CVSS 9.1 cluster-secret out-of-bounds update (CVE-2023-23947 / CVE-2026-42880), recurring SSO/JWT/OIDC auth boundary failures, repo-server symlink/path-traversal cluster, brute-force bypass pair (2024), and 2026 ServerSideDiff secret extraction cluster; fixed through v3.4.2 / v2.14.20
+
 ## Future Targets
-- `argo-cd` — GitOps continuous delivery tool (CNCF graduated, active advisory history)
