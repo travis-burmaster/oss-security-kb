@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*238 tracked pages across 9 ecosystems. Last updated: 2026-07-26.*
+*240 tracked pages across 9 ecosystems. Last updated: 2026-07-31.*
 
 ## npm (93)
 
@@ -206,7 +206,7 @@
 - [[homebrew/wget]] — GNU Wget CLI download tool · advisory mapped · CVE-2024-38428 (Critical CVSS 9.1: URL semicolon mishandling enabling SSRF/credential exposure, fixed ≥ 1.25.0) and CVE-2016-4971 (High CVSS 8.8: HTTP-to-FTP redirect arbitrary file write, fixed ≥ 1.18)
 - [[homebrew/ffmpeg]] — multimedia codec/processing framework · advisory mapped · 4 representative advisories from 700+ CVE history: PNM heap overflow (CVE-2024-7055 Medium, fixed 7.0.2), audio resampler heap overflow (CVE-2024-7272 Medium, fixed 5.1.6/6.0+), HLS M3U8 concat/subfile arbitrary file read pair (CVE-2016-1897/1898 Moderate, fixed ≥ 3.0); current formula 8.1.2
 
-## Maven / Java (27)
+## Maven / Java (29)
 - [[maven/com.h2database/h2]] — H2 embedded RDBMS (Java) · advisory mapped · 2 Critical CVSS 9.8 advisories (CVE-2021-42392 JNDI/Console RCE + CVE-2022-23221 JDBC URL RCE), XXE (CVE-2021-23463 High), and plaintext credential exposure (CVE-2022-45868 High); fixed across 2.0.x through 2.2.220; ubiquitous Spring Boot test dependency
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
@@ -234,6 +234,8 @@
 - [[maven/org.springframework.security/spring-security-config]] — Spring Security configuration module · advisory mapped · WebFlux / servlet request-matcher and servlet-path authorization-boundary history through 2026
 - [[maven/org.springframework.security/spring-security-web]] — Spring Security web module · advisory mapped · request-matcher bypass, WebFlux static-resource authorization, security-header, SecurityContext, and X.509 identity-extraction history through 2026
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression evaluation RCE risk when fed untrusted expressions (CVE-2024-36404)
+- [[maven/org.apache.struts/struts2-core]] — Apache Struts 2 web framework · advisory mapped · 16 of 60 GHSA advisories mapped: Critical S2-045/CVE-2017-5638 Equifax RCE, Freemarker RCE (S2-053), forced OGNL eval (S2-062), file upload path traversal RCE pair (S2-066/S2-067), and multipart DoS history through 2025; current 6.8.0 / 7.1.1
+- [[maven/org.apache.shiro/shiro-core]] — Apache Shiro auth/authz framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022), "remember me" cookie RCE+padding oracle, RegexRequestMatcher bypass (CVE-2022-32532), LDAP injection (CVE-2026-49268), and session fixation; current 2.2.1
 
 ## Kubernetes (8)
 - [[kubernetes/argo-cd]] — Argo CD CNCF GitOps delivery tool · advisory mapped · 56 public GHSA advisories 2018–2026 (31 individually mapped): Critical auth bypass (CVE-2022-24768 CVSS 9.9, CVE-2022-29165 9.8, CVE-2024-21652 9.8), Critical OIDC JWT bypass (CVE-2023-22482), Critical cluster-secret RBAC bypass (CVE-2023-23947), Critical ServerSideDiff secret extraction (CVE-2026-42880 9.1); recurring SSO/symlink/brute-force-bypass history; fixed through v3.4.2
