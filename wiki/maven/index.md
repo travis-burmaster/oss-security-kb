@@ -35,6 +35,8 @@ Scope notes:
 - [[maven/org.springframework.security/spring-security-config]] — Spring Security configuration module · advisory mapped · WebFlux / servlet request-matcher and servlet-path authorization-boundary history through 2026
 - [[maven/org.springframework.security/spring-security-web]] — Spring Security web module · advisory mapped · request-matcher bypass, WebFlux static-resource authorization, security-header, SecurityContext, and X.509 identity-extraction history through 2026
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression RCE risk when evaluating untrusted expressions (CVE-2024-36404)
+- [[maven/org.apache.struts/struts2-core]] — Apache Struts 2 web framework · advisory mapped · 16 of 60 GHSA advisories mapped: Critical S2-045/CVE-2017-5638 Equifax RCE (Jakarta Multipart parser), Freemarker RCE (S2-053), forced OGNL eval (S2-062), file upload path traversal RCE pair (S2-066/S2-067, 2023–2024), and multipart DoS/disk-exhaustion history through CVE-2025-66675; current 6.8.0 / 7.1.1
+- [[maven/org.apache.shiro/shiro-core]] — Apache Shiro authentication/authorization framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022, fixed 1.5.2→1.10.0), "remember me" cookie deserialization RCE and padding oracle (CVE-2016-4437/2019-12422), RegexRequestMatcher bypass (CVE-2022-32532), LDAP DN injection (CVE-2026-49268), and session fixation (CVE-2026-43827); current 2.2.1
 
 ---
-*Last updated: 2026-07-13*
+*Last updated: 2026-07-31*
