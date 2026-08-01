@@ -37,6 +37,7 @@ Scope notes:
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression RCE risk when evaluating untrusted expressions (CVE-2024-36404)
 - [[maven/org.apache.struts/struts2-core]] — Apache Struts 2 web framework · advisory mapped · 16 of 60 GHSA advisories mapped: Critical S2-045/CVE-2017-5638 Equifax RCE (Jakarta Multipart parser), Freemarker RCE (S2-053), forced OGNL eval (S2-062), file upload path traversal RCE pair (S2-066/S2-067, 2023–2024), and multipart DoS/disk-exhaustion history through CVE-2025-66675; current 6.8.0 / 7.1.1
 - [[maven/org.apache.shiro/shiro-core]] — Apache Shiro authentication/authorization framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022, fixed 1.5.2→1.10.0), "remember me" cookie deserialization RCE and padding oracle (CVE-2016-4437/2019-12422), RegexRequestMatcher bypass (CVE-2022-32532), LDAP DN injection (CVE-2026-49268), and session fixation (CVE-2026-43827); current 2.2.1
+- [[maven/com.thoughtworks.xstream/xstream]] — XStream Java XML/object serialization library · advisory mapped · 31 advisories 2020–2022 mapped: CVE-2020-26217 RCE (fixed 1.4.14); CVE-2020-26258/26259 SSRF + arbitrary file deletion (fixed 1.4.15); March 2021 batch (11 CVEs — ACE, SSRF, file deletion, DoS cluster, all fixed 1.4.16); CVE-2021-29505 RCE (fixed 1.4.17); August 2021 batch (14 CVEs — 12× ACE/RCE High CVSS 9.0–9.1, 1× SSRF pair, 1× DoS, all fixed 1.4.18, whitelist model introduced); CVE-2021-43859 DoS via recursive collections (High, fixed 1.4.19); CVE-2022-40151 stack-overflow DoS (High, fixed 1.4.20)
 
 ---
-*Last updated: 2026-07-31*
+*Last updated: 2026-08-01*
