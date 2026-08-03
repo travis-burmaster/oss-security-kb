@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*242 tracked pages across 9 ecosystems. Last updated: 2026-08-01.*
+*244 tracked pages across 9 ecosystems. Last updated: 2026-08-03.*
 
 ## npm (93)
 
@@ -128,7 +128,7 @@
 - [[rust/tokio]] — async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 - [[rust/tower-http]] — Tower HTTP middleware layer (axum foundation) · advisory mapped · RUSTSEC-2022-0043 / GHSA-qrqq-9c63-xfrg Windows path traversal in ServeDir fixed ≥ 0.2.1; ~7.5M/week est., ~331M total downloads
 
-## .NET / NuGet (9)
+## .NET / NuGet (10)
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High, TLS bypass enabling network MitM, CWE-319); current stable 7.0.2 unaffected; transitive dep of EF Core SQL Server
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
@@ -138,6 +138,7 @@
 - [[dotnet/System.Text.Json]] — core .NET JSON stack · advisory mapped · 2024 deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
 - [[dotnet/YamlDotNet]] — dominant .NET YAML parsing and serialization library · advisory mapped · insecure deserialization / arbitrary type instantiation via YAML type tags fixed in 5.0.0 (GHSA-rpch-cqj9-h65r / CVE-2018-1000210 High CVSS 9.0)
+- [[dotnet/Duende.IdentityServer]] — Duende.IdentityServer and EOL predecessor IdentityServer4 · advisory mapped · CVE-2024-39694 open redirect (Moderate; no fix for EOL IdentityServer4 ≤ 4.1.2) and CVE-2024-49755 DPoP cnf-claim validation bypass (Low, fixed Duende 7.0.8); ~94M combined NuGet downloads
 
 ## Python / PyPI (33)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
@@ -249,7 +250,7 @@
 - [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, adjacent-network access, seccomp bypass, Windows command injection, gitRepo RCE, and checkpoint-API disk-fill history through CVE-2025-0426
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
 
-## Linux (12)
+## Linux (13)
 - [[linux/bash]] — GNU Bourne-Again SHell · advisory mapped · ShellShock cluster (CVE-2014-6271 Critical CVSS 9.8 and 3 incomplete-fix follow-ons) plus heap-buffer overflow in parameter_transform.c (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
 - [[linux/curl]] — CLI/library URL transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential/protocol-selection history through CVE-2025-0167
@@ -262,3 +263,4 @@
 - [[linux/systemd]] — dominant Linux init system and service manager · advisory mapped · 6 advisories: notify-socket DoS, systemd-resolved OOB write (CVE-2017-9445 High AV:N) and UAF (CVE-2022-2526 Critical AV:N), journald stack clash (CVE-2018-16864), unit-name stack exhaustion (CVE-2021-33910), and udev local root execution (CVE-2026-40225)
 - [[linux/wget]] — GNU Wget CLI download tool · advisory mapped · 6 advisories covering FTP redirect file write (CVE-2016-4971 High), xattr credential exposure (CVE-2018-20483 High), buffer overflow (CVE-2019-5953 Critical), shorthand URL SSRF (CVE-2024-10524 Moderate), URL semicolon SSRF (CVE-2024-38428 Critical CVSS 9.1, fixed ≥ 1.25.0), and FTP PASV SSRF (CVE-2026-15146 Moderate, 2026)
 - [[linux/tar]] — GNU tar archive utility · advisory mapped · 5 advisories covering historical /.. traversal (CVE-2002-0399, CVE-2007-4131), POINTYFEATHER safer_name_suffix bypass (CVE-2016-6321 High CVSS 7.5, fixed ≥ 1.30), V7 mtime OOB read (CVE-2022-48303 High), and two-step symlink traversal bypass (CVE-2025-45582 Moderate, affects ≤ 1.35)
+- [[linux/vim]] — GNU vi-improved text editor · advisory mapped · 12 of 174+ GHSA advisories mapped across heap buffer overflow (CWE-122), use-after-free (CWE-416), integer overflow (CWE-190), and modeline code-execution classes spanning CVE-2004-1138 through CVE-2023-4750; 9.x line receives near-weekly patches
