@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*244 tracked pages across 9 ecosystems. Last updated: 2026-08-03.*
+*246 tracked pages across 9 ecosystems. Last updated: 2026-08-05.*
 
 ## npm (93)
 
@@ -98,7 +98,7 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (28)
+## Rust / crates.io (30)
 - [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/ed25519-dalek]] — canonical Rust Ed25519 signing library · advisory mapped · RUSTSEC-2022-0093 / CVE-2022-50237 / GHSA-w5vr-6qhr-36cc (High crypto-failure: double public key signing oracle attack enabling private key extraction from decoupled private/public keypair API; fixed ≥ 2.0.0); ~179M total crates.io downloads; current 3.0.0
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
@@ -127,6 +127,8 @@
 - [[rust/time]] — date-and-time library · advisory mapped · RUSTSEC-2020-0071 localtime_r segfault on Unix (0.1.x permanently affected, 0.2.7–0.2.22 fixed in 0.2.23) and RUSTSEC-2026-0009 / CVE-2026-25727 RFC 2822 stack-exhaustion DoS fixed in 0.3.47; ~738M total downloads
 - [[rust/tokio]] — async runtime foundation · advisory mapped · memory-safety / unsoundness and Windows named-pipe boundary history
 - [[rust/tower-http]] — Tower HTTP middleware layer (axum foundation) · advisory mapped · RUSTSEC-2022-0043 / GHSA-qrqq-9c63-xfrg Windows path traversal in ServeDir fixed ≥ 0.2.1; ~7.5M/week est., ~331M total downloads
+- [[rust/sqlx]] — async Rust SQL toolkit · advisory mapped · RUSTSEC-2024-0363 / GHSA-xmrp-424f-vfpx binary protocol format injection via u32 overflow when encoding values > 4 GiB (demonstrated against PostgreSQL); fixed 0.8.1
+- [[rust/tonic]] — dominant Rust gRPC framework · advisory mapped · RUSTSEC-2024-0376 / CVE-2024-47609 / GHSA-4jwc-w2hc-78qv remotely exploitable DoS via uncovered error in TCP/TLS accept loop (affects exactly 0.12.2, fixed 0.12.3)
 
 ## .NET / NuGet (10)
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High, TLS bypass enabling network MitM, CWE-319); current stable 7.0.2 unaffected; transitive dep of EF Core SQL Server
