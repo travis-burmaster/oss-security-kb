@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*246 tracked pages across 9 ecosystems. Last updated: 2026-08-05.*
+*248 tracked pages across 9 ecosystems. Last updated: 2026-08-07.*
 
 ## npm (93)
 
@@ -98,7 +98,7 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (30)
+## Rust / crates.io (31)
 - [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/ed25519-dalek]] — canonical Rust Ed25519 signing library · advisory mapped · RUSTSEC-2022-0093 / CVE-2022-50237 / GHSA-w5vr-6qhr-36cc (High crypto-failure: double public key signing oracle attack enabling private key extraction from decoupled private/public keypair API; fixed ≥ 2.0.0); ~179M total crates.io downloads; current 3.0.0
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
@@ -129,6 +129,7 @@
 - [[rust/tower-http]] — Tower HTTP middleware layer (axum foundation) · advisory mapped · RUSTSEC-2022-0043 / GHSA-qrqq-9c63-xfrg Windows path traversal in ServeDir fixed ≥ 0.2.1; ~7.5M/week est., ~331M total downloads
 - [[rust/sqlx]] — async Rust SQL toolkit · advisory mapped · RUSTSEC-2024-0363 / GHSA-xmrp-424f-vfpx binary protocol format injection via u32 overflow when encoding values > 4 GiB (demonstrated against PostgreSQL); fixed 0.8.1
 - [[rust/tonic]] — dominant Rust gRPC framework · advisory mapped · RUSTSEC-2024-0376 / CVE-2024-47609 / GHSA-4jwc-w2hc-78qv remotely exploitable DoS via uncovered error in TCP/TLS accept loop (affects exactly 0.12.2, fixed 0.12.3)
+- [[rust/nix]] — foundational Rust POSIX/Unix system call bindings · advisory mapped · RUSTSEC-2021-0119 / CVE-2021-45707 / GHSA-76w9-p8mg-j927 (High: heap buffer overflow in nix::unistd::getgrouplist for users with >16 group memberships; affects Linux/FreeBSD/Android/NetBSD/DragonFly/OpenBSD/Fuchsia; not macOS; versions < 0.16.0 unaffected; patched ≥ 0.20.2 / ≥ 0.21.2 / ≥ 0.22.2 / ≥ 0.23.0); ~12.1M/week est., ~710M total downloads
 
 ## .NET / NuGet (10)
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High, TLS bypass enabling network MitM, CWE-319); current stable 7.0.2 unaffected; transitive dep of EF Core SQL Server
@@ -177,7 +178,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (23)
+## Go (24)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -201,6 +202,7 @@
 - [[go/github.com/tidwall/gjson]] — fast Go JSON path extraction library · advisory mapped · OOB panic cluster CVE-2020-35380/36066/36067 (3× High) fixed across 1.6.4–1.6.6 plus ReDoS CVE-2021-42836 (High CVSS 9.1) fixed in 1.9.3; 10,420+ importers; current 1.19.0 unaffected
 - [[go/github.com/miekg/dns]] — foundational Go DNS client/server library (CoreDNS, Consul) · advisory mapped · 3 advisories 2017–2019: TCP timing DoS (GHSA-p55x-7x9v-q8m4 High), ParseZone nil-ptr-deref DoS (GHSA-9jcx-pr2f-qvq5 High), predictable TXID DNS forgery via math/rand (GHSA-44r7-7p62-q3fr Moderate); fixed through 1.1.25; 16,234+ importers
 - [[go/github.com/jackc/pgx]] — dominant pure-Go PostgreSQL driver and toolkit · advisory mapped · 7 advisories 2024–2026: SQL injection via simple-protocol line comment (CVE-2024-27289, v4), SQL injection via 4 GB message-size integer overflow (CVE-2024-27304, v4/v5), Pipeline panic DoS (GHSA-fqpg-rq76-99pq, v5), pgproto3/v2 DataRow negative-length panic DoS (CVE-2026-32286 High CVSS 7.5), two memory-safety vulnerabilities (CVE-2026-33815/33816 High, fixed v5.9.0), and SQL injection via dollar-quoted string literal placeholder confusion (CVE-2026-41889, simple protocol; v4/v3 EOL/no patch); fixed through v5.9.2; 13,000+ pkg.go.dev importers
+- [[go/github.com/go-git/go-git]] — pure-Go Git implementation · advisory mapped · 6 advisories 2023–2026: path traversal → RCE via ChrootOS (CVE-2023-49569 Critical CVSS 9.8), argument injection → RCE via file:// URL (CVE-2025-21613 Critical CVSS 9.8), two DoS advisories fixed in 5.11.0 and 5.13.0 (CVE-2023-49568 High / CVE-2025-21614 High), commit signature bypass (CVE-2026-45022 Moderate), and object-parsing DoS (GHSA-w5pp-99ch-qj29 Moderate); fixed through 5.19.1; ~4,979 importers
 
 ## Homebrew (6)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
@@ -239,7 +241,7 @@
 - [[maven/org.springframework.security/spring-security-web]] — Spring Security web module · advisory mapped · request-matcher bypass, WebFlux static-resource authorization, security-header, SecurityContext, and X.509 identity-extraction history through 2026
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression evaluation RCE risk when fed untrusted expressions (CVE-2024-36404)
 - [[maven/org.apache.struts/struts2-core]] — Apache Struts 2 web framework · advisory mapped · 16 of 60 GHSA advisories mapped: Critical S2-045/CVE-2017-5638 Equifax RCE, Freemarker RCE (S2-053), forced OGNL eval (S2-062), file upload path traversal RCE pair (S2-066/S2-067), and multipart DoS history through 2025; current 6.8.0 / 7.1.1
-- [[maven/org.apache.shiro/shiro-core]] — Apache Shiro auth/authz framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022), "remember me" cookie RCE+padding oracle, RegexRequestMatcher bypass (CVE-2022-32532), LDAP injection (CVE-2026-49268), and session fixation; current 2.2.1
+- [[maven/org.apache.shiro/shiro-core]] — Apache Shiro auth/authz framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022), “remember me” cookie RCE+padding oracle, RegexRequestMatcher bypass (CVE-2022-32532), LDAP injection (CVE-2026-49268), and session fixation; current 2.2.1
 - [[maven/com.thoughtworks.xstream/xstream]] — XStream Java XML serialization/deserialization library · advisory mapped · 31 advisories 2020–2022 mapped: CVE-2020-26217 RCE (fixed 1.4.14); CVE-2020-26258/26259 SSRF + arbitrary file deletion (fixed 1.4.15); March 2021 batch (11 CVEs — ACE, SSRF, DoS, file deletion — fixed 1.4.16); CVE-2021-29505 RCE (fixed 1.4.17); August 2021 batch (14 CVEs — 12× ACE/RCE High CVSS 9.0–9.1 + 1× SSRF pair + 1× DoS — fixed 1.4.18, whitelist model introduced); CVE-2021-43859 DoS via recursive collections (fixed 1.4.19); CVE-2022-40151 stack-overflow DoS (fixed 1.4.20)
 
 ## Kubernetes (8)
