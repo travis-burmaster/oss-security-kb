@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*248 tracked pages across 9 ecosystems. Last updated: 2026-08-07.*
+*250 tracked pages across 9 ecosystems. Last updated: 2026-08-08.*
 
 ## npm (93)
 
@@ -98,7 +98,7 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (31)
+## Rust / crates.io (32)
 - [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/ed25519-dalek]] — canonical Rust Ed25519 signing library · advisory mapped · RUSTSEC-2022-0093 / CVE-2022-50237 / GHSA-w5vr-6qhr-36cc (High crypto-failure: double public key signing oracle attack enabling private key extraction from decoupled private/public keypair API; fixed ≥ 2.0.0); ~179M total crates.io downloads; current 3.0.0
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
@@ -130,6 +130,7 @@
 - [[rust/sqlx]] — async Rust SQL toolkit · advisory mapped · RUSTSEC-2024-0363 / GHSA-xmrp-424f-vfpx binary protocol format injection via u32 overflow when encoding values > 4 GiB (demonstrated against PostgreSQL); fixed 0.8.1
 - [[rust/tonic]] — dominant Rust gRPC framework · advisory mapped · RUSTSEC-2024-0376 / CVE-2024-47609 / GHSA-4jwc-w2hc-78qv remotely exploitable DoS via uncovered error in TCP/TLS accept loop (affects exactly 0.12.2, fixed 0.12.3)
 - [[rust/nix]] — foundational Rust POSIX/Unix system call bindings · advisory mapped · RUSTSEC-2021-0119 / CVE-2021-45707 / GHSA-76w9-p8mg-j927 (High: heap buffer overflow in nix::unistd::getgrouplist for users with >16 group memberships; affects Linux/FreeBSD/Android/NetBSD/DragonFly/OpenBSD/Fuchsia; not macOS; versions < 0.16.0 unaffected; patched ≥ 0.20.2 / ≥ 0.21.2 / ≥ 0.22.2 / ≥ 0.23.0); ~12.1M/week est., ~710M total downloads
+- [[rust/rocket]] — type-safety-focused Rust web framework · advisory mapped · RUSTSEC-2020-0028 (Moderate: LocalRequest::clone aliased mutable references / UB, fixed 0.4.5) and RUSTSEC-2021-0044 (Low: uri::Formatter use-after-free on panic, fixed 0.4.7); both on 0.4.x line; current stable 0.5.1 unaffected; ~1.2M/week, ~12.5M total downloads
 
 ## .NET / NuGet (10)
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High, TLS bypass enabling network MitM, CWE-319); current stable 7.0.2 unaffected; transitive dep of EF Core SQL Server
@@ -254,7 +255,7 @@
 - [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, adjacent-network access, seccomp bypass, Windows command injection, gitRepo RCE, and checkpoint-API disk-fill history through CVE-2025-0426
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
 
-## Linux (13)
+## Linux (14)
 - [[linux/bash]] — GNU Bourne-Again SHell · advisory mapped · ShellShock cluster (CVE-2014-6271 Critical CVSS 9.8 and 3 incomplete-fix follow-ons) plus heap-buffer overflow in parameter_transform.c (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
 - [[linux/curl]] — CLI/library URL transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential/protocol-selection history through CVE-2025-0167
@@ -268,3 +269,4 @@
 - [[linux/wget]] — GNU Wget CLI download tool · advisory mapped · 6 advisories covering FTP redirect file write (CVE-2016-4971 High), xattr credential exposure (CVE-2018-20483 High), buffer overflow (CVE-2019-5953 Critical), shorthand URL SSRF (CVE-2024-10524 Moderate), URL semicolon SSRF (CVE-2024-38428 Critical CVSS 9.1, fixed ≥ 1.25.0), and FTP PASV SSRF (CVE-2026-15146 Moderate, 2026)
 - [[linux/tar]] — GNU tar archive utility · advisory mapped · 5 advisories covering historical /.. traversal (CVE-2002-0399, CVE-2007-4131), POINTYFEATHER safer_name_suffix bypass (CVE-2016-6321 High CVSS 7.5, fixed ≥ 1.30), V7 mtime OOB read (CVE-2022-48303 High), and two-step symlink traversal bypass (CVE-2025-45582 Moderate, affects ≤ 1.35)
 - [[linux/vim]] — GNU vi-improved text editor · advisory mapped · 12 of 174+ GHSA advisories mapped across heap buffer overflow (CWE-122), use-after-free (CWE-416), integer overflow (CWE-190), and modeline code-execution classes spanning CVE-2004-1138 through CVE-2023-4750; 9.x line receives near-weekly patches
+- [[linux/apache2]] — Apache HTTP Server · advisory mapped · 11 CVEs mapped 2017–2024: Critical mod_proxy SSRF (CVE-2021-40438, CISA KEV), Critical CVE-2021-41773/CVE-2021-42013 path traversal → RCE pair (actively exploited in wild), Critical HTTP request-smuggling cluster (CVE-2022-22720, CVE-2022-36760, CVE-2023-25690), Critical mod_rewrite pair (CVE-2024-38474/38475, CVE-2024-38476), and local privilege escalation via MPM scoreboard (CVE-2019-0211 High); current maintained line 2.4.x
