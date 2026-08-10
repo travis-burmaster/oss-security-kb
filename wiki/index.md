@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*250 tracked pages across 9 ecosystems. Last updated: 2026-08-08.*
+*254 tracked pages across 9 ecosystems. Last updated: 2026-08-10.*
 
 ## npm (93)
 
@@ -98,7 +98,7 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (32)
+## Rust / crates.io (34)
 - [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/ed25519-dalek]] — canonical Rust Ed25519 signing library · advisory mapped · RUSTSEC-2022-0093 / CVE-2022-50237 / GHSA-w5vr-6qhr-36cc (High crypto-failure: double public key signing oracle attack enabling private key extraction from decoupled private/public keypair API; fixed ≥ 2.0.0); ~179M total crates.io downloads; current 3.0.0
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
@@ -131,8 +131,10 @@
 - [[rust/tonic]] — dominant Rust gRPC framework · advisory mapped · RUSTSEC-2024-0376 / CVE-2024-47609 / GHSA-4jwc-w2hc-78qv remotely exploitable DoS via uncovered error in TCP/TLS accept loop (affects exactly 0.12.2, fixed 0.12.3)
 - [[rust/nix]] — foundational Rust POSIX/Unix system call bindings · advisory mapped · RUSTSEC-2021-0119 / CVE-2021-45707 / GHSA-76w9-p8mg-j927 (High: heap buffer overflow in nix::unistd::getgrouplist for users with >16 group memberships; affects Linux/FreeBSD/Android/NetBSD/DragonFly/OpenBSD/Fuchsia; not macOS; versions < 0.16.0 unaffected; patched ≥ 0.20.2 / ≥ 0.21.2 / ≥ 0.22.2 / ≥ 0.23.0); ~12.1M/week est., ~710M total downloads
 - [[rust/rocket]] — type-safety-focused Rust web framework · advisory mapped · RUSTSEC-2020-0028 (Moderate: LocalRequest::clone aliased mutable references / UB, fixed 0.4.5) and RUSTSEC-2021-0044 (Low: uri::Formatter use-after-free on panic, fixed 0.4.7); both on 0.4.x line; current stable 0.5.1 unaffected; ~1.2M/week, ~12.5M total downloads
+- [[rust/prost]] — dominant Rust Protocol Buffers library (tokio-rs org) · advisory mapped · RUSTSEC-2020-0002 / CVE-2020-35858 / GHSA-gv73-9mwv-fwgq (Critical CVSS 9.8: stack overflow decoding deeply nested protobuf messages → DoS on x86, potential memory corruption / RCE on ARM; fixed ≥ 0.6.1); ~122M/week est., ~524M total downloads; foundation for tonic gRPC
+- [[rust/zerocopy]] — Google-maintained zero-copy memory-manipulation library (Fuchsia / Chromium / Android) · advisory mapped · RUSTSEC-2023-0074 (Moderate: Ref methods unsoundness via cell::Ref / cell::RefMut buffer type — safe code can trigger UB; narrow usage pattern; no CVE; fixed 0.2.9 / 0.3.2 / 0.4.1 / 0.5.2 / 0.6.6 / 0.7.31); ~17M/week est., ~792M total downloads
 
-## .NET / NuGet (10)
+## .NET / NuGet (11)
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High, TLS bypass enabling network MitM, CWE-319); current stable 7.0.2 unaffected; transitive dep of EF Core SQL Server
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
@@ -143,6 +145,7 @@
 - [[dotnet/System.Security.Cryptography.Xml]] — encrypted XML support · advisory mapped · 5 public XML-processing / information-disclosure / EncryptedXml advisories
 - [[dotnet/YamlDotNet]] — dominant .NET YAML parsing and serialization library · advisory mapped · insecure deserialization / arbitrary type instantiation via YAML type tags fixed in 5.0.0 (GHSA-rpch-cqj9-h65r / CVE-2018-1000210 High CVSS 9.0)
 - [[dotnet/Duende.IdentityServer]] — Duende.IdentityServer and EOL predecessor IdentityServer4 · advisory mapped · CVE-2024-39694 open redirect (Moderate; no fix for EOL IdentityServer4 ≤ 4.1.2) and CVE-2024-49755 DPoP cnf-claim validation bypass (Low, fixed Duende 7.0.8); ~94M combined NuGet downloads
+- [[dotnet/Microsoft.AspNetCore.Authentication.Negotiate]] — ASP.NET Core Windows/Kerberos/NTLM authentication handler · advisory mapped · CVE-2026-47300 (High CVSS 8.8: EoP via improper validation in LDAP role retrieval) and CVE-2026-47303 (High CVSS 8.8: EoP via improper parsing + LDAP injection); both fixed in .NET 8.0.29 / 9.0.18 / 10.0.10 (July 2026); ~56.3M total NuGet downloads
 
 ## Python / PyPI (33)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
@@ -205,13 +208,14 @@
 - [[go/github.com/jackc/pgx]] — dominant pure-Go PostgreSQL driver and toolkit · advisory mapped · 7 advisories 2024–2026: SQL injection via simple-protocol line comment (CVE-2024-27289, v4), SQL injection via 4 GB message-size integer overflow (CVE-2024-27304, v4/v5), Pipeline panic DoS (GHSA-fqpg-rq76-99pq, v5), pgproto3/v2 DataRow negative-length panic DoS (CVE-2026-32286 High CVSS 7.5), two memory-safety vulnerabilities (CVE-2026-33815/33816 High, fixed v5.9.0), and SQL injection via dollar-quoted string literal placeholder confusion (CVE-2026-41889, simple protocol; v4/v3 EOL/no patch); fixed through v5.9.2; 13,000+ pkg.go.dev importers
 - [[go/github.com/go-git/go-git]] — pure-Go Git implementation · advisory mapped · 6 advisories 2023–2026: path traversal → RCE via ChrootOS (CVE-2023-49569 Critical CVSS 9.8), argument injection → RCE via file:// URL (CVE-2025-21613 Critical CVSS 9.8), two DoS advisories fixed in 5.11.0 and 5.13.0 (CVE-2023-49568 High / CVE-2025-21614 High), commit signature bypass (CVE-2026-45022 Moderate), and object-parsing DoS (GHSA-w5pp-99ch-qj29 Moderate); fixed through 5.19.1; ~4,979 importers
 
-## Homebrew (6)
+## Homebrew (7)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
 - [[homebrew/curl]] — macOS Homebrew curl formula (OpenSSL-backed) · advisory mapped · 6 upstream CVEs through CVE-2025-0167 plus Homebrew-specific macOS patch-lag and OpenSSL-vs-LibreSSL backend context
 - [[homebrew/git]] — developer VCS formula tracking upstream git-scm.com · advisory mapped · 7 CVEs including Critical CVE-2024-32002 (macOS submodule+symlink RCE on case-insensitive FS)
 - [[homebrew/imagemagick]] — image-processing formula · advisory mapped · 4 representative advisories from 698+ CVE history: ImageTragick CVE-2016-3714 (CISA KEV, RCE), CVE-2022-44268 (PNG file read), CVE-2023-34151 (SVG/MVG integer overflow), CVE-2026-61857 (XMP UAF crash); ≥ 7.1.2-26 required
 - [[homebrew/wget]] — GNU Wget CLI download tool · advisory mapped · CVE-2024-38428 (Critical CVSS 9.1: URL semicolon mishandling enabling SSRF/credential exposure, fixed ≥ 1.25.0) and CVE-2016-4971 (High CVSS 8.8: HTTP-to-FTP redirect arbitrary file write, fixed ≥ 1.18)
 - [[homebrew/ffmpeg]] — multimedia codec/processing framework · advisory mapped · 4 representative advisories from 700+ CVE history: PNM heap overflow (CVE-2024-7055 Medium, fixed 7.0.2), audio resampler heap overflow (CVE-2024-7272 Medium, fixed 5.1.6/6.0+), HLS M3U8 concat/subfile arbitrary file read pair (CVE-2016-1897/1898 Moderate, fixed ≥ 3.0); current formula 8.1.2
+- [[homebrew/sqlite]] — embedded database C library formula · advisory mapped · CVE-2022-35737 (High CVSS 9.1: printf array-bounds overflow, fixed upstream 3.39.2) and CVE-2025-6965 (High CVSS 9.8: aggregate function memory corruption, fixed upstream 3.50.2); macOS system SQLite lags independently
 
 ## Maven / Java (30)
 - [[maven/com.h2database/h2]] — H2 embedded RDBMS (Java) · advisory mapped · 2 Critical CVSS 9.8 advisories (CVE-2021-42392 JNDI/Console RCE + CVE-2022-23221 JDBC URL RCE), XXE (CVE-2021-23463 High), and plaintext credential exposure (CVE-2022-45868 High); fixed across 2.0.x through 2.2.220; ubiquitous Spring Boot test dependency
@@ -242,7 +246,7 @@
 - [[maven/org.springframework.security/spring-security-web]] — Spring Security web module · advisory mapped · request-matcher bypass, WebFlux static-resource authorization, security-header, SecurityContext, and X.509 identity-extraction history through 2026
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression evaluation RCE risk when fed untrusted expressions (CVE-2024-36404)
 - [[maven/org.apache.struts/struts2-core]] — Apache Struts 2 web framework · advisory mapped · 16 of 60 GHSA advisories mapped: Critical S2-045/CVE-2017-5638 Equifax RCE, Freemarker RCE (S2-053), forced OGNL eval (S2-062), file upload path traversal RCE pair (S2-066/S2-067), and multipart DoS history through 2025; current 6.8.0 / 7.1.1
-- [[maven/org.apache.shiro/shiro-core]] — Apache Shiro auth/authz framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022), “remember me” cookie RCE+padding oracle, RegexRequestMatcher bypass (CVE-2022-32532), LDAP injection (CVE-2026-49268), and session fixation; current 2.2.1
+- [[maven/org.apache.shiro/shiro-core]] — Apache Shiro auth/authz framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022), "remember me" cookie RCE+padding oracle, RegexRequestMatcher bypass (CVE-2022-32532), LDAP injection (CVE-2026-49268), and session fixation; current 2.2.1
 - [[maven/com.thoughtworks.xstream/xstream]] — XStream Java XML serialization/deserialization library · advisory mapped · 31 advisories 2020–2022 mapped: CVE-2020-26217 RCE (fixed 1.4.14); CVE-2020-26258/26259 SSRF + arbitrary file deletion (fixed 1.4.15); March 2021 batch (11 CVEs — ACE, SSRF, DoS, file deletion — fixed 1.4.16); CVE-2021-29505 RCE (fixed 1.4.17); August 2021 batch (14 CVEs — 12× ACE/RCE High CVSS 9.0–9.1 + 1× SSRF pair + 1× DoS — fixed 1.4.18, whitelist model introduced); CVE-2021-43859 DoS via recursive collections (fixed 1.4.19); CVE-2022-40151 stack-overflow DoS (fixed 1.4.20)
 
 ## Kubernetes (8)
@@ -262,7 +266,7 @@
 - [[linux/git]] — foundational VCS pre-installed on all Linux systems · advisory mapped · two Critical RCE batches (2023-01, 2024-05), path traversal via git apply, submodule config injection, and case-insensitive FS clone hook execution (CVE-2024-32002)
 - [[linux/glibc]] — GNU C Library · advisory mapped · GHOST heap overflow (CVE-2015-0235 Critical), getaddrinfo stack overflow (CVE-2015-7547 High), iconv assertion abort, mq_notify UAF, Looney Tunables ld.so LPE in CISA KEV (CVE-2023-4911 High), and 2026 getrandom entropy flaw
 - [[linux/nginx]] — dominant web server and reverse proxy · advisory mapped · range-filter integer overflow, HTTP request smuggling, critical DNS resolver off-by-one, and ngx_http_mp4_module memory-corruption/disclosure cluster through CVE-2024-7347
-- [[linux/openssl]] — cross-distro cryptographic library anchor · baseline stub · upstream-first page for future distro normalization
+- [[linux/openssl]] — cross-distro cryptographic library anchor · advisory mapped · Heartbleed (CVE-2014-0160 Critical), BN_mod_sqrt DoS (CVE-2022-0778 High), Nov-2022 X.509 buffer-overflow pair (CVE-2022-3602/3786 High), BIO use-after-free (CVE-2023-0215 High), GeneralName type confusion (CVE-2023-0286 High), and 2026 RSA-KEM / AES-CFB fixes through 3.6.2
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin, and VerifyHostKeyDNS MITM history through 9.9p2
 - [[linux/sudo]] — privilege-boundary package · advisory mapped · pwfeedback, Baron Samedit, host-option, and chroot local privilege-escalation history
 - [[linux/systemd]] — dominant Linux init system and service manager · advisory mapped · 6 advisories: notify-socket DoS, systemd-resolved OOB write (CVE-2017-9445 High AV:N) and UAF (CVE-2022-2526 Critical AV:N), journald stack clash (CVE-2018-16864), unit-name stack exhaustion (CVE-2021-33910), and udev local root execution (CVE-2026-40225)
