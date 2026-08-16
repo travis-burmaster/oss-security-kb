@@ -12,5 +12,7 @@
 
 - [[homebrew/sqlite]] — embedded database C library formula · advisory mapped · CVE-2022-35737 (High CVSS 9.1: printf array-bounds overflow, fixed upstream 3.39.2) and CVE-2025-6965 (High CVSS 9.8: aggregate function memory corruption, fixed upstream 3.50.2); macOS system SQLite lags independently
 
+- [[homebrew/gnupg]] — GNU Privacy Guard (OpenPGP) formula · advisory mapped · 4 CVEs 2019–2025: SHA-1 signature forgery (CVE-2019-14855 Moderate, fixed 2.2.18), signature spoofing via injected key (CVE-2022-34903 Moderate, fixed 2.3.8), form-feed signature bypass (CVE-2025-68972 Moderate, affects through 2.4.8), armor.c memcpy issue (CVE-2025-68973 High, fixed 2.2.51 LTS / 2.5.x); current formula 2.5.21
+
 ## Future Targets
 - `git-lfs` — Git Large File Storage; separate CVE history from upstream git
