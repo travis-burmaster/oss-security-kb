@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*258 tracked pages across 9 ecosystems. Last updated: 2026-08-19.*
+*260 tracked pages across 9 ecosystems. Last updated: 2026-08-20.*
 
 ## npm (93)
 
@@ -98,7 +98,7 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (35)
+## Rust / crates.io (36)
 - [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/ed25519-dalek]] — canonical Rust Ed25519 signing library · advisory mapped · RUSTSEC-2022-0093 / CVE-2022-50237 / GHSA-w5vr-6qhr-36cc (High crypto-failure: double public key signing oracle attack enabling private key extraction from decoupled private/public keypair API; fixed ≥ 2.0.0); ~179M total crates.io downloads; current 3.0.0
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
@@ -134,6 +134,7 @@
 - [[rust/prost]] — dominant Rust Protocol Buffers library (tokio-rs org) · advisory mapped · RUSTSEC-2020-0002 / CVE-2020-35858 / GHSA-gv73-9mwv-fwgq (Critical CVSS 9.8: stack overflow decoding deeply nested protobuf messages → DoS on x86, potential memory corruption / RCE on ARM; fixed ≥ 0.6.1); ~122M/week est., ~524M total downloads; foundation for tonic gRPC
 - [[rust/zerocopy]] — Google-maintained zero-copy memory-manipulation library (Fuchsia / Chromium / Android) · advisory mapped · RUSTSEC-2023-0074 (Moderate: Ref methods unsoundness via cell::Ref / cell::RefMut buffer type — safe code can trigger UB; narrow usage pattern; no CVE; fixed 0.2.9 / 0.3.2 / 0.4.1 / 0.5.2 / 0.6.6 / 0.7.31); ~17M/week est., ~792M total downloads
 - [[rust/image]] — dominant Rust image encoding/decoding library (PNG/JPEG/GIF/BMP/TIFF/WebP/HDR) · advisory mapped · RUSTSEC-2019-0014 / CVE-2019-16138 (Critical CVSS 9.8: HDR decoder drops uninitialized types → use-after-free / ACE, fixed 0.21.3) and RUSTSEC-2020-0073 / CVE-2020-35916 (Moderate CVSS 7.1: aliased mutable reference from as_ptr(), fixed 0.23.12); ~3.3M/week est., ~170M total downloads
+- [[rust/rsa]] — pure Rust RSA implementation (RustCrypto) · advisory mapped · CVE-2023-49092 / RUSTSEC-2023-0071 Marvin Attack timing side-channel leaking private key; all versions through 0.9.10 affected; no patched version as of 2026-08-20; ~202.9M total downloads
 
 ## .NET / NuGet (12)
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High, TLS bypass enabling network MitM, CWE-319); current stable 7.0.2 unaffected; transitive dep of EF Core SQL Server
@@ -184,7 +185,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (26)
+## Go (27)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -211,6 +212,7 @@
 - [[go/github.com/go-git/go-git]] — pure-Go Git implementation · advisory mapped · 6 advisories 2023–2026: path traversal → RCE via ChrootOS (CVE-2023-49569 Critical CVSS 9.8), argument injection → RCE via file:// URL (CVE-2025-21613 Critical CVSS 9.8), two DoS advisories fixed in 5.11.0 and 5.13.0 (CVE-2023-49568 High / CVE-2025-21614 High), commit signature bypass (CVE-2026-45022 Moderate), and object-parsing DoS (GHSA-w5pp-99ch-qj29 Moderate); fixed through 5.19.1; ~4,979 importers
 - [[go/github.com/open-policy-agent/opa]] — CNCF-graduated open-source policy engine (Rego) · advisory mapped · 6 direct advisories 2022–2025: AST parser OOB / DoS cluster, AST pretty-print logic flaw, WithUnsafeBuiltins bypass (High CVSS 7.1), Windows SMB force-auth, and Data API Rego injection (High CVSS 7.3); fixed through 1.4.0; plus opa-envoy-plugin auth bypass (CVE-2026-26205)
 - [[go/github.com/dgrijalva/jwt-go]] — archived Go JWT library · advisory mapped · CVE-2020-26160 / GHSA-w73w-5m7g-f7qc (High CVSS 7.5: audience claim bypass via []string{} type-assertion failure in MapClaims.VerifyAudience; no patch — package archived; migrate to golang-jwt/jwt ≥ 3.2.1); 29,217 importers
+- [[go/golang.org-x-oauth2]] — canonical Go OAuth 2.0 client library (Go extended stdlib) · advisory mapped · CVE-2025-22868 / GHSA-6v2p-p543-phr9 High: malformed token memory-exhaustion DoS in jws sub-package fixed in v0.27.0; 48,088+ importers
 
 ## Homebrew (7)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
