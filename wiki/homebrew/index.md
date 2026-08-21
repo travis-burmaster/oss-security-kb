@@ -11,6 +11,7 @@
 - [[homebrew/ffmpeg]] — multimedia codec/processing framework · advisory mapped · 4 representative advisories from 700+ CVE history: PNM heap overflow (CVE-2024-7055 Medium, fixed 7.0.2), audio resampler heap overflow (CVE-2024-7272 Medium, fixed 5.1.6/6.0+), HLS M3U8 concat/subfile arbitrary file read (CVE-2016-1897/1898 Moderate); current formula 8.1.2
 
 - [[homebrew/sqlite]] — embedded database C library formula · advisory mapped · CVE-2022-35737 (High CVSS 9.1: printf array-bounds overflow, fixed upstream 3.39.2) and CVE-2025-6965 (High CVSS 9.8: aggregate function memory corruption, fixed upstream 3.50.2); macOS system SQLite lags independently
+- [[homebrew/gnupg]] — GNU Privacy Guard OpenPGP implementation · advisory mapped · 4 advisories: CVE-2018-9234 (High: missing offline-master-key enforcement, design limitation), CVE-2019-13050 (High CVSS 9.0: SKS keyserver certificate-flood DoS, no patch; mitigate by switching keyserver), CVE-2021-40528 (Moderate: Libgcrypt ElGamal plaintext recovery, fixed Libgcrypt 1.9.4), CVE-2022-34903 (Moderate: GPGME status-line signature forgery, fixed GnuPG 2.3.7/2.2.36)
 
 ## Future Targets
 - `git-lfs` — Git Large File Storage; separate CVE history from upstream git
