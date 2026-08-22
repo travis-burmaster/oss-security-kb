@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*260 tracked pages across 9 ecosystems. Last updated: 2026-08-20.*
+*264 tracked pages across 9 ecosystems. Last updated: 2026-08-22.*
 
 ## npm (93)
 
@@ -185,7 +185,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (27)
+## Go (28)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -213,21 +213,24 @@
 - [[go/github.com/open-policy-agent/opa]] — CNCF-graduated open-source policy engine (Rego) · advisory mapped · 6 direct advisories 2022–2025: AST parser OOB / DoS cluster, AST pretty-print logic flaw, WithUnsafeBuiltins bypass (High CVSS 7.1), Windows SMB force-auth, and Data API Rego injection (High CVSS 7.3); fixed through 1.4.0; plus opa-envoy-plugin auth bypass (CVE-2026-26205)
 - [[go/github.com/dgrijalva/jwt-go]] — archived Go JWT library · advisory mapped · CVE-2020-26160 / GHSA-w73w-5m7g-f7qc (High CVSS 7.5: audience claim bypass via []string{} type-assertion failure in MapClaims.VerifyAudience; no patch — package archived; migrate to golang-jwt/jwt ≥ 3.2.1); 29,217 importers
 - [[go/golang.org-x-oauth2]] — canonical Go OAuth 2.0 client library (Go extended stdlib) · advisory mapped · CVE-2025-22868 / GHSA-6v2p-p543-phr9 High: malformed token memory-exhaustion DoS in jws sub-package fixed in v0.27.0; 48,088+ importers
+- [[go/github.com/hashicorp/vault]] — HashiCorp Vault secrets management platform · advisory mapped · representative sample of 6 of 61 reviewed advisories: recurring root-namespace identity endpoint privilege escalation (CVE-2024-9180 High, CVE-2025-5999 High CVSS 9.1), TLS cert auth bypass (CVE-2025-6037), KVv2 glob policy bypass DoS (CVE-2026-3605 High), PKI/ACME SSRF (CVE-2026-5052), Shamir cache-timing (CVE-2023-25000); latest stable 2.0.4; also affects OpenBao fork
 
-## Homebrew (7)
+## Homebrew (8)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
 - [[homebrew/curl]] — macOS Homebrew curl formula (OpenSSL-backed) · advisory mapped · 6 upstream CVEs through CVE-2025-0167 plus Homebrew-specific macOS patch-lag and OpenSSL-vs-LibreSSL backend context
 - [[homebrew/git]] — developer VCS formula tracking upstream git-scm.com · advisory mapped · 7 CVEs including Critical CVE-2024-32002 (macOS submodule+symlink RCE on case-insensitive FS)
+- [[homebrew/gnupg]] — GnuPG encryption and signing tool formula · advisory mapped · 4 advisories: CVE-2018-9234 (High, offline master key enforcement gap, design limitation), CVE-2019-13050 (High CVSS 9.0, SKS keyserver cert-flood DoS, no GnuPG patch), CVE-2021-40528 (Moderate, Libgcrypt ElGamal plaintext recovery, fixed Libgcrypt 1.9.4), CVE-2022-34903 (Moderate, GPGME status-line signature forgery, fixed GnuPG 2.3.7/2.2.36)
 - [[homebrew/imagemagick]] — image-processing formula · advisory mapped · 4 representative advisories from 698+ CVE history: ImageTragick CVE-2016-3714 (CISA KEV, RCE), CVE-2022-44268 (PNG file read), CVE-2023-34151 (SVG/MVG integer overflow), CVE-2026-61857 (XMP UAF crash); ≥ 7.1.2-26 required
 - [[homebrew/wget]] — GNU Wget CLI download tool · advisory mapped · CVE-2024-38428 (Critical CVSS 9.1: URL semicolon mishandling enabling SSRF/credential exposure, fixed ≥ 1.25.0) and CVE-2016-4971 (High CVSS 8.8: HTTP-to-FTP redirect arbitrary file write, fixed ≥ 1.18)
 - [[homebrew/ffmpeg]] — multimedia codec/processing framework · advisory mapped · 4 representative advisories from 700+ CVE history: PNM heap overflow (CVE-2024-7055 Medium, fixed 7.0.2), audio resampler heap overflow (CVE-2024-7272 Medium, fixed 5.1.6/6.0+), HLS M3U8 concat/subfile arbitrary file read pair (CVE-2016-1897/1898 Moderate, fixed ≥ 3.0); current formula 8.1.2
 - [[homebrew/sqlite]] — embedded database C library formula · advisory mapped · CVE-2022-35737 (High CVSS 9.1: printf array-bounds overflow, fixed upstream 3.39.2) and CVE-2025-6965 (High CVSS 9.8: aggregate function memory corruption, fixed upstream 3.50.2); macOS system SQLite lags independently
 
-## Maven / Java (30)
+## Maven / Java (31)
 - [[maven/com.h2database/h2]] — H2 embedded RDBMS (Java) · advisory mapped · 2 Critical CVSS 9.8 advisories (CVE-2021-42392 JNDI/Console RCE + CVE-2022-23221 JDBC URL RCE), XXE (CVE-2021-23463 High), and plaintext credential exposure (CVE-2022-45868 High); fixed across 2.0.x through 2.2.220; ubiquitous Spring Boot test dependency
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
 - [[maven/com.google.guava/guava]] — Google Guava core Java utility library · advisory mapped · deserialization allocation DoS plus local temp-file / temp-directory exposure history fixed through the 24.1.1 and 32.0.x lines
+- [[maven/com.google.protobuf/protobuf-java]] — Google Protocol Buffers Java runtime · advisory mapped · 5 advisories 2021–2024: CVE-2024-7254 (High DoS via StackOverflow in unknown field parsing, fixed 3.25.5/4.27.5/4.28.2), CVE-2022-3510/3509 (High resource consumption in extension/textformat parsing), CVE-2022-3171 (Moderate repeated embedded-message DoS), CVE-2021-22569 (High GC-pressure DoS); recurring parser-DoS pattern; withdrawn advisory CVE-2021-22570 noted
 - [[maven/org.apache.commons/commons-lang3]] — Apache Commons Lang utility library · advisory mapped · `ClassUtils.getClass(...)` uncontrolled-recursion DoS fixed in 3.18.0
 - [[maven/org.apache.commons/commons-text]] — Apache Commons Text string interpolation library · advisory mapped · CVE-2022-42889 / GHSA-599f-7c49-w659 Text4Shell Critical CVSS 9.8: StringSubstitutor default `script:` / `dns:` / `url:` lookups enable RCE and SSRF on untrusted input; fixed 1.10.0
 - [[maven/com.fasterxml.jackson.core/jackson-databind]] — Jackson data-binding library · advisory mapped · dense polymorphic-deserialization gadget CVE history plus XXE and resource-exhaustion records through 2022
@@ -265,7 +268,7 @@
 - [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, adjacent-network access, seccomp bypass, Windows command injection, gitRepo RCE, and checkpoint-API disk-fill history through CVE-2025-0426
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
 
-## Linux (14)
+## Linux (15)
 - [[linux/bash]] — GNU Bourne-Again SHell · advisory mapped · ShellShock cluster (CVE-2014-6271 Critical CVSS 9.8 and 3 incomplete-fix follow-ons) plus heap-buffer overflow in parameter_transform.c (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
 - [[linux/curl]] — CLI/library URL transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential/protocol-selection history through CVE-2025-0167
@@ -280,3 +283,4 @@
 - [[linux/tar]] — GNU tar archive utility · advisory mapped · 5 advisories covering historical /.. traversal (CVE-2002-0399, CVE-2007-4131), POINTYFEATHER safer_name_suffix bypass (CVE-2016-6321 High CVSS 7.5, fixed ≥ 1.30), V7 mtime OOB read (CVE-2022-48303 High), and two-step symlink traversal bypass (CVE-2025-45582 Moderate, affects ≤ 1.35)
 - [[linux/vim]] — GNU vi-improved text editor · advisory mapped · 12 of 174+ GHSA advisories mapped across heap buffer overflow (CWE-122), use-after-free (CWE-416), integer overflow (CWE-190), and modeline code-execution classes spanning CVE-2004-1138 through CVE-2023-4750; 9.x line receives near-weekly patches
 - [[linux/apache2]] — Apache HTTP Server · advisory mapped · 11 CVEs mapped 2017–2024: Critical mod_proxy SSRF (CVE-2021-40438, CISA KEV), Critical CVE-2021-41773/CVE-2021-42013 path traversal → RCE pair (actively exploited in wild), Critical HTTP request-smuggling cluster (CVE-2022-22720, CVE-2022-36760, CVE-2023-25690), Critical mod_rewrite pair (CVE-2024-38474/38475, CVE-2024-38476), and local privilege escalation via MPM scoreboard (CVE-2019-0211 High); current maintained line 2.4.x
+- [[linux/zlib]] — zlib data compression library · advisory mapped · CVE-2018-25032 (High CVSS 7.5: deflate memory corruption with many distant matches, fixed 1.2.12), CVE-2022-37434 (Critical CVSS 9.8: inflate heap buffer over-read/overflow via gzip header extra field, fixed 1.2.12.1), CVE-2023-45853 (Critical CVSS 9.8: MiniZip contrib integer overflow → heap overflow via long filename/comment, fixed 1.3.1); high blast radius: statically bundled in many container images and linked by nginx, git, curl, CPython, OpenSSH
