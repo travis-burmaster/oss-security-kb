@@ -12,6 +12,7 @@ Scope notes:
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
 - [[maven/com.google.guava/guava]] — Google Guava core Java utility library · advisory mapped · deserialization allocation DoS plus local temp-file / temp-directory exposure history fixed through the 24.1.1 and 32.0.x lines
+- [[maven/com.google.protobuf/protobuf-java]] — Google Protocol Buffers Java runtime · advisory mapped · 5 advisories 2021–2024: CVE-2024-7254 (High DoS via StackOverflow in unknown field/extension parsing, fixed 3.25.5/4.27.5/4.28.2), CVE-2022-3510/3509 (High resource consumption in Message-Type extension and text-format parsing), CVE-2022-3171 (Moderate repeated embedded-message GC-pressure DoS), CVE-2021-22569 (High unknown-field quadratic-allocation DoS); recurring parser-DoS pattern; foundational dep of gRPC-Java and Google Cloud Java SDKs
 - [[maven/org.apache.commons/commons-lang3]] — Apache Commons Lang utility library · advisory mapped · `ClassUtils.getClass(...)` uncontrolled-recursion DoS fixed in 3.18.0
 - [[maven/org.apache.commons/commons-text]] — Apache Commons Text string interpolation library · advisory mapped · CVE-2022-42889 / GHSA-599f-7c49-w659 Text4Shell Critical CVSS 9.8: `StringSubstitutor` default-enabled `script:` / `dns:` / `url:` lookups enable RCE and SSRF when processing untrusted strings; fixed 1.10.0 (disables dangerous interpolators by default)
 - [[maven/com.fasterxml.jackson.core/jackson-databind]] — Jackson data-binding library · advisory mapped · dense polymorphic-deserialization gadget CVE history plus XXE and resource-exhaustion records through 2022
@@ -40,4 +41,4 @@ Scope notes:
 - [[maven/com.thoughtworks.xstream/xstream]] — XStream Java XML/object serialization library · advisory mapped · 31 advisories 2020–2022 mapped: CVE-2020-26217 RCE (fixed 1.4.14); CVE-2020-26258/26259 SSRF + arbitrary file deletion (fixed 1.4.15); March 2021 batch (11 CVEs — ACE, SSRF, file deletion, DoS cluster, all fixed 1.4.16); CVE-2021-29505 RCE (fixed 1.4.17); August 2021 batch (14 CVEs — 12× ACE/RCE High CVSS 9.0–9.1, 1× SSRF pair, 1× DoS, all fixed 1.4.18, whitelist model introduced); CVE-2021-43859 DoS via recursive collections (High, fixed 1.4.19); CVE-2022-40151 stack-overflow DoS (High, fixed 1.4.20)
 
 ---
-*Last updated: 2026-08-01*
+*Last updated: 2026-08-22*
