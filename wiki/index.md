@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*264 tracked pages across 9 ecosystems. Last updated: 2026-08-22.*
+*266 tracked pages across 9 ecosystems. Last updated: 2026-08-23.*
 
 ## npm (93)
 
@@ -98,7 +98,7 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (36)
+## Rust / crates.io (37)
 - [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/ed25519-dalek]] — canonical Rust Ed25519 signing library · advisory mapped · RUSTSEC-2022-0093 / CVE-2022-50237 / GHSA-w5vr-6qhr-36cc (High crypto-failure: double public key signing oracle attack enabling private key extraction from decoupled private/public keypair API; fixed ≥ 2.0.0); ~179M total crates.io downloads; current 3.0.0
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
@@ -135,6 +135,7 @@
 - [[rust/zerocopy]] — Google-maintained zero-copy memory-manipulation library (Fuchsia / Chromium / Android) · advisory mapped · RUSTSEC-2023-0074 (Moderate: Ref methods unsoundness via cell::Ref / cell::RefMut buffer type — safe code can trigger UB; narrow usage pattern; no CVE; fixed 0.2.9 / 0.3.2 / 0.4.1 / 0.5.2 / 0.6.6 / 0.7.31); ~17M/week est., ~792M total downloads
 - [[rust/image]] — dominant Rust image encoding/decoding library (PNG/JPEG/GIF/BMP/TIFF/WebP/HDR) · advisory mapped · RUSTSEC-2019-0014 / CVE-2019-16138 (Critical CVSS 9.8: HDR decoder drops uninitialized types → use-after-free / ACE, fixed 0.21.3) and RUSTSEC-2020-0073 / CVE-2020-35916 (Moderate CVSS 7.1: aliased mutable reference from as_ptr(), fixed 0.23.12); ~3.3M/week est., ~170M total downloads
 - [[rust/rsa]] — pure Rust RSA implementation (RustCrypto) · advisory mapped · CVE-2023-49092 / RUSTSEC-2023-0071 Marvin Attack timing side-channel leaking private key; all versions through 0.9.10 affected; no patched version as of 2026-08-20; ~202.9M total downloads
+- [[rust/diesel]] — dominant Rust ORM and query builder (PostgreSQL / MySQL / SQLite) · advisory mapped · 6 advisories 2021–2026: CVE-2021-28305 / RUSTSEC-2021-0037 SQLite UAF in query_by_name (Critical CVSS 9.8, fixed 1.4.6), RUSTSEC-2024-0365 PostgreSQL binary protocol query smuggling via u32 overflow (High CVSS 8.6, fixed 2.2.3), and 2026 cluster (GHSA-h5x4-m2qf-r4f2 UTF-8 corruption, RUSTSEC-2026-0136 PostgreSQL COPY argument injection, RUSTSEC-2026-0137 SqliteAggregate unaligned allocation, GHSA-ggxf-9f6j-w742 SqliteConnection UAF — all fixed 2.3.8–2.3.10); ~6.3M/week est., ~33.8M total downloads
 
 ## .NET / NuGet (12)
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High, TLS bypass enabling network MitM, CWE-319); current stable 7.0.2 unaffected; transitive dep of EF Core SQL Server
@@ -258,7 +259,7 @@
 - [[maven/org.apache.shiro/shiro-core]] — Apache Shiro auth/authz framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022), "remember me" cookie RCE+padding oracle, RegexRequestMatcher bypass (CVE-2022-32532), LDAP injection (CVE-2026-49268), and session fixation; current 2.2.1
 - [[maven/com.thoughtworks.xstream/xstream]] — XStream Java XML serialization/deserialization library · advisory mapped · 31 advisories 2020–2022 mapped: CVE-2020-26217 RCE (fixed 1.4.14); CVE-2020-26258/26259 SSRF + arbitrary file deletion (fixed 1.4.15); March 2021 batch (11 CVEs — ACE, SSRF, DoS, file deletion — fixed 1.4.16); CVE-2021-29505 RCE (fixed 1.4.17); August 2021 batch (14 CVEs — 12× ACE/RCE High CVSS 9.0–9.1 + 1× SSRF pair + 1× DoS — fixed 1.4.18, whitelist model introduced); CVE-2021-43859 DoS via recursive collections (fixed 1.4.19); CVE-2022-40151 stack-overflow DoS (fixed 1.4.20)
 
-## Kubernetes (8)
+## Kubernetes (9)
 - [[kubernetes/argo-cd]] — Argo CD CNCF GitOps delivery tool · advisory mapped · 56 public GHSA advisories 2018–2026 (31 individually mapped): Critical auth bypass (CVE-2022-24768 CVSS 9.9, CVE-2022-29165 9.8, CVE-2024-21652 9.8), Critical OIDC JWT bypass (CVE-2023-22482), Critical cluster-secret RBAC bypass (CVE-2023-23947), Critical ServerSideDiff secret extraction (CVE-2026-42880 9.1); recurring SSO/symlink/brute-force-bypass history; fixed through v3.4.2
 - [[kubernetes/ingress-nginx]] — most widely deployed Kubernetes ingress controller · advisory mapped · 12 GHSA advisories 2021–2025: annotation/path-field credential-disclosure cluster (CVE-2021-25742/25745/25746/25748), path-sanitization log_format bypass (CVE-2022-4886 High CVSS 8.1), annotation command-injection pair (CVE-2023-5043/5044 High), annotation-validation bypass (CVE-2024-7646 Critical CVSS 9.9), and IngressNightmare cluster (CVE-2025-1097/1098/24514 Critical + CVE-2025-1974 Critical CVSS 9.8 unauthenticated RCE via admission webhook); fixed through 1.11.5 / 1.12.1
 - [[kubernetes/kube-proxy]] — network rules / service proxy DaemonSet · advisory mapped · loopback-access bypass (CVE-2020-8558 High AV:A, shared with kubelet) and Windows LoadBalancer traffic-forwarding bypass (CVE-2021-25736 Moderate); also a chained exploitation target in CVE-2026-31431 (copy.fail) kernel privilege escalation
@@ -267,6 +268,7 @@
 - [[kubernetes/kube-apiserver]] — control-plane API surface · audit ingested · RBAC, admission, authn, and impersonation risk review
 - [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, adjacent-network access, seccomp bypass, Windows command injection, gitRepo RCE, and checkpoint-API disk-fill history through CVE-2025-0426
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
+- [[kubernetes/cert-manager]] — CNCF-incubating Kubernetes certificate management controller · advisory mapped · CVE-2024-12401 / GHSA-r4pg-vg54-wxx4 (Moderate CVSS 5.9: PEM parsing CPU DoS fixed 1.12.14/1.15.4/1.16.2) and CVE-2026-25518 / GHSA-gx3x-vq4p-mhhv (Moderate: DNS response controller panic DoS fixed 1.18.5/1.19.3); deployed in 60%+ of production Kubernetes clusters; 13,000+ GitHub stars
 
 ## Linux (15)
 - [[linux/bash]] — GNU Bourne-Again SHell · advisory mapped · ShellShock cluster (CVE-2014-6271 Critical CVSS 9.8 and 3 incomplete-fix follow-ons) plus heap-buffer overflow in parameter_transform.c (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
