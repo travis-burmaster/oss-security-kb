@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*266 tracked pages across 9 ecosystems. Last updated: 2026-08-23.*
+*268 tracked pages across 9 ecosystems. Last updated: 2026-08-24.*
 
 ## npm (93)
 
@@ -137,7 +137,8 @@
 - [[rust/rsa]] — pure Rust RSA implementation (RustCrypto) · advisory mapped · CVE-2023-49092 / RUSTSEC-2023-0071 Marvin Attack timing side-channel leaking private key; all versions through 0.9.10 affected; no patched version as of 2026-08-20; ~202.9M total downloads
 - [[rust/diesel]] — dominant Rust ORM and query builder (PostgreSQL / MySQL / SQLite) · advisory mapped · 6 advisories 2021–2026: CVE-2021-28305 / RUSTSEC-2021-0037 SQLite UAF in query_by_name (Critical CVSS 9.8, fixed 1.4.6), RUSTSEC-2024-0365 PostgreSQL binary protocol query smuggling via u32 overflow (High CVSS 8.6, fixed 2.2.3), and 2026 cluster (GHSA-h5x4-m2qf-r4f2 UTF-8 corruption, RUSTSEC-2026-0136 PostgreSQL COPY argument injection, RUSTSEC-2026-0137 SqliteAggregate unaligned allocation, GHSA-ggxf-9f6j-w742 SqliteConnection UAF — all fixed 2.3.8–2.3.10); ~6.3M/week est., ~33.8M total downloads
 
-## .NET / NuGet (12)
+## .NET / NuGet (13)
+- [[dotnet/Azure.Identity]] — Microsoft Azure authentication library for .NET · advisory mapped · CVE-2023-36414 (High CVSS 8.8 AV:N: CLI credential provider command injection / RCE, fixed 1.10.2), CVE-2024-29992 (Moderate CVSS 7.1: local credential information disclosure, fixed 1.11.0), CVE-2024-35255 (High CVSS 7.1: TOCTOU EoP race in token-cache file handling, cross-ecosystem NuGet/PyPI/npm/Maven/Go, fixed 1.11.4); 1.9B+ total NuGet downloads; latest stable 1.21.0
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High, TLS bypass enabling network MitM, CWE-319); current stable 7.0.2 unaffected; transitive dep of EF Core SQL Server
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · nested-input DoS fixed in 13.0.1 and safer depth defaults
@@ -259,7 +260,8 @@
 - [[maven/org.apache.shiro/shiro-core]] — Apache Shiro auth/authz framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022), "remember me" cookie RCE+padding oracle, RegexRequestMatcher bypass (CVE-2022-32532), LDAP injection (CVE-2026-49268), and session fixation; current 2.2.1
 - [[maven/com.thoughtworks.xstream/xstream]] — XStream Java XML serialization/deserialization library · advisory mapped · 31 advisories 2020–2022 mapped: CVE-2020-26217 RCE (fixed 1.4.14); CVE-2020-26258/26259 SSRF + arbitrary file deletion (fixed 1.4.15); March 2021 batch (11 CVEs — ACE, SSRF, DoS, file deletion — fixed 1.4.16); CVE-2021-29505 RCE (fixed 1.4.17); August 2021 batch (14 CVEs — 12× ACE/RCE High CVSS 9.0–9.1 + 1× SSRF pair + 1× DoS — fixed 1.4.18, whitelist model introduced); CVE-2021-43859 DoS via recursive collections (fixed 1.4.19); CVE-2022-40151 stack-overflow DoS (fixed 1.4.20)
 
-## Kubernetes (9)
+## Kubernetes (10)
+- [[kubernetes/coredns]] — CNCF-graduated default Kubernetes DNS server · advisory mapped · 15 GHSA advisories 2019–2026: April 2026 cluster (5 advisories: TSIG auth bypass pair CVE-2026-33190/35579 High, transfer ACL bypass CVE-2026-33489 High, DoH/DoQ DoS pair CVE-2026-32934/32936 High — all fixed 1.14.3), March 2026 ACL+loop fixes (CVE-2026-26017/26018 High — fixed 1.14.2), 2025 DoQ memory exhaustion (CVE-2025-47950 High — fixed 1.12.2), TuDoor DoS (CVE-2023-28452), cache and namespace-redirect issues; deployed in all Kubernetes clusters since v1.13
 - [[kubernetes/argo-cd]] — Argo CD CNCF GitOps delivery tool · advisory mapped · 56 public GHSA advisories 2018–2026 (31 individually mapped): Critical auth bypass (CVE-2022-24768 CVSS 9.9, CVE-2022-29165 9.8, CVE-2024-21652 9.8), Critical OIDC JWT bypass (CVE-2023-22482), Critical cluster-secret RBAC bypass (CVE-2023-23947), Critical ServerSideDiff secret extraction (CVE-2026-42880 9.1); recurring SSO/symlink/brute-force-bypass history; fixed through v3.4.2
 - [[kubernetes/ingress-nginx]] — most widely deployed Kubernetes ingress controller · advisory mapped · 12 GHSA advisories 2021–2025: annotation/path-field credential-disclosure cluster (CVE-2021-25742/25745/25746/25748), path-sanitization log_format bypass (CVE-2022-4886 High CVSS 8.1), annotation command-injection pair (CVE-2023-5043/5044 High), annotation-validation bypass (CVE-2024-7646 Critical CVSS 9.9), and IngressNightmare cluster (CVE-2025-1097/1098/24514 Critical + CVE-2025-1974 Critical CVSS 9.8 unauthenticated RCE via admission webhook); fixed through 1.11.5 / 1.12.1
 - [[kubernetes/kube-proxy]] — network rules / service proxy DaemonSet · advisory mapped · loopback-access bypass (CVE-2020-8558 High AV:A, shared with kubelet) and Windows LoadBalancer traffic-forwarding bypass (CVE-2021-25736 Moderate); also a chained exploitation target in CVE-2026-31431 (copy.fail) kernel privilege escalation
