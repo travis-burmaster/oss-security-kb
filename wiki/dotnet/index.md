@@ -1,6 +1,7 @@
 # .NET / NuGet Index
 
 ## Seed Pages
+- [[dotnet/Azure.Identity]] — Microsoft Azure authentication library for .NET · advisory mapped · CVE-2023-36414 (High CVSS 8.8 AV:N: CLI credential provider command injection / RCE, fixed 1.10.2), CVE-2024-29992 (Moderate CVSS 7.1: local credential information disclosure, fixed 1.11.0), CVE-2024-35255 (High CVSS 7.1: TOCTOU EoP race in token-cache, cross-ecosystem, fixed 1.11.4); 1.9B+ total NuGet downloads; latest stable 1.21.0
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver (transitive dep of EF Core SQL Server) · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High CVSS C:H/I:H, TLS bypass enabling network MitM of SQL traffic, CWE-319); current stable 7.0.2 unaffected
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
 - [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · deeply nested JSON DoS fixed in 13.0.1
