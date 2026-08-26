@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*268 tracked pages across 9 ecosystems. Last updated: 2026-08-24.*
+*270 tracked pages across 9 ecosystems. Last updated: 2026-08-26.*
 
 ## npm (93)
 
@@ -187,7 +187,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (28)
+## Go (30)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -216,6 +216,8 @@
 - [[go/github.com/dgrijalva/jwt-go]] — archived Go JWT library · advisory mapped · CVE-2020-26160 / GHSA-w73w-5m7g-f7qc (High CVSS 7.5: audience claim bypass via []string{} type-assertion failure in MapClaims.VerifyAudience; no patch — package archived; migrate to golang-jwt/jwt ≥ 3.2.1); 29,217 importers
 - [[go/golang.org-x-oauth2]] — canonical Go OAuth 2.0 client library (Go extended stdlib) · advisory mapped · CVE-2025-22868 / GHSA-6v2p-p543-phr9 High: malformed token memory-exhaustion DoS in jws sub-package fixed in v0.27.0; 48,088+ importers
 - [[go/github.com/hashicorp/vault]] — HashiCorp Vault secrets management platform · advisory mapped · representative sample of 6 of 61 reviewed advisories: recurring root-namespace identity endpoint privilege escalation (CVE-2024-9180 High, CVE-2025-5999 High CVSS 9.1), TLS cert auth bypass (CVE-2025-6037), KVv2 glob policy bypass DoS (CVE-2026-3605 High), PKI/ACME SSRF (CVE-2026-5052), Shamir cache-timing (CVE-2023-25000); latest stable 2.0.4; also affects OpenBao fork
+- [[go/k8s.io/client-go]] — Kubernetes official Go client library · advisory mapped · 3 advisories 2019–2020: bearer-token credential logging at verbosity level 7+ (CVE-2019-11250 Moderate CVSS 6.5 AV:N), world-writable kubectl cache directory (CVE-2019-11244 Moderate AV:L), incomplete-fix credential logging at verbosity level 9+ (CVE-2020-8565 Moderate AV:L); all fixed through client-go 0.19.6 / 0.20.0-alpha.2
+- [[go/github.com/aws/aws-sdk-go]] — AWS SDK for Go v1 (archived/EOL 2025-07-31) · advisory mapped · 3 advisories 2020–2022 in S3 Crypto SDK: CBC padding oracle (CVE-2020-8911 Moderate), unauthenticated algorithm selection (CVE-2020-8912 Low), unencrypted plaintext MD5 hash in object metadata (CVE-2022-2582 Moderate); all fixed in v1.34.0; migrate to aws-sdk-go-v2
 
 ## Homebrew (8)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
