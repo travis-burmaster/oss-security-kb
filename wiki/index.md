@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*270 tracked pages across 9 ecosystems. Last updated: 2026-08-26.*
+*274 tracked pages across 9 ecosystems. Last updated: 2026-08-28.*
 
 ## npm (93)
 
@@ -98,7 +98,7 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (37)
+## Rust / crates.io (38)
 - [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/ed25519-dalek]] — canonical Rust Ed25519 signing library · advisory mapped · RUSTSEC-2022-0093 / CVE-2022-50237 / GHSA-w5vr-6qhr-36cc (High crypto-failure: double public key signing oracle attack enabling private key extraction from decoupled private/public keypair API; fixed ≥ 2.0.0); ~179M total crates.io downloads; current 3.0.0
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
@@ -136,8 +136,9 @@
 - [[rust/image]] — dominant Rust image encoding/decoding library (PNG/JPEG/GIF/BMP/TIFF/WebP/HDR) · advisory mapped · RUSTSEC-2019-0014 / CVE-2019-16138 (Critical CVSS 9.8: HDR decoder drops uninitialized types → use-after-free / ACE, fixed 0.21.3) and RUSTSEC-2020-0073 / CVE-2020-35916 (Moderate CVSS 7.1: aliased mutable reference from as_ptr(), fixed 0.23.12); ~3.3M/week est., ~170M total downloads
 - [[rust/rsa]] — pure Rust RSA implementation (RustCrypto) · advisory mapped · CVE-2023-49092 / RUSTSEC-2023-0071 Marvin Attack timing side-channel leaking private key; all versions through 0.9.10 affected; no patched version as of 2026-08-20; ~202.9M total downloads
 - [[rust/diesel]] — dominant Rust ORM and query builder (PostgreSQL / MySQL / SQLite) · advisory mapped · 6 advisories 2021–2026: CVE-2021-28305 / RUSTSEC-2021-0037 SQLite UAF in query_by_name (Critical CVSS 9.8, fixed 1.4.6), RUSTSEC-2024-0365 PostgreSQL binary protocol query smuggling via u32 overflow (High CVSS 8.6, fixed 2.2.3), and 2026 cluster (GHSA-h5x4-m2qf-r4f2 UTF-8 corruption, RUSTSEC-2026-0136 PostgreSQL COPY argument injection, RUSTSEC-2026-0137 SqliteAggregate unaligned allocation, GHSA-ggxf-9f6j-w742 SqliteConnection UAF — all fixed 2.3.8–2.3.10); ~6.3M/week est., ~33.8M total downloads
+- [[rust/zip]] — dominant Rust ZIP archive library · advisory mapped · RUSTSEC-2025-0168 / GHSA-94vh-gphv-8pm8 / CVE-2025-29787 (Medium CVSS 4.0: path traversal via symlinks during archive extraction in ZipArchive::extract and ZipStreamReader::extract; affects zip 1.3.0–2.2.x; fixed 2.3.0); ~5M/week est., ~250M total downloads
 
-## .NET / NuGet (13)
+## .NET / NuGet (14)
 - [[dotnet/Azure.Identity]] — Microsoft Azure authentication library for .NET · advisory mapped · CVE-2023-36414 (High CVSS 8.8 AV:N: CLI credential provider command injection / RCE, fixed 1.10.2), CVE-2024-29992 (Moderate CVSS 7.1: local credential information disclosure, fixed 1.11.0), CVE-2024-35255 (High CVSS 7.1: TOCTOU EoP race in token-cache file handling, cross-ecosystem NuGet/PyPI/npm/Maven/Go, fixed 1.11.4); 1.9B+ total NuGet downloads; latest stable 1.21.0
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High, TLS bypass enabling network MitM, CWE-319); current stable 7.0.2 unaffected; transitive dep of EF Core SQL Server
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
@@ -151,6 +152,7 @@
 - [[dotnet/Duende.IdentityServer]] — Duende.IdentityServer and EOL predecessor IdentityServer4 · advisory mapped · CVE-2024-39694 open redirect (Moderate; no fix for EOL IdentityServer4 ≤ 4.1.2) and CVE-2024-49755 DPoP cnf-claim validation bypass (Low, fixed Duende 7.0.8); ~94M combined NuGet downloads
 - [[dotnet/Microsoft.AspNetCore.Authentication.Negotiate]] — ASP.NET Core Windows/Kerberos/NTLM authentication handler · advisory mapped · CVE-2026-47300 (High CVSS 8.8: EoP via improper validation in LDAP role retrieval) and CVE-2026-47303 (High CVSS 8.8: EoP via improper parsing + LDAP injection); both fixed in .NET 8.0.29 / 9.0.18 / 10.0.10 (July 2026); ~56.3M total NuGet downloads
 - [[dotnet/log4net]] — Apache log4net .NET logging framework · advisory mapped · CVE-2018-1285 XXE in config parsing (Critical CVSS 9.8, fixed 2.0.10), CVE-2026-40021 XML log suppression (Moderate CVSS 5.3, fixed 3.3.0); 418M+ total NuGet downloads; NOT affected by Log4Shell
+- [[dotnet/Swashbuckle.AspNetCore]] — Swagger/OpenAPI UI middleware for ASP.NET Core · advisory mapped · GHSA-qrmm-w75w-3wpx (Moderate CWE-918 SSRF: SwaggerUI ?url parameter allows loading arbitrary remote OpenAPI definitions, enabling phishing via trusted domain's SwaggerUI; versions < 3.38.0 chainable with CVE-2020-26870 XSS; fixed 6.3.0); ~1.3B total NuGet downloads; latest stable 10.2.3
 
 ## Python / PyPI (33)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
@@ -187,7 +189,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (30)
+## Go (31)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -218,6 +220,7 @@
 - [[go/github.com/hashicorp/vault]] — HashiCorp Vault secrets management platform · advisory mapped · representative sample of 6 of 61 reviewed advisories: recurring root-namespace identity endpoint privilege escalation (CVE-2024-9180 High, CVE-2025-5999 High CVSS 9.1), TLS cert auth bypass (CVE-2025-6037), KVv2 glob policy bypass DoS (CVE-2026-3605 High), PKI/ACME SSRF (CVE-2026-5052), Shamir cache-timing (CVE-2023-25000); latest stable 2.0.4; also affects OpenBao fork
 - [[go/k8s.io/client-go]] — Kubernetes official Go client library · advisory mapped · 3 advisories 2019–2020: bearer-token credential logging at verbosity level 7+ (CVE-2019-11250 Moderate CVSS 6.5 AV:N), world-writable kubectl cache directory (CVE-2019-11244 Moderate AV:L), incomplete-fix credential logging at verbosity level 9+ (CVE-2020-8565 Moderate AV:L); all fixed through client-go 0.19.6 / 0.20.0-alpha.2
 - [[go/github.com/aws/aws-sdk-go]] — AWS SDK for Go v1 (archived/EOL 2025-07-31) · advisory mapped · 3 advisories 2020–2022 in S3 Crypto SDK: CBC padding oracle (CVE-2020-8911 Moderate), unauthenticated algorithm selection (CVE-2020-8912 Low), unencrypted plaintext MD5 hash in object metadata (CVE-2022-2582 Moderate); all fixed in v1.34.0; migrate to aws-sdk-go-v2
+- [[go/github.com/microcosm-cc/bluemonday]] — Go HTML sanitizer · advisory mapped · 2 direct advisories 2021: GHSA-3x58-xr87-2fcj / CVE-2021-29272 (Moderate CVSS 6.1: Cyrillic-lookalike SCRIPT tag bypass, fixed 1.0.5) and GHSA-x95h-979x-cf3j / CVE-2021-42576 (High NVD CVSS 9.8: SELECT/STYLE/OPTION element bypass, fixed 1.0.16); 2,680+ importers; current v1.0.27 unaffected
 
 ## Homebrew (8)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
@@ -274,7 +277,7 @@
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
 - [[kubernetes/cert-manager]] — CNCF-incubating Kubernetes certificate management controller · advisory mapped · CVE-2024-12401 / GHSA-r4pg-vg54-wxx4 (Moderate CVSS 5.9: PEM parsing CPU DoS fixed 1.12.14/1.15.4/1.16.2) and CVE-2026-25518 / GHSA-gx3x-vq4p-mhhv (Moderate: DNS response controller panic DoS fixed 1.18.5/1.19.3); deployed in 60%+ of production Kubernetes clusters; 13,000+ GitHub stars
 
-## Linux (15)
+## Linux (16)
 - [[linux/bash]] — GNU Bourne-Again SHell · advisory mapped · ShellShock cluster (CVE-2014-6271 Critical CVSS 9.8 and 3 incomplete-fix follow-ons) plus heap-buffer overflow in parameter_transform.c (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
 - [[linux/curl]] — CLI/library URL transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential/protocol-selection history through CVE-2025-0167
@@ -290,3 +293,4 @@
 - [[linux/vim]] — GNU vi-improved text editor · advisory mapped · 12 of 174+ GHSA advisories mapped across heap buffer overflow (CWE-122), use-after-free (CWE-416), integer overflow (CWE-190), and modeline code-execution classes spanning CVE-2004-1138 through CVE-2023-4750; 9.x line receives near-weekly patches
 - [[linux/apache2]] — Apache HTTP Server · advisory mapped · 11 CVEs mapped 2017–2024: Critical mod_proxy SSRF (CVE-2021-40438, CISA KEV), Critical CVE-2021-41773/CVE-2021-42013 path traversal → RCE pair (actively exploited in wild), Critical HTTP request-smuggling cluster (CVE-2022-22720, CVE-2022-36760, CVE-2023-25690), Critical mod_rewrite pair (CVE-2024-38474/38475, CVE-2024-38476), and local privilege escalation via MPM scoreboard (CVE-2019-0211 High); current maintained line 2.4.x
 - [[linux/zlib]] — zlib data compression library · advisory mapped · CVE-2018-25032 (High CVSS 7.5: deflate memory corruption with many distant matches, fixed 1.2.12), CVE-2022-37434 (Critical CVSS 9.8: inflate heap buffer over-read/overflow via gzip header extra field, fixed 1.2.12.1), CVE-2023-45853 (Critical CVSS 9.8: MiniZip contrib integer overflow → heap overflow via long filename/comment, fixed 1.3.1); high blast radius: statically bundled in many container images and linked by nginx, git, curl, CPython, OpenSSH
+- [[linux/rsync]] — Linux rsync file-synchronization daemon · advisory mapped · 6-CVE January 2025 cluster from Google Open Source Security Team: CVE-2024-12084 / GHSA-85h7-m8c3-v9wc (Critical CVSS 9.8: heap overflow in checksum parsing), CVE-2024-12085 (High CVSS 7.5: info leak via uninitialized stack), CVE-2024-12086/12087/12088 (Moderate: client-file enumeration, path traversal via --inc-recursive, --safe-links bypass), CVE-2024-12747 (Moderate CVSS 7.1: local symlink race); all fixed rsync 3.4.0
