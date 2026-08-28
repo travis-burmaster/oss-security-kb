@@ -1,3 +1,14 @@
+## [2026-08-28] advisory-review | zip (Rust/crates.io, new), bluemonday (Go, new); master-index correction
+Ran a public-information-only review pass targeting the Rust/crates.io and Go ecosystems. OSV.dev API blocked (HTTP 403); advisory content sourced from rustsec/advisory-db and github/advisory-database (via mcp__github__search_code and WebFetch on raw.githubusercontent.com). crates.io API accessible for zip download stats; pkg.go.dev used for bluemonday importer count. Evidence saved under `raw/advisory-review-20260828-0700/notes.md`.
+
+`rust/zip` added as new advisory-mapped page with 1 confirmed advisory: RUSTSEC-2025-0168 / GHSA-94vh-gphv-8pm8 / CVE-2025-29787 (Medium CVSS 4.0: path traversal via symlinks in ZipArchive::extract and ZipStreamReader::extract — symlinks placed earlier in an archive bypass canonical-path enforcement and allow subsequent files to be extracted to arbitrary filesystem locations; affects zip 1.3.0–2.2.x only; fixed 2.3.0; published 2026-03-16; ~5M/week est., ~250M all-time crates.io downloads).
+
+`go/github.com/microcosm-cc/bluemonday` added as new advisory-mapped page with 2 confirmed direct advisories: GHSA-3x58-xr87-2fcj / CVE-2021-29272 (Moderate CVSS 6.1: XSS via Cyrillic uppercase-to-lowercase script tag bypass — Go's strings.ToLower folds Cyrillic Dze and similar lookalike chars to ASCII, causing `ЅCRIPT` to match the block list; fixed 1.0.5); GHSA-x95h-979x-cf3j / CVE-2021-42576 (High NVD CVSS 9.8: SELECT, STYLE, and OPTION HTML elements bypass sanitization policy entirely in versions < 1.0.16; also affects pybluemonday < 0.0.8). 5 additional GHSA records mentioning "bluemonday" excluded as downstream consumer misconfigurations (gogs.io/gogs data-URI and Semantic-UI re-parsing issues; code.vikunja.io/api missing sanitization). 2,680+ pkg.go.dev importers; current v1.0.27 unaffected.
+
+Master index correction: wiki/index.md still showed 270 pages / 2026-08-26 despite PR #238 (2026-08-27) that added linux/rsync.md and dotnet/Swashbuckle.AspNetCore.md. Those files exist on disk but the master index header and section counts were not updated. Corrected this pass: Linux (15→16) with rsync added, .NET (13→14) with Swashbuckle.AspNetCore added, header updated 270→274 (270 + 2 retroactive + 2 new).
+
+Rust index updated from 37 to 38 pages; Go index updated from 30 to 31 pages; master index corrected and updated from 270 (stale) to 274 pages.
+
 ## [2026-08-27] advisory-review | rsync (Linux, new), Swashbuckle.AspNetCore (.NET/NuGet, new)
 Ran a public-information-only review pass targeting the Linux and .NET/NuGet ecosystems. OSV.dev API blocked (HTTP 403); advisory content sourced from github/advisory-database (via mcp__github__search_code and WebFetch on raw.githubusercontent.com). NuGet registry API consulted for Swashbuckle download stats. Evidence saved under `raw/advisory-review-20260827-0800/notes.md`.
 
