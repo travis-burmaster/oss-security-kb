@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*274 tracked pages across 9 ecosystems. Last updated: 2026-08-28.*
+*276 tracked pages across 9 ecosystems. Last updated: 2026-08-29.*
 
 ## npm (93)
 
@@ -98,7 +98,7 @@
 - [[npm/y18n]] — localization helper · advisory mapped · prototype-pollution fix coordinated across 3.x, 4.x, and 5.x
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 
-## Rust / crates.io (38)
+## Rust / crates.io (39)
 - [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/ed25519-dalek]] — canonical Rust Ed25519 signing library · advisory mapped · RUSTSEC-2022-0093 / CVE-2022-50237 / GHSA-w5vr-6qhr-36cc (High crypto-failure: double public key signing oracle attack enabling private key extraction from decoupled private/public keypair API; fixed ≥ 2.0.0); ~179M total crates.io downloads; current 3.0.0
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
@@ -137,6 +137,7 @@
 - [[rust/rsa]] — pure Rust RSA implementation (RustCrypto) · advisory mapped · CVE-2023-49092 / RUSTSEC-2023-0071 Marvin Attack timing side-channel leaking private key; all versions through 0.9.10 affected; no patched version as of 2026-08-20; ~202.9M total downloads
 - [[rust/diesel]] — dominant Rust ORM and query builder (PostgreSQL / MySQL / SQLite) · advisory mapped · 6 advisories 2021–2026: CVE-2021-28305 / RUSTSEC-2021-0037 SQLite UAF in query_by_name (Critical CVSS 9.8, fixed 1.4.6), RUSTSEC-2024-0365 PostgreSQL binary protocol query smuggling via u32 overflow (High CVSS 8.6, fixed 2.2.3), and 2026 cluster (GHSA-h5x4-m2qf-r4f2 UTF-8 corruption, RUSTSEC-2026-0136 PostgreSQL COPY argument injection, RUSTSEC-2026-0137 SqliteAggregate unaligned allocation, GHSA-ggxf-9f6j-w742 SqliteConnection UAF — all fixed 2.3.8–2.3.10); ~6.3M/week est., ~33.8M total downloads
 - [[rust/zip]] — dominant Rust ZIP archive library · advisory mapped · RUSTSEC-2025-0168 / GHSA-94vh-gphv-8pm8 / CVE-2025-29787 (Medium CVSS 4.0: path traversal via symlinks during archive extraction in ZipArchive::extract and ZipStreamReader::extract; affects zip 1.3.0–2.2.x; fixed 2.3.0); ~5M/week est., ~250M total downloads
+- [[rust/lettre]] — dominant Rust email sending library · advisory mapped · 3 advisories 2020–2026: CVE-2020-28247 (Moderate: Sendmail argument injection, fixed 0.7.1/0.8.4/0.9.5), CVE-2021-38189 / RUSTSEC-2021-0069 (Critical: SMTP command injection via period-escaping gap after double-CRLF, fixed 0.9.6/0.10.0-rc.3), CVE-2026-46428 (Critical CVSS 9.1: boring-tls backend inverted boolean disables TLS hostname verification, fixed 0.11.22); ~5.4M recent / 16M total downloads
 
 ## .NET / NuGet (14)
 - [[dotnet/Azure.Identity]] — Microsoft Azure authentication library for .NET · advisory mapped · CVE-2023-36414 (High CVSS 8.8 AV:N: CLI credential provider command injection / RCE, fixed 1.10.2), CVE-2024-29992 (Moderate CVSS 7.1: local credential information disclosure, fixed 1.11.0), CVE-2024-35255 (High CVSS 7.1: TOCTOU EoP race in token-cache file handling, cross-ecosystem NuGet/PyPI/npm/Maven/Go, fixed 1.11.4); 1.9B+ total NuGet downloads; latest stable 1.21.0
@@ -189,7 +190,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (31)
+## Go (32)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -221,6 +222,7 @@
 - [[go/k8s.io/client-go]] — Kubernetes official Go client library · advisory mapped · 3 advisories 2019–2020: bearer-token credential logging at verbosity level 7+ (CVE-2019-11250 Moderate CVSS 6.5 AV:N), world-writable kubectl cache directory (CVE-2019-11244 Moderate AV:L), incomplete-fix credential logging at verbosity level 9+ (CVE-2020-8565 Moderate AV:L); all fixed through client-go 0.19.6 / 0.20.0-alpha.2
 - [[go/github.com/aws/aws-sdk-go]] — AWS SDK for Go v1 (archived/EOL 2025-07-31) · advisory mapped · 3 advisories 2020–2022 in S3 Crypto SDK: CBC padding oracle (CVE-2020-8911 Moderate), unauthenticated algorithm selection (CVE-2020-8912 Low), unencrypted plaintext MD5 hash in object metadata (CVE-2022-2582 Moderate); all fixed in v1.34.0; migrate to aws-sdk-go-v2
 - [[go/github.com/microcosm-cc/bluemonday]] — Go HTML sanitizer · advisory mapped · 2 direct advisories 2021: GHSA-3x58-xr87-2fcj / CVE-2021-29272 (Moderate CVSS 6.1: Cyrillic-lookalike SCRIPT tag bypass, fixed 1.0.5) and GHSA-x95h-979x-cf3j / CVE-2021-42576 (High NVD CVSS 9.8: SELECT/STYLE/OPTION element bypass, fixed 1.0.16); 2,680+ importers; current v1.0.27 unaffected
+- [[go/github.com/gofiber/fiber]] — Express-inspired Go web framework (Fasthttp-based) · advisory mapped · 19 advisories 2020–2026: CORS wildcard reflection (CVE-2018-20744) and wildcard+credentials bypass (CVE-2024-25124 Critical), dual CSRF token flaws (CVE-2023-45128 Critical / CVE-2023-45141 High, fixed v2.50.0), Critical session fixation (CVE-2024-38513 CVSS 9.8), UUID zero-fallback compromising session/CSRF randomness (CVE-2025-66630 Critical), BodyParser DoS pair (CVE-2025-48075 / CVE-2025-54801 High), and v3 cluster: Windows path traversal (CVE-2026-25891), msgpack-DoS (CVE-2026-25899), BasicAuth timing oracle (CVE-2026-44332), Helmet HSTS regression (CVE-2026-53624); 40,100+ GitHub stars; 30,850+ v2 importers
 
 ## Homebrew (8)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
