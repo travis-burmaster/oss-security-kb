@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*276 tracked pages across 9 ecosystems. Last updated: 2026-08-29.*
+*278 tracked pages across 9 ecosystems. Last updated: 2026-09-02.*
 
 ## npm (93)
 
@@ -224,7 +224,7 @@
 - [[go/github.com/microcosm-cc/bluemonday]] — Go HTML sanitizer · advisory mapped · 2 direct advisories 2021: GHSA-3x58-xr87-2fcj / CVE-2021-29272 (Moderate CVSS 6.1: Cyrillic-lookalike SCRIPT tag bypass, fixed 1.0.5) and GHSA-x95h-979x-cf3j / CVE-2021-42576 (High NVD CVSS 9.8: SELECT/STYLE/OPTION element bypass, fixed 1.0.16); 2,680+ importers; current v1.0.27 unaffected
 - [[go/github.com/gofiber/fiber]] — Express-inspired Go web framework (Fasthttp-based) · advisory mapped · 19 advisories 2020–2026: CORS wildcard reflection (CVE-2018-20744) and wildcard+credentials bypass (CVE-2024-25124 Critical), dual CSRF token flaws (CVE-2023-45128 Critical / CVE-2023-45141 High, fixed v2.50.0), Critical session fixation (CVE-2024-38513 CVSS 9.8), UUID zero-fallback compromising session/CSRF randomness (CVE-2025-66630 Critical), BodyParser DoS pair (CVE-2025-48075 / CVE-2025-54801 High), and v3 cluster: Windows path traversal (CVE-2026-25891), msgpack-DoS (CVE-2026-25899), BasicAuth timing oracle (CVE-2026-44332), Helmet HSTS regression (CVE-2026-53624); 40,100+ GitHub stars; 30,850+ v2 importers
 
-## Homebrew (8)
+## Homebrew (9)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
 - [[homebrew/curl]] — macOS Homebrew curl formula (OpenSSL-backed) · advisory mapped · 6 upstream CVEs through CVE-2025-0167 plus Homebrew-specific macOS patch-lag and OpenSSL-vs-LibreSSL backend context
 - [[homebrew/git]] — developer VCS formula tracking upstream git-scm.com · advisory mapped · 7 CVEs including Critical CVE-2024-32002 (macOS submodule+symlink RCE on case-insensitive FS)
@@ -233,6 +233,7 @@
 - [[homebrew/wget]] — GNU Wget CLI download tool · advisory mapped · CVE-2024-38428 (Critical CVSS 9.1: URL semicolon mishandling enabling SSRF/credential exposure, fixed ≥ 1.25.0) and CVE-2016-4971 (High CVSS 8.8: HTTP-to-FTP redirect arbitrary file write, fixed ≥ 1.18)
 - [[homebrew/ffmpeg]] — multimedia codec/processing framework · advisory mapped · 4 representative advisories from 700+ CVE history: PNM heap overflow (CVE-2024-7055 Medium, fixed 7.0.2), audio resampler heap overflow (CVE-2024-7272 Medium, fixed 5.1.6/6.0+), HLS M3U8 concat/subfile arbitrary file read pair (CVE-2016-1897/1898 Moderate, fixed ≥ 3.0); current formula 8.1.2
 - [[homebrew/sqlite]] — embedded database C library formula · advisory mapped · CVE-2022-35737 (High CVSS 9.1: printf array-bounds overflow, fixed upstream 3.39.2) and CVE-2025-6965 (High CVSS 9.8: aggregate function memory corruption, fixed upstream 3.50.2); macOS system SQLite lags independently
+- [[homebrew/python]] — Homebrew Python formula tracking upstream CPython · advisory mapped · 6 GHSA advisories 2024–2026: tarfile hardlink→symlink path traversal (CVE-2026-11940 High, incomplete fix of CVE-2025-4330), asyncio writelines() OOM (CVE-2024-12254 High), webbrowser.open() CLI injection (CVE-2026-4519 Moderate), base64 silent truncation (CVE-2026-3446 Moderate), socket.socketpair() race on Windows (CVE-2024-3219 Medium), csv.Sniffer ReDoS (CVE-2026-18503 Low); 138 GHSA records not yet fully mapped
 
 ## Maven / Java (31)
 - [[maven/com.h2database/h2]] — H2 embedded RDBMS (Java) · advisory mapped · 2 Critical CVSS 9.8 advisories (CVE-2021-42392 JNDI/Console RCE + CVE-2022-23221 JDBC URL RCE), XXE (CVE-2021-23463 High), and plaintext credential exposure (CVE-2022-45868 High); fixed across 2.0.x through 2.2.220; ubiquitous Spring Boot test dependency
@@ -264,7 +265,7 @@
 - [[maven/org.springframework.security/spring-security-web]] — Spring Security web module · advisory mapped · request-matcher bypass, WebFlux static-resource authorization, security-header, SecurityContext, and X.509 identity-extraction history through 2026
 - [[maven/org.geotools/gt-complex]] — GeoTools complex feature / XPath handling · advisory mapped · XPath-expression evaluation RCE risk when fed untrusted expressions (CVE-2024-36404)
 - [[maven/org.apache.struts/struts2-core]] — Apache Struts 2 web framework · advisory mapped · 16 of 60 GHSA advisories mapped: Critical S2-045/CVE-2017-5638 Equifax RCE, Freemarker RCE (S2-053), forced OGNL eval (S2-062), file upload path traversal RCE pair (S2-066/S2-067), and multipart DoS history through 2025; current 6.8.0 / 7.1.1
-- [[maven/org.apache.shiro/shiro-core]] — Apache Shiro auth/authz framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022), "remember me" cookie RCE+padding oracle, RegexRequestMatcher bypass (CVE-2022-32532), LDAP injection (CVE-2026-49268), and session fixation; current 2.2.1
+- [[maven/org.apache.shiro/shiro-core]] — Apache Shiro auth/authz framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022), “remember me” cookie RCE+padding oracle, RegexRequestMatcher bypass (CVE-2022-32532), LDAP injection (CVE-2026-49268), and session fixation; current 2.2.1
 - [[maven/com.thoughtworks.xstream/xstream]] — XStream Java XML serialization/deserialization library · advisory mapped · 31 advisories 2020–2022 mapped: CVE-2020-26217 RCE (fixed 1.4.14); CVE-2020-26258/26259 SSRF + arbitrary file deletion (fixed 1.4.15); March 2021 batch (11 CVEs — ACE, SSRF, DoS, file deletion — fixed 1.4.16); CVE-2021-29505 RCE (fixed 1.4.17); August 2021 batch (14 CVEs — 12× ACE/RCE High CVSS 9.0–9.1 + 1× SSRF pair + 1× DoS — fixed 1.4.18, whitelist model introduced); CVE-2021-43859 DoS via recursive collections (fixed 1.4.19); CVE-2022-40151 stack-overflow DoS (fixed 1.4.20)
 
 ## Kubernetes (10)
@@ -279,7 +280,7 @@
 - [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · /proc/self/exe container escape, TOCTOU mount race, capabilities elevation, access-control regression, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak container breakout through 1.1.12
 - [[kubernetes/cert-manager]] — CNCF-incubating Kubernetes certificate management controller · advisory mapped · CVE-2024-12401 / GHSA-r4pg-vg54-wxx4 (Moderate CVSS 5.9: PEM parsing CPU DoS fixed 1.12.14/1.15.4/1.16.2) and CVE-2026-25518 / GHSA-gx3x-vq4p-mhhv (Moderate: DNS response controller panic DoS fixed 1.18.5/1.19.3); deployed in 60%+ of production Kubernetes clusters; 13,000+ GitHub stars
 
-## Linux (16)
+## Linux (17)
 - [[linux/bash]] — GNU Bourne-Again SHell · advisory mapped · ShellShock cluster (CVE-2014-6271 Critical CVSS 9.8 and 3 incomplete-fix follow-ons) plus heap-buffer overflow in parameter_transform.c (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
 - [[linux/curl]] — CLI/library URL transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential/protocol-selection history through CVE-2025-0167
@@ -296,3 +297,4 @@
 - [[linux/apache2]] — Apache HTTP Server · advisory mapped · 11 CVEs mapped 2017–2024: Critical mod_proxy SSRF (CVE-2021-40438, CISA KEV), Critical CVE-2021-41773/CVE-2021-42013 path traversal → RCE pair (actively exploited in wild), Critical HTTP request-smuggling cluster (CVE-2022-22720, CVE-2022-36760, CVE-2023-25690), Critical mod_rewrite pair (CVE-2024-38474/38475, CVE-2024-38476), and local privilege escalation via MPM scoreboard (CVE-2019-0211 High); current maintained line 2.4.x
 - [[linux/zlib]] — zlib data compression library · advisory mapped · CVE-2018-25032 (High CVSS 7.5: deflate memory corruption with many distant matches, fixed 1.2.12), CVE-2022-37434 (Critical CVSS 9.8: inflate heap buffer over-read/overflow via gzip header extra field, fixed 1.2.12.1), CVE-2023-45853 (Critical CVSS 9.8: MiniZip contrib integer overflow → heap overflow via long filename/comment, fixed 1.3.1); high blast radius: statically bundled in many container images and linked by nginx, git, curl, CPython, OpenSSH
 - [[linux/rsync]] — Linux rsync file-synchronization daemon · advisory mapped · 6-CVE January 2025 cluster from Google Open Source Security Team: CVE-2024-12084 / GHSA-85h7-m8c3-v9wc (Critical CVSS 9.8: heap overflow in checksum parsing), CVE-2024-12085 (High CVSS 7.5: info leak via uninitialized stack), CVE-2024-12086/12087/12088 (Moderate: client-file enumeration, path traversal via --inc-recursive, --safe-links bypass), CVE-2024-12747 (Moderate CVSS 7.1: local symlink race); all fixed rsync 3.4.0
+- [[linux/bind9]] — BIND 9 DNS server (ISC, `bind9`/`bind` in distros) · advisory mapped · 8 confirmed 2026 GHSA advisories: assertion-failure DoS cluster (CVE-2026-5946 CVSS 9.1, CVE-2026-11331, CVE-2026-13204 High AV:N), memory-exhaustion cluster (CVE-2026-3104 CVSS 9.1, CVE-2026-3039 TKEY/GSS-API, CVE-2026-3592 Moderate), DNSSEC CPU exhaustion (CVE-2026-11605 High) and NSEC3 NXDOMAIN forgery bypass (CVE-2026-10723 Moderate); fixed through 9.20.26 / 9.21.24; historical ISC advisory archive not yet mapped
