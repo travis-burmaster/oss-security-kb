@@ -13,5 +13,7 @@
 - [[homebrew/sqlite]] — embedded database C library formula · advisory mapped · CVE-2022-35737 (High CVSS 9.1: printf array-bounds overflow, fixed upstream 3.39.2) and CVE-2025-6965 (High CVSS 9.8: aggregate function memory corruption, fixed upstream 3.50.2); macOS system SQLite lags independently
 - [[homebrew/gnupg]] — GNU Privacy Guard OpenPGP implementation · advisory mapped · 4 advisories: CVE-2018-9234 (High: missing offline-master-key enforcement, design limitation), CVE-2019-13050 (High CVSS 9.0: SKS keyserver certificate-flood DoS, no patch; mitigate by switching keyserver), CVE-2021-40528 (Moderate: Libgcrypt ElGamal plaintext recovery, fixed Libgcrypt 1.9.4), CVE-2022-34903 (Moderate: GPGME status-line signature forgery, fixed GnuPG 2.3.7/2.2.36)
 
+- [[homebrew/python]] — Homebrew Python formula tracking upstream CPython · advisory mapped · 6 confirmed GHSA advisories 2024–2026: CVE-2026-11940 (High: tarfile hardlink→symlink path traversal, incomplete fix for CVE-2025-4330), CVE-2024-12254 (High: asyncio writelines() OOM on 3.12+), CVE-2026-4519 (Moderate: webbrowser.open() leading-dash CLI injection), CVE-2026-3446 (Moderate: base64 silent malformed-data truncation), CVE-2024-3219 (Medium: socket.socketpair() race on Windows), CVE-2026-18503 (Low: csv.Sniffer ReDoS); formula tracks CPython with 1–3 day patch lag; 138 total GHSA records not yet fully mapped
+
 ## Future Targets
 - `git-lfs` — Git Large File Storage; separate CVE history from upstream git
