@@ -93,3 +93,4 @@
 - [[npm/openssl]] — deprecated OpenSSL CLI wrapper · advisory mapped · critical command-execution advisory with no published fix version
 - [[npm/koa]] — Koa web framework · advisory mapped · ReDoS, redirect-helper XSS, open-redirect, and host-header injection history through 2.16.2 / 3.1.2
 - [[npm/koa-router]] — Koa routing middleware · audit ingested · 2026 v15.4.0 source review, prefix-strip boundary bug filed as koajs/router#232
+- [[npm/mongoose]] — dominant MongoDB ODM for Node.js · advisory mapped · recurring prototype-pollution history (5 advisories 2022–2026), $where operator JS-injection pair (CVE-2024-53900 / CVE-2025-23061), and 2026 sanitizeFilter $nor NoSQL-injection bypass (CVE-2026-42334) through 9.7.2
