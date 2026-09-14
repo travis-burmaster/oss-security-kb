@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*288 tracked pages across 9 ecosystems. Last updated: 2026-09-10.*
+*289 tracked pages across 9 ecosystems. Last updated: 2026-09-14.*
 
 ## npm (94)
 
@@ -193,7 +193,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (33)
+## Go (34)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -227,6 +227,7 @@
 - [[go/github.com/microcosm-cc/bluemonday]] — Go HTML sanitizer · advisory mapped · 2 direct advisories 2021: GHSA-3x58-xr87-2fcj / CVE-2021-29272 (Moderate CVSS 6.1: Cyrillic-lookalike SCRIPT tag bypass, fixed 1.0.5) and GHSA-x95h-979x-cf3j / CVE-2021-42576 (High NVD CVSS 9.8: SELECT/STYLE/OPTION element bypass, fixed 1.0.16); 2,680+ importers; current v1.0.27 unaffected
 - [[go/github.com/gofiber/fiber]] — Express-inspired Go web framework (Fasthttp-based) · advisory mapped · 19 advisories 2020–2026: CORS wildcard reflection (CVE-2018-20744) and wildcard+credentials bypass (CVE-2024-25124 Critical), dual CSRF token flaws (CVE-2023-45128 Critical / CVE-2023-45141 High, fixed v2.50.0), Critical session fixation (CVE-2024-38513 CVSS 9.8), UUID zero-fallback compromising session/CSRF randomness (CVE-2025-66630 Critical), BodyParser DoS pair (CVE-2025-48075 / CVE-2025-54801 High), and v3 cluster: Windows path traversal (CVE-2026-25891), msgpack-DoS (CVE-2026-25899), BasicAuth timing oracle (CVE-2026-44332), Helmet HSTS regression (CVE-2026-53624); 40,100+ GitHub stars; 30,850+ v2 importers
 - [[go/github.com/redis/go-redis]] — official Go Redis client (v9 module: github.com/redis/go-redis/v9) · advisory mapped · CVE-2025-29923 / GHSA-92cp-5422-2mw7 (Low CVSS 3.1: out-of-order responses when CLIENT SETINFO times out — persistent on sticky connections, all-commands-wrong in pipelines; fixed v9.5.5 / v9.6.3 / v9.7.3); 17,374 importers; current v9.22.0
+- [[go/github.com/nats-io/nats-server]] — NATS high-performance messaging server (Go binary; v2 module path `github.com/nats-io/nats-server/v2`) · advisory mapped · 24 advisories 2019–2026: Critical CVSS 9.8 directory traversal (CVE-2022-28357 / GHSA-vpjc-4jcv-jc29), Critical CVSS 9.1 JetStream cross-account admin (CVE-2025-30215 / GHSA-fhg8-qxh5-7q3w), Critical JWT import bypass (CVE-2021-3127 / GHSA-62mh-w5cv-p88c), account impersonation via CONNECT (CVE-2022-24450 High 8.1), auth bypass in system-account-only config (CVE-2023-47090), High pre-auth WebSocket crash (CVE-2026-27889 CVSS 9.1), and March 2026 batch: MQTT ACL bypass, MQTT password monitoring disclosure, leafnode pre-auth panics, WebSocket DoS, JetStream restore bypass, mTLS DN bypass, identity spoofing via header injection — all fixed 2.11.15 / 2.12.6; current stable v2.14.6; 20,699 GitHub stars
 
 ## Homebrew (9)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
