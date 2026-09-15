@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*289 tracked pages across 9 ecosystems. Last updated: 2026-09-14.*
+*291 tracked pages across 9 ecosystems. Last updated: 2026-09-15.*
 
 ## npm (94)
 
@@ -99,7 +99,7 @@
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 - [[npm/mongoose]] — Mongoose MongoDB ODM · advisory mapped · 9 advisories 2019–2026: CVE-2019-17426 / GHSA-8687-vv9j-hgph (Critical: _bsontype attribute access-control bypass, fixed 4.13.21/5.7.5), CVE-2022-24304 / GHSA-h8hf-x3f4-xwgp (Critical CVSS 9.8: Schema.path() prototype pollution → RCE in Express/EJS, fixed 5.13.15/6.4.6), CVE-2024-53900 / GHSA-m7xq-9374-9rvx (High CVSS 9.8: $where operator arbitrary JS injection, fixed 5.13.23/6.13.5/7.8.3/8.8.3), CVE-2025-23061 / GHSA-vg7j-7cwx-8wgw (Critical: incomplete fix for CVE-2024-53900, fixed 6.13.6/7.8.4/8.9.5), CVE-2026-73562 / GHSA-664h-wqgq-64gw (Moderate: prototype pollution via __proto__-prefixed dotted path, fixed 6.13.10/7.8.10/8.24.1/9.7.2)
 
-## Rust / crates.io (41)
+## Rust / crates.io (42)
 - [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/ed25519-dalek]] — canonical Rust Ed25519 signing library · advisory mapped · RUSTSEC-2022-0093 / CVE-2022-50237 / GHSA-w5vr-6qhr-36cc (High crypto-failure: double public key signing oracle attack enabling private key extraction from decoupled private/public keypair API; fixed ≥ 2.0.0); ~179M total crates.io downloads; current 3.0.0
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
@@ -141,6 +141,7 @@
 - [[rust/lettre]] — dominant Rust email sending library · advisory mapped · 3 advisories 2020–2026: CVE-2020-28247 (Moderate: Sendmail argument injection, fixed 0.7.1/0.8.4/0.9.5), CVE-2021-38189 / RUSTSEC-2021-0069 (Critical: SMTP command injection via period-escaping gap after double-CRLF, fixed 0.9.6/0.10.0-rc.3), CVE-2026-46428 (Critical CVSS 9.1: boring-tls backend inverted boolean disables TLS hostname verification, fixed 0.11.22); ~5.4M recent / 16M total downloads
 - [[rust/tracing]] — foundational Rust async instrumentation library (tokio-rs) · advisory mapped · RUSTSEC-2023-0078 / GHSA-8f24-6m29-wm2r (Unsound: stack use-after-free in Instrumented::into_inner via mem::forget on pinned stack fields; affects 0.1.38–0.1.39, both yanked; fixed ≥ 0.1.40); ~14.1M/week est., ~825M all-time downloads; foundational dep for tokio, axum, hyper, tonic
 - [[rust/dashmap]] — blazing-fast concurrent HashMap for Rust · advisory mapped · RUSTSEC-2022-0002 / GHSA-mpg5-fvwp-42m2 (High: Ref/RefMut/RefMulti/RefMutMulti references may outlive the owning lock-guard → use-after-free / segfault; affects ≥ 5.0.0; fixed 5.1.0); ~6.2M/week est., ~370M total downloads
+- [[rust/parking_lot]] — compact and efficient synchronization primitives for Rust (Mutex, RwLock, Condvar, Once) · advisory mapped · RUSTSEC-2020-0070 covering 5 data-race CVEs (CVE-2020-35910–35914) in the lock_api sub-crate: incorrect Send/Sync bounds on MappedMutexGuard, MappedRwLockReadGuard, MappedRwLockWriteGuard, RwLockReadGuard, RwLockWriteGuard; all fixed lock_api 0.4.2 / parking_lot 0.11.2; ~23.5M/week est., 1B+ total downloads
 
 ## .NET / NuGet (14)
 - [[dotnet/Azure.Identity]] — Microsoft Azure authentication library for .NET · advisory mapped · CVE-2023-36414 (High CVSS 8.8 AV:N: CLI credential provider command injection / RCE, fixed 1.10.2), CVE-2024-29992 (Moderate CVSS 7.1: local credential information disclosure, fixed 1.11.0), CVE-2024-35255 (High CVSS 7.1: TOCTOU EoP race in token-cache file handling, cross-ecosystem NuGet/PyPI/npm/Maven/Go, fixed 1.11.4); 1.9B+ total NuGet downloads; latest stable 1.21.0
@@ -193,7 +194,7 @@
 - [[python/twisted]] — Python event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, HTTP pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
 
-## Go (34)
+## Go (35)
 - [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
 - [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
 - [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · `RedirectSlashes` open-redirect and incomplete-fix chain through 5.2.4
@@ -228,6 +229,7 @@
 - [[go/github.com/gofiber/fiber]] — Express-inspired Go web framework (Fasthttp-based) · advisory mapped · 19 advisories 2020–2026: CORS wildcard reflection (CVE-2018-20744) and wildcard+credentials bypass (CVE-2024-25124 Critical), dual CSRF token flaws (CVE-2023-45128 Critical / CVE-2023-45141 High, fixed v2.50.0), Critical session fixation (CVE-2024-38513 CVSS 9.8), UUID zero-fallback compromising session/CSRF randomness (CVE-2025-66630 Critical), BodyParser DoS pair (CVE-2025-48075 / CVE-2025-54801 High), and v3 cluster: Windows path traversal (CVE-2026-25891), msgpack-DoS (CVE-2026-25899), BasicAuth timing oracle (CVE-2026-44332), Helmet HSTS regression (CVE-2026-53624); 40,100+ GitHub stars; 30,850+ v2 importers
 - [[go/github.com/redis/go-redis]] — official Go Redis client (v9 module: github.com/redis/go-redis/v9) · advisory mapped · CVE-2025-29923 / GHSA-92cp-5422-2mw7 (Low CVSS 3.1: out-of-order responses when CLIENT SETINFO times out — persistent on sticky connections, all-commands-wrong in pipelines; fixed v9.5.5 / v9.6.3 / v9.7.3); 17,374 importers; current v9.22.0
 - [[go/github.com/nats-io/nats-server]] — NATS high-performance messaging server (Go binary; v2 module path `github.com/nats-io/nats-server/v2`) · advisory mapped · 24 advisories 2019–2026: Critical CVSS 9.8 directory traversal (CVE-2022-28357 / GHSA-vpjc-4jcv-jc29), Critical CVSS 9.1 JetStream cross-account admin (CVE-2025-30215 / GHSA-fhg8-qxh5-7q3w), Critical JWT import bypass (CVE-2021-3127 / GHSA-62mh-w5cv-p88c), account impersonation via CONNECT (CVE-2022-24450 High 8.1), auth bypass in system-account-only config (CVE-2023-47090), High pre-auth WebSocket crash (CVE-2026-27889 CVSS 9.1), and March 2026 batch: MQTT ACL bypass, MQTT password monitoring disclosure, leafnode pre-auth panics, WebSocket DoS, JetStream restore bypass, mTLS DN bypass, identity spoofing via header injection — all fixed 2.11.15 / 2.12.6; current stable v2.14.6; 20,699 GitHub stars
+- [[go/github.com/quic-go/quic-go]] — dominant pure-Go QUIC (RFC 9000/9001/9002) and HTTP/3 implementation · advisory mapped · 8 advisories 2023–2026: handshake nil pointer dereference pair (CVE-2023-46239 High, CVE-2025-59530 High), PATH_CHALLENGE memory exhaustion (CVE-2023-49295), NEW_CONNECTION_ID memory exhaustion (CVE-2024-22189 High), off-path ICMP MTU injection on Linux (CVE-2024-53259), path-probe nil pointer dereference (CVE-2025-29785 High), and QPACK field-expansion memory exhaustion pair (CVE-2025-64702 / CVE-2026-40898); current stable v0.62.0; 1,603 pkg.go.dev importers
 
 ## Homebrew (9)
 - [[homebrew/openssl@3]] — cryptographic foundation formula · baseline stub · high-value macOS TLS/toolchain anchor for future package and patch-lag tracking
