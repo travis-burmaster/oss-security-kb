@@ -34,3 +34,4 @@
 - [[python/celery]] — distributed task queue · advisory mapped · result-backend metadata command-injection and legacy worker privilege-dropping history
 - [[python/twisted]] — event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, pipelining, SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, open redirect, and legacy XSRF side-channel history through 6.5.5
+- [[python/pyopenssl]] — pyOpenSSL TLS/SSL wrapper library (PyCA) · advisory mapped · 5 advisories 2013–2026: DTLS cookie buffer overflow, SNI callback exception bypass, X509 use-after-free, PKCS#12 DoS, and X509Extension null-byte SAN impersonation; fixed through 26.0.0; current stable 26.4.0
