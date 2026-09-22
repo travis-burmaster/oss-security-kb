@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*293 tracked pages across 9 ecosystems. Last updated: 2026-09-19.*
+*295 tracked pages across 9 ecosystems. Last updated: 2026-09-22.*
 
 ## npm (94)
 
@@ -243,7 +243,7 @@
 - [[homebrew/sqlite]] — embedded database C library formula · advisory mapped · CVE-2022-35737 (High CVSS 9.1: printf array-bounds overflow, fixed upstream 3.39.2) and CVE-2025-6965 (High CVSS 9.8: aggregate function memory corruption, fixed upstream 3.50.2); macOS system SQLite lags independently
 - [[homebrew/python]] — Homebrew Python formula tracking upstream CPython · advisory mapped · 6 GHSA advisories 2024–2026: tarfile hardlink→symlink path traversal (CVE-2026-11940 High, incomplete fix of CVE-2025-4330), asyncio writelines() OOM (CVE-2024-12254 High), webbrowser.open() CLI injection (CVE-2026-4519 Moderate), base64 silent truncation (CVE-2026-3446 Moderate), socket.socketpair() race on Windows (CVE-2024-3219 Medium), csv.Sniffer ReDoS (CVE-2026-18503 Low); 138 GHSA records not yet fully mapped
 
-## Maven / Java (33)
+## Maven / Java (35)
 - [[maven/com.h2database/h2]] — H2 embedded RDBMS (Java) · advisory mapped · 2 Critical CVSS 9.8 advisories (CVE-2021-42392 JNDI/Console RCE + CVE-2022-23221 JDBC URL RCE), XXE (CVE-2021-23463 High), and plaintext credential exposure (CVE-2022-45868 High); fixed across 2.0.x through 2.2.220; ubiquitous Spring Boot test dependency
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
@@ -277,6 +277,8 @@
 - [[maven/org.apache.shiro/shiro-core]] — Apache Shiro auth/authz framework · advisory mapped · all 12 GHSA advisories mapped: 6× Critical Spring/URL-normalization auth bypass cluster (2020–2022), "remember me" cookie RCE+padding oracle, RegexRequestMatcher bypass (CVE-2022-32532), LDAP injection (CVE-2026-49268), and session fixation; current 2.2.1
 - [[maven/com.thoughtworks.xstream/xstream]] — XStream Java XML serialization/deserialization library · advisory mapped · 31 advisories 2020–2022 mapped: CVE-2020-26217 RCE (fixed 1.4.14); CVE-2020-26258/26259 SSRF + arbitrary file deletion (fixed 1.4.15); March 2021 batch (11 CVEs — ACE, SSRF, DoS, file deletion — fixed 1.4.16); CVE-2021-29505 RCE (fixed 1.4.17); August 2021 batch (14 CVEs — 12× ACE/RCE High CVSS 9.0–9.1 + 1× SSRF pair + 1× DoS — fixed 1.4.18, whitelist model introduced); CVE-2021-43859 DoS via recursive collections (fixed 1.4.19); CVE-2022-40151 stack-overflow DoS (fixed 1.4.20)
 - [[maven/com.nimbusds/nimbus-jose-jwt]] — Connect2id Nimbus JOSE+JWT library · advisory mapped · 6 advisories 2017–2025: EC Invalid Curve Attack (CVE-2017-12974 High CVSS 7.5), HMAC bypass via integer overflow (CVE-2017-12972 High), AES-CBC padding oracle (CVE-2017-12973 Low CVSS 3.1), JWT parse exception crash/bypass (CVE-2019-17195 Critical CVSS 9.8), JWE p2c PBKDF2 iteration-count DoS (CVE-2023-52428 High CVSS 7.5), nested JSON claim-set DoS (CVE-2025-53864 Moderate CVSS 7.5); fixed through 9.37.4 / 10.0.2; backbone of Spring Security OAuth2, Keycloak, Quarkus, Micronaut
+- [[maven/ch.qos.logback/logback-classic]] — Logback default Java logging framework (Spring Boot) · advisory mapped · 4 advisories 2017–2026: Critical CVSS 9.8 deserialization RCE in SocketServer (CVE-2017-5929), Moderate JNDI config-triggered code loading (CVE-2021-42550), High receiver serialization DoS (CVE-2023-6378), Moderate MDC path-traversal via SiftingAppender discriminator (CVE-2026-19880 fixed 1.6.3)
+- [[maven/com.squareup.okhttp3/okhttp]] — OkHttp HTTP/HTTP2 client for Android and JVM (Square) · advisory mapped · 3 advisories 2016–2023: Moderate certificate-pinning bypass (CVE-2016-2402), High Android hostname-verification bypass (GHSA-3cqm-mf7h-prrj fixed 4.9.2), Moderate BrotliInterceptor zip-bomb DoS (CVE-2023-3782)
 
 ## Kubernetes (13)
 - [[kubernetes/cilium]] — CNCF-graduated eBPF-based CNI networking and network policy engine · advisory mapped · 6 of 49 GHSA advisories mapped: L7 HTTP policy bypass (CVE-2023-30851), pod-label policy bypass (CVE-2023-39347), WireGuard+kvstore unencrypted traffic (CVE-2024-25631), bugtool credential leak (CVE-2024-37307 High), Gateway API route precedence flaw (CVE-2024-42487), L7 wildcard-port policy bypass (CVE-2024-52529); 25,071 GitHub stars; current v1.20.1
