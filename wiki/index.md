@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*295 tracked pages across 9 ecosystems. Last updated: 2026-09-22.*
+*301 tracked pages across 9 ecosystems. Last updated: 2026-09-26.*
 
 ## npm (94)
 
@@ -99,7 +99,7 @@
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 - [[npm/mongoose]] — Mongoose MongoDB ODM · advisory mapped · 9 advisories 2019–2026: CVE-2019-17426 / GHSA-8687-vv9j-hgph (Critical: _bsontype attribute access-control bypass, fixed 4.13.21/5.7.5), CVE-2022-24304 / GHSA-h8hf-x3f4-xwgp (Critical CVSS 9.8: Schema.path() prototype pollution → RCE in Express/EJS, fixed 5.13.15/6.4.6), CVE-2024-53900 / GHSA-m7xq-9374-9rvx (High CVSS 9.8: $where operator arbitrary JS injection, fixed 5.13.23/6.13.5/7.8.3/8.8.3), CVE-2025-23061 / GHSA-vg7j-7cwx-8wgw (Critical: incomplete fix for CVE-2024-53900, fixed 6.13.6/7.8.4/8.9.5), CVE-2026-73562 / GHSA-664h-wqgq-64gw (Moderate: prototype pollution via __proto__-prefixed dotted path, fixed 6.13.10/7.8.10/8.24.1/9.7.2)
 
-## Rust / crates.io (42)
+## Rust / crates.io (45)
 - [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/ed25519-dalek]] — canonical Rust Ed25519 signing library · advisory mapped · RUSTSEC-2022-0093 / CVE-2022-50237 / GHSA-w5vr-6qhr-36cc (High crypto-failure: double public key signing oracle attack enabling private key extraction from decoupled private/public keypair API; fixed ≥ 2.0.0); ~179M total crates.io downloads; current 3.0.0
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
@@ -142,8 +142,11 @@
 - [[rust/tracing]] — foundational Rust async instrumentation library (tokio-rs) · advisory mapped · RUSTSEC-2023-0078 / GHSA-8f24-6m29-wm2r (Unsound: stack use-after-free in Instrumented::into_inner via mem::forget on pinned stack fields; affects 0.1.38–0.1.39, both yanked; fixed ≥ 0.1.40); ~14.1M/week est., ~825M all-time downloads; foundational dep for tokio, axum, hyper, tonic
 - [[rust/dashmap]] — blazing-fast concurrent HashMap for Rust · advisory mapped · RUSTSEC-2022-0002 / GHSA-mpg5-fvwp-42m2 (High: Ref/RefMut/RefMulti/RefMutMulti references may outlive the owning lock-guard → use-after-free / segfault; affects ≥ 5.0.0; fixed 5.1.0); ~6.2M/week est., ~370M total downloads
 - [[rust/parking_lot]] — compact and efficient synchronization primitives for Rust (Mutex, RwLock, Condvar, Once) · advisory mapped · RUSTSEC-2020-0070 covering 5 data-race CVEs (CVE-2020-35910–35914) in the lock_api sub-crate: incorrect Send/Sync bounds on MappedMutexGuard, MappedRwLockReadGuard, MappedRwLockWriteGuard, RwLockReadGuard, RwLockWriteGuard; all fixed lock_api 0.4.2 / parking_lot 0.11.2; ~23.5M/week est., 1B+ total downloads
+- [[rust/borsh]] — NEAR Protocol binary serialization format (NEAR / Solana ecosystem) · advisory mapped · RUSTSEC-2023-0033 / GHSA-fjx5-qpf4-xjf2 (Informational/unsound: non-Copy ZST deserialization creates multiple singleton instances → segfault on access; fixed 0.10.4 / 1.0.0-alpha.1); ~193.3M total downloads, ~16.5M/week est.
+- [[rust/atty]] — terminal TTY detection utility (unmaintained) · advisory mapped · RUSTSEC-2021-0145 / GHSA-g98v-hv3f-hcfr (Informational/unsound: unaligned read on Windows via HANDLE→BOOL dereference; no patched version; migrate to `std::io::IsTerminal` or `is-terminal`); ~30.1M/week, 353M+ total downloads
+- [[rust/ammonia]] — dominant Rust HTML sanitization library · advisory mapped · 6 advisories 2019–2026: stack-overflow DoS (RUSTSEC-2019-0001 High CVSS 9.8), `clean_text` attribute injection (RUSTSEC-2022-0003), and a 4-advisory mutation-XSS class via SVG/MathML namespace confusion (RUSTSEC-2021-0074, RUSTSEC-2025-0071, RUSTSEC-2026-0193, RUSTSEC-2026-0213; latest fix 4.1.4/3.3.3); ~4.4M/week est., ~16.7M total downloads
 
-## .NET / NuGet (15)
+## .NET / NuGet (16)
 - [[dotnet/Azure.Identity]] — Microsoft Azure authentication library for .NET · advisory mapped · CVE-2023-36414 (High CVSS 8.8 AV:N: CLI credential provider command injection / RCE, fixed 1.10.2), CVE-2024-29992 (Moderate CVSS 7.1: local credential information disclosure, fixed 1.11.0), CVE-2024-35255 (High CVSS 7.1: TOCTOU EoP race in token-cache file handling, cross-ecosystem NuGet/PyPI/npm/Maven/Go, fixed 1.11.4); 1.9B+ total NuGet downloads; latest stable 1.21.0
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · CVE-2022-41064 (Moderate, race-condition cross-query info disclosure) and CVE-2024-0056 (High, TLS bypass enabling network MitM, CWE-319); current stable 7.0.2 unaffected; transitive dep of EF Core SQL Server
 - [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · CVE-2024-21319 JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 / 5.7.0
@@ -159,6 +162,7 @@
 - [[dotnet/log4net]] — Apache log4net .NET logging framework · advisory mapped · CVE-2018-1285 XXE in config parsing (Critical CVSS 9.8, fixed 2.0.10), CVE-2026-40021 XML log suppression (Moderate CVSS 5.3, fixed 3.3.0); 418M+ total NuGet downloads; NOT affected by Log4Shell
 - [[dotnet/Swashbuckle.AspNetCore]] — Swagger/OpenAPI UI middleware for ASP.NET Core · advisory mapped · GHSA-qrmm-w75w-3wpx (Moderate CWE-918 SSRF: SwaggerUI ?url parameter allows loading arbitrary remote OpenAPI definitions, enabling phishing via trusted domain's SwaggerUI; versions < 3.38.0 chainable with CVE-2020-26870 XSS; fixed 6.3.0); ~1.3B total NuGet downloads; latest stable 10.2.3
 - [[dotnet/StackExchange.Redis]] — Redis client for .NET (Stack Exchange) · baseline stub · no package-level GHSA / NVD advisory confirmed in this pass; high-use data-access layer; TLS and AUTH configuration risk context noted
+- [[dotnet/Microsoft.AspNetCore.SignalR]] — ASP.NET Core real-time communication library (Hubs / WebSocket / SSE / Blazor Server) · advisory mapped · 6 advisories 2019–2026: recurring DoS cluster (CVE-2019-0982, CVE-2024-21386, CVE-2026-26130, CVE-2026-56170, CVE-2026-45591) plus Redis backplane info-disclosure (CVE-2023-35391); fixed through .NET 10.0.9 / 9.0.17 / 8.0.28
 
 ## Python / PyPI (33)
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
@@ -243,7 +247,7 @@
 - [[homebrew/sqlite]] — embedded database C library formula · advisory mapped · CVE-2022-35737 (High CVSS 9.1: printf array-bounds overflow, fixed upstream 3.39.2) and CVE-2025-6965 (High CVSS 9.8: aggregate function memory corruption, fixed upstream 3.50.2); macOS system SQLite lags independently
 - [[homebrew/python]] — Homebrew Python formula tracking upstream CPython · advisory mapped · 6 GHSA advisories 2024–2026: tarfile hardlink→symlink path traversal (CVE-2026-11940 High, incomplete fix of CVE-2025-4330), asyncio writelines() OOM (CVE-2024-12254 High), webbrowser.open() CLI injection (CVE-2026-4519 Moderate), base64 silent truncation (CVE-2026-3446 Moderate), socket.socketpair() race on Windows (CVE-2024-3219 Medium), csv.Sniffer ReDoS (CVE-2026-18503 Low); 138 GHSA records not yet fully mapped
 
-## Maven / Java (35)
+## Maven / Java (37)
 - [[maven/com.h2database/h2]] — H2 embedded RDBMS (Java) · advisory mapped · 2 Critical CVSS 9.8 advisories (CVE-2021-42392 JNDI/Console RCE + CVE-2022-23221 JDBC URL RCE), XXE (CVE-2021-23463 High), and plaintext credential exposure (CVE-2022-45868 High); fixed across 2.0.x through 2.2.220; ubiquitous Spring Boot test dependency
 - [[maven/commons-fileupload/commons-fileupload]] — Apache Commons FileUpload multipart parser · advisory mapped · 1.x arbitrary-file-write, deserialization/RCE, temporary-file, and multipart DoS history fixed through 1.6.0
 - [[maven/commons-io/commons-io]] — Apache Commons IO utility library · advisory mapped · path-normalization traversal and `XmlStreamReader` resource-consumption history fixed through 2.14.0
@@ -279,6 +283,8 @@
 - [[maven/com.nimbusds/nimbus-jose-jwt]] — Connect2id Nimbus JOSE+JWT library · advisory mapped · 6 advisories 2017–2025: EC Invalid Curve Attack (CVE-2017-12974 High CVSS 7.5), HMAC bypass via integer overflow (CVE-2017-12972 High), AES-CBC padding oracle (CVE-2017-12973 Low CVSS 3.1), JWT parse exception crash/bypass (CVE-2019-17195 Critical CVSS 9.8), JWE p2c PBKDF2 iteration-count DoS (CVE-2023-52428 High CVSS 7.5), nested JSON claim-set DoS (CVE-2025-53864 Moderate CVSS 7.5); fixed through 9.37.4 / 10.0.2; backbone of Spring Security OAuth2, Keycloak, Quarkus, Micronaut
 - [[maven/ch.qos.logback/logback-classic]] — Logback default Java logging framework (Spring Boot) · advisory mapped · 4 advisories 2017–2026: Critical CVSS 9.8 deserialization RCE in SocketServer (CVE-2017-5929), Moderate JNDI config-triggered code loading (CVE-2021-42550), High receiver serialization DoS (CVE-2023-6378), Moderate MDC path-traversal via SiftingAppender discriminator (CVE-2026-19880 fixed 1.6.3)
 - [[maven/com.squareup.okhttp3/okhttp]] — OkHttp HTTP/HTTP2 client for Android and JVM (Square) · advisory mapped · 3 advisories 2016–2023: Moderate certificate-pinning bypass (CVE-2016-2402), High Android hostname-verification bypass (GHSA-3cqm-mf7h-prrj fixed 4.9.2), Moderate BrotliInterceptor zip-bomb DoS (CVE-2023-3782)
+- [[maven/io.undertow/undertow-core]] — Undertow HTTP server engine (WildFly / JBoss EAP) · advisory mapped · 10 representative GHSA advisories 2014–2024: Windows path traversal (CVE-2014-7816), repeated DoS (CVE-2016-7046, CVE-2017-2670, CVE-2021-3690, CVE-2021-3859, CVE-2023-1108, CVE-2024-3653), HTTP request smuggling (CVE-2017-12165, CVE-2020-10719), and cookie spoofing (CVE-2023-4639); fixed through 2.3.15.Final
+- [[maven/org.hibernate/hibernate-core]] — dominant Java ORM / JPA persistence framework (Red Hat / JBoss) · advisory mapped · 3 GHSA advisories 2019–2026 all targeting CWE-89 SQL injection via JPA Criteria API literal interpolation; all on EOL 5.x branch; fixed through 5.6.15.Final / no fix for CVE-2026-0603
 
 ## Kubernetes (13)
 - [[kubernetes/cilium]] — CNCF-graduated eBPF-based CNI networking and network policy engine · advisory mapped · 6 of 49 GHSA advisories mapped: L7 HTTP policy bypass (CVE-2023-30851), pod-label policy bypass (CVE-2023-39347), WireGuard+kvstore unencrypted traffic (CVE-2024-25631), bugtool credential leak (CVE-2024-37307 High), Gateway API route precedence flaw (CVE-2024-42487), L7 wildcard-port policy bypass (CVE-2024-52529); 25,071 GitHub stars; current v1.20.1
