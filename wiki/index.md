@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*301 tracked pages across 9 ecosystems. Last updated: 2026-09-26.*
+*303 tracked pages across 9 ecosystems. Last updated: 2026-09-27.*
 
 ## npm (94)
 
@@ -99,7 +99,7 @@
 - [[npm/yargs-parser]] — CLI argument parser · advisory mapped · prototype-pollution fix coordinated across multiple major lines
 - [[npm/mongoose]] — Mongoose MongoDB ODM · advisory mapped · 9 advisories 2019–2026: CVE-2019-17426 / GHSA-8687-vv9j-hgph (Critical: _bsontype attribute access-control bypass, fixed 4.13.21/5.7.5), CVE-2022-24304 / GHSA-h8hf-x3f4-xwgp (Critical CVSS 9.8: Schema.path() prototype pollution → RCE in Express/EJS, fixed 5.13.15/6.4.6), CVE-2024-53900 / GHSA-m7xq-9374-9rvx (High CVSS 9.8: $where operator arbitrary JS injection, fixed 5.13.23/6.13.5/7.8.3/8.8.3), CVE-2025-23061 / GHSA-vg7j-7cwx-8wgw (Critical: incomplete fix for CVE-2024-53900, fixed 6.13.6/7.8.4/8.9.5), CVE-2026-73562 / GHSA-664h-wqgq-64gw (Moderate: prototype pollution via __proto__-prefixed dotted path, fixed 6.13.10/7.8.10/8.24.1/9.7.2)
 
-## Rust / crates.io (45)
+## Rust / crates.io (47)
 - [[rust/curve25519-dalek]] — foundational Curve25519 / Ristretto group operations library · advisory mapped · RUSTSEC-2024-0344 / CVE-2024-58262 timing side-channel in scalar subtraction (LLVM conditional branch insertion), enabling private key extraction; fixed ≥ 4.1.3; foundational dep for ed25519-dalek, x25519-dalek, snow
 - [[rust/ed25519-dalek]] — canonical Rust Ed25519 signing library · advisory mapped · RUSTSEC-2022-0093 / CVE-2022-50237 / GHSA-w5vr-6qhr-36cc (High crypto-failure: double public key signing oracle attack enabling private key extraction from decoupled private/public keypair API; fixed ≥ 2.0.0); ~179M total crates.io downloads; current 3.0.0
 - [[rust/tar]] — foundational Rust tar archive library · advisory mapped · 4 advisories 2018–2026: extraction path escape via hard links/symlinks plus 2026 symlink-chmod and PAX-header parser-confusion pair; fixed through 0.4.45; ~3.3M/week est.
@@ -145,6 +145,8 @@
 - [[rust/borsh]] — NEAR Protocol binary serialization format (NEAR / Solana ecosystem) · advisory mapped · RUSTSEC-2023-0033 / GHSA-fjx5-qpf4-xjf2 (Informational/unsound: non-Copy ZST deserialization creates multiple singleton instances → segfault on access; fixed 0.10.4 / 1.0.0-alpha.1); ~193.3M total downloads, ~16.5M/week est.
 - [[rust/atty]] — terminal TTY detection utility (unmaintained) · advisory mapped · RUSTSEC-2021-0145 / GHSA-g98v-hv3f-hcfr (Informational/unsound: unaligned read on Windows via HANDLE→BOOL dereference; no patched version; migrate to `std::io::IsTerminal` or `is-terminal`); ~30.1M/week, 353M+ total downloads
 - [[rust/ammonia]] — dominant Rust HTML sanitization library · advisory mapped · 6 advisories 2019–2026: stack-overflow DoS (RUSTSEC-2019-0001 High CVSS 9.8), `clean_text` attribute injection (RUSTSEC-2022-0003), and a 4-advisory mutation-XSS class via SVG/MathML namespace confusion (RUSTSEC-2021-0074, RUSTSEC-2025-0071, RUSTSEC-2026-0193, RUSTSEC-2026-0213; latest fix 4.1.4/3.3.3); ~4.4M/week est., ~16.7M total downloads
+- [[rust/connectrpc]] — Tower-based Rust Connect RPC protocol implementation · advisory mapped · RUSTSEC-2026-0304 (Moderate: DoS via indefinite streaming request body reading; fixed 0.8.2/0.9.1); ~323K/week est., ~7.25M total downloads
+- [[rust/futures]] — foundational Rust async primitives library (futures-rs workspace) · advisory mapped · 4 advisories Nov 2020: UAF in futures-task `waker()` (RUSTSEC-2020-0060 High), NULL ptr deref in `noop_waker_ref` (RUSTSEC-2020-0061 High), memory corruption via `FuturesUnordered` unsound Sync (RUSTSEC-2020-0062 High), data race via `MappedMutexGuard` (RUSTSEC-2020-0059 Medium); all fixed ≥ 0.3.7; ~13.7M/week est., 810M+ total downloads
 
 ## .NET / NuGet (16)
 - [[dotnet/Azure.Identity]] — Microsoft Azure authentication library for .NET · advisory mapped · CVE-2023-36414 (High CVSS 8.8 AV:N: CLI credential provider command injection / RCE, fixed 1.10.2), CVE-2024-29992 (Moderate CVSS 7.1: local credential information disclosure, fixed 1.11.0), CVE-2024-35255 (High CVSS 7.1: TOCTOU EoP race in token-cache file handling, cross-ecosystem NuGet/PyPI/npm/Maven/Go, fixed 1.11.4); 1.9B+ total NuGet downloads; latest stable 1.21.0
