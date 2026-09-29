@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*305 tracked pages across 9 ecosystems. Last updated: 2026-09-28.*
+*281 tracked pages across 9 ecosystems. Last updated: 2026-09-29.*
 
 ## npm (94)
 
@@ -195,29 +195,56 @@
 - [[python/numpy]] — numerical computing · advisory mapped · buffer-overflow and integer-overflow history through 1.26.4
 - [[python/scipy]] — scientific computing · advisory mapped · no direct package-level advisories on record
 
-## Go (14)
+## Go (36)
 
-- [[go/golang-x-net]] — extended Go network library · advisory mapped · HTTP/2 DoS history through 0.23.0
-- [[go/gin]] — web framework · advisory mapped · path-traversal and open-redirect history
-- [[go/gorilla-mux]] — HTTP router · advisory mapped · no direct package-level advisories on record; ReDoS risk via regex routes
-- [[go/go-jose]] — JOSE library · advisory mapped · algorithm-confusion, key-confusion, and denial-of-service history
-- [[go/golang-jwt]] — JWT library · advisory mapped · algorithm-confusion history
-- [[go/grpc-go]] — gRPC for Go · advisory mapped · header-injection and DoS history through 1.56.3
-- [[go/go-yaml]] — YAML library · advisory mapped · prototype-pollution and DoS history through 3.0.0-20210107192922
-- [[go/sprig]] — template functions · advisory mapped · SSRF via URL-building functions history
-- [[go/etcd]] — distributed KV store · advisory mapped · auth-bypass and DoS history through 3.5.9
-- [[go/hashicorp-vault]] — secrets management · advisory mapped · auth-bypass, SSRF, and privilege-escalation history through 1.14.1
-- [[go/helm]] — Kubernetes package manager · advisory mapped · path-traversal, SSRF, and injection history through 3.14.3
-- [[go/kubernetes]] — container orchestration · advisory mapped · auth-bypass, SSRF, and privilege-escalation history through 1.28.5
-- [[go/terraform]] — infrastructure as code · advisory mapped · no direct package-level advisories on record
-- [[go/opa]] — Open Policy Agent · advisory mapped · ReDoS history
+- [[go/golang.org-x-net]] — foundational Go networking module · advisory mapped · HTTP/2 DoS / request-smuggling, HTML rendering / parser, and proxy-boundary history through 2025
+- [[go/golang.org-x-crypto]] — foundational Go crypto module · advisory mapped · repeated SSH boundary flaws plus cryptobyte, autocert, and openpgp security history
+- [[go/golang.org-x-text]] — foundational Go text / i18n / Unicode module · advisory mapped · UTF-16 decoder infinite loop, BCP 47 language tag OOB read panic, and ParseAcceptLanguage quadratic-time DoS fixed through 0.3.8
+- [[go/golang.org-x-oauth2]] — canonical Go OAuth 2.0 client library · advisory mapped · CVE-2025-22868 JWS/Bearer token memory exhaustion fixed in v0.27.0
+- [[go/github.com/gin-gonic/gin]] — high-usage Go web framework · advisory mapped · proxy-header, logging, and attachment-sanitization history
+- [[go/github.com/gin-contrib/cors]] — standalone Gin CORS middleware · advisory mapped · wildcard-origin trust-boundary flaw fixed in 1.6.0
+- [[go/github.com/labstack/echo-v4]] — high-usage Go web framework line · advisory mapped · static-handler traversal and open-redirect history plus current support-policy context
+- [[go/github.com/go-chi/chi]] — widely used Go router · advisory mapped · RedirectSlashes open-redirect and incomplete-fix chain through 5.2.4
+- [[go/github.com/gofiber/fiber]] — Express-inspired Go web framework (Fasthttp-based) · advisory mapped · 19 advisories 2020–2026: CORS/credentials bypass, CSRF, session fixation, UUID zero-fallback, BodyParser DoS, Windows path traversal, msgpack-DoS, BasicAuth timing oracle
+- [[go/github.com/gorilla/mux]] — established Go router · baseline stub · no package-scoped OSV / GitHub advisory confirmed in this pass, disclosure path unclear
+- [[go/github.com/gorilla/websocket]] — foundational Go WebSocket implementation · advisory mapped · integer-overflow / read-limit bypass DoS fixed in 1.4.1
+- [[go/github.com/gorilla/schema]] — Gorilla form decoder/encoder · advisory mapped · sparse slice index memory-exhaustion DoS fixed in 1.4.1
+- [[go/github.com/go-jose/go-jose]] — Go JOSE/JWE/JWS/JWT implementation · advisory mapped · 7 advisories 2016–2026 including ECDH-ES key disclosure, CBC-HMAC overflow, PBES2 billion-hashes DoS, JWE decompression bomb, and 2026 key-wrapping panic DoS
+- [[go/github.com/golang-jwt/jwt]] — Go JWT implementation · advisory mapped · v4 ParseWithClaims error-handling boundary plus ParseUnverified memory-allocation DoS history through 4.5.2 / 5.2.2
+- [[go/github.com/dgrijalva/jwt-go]] — archived Go JWT library · advisory mapped · CVE-2020-26160 audience claim bypass; migrate to golang-jwt/jwt
+- [[go/github.com/jackc/pgx]] — dominant pure-Go PostgreSQL driver and toolkit · advisory mapped · 7 advisories 2024–2026: SQL injection via simple protocol, Pipeline panic DoS, DataRow negative-length panic, and memory-safety pair
+- [[go/github.com/redis/go-redis]] — official Go Redis client · advisory mapped · CVE-2025-29923 out-of-order response DoS fixed in v9.5.5 / v9.6.3 / v9.7.3
+- [[go/github.com/miekg/dns]] — foundational Go DNS client/server library (CoreDNS, Consul) · advisory mapped · 3 advisories 2017–2019: TCP timing DoS, ParseZone nil-ptr, and predictable TXID forgery via math/rand
+- [[go/github.com/tidwall/gjson]] — fast Go JSON path extraction library · advisory mapped · 4 advisories 2020–2021: OOB panic cluster and ReDoS
+- [[go/github.com/microcosm-cc/bluemonday]] — Go HTML sanitizer · advisory mapped · 2 direct advisories 2021: Cyrillic SCRIPT bypass (CVE-2021-29272) and SELECT/STYLE element bypass (CVE-2021-42576)
+- [[go/github.com/aws/aws-sdk-go]] — AWS SDK for Go v1 (archived/EOL 2025-07-31) · advisory mapped · 3 S3 Crypto SDK advisories 2020–2022: CBC padding oracle, unauthenticated algorithm-parameter selection, MD5 plaintext hash leak
+- [[go/github.com/prometheus/client_golang]] — Prometheus Go instrumentation library · advisory mapped · promhttp method-label cardinality DoS fixed in 1.11.1
+- [[go/go.opentelemetry.io/otel]] — core OpenTelemetry-Go API / propagation module · advisory mapped · multi-value W3C baggage header allocation-amplification DoS fixed in 1.41.0
+- [[go/google.golang.org/grpc]] — core Go gRPC transport stack · advisory mapped · transport, metadata, and authz-sensitive surface history
+- [[go/google.golang.org/protobuf]] — foundational Go protobuf implementation · advisory mapped · prototext panic and protojson infinite-loop DoS history
+- [[go/gopkg.in/yaml.v3]] — canonical Go YAML library (v3) · advisory mapped · CVE-2022-28948 / GHSA-hp87-p4gw-j4gq Unmarshal panic DoS on malformed input fixed in v3.0.1
+- [[go/go.etcd.io/etcd-v3]] — distributed key-value store (Kubernetes backing store) · advisory mapped · 18 advisories spanning CSRF, RBAC bypass, WAL DoS, gateway TLS/auth, credential logging, debug-endpoint RCE, and 2026 gRPC auth-bypass cluster
+- [[go/k8s.io/client-go]] — Kubernetes official Go client library · advisory mapped · 3 advisories 2019–2020: bearer-token credential logging and world-writable kubectl cache directory
+- [[go/github.com/hashicorp/vault]] — HashiCorp Vault secrets management platform · advisory mapped · 6 of 61 reviewed advisories 2023–2026: root-namespace privilege escalation, TLS cert auth bypass, PKI/ACME SSRF, and Shamir cache-timing side-channel
+- [[go/github.com/hashicorp/go-getter]] — HashiCorp file-download library (Terraform/Nomad/OpenTofu) · advisory mapped · 10 GHSA advisories 2022–2026: credential logging, command injection, path traversal/symlink, decompression bomb, git argument injection, and git config code execution
+- [[go/github.com/go-git/go-git]] — pure-Go Git implementation · advisory mapped · 6 advisories 2023–2026: path traversal RCE (CVE-2023-49569 Critical), argument injection RCE (CVE-2025-21613 Critical), commit signature bypass, and DoS cluster
+- [[go/github.com/moby/moby]] — Moby / Docker Engine container runtime · advisory mapped · 21 advisories 2021–2026 including Swarm encrypted overlay cluster, AuthZ plugin bypass regression (CVE-2024-41110 Critical CVSS 9.9), and 2026 docker-cp race-condition cluster
+- [[go/github.com/nats-io/nats-server]] — NATS high-performance messaging server · advisory mapped · 24 advisories 2019–2026 including Critical CVSS 9.8 directory traversal (CVE-2022-28357), Critical CVSS 9.1 JetStream cross-account admin (CVE-2025-30215), and March 2026 batch
+- [[go/github.com/quic-go/quic-go]] — dominant pure-Go QUIC and HTTP/3 implementation · advisory mapped · 8 advisories 2023–2026 including handshake nil-ptr pair, PATH_CHALLENGE memory exhaustion, and QPACK field-expansion memory exhaustion pair
+- [[go/github.com/open-policy-agent/opa]] — CNCF-graduated policy engine (Rego) · advisory mapped · 6 direct advisories 2022–2025 plus opa-envoy-plugin auth bypass (CVE-2026-26205)
+- [[go/github.com/containerd/containerd]] — foundational container runtime (Docker/Kubernetes substrate) · advisory mapped · 4 confirmed advisories 2025–2026 from 36-total GHSA history: TOCTOU host FS modification, CRI label injection RCE, CRI symlink log read, and OCI image index DoS
 
-## Homebrew (4)
+## Homebrew (9)
 
-- [[homebrew/ffmpeg]] — multimedia processing · advisory mapped · buffer-overflow and use-after-free history through 6.1.1_7
-- [[homebrew/imagemagick]] — image processing · advisory mapped · buffer-overflow, heap-overflow, and DoS history through 7.1.1-29
-- [[homebrew/curl]] — data transfer tool · advisory mapped · cookie and credential leakage, SSRF, and DoS history through 8.7.1
-- [[homebrew/openssl]] — TLS/crypto toolkit · advisory mapped · Heartbleed, padding oracle, and recent buffer-overflow history through 3.3.0
+- [[homebrew/openssl@3]] — cryptographic foundation formula · advisory mapped · long history mapping upstream OpenSSL CVEs to macOS Homebrew packaging; tracks OpenSSL 3.x with 1–3 day patch lag
+- [[homebrew/curl]] — URL transfer CLI/library formula · advisory mapped · 6 upstream CVEs through CVE-2025-0167 including High CVE-2023-38545 SOCKS5 heap overflow
+- [[homebrew/git]] — developer VCS formula tracking upstream git-scm.com · advisory mapped · 7 CVEs including Critical macOS-affecting CVE-2024-32002 (submodule+symlink hook execution on case-insensitive FS)
+- [[homebrew/imagemagick]] — image-processing formula · advisory mapped · 4 representative advisories from 698+ CVE history including ImageTragick CVE-2016-3714 RCE and CVE-2022-44268 arbitrary file read
+- [[homebrew/wget]] — GNU Wget CLI download tool · advisory mapped · CVE-2024-38428 Critical SSRF/credential exposure fixed ≥ 1.25.0 and CVE-2016-4971 High arbitrary file write
+- [[homebrew/ffmpeg]] — multimedia codec/processing framework · advisory mapped · 4 representative advisories from 700+ CVE history; current formula 8.1.2
+- [[homebrew/sqlite]] — embedded database C library formula · advisory mapped · CVE-2022-35737 High printf array-bounds overflow and CVE-2025-6965 High memory corruption fixed upstream 3.50.2
+- [[homebrew/gnupg]] — GNU Privacy Guard OpenPGP implementation · advisory mapped · 4 advisories: CVE-2018-9234 offline-key bypass, CVE-2019-13050 SKS keyserver flood DoS, CVE-2021-40528 ElGamal plaintext recovery, CVE-2022-34903 signature forgery
+- [[homebrew/python]] — Homebrew Python formula tracking upstream CPython · advisory mapped · 6 confirmed GHSA advisories 2024–2026 including CVE-2026-11940 High tarfile path traversal and CVE-2024-12254 High asyncio OOM
 
 ## Maven / Java (37)
 
