@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*281 tracked pages across 9 ecosystems. Last updated: 2026-09-29.*
+*303 tracked pages across 9 ecosystems. Last updated: 2026-09-30.*
 
 ## npm (94)
 
@@ -149,51 +149,60 @@
 - [[rust/connectrpc]] — Connect RPC (Tower) · advisory mapped · RUSTSEC-2026-0304 streaming DoS
 - [[rust/futures]] — async primitives · advisory mapped · 4 advisories UAF, null-ptr, unsound Sync
 
-## .NET / NuGet (18)
+## .NET / NuGet (16)
 
-- [[dotnet/newtonsoft-json]] — dominant JSON library · advisory mapped · prototype-pollution / type-confusion gadget history through 13.0.2
-- [[dotnet/system-text-json]] — .NET built-in JSON · advisory mapped · JsonDocument dispose-UAF, deserializer RCE gadget chain history
-- [[dotnet/aspnetcore]] — ASP.NET Core · advisory mapped · request-smuggling, path-traversal, auth-bypass, and open-redirect history
-- [[dotnet/signalr]] — real-time communications · advisory mapped · CSRF and XSS history
-- [[dotnet/dapper]] — micro-ORM · advisory mapped · SQL injection history through 2.0.151
-- [[dotnet/npgsql]] — PostgreSQL client · advisory mapped · SQL-injection, SSRF, and buffer-overflow history
-- [[dotnet/mysql-connector-net]] — MySQL client · advisory mapped · auth-bypass, information-disclosure history
-- [[dotnet/serilog]] — structured logging · advisory mapped · format-string and deserialization history
-- [[dotnet/log4net]] — logging framework · advisory mapped · XML external entity (XXE) and SSRF history
-- [[dotnet/polly]] — resilience library · advisory mapped · DoS via policy-exhaustion history
-- [[dotnet/moq]] — mocking library · advisory mapped · supply-chain-concern (SponsorLink) and dependency history
-- [[dotnet/autofac]] — IoC container · advisory mapped · container-escape history
-- [[dotnet/mediatr]] — CQRS mediator · advisory mapped · no direct package-level advisories confirmed
-- [[dotnet/fluentvalidation]] — validation library · advisory mapped · no direct package-level advisories confirmed
-- [[dotnet/refit]] — REST client · advisory mapped · no direct package-level advisories confirmed
-- [[dotnet/identity-model]] — IdentityModel (JWT / OIDC) · advisory mapped · algorithm-confusion and token-replay history
-- [[dotnet/microsoft-identity-web]] — Microsoft Identity Web · advisory mapped · auth-bypass history
-- [[dotnet/azure-identity]] — Azure Identity · advisory mapped · credential-leakage history
+- [[dotnet/Azure.Identity]] — Microsoft Azure authentication library · advisory mapped · CLI credential RCE (CVE-2023-36414 High), local credential disclosure (CVE-2024-29992), and TOCTOU EoP (CVE-2024-35255)
+- [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · race-condition info-disclosure (CVE-2022-41064) and TLS bypass enabling network MitM (CVE-2024-0056 High)
+- [[dotnet/Microsoft.IdentityModel.JsonWebTokens]] — Microsoft JWT library · advisory mapped · JWE compression bomb DoS fixed in 7.1.2 / 6.34.0 (CVE-2024-21319)
+- [[dotnet/Newtonsoft.Json]] — dominant JSON library · advisory mapped · deeply nested JSON DoS fixed in 13.0.1
+- [[dotnet/Npgsql]] — .NET PostgreSQL data provider · advisory mapped · integer overflow enabling wire-protocol SQL injection (CVE-2024-32655 / GHSA-x9vc-6hfv-hg8c High CVSS 9.1, fixed 8.0.3)
+- [[dotnet/SixLabors.ImageSharp]] — .NET image processing library · advisory mapped · 7 GHSA advisories 2024–2025 across PNG/JPEG/TGA/GIF decoders
+- [[dotnet/System.Text.Json]] — built-in .NET JSON stack · advisory mapped · deserialization DoS fixes in 8.0.4 / 8.0.5 and 6.0.10
+- [[dotnet/RestSharp]] — lightweight .NET HTTP client · advisory mapped · ReDoS in DateTime parsing (CVE-2021-27293) and CRLF header injection (CVE-2024-45302)
+- [[dotnet/System.Security.Cryptography.Xml]] — .NET encrypted XML support · advisory mapped · 5 XML-processing / information-disclosure advisories
+- [[dotnet/YamlDotNet]] — dominant .NET YAML library · advisory mapped · insecure deserialization via YAML type tags (CVE-2018-1000210 High CVSS 9.0, fixed ≥ 5.0.0)
+- [[dotnet/Duende.IdentityServer]] — Duende IdentityServer (active) and predecessor IdentityServer4 · advisory mapped · open redirect (CVE-2024-39694) and DPoP cnf-claim failure (CVE-2024-49755)
+- [[dotnet/Microsoft.AspNetCore.Authentication.Negotiate]] — ASP.NET Core Windows/Kerberos/NTLM auth handler · advisory mapped · LDAP injection EoP pair (CVE-2026-47300, CVE-2026-47303 both High CVSS 8.8, fixed .NET 8.0.29/9.0.18/10.0.10)
+- [[dotnet/log4net]] — Apache log4net .NET logging framework · advisory mapped · XXE (CVE-2018-1285 Critical CVSS 9.8) and 2026 XML log suppression (CVE-2026-40021) history
+- [[dotnet/Swashbuckle.AspNetCore]] — ASP.NET Core Swagger/OpenAPI library · advisory mapped · SSRF via ?url parameter (GHSA-qrmm-w75w-3wpx Moderate, fixed 6.3.0); ~1.3B total NuGet downloads
+- [[dotnet/StackExchange.Redis]] — Redis client for .NET · baseline stub · no package-level GHSA / NVD advisory confirmed; TLS and AUTH configuration risk context noted
+- [[dotnet/Microsoft.AspNetCore.SignalR]] — ASP.NET Core real-time communication library · advisory mapped · 6 advisories 2019–2026: recurring DoS cluster, MessagePack stack overflow (CVE-2026-45591), and Redis backplane info-disclosure (CVE-2023-35391)
 
-## Python / PyPI (22)
+## Python / PyPI (33)
 
-- [[python/requests]] — dominant HTTP client · advisory mapped · header-injection, redirect open-redirect, and credential-leakage history through 2.32.0
-- [[python/pillow]] — image library · advisory mapped · buffer overflow, path-traversal, and DoS history through 10.3.0
-- [[python/django]] — web framework · advisory mapped · SQL-injection, XSS, CSRF, and open-redirect history through 5.0.3
-- [[python/flask]] — micro web framework · advisory mapped · open-redirect and session-fixation history
-- [[python/fastapi]] — async API framework · advisory mapped · no direct package-level advisories on record; SSRF risk via request forwarding
-- [[python/pydantic]] — data validation · advisory mapped · DoS via deeply nested input history through 2.6.3
-- [[python/sqlalchemy]] — SQL toolkit and ORM · advisory mapped · SQL-injection and ReDoS history through 2.0.25
-- [[python/celery]] — distributed task queue · advisory mapped · command-injection and auth-bypass history
-- [[python/redis-py]] — Redis client · advisory mapped · SSRF history
-- [[python/boto3]] — AWS SDK · advisory mapped · credential-leakage and SSRF history
-- [[python/paramiko]] — SSH client/server · advisory mapped · host-key bypass and auth-bypass history through 3.4.0
-- [[python/cryptography]] — cryptography library · advisory mapped · memory-safety (Rust/C bindings) and padding-oracle history
-- [[python/pyjwt]] — JWT library · advisory mapped · algorithm-confusion and key-confusion history through 2.8.0
-- [[python/oauthlib]] — OAuth library · advisory mapped · DoS and open-redirect history
-- [[python/aiohttp]] — async HTTP client/server · advisory mapped · SSRF, request-smuggling, and path-traversal history through 3.9.4
-- [[python/tornado]] — async web framework · advisory mapped · open-redirect and header-injection history
-- [[python/httpx]] — async HTTP client · advisory mapped · SSRF (redirect open redirect) history
-- [[python/werkzeug]] — WSGI utility library · advisory mapped · path-traversal and DoS history through 3.0.3
-- [[python/lxml]] — XML/HTML library · advisory mapped · XXE, XSS, and buffer-overflow history
-- [[python/jinja2]] — templating engine · advisory mapped · SSTI and sandbox-escape history through 3.1.3
-- [[python/numpy]] — numerical computing · advisory mapped · buffer-overflow and integer-overflow history through 1.26.4
-- [[python/scipy]] — scientific computing · advisory mapped · no direct package-level advisories on record
+- [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
+- [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3 / GHSA-955r-262c-33jc)
+- [[python/flask]] — dominant Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
+- [[python/flask-cors]] — Flask CORS extension · advisory mapped · directory traversal plus 2024 CORS matching and private-network-header fix train through 6.0.0
+- [[python/jinja2]] — dominant Python templating engine · advisory mapped · recurring sandbox-escape, xmlattr injection, and ReDoS history
+- [[python/pyyaml]] — dominant Python YAML parser · advisory mapped · unsafe-deserialization / arbitrary-code-execution history through 5.4
+- [[python/lxml]] — high-usage XML/HTML parser and libxml2 binding · advisory mapped · HTML-cleaner XSS bypasses plus parser DoS / XXE history through 6.1.0
+- [[python/bleach]] — HTML sanitization library · advisory mapped · URI-scheme bypass, mutation-XSS allowlist pitfalls, and style-attribute ReDoS history through 3.3.0
+- [[python/python-jose]] — JOSE / JWT implementation · advisory mapped · HMAC timing, ECDSA key algorithm-confusion, and compressed-JWE DoS history through 3.4.0
+- [[python/pyjwt]] — JWT implementation · advisory mapped · key-confusion, issuer partial-match, and JOSE `crit` header verification-boundary history through 2.12.0
+- [[python/django]] — dominant Python web framework · advisory mapped · mature public security-release archive with recurring SQL-injection, ASGI/header-boundary, upload-limit, and DoS history through 2026
+- [[python/pillow]] — Python Imaging Library fork · advisory mapped · dense parser-boundary history across image decoder memory corruption, decompression DoS, and 2026 fixes through 12.2.0
+- [[python/pip]] — Python package installer · advisory mapped · archive-extraction, VCS reference, installer import-order, and legacy transport / temp-dir security history through 26.1
+- [[python/setuptools]] — Python packaging/build backend toolkit · advisory mapped · package-index transport, parsing, command-execution, and download path-traversal history through 78.1.1
+- [[python/requests]] — dominant Python HTTP client · advisory mapped · credential, redirect, proxy, and TLS-boundary history
+- [[python/redis]] — Redis client / redis-py · advisory mapped · async connection-cancellation race-condition data-leak chain fixed through 4.4.4 / 4.5.4
+- [[python/httpx]] — async/sync Python HTTP client · advisory mapped · URL input-validation history with duplicate-advisory discrepancy
+- [[python/h11]] — pure-Python HTTP/1.1 state machine · advisory mapped · malformed chunked-transfer parsing / request-smuggling boundary fixed in 0.16.0
+- [[python/urllib3]] — foundational Python HTTP transport library · advisory mapped · redirect, TLS, parser, and decompression-security history
+- [[python/cryptography]] — foundational Python cryptography library · advisory mapped · primitive, X.509/PKCS, buffer-boundary, and bundled-OpenSSL wheel history
+- [[python/paramiko]] — Python SSH2 protocol library · advisory mapped · server-mode auth bypasses, private-key file race, SSH Terrapin, and 2026 SHA-1 algorithm record
+- [[python/aiohttp]] — async HTTP client/server framework · advisory mapped · parser / request-smuggling, static-file exposure, redirect leakage, and DoS history through 3.13.4
+- [[python/gunicorn]] — WSGI HTTP server · advisory mapped · CRLF response/header injection plus 2024 HTTP request/response-smuggling fixes through 22.0.0
+- [[python/uvicorn]] — ASGI HTTP server · advisory mapped · 2020 log-injection and HTTP response-splitting records fixed in 0.11.7
+- [[python/werkzeug]] — foundational WSGI / request utility library · advisory mapped · debugger, multipart-parser, and Windows path-containment history through 3.1.6
+- [[python/starlette]] — ASGI framework/toolkit · advisory mapped · multipart-parser and file-serving DoS / path-containment history through 0.49.1
+- [[python/fastapi]] — ASGI web framework · advisory mapped · CSRF content-type parsing and dependency-mediated multipart ReDoS history through 0.109.1
+- [[python/python-multipart]] — streaming multipart/form-data parser · advisory mapped · parser DoS, Content-Type ReDoS, part-header limits, and non-default upload-path traversal history through 0.0.27
+- [[python/sqlalchemy]] — Python SQL toolkit / ORM · advisory mapped · critical SQL-injection history around unsafe textual coercion in SQL construction APIs
+- [[python/pydantic]] — Python data-validation library · advisory mapped · compact DoS history in date / datetime and email-validation boundaries
+- [[python/celery]] — distributed task queue · advisory mapped · result-backend metadata command-injection and legacy worker privilege-dropping history
+- [[python/twisted]] — event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, and SSH/DNS/HTTP2 DoS history through CVE-2026-42304
+- [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, and legacy XSRF side-channel history through 6.5.5
 
 ## Go (36)
 
@@ -299,11 +308,24 @@
 - [[k8s/falco]] — runtime security · advisory mapped · no direct package-level advisories confirmed
 - [[k8s/trivy]] — vulnerability scanner · advisory mapped · path-traversal and DoS history through 0.49.1
 
-## Linux (6)
+## Linux (19)
 
 - [[linux/openssl]] — OpenSSL · advisory mapped · Heartbleed, padding oracle, and recent buffer-overflow history through 3.3.0
-- [[linux/curl]] — data transfer tool · advisory mapped · cookie and credential leakage, SSRF, and DoS history through 8.7.1
-- [[linux/glibc]] — GNU C Library · advisory mapped · buffer-overflow and privilege-escalation history through 2.39
-- [[linux/sudo]] — privilege escalation tool · advisory mapped · buffer-overflow and auth-bypass history through 1.9.15p5
-- [[linux/bash]] — GNU Bash · advisory mapped · Shellshock and code-injection history
-- [[linux/kernel]] — Linux kernel · advisory mapped · privilege-escalation, UAF, and OOB-write history through 6.8.0
+- [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin prefix truncation, and VerifyHostKeyDNS MITM history through 9.9p2; 2026 fix train through 10.4p1 (UAF, scp path traversal, principals bypass)
+- [[linux/bash]] — GNU Bash · advisory mapped · Shellshock cluster (CVE-2014-6271 Critical CVSS 9.8) and heap-buffer overflow (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
+- [[linux/curl]] — data transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential history through CVE-2025-0167
+- [[linux/glibc]] — GNU C Library · advisory mapped · GHOST heap overflow, getaddrinfo stack overflow, Looney Tunables LPE (CISA KEV), and 2026 getrandom entropy flaw
+- [[linux/nginx]] — dominant web server and reverse proxy · advisory mapped · range-filter integer overflow, HTTP request smuggling, critical DNS resolver off-by-one, and MP4-module memory-corruption cluster through CVE-2024-7347
+- [[linux/git]] — foundational VCS · advisory mapped · two Critical RCE batches (2023-01, 2024-05), path traversal via git apply, and case-insensitive FS hook execution (CVE-2024-32002)
+- [[linux/sudo]] — privilege escalation tool · advisory mapped · pwfeedback, Baron Samedit, host-option, and chroot local privilege-escalation history
+- [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
+- [[linux/systemd]] — dominant Linux init system · advisory mapped · 6 advisories: notify-socket DoS, systemd-resolved OOB write (CVE-2017-9445 High AV:N) and UAF (CVE-2022-2526 Critical AV:N), journald stack clash, unit-name stack exhaustion, and udev local root execution (CVE-2026-40225)
+- [[linux/wget]] — GNU Wget CLI download tool · advisory mapped · 6 advisories including CVE-2024-38428 Critical CVSS 9.1 SSRF and CVE-2026-15146 FTP PASV SSRF (2026)
+- [[linux/tar]] — GNU tar archive utility · advisory mapped · 5 advisories: POINTYFEATHER safer_name_suffix bypass (CVE-2016-6321 High), V7 mtime OOB read (CVE-2022-48303), and two-step symlink traversal bypass (CVE-2025-45582)
+- [[linux/vim]] — vi-improved text editor · advisory mapped · 12 of 174+ GHSA advisories across heap buffer overflow, use-after-free, integer overflow, and modeline code-execution classes
+- [[linux/apache2]] — Apache HTTP Server · advisory mapped · 11 CVEs 2017–2024 including Critical mod_proxy SSRF (CVE-2021-40438 CISA KEV), Critical path traversal → RCE pair (CVE-2021-41773/42013), and 2024 mod_rewrite encoding pair
+- [[linux/zlib]] — foundational compression C library · advisory mapped · CVE-2018-25032 (High: deflate memory corruption), CVE-2022-37434 (Critical CVSS 9.8: inflate heap overflow), CVE-2023-45853 (Critical CVSS 9.8: MiniZip integer overflow)
+- [[linux/rsync]] — foundational file-synchronization tool · advisory mapped · Jan 2025 Google-disclosed 6-CVE cluster including CVE-2024-12084 (Critical CVSS 9.8: heap overflow); all fixed rsync 3.4.0
+- [[linux/bind9]] — BIND 9 DNS server · advisory mapped · 8 confirmed 2026 GHSA advisories including CVE-2026-5946 assertion-failure DoS (CVSS 9.1) and DNSSEC CPU exhaustion (CVE-2026-11605)
+- [[linux/xz-utils]] — xz compression utilities and liblzma library · advisory mapped · CVE-2024-3094 (Critical CVSS 9.8: the 2024 XZ supply-chain backdoor enabling unauthenticated sshd RCE)
+- [[linux/polkit]] — system-level authorization framework · advisory mapped · CVE-2021-4034 (High CVSS 7.8: PwnKit local root since 2009, CISA KEV) and CVE-2021-3560 (High: D-Bus timeout auth bypass, CISA KEV)
