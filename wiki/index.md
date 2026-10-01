@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*303 tracked pages across 9 ecosystems. Last updated: 2026-09-30.*
+*304 tracked pages across 9 ecosystems. Last updated: 2026-10-01.*
 
 ## npm (94)
 
@@ -96,7 +96,7 @@
 - [[npm/fast-xml-parser]] — XML parsing · advisory mapped · ReDoS history through 4.3.5
 - [[npm/yaml]] — YAML parsing · advisory mapped · prototype-pollution and arbitrary code execution history through 2.3.4
 
-## Rust / crates.io (49)
+## Rust / crates.io (50)
 
 - [[rust/openssl-src]] — OpenSSL vendored source build crate · advisory mapped · 25 advisories 2020–2023 mapping upstream OpenSSL CVEs to bundled versions (111.x=1.1.1, 300.0.x=3.0.x): Critical SM2 buffer overflow (CVE-2021-3711 CVSS 9.8), High CA cert bypass (CVE-2021-3450), High BN_mod_sqrt DoS (CVE-2022-0778), High X.509 email stack overflow pair (CVE-2022-3602/3786), RSA timing oracle (CVE-2022-4304), 2023 PKCS7/PEM/BIO DoS cluster; latest 400.0.1+4.0.2 unaffected; ~21.6M/week est., ~105.6M total downloads
 - [[rust/once_cell]] — single-assignment cells and lazy values · advisory mapped · RUSTSEC-2019-0017 / CVE-2019-16141 / GHSA-7j44-fv4x-79g9 (High CVSS 7.5: `Lazy<T>::deref` executes `unreachable_unchecked` after initialization panic — UB; fixed 1.0.1); current stable 1.21.4 unaffected; ~286.5M/week est., ~1.3B total downloads
@@ -148,6 +148,7 @@
 - [[rust/atty]] — TTY detection (unmaintained) · advisory mapped · Windows HANDLE unaligned read
 - [[rust/connectrpc]] — Connect RPC (Tower) · advisory mapped · RUSTSEC-2026-0304 streaming DoS
 - [[rust/futures]] — async primitives · advisory mapped · 4 advisories UAF, null-ptr, unsound Sync
+- [[rust/hickory-dns]] — Hickory DNS (formerly trust-dns) pure-Rust DNS implementation · advisory mapped · 6 advisories 2025–2026: DNSSEC DNSKEY trust-propagation bypass (High, hickory-proto 0.8.0–0.24.2), cache poisoning in deprecated hickory-recursor (High), NSEC3 closest-encloser OOM DoS pair (Moderate), BinEncoder O(n²) CPU exhaustion (Moderate); hickory-proto ~26.4M recent / ~85.7M total downloads; current 0.26.3 unaffected
 
 ## .NET / NuGet (16)
 
