@@ -1,3 +1,22 @@
+## [2026-10-01] advisory-review | hickory-dns (Rust/crates.io, new)
+Ran a public-information-only advisory-review pass targeting the Rust/crates.io ecosystem. OSV.dev API blocked (HTTP 403); advisory content sourced from rustsec/advisory-db (via mcp__github__search_code and WebFetch on raw.githubusercontent.com) and crates.io API (download stats). Evidence saved under `raw/advisory-review-20261001-0000/notes.md`.
+
+`rust/hickory-dns` added as new advisory-mapped page covering the Hickory DNS project (formerly trust-dns). Hickory DNS is a pure-Rust async DNS implementation supporting DNSSEC, DoT, DoH, and DoQ. The primary library crate `hickory-proto` has ~85.7M total / ~26.4M recent crates.io downloads; latest stable 0.26.3. Six RUSTSEC advisories mapped across the project workspace:
+
+RUSTSEC-2025-0006 / GHSA-37wc-h8xc-5hc4 (High Crypto Failure: DNSSEC DNSKEY RRset trust-propagation bypass — validating one DNSKEY in an RRset causes all other DNSKEYs in the set to be trusted without individual self-signature verification; a parallel DS-authenticated key flaw also allows signatures from unrelated DNSKEYs to be accepted; hickory-proto ≥ 0.8.0, < 0.24.3; fixed 0.24.3 / 0.25.0-alpha.5).
+
+RUSTSEC-2026-0106 / GHSA-83hf-93m4-rgwq (High cache poisoning / privilege escalation: the experimental `hickory-recursor` caches authority-section DNS records by their own (name, type) rather than by the queried zone — a parent-zone nameserver operator can inject NS records for sibling zones into the shared cache, routing legitimate queries to attacker-controlled nameservers; all hickory-recursor versions affected; crate deprecated — migrate to `hickory-resolver` 0.26.0 with the `recursor` feature).
+
+RUSTSEC-2026-0118 / GHSA-3v94-mw7p-v465 (Moderate DoS: NSEC3 closest-encloser proof validation unbounded loop in hickory-proto — iterator assumes QNAME descends from SOA owner; cross-zone responses with a mismatched non-ancestor SOA stall the iterator at the DNS root, causing unbounded memory allocation and OOM crash in release builds; hickory-proto 0.25.0-alpha.3 through < 0.26.0-beta.1; no patch in 0.25.x; migrate to 0.26.0).
+
+RUSTSEC-2026-0119 / GHSA-q2qq-hmj6-3wpp (Moderate DoS: `BinEncoder` name-compression candidates stored in a `Vec` are searched with linear scan; crafted DNS messages with many records trigger O(n²) CPU work enabling CPU exhaustion; hickory-proto < 0.26.1; fixed 0.26.1; related to CVE-2024-8508 originally filed against Unbound).
+
+RUSTSEC-2026-0120 / GHSA-3v94-mw7p-v465 (Moderate DoS: same NSEC3 closest-encloser root cause as RUSTSEC-2026-0118 but manifesting in `DnssecDnsHandle` in the `hickory-net` crate; hickory-net < 0.26.1; fixed 0.26.1).
+
+RUSTSEC-2025-0017 (Informational: `trust-dns-proto` unmaintained — project rebranded to Hickory DNS; all trust-dns-proto versions > 0.23.0 receive no security patches; migrate to hickory-proto).
+
+Rust/crates.io index updated from 49 to 50 pages; master index updated from 303 to 304 pages.
+
 ## [2026-09-30] advisory-review | openssh (Linux, update: 5 new 2026 CVEs) + master index correction (Linux 6→19, Python 22→33, .NET 18→16)
 Ran a public-information-only advisory-review pass. OSV.dev API blocked (HTTP 403); advisory content sourced from github/advisory-database (via mcp__github__search_code and WebFetch on raw.githubusercontent.com). Evidence saved under `raw/advisory-review-20260930-0000/notes.md`.
 
