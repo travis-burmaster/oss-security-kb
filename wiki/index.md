@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*304 tracked pages across 9 ecosystems. Last updated: 2026-10-01.*
+*305 tracked pages across 9 ecosystems. Last updated: 2026-10-02.*
 
 ## npm (94)
 
@@ -117,7 +117,7 @@
 - [[rust/mio]] — non-blocking I/O (Tokio substrate) · advisory mapped · SocketAddr cast UB, Windows named-pipe UAF
 - [[rust/bytes]] — zero-copy byte buffers · advisory mapped · RUSTSEC-2026-0007 BytesMut::reserve overflow
 - [[rust/tokio]] — (see above)
-- [[rust/serde]] — serialization framework · baseline stub
+- [[rust/serde]] — serialization framework · advisory-mapped · no direct RUSTSEC/GHSA advisories on record (3 independent passes confirmed); ~1.47B total downloads
 - [[rust/serde_json]] — JSON library · baseline stub
 - [[rust/serde_yaml_ng]] — YAML library · audit ingested
 - [[rust/rand]] — random number generation · advisory mapped · RUSTSEC-2026-0097 thread_rng unsoundness
@@ -150,7 +150,7 @@
 - [[rust/futures]] — async primitives · advisory mapped · 4 advisories UAF, null-ptr, unsound Sync
 - [[rust/hickory-dns]] — Hickory DNS (formerly trust-dns) pure-Rust DNS implementation · advisory mapped · 6 advisories 2025–2026: DNSSEC DNSKEY trust-propagation bypass (High, hickory-proto 0.8.0–0.24.2), cache poisoning in deprecated hickory-recursor (High), NSEC3 closest-encloser OOM DoS pair (Moderate), BinEncoder O(n²) CPU exhaustion (Moderate); hickory-proto ~26.4M recent / ~85.7M total downloads; current 0.26.3 unaffected
 
-## .NET / NuGet (16)
+## .NET / NuGet (17)
 
 - [[dotnet/Azure.Identity]] — Microsoft Azure authentication library · advisory mapped · CLI credential RCE (CVE-2023-36414 High), local credential disclosure (CVE-2024-29992), and TOCTOU EoP (CVE-2024-35255)
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · race-condition info-disclosure (CVE-2022-41064) and TLS bypass enabling network MitM (CVE-2024-0056 High)
@@ -168,6 +168,7 @@
 - [[dotnet/Swashbuckle.AspNetCore]] — ASP.NET Core Swagger/OpenAPI library · advisory mapped · SSRF via ?url parameter (GHSA-qrmm-w75w-3wpx Moderate, fixed 6.3.0); ~1.3B total NuGet downloads
 - [[dotnet/StackExchange.Redis]] — Redis client for .NET · baseline stub · no package-level GHSA / NVD advisory confirmed; TLS and AUTH configuration risk context noted
 - [[dotnet/Microsoft.AspNetCore.SignalR]] — ASP.NET Core real-time communication library · advisory mapped · 6 advisories 2019–2026: recurring DoS cluster, MessagePack stack overflow (CVE-2026-45591), and Redis backplane info-disclosure (CVE-2023-35391)
+- [[dotnet/MailKit]] — cross-platform .NET email client (SMTP/IMAP/POP3/S-MIME) and MimeKit MIME library · advisory mapped · 3 GHSA advisories: transitive DoS (GHSA-gmc6-fwg3-75m5 High, fixed MimeKit 4.7.1), CRLF→SMTP command injection (GHSA-g7hc-96xr-gvvx Moderate CVE-2026-30227, fixed 4.15.1), and STARTTLS response injection (GHSA-9j88-vvj5-vhgr High CVE-2026-41319, fixed 4.16.0); current 4.18.1 unaffected
 
 ## Python / PyPI (33)
 
