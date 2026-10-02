@@ -1,3 +1,18 @@
+## [2026-10-02] advisory-review | MailKit/MimeKit (dotnet, new) + serde (rust, stub upgrade)
+Ran a public-information-only advisory-review pass. OSV.dev API blocked (HTTP 403); advisory content sourced from github/advisory-database (via mcp__github__search_code and WebFetch on raw.githubusercontent.com) and crates.io API. Evidence saved under `raw/advisory-review-20261002-0000/notes.md`.
+
+`dotnet/MailKit` added as new advisory-mapped page covering both MailKit and its MIME library dependency MimeKit (maintainer: Jeffrey Stedfast / jstedfast; MIT-licensed; latest stable 4.18.1, September 2026; ~6,900 GitHub stars). Three GHSA advisories confirmed and mapped:
+
+GHSA-gmc6-fwg3-75m5 (High CVSS:3.1 7.5 AV:N/AC:L/PR:N/UI:N: MimeKit DoS via vulnerable `System.Security.Cryptography.Pkcs` transitive dependency — triggering S/MIME decryption, incoming message signature verification, or third-party X.509 certificate import against attacker-controlled input causes unauthenticated network-reachable denial of service; MimeKit 3.0.0–4.7.0 affected; fixed MimeKit 4.7.1; 2024-07-11).
+
+GHSA-g7hc-96xr-gvvx / CVE-2026-30227 (Moderate CVSS 4.0: MimeKit CRLF injection in quoted local-part of MailboxAddress enabling SMTP command injection — MimeKit ≤ 4.15.0 accepted CR/LF characters in the RFC 5321 quoted local-part, allowing attacker-controlled address input to inject SMTP protocol commands; affects both MimeKit and MailKit because MailKit depends on MimeKit for address construction; fixed MimeKit/MailKit 4.15.1; 2026-03).
+
+GHSA-9j88-vvj5-vhgr / CVE-2026-41319 (High CVSS:3.1 7.5 AV:N/AC:H: MailKit STARTTLS response injection — MailKit did not flush its internal socket-read buffer on STARTTLS upgrade; data injected by an on-path attacker before TLS handshake was processed as trusted post-TLS session data, allowing command injection and potential session hijacking in SMTP/IMAP/POP3 when using `StartTls` connection option; same vulnerability class as CVE-2021-23993/Thunderbird, CVE-2021-33515/Dovecot, CVE-2011-0411/Postfix; fixed MailKit 4.16.0; 2026-04). Five "EmailKit" WordPress plugin advisories (GHSA-rj4g-w683-5gq4, GHSA-28j2-6q62-7r48, GHSA-wqq2-m2pv-x493, GHSA-69c5-xxxm-r666, GHSA-3wf8-vwmj-p686) were confirmed to target a different product and excluded.
+
+`rust/serde` upgraded from baseline stub to advisory-mapped. Three independent advisory search passes (2026-04-20, 2026-07-19, 2026-10-02) targeting rustsec/advisory-db — path search under `crates/serde/`, and body searches for `crate = "serde"` and `crate = "serde_json"` — all returned zero results. The `serde` and `serde_json` crates have no confirmed RUSTSEC or GHSA advisories on record; adjacent advisories in the ecosystem (`serde_yaml`, `serde_yml`, `serde_cbor`, `rmp-serde`, `serde-json-wasm`) target separate crates and are not attributed to core serde. Download stats updated: serde ~1.47B total / ~26.1M/week; serde_json ~1.37B total / ~26.2M/week (as of 2026-10-02).
+
+.NET index updated from 16 to 17 pages (MailKit added); master index updated from 304 to 305 pages; serde entry updated from baseline stub to advisory-mapped in master Rust section.
+
 ## [2026-10-01] advisory-review | hickory-dns (Rust/crates.io, new)
 Ran a public-information-only advisory-review pass targeting the Rust/crates.io ecosystem. OSV.dev API blocked (HTTP 403); advisory content sourced from rustsec/advisory-db (via mcp__github__search_code and WebFetch on raw.githubusercontent.com) and crates.io API (download stats). Evidence saved under `raw/advisory-review-20261001-0000/notes.md`.
 
