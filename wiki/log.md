@@ -1,3 +1,24 @@
+## [2026-10-03] advisory-review | prometheus (Kubernetes/CNCF, new) + master index kubernetes correction (10→14)
+Ran a public-information-only advisory-review pass. OSV.dev API blocked (HTTP 403); advisory content sourced from github/advisory-database (via mcp__github__search_code and WebFetch on raw.githubusercontent.com). GitHub repository metadata retrieved via mcp__github__search_repositories. Evidence saved under `raw/advisory-review-20261003-0000/notes.md`.
+
+`kubernetes/prometheus` added as new advisory-mapped page covering the Prometheus monitoring system and time series database (CNCF-graduated; maintainer: Prometheus Authors; Apache-2.0/MIT licensed; 66,345 GitHub stars; latest stable v3.15.0, September 2026; LTS v3.5.x). Five GHSA advisories confirmed and mapped:
+
+GHSA-4v48-4q5m-8vx4 (High CVSS 7.2: basic auth bypass via bcrypt hash cache poisoning in exporter-toolkit — attacker with hashed-password access can forge a request to poison the computation cache and bypass authentication on subsequent requests; affects 2.24.1–2.40.3; fixed 2.37.4 LTS / 2.40.4; 2022-12-05; no CVE assigned).
+
+CVE-2026-40179 / GHSA-vffh-x6r8-xx99 (Moderate CVSS 5.4: stored XSS in web UI tooltip rendering and metrics explorer — metric names injected into `innerHTML` without HTML escaping in both Mantine and legacy React interfaces; attacker with write access to a scraped target, remote write endpoint, or OTLP receiver can execute arbitrary JavaScript in users' browsers; fixed 3.5.2 LTS / 3.11.2; 2026-04-13).
+
+CVE-2026-44903 / GHSA-fw8g-cg8f-9j28 (Moderate CVSS 5.4: stored XSS in legacy UI histogram heatmap — `le` label values used as axis tick marks not HTML-escaped when `--enable-feature=old-ui` is set; same injection surface as CVE-2026-40179; fixed 3.11.3 / 3.5.3 LTS; 2026-05-05).
+
+CVE-2026-42154 / GHSA-8rm2-7qqf-34qm (High CVSS 7.5 AV:N/AC:L/PR:N: pre-auth remote read OOM — `/api/v1/read` does not validate declared decompressed length in snappy-compressed payloads before memory allocation; unauthenticated attacker can trigger multi-GiB heap allocations with small requests, crashing the process under concurrent load; fixed 3.11.3 / 3.5.3 LTS; 2026-05-05).
+
+CVE-2026-42151 / GHSA-wg65-39gg-5wfj (High CVSS 7.5 AV:N/AC:L/PR:N/C:H: Azure AD remote write ClientSecret exposed via config API — `ClientSecret` field typed as plain string instead of `Secret` type caused credentials to be returned unredacted through `/-/config` HTTP endpoint; fixed 3.11.3 / 3.5.3 LTS; 2026-05-05).
+
+GHSA-3m87-5598-2v4f (CVE-2019-3826, originally stored DOM XSS < 2.7.1) was WITHDRAWN 2023-12-18 and excluded.
+
+**Master index correction**: discovered kubernetes master index had significantly stale counts and phantom entries. Actual file counts confirmed via directory listing: Kubernetes = 13 existing pages (was listed as 10; 7 real pages were missing from master index — coredns, containerd, kube-controller-manager, kube-proxy, kubelet, runc, cilium; 4 phantom entries removed — etcd, open-policy-agent, falco, trivy; 2 renamed — kubernetes→kube-apiserver, flux→flux2). Prometheus adds a 14th page. Kubernetes section replaced with correct entries using correct `kubernetes/` prefix throughout.
+
+Kubernetes index updated from 13 to 14 pages (prometheus added); master index Kubernetes section replaced (10→14, phantoms removed, prefix corrected); master index total updated from 305 to 309.
+
 ## [2026-10-02] advisory-review | MailKit/MimeKit (dotnet, new) + serde (rust, stub upgrade)
 Ran a public-information-only advisory-review pass. OSV.dev API blocked (HTTP 403); advisory content sourced from github/advisory-database (via mcp__github__search_code and WebFetch on raw.githubusercontent.com) and crates.io API. Evidence saved under `raw/advisory-review-20261002-0000/notes.md`.
 
