@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*305 tracked pages across 9 ecosystems. Last updated: 2026-10-02.*
+*309 tracked pages across 9 ecosystems. Last updated: 2026-10-03.*
 
 ## npm (94)
 
@@ -297,18 +297,22 @@
 - [[maven/com.google.protobuf/protobuf-java]] — Protocol Buffers Java · advisory mapped · DoS and hash-flooding history through 3.25.3
 - [[maven/org.jboss.resteasy/resteasy-core]] — RESTEasy · advisory mapped · XXE and DoS history
 
-## Kubernetes / CNCF (10)
+## Kubernetes / CNCF (14)
 
-- [[k8s/kubernetes]] — Kubernetes core · advisory mapped · auth-bypass, SSRF, and privilege-escalation history through 1.28.5
-- [[k8s/etcd]] — distributed KV store · advisory mapped · auth-bypass and DoS history through 3.5.9
-- [[k8s/helm]] — package manager · advisory mapped · path-traversal, SSRF, and injection history through 3.14.3
-- [[k8s/ingress-nginx]] — NGINX ingress controller · advisory mapped · header-injection and RCE history through 1.9.6
-- [[k8s/cert-manager]] — certificate management · advisory mapped · no direct package-level advisories confirmed
-- [[k8s/argo-cd]] — GitOps continuous delivery · advisory mapped · path-traversal, SSRF, and auth-bypass history through 2.9.3
-- [[k8s/flux]] — GitOps toolkit · advisory mapped · path-traversal and SSRF history
-- [[k8s/open-policy-agent]] — policy engine · advisory mapped · ReDoS history
-- [[k8s/falco]] — runtime security · advisory mapped · no direct package-level advisories confirmed
-- [[k8s/trivy]] — vulnerability scanner · advisory mapped · path-traversal and DoS history through 0.49.1
+- [[kubernetes/kube-apiserver]] — Kubernetes API server · audit-ingested · authentication, authorization, admission, and request-parsing attack surface
+- [[kubernetes/kube-controller-manager]] — Kubernetes control-plane reconciliation manager · advisory mapped · SSRF via in-tree volume plugins, HPA nil-pointer DoS, and credential logging history through 1.34.2
+- [[kubernetes/kube-proxy]] — network rules / service proxy DaemonSet · advisory mapped · loopback-access bypass and Windows LoadBalancer traffic-forwarding bypass history
+- [[kubernetes/kubelet]] — node agent · advisory mapped · privilege assignment, DoS, seccomp bypass, and gitRepo RCE history through 1.33
+- [[kubernetes/helm]] — CNCF-graduated Kubernetes package manager · advisory mapped · 27 GHSA advisories spanning path traversal, injection, OOM, and plugin signing bypass through CVE-2026-35204
+- [[kubernetes/ingress-nginx]] — NGINX ingress controller · advisory mapped · IngressNightmare Critical CVSS 9.8 unauthenticated RCE (CVE-2025-1974) plus 11 earlier annotation/path advisories through 1.12.1
+- [[kubernetes/cert-manager]] — CNCF certificate management operator · advisory mapped · PEM parsing CPU DoS (CVE-2024-12401) and DNS response controller panic DoS (CVE-2026-25518)
+- [[kubernetes/argo-cd]] — GitOps continuous delivery · advisory mapped · 56 GHSA advisories 2018–2026 including Critical privilege escalation and JWT auth bypass history through v3.4.2
+- [[kubernetes/coredns]] — CNCF-graduated default Kubernetes DNS server · advisory mapped · 15 GHSA advisories 2019–2026 including April 2026 TSIG auth bypass and ACL bypass cluster through 1.14.3
+- [[kubernetes/containerd]] — OCI/CRI container runtime (Docker/Kubernetes substrate) · advisory mapped · 21 GHSA advisories spanning CRI boundary failures and 2026 checkpoint/restore exploitation cluster through CVE-2026-53492
+- [[kubernetes/runc]] — OCI low-level container execution runtime · advisory mapped · CVE-2019-5736 container escape, TOCTOU races, AppArmor/SELinux bypass, and CVE-2024-21626 fd-leak breakout through 1.1.12
+- [[kubernetes/cilium]] — CNCF-graduated eBPF-based CNI networking and network policy platform · advisory mapped · L7 HTTP policy bypasses, WireGuard credential leak, and Gateway API route precedence flaw history through v1.20.1
+- [[kubernetes/flux2]] — CNCF-graduated GitOps continuous delivery (FluxCD) · advisory mapped · 10 GHSA advisories 2021–2026 including Critical CVSS 9.9 kubeconfig exec-injection ACE (CVE-2022-24817) through v2.9.5
+- [[kubernetes/prometheus]] — CNCF-graduated monitoring and alerting platform · advisory mapped · 5 GHSA advisories 2022–2026: auth bypass, XSS cluster, pre-auth remote-read OOM (CVE-2026-42154 High), and Azure credential exposure; fixed through 3.5.3/3.11.3
 
 ## Linux (19)
 
