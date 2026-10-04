@@ -5,7 +5,7 @@
 **Repository:** https://github.com/serde-rs/json
 **Security Contact:** none listed (use GitHub issues or the Rust security advisory process at https://www.rust-lang.org/policies/security)
 **Disclosure Policy:** none listed
-**Current Status:** baseline stub
+**Current Status:** advisory-mapped
 
 ## Audit History
 
@@ -53,4 +53,4 @@ The crate's current version is 1.0.150 (MIT OR Apache-2.0).
 - [[rust/index]]
 
 ---
-*Last updated: 2026-06-23 | Sources: rustsec/advisory-db code search; crates.io API metadata*
+*Last updated: 2026-10-04 | Sources: rustsec/advisory-db code search (4 independent passes: 2026-04-20, 2026-07-19, 2026-10-02, 2026-10-04); crates.io API metadata*
