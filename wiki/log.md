@@ -1,3 +1,20 @@
+## [2026-10-04] advisory-review | pyo3 (Rust/crates.io, new) + aws-sdk-go-v2 (Go, new) + serde_json (Rust, stub upgrade)
+Ran a public-information-only advisory-review pass. OSV.dev API blocked (HTTP 403); advisory content sourced from rustsec/advisory-db and github/advisory-database (via mcp__github__search_code and WebFetch on raw.githubusercontent.com). crates.io API and pkg.go.dev consulted for download stats and version metadata. Evidence saved under `raw/advisory-review-20261004-0000/notes.md`.
+
+`rust/pyo3` added as new advisory-mapped page covering the dominant Rust–Python FFI bridge (maintainer: PyO3 org; MIT OR Apache-2.0; current stable 0.29.3 released 2026-09-30; ~266M total / ~10.5M/week crates.io downloads). Two RUSTSEC advisories confirmed and mapped:
+
+RUSTSEC-2026-0013 / GHSA-47qc-857f-7w7f (High: type confusion in the `abi3` stable-ABI feature with Python 3.12+; code that subclasses native CPython types via `#[pyclass(extends=<NativeType>)]` triggers a memory-operation using the subclass type object rather than the supertype, enabling memory corruption; affects 0.28.0–0.28.1 only; fixed 0.28.2 via corrected type-selection in PR #5807; published 2026-02-18).
+
+RUSTSEC-2026-0177 (High: missing `Sync` bound on `PyCFunction::new_closure` — accepted closures with only `Send + 'static`, omitting `Sync`, permitting data races when Python invokes the callable from multiple threads; especially critical in free-threaded CPython 3.13+ where the GIL provides no implicit serialization; also exploitable via `Python::detach` under the standard GIL; affects `new_closure` ≥ 0.15.0 and `new_closure_bound` 0.21.0–0.22.x; fixed 0.29.0 by adding `Sync` bound; published 2026-06-11).
+
+`go/github.com/aws/aws-sdk-go-v2` added as new advisory-mapped page covering the actively maintained AWS SDK for Go v2 (maintainer: Amazon Web Services; Apache-2.0; root module v1.47.1 released 2026-09-24; min Go 1.24). One GHSA advisory confirmed and mapped:
+
+GHSA-xmrv-pmrh-hhx2 (Moderate CVSS:3.1 5.9 AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H; CWE-20; no CVE: EventStream header-decoder panic DoS — a malformed server response frame with a crafted header-value type byte outside the valid range (0–7) causes the Go host process to panic and terminate; unauthenticated network attacker with the ability to inject or forge an EventStream response can trigger this DoS against any client using EventStream-capable services; affected services include S3, Kinesis, Bedrock Runtime, Lambda invoke-with-streaming, Transcribe Streaming, Lex v2, CloudWatch Logs, IoT SiteWise, SageMaker Runtime, Bedrock Agent Runtime, and bedrockagentcore; 12 service modules listed; all fixed in the 2026-03-23 coordinated release; published 2026-04-08).
+
+`rust/serde_json` upgraded from baseline stub to advisory-mapped. Fourth independent advisory search pass against rustsec/advisory-db (path: `crates/serde_json` and body keyword search for `crate = "serde_json"`) confirms zero direct package-scoped advisories. All three mentions of serde_json in search results were in other crates' advisory text (alternatives list or non-advisory context). Consistent with prior passes on 2026-04-20, 2026-07-19, and 2026-10-02.
+
+Rust/crates.io index updated from 50 to 51 pages (pyo3 added); Go index updated from 36 to 37 pages (aws-sdk-go-v2 added); master index updated from 309 to 311 pages; serde_json entry updated from baseline stub to advisory-mapped in master index and package page.
+
 ## [2026-10-03] advisory-review | prometheus (Kubernetes/CNCF, new) + master index kubernetes correction (10→14)
 Ran a public-information-only advisory-review pass. OSV.dev API blocked (HTTP 403); advisory content sourced from github/advisory-database (via mcp__github__search_code and WebFetch on raw.githubusercontent.com). GitHub repository metadata retrieved via mcp__github__search_repositories. Evidence saved under `raw/advisory-review-20261003-0000/notes.md`.
 

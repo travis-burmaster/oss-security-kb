@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*309 tracked pages across 9 ecosystems. Last updated: 2026-10-03.*
+*311 tracked pages across 9 ecosystems. Last updated: 2026-10-04.*
 
 ## npm (94)
 
@@ -96,7 +96,7 @@
 - [[npm/fast-xml-parser]] — XML parsing · advisory mapped · ReDoS history through 4.3.5
 - [[npm/yaml]] — YAML parsing · advisory mapped · prototype-pollution and arbitrary code execution history through 2.3.4
 
-## Rust / crates.io (50)
+## Rust / crates.io (51)
 
 - [[rust/openssl-src]] — OpenSSL vendored source build crate · advisory mapped · 25 advisories 2020–2023 mapping upstream OpenSSL CVEs to bundled versions (111.x=1.1.1, 300.0.x=3.0.x): Critical SM2 buffer overflow (CVE-2021-3711 CVSS 9.8), High CA cert bypass (CVE-2021-3450), High BN_mod_sqrt DoS (CVE-2022-0778), High X.509 email stack overflow pair (CVE-2022-3602/3786), RSA timing oracle (CVE-2022-4304), 2023 PKCS7/PEM/BIO DoS cluster; latest 400.0.1+4.0.2 unaffected; ~21.6M/week est., ~105.6M total downloads
 - [[rust/once_cell]] — single-assignment cells and lazy values · advisory mapped · RUSTSEC-2019-0017 / CVE-2019-16141 / GHSA-7j44-fv4x-79g9 (High CVSS 7.5: `Lazy<T>::deref` executes `unreachable_unchecked` after initialization panic — UB; fixed 1.0.1); current stable 1.21.4 unaffected; ~286.5M/week est., ~1.3B total downloads
@@ -118,7 +118,7 @@
 - [[rust/bytes]] — zero-copy byte buffers · advisory mapped · RUSTSEC-2026-0007 BytesMut::reserve overflow
 - [[rust/tokio]] — (see above)
 - [[rust/serde]] — serialization framework · advisory-mapped · no direct RUSTSEC/GHSA advisories on record (3 independent passes confirmed); ~1.47B total downloads
-- [[rust/serde_json]] — JSON library · baseline stub
+- [[rust/serde_json]] — de facto standard Rust JSON library · advisory mapped · no direct package-scoped RUSTSEC/GHSA advisory confirmed in four independent passes; 1B+ all-time downloads; high ecosystem blast radius
 - [[rust/serde_yaml_ng]] — YAML library · audit ingested
 - [[rust/rand]] — random number generation · advisory mapped · RUSTSEC-2026-0097 thread_rng unsoundness
 - [[rust/chrono]] — date-and-time · advisory mapped · localtime_r segfault
@@ -149,6 +149,7 @@
 - [[rust/connectrpc]] — Connect RPC (Tower) · advisory mapped · RUSTSEC-2026-0304 streaming DoS
 - [[rust/futures]] — async primitives · advisory mapped · 4 advisories UAF, null-ptr, unsound Sync
 - [[rust/hickory-dns]] — Hickory DNS (formerly trust-dns) pure-Rust DNS implementation · advisory mapped · 6 advisories 2025–2026: DNSSEC DNSKEY trust-propagation bypass (High, hickory-proto 0.8.0–0.24.2), cache poisoning in deprecated hickory-recursor (High), NSEC3 closest-encloser OOM DoS pair (Moderate), BinEncoder O(n²) CPU exhaustion (Moderate); hickory-proto ~26.4M recent / ~85.7M total downloads; current 0.26.3 unaffected
+- [[rust/pyo3]] — dominant Rust–Python FFI bridge · advisory mapped · RUSTSEC-2026-0013 High type-confusion in abi3 + Python 3.12+ subclassing (fixed 0.28.2) and RUSTSEC-2026-0177 High missing-Sync data-race on PyCFunction closures (fixed 0.29.0); ~266M total / ~10.5M/week downloads; current 0.29.3
 
 ## .NET / NuGet (17)
 
@@ -206,7 +207,7 @@
 - [[python/twisted]] — event-driven networking framework · advisory mapped · HTTP parser/request-smuggling, TLS validation, redirect/header exposure, and SSH/DNS/HTTP2 DoS history through CVE-2026-42304
 - [[python/tornado]] — Python web framework and async networking library · advisory mapped · HTTP request-smuggling, cookie / multipart DoS, CRLF / cookie-attribute injection, and legacy XSRF side-channel history through 6.5.5
 
-## Go (36)
+## Go (37)
 
 - [[go/golang.org-x-net]] — foundational Go networking module · advisory mapped · HTTP/2 DoS / request-smuggling, HTML rendering / parser, and proxy-boundary history through 2025
 - [[go/golang.org-x-crypto]] — foundational Go crypto module · advisory mapped · repeated SSH boundary flaws plus cryptobyte, autocert, and openpgp security history
@@ -229,6 +230,7 @@
 - [[go/github.com/tidwall/gjson]] — fast Go JSON path extraction library · advisory mapped · 4 advisories 2020–2021: OOB panic cluster and ReDoS
 - [[go/github.com/microcosm-cc/bluemonday]] — Go HTML sanitizer · advisory mapped · 2 direct advisories 2021: Cyrillic SCRIPT bypass (CVE-2021-29272) and SELECT/STYLE element bypass (CVE-2021-42576)
 - [[go/github.com/aws/aws-sdk-go]] — AWS SDK for Go v1 (archived/EOL 2025-07-31) · advisory mapped · 3 S3 Crypto SDK advisories 2020–2022: CBC padding oracle, unauthenticated algorithm-parameter selection, MD5 plaintext hash leak
+- [[go/github.com/aws/aws-sdk-go-v2]] — AWS SDK for Go v2 (active) · advisory mapped · GHSA-xmrv-pmrh-hhx2 Moderate EventStream header-decoder panic DoS across 12 service modules (S3, Kinesis, Bedrock Runtime, Lambda, others); fixed 2026-03-23
 - [[go/github.com/prometheus/client_golang]] — Prometheus Go instrumentation library · advisory mapped · promhttp method-label cardinality DoS fixed in 1.11.1
 - [[go/go.opentelemetry.io/otel]] — core OpenTelemetry-Go API / propagation module · advisory mapped · multi-value W3C baggage header allocation-amplification DoS fixed in 1.41.0
 - [[go/google.golang.org/grpc]] — core Go gRPC transport stack · advisory mapped · transport, metadata, and authz-sensitive surface history
