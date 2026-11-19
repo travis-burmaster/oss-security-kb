@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*311 tracked pages across 9 ecosystems. Last updated: 2026-10-04.*
+*311 tracked pages across 9 ecosystems. Last updated: 2026-11-19.*
 
 ## npm (94)
 
@@ -323,7 +323,7 @@
 - [[linux/bash]] — GNU Bash · advisory mapped · Shellshock cluster (CVE-2014-6271 Critical CVSS 9.8) and heap-buffer overflow (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
 - [[linux/curl]] — data transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential history through CVE-2025-0167
 - [[linux/glibc]] — GNU C Library · advisory mapped · GHOST heap overflow, getaddrinfo stack overflow, Looney Tunables LPE (CISA KEV), and 2026 getrandom entropy flaw
-- [[linux/nginx]] — dominant web server and reverse proxy · advisory mapped · range-filter integer overflow, HTTP request smuggling, critical DNS resolver off-by-one, and MP4-module memory-corruption cluster through CVE-2024-7347
+- [[linux/nginx]] — dominant web server and reverse proxy · advisory mapped · 36 CVEs fixed in 2026 through 1.31.9 / 1.30.7, including the 2026-11-18 "nginx2root" HTTP/2, HTTP/3 and mail use-after-free / overflow cluster (CVE-2026-123007 and four others), the exploited "NGINX Rift" rewrite overflow (CVE-2026-42945), plus historical range-filter, resolver and MP4-module history
 - [[linux/git]] — foundational VCS · advisory mapped · two Critical RCE batches (2023-01, 2024-05), path traversal via git apply, and case-insensitive FS hook execution (CVE-2024-32002)
 - [[linux/sudo]] — privilege escalation tool · advisory mapped · pwfeedback, Baron Samedit, host-option, and chroot local privilege-escalation history
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
