@@ -15,9 +15,9 @@ For PRs and merges, use the MCP GitHub tools (load them with ToolSearch if they 
 ### `gh` CLI
 `gh` is installed, but use it only for search: `gh api -X GET search/code -f q='<terms> repo:github/advisory-database'` (a few searches per minute; sleep ~7s between calls). Use the MCP tools for everything else.
 
-### Network reachability (2026-11-19)
+### Network reachability (2026-11-20)
 - **Works:** raw.githubusercontent.com (advisory-database, rustsec/advisory-db, upstream project files such as `nginx/nginx/<branch>/docs/xml/nginx/changes.xml`, and `cisagov/kev-data/develop/known_exploited_vulnerabilities.json` for CISA KEV status), GitHub code search via `gh api`, WebSearch.
-- **Blocked:** api.osv.dev, nginx.org, services.nvd.nist.gov, www.cve.org, my.f5.com, www.php.net, cert.europa.eu, unauthenticated api.github.com REST.
+- **Blocked:** api.osv.dev, nginx.org, services.nvd.nist.gov, www.cve.org, my.f5.com, www.php.net, cert.europa.eu, www.openssh.org, www.openssh.com, unauthenticated api.github.com REST.
 
 ### OSV.dev API
 `https://api.osv.dev` returns **HTTP 403** (blocked by network policy). Use these fallbacks:
