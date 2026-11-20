@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*311 tracked pages across 9 ecosystems. Last updated: 2026-11-19.*
+*311 tracked pages across 9 ecosystems. Last updated: 2026-11-20.*
 
 ## npm (94)
 
@@ -173,7 +173,7 @@
 
 ## Python / PyPI (33)
 
-- [[python/litellm]] — LLM gateway/proxy package · advisory mapped · proxy vulnerabilities plus March 2026 malicious PyPI release incident
+- [[python/litellm]] — LLM gateway/proxy package · advisory mapped · 2024-2026 proxy auth-bypass / SSTI / SQLi / MCP command-injection history (4 CVEs on CISA KEV, fixes through 1.100.4) plus March 2026 malicious PyPI release incident
 - [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3 / GHSA-955r-262c-33jc)
 - [[python/flask]] — dominant Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
 - [[python/flask-cors]] — Flask CORS extension · advisory mapped · directory traversal plus 2024 CORS matching and private-network-header fix train through 6.0.0
@@ -319,7 +319,7 @@
 ## Linux (19)
 
 - [[linux/openssl]] — OpenSSL · advisory mapped · Heartbleed, padding oracle, and recent buffer-overflow history through 3.3.0
-- [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin prefix truncation, and VerifyHostKeyDNS MITM history through 9.9p2; 2026 fix train through 10.4p1 (UAF, scp path traversal, principals bypass)
+- [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin prefix truncation, and VerifyHostKeyDNS MITM history through 9.9p2; 2026 fix train through 10.6p2 (sshhole musl/no-PAM password bypass on CISA KEV, UAF, sftp/scp path traversal, compression and GSSAPI issues)
 - [[linux/bash]] — GNU Bash · advisory mapped · Shellshock cluster (CVE-2014-6271 Critical CVSS 9.8) and heap-buffer overflow (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
 - [[linux/curl]] — data transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential history through CVE-2025-0167
 - [[linux/glibc]] — GNU C Library · advisory mapped · GHOST heap overflow, getaddrinfo stack overflow, Looney Tunables LPE (CISA KEV), and 2026 getrandom entropy flaw
