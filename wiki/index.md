@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*311 tracked pages across 9 ecosystems. Last updated: 2026-11-20.*
+*312 tracked pages across 9 ecosystems. Last updated: 2026-11-21.*
 
 ## npm (94)
 
@@ -316,7 +316,7 @@
 - [[kubernetes/flux2]] — CNCF-graduated GitOps continuous delivery (FluxCD) · advisory mapped · 10 GHSA advisories 2021–2026 including Critical CVSS 9.9 kubeconfig exec-injection ACE (CVE-2022-24817) through v2.9.5
 - [[kubernetes/prometheus]] — CNCF-graduated monitoring and alerting platform · advisory mapped · 5 GHSA advisories 2022–2026: auth bypass, XSS cluster, pre-auth remote-read OOM (CVE-2026-42154 High), and Azure credential exposure; fixed through 3.5.3/3.11.3
 
-## Linux (19)
+## Linux (20)
 
 - [[linux/openssl]] — OpenSSL · advisory mapped · Heartbleed, padding oracle, and recent buffer-overflow history through 3.3.0
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin prefix truncation, and VerifyHostKeyDNS MITM history through 9.9p2; 2026 fix train through 10.6p2 (sshhole musl/no-PAM password bypass on CISA KEV, UAF, sftp/scp path traversal, compression and GSSAPI issues)
@@ -324,6 +324,7 @@
 - [[linux/curl]] — data transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential history through CVE-2025-0167
 - [[linux/glibc]] — GNU C Library · advisory mapped · GHOST heap overflow, getaddrinfo stack overflow, Looney Tunables LPE (CISA KEV), and 2026 getrandom entropy flaw
 - [[linux/nginx]] — dominant web server and reverse proxy · advisory mapped · 36 CVEs fixed in 2026 through 1.31.9 / 1.30.7, including the 2026-11-18 "nginx2root" HTTP/2, HTTP/3 and mail use-after-free / overflow cluster (CVE-2026-123007 and four others), the exploited "NGINX Rift" rewrite overflow (CVE-2026-42945), plus historical range-filter, resolver and MP4-module history
+- [[linux/php]] — PHP language runtime (php-src; php8.x distro packages, PHP-FPM, PHP-CGI) · advisory mapped · 52 CVEs fixed in 2026 releases through 8.5.13 / 8.4.28 / 8.3.37 / 8.2.36 (2026-11-19), including the PHP2Shell bailout pair on CISA KEV (CVE-2026-109618, CVE-2026-109619) and the November session, timezone-cache and PHP-FPM / PHP-CGI fixes
 - [[linux/git]] — foundational VCS · advisory mapped · two Critical RCE batches (2023-01, 2024-05), path traversal via git apply, and case-insensitive FS hook execution (CVE-2024-32002)
 - [[linux/sudo]] — privilege escalation tool · advisory mapped · pwfeedback, Baron Samedit, host-option, and chroot local privilege-escalation history
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
