@@ -45,6 +45,8 @@ Scope notes:
 - [[maven/com.squareup.okhttp3/okhttp]] — OkHttp HTTP/HTTP2 client for Android and JVM (Square) · advisory mapped · 3 advisories 2016–2023: Moderate certificate-pinning bypass (CVE-2016-2402), High Android hostname-verification bypass (GHSA-3cqm-mf7h-prrj fixed 4.9.2), Moderate BrotliInterceptor zip-bomb DoS (CVE-2023-3782)
 - [[maven/io.undertow/undertow-core]] — Undertow Java web server engine (WildFly / JBoss EAP / Spring Boot) · advisory mapped · 10 representative advisories from ~40 total spanning 2014–2024: recurring pre-auth DoS cluster (WebSocket CVE-2017-2670, PONG CVE-2021-3690, HTTP/2 CVE-2021-3859, SSL CVE-2023-1108 — all High CVSS 7.5 AV:N); HTTP smuggling pair (CVE-2017-12165 / CVE-2020-10719 CWE-444); cookie exfiltration/spoofing (CVE-2023-4639 High); memory leak (CVE-2024-3653 Moderate); Windows path traversal (CVE-2014-7816 Moderate)
 - [[maven/org.hibernate/hibernate-core]] — Hibernate ORM Java persistence framework · advisory mapped · 3 CWE-89 SQL injection advisories targeting EOL 5.x branch via JPA Criteria API: CVE-2019-14900 (Moderate CVSS 7.1, SELECT/GROUP BY literals), CVE-2020-25638 (High CVSS 9.1, SQL comment literals), CVE-2026-0603 (High CVSS 8.1, InlineIdsOrClauseBuilder; no fix for EOL 5.x); no confirmed GHSA advisories for 6.x/7.x in this pass
+- [[maven/axis/axis]] — Apache Axis 1.x SOAP engine (EOL, last release 1.4 in 2006) · advisory mapped · 8 advisories, all but one unfixed in any release; CVE-2026-90436 SOAP-fault unsafe reflection RCE (Critical) added to CISA KEV 2026-11-18
+- [[maven/org.apache.axis2/axis2-kernel]] — Apache Axis2/Java SOAP/REST engine · advisory mapped · 14 advisories; 2026 cluster of 8 (WS-Addressing SSRF and WSDL XXE rated Critical, unbounded-body DoS, metadata exposure, Swagger UI XSS, Tribes clustering deserialization RCE) fixed through 2.0.2
 
 ---
-*Last updated: 2026-09-24*
+*Last updated: 2026-11-22*
