@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*312 tracked pages across 9 ecosystems. Last updated: 2026-11-21.*
+*314 tracked pages across 9 ecosystems. Last updated: 2026-11-22.*
 
 ## npm (94)
 
@@ -259,8 +259,10 @@
 - [[homebrew/gnupg]] — GNU Privacy Guard OpenPGP implementation · advisory mapped · 4 advisories: CVE-2018-9234 offline-key bypass, CVE-2019-13050 SKS keyserver flood DoS, CVE-2021-40528 ElGamal plaintext recovery, CVE-2022-34903 signature forgery
 - [[homebrew/python]] — Homebrew Python formula tracking upstream CPython · advisory mapped · 6 confirmed GHSA advisories 2024–2026 including CVE-2026-11940 High tarfile path traversal and CVE-2024-12254 High asyncio OOM
 
-## Maven / Java (37)
+## Maven / Java (39)
 
+- [[maven/axis/axis]] — Apache Axis 1.x (EOL) · advisory mapped · 8 advisories incl. CVE-2026-90436 SOAP-fault RCE on CISA KEV (2026-11-18); no fixed 1.x release
+- [[maven/org.apache.axis2/axis2-kernel]] — Apache Axis2/Java · advisory mapped · 14 advisories incl. 2026 SSRF / XXE / DoS / deserialization cluster fixed through 2.0.2
 - [[maven/org.springframework/spring-core]] — Spring Framework core · advisory mapped · DoS, RCE (Spring4Shell), and open-redirect history through 6.1.5
 - [[maven/org.springframework.boot/spring-boot]] — Spring Boot · advisory mapped · actuator info-disclosure history
 - [[maven/org.springframework.security/spring-security-core]] — Spring Security · advisory mapped · auth-bypass, CSRF, and path-traversal history through 6.2.3
