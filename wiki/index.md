@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*314 tracked pages across 9 ecosystems. Last updated: 2026-11-22.*
+*314 tracked pages across 9 ecosystems. Last updated: 2026-11-23.*
 
 ## npm (94)
 
@@ -334,7 +334,7 @@
 - [[linux/wget]] — GNU Wget CLI download tool · advisory mapped · 6 advisories including CVE-2024-38428 Critical CVSS 9.1 SSRF and CVE-2026-15146 FTP PASV SSRF (2026)
 - [[linux/tar]] — GNU tar archive utility · advisory mapped · 5 advisories: POINTYFEATHER safer_name_suffix bypass (CVE-2016-6321 High), V7 mtime OOB read (CVE-2022-48303), and two-step symlink traversal bypass (CVE-2025-45582)
 - [[linux/vim]] — vi-improved text editor · advisory mapped · 12 of 174+ GHSA advisories across heap buffer overflow, use-after-free, integer overflow, and modeline code-execution classes
-- [[linux/apache2]] — Apache HTTP Server · advisory mapped · 11 CVEs 2017–2024 including Critical mod_proxy SSRF (CVE-2021-40438 CISA KEV), Critical path traversal → RCE pair (CVE-2021-41773/42013), and 2024 mod_rewrite encoding pair
+- [[linux/apache2]] — Apache HTTP Server · advisory mapped · 64 CVEs fixed 2.4.61 through 2.4.71 incl. 2026-11 mod_http2 RCE (CVE-2026-119618), plus 11 earlier Critical/High CVEs incl. five CISA KEV
 - [[linux/zlib]] — foundational compression C library · advisory mapped · CVE-2018-25032 (High: deflate memory corruption), CVE-2022-37434 (Critical CVSS 9.8: inflate heap overflow), CVE-2023-45853 (Critical CVSS 9.8: MiniZip integer overflow)
 - [[linux/rsync]] — foundational file-synchronization tool · advisory mapped · Jan 2025 Google-disclosed 6-CVE cluster including CVE-2024-12084 (Critical CVSS 9.8: heap overflow); all fixed rsync 3.4.0
 - [[linux/bind9]] — BIND 9 DNS server · advisory mapped · 8 confirmed 2026 GHSA advisories including CVE-2026-5946 assertion-failure DoS (CVSS 9.1) and DNSSEC CPU exhaustion (CVE-2026-11605)
