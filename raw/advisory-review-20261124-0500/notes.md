@@ -1,0 +1,179 @@
+# Advisory-review pass 2026-11-24 (UTC 20261124-0500)
+
+## Target selection
+- Priority (a), this week's security news: OpenJDK "Java4Shell" CVE-2026-114938 (out-of-band release 2026-11-17; no KB page; untaken lead in the 2026-11-20 to 2026-11-23 logs) and MONAI Label CVE-2026-133968 (CISA KEV 2026-11-23; no KB page). MONAI core (`monai`) added alongside because MONAI Label depends on it and it has 17 advisories.
+- Considered and not taken: Puppet Enterprise / OpenVox CVE-2026-115731 (KEV 2026-11-17; Ruby, not a KB ecosystem); OpenSSL 2026-11 advisories (fixes due 2026-12-01); nginx2root (already mapped 2026-11-19); OpenSSH sshhole (mapped 2026-11-20); other KEV additions since 2026-11-10 are commercial products.
+- Log check: none of the three packages handled in the last 7 days.
+
+## Web search (news discovery only, not cited as row sources)
+- WebSearch "open source security advisory CVE November 2026 exploited" (extended): The Hacker News (Java4Shell, nginx, CISA OpenSSH), Help Net Security (sshhole, Puppet), Rescana (MONAI Label), DEV Community (Puppet).
+- https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html : DNS blocked in this environment.
+
+## Primary sources consulted
+- https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json (catalog 2026.11.23). CVE-2026-133968 added 2026-11-23, due 2026-11-26, forensicTriage Yes, CWE-24. CVE-2026-114938 not present. 13 Oracle Java SE / JRE entries (2010-2016 CVEs) listed on the openjdk page.
+- `gh api -X GET search/code -f q='"CVE-2026-114938" repo:github/advisory-database'` -> GHSA-6g7j-4xh3-xq2q
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-6g7j-4xh3-xq2q/GHSA-6g7j-4xh3-xq2q.json
+- `gh api -X GET search/code -f q='"Oracle Java SE" repo:github/advisory-database path:advisories/unreviewed/2026' --paginate` -> 107 records, each fetched from raw.githubusercontent.com (list below)
+- `gh api` searches for CVE-2026-23865 (-> GHSA-878v-mxg6-vj8f, FreeType) and CVE-2026-41254 (-> GHSA-hc77-37fq-x324, Little CMS); both fetched.
+- Amazon Corretto changelogs (all HTTP 200):
+  - https://raw.githubusercontent.com/corretto/corretto-8/HEAD/CHANGELOG.md
+  - https://raw.githubusercontent.com/corretto/corretto-11/HEAD/CHANGELOG.md
+  - https://raw.githubusercontent.com/corretto/corretto-17/HEAD/CHANGELOG.md
+  - https://raw.githubusercontent.com/corretto/corretto-21/HEAD/CHANGELOG.md
+  - https://raw.githubusercontent.com/corretto/corretto-25/HEAD/CHANGELOG.md
+  - https://raw.githubusercontent.com/corretto/corretto-26/HEAD/CHANGELOG.md
+  - https://raw.githubusercontent.com/corretto/corretto-27/HEAD/CHANGELOG.md
+  - https://raw.githubusercontent.com/corretto/corretto-27/27.0.1.1.4/CHANGELOG.md (2026-11-17 release, 10 CVEs incl. CVE-2026-114938 hotspot/compiler 8.1)
+- `gh api -X GET search/code -f q='"MONAI" repo:github/advisory-database'` -> 24 records, all fetched (list below); follow-up searches for GHSA-873f-pvrv-4x83, GHSA-h89g-r5pc-wxfm, GHSA-636w-j999-g7x5, GHSA-qc22-rmgc-vg94 (each resolves to the unreviewed CVE-feed record).
+- https://pypi.org/pypi/monai/json (latest 1.6.2, 2026-11-18; 1.6.1 2026-09-27; 1.6.0 2026-06-22; 1.5.2 2026-01-27; 1.5.1 2025-09-22)
+- https://pypi.org/pypi/monailabel/json and https://pypi.org/pypi/monailabel/0.8.6/json (0.8.6 uploaded 2026-11-22; requires monai>=1.4.0)
+- https://raw.githubusercontent.com/Project-MONAI/MONAILabel/0.8.6/SECURITY.md, .../main/SECURITY.md: 404
+- https://raw.githubusercontent.com/Project-MONAI/MONAI/dev/SECURITY.md: HTTP 429
+
+## Unreachable
+- https://www.oracle.com/security-alerts/cspunov2026.html (WebFetch HTTP 403)
+- https://access.redhat.com/security/cve/cve-2026-114938, https://calif.io/java4shell, https://shiro.apache.org/blog/2026/11/apache-shiro-java4shell.html, https://www.cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching (no response)
+- https://github.com/Project-MONAI/MONAILabel/releases/tag/0.8.6 (HTTP 403)
+- https://pypistats.org/api/packages/monai/recent, .../monailabel/recent (no response)
+
+## Method notes
+- OpenJDK rows: the CVE set is every 2026 CVE in a Corretto changelog. "Fixed in" is the upstream OpenJDK build named in the earliest Corretto release listing the CVE per train. GHSA severity label and Oracle text taken from the GHSA record. Oracle-only GHSA records (JavaFX, Java plugin, Installation, GraalVM-only) excluded because no Corretto changelog lists them.
+- MONAI CVSS 3.1 base scores computed from each record's vector string with the FIRST 3.1 formula.
+- Excluded MONAI search hits: GHSA-jvr6-pc69-7w54 (EA Origin), GHSA-rrfp-vv85-pxq9 (WordPress plugin).
+
+## GHSA records fetched
+### Oracle Java SE (109)
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-23j9-f78g-rw77/GHSA-23j9-f78g-rw77.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-255q-pwv4-fjj7/GHSA-255q-pwv4-fjj7.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-2vwj-cmxm-5pv9/GHSA-2vwj-cmxm-5pv9.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/04/GHSA-376j-8f52-gp2x/GHSA-376j-8f52-gp2x.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/08/GHSA-47g6-3p6h-6cpc/GHSA-47g6-3p6h-6cpc.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-4c7c-57v9-g6f5/GHSA-4c7c-57v9-g6f5.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-4hrr-844c-vx6m/GHSA-4hrr-844c-vx6m.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-4m4x-94xr-j9xp/GHSA-4m4x-94xr-j9xp.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-4p83-qqhw-ff66/GHSA-4p83-qqhw-ff66.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-4pv6-97j8-3pwq/GHSA-4pv6-97j8-3pwq.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-52rv-2r96-ffhw/GHSA-52rv-2r96-ffhw.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-53gh-9p66-w4f4/GHSA-53gh-9p66-w4f4.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-5cp5-8443-8v7r/GHSA-5cp5-8443-8v7r.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-5f2x-x4h6-xw49/GHSA-5f2x-x4h6-xw49.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-5r5x-j567-5823/GHSA-5r5x-j567-5823.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/01/GHSA-5rm3-299f-6m9v/GHSA-5rm3-299f-6m9v.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-5wxj-gcfc-wc2r/GHSA-5wxj-gcfc-wc2r.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-6g7j-4xh3-xq2q/GHSA-6g7j-4xh3-xq2q.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-6vj8-6725-cqvx/GHSA-6vj8-6725-cqvx.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/04/GHSA-75hh-423h-rvwg/GHSA-75hh-423h-rvwg.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-7hqr-jpxp-whq8/GHSA-7hqr-jpxp-whq8.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-8658-gj58-hrr8/GHSA-8658-gj58-hrr8.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/03/GHSA-878v-mxg6-vj8f/GHSA-878v-mxg6-vj8f.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-8m6q-v2gj-h6vq/GHSA-8m6q-v2gj-h6vq.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-8mh7-xhph-cm23/GHSA-8mh7-xhph-cm23.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/08/GHSA-969j-f8m5-xpgq/GHSA-969j-f8m5-xpgq.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/01/GHSA-998g-2mp2-f264/GHSA-998g-2mp2-f264.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/04/GHSA-9grw-5h83-65p3/GHSA-9grw-5h83-65p3.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-9h75-rf66-wh3r/GHSA-9h75-rf66-wh3r.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/04/GHSA-9m62-hmpm-rr2m/GHSA-9m62-hmpm-rr2m.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/08/GHSA-9wxj-fccf-76pg/GHSA-9wxj-fccf-76pg.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-c4gh-498r-f8f5/GHSA-c4gh-498r-f8f5.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-c6vv-q92q-68pg/GHSA-c6vv-q92q-68pg.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-cqfh-fjhw-mr88/GHSA-cqfh-fjhw-mr88.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-cwrm-2mfc-rwqh/GHSA-cwrm-2mfc-rwqh.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-f77q-p3hr-hvw8/GHSA-f77q-p3hr-hvw8.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-fcqj-9fxv-7fq3/GHSA-fcqj-9fxv-7fq3.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/04/GHSA-ffgj-wmrh-m8fr/GHSA-ffgj-wmrh-m8fr.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-fhjm-g79r-vv57/GHSA-fhjm-g79r-vv57.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-fq27-x28r-93mx/GHSA-fq27-x28r-93mx.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-fwxr-p9rc-4fqg/GHSA-fwxr-p9rc-4fqg.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-g364-xwwc-5hvh/GHSA-g364-xwwc-5hvh.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-g7qg-48g2-c549/GHSA-g7qg-48g2-c549.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-gc2w-gh9m-xw58/GHSA-gc2w-gh9m-xw58.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-gcpw-4h3h-q27g/GHSA-gcpw-4h3h-q27g.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-gj42-xjcm-wrr9/GHSA-gj42-xjcm-wrr9.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-gq49-g2hg-pr63/GHSA-gq49-g2hg-pr63.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-gw5f-5p5f-mw2c/GHSA-gw5f-5p5f-mw2c.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-h6m7-6w4j-rx23/GHSA-h6m7-6w4j-rx23.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-h6vx-jxhw-7fx9/GHSA-h6vx-jxhw-7fx9.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-hc58-mhwq-g2rf/GHSA-hc58-mhwq-g2rf.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/04/GHSA-hc77-37fq-x324/GHSA-hc77-37fq-x324.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-hfx2-9rhx-p468/GHSA-hfx2-9rhx-p468.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-hhf8-3x8g-6pff/GHSA-hhf8-3x8g-6pff.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/04/GHSA-hpm9-74qx-6x32/GHSA-hpm9-74qx-6x32.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-hrmf-22mm-2484/GHSA-hrmf-22mm-2484.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-hxhg-8c3v-9288/GHSA-hxhg-8c3v-9288.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-j75p-jh2f-6h9p/GHSA-j75p-jh2f-6h9p.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/01/GHSA-jhg6-g5fp-536p/GHSA-jhg6-g5fp-536p.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-jp97-m28p-vxx8/GHSA-jp97-m28p-vxx8.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-jv4q-v5fj-q4j3/GHSA-jv4q-v5fj-q4j3.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-jvp7-wjj3-pg66/GHSA-jvp7-wjj3-pg66.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-m2mw-3v6r-66h4/GHSA-m2mw-3v6r-66h4.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-m7j8-4cg6-9phj/GHSA-m7j8-4cg6-9phj.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-mghm-6x2r-44cm/GHSA-mghm-6x2r-44cm.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-p25v-754r-q26h/GHSA-p25v-754r-q26h.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-p9mx-r8ww-77qq/GHSA-p9mx-r8ww-77qq.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-pq5q-77c8-hwjv/GHSA-pq5q-77c8-hwjv.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-q3pg-mf84-hjmw/GHSA-q3pg-mf84-hjmw.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/04/GHSA-q4wq-4whj-cxhx/GHSA-q4wq-4whj-cxhx.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/01/GHSA-qc7q-3c5c-f8mv/GHSA-qc7q-3c5c-f8mv.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-qcmg-2jg9-9qj3/GHSA-qcmg-2jg9-9qj3.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-qfmm-wrmh-r6pr/GHSA-qfmm-wrmh-r6pr.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-qp8x-83wc-79gq/GHSA-qp8x-83wc-79gq.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-qpg8-xfmg-2j85/GHSA-qpg8-xfmg-2j85.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-qw6j-rcfr-8vrx/GHSA-qw6j-rcfr-8vrx.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/01/GHSA-r2mr-x4h2-9chr/GHSA-r2mr-x4h2-9chr.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-r2p6-wxc8-pmpv/GHSA-r2p6-wxc8-pmpv.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-r3pr-m76q-f8wv/GHSA-r3pr-m76q-f8wv.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-rcw5-53h9-w9g6/GHSA-rcw5-53h9-w9g6.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-rhj5-r5ww-65ff/GHSA-rhj5-r5ww-65ff.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/04/GHSA-rj5j-26xx-hh3v/GHSA-rj5j-26xx-hh3v.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-rp56-c35q-pjqx/GHSA-rp56-c35q-pjqx.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-v4m5-q3qj-q97q/GHSA-v4m5-q3qj-q97q.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-vgqv-368p-h4w6/GHSA-vgqv-368p-h4w6.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-vhxj-84r5-67g5/GHSA-vhxj-84r5-67g5.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-vmv5-g2r5-cqmj/GHSA-vmv5-g2r5-cqmj.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-vqqv-7v72-gw94/GHSA-vqqv-7v72-gw94.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-vw39-pj36-hc59/GHSA-vw39-pj36-hc59.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-w3cp-rgcc-6q3q/GHSA-w3cp-rgcc-6q3q.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-w4rx-6m75-qh4g/GHSA-w4rx-6m75-qh4g.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-w56g-q7c4-9v8p/GHSA-w56g-q7c4-9v8p.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-wfmw-xhqr-83hm/GHSA-wfmw-xhqr-83hm.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-wh5x-8c26-q7r3/GHSA-wh5x-8c26-q7r3.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-wh8h-835p-j93v/GHSA-wh8h-835p-j93v.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-wp5h-3q7r-3q8q/GHSA-wp5h-3q7r-3q8q.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-wpx5-pphw-xwr9/GHSA-wpx5-pphw-xwr9.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/08/GHSA-wvj6-93q8-xhcm/GHSA-wvj6-93q8-xhcm.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-wvph-jvc9-24rg/GHSA-wvph-jvc9-24rg.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-wwpq-2327-6x93/GHSA-wwpq-2327-6x93.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/08/GHSA-x2cm-pmmm-v6xc/GHSA-x2cm-pmmm-v6xc.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-x5x7-pvpw-w5hv/GHSA-x5x7-pvpw-w5hv.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-x8mv-p396-jh2r/GHSA-x8mv-p396-jh2r.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/07/GHSA-xg4j-9fq9-qmm5/GHSA-xg4j-9fq9-qmm5.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-xjm9-7q5c-fwv4/GHSA-xjm9-7q5c-fwv4.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-xm9q-j8gm-wwp9/GHSA-xm9q-j8gm-wwp9.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-xqpm-j9mr-99m8/GHSA-xqpm-j9mr-99m8.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-xr25-jjff-gh87/GHSA-xr25-jjff-gh87.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/04/GHSA-xvmr-9p7m-jmwv/GHSA-xvmr-9p7m-jmwv.json
+### MONAI (24)
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-m8hq-fmc4-c3v2/GHSA-m8hq-fmc4-c3v2.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-59gw-w64r-2mg7/GHSA-59gw-w64r-2mg7.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-wfpp-6gx5-h8xr/GHSA-wfpp-6gx5-h8xr.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-475h-4rfw-9899/GHSA-475h-4rfw-9899.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-4jj3-3266-2688/GHSA-4jj3-3266-2688.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-x7wh-49x3-6748/GHSA-x7wh-49x3-6748.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-7hmf-j253-4p2j/GHSA-7hmf-j253-4p2j.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-j335-cfj5-2fw8/GHSA-j335-cfj5-2fw8.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-cvqf-4876-w239/GHSA-cvqf-4876-w239.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-rx25-w8hq-hr3g/GHSA-rx25-w8hq-hr3g.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/11/GHSA-2f43-rwqm-6h67/GHSA-2f43-rwqm-6h67.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/09/GHSA-8jxj-xq3g-hvm2/GHSA-8jxj-xq3g-hvm2.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2026/10/GHSA-fvr7-75wp-4566/GHSA-fvr7-75wp-4566.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2026/10/GHSA-6hp3-vr39-rqw8/GHSA-6hp3-vr39-rqw8.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2026/08/GHSA-qxq5-qhx6-94qw/GHSA-qxq5-qhx6-94qw.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2026/08/GHSA-rghg-q7wp-9767/GHSA-rghg-q7wp-9767.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2026/08/GHSA-wg9g-w2j2-8pgr/GHSA-wg9g-w2j2-8pgr.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2025/09/GHSA-6vm5-6jv9-rjpj/GHSA-6vm5-6jv9-rjpj.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2026/01/GHSA-9rg3-9pvr-6p27/GHSA-9rg3-9pvr-6p27.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2025/09/GHSA-x6ww-pf9m-m73m/GHSA-x6ww-pf9m-m73m.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2025/09/GHSA-p8cm-mm2v-gwjm/GHSA-p8cm-mm2v-gwjm.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/2026/04/GHSA-89gg-p5r5-q6r4/GHSA-89gg-p5r5-q6r4.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2022/05/GHSA-jvr6-pc69-7w54/GHSA-jvr6-pc69-7w54.json
+- https://raw.githubusercontent.com/github/advisory-database/main/advisories/unreviewed/2024/08/GHSA-rrfp-vv85-pxq9/GHSA-rrfp-vv85-pxq9.json
