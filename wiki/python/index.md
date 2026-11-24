@@ -2,6 +2,8 @@
 
 ## Seed Pages
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · 2024-2026 proxy auth-bypass / SSTI / SQLi / MCP command-injection history (4 CVEs on CISA KEV, fixes through 1.100.4) plus March 2026 malicious PyPI release incident
+- [[python/monai]] — PyTorch medical-imaging framework · advisory mapped · 17 advisories 2025-2026, mostly code execution through untrusted bundles, pickles, checkpoints and caches; fixes through 1.6.1, three records with no stated fix
+- [[python/monailabel]] — MONAI Label medical-image annotation server · advisory mapped · CVE-2026-133968 datastore path traversal to RCE (Critical, exploited since September 2026, CISA KEV 2026-11-23), fixed 0.8.6
 - [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3 / GHSA-955r-262c-33jc / MAL-2026-2254)
 - [[python/flask]] — dominant Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
 - [[python/flask-cors]] — Flask CORS extension · advisory mapped · directory traversal plus 2024 CORS matching / private-network-header / debug-log injection fix train through 6.0.0

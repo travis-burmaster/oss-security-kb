@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*314 tracked pages across 9 ecosystems. Last updated: 2026-11-23.*
+*317 tracked pages across 9 ecosystems. Last updated: 2026-11-24.*
 
 ## npm (94)
 
@@ -171,9 +171,11 @@
 - [[dotnet/Microsoft.AspNetCore.SignalR]] — ASP.NET Core real-time communication library · advisory mapped · 6 advisories 2019–2026: recurring DoS cluster, MessagePack stack overflow (CVE-2026-45591), and Redis backplane info-disclosure (CVE-2023-35391)
 - [[dotnet/MailKit]] — cross-platform .NET email client (SMTP/IMAP/POP3/S-MIME) and MimeKit MIME library · advisory mapped · 3 GHSA advisories: transitive DoS (GHSA-gmc6-fwg3-75m5 High, fixed MimeKit 4.7.1), CRLF→SMTP command injection (GHSA-g7hc-96xr-gvvx Moderate CVE-2026-30227, fixed 4.15.1), and STARTTLS response injection (GHSA-9j88-vvj5-vhgr High CVE-2026-41319, fixed 4.16.0); current 4.18.1 unaffected
 
-## Python / PyPI (33)
+## Python / PyPI (35)
 
 - [[python/litellm]] — LLM gateway/proxy package · advisory mapped · 2024-2026 proxy auth-bypass / SSTI / SQLi / MCP command-injection history (4 CVEs on CISA KEV, fixes through 1.100.4) plus March 2026 malicious PyPI release incident
+- [[python/monai]] — PyTorch medical-imaging framework · advisory mapped · 17 advisories 2025-2026, mostly code execution through untrusted bundles, pickles, checkpoints and caches; fixes through 1.6.1, three records with no stated fix
+- [[python/monailabel]] — MONAI Label medical-image annotation server · advisory mapped · CVE-2026-133968 datastore path traversal to RCE (Critical, exploited since September 2026, CISA KEV 2026-11-23), fixed 0.8.6
 - [[python/telnyx]] — Telnyx SDK · advisory mapped · March 2026 malicious PyPI release incident (PYSEC-2026-3 / GHSA-955r-262c-33jc)
 - [[python/flask]] — dominant Python web framework · advisory mapped · JSON-input DoS plus session / cache / signing-boundary history
 - [[python/flask-cors]] — Flask CORS extension · advisory mapped · directory traversal plus 2024 CORS matching and private-network-header fix train through 6.0.0
@@ -318,7 +320,7 @@
 - [[kubernetes/flux2]] — CNCF-graduated GitOps continuous delivery (FluxCD) · advisory mapped · 10 GHSA advisories 2021–2026 including Critical CVSS 9.9 kubeconfig exec-injection ACE (CVE-2022-24817) through v2.9.5
 - [[kubernetes/prometheus]] — CNCF-graduated monitoring and alerting platform · advisory mapped · 5 GHSA advisories 2022–2026: auth bypass, XSS cluster, pre-auth remote-read OOM (CVE-2026-42154 High), and Azure credential exposure; fixed through 3.5.3/3.11.3
 
-## Linux (20)
+## Linux (21)
 
 - [[linux/openssl]] — OpenSSL · advisory mapped · Heartbleed, padding oracle, and recent buffer-overflow history through 3.3.0
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin prefix truncation, and VerifyHostKeyDNS MITM history through 9.9p2; 2026 fix train through 10.6p2 (sshhole musl/no-PAM password bypass on CISA KEV, UAF, sftp/scp path traversal, compression and GSSAPI issues)
@@ -326,6 +328,7 @@
 - [[linux/curl]] — data transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential history through CVE-2025-0167
 - [[linux/glibc]] — GNU C Library · advisory mapped · GHOST heap overflow, getaddrinfo stack overflow, Looney Tunables LPE (CISA KEV), and 2026 getrandom entropy flaw
 - [[linux/nginx]] — dominant web server and reverse proxy · advisory mapped · 36 CVEs fixed in 2026 through 1.31.9 / 1.30.7, including the 2026-11-18 "nginx2root" HTTP/2, HTTP/3 and mail use-after-free / overflow cluster (CVE-2026-123007 and four others), the exploited "NGINX Rift" rewrite overflow (CVE-2026-42945), plus historical range-filter, resolver and MP4-module history
+- [[linux/openjdk]] — OpenJDK / Java SE runtime (openjdk-* distro packages, Corretto, Temurin) · advisory mapped · 87 CVEs fixed in 2026 from the January CPU through the 2026-11-17 out-of-band release, including Java4Shell (CVE-2026-114938, HotSpot compiler heap overflow, CVSS 8.1) and two Critical java.security fixes (CVE-2026-91403, CVE-2026-114820); 13 older Java SE CVEs on CISA KEV
 - [[linux/php]] — PHP language runtime (php-src; php8.x distro packages, PHP-FPM, PHP-CGI) · advisory mapped · 52 CVEs fixed in 2026 releases through 8.5.13 / 8.4.28 / 8.3.37 / 8.2.36 (2026-11-19), including the PHP2Shell bailout pair on CISA KEV (CVE-2026-109618, CVE-2026-109619) and the November session, timezone-cache and PHP-FPM / PHP-CGI fixes
 - [[linux/git]] — foundational VCS · advisory mapped · two Critical RCE batches (2023-01, 2024-05), path traversal via git apply, and case-insensitive FS hook execution (CVE-2024-32002)
 - [[linux/sudo]] — privilege escalation tool · advisory mapped · pwfeedback, Baron Samedit, host-option, and chroot local privilege-escalation history
