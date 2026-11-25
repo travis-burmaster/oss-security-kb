@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*317 tracked pages across 9 ecosystems. Last updated: 2026-11-24.*
+*318 tracked pages across 9 ecosystems. Last updated: 2026-11-25.*
 
 ## npm (94)
 
@@ -151,7 +151,7 @@
 - [[rust/hickory-dns]] — Hickory DNS (formerly trust-dns) pure-Rust DNS implementation · advisory mapped · 6 advisories 2025–2026: DNSSEC DNSKEY trust-propagation bypass (High, hickory-proto 0.8.0–0.24.2), cache poisoning in deprecated hickory-recursor (High), NSEC3 closest-encloser OOM DoS pair (Moderate), BinEncoder O(n²) CPU exhaustion (Moderate); hickory-proto ~26.4M recent / ~85.7M total downloads; current 0.26.3 unaffected
 - [[rust/pyo3]] — dominant Rust–Python FFI bridge · advisory mapped · RUSTSEC-2026-0013 High type-confusion in abi3 + Python 3.12+ subclassing (fixed 0.28.2) and RUSTSEC-2026-0177 High missing-Sync data-race on PyCFunction closures (fixed 0.29.0); ~266M total / ~10.5M/week downloads; current 0.29.3
 
-## .NET / NuGet (17)
+## .NET / NuGet (18)
 
 - [[dotnet/Azure.Identity]] — Microsoft Azure authentication library · advisory mapped · CLI credential RCE (CVE-2023-36414 High), local credential disclosure (CVE-2024-29992), and TOCTOU EoP (CVE-2024-35255)
 - [[dotnet/Microsoft.Data.SqlClient]] — primary .NET SQL Server driver · advisory mapped · race-condition info-disclosure (CVE-2022-41064) and TLS bypass enabling network MitM (CVE-2024-0056 High)
@@ -170,6 +170,7 @@
 - [[dotnet/StackExchange.Redis]] — Redis client for .NET · baseline stub · no package-level GHSA / NVD advisory confirmed; TLS and AUTH configuration risk context noted
 - [[dotnet/Microsoft.AspNetCore.SignalR]] — ASP.NET Core real-time communication library · advisory mapped · 6 advisories 2019–2026: recurring DoS cluster, MessagePack stack overflow (CVE-2026-45591), and Redis backplane info-disclosure (CVE-2023-35391)
 - [[dotnet/MailKit]] — cross-platform .NET email client (SMTP/IMAP/POP3/S-MIME) and MimeKit MIME library · advisory mapped · 3 GHSA advisories: transitive DoS (GHSA-gmc6-fwg3-75m5 High, fixed MimeKit 4.7.1), CRLF→SMTP command injection (GHSA-g7hc-96xr-gvvx Moderate CVE-2026-30227, fixed 4.15.1), and STARTTLS response injection (GHSA-9j88-vvj5-vhgr High CVE-2026-41319, fixed 4.16.0); current 4.18.1 unaffected
+- [[dotnet/Idunno.AntiCsrf]] — legacy ASP.NET WebForms anti-CSRF module (CodePlex DLL, not on NuGet) · advisory mapped · unauthenticated ObjectStateFormatter deserialization RCE (CVE-2026-131914 Critical, CISA KEV 2026-11-24); defunct, no fix, remove the module
 
 ## Python / PyPI (35)
 
@@ -326,7 +327,7 @@
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin prefix truncation, and VerifyHostKeyDNS MITM history through 9.9p2; 2026 fix train through 10.6p2 (sshhole musl/no-PAM password bypass on CISA KEV, UAF, sftp/scp path traversal, compression and GSSAPI issues)
 - [[linux/bash]] — GNU Bash · advisory mapped · Shellshock cluster (CVE-2014-6271 Critical CVSS 9.8) and heap-buffer overflow (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
 - [[linux/curl]] — data transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential history through CVE-2025-0167
-- [[linux/glibc]] — GNU C Library · advisory mapped · GHOST heap overflow, getaddrinfo stack overflow, Looney Tunables LPE (CISA KEV), and 2026 getrandom entropy flaw
+- [[linux/glibc]] — GNU C Library · advisory mapped · GHOST, getaddrinfo overflow, Looney Tunables LPE (CISA KEV), plus all 32 upstream 2026 advisories (GLIBC-SA-2026-0001 to 0032) incl. ld.so $ORIGIN LPE and gettext LANGUAGE traversal
 - [[linux/nginx]] — dominant web server and reverse proxy · advisory mapped · 36 CVEs fixed in 2026 through 1.31.9 / 1.30.7, including the 2026-11-18 "nginx2root" HTTP/2, HTTP/3 and mail use-after-free / overflow cluster (CVE-2026-123007 and four others), the exploited "NGINX Rift" rewrite overflow (CVE-2026-42945), plus historical range-filter, resolver and MP4-module history
 - [[linux/openjdk]] — OpenJDK / Java SE runtime (openjdk-* distro packages, Corretto, Temurin) · advisory mapped · 87 CVEs fixed in 2026 from the January CPU through the 2026-11-17 out-of-band release, including Java4Shell (CVE-2026-114938, HotSpot compiler heap overflow, CVSS 8.1) and two Critical java.security fixes (CVE-2026-91403, CVE-2026-114820); 13 older Java SE CVEs on CISA KEV
 - [[linux/php]] — PHP language runtime (php-src; php8.x distro packages, PHP-FPM, PHP-CGI) · advisory mapped · 52 CVEs fixed in 2026 releases through 8.5.13 / 8.4.28 / 8.3.37 / 8.2.36 (2026-11-19), including the PHP2Shell bailout pair on CISA KEV (CVE-2026-109618, CVE-2026-109619) and the November session, timezone-cache and PHP-FPM / PHP-CGI fixes
