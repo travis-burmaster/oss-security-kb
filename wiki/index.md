@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*318 tracked pages across 9 ecosystems. Last updated: 2026-11-25.*
+*318 tracked pages across 9 ecosystems. Last updated: 2026-11-26.*
 
 ## npm (94)
 
@@ -186,7 +186,7 @@
 - [[python/bleach]] — HTML sanitization library · advisory mapped · URI-scheme bypass, mutation-XSS allowlist pitfalls, and style-attribute ReDoS history through 3.3.0
 - [[python/python-jose]] — JOSE / JWT implementation · advisory mapped · HMAC timing, ECDSA key algorithm-confusion, and compressed-JWE DoS history through 3.4.0
 - [[python/pyjwt]] — JWT implementation · advisory mapped · key-confusion, issuer partial-match, and JOSE `crit` header verification-boundary history through 2.12.0
-- [[python/django]] — dominant Python web framework · advisory mapped · mature public security-release archive with recurring SQL-injection, ASGI/header-boundary, upload-limit, and DoS history through 2026
+- [[python/django]] — dominant Python web framework · advisory mapped · every 2026 security release through 2026-11-03 (5.2.19 / 6.0.10 / 6.1.3) plus SQL-injection, ASGI, upload-limit and cache history
 - [[python/pillow]] — Python Imaging Library fork · advisory mapped · dense parser-boundary history across image decoder memory corruption, decompression DoS, and 2026 fixes through 12.2.0
 - [[python/pip]] — Python package installer · advisory mapped · archive-extraction, VCS reference, installer import-order, and legacy transport / temp-dir security history through 26.1
 - [[python/setuptools]] — Python packaging/build backend toolkit · advisory mapped · package-index transport, parsing, command-execution, and download path-traversal history through 78.1.1
@@ -326,7 +326,7 @@
 - [[linux/openssl]] — OpenSSL · advisory mapped · Heartbleed, padding oracle, and recent buffer-overflow history through 3.3.0
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin prefix truncation, and VerifyHostKeyDNS MITM history through 9.9p2; 2026 fix train through 10.6p2 (sshhole musl/no-PAM password bypass on CISA KEV, UAF, sftp/scp path traversal, compression and GSSAPI issues)
 - [[linux/bash]] — GNU Bash · advisory mapped · Shellshock cluster (CVE-2014-6271 Critical CVSS 9.8) and heap-buffer overflow (CVE-2022-3715 Critical CVSS 9.8); fixed through bash 5.2
-- [[linux/curl]] — data transfer tool · advisory mapped · SOCKS5 heap overflow, OCSP stapling bypass, use-after-free, and credential history through CVE-2025-0167
+- [[linux/curl]] — data transfer tool · advisory mapped · all 78 upstream advisories from 2025-2026 through 8.23.0 (incl. High CVE-2026-92392 HTTP/2 upload UAF) plus SOCKS5 heap overflow and earlier history
 - [[linux/glibc]] — GNU C Library · advisory mapped · GHOST, getaddrinfo overflow, Looney Tunables LPE (CISA KEV), plus all 32 upstream 2026 advisories (GLIBC-SA-2026-0001 to 0032) incl. ld.so $ORIGIN LPE and gettext LANGUAGE traversal
 - [[linux/nginx]] — dominant web server and reverse proxy · advisory mapped · 36 CVEs fixed in 2026 through 1.31.9 / 1.30.7, including the 2026-11-18 "nginx2root" HTTP/2, HTTP/3 and mail use-after-free / overflow cluster (CVE-2026-123007 and four others), the exploited "NGINX Rift" rewrite overflow (CVE-2026-42945), plus historical range-filter, resolver and MP4-module history
 - [[linux/openjdk]] — OpenJDK / Java SE runtime (openjdk-* distro packages, Corretto, Temurin) · advisory mapped · 87 CVEs fixed in 2026 from the January CPU through the 2026-11-17 out-of-band release, including Java4Shell (CVE-2026-114938, HotSpot compiler heap overflow, CVSS 8.1) and two Critical java.security fixes (CVE-2026-91403, CVE-2026-114820); 13 older Java SE CVEs on CISA KEV
