@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*318 tracked pages across 9 ecosystems. Last updated: 2026-11-26.*
+*320 tracked pages across 9 ecosystems. Last updated: 2026-11-27.*
 
 ## npm (94)
 
@@ -262,10 +262,11 @@
 - [[homebrew/gnupg]] — GNU Privacy Guard OpenPGP implementation · advisory mapped · 4 advisories: CVE-2018-9234 offline-key bypass, CVE-2019-13050 SKS keyserver flood DoS, CVE-2021-40528 ElGamal plaintext recovery, CVE-2022-34903 signature forgery
 - [[homebrew/python]] — Homebrew Python formula tracking upstream CPython · advisory mapped · 6 confirmed GHSA advisories 2024–2026 including CVE-2026-11940 High tarfile path traversal and CVE-2024-12254 High asyncio OOM
 
-## Maven / Java (39)
+## Maven / Java (40)
 
 - [[maven/axis/axis]] — Apache Axis 1.x (EOL) · advisory mapped · 8 advisories incl. CVE-2026-90436 SOAP-fault RCE on CISA KEV (2026-11-18); no fixed 1.x release
 - [[maven/org.apache.axis2/axis2-kernel]] — Apache Axis2/Java · advisory mapped · 14 advisories incl. 2026 SSRF / XXE / DoS / deserialization cluster fixed through 2.0.2
+- [[maven/org.apache.roller/roller-webapp]] — Apache Roller Java blog server · advisory mapped · 47 advisories (9 Critical); XML-RPC pre-auth deserialization RCE CVE-2026-129448 on CISA KEV 2026-11-20 (4.0.0 to 6.1.5, fixed 6.1.6), plus 33 more 2026 issues fixed in 6.1.6 / 6.1.7
 - [[maven/org.springframework/spring-core]] — Spring Framework core · advisory mapped · DoS, RCE (Spring4Shell), and open-redirect history through 6.1.5
 - [[maven/org.springframework.boot/spring-boot]] — Spring Boot · advisory mapped · actuator info-disclosure history
 - [[maven/org.springframework.security/spring-security-core]] — Spring Security · advisory mapped · auth-bypass, CSRF, and path-traversal history through 6.2.3
@@ -321,7 +322,7 @@
 - [[kubernetes/flux2]] — CNCF-graduated GitOps continuous delivery (FluxCD) · advisory mapped · 10 GHSA advisories 2021–2026 including Critical CVSS 9.9 kubeconfig exec-injection ACE (CVE-2022-24817) through v2.9.5
 - [[kubernetes/prometheus]] — CNCF-graduated monitoring and alerting platform · advisory mapped · 5 GHSA advisories 2022–2026: auth bypass, XSS cluster, pre-auth remote-read OOM (CVE-2026-42154 High), and Azure credential exposure; fixed through 3.5.3/3.11.3
 
-## Linux (21)
+## Linux (22)
 
 - [[linux/openssl]] — OpenSSL · advisory mapped · Heartbleed, padding oracle, and recent buffer-overflow history through 3.3.0
 - [[linux/openssh]] — remote access daemon · advisory mapped · ssh-agent PKCS#11 RCE, regreSSHion SIGALRM race, Terrapin prefix truncation, and VerifyHostKeyDNS MITM history through 9.9p2; 2026 fix train through 10.6p2 (sshhole musl/no-PAM password bypass on CISA KEV, UAF, sftp/scp path traversal, compression and GSSAPI issues)
@@ -334,6 +335,7 @@
 - [[linux/git]] — foundational VCS · advisory mapped · two Critical RCE batches (2023-01, 2024-05), path traversal via git apply, and case-insensitive FS hook execution (CVE-2024-32002)
 - [[linux/sudo]] — privilege escalation tool · advisory mapped · pwfeedback, Baron Samedit, host-option, and chroot local privilege-escalation history
 - [[linux/cve-2026-31431-copy-fail]] — Linux kernel Copy Fail advisory note · advisory mapped · page-cache write / local privilege escalation discussion from public write-up
+- [[linux/cve-2026-99362-nfs2root]] — Linux kernel nfsd "NFS2ROOT" advisory note · advisory mapped · CVE-2026-99362 NFSv4.1 SEQUENCE reply-cache slab overflow, CNA-rated Critical 9.8 pre-auth over the network; fixed 5.10.275 / 5.15.226 / 6.1.193 / 6.6.163 / 6.12.117 / 6.18.61 / 7.3.2
 - [[linux/systemd]] — dominant Linux init system · advisory mapped · 6 advisories: notify-socket DoS, systemd-resolved OOB write (CVE-2017-9445 High AV:N) and UAF (CVE-2022-2526 Critical AV:N), journald stack clash, unit-name stack exhaustion, and udev local root execution (CVE-2026-40225)
 - [[linux/wget]] — GNU Wget CLI download tool · advisory mapped · 6 advisories including CVE-2024-38428 Critical CVSS 9.1 SSRF and CVE-2026-15146 FTP PASV SSRF (2026)
 - [[linux/tar]] — GNU tar archive utility · advisory mapped · 5 advisories: POINTYFEATHER safer_name_suffix bypass (CVE-2016-6321 High), V7 mtime OOB read (CVE-2022-48303), and two-step symlink traversal bypass (CVE-2025-45582)

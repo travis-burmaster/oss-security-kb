@@ -47,6 +47,7 @@ Scope notes:
 - [[maven/org.hibernate/hibernate-core]] — Hibernate ORM Java persistence framework · advisory mapped · 3 CWE-89 SQL injection advisories targeting EOL 5.x branch via JPA Criteria API: CVE-2019-14900 (Moderate CVSS 7.1, SELECT/GROUP BY literals), CVE-2020-25638 (High CVSS 9.1, SQL comment literals), CVE-2026-0603 (High CVSS 8.1, InlineIdsOrClauseBuilder; no fix for EOL 5.x); no confirmed GHSA advisories for 6.x/7.x in this pass
 - [[maven/axis/axis]] — Apache Axis 1.x SOAP engine (EOL, last release 1.4 in 2006) · advisory mapped · 8 advisories, all but one unfixed in any release; CVE-2026-90436 SOAP-fault unsafe reflection RCE (Critical) added to CISA KEV 2026-11-18
 - [[maven/org.apache.axis2/axis2-kernel]] — Apache Axis2/Java SOAP/REST engine · advisory mapped · 14 advisories; 2026 cluster of 8 (WS-Addressing SSRF and WSDL XXE rated Critical, unbounded-body DoS, metadata exposure, Swagger UI XSS, Tribes clustering deserialization RCE) fixed through 2.0.2
+- [[maven/org.apache.roller/roller-webapp]] — Apache Roller Java blog server · advisory mapped · 47 advisories (9 Critical); XML-RPC pre-auth deserialization RCE CVE-2026-129448 on CISA KEV 2026-11-20 (4.0.0 to 6.1.5, fixed 6.1.6), plus 33 more 2026 issues fixed in 6.1.6 / 6.1.7
 
 ---
-*Last updated: 2026-11-22*
+*Last updated: 2026-11-27*
