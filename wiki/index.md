@@ -1,6 +1,6 @@
 # OSS Security KB — Master Index
 
-*320 tracked pages across 9 ecosystems. Last updated: 2026-11-27.*
+*321 tracked pages across 9 ecosystems. Last updated: 2026-11-28.*
 
 ## npm (94)
 
@@ -262,11 +262,12 @@
 - [[homebrew/gnupg]] — GNU Privacy Guard OpenPGP implementation · advisory mapped · 4 advisories: CVE-2018-9234 offline-key bypass, CVE-2019-13050 SKS keyserver flood DoS, CVE-2021-40528 ElGamal plaintext recovery, CVE-2022-34903 signature forgery
 - [[homebrew/python]] — Homebrew Python formula tracking upstream CPython · advisory mapped · 6 confirmed GHSA advisories 2024–2026 including CVE-2026-11940 High tarfile path traversal and CVE-2024-12254 High asyncio OOM
 
-## Maven / Java (40)
+## Maven / Java (41)
 
 - [[maven/axis/axis]] — Apache Axis 1.x (EOL) · advisory mapped · 8 advisories incl. CVE-2026-90436 SOAP-fault RCE on CISA KEV (2026-11-18); no fixed 1.x release
 - [[maven/org.apache.axis2/axis2-kernel]] — Apache Axis2/Java · advisory mapped · 14 advisories incl. 2026 SSRF / XXE / DoS / deserialization cluster fixed through 2.0.2
 - [[maven/org.apache.roller/roller-webapp]] — Apache Roller Java blog server · advisory mapped · 47 advisories (9 Critical); XML-RPC pre-auth deserialization RCE CVE-2026-129448 on CISA KEV 2026-11-20 (4.0.0 to 6.1.5, fixed 6.1.6), plus 33 more 2026 issues fixed in 6.1.6 / 6.1.7
+- [[maven/org.geoserver.web/gs-web-app]] — GeoServer OGC map/feature server · advisory mapped · 56 advisories; CVE-2026-120705 and CVE-2026-129243 on CISA KEV 2026-11-27 (unauthenticated RCE chain fixed in 3.0.2 / 2.28.6 / 2.27.7)
 - [[maven/org.springframework/spring-core]] — Spring Framework core · advisory mapped · DoS, RCE (Spring4Shell), and open-redirect history through 6.1.5
 - [[maven/org.springframework.boot/spring-boot]] — Spring Boot · advisory mapped · actuator info-disclosure history
 - [[maven/org.springframework.security/spring-security-core]] — Spring Security · advisory mapped · auth-bypass, CSRF, and path-traversal history through 6.2.3
