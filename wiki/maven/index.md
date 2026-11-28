@@ -48,6 +48,7 @@ Scope notes:
 - [[maven/axis/axis]] — Apache Axis 1.x SOAP engine (EOL, last release 1.4 in 2006) · advisory mapped · 8 advisories, all but one unfixed in any release; CVE-2026-90436 SOAP-fault unsafe reflection RCE (Critical) added to CISA KEV 2026-11-18
 - [[maven/org.apache.axis2/axis2-kernel]] — Apache Axis2/Java SOAP/REST engine · advisory mapped · 14 advisories; 2026 cluster of 8 (WS-Addressing SSRF and WSDL XXE rated Critical, unbounded-body DoS, metadata exposure, Swagger UI XSS, Tribes clustering deserialization RCE) fixed through 2.0.2
 - [[maven/org.apache.roller/roller-webapp]] — Apache Roller Java blog server · advisory mapped · 47 advisories (9 Critical); XML-RPC pre-auth deserialization RCE CVE-2026-129448 on CISA KEV 2026-11-20 (4.0.0 to 6.1.5, fixed 6.1.6), plus 33 more 2026 issues fixed in 6.1.6 / 6.1.7
+- [[maven/org.geoserver.web/gs-web-app]] — GeoServer OGC map/feature server · advisory mapped · 56 advisories (6 Critical); WFS GetFeatureById XML injection CVE-2026-120705 and service-rule bypass CVE-2026-129243 on CISA KEV 2026-11-27 (steps of a 5-CVE unauthenticated RCE chain fixed in 3.0.2 / 2.28.6 / 2.27.7); 20 of the 56 not yet in the GitHub Advisory Database
 
 ---
-*Last updated: 2026-11-27*
+*Last updated: 2026-11-28*
